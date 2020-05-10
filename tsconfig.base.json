@@ -4,5 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "target": "ES2019",
+    "jsx": "react",
+    "strictPropertyInitialization": false
   }
 }

@@ -1,0 +1,61 @@
+{
+	"name": "@skyra/discord-components-core",
+	"version": "0.0.1",
+	"description": "Web components to easily build and display fake Discord messages on your webpages.",
+	"author": "@skyra",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"es2015": "dist/esm/index.mjs",
+	"es2017": "dist/esm/index.mjs",
+	"types": "dist/types/index.d.ts",
+	"collection": "dist/collection/collection-manifest.json",
+	"collection:main": "dist/collection/index.js",
+	"unpkg": "dist/skyra-discord-message-components/skyra-discord-message-components.js",
+	"homepage": "https://github.com/skyra-project/discord-message-components/tree/master/packages/core#readme",
+	"scripts": {
+		"build": "stencil build --docs",
+		"serve": "stencil build --dev --watch --serve",
+		"generate": "stencil generate"
+	},
+	"dependencies": {
+		"hex-to-rgba": "^2.0.1"
+	},
+	"devDependencies": {
+		"@stencil/core": "^1.12.7",
+		"@stencil/react-output-target": "^0.0.6"
+	},
+	"directories": {
+		"lib": "src",
+		"test": "__tests__"
+	},
+	"files": [
+		"dist/",
+		"loader/"
+	],
+	"engines": {
+		"node": ">=12"
+	},
+	"publishConfig": {
+		"registry": "https://registry.yarnpkg.com",
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/skyra-project/discord-message-components.git"
+	},
+	"bugs": {
+		"url": "https://github.com/skyra-project/discord-message-components/issues"
+	},
+	"keywords": [
+		"skyra",
+		"typescript",
+		"ts",
+		"yarn",
+		"discord",
+		"bot",
+		"components",
+		"webcomponents",
+		"stencil"
+	]
+}

@@ -4,6 +4,17 @@
 		"packages/*"
 	],
 	"private": true,
+	"scripts": {
+		"lint": "eslint packages/ --fix --ext ts",
+		"style": "prettier --write --loglevel=warn packages/**/*.{ts,tsx,md,json}",
+		"build": "run-s build:core build:react",
+		"build:core": "yarn workspace @skyra/discord-components-core build",
+		"build:react": "yarn workspace @skyra/discord-components-react build",
+		"prepublishOnly": "yarn build",
+		"commit": "git-cz",
+		"cz": "git-cz",
+		"up": "yarn upgrade-interactive --latest"
+	},
 	"devDependencies": {
 		"@commitlint/cli": "^8.3.5",
 		"@commitlint/config-conventional": "^8.3.4",
@@ -20,7 +31,7 @@
 		"husky": "^4.2.5",
 		"lerna": "^3.20.2",
 		"lint-staged": "^10.2.2",
-		"npm-run-all": "4.1.5",
+		"npm-run-all": "^4.1.5",
 		"prettier": "^2.0.5",
 		"react": "^16.13.1",
 		"ts-node": "^8.9.1",
@@ -47,5 +58,10 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
+	},
+	"resolutions": {
+		"acorn": "^7.2.0",
+		"minimist": "^1.2.5",
+		"kind-of": "^6.0.3"
 	}
 }

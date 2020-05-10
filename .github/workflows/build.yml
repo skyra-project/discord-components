@@ -1,4 +1,4 @@
-name: Lint
+name: Build
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  eslint:
-    name: eslint
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
@@ -24,7 +24,5 @@ jobs:
           key: ${{ runner.os }}-12-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
         run: yarn --ignore-scripts --frozen-lockfile
-      - name: Run ESLint
-        uses: icrawl/action-eslint@v1
-        with:
-          custom-glob: packages
+      - name: Build libraries
+        run: yarn build

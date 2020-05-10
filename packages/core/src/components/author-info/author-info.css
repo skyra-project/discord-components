@@ -1,0 +1,57 @@
+.discord-message .discord-author-info {
+	display: inline-flex;
+	align-items: center;
+	font-size: 15px;
+}
+
+.discord-message .discord-author-info .discord-author-username {
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+}
+
+.discord-light-theme .discord-message .discord-author-info .discord-author-username {
+	color: #23262a;
+}
+
+.discord-message .discord-author-info .discord-bot-tag {
+	background-color: #7289da;
+	font-size: 0.65em;
+	margin-left: 5px;
+	border-radius: 3px;
+	line-height: 100%;
+	text-transform: uppercase;
+	/* Use flex layout to ensure both verified icon and "BOT" text are aligned to center */
+	display: flex;
+	align-items: center;
+	/* Styling taken through Inspect Element on Discord client for Windows */
+	height: 0.9375rem;
+	padding: 0 0.275rem;
+	margin-top: 0.075em;
+	border-radius: 0.1875rem;
+}
+
+.discord-message .discord-author-info .discord-bot-tag-verified {
+	display: inline-block;
+	width: 0.9375rem;
+	height: 0.9375rem;
+	margin-left: -0.25rem;
+}
+
+.discord-light-theme .discord-message .discord-author-info .discord-bot-tag {
+	color: #fff;
+}
+
+.discord-compact-mode .discord-message .discord-author-info .discord-author-username {
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.discord-compact-mode .discord-message .discord-author-info .discord-bot-tag {
+	margin-left: 0;
+	margin-right: 5px;
+	padding-left: 3px;
+	padding-right: 3px;
+	font-size: 0.6em;
+}

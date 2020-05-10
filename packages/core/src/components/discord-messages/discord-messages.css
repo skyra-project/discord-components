@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+.discord-messages {
+	color: #fff;
+	background-color: #36393e;
+	display: block;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+	padding: 2px 8px;
+	line-height: 170%;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.discord-messages.discord-light-theme {
+	color: #747f8d;
+	background-color: #f7f7f7;
+	border-color: #dedede;
+}
+
+.discord-messages.discord-no-background {
+	background-color: unset;
+}

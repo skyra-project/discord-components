@@ -97,9 +97,6 @@
 - name: 'Status: Help Wanted'
   description: Issues that need assistance from volunteers or PRs that need help to proceed.
   color: 128A0C
-- name: 'Status: Invalid'
-  description: Issues that will not be fixed or PRs that will not merge, e.g. due to backwards compatibility.
-  color: 5319e7
 - name: 'Status: Duplicate'
   description: Issues/PRs that are duplicated.
   color: d93f0b

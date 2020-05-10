@@ -1,3 +1,20 @@
 {
-  "extends": ["@favware", "@rws-air"]
+  "extends": ["@favware", "@rws-air"],
+  "overrides": [
+    {
+      "files": ["packages/core/**"],
+      "rules": {
+        "react/react-in-jsx-scope": 0,
+        "@typescript-eslint/no-unused-vars": 0
+      }
+    },
+    {
+      "files": ["packages/react/**"],
+      "rules": {
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/no-useless-constructor": 0,
+        "prefer-template": 0
+      }
+    }
+  ]
 }
