@@ -72,7 +72,7 @@ export class DiscordMention {
 		return (
 			<Host style={colorStyle} class={`discord-mention discord-${type}-mention`}>
 				{type === 'channel' ? '#' : '@'}
-				<slot>{type === 'channel' ? type : type.charAt(0).toUpperCase() + type.slice(1)}</slot>
+				<slot></slot>
 			</Host>
 		);
 	}

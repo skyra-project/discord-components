@@ -1,214 +1,215 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-	<title>Discord Message Web Components</title>
-	<style>
-		body {
-			color: #eee;
-			background-color: #2a2a2a;
-			font-family: Arial, Helvetica, sans-serif;
-		}
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+		<title>Discord Components Core</title>
+		<style>
+			body {
+				color: #eee;
+				background-color: #2a2a2a;
+				font-family: Arial, Helvetica, sans-serif;
+			}
 
-		a {
-			color: #0099ff;
-		}
+			a {
+				color: #0099ff;
+			}
 
-		a:hover {
-			color: #037cce;
-		}
+			a:hover {
+				color: #037cce;
+			}
 
-		.logo {
-			display: inline-block;
-			font-weight: bold;
-			font-size: 2em;
-			margin: 0;
-		}
+			.logo {
+				display: inline-block;
+				font-weight: bold;
+				font-size: 2em;
+				margin: 0;
+			}
 
-		.title {
-			border-bottom: 1px solid #4a4a4a;
-			padding-bottom: 0.25em;
-		}
-	</style>
-	<script>
-		window.$discordMessage = {
-			profiles: {
-				sanc: {
-					author: 'Sanctuary',
-					avatar: 'https://i.imgur.com/0TeacfY.png',
-					roleColor: '#0099ff'
-				},
-				twelve: {
-					author: 'Twelve',
-					avatar: 'https://i.imgur.com/Mc0F0Hf.png',
-					roleColor: '#70f0b4',
-				},
-			},
-		}
-	</script>
-	<script type="module" src="/build/wc-discord-message.esm.js"></script>
-	<script nomodule src="/build/wc-discord-message.js"></script>
-</head>
-<body>
-	<div>
+			.title {
+				border-bottom: 1px solid #4a4a4a;
+				padding-bottom: 0.25em;
+			}
+		</style>
+		<script>
+			window.$discordMessage = {
+				profiles: {
+					sanc: {
+						author: 'Sanctuary',
+						avatar: 'https://i.imgur.com/0TeacfY.png',
+						roleColor: '#0099ff'
+					},
+					twelve: {
+						author: 'Twelve',
+						avatar: 'https://i.imgur.com/Mc0F0Hf.png',
+						roleColor: '#70f0b4'
+					}
+				}
+			};
+		</script>
+		<script type="module" src="/build/skyra-discord-components-core.esm.js"></script>
+		<script nomodule src="/build/skyra-discord-components-core.js"></script>
+	</head>
+	<body>
 		<div>
-			<h1 class="logo">WC Discord Message</h1>
-			<span>[<a href="https://github.com/Danktuary/wc-discord-message/">Github</a>]</span>
+			<div>
+				<h1 class="logo">@skyra/discord-components-core</h1>
+				<span
+					>[<a target="_blank" rel="noopener noreferrer" href="https://github.com/skyra-project/discord-components/">Github</a
+					>]</span
+				>
+			</div>
+			<main>
+				<h3 class="title">A normal conversation</h3>
+				<discord-messages>
+					<discord-message>
+						Hey guys, I'm new here! Glad to be able to join you all!
+					</discord-message>
+					<discord-message author="Dawn" avatar="red">
+						Hi, I'm new here too!
+					</discord-message>
+					<discord-message profile="sanc">
+						Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server!<br />Be
+						sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping
+						<discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
+					</discord-message>
+					<discord-message profile="twelve">
+						Hello everyone! How's it going?
+					</discord-message>
+					<discord-message author="User"> Thank you <discord-mention highlight>Sanctuary</discord-mention>! </discord-message>
+					<discord-message author="Yotsuba" avatar="https://i.imgur.com/amw0MGJ.png">
+						I'm doing well, <discord-mention>Twelve</discord-mention>. What about yourself?
+					</discord-message>
+					<discord-message profile="twelve">
+						!8ball How am I doing today?
+					</discord-message>
+					<discord-message author="Rinon" avatar="https://i.imgur.com/axQ9wJl.png" role-color="violet" bot>
+						Yes.
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Light mode</h3>
+				<discord-messages light-theme>
+					<discord-message>Look at me I'm a beautiful butterfly</discord-message>
+					<discord-message edited>Fluttering in the sunlight 🌞</discord-message>
+				</discord-messages>
+				<h3 class="title">Compact mode</h3>
+				<discord-messages compact-mode>
+					<discord-message>Look at me I'm a beautiful butterfly</discord-message>
+					<discord-message>Fluttering in the moonlight 🌝</discord-message>
+					<discord-message>Waiting for the day when</discord-message>
+					<discord-message>Compact mode would be turned on</discord-message>
+				</discord-messages>
+				<h3 class="title">No Background mode</h3>
+				<discord-messages no-background>
+					<discord-message>This message blends perfectly with your own background</discord-message>
+					<discord-message>No Background mode is turned on here</discord-message>
+				</discord-messages>
+				<h3 class="title">Mentions</h3>
+				<discord-messages>
+					<discord-message profile="sanc">
+						Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server! Be
+						sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping
+						<discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
+					</discord-message>
+					<discord-message> Hey there <discord-mention highlight>Sanctuary</discord-mention>, thanks! I will! </discord-message>
+				</discord-messages>
+				<h3 class="title">Verified Discord bots</h3>
+				<discord-messages>
+					<discord-message author="AwesomeBot" role-color="#7289da" bot verified>
+						Wow I just got verified!
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Full embed example</h3>
+				<discord-messages>
+					<discord-message>
+						<discord-embed
+							slot="embeds"
+							color="#0099ff"
+							embed-title="Some title"
+							url="https://discord.js.org/"
+							thumbnail="https://i.imgur.com/wSTFkRM.png"
+							image="https://i.imgur.com/wSTFkRM.png"
+							footer-image="https://i.imgur.com/wSTFkRM.png"
+							timestamp="01/01/2018"
+							author-name="Some name"
+							author-image="https://i.imgur.com/wSTFkRM.png"
+							author-url="https://discord.js.org/"
+						>
+							Some description here
+							<discord-embed-fields slot="fields">
+								<discord-embed-field field-title="Regular field title">
+									Some value here
+								</discord-embed-field>
+								<discord-embed-field field-title="​"> ​<!-- Empty field --> </discord-embed-field>
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+							</discord-embed-fields>
+							<span slot="footer">Some footer text here</span>
+						</discord-embed>
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Embed fields</h3>
+				<discord-messages>
+					<discord-message>
+						<discord-embed slot="embeds">
+							<discord-embed-fields slot="fields">
+								<discord-embed-field field-title="Field title">
+									Some value here. Some value here. Some value here.
+								</discord-embed-field>
+								<discord-embed-field field-title="Field title">
+									Some value here. Some value here. Some value here.
+								</discord-embed-field>
+								<discord-embed-field field-title="Field title">
+									Some value here. Some value here. Some value here.
+								</discord-embed-field>
+							</discord-embed-fields>
+						</discord-embed>
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Inline fields</h3>
+				<discord-messages>
+					<discord-message>
+						<discord-embed slot="embeds">
+							<discord-embed-fields slot="fields">
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+							</discord-embed-fields>
+						</discord-embed>
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Inline fields with a thumbnail</h3>
+				<discord-messages>
+					<discord-message>
+						<discord-embed slot="embeds" thumbnail="https://i.imgur.com/wSTFkRM.png">
+							<discord-embed-fields slot="fields">
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+								<discord-embed-field field-title="Inline field title" inline>
+									Some value here
+								</discord-embed-field>
+							</discord-embed-fields>
+						</discord-embed>
+					</discord-message>
+				</discord-messages>
+			</main>
 		</div>
-		<main>
-			<h3 class="title">A normal conversation</h3>
-			<discord-messages>
-				<discord-message>
-					Hey guys, I'm new here! Glad to be able to join you all!
-				</discord-message>
-				<discord-message author="Dawn" avatar="red">
-					Hi, I'm new here too!
-				</discord-message>
-				<discord-message profile="sanc">
-					Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server!<br />Be sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping <discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
-				</discord-message>
-				<discord-message profile="twelve">
-					Hello everyone! How's it going?
-				</discord-message>
-				<discord-message author="User">
-					Thank you <discord-mention highlight>Sanctuary</discord-mention>!
-				</discord-message>
-				<discord-message author="Yotsuba" avatar="https://i.imgur.com/amw0MGJ.png">
-					I'm doing well, <discord-mention>Twelve</discord-mention>. What about yourself?
-				</discord-message>
-				<discord-message profile="twelve">
-					!8ball How am I doing today?
-				</discord-message>
-				<discord-message author="Rinon" avatar="https://i.imgur.com/axQ9wJl.png" role-color="violet" bot>
-					Yes.
-				</discord-message>
-			</discord-messages>
-			<h3 class="title">Light mode</h3>
-			<discord-messages light-theme>
-				<discord-message>Look at me I'm a beautiful butterfly</discord-message>
-				<discord-message edited>Fluttering in the sunlight 🌞</discord-message>
-			</discord-messages>
-			<h3 class="title">Compact mode</h3>
-			<discord-messages compact-mode>
-				<discord-message>Look at me I'm a beautiful butterfly</discord-message>
-				<discord-message>Fluttering in the moonlight 🌝</discord-message>
-				<discord-message>Waiting for the day when</discord-message>
-				<discord-message>Compact mode would be turned on</discord-message>
-			</discord-messages>
-			<h3 class="title">No Background mode</h3>
-			<discord-messages no-background>
-				<discord-message>This message blends perfectly with your own background</discord-message>
-				<discord-message>No Background mode is turned on here</discord-message>
-			</discord-messages>
-			<h3 class="title">Mentions</h3>
-			<discord-messages>
-				<discord-message profile="sanc">
-					Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server! Be sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping <discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
-				</discord-message>
-				<discord-message>
-					Hey there <discord-mention highlight>Sanctuary</discord-mention>, thanks! I will!
-				</discord-message>
-			</discord-messages>
-			<h3 class="title">Verified Discord bots</h3>
-			<discord-messages>
-				<discord-message author="AwesomeBot" role-color="#7289da" bot verified>
-					Wow I just got verified!
-				</discord-message>
-			</discord-messages>
-			<h3 class="title">Full embed example</h3>
-			<discord-messages>
-				<discord-message>
-					<discord-embed
-						slot="embeds"
-						color="#0099ff"
-						embed-title="Some title"
-						url="https://discord.js.org/"
-						thumbnail="https://i.imgur.com/wSTFkRM.png"
-						image="https://i.imgur.com/wSTFkRM.png"
-						footer-image="https://i.imgur.com/wSTFkRM.png"
-						timestamp="01/01/2018"
-						author-name="Some name"
-						author-image="https://i.imgur.com/wSTFkRM.png"
-						author-url="https://discord.js.org/"
-					>
-						Some description here
-						<discord-embed-fields slot="fields">
-							<discord-embed-field field-title="Regular field title">
-								Some value here
-							</discord-embed-field>
-							<discord-embed-field field-title="​">
-								​<!-- Empty field -->
-							</discord-embed-field>
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-						</discord-embed-fields>
-						<span slot="footer">Some footer text here</span>
-					</discord-embed>
-				</discord-message>
-			</discord-messages>
-			<h3 class="title">Embed fields</h3>
-			<discord-messages>
-				<discord-message>
-					<discord-embed slot="embeds">
-						<discord-embed-fields slot="fields">
-							<discord-embed-field field-title="Field title">
-								Some value here. Some value here. Some value here.
-							</discord-embed-field>
-							<discord-embed-field field-title="Field title">
-								Some value here. Some value here. Some value here.
-							</discord-embed-field>
-							<discord-embed-field field-title="Field title">
-								Some value here. Some value here. Some value here.
-							</discord-embed-field>
-						</discord-embed-fields>
-					</discord-embed>
-				</discord-message>
-			</discord-messages>
-			<h3 class="title">Inline fields</h3>
-			<discord-messages>
-				<discord-message>
-					<discord-embed slot="embeds">
-						<discord-embed-fields slot="fields">
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-						</discord-embed-fields>
-					</discord-embed>
-				</discord-message>
-			</discord-messages>
-			<h3 class="title">Inline fields with a thumbnail</h3>
-			<discord-messages>
-				<discord-message>
-					<discord-embed slot="embeds" thumbnail="https://i.imgur.com/wSTFkRM.png">
-						<discord-embed-fields slot="fields">
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-							<discord-embed-field field-title="Inline field title" inline>
-								Some value here
-							</discord-embed-field>
-						</discord-embed-fields>
-					</discord-embed>
-				</discord-message>
-			</discord-messages>
-		</main>
-	</div>
-</body>
+	</body>
 </html>
