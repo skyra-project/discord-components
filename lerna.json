@@ -1,17 +1,21 @@
 {
+	"$schema": "http://json.schemastore.org/lerna",
 	"packages": ["packages/*"],
 	"npmClient": "yarn",
 	"useWorkspaces": true,
-  "version": "0.0.1",
-   "command": {
-    "publish": {
-      "conventionalCommits": true,
-      "push": true
-    },
-    "version": {
-      "allowBranch": "master",
-      "conventionalCommits": true,
-      "push": true
-    }
-  }
+	"version": "0.0.1",
+	"command": {
+		"publish": {
+			"conventionalCommits": true,
+			"push": true
+		},
+		"version": {
+			"allowBranch": "master",
+			"conventionalCommits": true,
+			"push": true,
+			"signGitCommit": true,
+			"signGitTag": true,
+			"createRelease": true
+		}
+	}
 }
