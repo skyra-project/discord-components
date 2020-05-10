@@ -16,8 +16,7 @@
 			"conventionalCommits": true,
 			"push": true,
 			"signGitCommit": true,
-			"signGitTag": true,
-			"createRelease": true
+			"signGitTag": true
 		}
 	}
 }
