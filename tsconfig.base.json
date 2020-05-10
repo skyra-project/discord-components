@@ -1,0 +1,8 @@
+{
+  "extends": "@favware/ts-config",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ES2019",
+  }
+}

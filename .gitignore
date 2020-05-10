@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+package-lock.json
+
+# IDE config
+.idea/
+.vscode/
+
+
+# Output
+dist/
+docs/
+build-scripts/
+build/
+www/
+loader/
+*.tsbuildinfo
+*.js
+*.jsx
+*.js.map
+*.jsx.map
+*.tgz
+
+# Misc
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+.sass-cache/
+.versions/
+.stencil/
+$RECYCLE.BIN/
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+.env
