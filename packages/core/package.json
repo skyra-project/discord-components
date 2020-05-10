@@ -37,7 +37,6 @@
 		"node": ">=12"
 	},
 	"publishConfig": {
-		"registry": "https://registry.yarnpkg.com",
 		"access": "public"
 	},
 	"repository": {
@@ -57,5 +56,6 @@
 		"components",
 		"webcomponents",
 		"stencil"
-	]
+	],
+	"gitHead": "6af1c3378e0c45744ae6a275777bb0164522ce8a"
 }
