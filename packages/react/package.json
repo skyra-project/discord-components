@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/discord-components-react",
-	"version": "0.0.1",
+	"version": "1.0.0-alpha.0",
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
@@ -22,9 +22,9 @@
 		"rollup-plugin-typescript2": "^0.27.0"
 	},
 	"peerDependencies": {
+		"@skyra/discord-components-core": "^1.x",
 		"react": "^16.x",
-		"react-dom": "^16.x",
-		"@skyra/discord-components-core": "^1.x"
+		"react-dom": "^16.x"
 	},
 	"directories": {
 		"lib": "lib",
