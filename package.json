@@ -5,8 +5,7 @@
 	],
 	"private": true,
 	"scripts": {
-		"lint": "eslint packages/ --fix --ext ts",
-		"style": "prettier --write --loglevel=warn packages/**/*.{ts,tsx,md,json}",
+		"lint": "eslint packages/ --fix --ext ts,tsx",
 		"build": "run-s build:core build:react",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
 		"build:react": "yarn workspace @skyra/discord-components-react build",
@@ -48,9 +47,8 @@
 		]
 	},
 	"lint-staged": {
-		"*.ts": [
-			"prettier --write",
-			"eslint --fix --ext ts"
+		"*.{ts,tsx}": [
+			"eslint --fix --ext ts,tsx"
 		]
 	},
 	"config": {

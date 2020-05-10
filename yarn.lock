@@ -1213,10 +1213,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@stencil/core@^1.12.7":
-  version "1.12.7"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.12.7.tgz#ce2da841c824b22caa085a325724db67cc49a0cb"
-  integrity sha512-Ob+xncjuHebjSHqOGh9acXx0Jw2rSTzGP1XiYNKYQnoFtcvKpGqLhr2ibWqS1Z40aEwgI/OvYYldfWsp/C+0mw==
+"@stencil/core@^1.13.0-4":
+  version "1.13.0-4"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.13.0-4.tgz#68388d1fc9b82802380ceb606d0d2c62f5a3dc31"
+  integrity sha512-6+kAcDFEs25jXiu4EKmGBrNvUs3CRZlqp4jlnKtaAeTtyu1kDkuN6U4xHXv863zyS454rOIAqJisPtnnM5xddw==
   dependencies:
     typescript "3.8.3"
 

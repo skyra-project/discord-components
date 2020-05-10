@@ -2,3 +2,4 @@
 *.jsx
 *.test.js
 *.test.jsx
+stencil-public-runtime.d.ts

@@ -1,11 +1,11 @@
 /* eslint-disable */
 /* tslint:disable */
 /* auto-generated react proxies */
-import { JSX } from '@skyra/discord-components-core';
-import { applyPolyfills, defineCustomElements } from '@skyra/discord-components-core/loader';
 import { createReactComponent } from './react-component-lib';
 
+import { JSX } from '@skyra/discord-components-core';
 
+import { defineCustomElements, applyPolyfills } from '@skyra/discord-components-core/loader';
 
 applyPolyfills().then(() => defineCustomElements());
 export const DiscordEmbed = /*@__PURE__*/createReactComponent<JSX.DiscordEmbed, HTMLDiscordEmbedElement>('discord-embed');
