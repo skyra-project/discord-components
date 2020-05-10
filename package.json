@@ -10,7 +10,6 @@
 		"build": "run-s build:core build:react",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
 		"build:react": "yarn workspace @skyra/discord-components-react build",
-		"preversion": "yarn build",
 		"commit": "git-cz",
 		"cz": "git-cz",
 		"up": "yarn upgrade-interactive --latest"
