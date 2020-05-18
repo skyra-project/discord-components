@@ -19,7 +19,8 @@
 		"generate": "stencil generate"
 	},
 	"dependencies": {
-		"hex-to-rgba": "^2.0.1"
+		"hex-to-rgba": "^2.0.1",
+		"clsx": "^1.1.0"
 	},
 	"devDependencies": {
 		"@stencil/core": "^1.13.0",

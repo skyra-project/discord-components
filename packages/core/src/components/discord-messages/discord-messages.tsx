@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from '@stencil/core';
-import { defaultTheme, defaultMode, defaultBackground } from '../../options';
+import clsx from 'clsx';
+import { defaultBackground, defaultMode, defaultTheme } from '../../options';
 
 @Component({
 	tag: 'discord-messages',
@@ -36,13 +37,17 @@ export class DiscordMessages {
 	}
 
 	render() {
-		const layoutClasses: string[] = [];
-		if (this.lightTheme) layoutClasses.push('discord-light-theme');
-		if (this.compactMode) layoutClasses.push('discord-compact-mode');
-		if (this.noBackground) layoutClasses.push('discord-no-background');
-
 		return (
-			<Host class={`discord-messages ${layoutClasses.join(' ')}`}>
+			<Host
+				class={clsx(
+					{
+						'discord-light-theme': this.lightTheme,
+						'discord-compact-mode': this.compactMode,
+						'discord-no-background': this.noBackground
+					},
+					'discord-messages'
+				)}
+			>
 				<slot></slot>
 			</Host>
 		);

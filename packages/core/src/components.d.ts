@@ -58,6 +58,7 @@ export namespace Components {
           * Whether this field should be displayed inline or not.
          */
         "inline": boolean;
+        "inlineIndex": number;
     }
     interface DiscordEmbedFields {
     }
@@ -222,6 +223,7 @@ declare namespace LocalJSX {
           * Whether this field should be displayed inline or not.
          */
         "inline"?: boolean;
+        "inlineIndex"?: number;
     }
     interface DiscordEmbedFields {
     }

@@ -77,9 +77,9 @@ export class DiscordEmbed {
 		return (
 			<div class="discord-embed">
 				<div style={{ 'background-color': this.color }} class="discord-left-border"></div>
-				<div class="discord-embed-container">
-					<div class="discord-embed-content">
-						<div>
+				<div class="discord-embed-root">
+					<div class="discord-embed-wrapper">
+						<div class="discord-embed-grid">
 							{this.authorName ? (
 								<div class="discord-embed-author">
 									{this.authorImage ? <img src={this.authorImage} alt="" class="discord-author-image" /> : ''}
@@ -112,21 +112,26 @@ export class DiscordEmbed {
 							</div>
 							<slot name="fields"></slot>
 							{this.image ? <img src={this.image} alt="" class="discord-embed-image" /> : ''}
+
+							{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
+							{footerSlot || this.timestamp ? (
+								<div class="discord-embed-footer">
+									{footerSlot && this.footerImage ? (
+										<img src={this.footerImage} alt="" class="discord-footer-image" />
+									) : (
+										''
+									)}
+									<span>
+										<slot name="footer"></slot>
+										{footerSlot && this.timestamp ? <span class="discord-footer-separator">&bull;</span> : ''}
+										{this.timestamp ? <span>{this.timestamp}</span> : ''}
+									</span>
+								</div>
+							) : (
+								''
+							)}
 						</div>
-						{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
 					</div>
-					{footerSlot || this.timestamp ? (
-						<div class="discord-embed-footer">
-							{footerSlot && this.footerImage ? <img src={this.footerImage} alt="" class="discord-footer-image" /> : ''}
-							<span>
-								<slot name="footer"></slot>
-								{footerSlot && this.timestamp ? <span class="discord-footer-separator">&bull;</span> : ''}
-								{this.timestamp ? <span>{this.timestamp}</span> : ''}
-							</span>
-						</div>
-					) : (
-						''
-					)}
 				</div>
 			</div>
 		);

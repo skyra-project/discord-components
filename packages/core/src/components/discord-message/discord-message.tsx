@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
+import clsx from 'clsx';
 import { avatars, Profile, profiles } from '../../options';
 import { DiscordTimestamp, handleTimestamp } from '../../util';
 import { AuthorInfo } from '../author-info/author-info';
@@ -99,7 +100,7 @@ export class DiscordMessage {
 					) : (
 						''
 					)}
-					<div class={`discord-message-body ${highlightMention ? 'discord-highlight-mention' : ''}`}>
+					<div class={clsx({ 'discord-highlight-mention': highlightMention }, 'discord-message-body')}>
 						{parent.compactMode ? (
 							<span>
 								<span class="discord-message-timestamp">{this.timestamp}</span>
