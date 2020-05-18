@@ -22,7 +22,7 @@
 		"hex-to-rgba": "^2.0.1"
 	},
 	"devDependencies": {
-		"@stencil/core": "^1.13.0-4",
+		"@stencil/core": "^1.13.0",
 		"@stencil/react-output-target": "^0.0.6"
 	},
 	"directories": {
