@@ -34,15 +34,22 @@
 		<script>
 			window.$discordMessage = {
 				profiles: {
-					sanc: {
-						author: 'Sanctuary',
-						avatar: 'https://i.imgur.com/0TeacfY.png',
+					favna: {
+						author: 'Favna',
+						avatar: `https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription01&hairColor=BlondeGolden&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&eyeType=EyeRoll&eyebrowType=DefaultNatural&mouthType=Eating&skinColor=Yellow`,
 						roleColor: '#0099ff'
 					},
-					twelve: {
-						author: 'Twelve',
-						avatar: 'https://i.imgur.com/Mc0F0Hf.png',
-						roleColor: '#70f0b4'
+					willard: {
+						author: 'Willard Walton',
+						avatar: `https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Round&hairColor=Black&facialHairType=BeardMedium&facialHairColor=Black&clotheType=ShirtScoopNeck&clotheColor=PastelOrange&eyeType=Close&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light`,
+						roleColor: '#0099ff'
+					},
+					skyra: {
+						author: 'Skyra',
+						avatar: 'https://eu.ui-avatars.com/api/?rounded=true&length=1&name=S',
+						roleColor: '#7289da',
+						bot: true,
+						verified: true
 					}
 				}
 			};
@@ -62,28 +69,31 @@
 			<main>
 				<h3 class="title">A normal conversation</h3>
 				<discord-messages>
-					<discord-message>
+					<discord-message author="User">
 						Hey guys, I'm new here! Glad to be able to join you all!
 					</discord-message>
 					<discord-message author="Dawn" avatar="red">
 						Hi, I'm new here too!
 					</discord-message>
-					<discord-message profile="sanc">
+					<discord-message profile="favna">
 						Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server!<br />Be
 						sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping
 						<discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
 					</discord-message>
-					<discord-message profile="twelve">
+					<discord-message profile="willard">
 						Hello everyone! How's it going?
 					</discord-message>
-					<discord-message author="User"> Thank you <discord-mention highlight>Sanctuary</discord-mention>! </discord-message>
-					<discord-message author="Yotsuba" avatar="https://i.imgur.com/amw0MGJ.png">
-						I'm doing well, <discord-mention>Twelve</discord-mention>. What about yourself?
+					<discord-message author="User"> Thank you <discord-mention highlight>Favna</discord-mention>! </discord-message>
+					<discord-message
+						author="Kayla Feeney"
+						avatar="https://avataaars.io/?avatarStyle=Circle&topType=LongHairCurvy&accessoriesType=Blank&hairColor=Auburn&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Red&eyeType=Happy&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Pale"
+					>
+						I'm doing well, <discord-mention>Willard Walton</discord-mention>. What about yourself?
 					</discord-message>
-					<discord-message profile="twelve">
+					<discord-message profile="willard">
 						!8ball How am I doing today?
 					</discord-message>
-					<discord-message author="Rinon" avatar="https://i.imgur.com/axQ9wJl.png" role-color="violet" bot>
+					<discord-message profile="skyra">
 						Yes.
 					</discord-message>
 				</discord-messages>
@@ -106,58 +116,73 @@
 				</discord-messages>
 				<h3 class="title">Mentions</h3>
 				<discord-messages>
-					<discord-message profile="sanc">
+					<discord-message profile="favna">
 						Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server! Be
 						sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping
 						<discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
 					</discord-message>
-					<discord-message> Hey there <discord-mention highlight>Sanctuary</discord-mention>, thanks! I will! </discord-message>
+					<discord-message> Hey there <discord-mention highlight>Favna</discord-mention>, thanks! I will! </discord-message>
 				</discord-messages>
 				<h3 class="title">Verified Discord bots</h3>
 				<discord-messages>
-					<discord-message author="AwesomeBot" role-color="#7289da" bot verified>
+					<discord-message profile="skyra">
 						Wow I just got verified!
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Full embed example</h3>
 				<discord-messages>
-					<discord-message>
+					<discord-message profile="skyra">
 						<discord-embed
 							slot="embeds"
-							color="#0099ff"
-							embed-title="Some title"
-							url="https://discord.js.org/"
-							thumbnail="https://i.imgur.com/wSTFkRM.png"
-							image="https://i.imgur.com/wSTFkRM.png"
-							footer-image="https://i.imgur.com/wSTFkRM.png"
-							timestamp="01/01/2018"
-							author-name="Some name"
-							author-image="https://i.imgur.com/wSTFkRM.png"
-							author-url="https://discord.js.org/"
+							author-image="/static/klasa.png"
+							author-name="Klasa Developers"
+							author-url="https://klasa.js.org/"
+							color="#0392D5"
+							embed-title="Klasa"
+							footer-image="/static/klasa.png"
+							image="/static/klasa.png"
+							thumbnail="/static/klasa.png"
+							timestamp="01/05/2020"
+							url="https://klasa.js.org/"
 						>
-							Some description here
+							Klasa is an OOP @klasa/core framework which aims to be the most feature complete, while feeling like a
+							consistent extension of <a href="https://github.com/dirigeants/Project-Blue">@klasa/core</a><br />
+							Originally based on Komada, Klasa has become a
+							<a href="https://en.wikipedia.org/wiki/Ship_of_Theseus">ship of Theseus</a> and so much more. You can only
+							vaguely see similarities between the two frameworks anymore...
 							<discord-embed-fields slot="fields">
-								<discord-embed-field field-title="Regular field title">
-									Some value here
+								<discord-embed-field field-title="Installation">
+									yarn add dirigeants/klasa
 								</discord-embed-field>
 								<discord-embed-field field-title="​"> ​<!-- Empty field --> </discord-embed-field>
-								<discord-embed-field field-title="Inline field title" inline>
-									Some value here
+								<discord-embed-field field-title="OOP" inline inline-index="1">
+									OOP and completely hot-reloadable (all commands, events, inhibitors, etc).
 								</discord-embed-field>
-								<discord-embed-field field-title="Inline field title" inline>
-									Some value here
+								<discord-embed-field field-title="Databases" inline inline-index="2">
+									Works with any database.
 								</discord-embed-field>
-								<discord-embed-field field-title="Inline field title" inline>
-									Some value here
+								<discord-embed-field field-title="Permissions" inline inline-index="3">
+									Powerful and easy to configure permission levels system.
+								</discord-embed-field>
+
+								<discord-embed-field field-title="Settings" inline inline-index="1">
+									Per Client/Guild/User settings, and possible to add more.
+								</discord-embed-field>
+								<discord-embed-field field-title="Message Features" inline inline-index="2">
+									Powerful command handler with: prompting, edits, argument resolving, flags, infinite args, custom args,
+									and so much more...
+								</discord-embed-field>
+								<discord-embed-field field-title="User controlable" inline inline-index="3">
+									Fully customizable.
 								</discord-embed-field>
 							</discord-embed-fields>
-							<span slot="footer">Some footer text here</span>
+							<span slot="footer">Let's stop reinventing the wheel, and start coding the bots of our dreams!</span>
 						</discord-embed>
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Embed fields</h3>
 				<discord-messages>
-					<discord-message>
+					<discord-message profile="skyra">
 						<discord-embed slot="embeds">
 							<discord-embed-fields slot="fields">
 								<discord-embed-field field-title="Field title">
@@ -175,7 +200,7 @@
 				</discord-messages>
 				<h3 class="title">Inline fields</h3>
 				<discord-messages>
-					<discord-message>
+					<discord-message profile="skyra">
 						<discord-embed slot="embeds">
 							<discord-embed-fields slot="fields">
 								<discord-embed-field field-title="Inline field title" inline>
@@ -193,8 +218,8 @@
 				</discord-messages>
 				<h3 class="title">Inline fields with a thumbnail</h3>
 				<discord-messages>
-					<discord-message>
-						<discord-embed slot="embeds" thumbnail="https://i.imgur.com/wSTFkRM.png">
+					<discord-message profile="skyra">
+						<discord-embed slot="embeds" thumbnail="/static/klasa.png">
 							<discord-embed-fields slot="fields">
 								<discord-embed-field field-title="Inline field title" inline>
 									Some value here

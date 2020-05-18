@@ -20,7 +20,8 @@ export const config: Config = {
 		},
 		{
 			type: 'www',
-			serviceWorker: null
+			serviceWorker: null,
+			copy: [{ src: '../static', dest: 'static/' }]
 		}
 	]
 };
