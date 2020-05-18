@@ -23,8 +23,6 @@ interface DiscordMessageOptions {
 	defaultBackground?: 'discord' | 'none';
 }
 
-const { $discordMessage = {} }: { $discordMessage: DiscordMessageOptions } = window as any;
-
 const discordAvatars: Avatars = {
 	blue: 'https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png',
 	gray: 'https://cdn.discordapp.com/attachments/654503812593090602/665721746569166849/gray.png',
@@ -33,16 +31,22 @@ const discordAvatars: Avatars = {
 	red: 'https://cdn.discordapp.com/attachments/654503812593090602/665721752277483540/red.png'
 };
 
-const globalAvatars: any = $discordMessage.avatars ?? {};
+const globalAvatars: any = window.$discordMessage.avatars ?? {};
 
 export const avatars: Avatars = Object.assign(discordAvatars, globalAvatars, {
 	default: discordAvatars[globalAvatars.default] ?? globalAvatars.default ?? discordAvatars.blue
 });
 
-export const profiles: { [key: string]: Profile } = $discordMessage.profiles ?? {};
+export const profiles: { [key: string]: Profile } = window.$discordMessage.profiles ?? {};
 
-export const defaultTheme: string = $discordMessage.defaultTheme !== 'light' ? 'dark' : 'light';
+export const defaultTheme: string = window.$discordMessage.defaultTheme !== 'light' ? 'dark' : 'light';
 
-export const defaultMode: string = $discordMessage.defaultMode !== 'compact' ? 'cozy' : 'compact';
+export const defaultMode: string = window.$discordMessage.defaultMode !== 'compact' ? 'cozy' : 'compact';
 
-export const defaultBackground: string = $discordMessage.defaultBackground !== 'none' ? 'discord' : 'none';
+export const defaultBackground: string = window.$discordMessage.defaultBackground !== 'none' ? 'discord' : 'none';
+
+declare global {
+	interface Window {
+		$discordMessage: DiscordMessageOptions;
+	}
+}

@@ -73,8 +73,8 @@ export class DiscordMessage {
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
 		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, roleColor: this.roleColor };
-		const profileData: Profile = profiles[this.profile] ?? {};
-		const profile: Profile = Object.assign(profileData, defaultData, { avatar: resolveAvatar(this.avatar ?? profileData.avatar) });
+		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
+		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
 		// @ts-ignore
 		const highlightMention: boolean = Array.from(this.el.children).some((child: HTMLDiscordMentionElement): boolean => {
