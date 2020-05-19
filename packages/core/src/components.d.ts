@@ -37,6 +37,11 @@ export namespace Components {
          */
         "image": string;
         /**
+          * The provider to show above the embed, for example for YouTube videos it will show "YouTube" at the top of the embed (above the author)
+          * @example YouTube
+         */
+        "provider": string;
+        /**
           * The thumbnail image to use.
          */
         "thumbnail": string;
@@ -209,6 +214,11 @@ declare namespace LocalJSX {
           * The embed image to use (displayed at the bottom).
          */
         "image"?: string;
+        /**
+          * The provider to show above the embed, for example for YouTube videos it will show "YouTube" at the top of the embed (above the author)
+          * @example YouTube
+         */
+        "provider"?: string;
         /**
           * The thumbnail image to use.
          */

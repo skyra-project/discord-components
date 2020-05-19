@@ -65,6 +65,12 @@ export class DiscordEmbed {
 	@Prop() video: string;
 
 	/**
+	 * The provider to show above the embed, for example for YouTube videos it will show "YouTube" at the top of the embed (above the author)
+	 * @example YouTube
+	 */
+	@Prop() provider: string;
+
+	/**
 	 * The image to use next to the footer text.
 	 */
 	@Prop() footerImage: string;
@@ -116,6 +122,13 @@ export class DiscordEmbed {
 				<div class="discord-embed-root">
 					<div class="discord-embed-wrapper">
 						<div class="discord-embed-grid">
+							{this.provider ? (
+								<div class="discord-embed-provider">
+									<span>{this.provider}</span>
+								</div>
+							) : (
+								''
+							)}
 							{this.authorName ? (
 								<div class="discord-embed-author">
 									{this.authorImage ? <img src={this.authorImage} alt="" class="discord-author-image" /> : ''}

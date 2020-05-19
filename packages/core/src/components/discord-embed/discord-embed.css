@@ -102,6 +102,20 @@
 	width: 24px;
 }
 
+.discord-embed .discord-embed-provider {
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: 400;
+	grid-column: 1/1;
+	margin-top: 8px;
+	unicode-bidi: plaintext;
+	text-align: left;
+}
+
+.discord-light-theme .discord-embed .discord-embed-provider {
+	color: #4f545c;
+}
+
 .discord-embed .discord-embed-title {
 	-webkit-box-align: center;
 	align-items: center;
@@ -166,9 +180,9 @@
 	width: 100%;
 
 	width: 400px;
-    height: 225px;
-    left: 0px;
-    top: 0px;
+	height: 225px;
+	left: 0px;
+	top: 0px;
 }
 
 .discord-embed .discord-embed-footer {
