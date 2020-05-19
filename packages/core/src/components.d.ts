@@ -48,6 +48,14 @@ export namespace Components {
           * The URL to open when you click on the embed title.
          */
         "url": string;
+        /**
+          * The embed video to use (displayed at the bottom, same slot as the image).
+          * @important YouTube videos will not be playable on your projects, this is due to YouTube using DASH to play their videos rather than providing the raw media stream (in a container such as mp4 or ogg). Links to regular MP4 files (such as on a CDN) however will autoplay!
+          * @note Video takes priority over image.
+          * @remark Providing both a video and an image will ensure the image is shown to users with browsers that do not support HTML5 video playback.
+          * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
+         */
+        "video": string;
     }
     interface DiscordEmbedField {
         /**
@@ -213,6 +221,14 @@ declare namespace LocalJSX {
           * The URL to open when you click on the embed title.
          */
         "url"?: string;
+        /**
+          * The embed video to use (displayed at the bottom, same slot as the image).
+          * @important YouTube videos will not be playable on your projects, this is due to YouTube using DASH to play their videos rather than providing the raw media stream (in a container such as mp4 or ogg). Links to regular MP4 files (such as on a CDN) however will autoplay!
+          * @note Video takes priority over image.
+          * @remark Providing both a video and an image will ensure the image is shown to users with browsers that do not support HTML5 video playback.
+          * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
+         */
+        "video"?: string;
     }
     interface DiscordEmbedField {
         /**

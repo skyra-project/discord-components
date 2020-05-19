@@ -1,4 +1,5 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
+import clsx from 'clsx';
 import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
 
 @Component({
@@ -52,6 +53,18 @@ export class DiscordEmbed {
 	@Prop() image: string;
 
 	/**
+	 * The embed video to use (displayed at the bottom, same slot as the image).
+	 * @important YouTube videos will not be playable on your projects, this is due to YouTube using DASH to play their videos rather
+	 * than providing the raw media stream (in a container such as mp4 or ogg). Links to regular MP4 files (such as on a CDN) however
+	 * will autoplay!
+	 * @note Video takes priority over image.
+	 * @remark Providing both a video and an image will ensure the image is shown to users with browsers
+	 * that do not support HTML5 video playback.
+	 * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
+	 */
+	@Prop() video: string;
+
+	/**
 	 * The image to use next to the footer text.
 	 */
 	@Prop() footerImage: string;
@@ -69,6 +82,29 @@ export class DiscordEmbed {
 
 	componentWillLoad() {
 		this.timestamp = this.updateTimestamp(this.timestamp);
+	}
+
+	private renderMedia() {
+		if (this.video) {
+			return (
+				<video
+					controls
+					muted
+					preload="none"
+					poster={this.image}
+					src={this.video}
+					height="225"
+					width="400"
+					class="discord-embed-video"
+				>
+					<img src={this.image} alt="Discord embed media" class="discord-embed-image" />
+				</video>
+			);
+		} else if (this.image) {
+			return <img src={this.image} alt="Discord embed media" class="discord-embed-image" />;
+		}
+
+		return null;
 	}
 
 	render() {
@@ -111,7 +147,9 @@ export class DiscordEmbed {
 								<slot></slot>
 							</div>
 							<slot name="fields"></slot>
-							{this.image ? <img src={this.image} alt="" class="discord-embed-image" /> : ''}
+							<div class={clsx('discord-embed-media', { 'discord-embed-media-video': Boolean(this.video) })}>
+								{this.renderMedia()}
+							</div>
 
 							{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
 							{footerSlot || this.timestamp ? (
