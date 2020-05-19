@@ -85,9 +85,7 @@
 
 &nbsp;
 
-<!-- TODO: Fix live demo URL -->
-
-Check out the [live demo](https://wc-discord-message.now.sh/) for further examples.
+Check out the [live demo](https://discord-components-taupe.now.sh/) for further examples.
 
 ## Installation
 

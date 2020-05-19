@@ -33,7 +33,7 @@ React discord-message-components to easily build and display fake Discord messag
 -   Simple syntax!
 -   Available as WebComponents and ReactComponents
 
-Check out the [live demo](https://wc-discord-message.now.sh/) for further examples.
+Check out the [live demo](https://discord-components-taupe.now.sh/) for further examples.
 
 <!-- LINK DUMP -->
 
