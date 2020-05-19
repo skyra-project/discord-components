@@ -71,6 +71,12 @@ export namespace Components {
           * Whether this field should be displayed inline or not.
          */
         "inline": boolean;
+        /**
+          * The index of this inline field
+          * @remark This defines the position of this inline field. 1 is left, 2 is middle and 3 is right.
+          * @oneof [1, 2, 3]
+          * @default 1
+         */
         "inlineIndex": number;
     }
     interface DiscordEmbedFields {
@@ -249,6 +255,12 @@ declare namespace LocalJSX {
           * Whether this field should be displayed inline or not.
          */
         "inline"?: boolean;
+        /**
+          * The index of this inline field
+          * @remark This defines the position of this inline field. 1 is left, 2 is middle and 3 is right.
+          * @oneof [1, 2, 3]
+          * @default 1
+         */
         "inlineIndex"?: number;
     }
     interface DiscordEmbedFields {
