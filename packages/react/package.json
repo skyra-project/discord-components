@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/discord-components-react",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
