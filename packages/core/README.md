@@ -83,10 +83,6 @@
 
 </details>
 
-&nbsp;
-
-Check out the [live demo](https://discord-components-taupe.now.sh/) for further examples.
-
 ## Installation
 
 ### Package managers
