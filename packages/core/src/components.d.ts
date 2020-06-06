@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { DiscordTimestamp, } from "./util";
+import { DiscordTimestamp } from "./util";
 export namespace Components {
     interface DiscordEmbed {
         /**

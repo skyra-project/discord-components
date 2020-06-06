@@ -23,7 +23,7 @@
 		"hex-to-rgba": "^2.0.1"
 	},
 	"devDependencies": {
-		"@stencil/core": "^1.13.0",
+		"@stencil/core": "next",
 		"@stencil/react-output-target": "^0.0.6"
 	},
 	"directories": {
@@ -56,6 +56,5 @@
 		"components",
 		"webcomponents",
 		"stencil"
-	],
-	"gitHead": "6af1c3378e0c45744ae6a275777bb0164522ce8a"
+	]
 }
