@@ -92,6 +92,10 @@
 
 </details>
 
+&nbsp;
+
+Check out the [live demo](https://skyra-discord-components.netlify.app/) for further examples.
+
 ## Installation
 
 ```bash
