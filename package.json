@@ -16,8 +16,8 @@
 	"devDependencies": {
 		"@commitlint/cli": "^8.3.5",
 		"@commitlint/config-conventional": "^8.3.4",
-		"@favware/eslint-config-react-app": "^0.1.0-alpha.0",
-		"@favware/ts-config": "^3.0.0",
+		"@favware/eslint-config-react-app": "^1.0.0",
+		"@favware/ts-config": "^3.0.2",
 		"@types/node": "^14.0.13",
 		"@types/react": "^16.9.36",
 		"@types/react-dom": "^16.9.8",

@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^13.0.0",
 		"@rollup/plugin-node-resolve": "^8.0.1",
-		"rollup": "^2.13.1",
+		"rollup": "^2.15.0",
 		"rollup-plugin-cleaner": "^1.0.0",
 		"rollup-plugin-peer-deps-external": "^2.2.2",
 		"rollup-plugin-terser": "^6.1.0",
