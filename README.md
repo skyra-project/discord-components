@@ -18,7 +18,7 @@
 </a>
 </div>
 
-React discord-message-components to easily build and display fake Discord messages on your webpackge.
+Discord message components to easily build and display fake Discord messages on your webpage.
 
 **This is an adoptation of [wc-discord-message] from [Danktuary]**
 

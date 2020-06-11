@@ -76,7 +76,7 @@ export class DiscordMessage {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		// @ts-ignore
+		// @ts-expect-error
 		const highlightMention: boolean = Array.from(this.el.children).some((child: HTMLDiscordMentionElement): boolean => {
 			return child.tagName.toLowerCase() === 'discord-mention' && child.highlight && child.type !== 'channel';
 		});
