@@ -1,24 +1,32 @@
 import React from 'react';
 
-export const dashToPascalCase = (str: string) =>
-  str
-    .toLowerCase()
-    .split('-')
-    .map(segment => segment.charAt(0).toUpperCase() + segment.slice(1))
-    .join('');
+import { StyleReactProps } from '../interfaces';
 
-export interface ReactProps {
-  class?: string;
-}
+type Mutable<T> = { -readonly [P in keyof T]-?: T[P] }; // Remove readonly and ?
 
-export type IonicReactExternalProps<PropType, ElementType> = PropType & React.HTMLAttributes<ElementType> & ReactProps;
+export type StencilReactExternalProps<PropType, ElementType> = PropType &
+  Omit<React.HTMLAttributes<ElementType>, 'style'> &
+  StyleReactProps;
+
+// The comma in the type is to trick typescript because it things a single generic in a tsx file is jsx
+export const mergeRefs = <ElementType,>(...refs: React.Ref<ElementType>[]) => (
+  value: ElementType,
+) =>
+  refs.forEach((ref) => {
+    if (typeof ref === 'function') {
+      ref(value);
+    } else if (ref != null) {
+      // This is typed as readonly so we need to allow for override
+      (ref as Mutable<React.RefObject<ElementType>>).current = value;
+    }
+  });
 
 export const createForwardRef = <PropType, ElementType>(
   ReactComponent: any,
   displayName: string,
 ) => {
   const forwardRef = (
-    props: IonicReactExternalProps<PropType, ElementType>,
+    props: StencilReactExternalProps<PropType, ElementType>,
     ref: React.Ref<ElementType>,
   ) => {
     return <ReactComponent {...props} forwardedRef={ref} />;
@@ -28,4 +36,5 @@ export const createForwardRef = <PropType, ElementType>(
   return React.forwardRef(forwardRef);
 };
 
-export * from './attachEventProps';
+export * from './attachProps';
+export * from './case';

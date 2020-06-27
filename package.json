@@ -5,7 +5,9 @@
 	],
 	"private": true,
 	"scripts": {
+		"clean": "rimraf packages/core/dist packages/core/loader packages/core/www packages/react/src packages/react/dist",
 		"lint": "eslint packages/ --fix --ext ts,tsx",
+		"prebuild": "yarn clean",
 		"build": "run-s build:core build:react",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
 		"build:react": "yarn workspace @skyra/discord-components-react build",
@@ -29,6 +31,7 @@
 		"prettier": "^2.0.5",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
+		"rimraf": "^3.0.2",
 		"ts-node": "^8.10.2",
 		"typescript": "^3.9.5"
 	},

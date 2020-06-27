@@ -7,7 +7,9 @@ export const config: Config = {
 	outputTargets: [
 		reactOutputTarget({
 			componentCorePackage: '@skyra/discord-components-core',
-			proxiesFile: '../react/src/index.ts'
+			proxiesFile: '../react/src/index.ts',
+			includeDefineCustomElements: true,
+			includePolyfills: false
 		}),
 		{
 			type: 'dist',
