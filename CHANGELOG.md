@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/skyra-project/discord-components/compare/v1.1.2...v1.1.3) (2020-07-06)
+
+
+### Bug Fixes
+
+* fixed the unpkg/jsdelivr builds ([d863049](https://github.com/skyra-project/discord-components/commit/d86304962a384f5e7a792fb67db826a389ba6aa5))
+
+
+
+
+
 ## [1.1.2](https://github.com/skyra-project/discord-components/compare/v1.1.1...v1.1.2) (2020-06-27)
 
 
