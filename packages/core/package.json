@@ -11,7 +11,7 @@
 	"types": "dist/types/index.d.ts",
 	"collection": "dist/collection/collection-manifest.json",
 	"collection:main": "dist/collection/index.js",
-	"unpkg": "dist/skyra-discord-message-components/skyra-discord-message-components.js",
+	"unpkg": "dist/skyra-discord-components-core.js",
 	"homepage": "https://github.com/skyra-project/discord-message-components/tree/master/packages/core#readme",
 	"scripts": {
 		"build": "stencil build --docs",
@@ -19,7 +19,7 @@
 		"generate": "stencil generate"
 	},
 	"dependencies": {
-		"clsx": "^1.1.0",
+		"clsx": "^1.1.1",
 		"hex-to-rgba": "^2.0.1"
 	},
 	"devDependencies": {
