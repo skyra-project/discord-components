@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/skyra-project/discord-message-components/compare/v1.1.3...v1.1.4) (2020-07-06)
+
+
+### Bug Fixes
+
+* **core:** fixed that lib didn't load when not defining window.$discordMessage ([64293a6](https://github.com/skyra-project/discord-message-components/commit/64293a6f63ccf3c78f3c8086a0d13d8335d784e1))
+
+
+
+
+
 ## [1.1.3](https://github.com/skyra-project/discord-message-components/compare/v1.1.2...v1.1.3) (2020-07-06)
 
 
