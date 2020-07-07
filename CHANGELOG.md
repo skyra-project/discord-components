@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/skyra-project/discord-components/compare/v1.1.4...v1.2.0) (2020-07-07)
+
+
+### Bug Fixes
+
+* update highlighted mention styling ([98e4827](https://github.com/skyra-project/discord-components/commit/98e4827f9829b6d0b8d30a78337a40e3d44c9fb5))
+* **embed-field:** set title to white to match Discord revert ([2e6007f](https://github.com/skyra-project/discord-components/commit/2e6007fb724edf389a63a534936d1ed528d1fd6c))
+
+
+### Features
+
+* **core:** add discord-attachment component ([adef9b1](https://github.com/skyra-project/discord-components/commit/adef9b121c0ba7061374cbe389560706aa07c76a))
+
+
+
+
+
 ## [1.1.4](https://github.com/skyra-project/discord-components/compare/v1.1.3...v1.1.4) (2020-07-06)
 
 

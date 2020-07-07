@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/skyra-project/discord-message-components/compare/v1.1.4...v1.2.0) (2020-07-07)
+
+**Note:** Version bump only for package @skyra/discord-components-react
+
+
+
+
+
 ## [1.1.4](https://github.com/skyra-project/discord-message-components/compare/v1.1.3...v1.1.4) (2020-07-06)
 
 **Note:** Version bump only for package @skyra/discord-components-react
