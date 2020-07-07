@@ -1,11 +1,22 @@
-import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
+import {
+	Component,
+	ComponentDidLoad,
+	ComponentDidUnload,
+	ComponentInterface,
+	ComponentWillLoad,
+	Element,
+	h,
+	Host,
+	Prop,
+	Watch
+} from '@stencil/core';
 import hexToRgba from 'hex-to-rgba';
 
 @Component({
 	tag: 'discord-mention',
 	styleUrl: 'discord-mention.css'
 })
-export class DiscordMention {
+export class DiscordMention implements ComponentWillLoad, ComponentDidLoad, ComponentDidUnload, ComponentInterface {
 	/**
 	 * The DiscordMention element
 	 */

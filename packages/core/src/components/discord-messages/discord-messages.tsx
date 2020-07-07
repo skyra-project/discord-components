@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, ComponentWillLoad, h, Host, Prop } from '@stencil/core';
 import clsx from 'clsx';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options';
 
@@ -6,7 +6,7 @@ import { defaultBackground, defaultMode, defaultTheme } from '../../options';
 	tag: 'discord-messages',
 	styleUrl: 'discord-messages.css'
 })
-export class DiscordMessages {
+export class DiscordMessages implements ComponentWillLoad, ComponentInterface {
 	/**
 	 * Whether to use light theme or not.
 	 */

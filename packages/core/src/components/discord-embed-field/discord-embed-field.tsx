@@ -1,11 +1,11 @@
-import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, ComponentWillLoad, Element, h, Host, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 
 @Component({
 	tag: 'discord-embed-field',
 	styleUrl: 'discord-embed-field.css'
 })
-export class DiscordEmbedField {
+export class DiscordEmbedField implements ComponentWillLoad, ComponentInterface {
 	private validInlineIndices = new Set([1, 2, 3]);
 
 	/**
