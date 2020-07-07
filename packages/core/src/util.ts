@@ -25,3 +25,8 @@ export const handleTimestamp = (value: DiscordTimestamp): string | null => {
 export const findSlotElement = (elements: HTMLCollection, name: string): Element | undefined => {
 	return Array.from(elements).find((child: Element): boolean => child?.slot === name);
 };
+
+export const IMAGE_EXTENSION = /\.(bmp|jpe?g|png|gif|webp|tiff)$/i;
+export const validateImageExtension = (url: string) => {
+	if(!IMAGE_EXTENSION.test(url)) throw new Error(`The url of an image for discord-attachment should match the regex ${IMAGE_EXTENSION}`)
+}

@@ -7,6 +7,38 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DiscordTimestamp } from "./util";
 export namespace Components {
+    interface DiscordAttachment {
+        /**
+          * The alt text to show in case the image was unable to load
+          * @default 'discord attachment'
+         */
+        "alt": string;
+        /**
+          * The height of the image in pixels
+          * @remark For images over 200 pixels the height is multiplied by 0.2 (20% of the total height) This is to ensure that it doesn't supersize. The size at which the height should be modified can be set by `heightModifierSize`
+         */
+        "height": number;
+        /**
+          * The max size at which the height will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
+          * @default 200
+         */
+        "heightModifierSize": number | null;
+        /**
+          * The URL for the image attachment
+          * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
+         */
+        "url": string;
+        /**
+          * The width of the image in pixels
+          * @remark For images over 200 pixels the width is multiplied by 0.2 (20% of the total width) This is to ensure that it doesn't supersize. The size at which the width should be modified can be set by `widthModifierSize`
+         */
+        "width": number;
+        /**
+          * The max size at which the width will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
+          * @default 200
+         */
+        "widthModifierSize": number | null;
+    }
     interface DiscordEmbed {
         /**
           * The author's avatar URL.
@@ -98,6 +130,7 @@ export namespace Components {
     interface DiscordMessage {
         /**
           * The message author's username.
+          * @default 'User'
          */
         "author": string;
         /**
@@ -117,7 +150,7 @@ export namespace Components {
          */
         "profile": string;
         /**
-          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+          * The message author's primary role color. Can be any {@link https://www.w3schools.com/cssref/css_colors_legal.asp CSS color value}.
          */
         "roleColor": string;
         /**
@@ -145,6 +178,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDiscordAttachmentElement extends Components.DiscordAttachment, HTMLStencilElement {
+    }
+    var HTMLDiscordAttachmentElement: {
+        prototype: HTMLDiscordAttachmentElement;
+        new (): HTMLDiscordAttachmentElement;
+    };
     interface HTMLDiscordEmbedElement extends Components.DiscordEmbed, HTMLStencilElement {
     }
     var HTMLDiscordEmbedElement: {
@@ -182,6 +221,7 @@ declare global {
         new (): HTMLDiscordMessagesElement;
     };
     interface HTMLElementTagNameMap {
+        "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-embed": HTMLDiscordEmbedElement;
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
         "discord-embed-fields": HTMLDiscordEmbedFieldsElement;
@@ -191,6 +231,38 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface DiscordAttachment {
+        /**
+          * The alt text to show in case the image was unable to load
+          * @default 'discord attachment'
+         */
+        "alt"?: string;
+        /**
+          * The height of the image in pixels
+          * @remark For images over 200 pixels the height is multiplied by 0.2 (20% of the total height) This is to ensure that it doesn't supersize. The size at which the height should be modified can be set by `heightModifierSize`
+         */
+        "height"?: number;
+        /**
+          * The max size at which the height will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
+          * @default 200
+         */
+        "heightModifierSize"?: number | null;
+        /**
+          * The URL for the image attachment
+          * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
+         */
+        "url"?: string;
+        /**
+          * The width of the image in pixels
+          * @remark For images over 200 pixels the width is multiplied by 0.2 (20% of the total width) This is to ensure that it doesn't supersize. The size at which the width should be modified can be set by `widthModifierSize`
+         */
+        "width"?: number;
+        /**
+          * The max size at which the width will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
+          * @default 200
+         */
+        "widthModifierSize"?: number | null;
+    }
     interface DiscordEmbed {
         /**
           * The author's avatar URL.
@@ -282,6 +354,7 @@ declare namespace LocalJSX {
     interface DiscordMessage {
         /**
           * The message author's username.
+          * @default 'User'
          */
         "author"?: string;
         /**
@@ -301,7 +374,7 @@ declare namespace LocalJSX {
          */
         "profile"?: string;
         /**
-          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+          * The message author's primary role color. Can be any {@link https://www.w3schools.com/cssref/css_colors_legal.asp CSS color value}.
          */
         "roleColor"?: string;
         /**
@@ -328,6 +401,7 @@ declare namespace LocalJSX {
         "noBackground"?: boolean;
     }
     interface IntrinsicElements {
+        "discord-attachment": DiscordAttachment;
         "discord-embed": DiscordEmbed;
         "discord-embed-field": DiscordEmbedField;
         "discord-embed-fields": DiscordEmbedFields;
@@ -340,6 +414,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "discord-attachment": LocalJSX.DiscordAttachment & JSXBase.HTMLAttributes<HTMLDiscordAttachmentElement>;
             "discord-embed": LocalJSX.DiscordEmbed & JSXBase.HTMLAttributes<HTMLDiscordEmbedElement>;
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
             "discord-embed-fields": LocalJSX.DiscordEmbedFields & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldsElement>;

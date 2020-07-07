@@ -132,6 +132,47 @@ By default, this package uses the Google Fonts CDN to pull in the Roboto font. T
 }
 ```
 
+In order to load the Discord font add the following code:
+```css
+/* Whitney font face to match Discord */
+@font-face {
+	font-family: Whitney;
+	font-style: light;
+	font-weight: 300;
+	src: url(https://discord.com/assets/6c6374bad0b0b6d204d8d6dc4a18d820.woff) format('woff');
+}
+@font-face {
+	font-family: Whitney;
+	font-style: normal;
+	font-weight: 500;
+	src: url(https://discord.com/assets/e8acd7d9bf6207f99350ca9f9e23b168.woff) format('woff');
+}
+@font-face {
+	font-family: Whitney;
+	font-style: medium;
+	font-weight: 600;
+	src: url(https://discord.com/assets/3bdef1251a424500c1b3a78dea9b7e57.woff) format('woff');
+}
+@font-face {
+	font-family: WhitneyMedium;
+	font-style: medium;
+	font-weight: 600;
+	src: url(https://discord.com/assets/be0060dafb7a0e31d2a1ca17c0708636.woff) format('woff');
+}
+@font-face {
+	font-family: Whitney;
+	font-style: bold;
+	font-weight: 700;
+	src: url(https://discord.com/assets/8e12fb4f14d9c4592eb8ec9f22337b04.woff) format('woff');
+}
+
+/* Setting default CSS for Discord messages */
+.discord-message,
+.discord-messages {
+	font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+```
+
 ### TypeScript module augments
 
 This module uses a custom object on the browser `window` for configuration. In order to this you will need to include the following snippet in your source code when working in TypeScript:
@@ -294,6 +335,26 @@ At least 2 consecutive fields need to be marked as inline in order for them to a
 	</DiscordEmbed>
 </DiscordMessage>
 ```
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Documentation">📖</a> <a href="#example-Favna" title="Examples">💡</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/vladfrangu"><img src="https://avatars3.githubusercontent.com/u/17960496?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vlad Frangu</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=vladfrangu" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 <!-- LINK DUMP -->
 

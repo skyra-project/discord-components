@@ -31,6 +31,45 @@
 				padding-bottom: 0.25em;
 			}
 		</style>
+		<style>
+			/* Whitney font face to match Discord */
+			@font-face {
+				font-family: Whitney;
+				font-style: light;
+				font-weight: 300;
+				src: url(https://discord.com/assets/6c6374bad0b0b6d204d8d6dc4a18d820.woff) format('woff');
+			}
+			@font-face {
+				font-family: Whitney;
+				font-style: normal;
+				font-weight: 500;
+				src: url(https://discord.com/assets/e8acd7d9bf6207f99350ca9f9e23b168.woff) format('woff');
+			}
+			@font-face {
+				font-family: Whitney;
+				font-style: medium;
+				font-weight: 600;
+				src: url(https://discord.com/assets/3bdef1251a424500c1b3a78dea9b7e57.woff) format('woff');
+			}
+			@font-face {
+				font-family: WhitneyMedium;
+				font-style: medium;
+				font-weight: 600;
+				src: url(https://discord.com/assets/be0060dafb7a0e31d2a1ca17c0708636.woff) format('woff');
+			}
+			@font-face {
+				font-family: Whitney;
+				font-style: bold;
+				font-weight: 700;
+				src: url(https://discord.com/assets/8e12fb4f14d9c4592eb8ec9f22337b04.woff) format('woff');
+			}
+
+			/* Setting default CSS for Discord messages */
+			.discord-message,
+			.discord-messages {
+				font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+		</style>
 		<script>
 			window.$discordMessage = {
 				profiles: {
@@ -50,6 +89,11 @@
 						roleColor: '#7289da',
 						bot: true,
 						verified: true
+					},
+					favna: {
+						author: 'Favna',
+						avatar: 'https://github.com/favna.png',
+						roleColor: '#FF0000'
 					}
 				}
 			};
@@ -107,6 +151,7 @@
 					<discord-message>Fluttering in the moonlight 🌝</discord-message>
 					<discord-message>Waiting for the day when</discord-message>
 					<discord-message>Compact mode would be turned on</discord-message>
+					<discord-message>Oh here it is!</discord-message>
 				</discord-messages>
 				<h3 class="title">No Background mode</h3>
 				<discord-messages no-background>
@@ -122,6 +167,20 @@
 					</discord-message>
 					<discord-message author="Alyx Vargas">
 						Hey there <discord-mention highlight>Maximillian Osborn</discord-mention>, thanks! I will!
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Image Attachments with small images</h3>
+				<discord-messages>
+					<discord-message profile="Alyx Vargas">
+						That's a very small logo image!
+						<discord-attachment slot="attachments" url="/static/stencil.png" height="100" width="100" alt="stencil-logo" />
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Image Attachments with large images</h3>
+				<discord-messages>
+					<discord-message profile="favna">
+						Hey guys, check out this awesome, cute, and totally amazing dragon!
+						<discord-attachment slot="attachments" url="/static/dragonite.png" height="959" width="959" alt="dragonite" />
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Verified Discord bots</h3>

@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, ComponentWillLoad, Element, h, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
 
@@ -6,7 +6,7 @@ import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
 	tag: 'discord-embed',
 	styleUrl: 'discord-embed.css'
 })
-export class DiscordEmbed {
+export class DiscordEmbed implements ComponentWillLoad, ComponentInterface {
 	/**
 	 * The DiscordEmbed element.
 	 */

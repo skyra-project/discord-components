@@ -8,6 +8,7 @@ import { JSX } from '@skyra/discord-components-core';
 import { defineCustomElements } from '@skyra/discord-components-core/loader';
 
 defineCustomElements();
+export const DiscordAttachment = /*@__PURE__*/createReactComponent<JSX.DiscordAttachment, HTMLDiscordAttachmentElement>('discord-attachment');
 export const DiscordEmbed = /*@__PURE__*/createReactComponent<JSX.DiscordEmbed, HTMLDiscordEmbedElement>('discord-embed');
 export const DiscordEmbedField = /*@__PURE__*/createReactComponent<JSX.DiscordEmbedField, HTMLDiscordEmbedFieldElement>('discord-embed-field');
 export const DiscordEmbedFields = /*@__PURE__*/createReactComponent<JSX.DiscordEmbedFields, HTMLDiscordEmbedFieldsElement>('discord-embed-fields');

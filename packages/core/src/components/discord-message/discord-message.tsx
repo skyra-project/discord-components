@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, ComponentWillLoad, Element, h, Host, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 import { avatars, Profile, profiles } from '../../options';
 import { DiscordTimestamp, handleTimestamp } from '../../util';
@@ -8,7 +8,7 @@ import { AuthorInfo } from '../author-info/author-info';
 	tag: 'discord-message',
 	styleUrl: 'discord-message.css'
 })
-export class DiscordMessage {
+export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 	/**
 	 * The DiscordMessage element.
 	 */
@@ -21,6 +21,7 @@ export class DiscordMessage {
 
 	/**
 	 * The message author's username.
+	 * @default 'User'
 	 */
 	@Prop() author = 'User';
 
@@ -45,7 +46,7 @@ export class DiscordMessage {
 	@Prop() edited = false;
 
 	/**
-	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+	 * The message author's primary role color. Can be any {@link https://www.w3schools.com/cssref/css_colors_legal.asp CSS color value}.
 	 */
 	@Prop() roleColor: string;
 
@@ -119,6 +120,7 @@ export class DiscordMessage {
 					</div>
 					<slot name="embeds"></slot>
 				</div>
+				<slot name="attachments"></slot>
 			</Host>
 		);
 	}

@@ -15,7 +15,7 @@ export interface Profile {
 	roleColor?: string;
 }
 
-interface DiscordMessageOptions {
+export interface DiscordMessageOptions {
 	avatars?: Avatars;
 	profiles?: { [key: string]: Profile };
 	defaultTheme?: string;
