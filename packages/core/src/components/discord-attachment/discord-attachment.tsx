@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, ComponentWillLoad, Element, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, ComponentWillLoad, Element, h, Host, Prop } from '@stencil/core';
 import { validateImageExtension } from '../../util';
 
 @Component({
@@ -63,13 +63,13 @@ export class DiscordAttachment implements ComponentWillLoad, ComponentInterface 
 
 	render() {
 		return (
-			<div class="discord-attachment">
+			<Host class="discord-attachment">
 				<div class="discord-attachment-root">
 					<div class="discord-image-wrapper" style={{ height: `${this.height}px`, width: `${this.width}px` }}>
 						<img alt={this.alt} src={this.url} height={this.height} width={this.width} />
 					</div>
 				</div>
-			</div>
+			</Host>
 		);
 	}
 }

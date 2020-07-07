@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, ComponentWillLoad, Element, h, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
+import Fragment from '../../Fragment';
 import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
 
 @Component({
@@ -122,14 +123,12 @@ export class DiscordEmbed implements ComponentWillLoad, ComponentInterface {
 				<div class="discord-embed-root">
 					<div class="discord-embed-wrapper">
 						<div class="discord-embed-grid">
-							{this.provider ? (
+							{this.provider && (
 								<div class="discord-embed-provider">
-									<span>{this.provider}</span>
+									<Fragment>{this.provider}</Fragment>
 								</div>
-							) : (
-								''
 							)}
-							{this.authorName ? (
+							{this.authorName && (
 								<div class="discord-embed-author">
 									{this.authorImage ? <img src={this.authorImage} alt="" class="discord-author-image" /> : ''}
 									{this.authorUrl ? (
@@ -137,24 +136,20 @@ export class DiscordEmbed implements ComponentWillLoad, ComponentInterface {
 											{this.authorName}
 										</a>
 									) : (
-										<span>{this.authorName}</span>
+										<Fragment>{this.authorName}</Fragment>
 									)}
 								</div>
-							) : (
-								''
 							)}
-							{this.embedTitle ? (
+							{this.embedTitle && (
 								<div class="discord-embed-title">
 									{this.url ? (
 										<a href={this.url} target="_blank" rel="noopener noreferrer">
 											{this.embedTitle}
 										</a>
 									) : (
-										<span>{this.embedTitle}</span>
+										<Fragment>{this.embedTitle}</Fragment>
 									)}
 								</div>
-							) : (
-								''
 							)}
 							<div class="discord-embed-description">
 								<slot></slot>
@@ -165,21 +160,19 @@ export class DiscordEmbed implements ComponentWillLoad, ComponentInterface {
 							</div>
 
 							{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
-							{footerSlot || this.timestamp ? (
+							{(footerSlot || this.timestamp) && (
 								<div class="discord-embed-footer">
 									{footerSlot && this.footerImage ? (
 										<img src={this.footerImage} alt="" class="discord-footer-image" />
 									) : (
 										''
 									)}
-									<span>
+									<Fragment>
 										<slot name="footer"></slot>
 										{footerSlot && this.timestamp ? <span class="discord-footer-separator">&bull;</span> : ''}
-										{this.timestamp ? <span>{this.timestamp}</span> : ''}
-									</span>
+										{this.timestamp ? <Fragment>{this.timestamp}</Fragment> : ''}
+									</Fragment>
 								</div>
-							) : (
-								''
 							)}
 						</div>
 					</div>

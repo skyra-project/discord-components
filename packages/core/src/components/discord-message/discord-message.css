@@ -68,6 +68,7 @@
 	width: 100%;
 	line-height: 160%;
 	font-weight: normal;
+	padding: 0;
 }
 
 .discord-message .discord-message-body {

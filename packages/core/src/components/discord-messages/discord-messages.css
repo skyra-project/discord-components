@@ -20,3 +20,9 @@
 .discord-messages.discord-no-background {
 	background-color: unset;
 }
+
+.col-xs-offset-0_25 {
+	margin-left: 2.0833333325%;
+}
+
+@import './flexboxgrid.min.css';

@@ -1,4 +1,5 @@
 import { FunctionalComponent, h } from '@stencil/core';
+import Fragment from '../../Fragment';
 
 interface AuthorInfoProps {
 	author: string;
@@ -13,7 +14,7 @@ export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, 
 			{author}
 		</span>
 		{
-			<span>
+			<Fragment>
 				{/* If bot is true then we need to render a Bot tag */}
 				{bot && (
 					<span class="discord-bot-tag">
@@ -34,7 +35,7 @@ export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, 
 						Bot
 					</span>
 				)}
-			</span>
+			</Fragment>
 		}
 	</span>
 );

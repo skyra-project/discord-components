@@ -5,6 +5,7 @@
 	line-height: 150%;
 	margin-bottom: 8px;
 	margin-top: 8px;
+	margin-left: 56px;
 }
 
 .discord-attachment-root {
@@ -37,5 +38,9 @@
 
 .discord-attachment .discord-image-wrapper img {
 	position: absolute;
+	text-indent: -9999px;
+}
+
+img[alt] {
 	text-indent: -9999px;
 }

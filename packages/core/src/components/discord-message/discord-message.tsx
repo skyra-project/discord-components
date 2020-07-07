@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, ComponentWillLoad, Element, h, Host, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
+import Fragment from '../../Fragment';
 import { avatars, Profile, profiles } from '../../options';
 import { DiscordTimestamp, handleTimestamp } from '../../util';
 import { AuthorInfo } from '../author-info/author-info';
@@ -83,13 +84,13 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 		});
 
 		return (
-			<Host class="discord-message">
+			<Host class="discord-message row">
 				<div class="discord-author-avatar">
 					<img src={profile.avatar} alt={profile.author} />
 				</div>
-				<div class="discord-message-content">
-					{!parent.compactMode ? (
-						<div>
+				<div class="col-xs-11 discord-message-content">
+					{!parent.compactMode && (
+						<Fragment>
 							<AuthorInfo
 								author={profile.author ?? ''}
 								bot={profile.bot ?? false}
@@ -97,13 +98,11 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 								roleColor={profile.roleColor ?? ''}
 							/>
 							<span class="discord-message-timestamp">{this.timestamp}</span>
-						</div>
-					) : (
-						''
+						</Fragment>
 					)}
 					<div class={clsx({ 'discord-highlight-mention': highlightMention }, 'discord-message-body')}>
-						{parent.compactMode ? (
-							<span>
+						{parent.compactMode && (
+							<Fragment>
 								<span class="discord-message-timestamp">{this.timestamp}</span>
 								<AuthorInfo
 									author={profile.author ?? ''}
@@ -111,15 +110,14 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 									verified={profile.verified ?? false}
 									roleColor={profile.roleColor ?? ''}
 								/>
-							</span>
-						) : (
-							''
+							</Fragment>
 						)}
 						<slot></slot>
 						{this.edited ? <span class="discord-message-edited">(edited)</span> : ''}
 					</div>
 					<slot name="embeds"></slot>
 				</div>
+
 				<slot name="attachments"></slot>
 			</Host>
 		);
