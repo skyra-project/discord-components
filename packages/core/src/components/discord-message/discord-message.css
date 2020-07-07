@@ -2,8 +2,43 @@
 	color: #dcddde;
 	display: flex;
 	font-size: 0.9em;
-	padding: 1em 0.5em;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	padding: 0px 0.5em;
+
+	position: relative;
+	word-wrap: break-word;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	padding-right: 16px;
+	min-height: 1.375rem;
+	padding-top: 0.125rem;
+	padding-bottom: 0.125rem;
+	padding-right: 48px !important;
+	margin-top: 1.0625rem;
+}
+
+.discord-message.discord-message-highlight {
+	background-color: rgba(250, 166, 26, 0.05);
+}
+
+.discord-message.discord-message-highlight:hover {
+	background-color: rgba(250, 166, 26, 0.08);
+}
+
+.discord-message.discord-message-highlight::before {
+	background-color: #faa61a;
+	content: '';
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	pointer-events: none;
+	width: 2px;
 }
 
 .discord-light-theme .discord-message {
@@ -34,8 +69,8 @@
 }
 
 .discord-message .discord-author-avatar {
-	margin-top: 1px;
 	margin-right: 16px;
+	margin-top: 1px;
 	min-width: 40px;
 }
 
@@ -95,7 +130,7 @@
 }
 
 .discord-message:hover {
-	background-color: rgba(4,4,5,0.07);
+	background-color: rgba(4, 4, 5, 0.07);
 }
 
 @import '../author-info/author-info.css';

@@ -84,7 +84,7 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 		});
 
 		return (
-			<Host class="discord-message row">
+			<Host class={clsx('discord-message row', { 'discord-highlight-mention': highlightMention })}>
 				<div class="discord-author-avatar">
 					<img src={profile.avatar} alt={profile.author} />
 				</div>
@@ -100,7 +100,7 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 							<span class="discord-message-timestamp">{this.timestamp}</span>
 						</Fragment>
 					)}
-					<div class={clsx({ 'discord-highlight-mention': highlightMention }, 'discord-message-body')}>
+					<div class="discord-message-body">
 						{parent.compactMode && (
 							<Fragment>
 								<span class="discord-message-timestamp">{this.timestamp}</span>
