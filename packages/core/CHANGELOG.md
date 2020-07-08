@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/skyra-project/discord-message-components/compare/v1.2.0...v1.2.1) (2020-07-08)
+
+
+### Bug Fixes
+
+* **attachments:** remove width/height modifier size ([4aea4bd](https://github.com/skyra-project/discord-message-components/commit/4aea4bdbb8aca01fae90a3a1f8aa5caa50df3ae6))
+
+
+
+
+
 # [1.2.0](https://github.com/skyra-project/discord-message-components/compare/v1.1.4...v1.2.0) (2020-07-07)
 
 
