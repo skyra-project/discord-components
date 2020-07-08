@@ -15,14 +15,8 @@ export namespace Components {
         "alt": string;
         /**
           * The height of the image in pixels
-          * @remark For images over 200 pixels the height is multiplied by 0.2 (20% of the total height) This is to ensure that it doesn't supersize. The size at which the height should be modified can be set by `heightModifierSize`
          */
         "height": number;
-        /**
-          * The max size at which the height will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
-          * @default 200
-         */
-        "heightModifierSize": number | null;
         /**
           * The URL for the image attachment
           * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
@@ -30,14 +24,8 @@ export namespace Components {
         "url": string;
         /**
           * The width of the image in pixels
-          * @remark For images over 200 pixels the width is multiplied by 0.2 (20% of the total width) This is to ensure that it doesn't supersize. The size at which the width should be modified can be set by `widthModifierSize`
          */
         "width": number;
-        /**
-          * The max size at which the width will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
-          * @default 200
-         */
-        "widthModifierSize": number | null;
     }
     interface DiscordEmbed {
         /**
@@ -239,14 +227,8 @@ declare namespace LocalJSX {
         "alt"?: string;
         /**
           * The height of the image in pixels
-          * @remark For images over 200 pixels the height is multiplied by 0.2 (20% of the total height) This is to ensure that it doesn't supersize. The size at which the height should be modified can be set by `heightModifierSize`
          */
         "height"?: number;
-        /**
-          * The max size at which the height will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
-          * @default 200
-         */
-        "heightModifierSize"?: number | null;
         /**
           * The URL for the image attachment
           * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
@@ -254,14 +236,8 @@ declare namespace LocalJSX {
         "url"?: string;
         /**
           * The width of the image in pixels
-          * @remark For images over 200 pixels the width is multiplied by 0.2 (20% of the total width) This is to ensure that it doesn't supersize. The size at which the width should be modified can be set by `widthModifierSize`
          */
         "width"?: number;
-        /**
-          * The max size at which the width will be modified to be only 20% of the total given amount If you would like to disable resizing of the image then set this to `null`
-          * @default 200
-         */
-        "widthModifierSize"?: number | null;
     }
     interface DiscordEmbed {
         /**
