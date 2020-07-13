@@ -88,7 +88,7 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 				<div class="discord-author-avatar">
 					<img src={profile.avatar} alt={profile.author} />
 				</div>
-				<div class="col-xs-11 discord-message-content">
+				<div class="col-xs-8 discord-message-content">
 					{!parent.compactMode && (
 						<Fragment>
 							<AuthorInfo
