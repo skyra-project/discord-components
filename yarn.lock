@@ -1080,10 +1080,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@rollup/plugin-commonjs@^13.0.0":
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-13.0.1.tgz#4fe12144271af724db35bac07b9bf718f22332e0"
-  integrity sha512-4G08+lhTIPxp6g5eDGiwD4BKr3Pf467h+Sfhvd7kztSpZyplQv0dAtcWbGqJ9kV0ovgGo/Z6Hhl1d/q6egkl6Q==
+"@rollup/plugin-commonjs@^13.0.2":
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-13.0.2.tgz#b7783f0db049450c72d60bc06cf48d4951515e58"
+  integrity sha512-9JXf2k8xqvMYfqmhgtB6eCgMN9fbxwF1XDF3mGKJc6pkAmt0jnsqurxQ0tC1akQKNSXCm7c3unQxa3zuxtZ7mQ==
   dependencies:
     "@rollup/pluginutils" "^3.0.8"
     commondir "^1.0.1"
@@ -1115,12 +1115,12 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@stencil/core@^1.16.2":
-  version "1.16.2"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.16.2.tgz#af51fe1202e110e3be1e6b8aa2fb505afaf302dd"
-  integrity sha512-PqnS95Va8Reb8v3t9U7iQGYefRBtsSHDuvh/4LhHI8uK2f44tOv+YXbTkXgWc00xH3jTwNvq99QdKtoAfLISkQ==
+"@stencil/core@^1.16.4":
+  version "1.16.4"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.16.4.tgz#132fcee3bc6c6c0db5af799c8279b42b559877d9"
+  integrity sha512-RN1xoGyzNCXAAzN8HHDDoGEbGrms1YpEnfp86kd37ZHOOwX500GwxjsTOpzFcBOfkUoiuBjKVnONTqWO04H8/Q==
   dependencies:
-    typescript "3.9.6"
+    typescript "3.9.7"
 
 "@stencil/react-output-target@^0.0.7":
   version "0.0.7"
@@ -6723,10 +6723,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.9.6, typescript@^3.9.6:
-  version "3.9.6"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.6.tgz#8f3e0198a34c3ae17091b35571d3afd31999365a"
-  integrity sha512-Pspx3oKAPJtjNwE92YS05HQoY7z2SFyOpHo9MqJor3BXAGNaPUs83CuVp9VISFkSjyRfiTpmKuAYGJB7S7hOxw==
+typescript@3.9.7, typescript@^3.9.7:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 uglify-js@^3.1.4:
   version "3.10.0"
