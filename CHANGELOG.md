@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/skyra-project/discord-components/compare/v1.2.2...v1.3.0) (2020-07-26)
+
+
+### Features
+
+* rename master branch to main ([0bc3666](https://github.com/skyra-project/discord-components/commit/0bc36663a83ab55df4ebb96fc9c69d6809008934))
+
+
+
+
+
 ## [1.2.2](https://github.com/skyra-project/discord-components/compare/v1.2.1...v1.2.2) (2020-07-13)
 
 
