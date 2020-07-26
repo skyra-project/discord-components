@@ -11,6 +11,6 @@ jobs:
             - name: Checkout Project
               uses: actions/checkout@v2
             - name: Run Label Sync
-              uses: crazy-max/ghaction-github-labeler@v1
+              uses: crazy-max/ghaction-github-labeler@v2
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
