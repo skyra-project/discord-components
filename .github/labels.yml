@@ -46,8 +46,8 @@
 - name: 'Bug: Cannot Reproduce'
   description: Issues that report bugs that cannot be reproduced.
   color: f9d0c4
-- name: 'Bug: Fixed in master'
-  description: Issues that report bugs from stable, but that are fixed in master.
+- name: 'Bug: Fixed in main'
+  description: Issues that report bugs from stable, but that are fixed in main.
   color: B3E88C
 - name: 'Bug: Confirmed'
   description: Issues that report confirmed bugs.

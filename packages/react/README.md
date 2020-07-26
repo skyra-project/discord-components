@@ -4,7 +4,7 @@
 <h3> React bindings for @skyra/discord-components-core </h3>
 </p>
 <p>
-	<a href="https://github.com/skyra-project/discord-components/blob/master/LICENSE.md">
+	<a href="https://github.com/skyra-project/discord-components/blob/main/LICENSE.md">
 	<img src="https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square" alt="NPM version" />
 	</a>
 </p>
@@ -133,6 +133,7 @@ By default, this package uses the Google Fonts CDN to pull in the Roboto font. T
 ```
 
 In order to load the Discord font add the following code:
+
 ```css
 /* Whitney font face to match Discord */
 @font-face {
@@ -351,6 +352,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
@@ -361,4 +363,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [danktuary]: https://github.com/Danktuary
 [rollup]: https://rollupjs.org/
 [@stencil/react-output-target]: https://www.npmjs.com/package/@stencil/react-output-target
-[the respective folder]: (https://github.com/skyra-project/discord-components/blob/master/packages/core/src/components/)
+[the respective folder]: (https://github.com/skyra-project/discord-components/blob/main/packages/core/src/components/)
