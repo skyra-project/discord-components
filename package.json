@@ -59,6 +59,7 @@
 	"resolutions": {
 		"acorn": "^7.2.0",
 		"minimist": "^1.2.5",
-		"kind-of": "^6.0.3"
+		"kind-of": "^6.0.3",
+		"dot-prop": "^5.2.0"
 	}
 }
