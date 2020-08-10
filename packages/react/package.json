@@ -14,11 +14,11 @@
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^14.0.0",
 		"@rollup/plugin-node-resolve": "^8.1.0",
-		"rollup": "^2.23.0",
+		"rollup": "^2.23.1",
 		"rollup-plugin-cleaner": "^1.0.0",
 		"rollup-plugin-peer-deps-external": "^2.2.3",
 		"rollup-plugin-terser": "^6.1.0",
-		"rollup-plugin-typescript2": "^0.27.1"
+		"rollup-plugin-typescript2": "^0.27.2"
 	},
 	"peerDependencies": {
 		"@skyra/discord-components-core": "^1.x",
