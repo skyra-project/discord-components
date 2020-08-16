@@ -21,7 +21,7 @@
 		"@favware/eslint-config-react-app": "^1.1.1",
 		"@favware/ts-config": "^3.0.3",
 		"@types/node": "^14.0.26",
-		"@types/react": "^16.9.45",
+		"@types/react": "^16.9.46",
 		"@types/react-dom": "^16.9.8",
 		"cz-conventional-changelog": "^3.2.0",
 		"husky": "^4.2.5",
