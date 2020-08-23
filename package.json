@@ -16,11 +16,11 @@
 		"up": "yarn upgrade-interactive --latest"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^9.0.1",
-		"@commitlint/config-conventional": "^9.0.1",
+		"@commitlint/cli": "^9.1.2",
+		"@commitlint/config-conventional": "^9.1.2",
 		"@favware/eslint-config-react-app": "^1.1.1",
 		"@favware/ts-config": "^3.0.3",
-		"@types/node": "^14.0.26",
+		"@types/node": "^14.6.0",
 		"@types/react": "^16.9.46",
 		"@types/react-dom": "^16.9.8",
 		"cz-conventional-changelog": "^3.2.0",
