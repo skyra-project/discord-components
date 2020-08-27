@@ -12,12 +12,12 @@
 		"build": "rollup -c rollup.config.ts"
 	},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "^14.0.0",
-		"@rollup/plugin-node-resolve": "^8.1.0",
-		"rollup": "^2.26.5",
+		"@rollup/plugin-commonjs": "^15.0.0",
+		"@rollup/plugin-node-resolve": "^9.0.0",
+		"rollup": "^2.26.6",
 		"rollup-plugin-cleaner": "^1.0.0",
 		"rollup-plugin-peer-deps-external": "^2.2.3",
-		"rollup-plugin-terser": "^6.1.0",
+		"rollup-plugin-terser": "^7.0.0",
 		"rollup-plugin-typescript2": "^0.27.2"
 	},
 	"peerDependencies": {

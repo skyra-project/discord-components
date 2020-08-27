@@ -24,7 +24,7 @@
 	},
 	"devDependencies": {
 		"@stencil/core": "^1.17.3",
-		"@stencil/react-output-target": "^0.0.7"
+		"@stencil/react-output-target": "^0.0.9"
 	},
 	"directories": {
 		"lib": "src"
