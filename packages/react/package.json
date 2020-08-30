@@ -14,10 +14,10 @@
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^15.0.0",
 		"@rollup/plugin-node-resolve": "^9.0.0",
-		"rollup": "^2.26.6",
+		"rollup": "^2.26.8",
 		"rollup-plugin-cleaner": "^1.0.0",
 		"rollup-plugin-peer-deps-external": "^2.2.3",
-		"rollup-plugin-terser": "^7.0.0",
+		"rollup-plugin-terser": "^7.0.1",
 		"rollup-plugin-typescript2": "^0.27.2"
 	},
 	"peerDependencies": {

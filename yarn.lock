@@ -1174,10 +1174,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
-"@types/node@*", "@types/node@>= 8", "@types/node@^14.6.1":
-  version "14.6.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.1.tgz#fdf6f6c6c73d3d8eee9c98a9a0485bc524b048d7"
-  integrity sha512-HnYlg/BRF8uC1FyKRFZwRaCPTPYKa+6I8QiUZFLredaGOou481cgFS4wKRFyKvQtX8xudqkSdBczJHIYSQYKrQ==
+"@types/node@*", "@types/node@>= 8", "@types/node@^14.6.2":
+  version "14.6.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.2.tgz#264b44c5a28dfa80198fc2f7b6d3c8a054b9491f"
+  integrity sha512-onlIwbaeqvZyniGPfdw/TEhKIh79pz66L1q06WUQqJLnAb6wbjvOtepLYTGHTqzdXgBYIE3ZdmqHDGsRsbBz7A==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -5919,10 +5919,10 @@ rollup-plugin-peer-deps-external@^2.2.3:
   resolved "https://registry.yarnpkg.com/rollup-plugin-peer-deps-external/-/rollup-plugin-peer-deps-external-2.2.3.tgz#059a8aec1eefb48a475e9fcedc3b9e3deb521213"
   integrity sha512-W6IePXTExGXVDAlfZbNUUrx3GxUOZP248u5n4a4ID1XZMrbQ+uGeNiEfapvdzwx0qZi5DNH/hDLiPUP+pzFIxg==
 
-rollup-plugin-terser@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-7.0.0.tgz#26b38ada4f0b351cd7cd872ca04c0f8532d4864f"
-  integrity sha512-p/N3lLiFusCjYTLfVkoaiRTOGr5AESEaljMPH12MhOtoMkmTBhIAfuadrcWy4am1U0vU4WTxO9fi0K09O4CboQ==
+rollup-plugin-terser@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-7.0.1.tgz#df72d8272e03fcb504a76f414b9509c63c5eaf54"
+  integrity sha512-HL0dgzSxBYG/Ly9i/E5Sc+PuKKZ0zBzk11VmLCfdUtpqH4yYqkLclPkTqRy85FU9246yetImOClaQ/ufnj08vg==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     jest-worker "^26.2.1"
@@ -5940,10 +5940,10 @@ rollup-plugin-typescript2@^0.27.2:
     resolve "1.17.0"
     tslib "2.0.1"
 
-rollup@^2.26.6:
-  version "2.26.6"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.26.6.tgz#0b460c1da224c6af12a1e948a28c513aa11f2b93"
-  integrity sha512-iSB7eE3k/VNQHnI7ckS++4yIqTamoUCB1xo7MswhJ/fg22oFYR5+xCrUZVviBj97jvc5A31MPbVMw1Wc3jWxmw==
+rollup@^2.26.8:
+  version "2.26.8"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.26.8.tgz#7b02353835a73c4797f42177a5fa3fc074012713"
+  integrity sha512-li9WaJYc5z9WzV1jhZbPQCrsOpGNsI+Li1qyrn5n745ZNSnlkRlBtj1Hs+Z0Dc2N1+P7HT34UKAEASqN9Th8cg==
   optionalDependencies:
     fsevents "~2.1.2"
 
