@@ -3,7 +3,7 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import { JSX } from '@skyra/discord-components-core';
+import type { JSX } from '@skyra/discord-components-core';
 
 import { defineCustomElements } from '@skyra/discord-components-core/loader';
 

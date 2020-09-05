@@ -1,22 +1,11 @@
-import {
-	Component,
-	ComponentDidLoad,
-	ComponentDidUnload,
-	ComponentInterface,
-	ComponentWillLoad,
-	Element,
-	h,
-	Host,
-	Prop,
-	Watch
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import hexToRgba from 'hex-to-rgba';
 
 @Component({
 	tag: 'discord-mention',
 	styleUrl: 'discord-mention.css'
 })
-export class DiscordMention implements ComponentWillLoad, ComponentDidLoad, ComponentDidUnload, ComponentInterface {
+export class DiscordMention implements ComponentInterface {
 	/**
 	 * The DiscordMention element
 	 */
@@ -57,7 +46,7 @@ export class DiscordMention implements ComponentWillLoad, ComponentDidLoad, Comp
 		}
 	}
 
-	componentDidUnload() {
+	disconnectedCallback() {
 		if (this.color && this.type === 'role') {
 			this.el.removeEventListener('mouseover', this.setHoverColor.bind(this));
 			this.el.removeEventListener('mouseout', this.resetHoverColor.bind(this));

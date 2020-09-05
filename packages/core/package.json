@@ -4,14 +4,15 @@
 	"description": "Web components to easily build and display fake Discord messages on your webpages.",
 	"author": "@skyra",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"module": "dist/index.mjs",
-	"es2015": "dist/esm/index.mjs",
-	"es2017": "dist/esm/index.mjs",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.js",
+	"es2015": "dist/esm/index.js",
+	"es2017": "dist/esm/index.js",
+	"jsnext:main": "dist/esm/index.js",
 	"types": "dist/types/index.d.ts",
 	"collection": "dist/collection/collection-manifest.json",
 	"collection:main": "dist/collection/index.js",
-	"unpkg": "dist/skyra-discord-components-core.js",
+	"unpkg": "dist/skyra-discord-components-core/skyra-discord-components-core.esm.js",
 	"homepage": "https://github.com/skyra-project/discord-message-components/tree/main/packages/core#readme",
 	"scripts": {
 		"build": "stencil build --docs",
@@ -19,11 +20,11 @@
 		"generate": "stencil generate"
 	},
 	"dependencies": {
+		"@stencil/core": "^2.0.3",
 		"clsx": "^1.1.1",
 		"hex-to-rgba": "^2.0.1"
 	},
 	"devDependencies": {
-		"@stencil/core": "^1.17.3",
 		"@stencil/react-output-target": "^0.0.9"
 	},
 	"directories": {

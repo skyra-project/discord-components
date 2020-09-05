@@ -3,6 +3,7 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
 	namespace: 'skyra-discord-components-core',
+	taskQueue: 'async',
 	buildEs5: false,
 	outputTargets: [
 		reactOutputTarget({
