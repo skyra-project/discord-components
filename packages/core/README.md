@@ -60,12 +60,8 @@
 
 ```html
 <discord-messages>
-	<discord-message>
-		Hey guys, I'm new here! Glad to be able to join you all!
-	</discord-message>
-	<discord-message author="Dawn" avatar="red">
-		Hi, I'm new here too!
-	</discord-message>
+	<discord-message> Hey guys, I'm new here! Glad to be able to join you all! </discord-message>
+	<discord-message author="Dawn" avatar="red"> Hi, I'm new here too! </discord-message>
 	<discord-message author="Favna" avatar="https://github.com/favna.png" role-color="#ff0000">
 		Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server! Be sure to read
 		through the <discord-mention type="channel">rules</discord-mention>. You can ping
@@ -148,9 +144,7 @@ The syntax is kept fairly simple. Here's a basic example of a regular conversati
 ```html
 <discord-messages>
 	<discord-message>Hey guys, I'm new here! Glad to be able to join you all!</discord-message>
-	<discord-message author="Dawn" avatar="red">
-		Hi, I'm new here too!
-	</discord-message>
+	<discord-message author="Dawn" avatar="red"> Hi, I'm new here too! </discord-message>
 	<discord-message author="Favna" avatar="https://github.com/favna.png" roleColor="#ff0000">
 		Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server!
 	</discord-message>
@@ -332,9 +326,7 @@ To ensure the embed gets displayed correctly inside your message, be sure to giv
 ```html
 <discord-message>
 	Hi, I'm part of the normal message content.
-	<DiscordEmbed slot="embeds" color="#ff0000">
-		Hi, I'm part of the embed message content.
-	</DiscordEmbed>
+	<DiscordEmbed slot="embeds" color="#ff0000"> Hi, I'm part of the embed message content. </DiscordEmbed>
 </discord-message>
 ```
 
@@ -362,12 +354,8 @@ At least 2 consecutive fields need to be marked as inline in order for them to a
 	<DiscordEmbed slot="embeds">
 		Hi, I'm part of the embed message content.
 		<DiscordEmbedFields slot="fields">
-			<DiscordEmbedField fieldTitle="Inline field" inline>
-				Field content.
-			</DiscordEmbedField>
-			<DiscordEmbedField fieldTitle="Inline field" inline>
-				Field content.
-			</DiscordEmbedField>
+			<DiscordEmbedField fieldTitle="Inline field" inline> Field content. </DiscordEmbedField>
+			<DiscordEmbedField fieldTitle="Inline field" inline> Field content. </DiscordEmbedField>
 		</DiscordEmbedFields>
 	</DiscordEmbed>
 </discord-message>

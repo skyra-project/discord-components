@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property    | Attribute   | Description                                                                                                                | Type      | Default     |
@@ -11,7 +10,6 @@
 | `highlight` | `highlight` | Whether this entire message block should be highlighted (to emulate the "logged in user" being pinged).                    | `boolean` | `false`     |
 | `type`      | `type`      | The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role` | `string`  | `'user'`    |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

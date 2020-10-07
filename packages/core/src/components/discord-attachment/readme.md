@@ -1,9 +1,6 @@
 # discord-attachment
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -14,7 +11,6 @@
 | `url`    | `url`     | The URL for the image attachment                          | `string` | `undefined`            |
 | `width`  | `width`   | The width of the image in pixels                          | `number` | `undefined`            |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

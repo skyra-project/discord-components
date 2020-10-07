@@ -31,7 +31,7 @@ const discordAvatars: Avatars = {
 	red: 'https://cdn.discordapp.com/attachments/654503812593090602/665721752277483540/red.png'
 };
 
-const globalAvatars: Avatars = window.$discordMessage?.avatars ?? {} as Avatars;
+const globalAvatars: Avatars = window.$discordMessage?.avatars ?? ({} as Avatars);
 
 export const avatars: Avatars = Object.assign(discordAvatars, globalAvatars, {
 	default: discordAvatars[globalAvatars.default] ?? globalAvatars.default ?? discordAvatars.blue

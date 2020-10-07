@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property                  | Attribute      | Description                                           | Type      | Default     |
@@ -11,7 +10,6 @@
 | `inline`                  | `inline`       | Whether this field should be displayed inline or not. | `boolean` | `false`     |
 | `inlineIndex`             | `inline-index` | The index of this inline field                        | `number`  | `1`         |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

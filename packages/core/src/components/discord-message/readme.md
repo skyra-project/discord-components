@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property    | Attribute    | Description                                                                                                                        | Type                     | Default      |
@@ -16,7 +15,6 @@
 | `timestamp` | `timestamp`  | The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.                               | `Date \| null \| string` | `new Date()` |
 | `verified`  | `verified`   | Whether the bot is verified or not.                                                                                                | `boolean`                | `false`      |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

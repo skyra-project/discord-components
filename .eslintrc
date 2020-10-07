@@ -1,5 +1,5 @@
 {
-	"extends": ["@favware/eslint-config-react-app"],
+	"extends": ["@favware/eslint-config-react-app", "plugin:prettier/recommended"],
 	"overrides": [
 		{
 			"files": ["packages/core/**"],

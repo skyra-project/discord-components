@@ -28,5 +28,5 @@ export const findSlotElement = (elements: HTMLCollection, name: string): Element
 
 export const IMAGE_EXTENSION = /\.(bmp|jpe?g|png|gif|webp|tiff)$/i;
 export const validateImageExtension = (url: string) => {
-	if(!IMAGE_EXTENSION.test(url)) throw new Error(`The url of an image for discord-attachment should match the regex ${IMAGE_EXTENSION}`)
-}
+	if (!IMAGE_EXTENSION.test(url)) throw new Error(`The url of an image for discord-attachment should match the regex ${IMAGE_EXTENSION}`);
+};
