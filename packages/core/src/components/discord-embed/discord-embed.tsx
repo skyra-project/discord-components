@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, ComponentWillLoad, Element, h, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 import Fragment from '../../Fragment';
 import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
@@ -7,7 +7,7 @@ import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
 	tag: 'discord-embed',
 	styleUrl: 'discord-embed.css'
 })
-export class DiscordEmbed implements ComponentWillLoad, ComponentInterface {
+export class DiscordEmbed implements ComponentInterface {
 	/**
 	 * The DiscordEmbed element.
 	 */
@@ -83,8 +83,8 @@ export class DiscordEmbed implements ComponentWillLoad, ComponentInterface {
 
 	@Watch('timestamp')
 	updateTimestamp(value?: DiscordTimestamp): string | null {
-		if (!value) return null;
-		return handleTimestamp(value);
+		if (!value || isNaN(new Date(value).getTime())) return null;
+		return handleTimestamp(new Date(value));
 	}
 
 	componentWillLoad() {
