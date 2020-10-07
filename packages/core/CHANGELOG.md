@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/skyra-project/discord-message-components/compare/v2.0.0...v2.0.1) (2020-10-07)
+
+### Bug Fixes
+
+-   **core:** fixed date parsing for discord-embed ([515d243](https://github.com/skyra-project/discord-message-components/commit/515d243aa53b921dae523fb599bea9da4e419c07))
+
 # [2.0.0](https://github.com/skyra-project/discord-message-components/compare/v1.3.0...v2.0.0) (2020-09-05)
 
 ### Features
