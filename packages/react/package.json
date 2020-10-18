@@ -18,7 +18,7 @@
 		"rollup-plugin-cleaner": "^1.0.0",
 		"rollup-plugin-peer-deps-external": "^2.2.3",
 		"rollup-plugin-terser": "^7.0.2",
-		"rollup-plugin-typescript2": "^0.27.3"
+		"rollup-plugin-typescript2": "^0.28.0"
 	},
 	"peerDependencies": {
 		"@skyra/discord-components-core": "^1.x",
