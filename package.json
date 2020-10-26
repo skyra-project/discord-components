@@ -20,14 +20,22 @@
 	"devDependencies": {
 		"@commitlint/cli": "^11.0.0",
 		"@commitlint/config-conventional": "^11.0.0",
-		"@favware/eslint-config-react-app": "^1.1.4",
+		"@favware/eslint-config": "^6.0.2",
+		"@favware/eslint-config-react-app": "^2.0.2",
 		"@favware/ts-config": "^3.0.4",
-		"@types/node": "^14.14.2",
+		"@types/node": "^14.14.3",
 		"@types/react": "16.9.53",
 		"@types/react-dom": "16.9.8",
+		"@typescript-eslint/eslint-plugin": "^4.5.0",
+		"@typescript-eslint/parser": "^4.5.0",
 		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^7.12.0",
 		"eslint-config-prettier": "^6.14.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.4.0",
 		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.21.5",
+		"eslint-plugin-react-hooks": "^4.2.0",
 		"husky": "^4.3.0",
 		"lerna": "^3.22.1",
 		"lint-staged": "^10.4.2",
@@ -60,9 +68,9 @@
 		}
 	},
 	"resolutions": {
-		"acorn": "^7.2.0",
+		"acorn": "^8.0.4",
 		"minimist": "^1.2.5",
 		"kind-of": "^6.0.3",
-		"dot-prop": "^5.3.0"
+		"dot-prop": "^6.0.0"
 	}
 }
