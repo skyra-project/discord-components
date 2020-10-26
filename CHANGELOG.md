@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/skyra-project/discord-components/compare/v2.0.1...v2.0.2) (2020-10-26)
+
+### Bug Fixes
+
+-   **react:** allow peer dependency of React 17 and Core 2 ([ae5fb27](https://github.com/skyra-project/discord-components/commit/ae5fb278643f68714bc646697e97269686517eb3))
+
 ## [2.0.1](https://github.com/skyra-project/discord-components/compare/v2.0.0...v2.0.1) (2020-10-07)
 
 ### Bug Fixes
