@@ -21,9 +21,9 @@
 		"rollup-plugin-typescript2": "^0.28.0"
 	},
 	"peerDependencies": {
-		"@skyra/discord-components-core": "^1.x",
-		"react": "^16.x",
-		"react-dom": "^16.x"
+		"@skyra/discord-components-core": "2.x",
+		"react": "16.8.x || 17.x",
+		"react-dom": "16.8.x || 17.x"
 	},
 	"directories": {
 		"lib": "src"
