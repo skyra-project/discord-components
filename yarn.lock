@@ -1181,10 +1181,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@stencil/core@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.2.0.tgz#f92b480a387bce688a368b2fb23207f1acd45bc2"
-  integrity sha512-2V+DEUs9wvkcgnIIs0huye/M1v7x6qEzeOjp056RQlB08U1I4ex3vnBoE0/CrR35wK3ZZv2JYPOfBUuqR+6AAg==
+"@stencil/core@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.3.0.tgz#9190df3a0064537730be1546545e13531d701da8"
+  integrity sha512-VZ/Ox0E1kngcmHbJhHUufuLELi+xG3of3LuRI3X2AMWyE82JUVYlOEsQci/YBZWpfc9BS9I36R88prBew22oew==
 
 "@stencil/react-output-target@^0.0.9":
   version "0.0.9"
@@ -7067,10 +7067,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.3.tgz#153bbd468ef07725c1df9c77e8b453f8d36abba5"
-  integrity sha512-tEu6DGxGgRJPb/mVPIZ48e69xCn2yRmCgYmDugAVwmJ6o+0u1RI18eO7E7WBTLYLaEVVOhwQmcdhQHweux/WPg==
+typescript@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.5.tgz#ae9dddfd1069f1cb5beb3ef3b2170dd7c1332389"
+  integrity sha512-ywmr/VrTVCmNTJ6iV2LwIrfG1P+lv6luD8sUJs+2eI9NLGigaN+nUQc13iHqisq7bra9lnmUSYqbJvegraBOPQ==
 
 uglify-js@^3.1.4:
   version "3.10.3"
