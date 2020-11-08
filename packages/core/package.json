@@ -20,7 +20,7 @@
 		"generate": "stencil generate"
 	},
 	"dependencies": {
-		"@stencil/core": "^2.2.0",
+		"@stencil/core": "^2.3.0",
 		"clsx": "^1.1.1",
 		"hex-to-rgba": "^2.0.1"
 	},
