@@ -24,7 +24,7 @@
 		"@favware/eslint-config-react-app": "^2.0.2",
 		"@favware/ts-config": "^3.0.4",
 		"@types/node": "^14.14.6",
-		"@types/react": "16.9.55",
+		"@types/react": "16.14.0",
 		"@types/react-dom": "16.9.9",
 		"@typescript-eslint/eslint-plugin": "^4.6.0",
 		"@typescript-eslint/parser": "^4.6.0",
