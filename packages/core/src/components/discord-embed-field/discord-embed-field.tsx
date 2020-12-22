@@ -33,8 +33,7 @@ export class DiscordEmbedField implements ComponentWillLoad, ComponentInterface 
 
 	@Watch('inlineIndex')
 	checkInlineIndex(value: DiscordEmbedField['inlineIndex']) {
-		if (!this.validInlineIndices.has(Number(value)))
-			throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
+		if (!this.validInlineIndices.has(Number(value))) throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
 	}
 
 	componentWillLoad() {

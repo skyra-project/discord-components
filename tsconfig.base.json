@@ -1,10 +1,10 @@
 {
-  "extends": "@favware/ts-config",
-  "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "target": "ES2017",
-    "jsx": "react",
-    "strictPropertyInitialization": false
-  }
+	"extends": "@favware/ts-config",
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"target": "ES2017",
+		"jsx": "react",
+		"strictPropertyInitialization": false
+	}
 }

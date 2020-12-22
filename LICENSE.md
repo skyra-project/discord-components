@@ -1,5 +1,4 @@
-The MIT License (MIT)
-=====================
+# The MIT License (MIT)
 
 Copyright © `2020` `Antonio Román, Jeroen Claassens`
 

@@ -65,8 +65,8 @@
 		Hi, I'm new here too!
 	</DiscordMessage>
 	<DiscordMessage author="Sanctuary" avatar="https://i.imgur.com/0TeacfY.png" roleColor="#0099ff">
-		Hey, <DiscordMention>User</DiscordMention> and <DiscordMention>Dawn</DiscordMention>. Welcome to our server! Be sure to read through
-		the <DiscordMention type="channel">rules</DiscordMention>. You can ping{' '}
+		Hey, <DiscordMention>User</DiscordMention> and <DiscordMention>Dawn</DiscordMention>. Welcome to our server! Be sure to read through the{' '}
+		<DiscordMention type="channel">rules</DiscordMention>. You can ping{' '}
 		<DiscordMention type="role" color="#70f0b4">
 			Support
 		</DiscordMention>{' '}

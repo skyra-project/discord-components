@@ -94,16 +94,7 @@ export class DiscordEmbed implements ComponentInterface {
 	private renderMedia() {
 		if (this.video) {
 			return (
-				<video
-					controls
-					muted
-					preload="none"
-					poster={this.image}
-					src={this.video}
-					height="225"
-					width="400"
-					class="discord-embed-video"
-				>
+				<video controls muted preload="none" poster={this.image} src={this.video} height="225" width="400" class="discord-embed-video">
 					<img src={this.image} alt="Discord embed media" class="discord-embed-image" />
 				</video>
 			);
@@ -155,18 +146,12 @@ export class DiscordEmbed implements ComponentInterface {
 								<slot></slot>
 							</div>
 							<slot name="fields"></slot>
-							<div class={clsx('discord-embed-media', { 'discord-embed-media-video': Boolean(this.video) })}>
-								{this.renderMedia()}
-							</div>
+							<div class={clsx('discord-embed-media', { 'discord-embed-media-video': Boolean(this.video) })}>{this.renderMedia()}</div>
 
 							{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
 							{(footerSlot || this.timestamp) && (
 								<div class="discord-embed-footer">
-									{footerSlot && this.footerImage ? (
-										<img src={this.footerImage} alt="" class="discord-footer-image" />
-									) : (
-										''
-									)}
+									{footerSlot && this.footerImage ? <img src={this.footerImage} alt="" class="discord-footer-image" /> : ''}
 									<Fragment>
 										<slot name="footer"></slot>
 										{footerSlot && this.timestamp ? <span class="discord-footer-separator">&bull;</span> : ''}

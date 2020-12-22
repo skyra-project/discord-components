@@ -63,13 +63,11 @@
 	<discord-message> Hey guys, I'm new here! Glad to be able to join you all! </discord-message>
 	<discord-message author="Dawn" avatar="red"> Hi, I'm new here too! </discord-message>
 	<discord-message author="Favna" avatar="https://github.com/favna.png" role-color="#ff0000">
-		Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server! Be sure to read
-		through the <discord-mention type="channel">rules</discord-mention>. You can ping
+		Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server! Be sure to read through the
+		<discord-mention type="channel">rules</discord-mention>. You can ping
 		<discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
 	</discord-message>
-	<discord-message author="Kyra" avatar="https://github.com/kyranet.png" role-color="#70f0b4">
-		Hello everyone! How's it going?
-	</discord-message>
+	<discord-message author="Kyra" avatar="https://github.com/kyranet.png" role-color="#70f0b4"> Hello everyone! How's it going? </discord-message>
 	<discord-message author="User"> Thank you <discord-mention highlight>Favna</discord-mention>! </discord-message>
 	<discord-message author="Skyra" avatar="https://github.com/NM-EEA-Y.png">
 		I'm doing well, <discord-mention>Twelve</discord-mention>. What about yourself?

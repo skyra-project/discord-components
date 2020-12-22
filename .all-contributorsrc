@@ -1,29 +1,20 @@
 {
-  "projectName": "discord-components",
-  "projectOwner": "skyra-project",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md",
-    "packages/core/README.md",
-    "packages/react/README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
-  "contributors": [
-    {
-      "login": "Favna",
-      "name": "Jeroen Claassens",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
-      "profile": "https://favware.tech/",
-      "contributions": [
-        "code",
-        "doc",
-        "example",
-        "projectManagement"
-      ]
-    }
-  ],
-  "contributorsPerLine": 7
+	"projectName": "discord-components",
+	"projectOwner": "skyra-project",
+	"repoType": "github",
+	"repoHost": "https://github.com",
+	"files": ["README.md", "packages/core/README.md", "packages/react/README.md"],
+	"imageSize": 100,
+	"commit": false,
+	"commitConvention": "angular",
+	"contributors": [
+		{
+			"login": "Favna",
+			"name": "Jeroen Claassens",
+			"avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
+			"profile": "https://favware.tech/",
+			"contributions": ["code", "doc", "example", "projectManagement"]
+		}
+	],
+	"contributorsPerLine": 7
 }

@@ -9,15 +9,8 @@ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}
 			node.className = className;
 		}
 
-		Object.keys(newProps).forEach(name => {
-			if (
-				name === 'children' ||
-				name === 'style' ||
-				name === 'ref' ||
-				name === 'class' ||
-				name === 'className' ||
-				name === 'forwardedRef'
-			) {
+		Object.keys(newProps).forEach((name) => {
+			if (name === 'children' || name === 'style' || name === 'ref' || name === 'class' || name === 'className' || name === 'forwardedRef') {
 				return;
 			}
 			if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
@@ -50,7 +43,7 @@ export const getClassName = (classList: DOMTokenList, newProps: any, oldProps: a
 	const finalClassNames: string[] = [];
 	// loop through each of the current classes on the component
 	// to see if it should be a part of the classNames added
-	currentClasses.forEach(currentClass => {
+	currentClasses.forEach((currentClass) => {
 		if (incomingPropClasses.has(currentClass)) {
 			// add it as its already included in classnames coming in from newProps
 			finalClassNames.push(currentClass);
@@ -60,7 +53,7 @@ export const getClassName = (classList: DOMTokenList, newProps: any, oldProps: a
 			finalClassNames.push(currentClass);
 		}
 	});
-	incomingPropClasses.forEach(s => finalClassNames.push(s));
+	incomingPropClasses.forEach((s) => finalClassNames.push(s));
 	return finalClassNames.join(' ');
 };
 
