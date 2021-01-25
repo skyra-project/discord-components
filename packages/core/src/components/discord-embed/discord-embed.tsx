@@ -11,47 +11,56 @@ export class DiscordEmbed implements ComponentInterface {
 	/**
 	 * The DiscordEmbed element.
 	 */
-	@Element() el: HTMLElement;
+	@Element()
+	public el: HTMLElement;
 
 	/**
 	 * The color to use for the embed's left border. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
-	@Prop() color: string;
+	@Prop()
+	public color: string;
 
 	/**
 	 * The author's name.
 	 */
-	@Prop() authorName: string;
+	@Prop()
+	public authorName: string;
 
 	/**
 	 * The author's avatar URL.
 	 */
-	@Prop() authorImage: string;
+	@Prop()
+	public authorImage: string;
 
 	/**
 	 * The URL to open when you click on the author's name.
 	 */
-	@Prop() authorUrl: string;
+	@Prop()
+	public authorUrl: string;
 
 	/**
 	 * The embed title.
 	 */
-	@Prop() embedTitle: string;
+	@Prop()
+	public embedTitle: string;
 
 	/**
 	 * The URL to open when you click on the embed title.
 	 */
-	@Prop() url: string;
+	@Prop()
+	public url: string;
 
 	/**
 	 * The thumbnail image to use.
 	 */
-	@Prop() thumbnail: string;
+	@Prop()
+	public thumbnail: string;
 
 	/**
 	 * The embed image to use (displayed at the bottom).
 	 */
-	@Prop() image: string;
+	@Prop()
+	public image: string;
 
 	/**
 	 * The embed video to use (displayed at the bottom, same slot as the image).
@@ -63,49 +72,39 @@ export class DiscordEmbed implements ComponentInterface {
 	 * that do not support HTML5 video playback.
 	 * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
 	 */
-	@Prop() video: string;
+	@Prop()
+	public video: string;
 
 	/**
 	 * The provider to show above the embed, for example for YouTube videos it will show "YouTube" at the top of the embed (above the author)
 	 * @example YouTube
 	 */
-	@Prop() provider: string;
+	@Prop()
+	public provider: string;
 
 	/**
 	 * The image to use next to the footer text.
 	 */
-	@Prop() footerImage: string;
+	@Prop()
+	public footerImage: string;
 
 	/**
 	 * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
 	 */
-	@Prop({ mutable: true, reflect: true }) timestamp?: DiscordTimestamp;
+	@Prop({ mutable: true, reflect: true })
+	public timestamp?: DiscordTimestamp;
 
 	@Watch('timestamp')
-	updateTimestamp(value?: DiscordTimestamp): string | null {
+	public updateTimestamp(value?: DiscordTimestamp): string | null {
 		if (!value || isNaN(new Date(value).getTime())) return null;
 		return handleTimestamp(new Date(value));
 	}
 
-	componentWillLoad() {
+	public componentWillLoad() {
 		this.timestamp = this.updateTimestamp(this.timestamp);
 	}
 
-	private renderMedia() {
-		if (this.video) {
-			return (
-				<video controls muted preload="none" poster={this.image} src={this.video} height="225" width="400" class="discord-embed-video">
-					<img src={this.image} alt="Discord embed media" class="discord-embed-image" />
-				</video>
-			);
-		} else if (this.image) {
-			return <img src={this.image} alt="Discord embed media" class="discord-embed-image" />;
-		}
-
-		return null;
-	}
-
-	render() {
+	public render() {
 		const footerSlot: Element | undefined = findSlotElement(this.el.children, 'footer');
 
 		return (
@@ -164,5 +163,19 @@ export class DiscordEmbed implements ComponentInterface {
 				</div>
 			</div>
 		);
+	}
+
+	private renderMedia() {
+		if (this.video) {
+			return (
+				<video controls muted preload="none" poster={this.image} src={this.video} height="225" width="400" class="discord-embed-video">
+					<img src={this.image} alt="Discord embed media" class="discord-embed-image" />
+				</video>
+			);
+		} else if (this.image) {
+			return <img src={this.image} alt="Discord embed media" class="discord-embed-image" />;
+		}
+
+		return null;
 	}
 }

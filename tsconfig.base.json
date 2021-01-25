@@ -1,6 +1,7 @@
 {
-	"extends": "@favware/ts-config",
+	"extends": "@sapphire/ts-config",
 	"compilerOptions": {
+		"lib": ["ESNext", "DOM"],
 		"module": "ESNext",
 		"moduleResolution": "Node",
 		"target": "ES2017",

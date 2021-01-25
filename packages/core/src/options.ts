@@ -39,11 +39,11 @@ export const avatars: Avatars = Object.assign(discordAvatars, globalAvatars, {
 
 export const profiles: { [key: string]: Profile } = window.$discordMessage?.profiles ?? {};
 
-export const defaultTheme: string = window.$discordMessage?.defaultTheme !== 'light' ? 'dark' : 'light';
+export const defaultTheme: string = window.$discordMessage?.defaultTheme === 'light' ? 'light' : 'dark';
 
-export const defaultMode: string = window.$discordMessage?.defaultMode !== 'compact' ? 'cozy' : 'compact';
+export const defaultMode: string = window.$discordMessage?.defaultMode === 'compact' ? 'compact' : 'cozy';
 
-export const defaultBackground: string = window.$discordMessage?.defaultBackground !== 'none' ? 'discord' : 'none';
+export const defaultBackground: string = window.$discordMessage?.defaultBackground === 'none' ? 'none' : 'discord';
 
 declare global {
 	interface Window {

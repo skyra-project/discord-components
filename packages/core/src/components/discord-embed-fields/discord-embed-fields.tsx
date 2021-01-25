@@ -5,7 +5,7 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
 	styleUrl: 'discord-embed-fields.css'
 })
 export class DiscordEmbedFields implements ComponentInterface {
-	render() {
+	public render() {
 		return (
 			<Host class="discord-embed-fields">
 				<slot></slot>

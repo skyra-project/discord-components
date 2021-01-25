@@ -4,7 +4,8 @@
 		"composite": true,
 		"rootDir": "src",
 		"outDir": "dist",
-		"strictNullChecks": false
+		"strictNullChecks": false,
+		"importsNotUsedAsValues": "remove"
 	},
 	"include": ["src"]
 }

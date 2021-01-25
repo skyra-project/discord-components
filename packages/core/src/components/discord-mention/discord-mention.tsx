@@ -9,25 +9,29 @@ export class DiscordMention implements ComponentInterface {
 	/**
 	 * The DiscordMention element
 	 */
-	@Element() el: HTMLElement;
+	@Element()
+	public el: HTMLElement;
 
 	/**
 	 * Whether this entire message block should be highlighted (to emulate the "logged in user" being pinged).
 	 */
-	@Prop() highlight = false;
+	@Prop()
+	public highlight = false;
 
 	/**
 	 * The color to use for this mention. Only works for role mentions and must be in hex format.
 	 */
-	@Prop() color: string;
+	@Prop()
+	public color: string;
 
 	/**
 	 * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`
 	 */
-	@Prop() type = 'user';
+	@Prop()
+	public type = 'user';
 
 	@Watch('type')
-	handleType(value: string) {
+	public handleType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordMention `type` prop must be a string.');
 		} else if (!['user', 'channel', 'role'].includes(value)) {
@@ -35,33 +39,33 @@ export class DiscordMention implements ComponentInterface {
 		}
 	}
 
-	componentWillLoad() {
+	public componentWillLoad() {
 		this.handleType(this.type);
 	}
 
-	componentDidLoad() {
+	public componentDidLoad() {
 		if (this.color && this.type === 'role') {
 			this.el.addEventListener('mouseover', this.setHoverColor.bind(this));
 			this.el.addEventListener('mouseout', this.resetHoverColor.bind(this));
 		}
 	}
 
-	disconnectedCallback() {
+	public disconnectedCallback() {
 		if (this.color && this.type === 'role') {
 			this.el.removeEventListener('mouseover', this.setHoverColor.bind(this));
 			this.el.removeEventListener('mouseout', this.resetHoverColor.bind(this));
 		}
 	}
 
-	setHoverColor() {
+	public setHoverColor() {
 		this.el.style.backgroundColor = hexToRgba(this.color, 0.3);
 	}
 
-	resetHoverColor() {
+	public resetHoverColor() {
 		this.el.style.backgroundColor = hexToRgba(this.color, 0.1);
 	}
 
-	render() {
+	public render() {
 		const { color, type }: { color?: string; type?: string } = this;
 
 		const colorStyle: {

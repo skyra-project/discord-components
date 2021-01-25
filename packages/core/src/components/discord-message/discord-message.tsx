@@ -13,59 +13,68 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 	/**
 	 * The DiscordMessage element.
 	 */
-	@Element() el: HTMLElement;
+	@Element()
+	public el: HTMLElement;
 
 	/**
 	 * The id of the profile data to use.
 	 */
-	@Prop() profile: string;
+	@Prop()
+	public profile: string;
 
 	/**
 	 * The message author's username.
 	 * @default 'User'
 	 */
-	@Prop() author = 'User';
+	@Prop()
+	public author = 'User';
 
 	/**
 	 * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
 	 */
-	@Prop() avatar: string;
+	@Prop()
+	public avatar: string;
 
 	/**
 	 * Whether the message author is a bot or not.
 	 */
-	@Prop() bot = false;
+	@Prop()
+	public bot = false;
 
 	/**
 	 * Whether the bot is verified or not.
 	 */
-	@Prop() verified = false;
+	@Prop()
+	public verified = false;
 
 	/**
 	 * Whether the message has been edited or not.
 	 */
-	@Prop() edited = false;
+	@Prop()
+	public edited = false;
 
 	/**
 	 * The message author's primary role color. Can be any {@link https://www.w3schools.com/cssref/css_colors_legal.asp CSS color value}.
 	 */
-	@Prop() roleColor: string;
+	@Prop()
+	public roleColor: string;
 
 	/**
 	 * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
 	 */
-	@Prop({ mutable: true, reflect: true }) timestamp: DiscordTimestamp = new Date();
+	@Prop({ mutable: true, reflect: true })
+	public timestamp: DiscordTimestamp = new Date();
 
 	@Watch('timestamp')
-	updateTimestamp(value: DiscordTimestamp): string | null {
+	public updateTimestamp(value: DiscordTimestamp): string | null {
 		return handleTimestamp(value);
 	}
 
-	componentWillLoad() {
+	public componentWillLoad() {
 		this.timestamp = handleTimestamp(this.timestamp);
 	}
 
-	render() {
+	public render() {
 		const parent: HTMLDiscordMessagesElement = this.el.parentElement as HTMLDiscordMessagesElement;
 
 		if (parent.tagName.toLowerCase() !== 'discord-messages') {

@@ -6,22 +6,23 @@ import clsx from 'clsx';
 	styleUrl: 'discord-embed-field.css'
 })
 export class DiscordEmbedField implements ComponentWillLoad, ComponentInterface {
-	private validInlineIndices = new Set([1, 2, 3]);
-
 	/**
 	 * The DiscordEmbedField element
 	 */
-	@Element() el: HTMLElement;
+	@Element()
+	public el: HTMLElement;
 
 	/**
 	 * The field's title.
 	 */
-	@Prop() fieldTitle!: string;
+	@Prop()
+	public fieldTitle!: string;
 
 	/**
 	 * Whether this field should be displayed inline or not.
 	 */
-	@Prop() inline = false;
+	@Prop()
+	public inline = false;
 
 	/**
 	 * The index of this inline field
@@ -29,18 +30,21 @@ export class DiscordEmbedField implements ComponentWillLoad, ComponentInterface 
 	 * @oneof [1, 2, 3]
 	 * @default 1
 	 */
-	@Prop() inlineIndex = 1;
+	@Prop()
+	public inlineIndex = 1;
+
+	private validInlineIndices = new Set([1, 2, 3]);
 
 	@Watch('inlineIndex')
-	checkInlineIndex(value: DiscordEmbedField['inlineIndex']) {
+	public checkInlineIndex(value: DiscordEmbedField['inlineIndex']) {
 		if (!this.validInlineIndices.has(Number(value))) throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
 	}
 
-	componentWillLoad() {
+	public componentWillLoad() {
 		this.checkInlineIndex(this.inlineIndex);
 	}
 
-	render() {
+	public render() {
 		const parent: HTMLDiscordEmbedFieldElement = this.el.parentElement as HTMLDiscordEmbedFieldElement;
 
 		if (parent.tagName.toLowerCase() !== 'discord-embed-fields') {

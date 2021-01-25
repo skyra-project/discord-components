@@ -13,7 +13,7 @@ export const attachProps = (node: HTMLElement, newProps: any, oldProps: any = {}
 			if (name === 'children' || name === 'style' || name === 'ref' || name === 'class' || name === 'className' || name === 'forwardedRef') {
 				return;
 			}
-			if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
+			if (name.startsWith('on') && name[2] === name[2].toUpperCase()) {
 				const eventName = name.substring(2);
 				const eventNameLc = eventName[0].toLowerCase() + eventName.substring(1);
 

@@ -10,33 +10,36 @@ export class DiscordMessages implements ComponentWillLoad, ComponentInterface {
 	/**
 	 * Whether to use light theme or not.
 	 */
-	@Prop({ mutable: true, reflect: true }) lightTheme: boolean;
+	@Prop({ mutable: true, reflect: true })
+	public lightTheme: boolean;
 
 	/**
 	 * Whether to exclude the background or not.
 	 */
-	@Prop({ mutable: true, reflect: true }) noBackground: boolean;
+	@Prop({ mutable: true, reflect: true })
+	public noBackground: boolean;
 
 	/**
 	 * Whether to use compact mode or not.
 	 */
-	@Prop({ mutable: true, reflect: true }) compactMode: boolean;
+	@Prop({ mutable: true, reflect: true })
+	public compactMode: boolean;
 
-	componentWillLoad() {
-		if (this.lightTheme === true || (defaultTheme === 'light' && this.lightTheme !== false)) {
+	public componentWillLoad() {
+		if (this.lightTheme || (defaultTheme === 'light' && this.lightTheme)) {
 			this.lightTheme = true;
 		}
 
-		if (this.compactMode === true || (defaultMode === 'compact' && this.compactMode !== false)) {
+		if (this.compactMode || (defaultMode === 'compact' && this.compactMode)) {
 			this.compactMode = true;
 		}
 
-		if (this.noBackground === true || (defaultBackground === 'none' && this.noBackground !== false)) {
+		if (this.noBackground || (defaultBackground === 'none' && this.noBackground)) {
 			this.noBackground = true;
 		}
 	}
 
-	render() {
+	public render() {
 		return (
 			<Host
 				class={clsx(

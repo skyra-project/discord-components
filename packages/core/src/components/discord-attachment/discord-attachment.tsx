@@ -9,35 +9,40 @@ export class DiscordAttachment implements ComponentWillLoad, ComponentInterface 
 	/**
 	 * The DiscordEmbed element.
 	 */
-	@Element() el: HTMLElement;
+	@Element()
+	public el: HTMLElement;
 
 	/**
 	 * The URL for the image attachment
 	 * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
 	 */
-	@Prop() url: string;
+	@Prop()
+	public url: string;
 
 	/**
 	 * The height of the image in pixels
 	 */
-	@Prop() height: number;
+	@Prop()
+	public height: number;
 
 	/**
 	 * The width of the image in pixels
 	 */
-	@Prop() width: number;
+	@Prop()
+	public width: number;
 
 	/**
 	 * The alt text to show in case the image was unable to load
 	 * @default 'discord attachment'
 	 */
-	@Prop() alt = 'discord attachment';
+	@Prop()
+	public alt = 'discord attachment';
 
-	componentWillLoad() {
+	public componentWillLoad() {
 		validateImageExtension(this.url);
 	}
 
-	render() {
+	public render() {
 		return (
 			<Host class="discord-attachment">
 				<div class="discord-attachment-root">
