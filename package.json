@@ -5,7 +5,6 @@
 	],
 	"private": true,
 	"scripts": {
-		"prepublishOnly": "yarn build",
 		"clean": "rimraf packages/core/dist packages/core/loader packages/core/www packages/react/src packages/react/dist packages/*/node_modules",
 		"lint": "eslint packages/ --fix --ext ts,tsx",
 		"format": "prettier --write --loglevel=warn \"packages/**/src/**\"",
