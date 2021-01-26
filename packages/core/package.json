@@ -24,9 +24,6 @@
 		"clsx": "^1.1.1",
 		"hex-to-rgba": "^2.0.1"
 	},
-	"devDependencies": {
-		"@stencil/react-output-target": "^0.0.9"
-	},
 	"directories": {
 		"lib": "src"
 	},
