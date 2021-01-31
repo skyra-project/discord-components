@@ -1194,12 +1194,7 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
-"@types/node@*", "@types/node@>= 8":
-  version "14.14.20"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.20.tgz#f7974863edd21d1f8a494a73e8e2b3658615c340"
-  integrity sha512-Y93R97Ouif9JEOWPIUyU+eyIdyRqQR0I8Ez1dzku4hDx34NWh4HbtIc3WNzwB1Y9ULvNGeu5B8h8bVL5cAk4/A==
-
-"@types/node@^14.14.22":
+"@types/node@*", "@types/node@>= 8", "@types/node@^14.14.22":
   version "14.14.22"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.22.tgz#0d29f382472c4ccf3bd96ff0ce47daf5b7b84b18"
   integrity sha512-g+f/qj/cNcqKkc3tFqlXOYjrmZA+jNBiDzbP3kH+B+otKFqAdPgVTGP1IeKRdMml/aE69as5S4FqtxAbl+LaMw==
@@ -6095,10 +6090,10 @@ rollup-plugin-typescript2@^0.29.0:
     resolve "1.17.0"
     tslib "2.0.1"
 
-rollup@^2.38.0:
-  version "2.38.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.38.0.tgz#57942d5a10826cb12ed1f19c261f774efa502d2d"
-  integrity sha512-ay9zDiNitZK/LNE/EM2+v5CZ7drkB2xyDljvb1fQJCGnq43ZWRkhxN145oV8GmoW1YNi4sA/1Jdkr2LfawJoXw==
+rollup@^2.38.2:
+  version "2.38.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.38.2.tgz#ac5feef9e3b5f1c4386a0578f3add52b8b66759f"
+  integrity sha512-3Sg65zfgqsnI2LUFsOmhJDvTWXwio+taySq/dsyvel8+GW+AxeW9V6YZG8BpVGQk/TS4uvGLARRH5T3ygDyyNQ==
   optionalDependencies:
     fsevents "~2.1.2"
 
