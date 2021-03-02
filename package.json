@@ -16,7 +16,7 @@
 		"commit": "git-cz",
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive --latest",
-		"postinstall": "husky install .github/husky"
+		"prepare": "husky install .github/husky"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^12.0.1",
