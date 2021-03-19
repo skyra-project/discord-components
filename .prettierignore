@@ -4,4 +4,4 @@ node_modules/
 www/
 *.png
 flexboxgrid.min.css
-src/packages/core/src/components.d.ts
+packages/core/src/components.d.ts
