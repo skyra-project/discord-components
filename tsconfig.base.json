@@ -6,6 +6,7 @@
 		"moduleResolution": "Node",
 		"target": "ES2017",
 		"jsx": "react",
-		"strictPropertyInitialization": false
+		"strictPropertyInitialization": false,
+		"useDefineForClassFields": false
 	}
 }
