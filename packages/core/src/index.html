@@ -74,10 +74,6 @@
 			.discord-messages {
 				font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 			}
-
-			.discord-messages {
-				border-radius: 4px;
-			}
 		</style>
 		<script>
 			window.$discordMessage = {
@@ -176,7 +172,7 @@
 				<discord-messages>
 					<discord-message profile="favna">
 						Hey guys, check out this awesome, cute, and totally amazing dragon!
-						<discord-attachment slot="attachments" url="/static/dragonite.png" height="959" width="959" alt="dragonite" />
+						<discord-attachment slot="attachments" url="/static/dragonite.png" height="512" width="512" alt="dragonite" />
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Verified Discord bots</h3>
@@ -188,45 +184,60 @@
 					<discord-message profile="skyra">
 						<discord-embed
 							slot="embeds"
-							author-image="/static/klasa.png"
-							author-name="Klasa Developers"
-							author-url="https://klasa.js.org/"
-							color="#0392D5"
-							embed-title="Klasa"
-							footer-image="/static/klasa.png"
-							image="/static/klasa.png"
-							thumbnail="/static/klasa.png"
-							timestamp="01/05/2020"
-							url="https://klasa.js.org/"
+							author-image="/static/sapphire.png"
+							author-name="Sapphire Developers"
+							author-url="https://website-sapphire-project.vercel.app"
+							color="#0F52BA"
+							embed-title="Sapphire"
+							footer-image="/static/sapphire.png"
+							image="/static/sapphire.png"
+							thumbnail="/static/sapphire.png"
+							timestamp="03/20/2021"
+							url="https://website-sapphire-project.vercel.app"
 						>
-							Klasa is an OOP @klasa/core framework which aims to be the most feature complete, while feeling like a consistent
-							extension of <a href="https://github.com/dirigeants/Project-Blue">@klasa/core</a><br />
-							Originally based on Komada, Klasa has become a
-							<a href="https://en.wikipedia.org/wiki/Ship_of_Theseus">ship of Theseus</a> and so much more. You can only vaguely see
-							similarities between the two frameworks anymore...
+							Sapphire is a next-gen object-oriented
+							<a target="_blank" rel="noopener noreferrer" href="https://discord.js.org/">Discord.js</a>
+							bot framework.<br /><br />Sapphire is a community driven framework that aims to give you all the features you need to make
+							your Discord bot.<br /><br />With a history of many other Discord bot frameworks (both for NodeJS and other languages) to
+							inspire Sapphire, it has become the ultimate modern experience of writing your code.
 							<discord-embed-fields slot="fields">
-								<discord-embed-field field-title="Installation"> yarn add dirigeants/klasa </discord-embed-field>
-								<discord-embed-field field-title="​"> ​<!-- Empty field --> </discord-embed-field>
-								<discord-embed-field field-title="OOP" inline inline-index="1">
-									OOP and completely hot-reloadable (all commands, events, inhibitors, etc).
-								</discord-embed-field>
-								<discord-embed-field field-title="Databases" inline inline-index="2"> Works with any database. </discord-embed-field>
-								<discord-embed-field field-title="Permissions" inline inline-index="3">
-									Powerful and easy to configure permission levels system.
-								</discord-embed-field>
-
-								<discord-embed-field field-title="Settings" inline inline-index="1">
-									Per Client/Guild/User settings, and possible to add more.
-								</discord-embed-field>
-								<discord-embed-field field-title="Message Features" inline inline-index="2">
-									Powerful command handler with: prompting, edits, argument resolving, flags, infinite args, custom args, and so
-									much more...
-								</discord-embed-field>
-								<discord-embed-field field-title="User controlable" inline inline-index="3">
-									Fully customizable.
+								<discord-embed-field field-title="Installation"> yarn add @sapphire/framework </discord-embed-field>
+								<discord-embed-field field-title="Key Features">
+									<ul style="padding-inline-start: 20px; margin-block-start: 0.5em">
+										<li>
+											<div>
+												<span></span>
+											</div>
+											<div>Advanced plugin support</div>
+										</li>
+										<li>
+											<div>
+												<span></span>
+											</div>
+											<div>Supports both CommonJS and ESM</div>
+										</li>
+										<li>
+											<div>
+												<span></span>
+											</div>
+											<div>Completely modular and extendable</div>
+										</li>
+										<li>
+											<div>
+												<span></span>
+											</div>
+											<div>Designed with first class TypeScript support in mind</div>
+										</li>
+										<li>
+											<div>
+												<span></span>
+											</div>
+											<div>Includes optional utilities that you can use in any project</div>
+										</li>
+									</ul>
 								</discord-embed-field>
 							</discord-embed-fields>
-							<span slot="footer">Let's stop reinventing the wheel, and start coding the bots of our dreams!</span>
+							<span slot="footer">Open source libraries to aid in the creation of Discord bots</span>
 						</discord-embed>
 					</discord-message>
 				</discord-messages>
