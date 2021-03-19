@@ -11,8 +11,10 @@
 	"scripts": {
 		"build": "rollup -c rollup.config.ts"
 	},
+	"dependencies": {
+		"@skyra/discord-components-core": "latest"
+	},
 	"peerDependencies": {
-		"@skyra/discord-components-core": "2.x",
 		"react": "16.8.x || 17.x",
 		"react-dom": "16.8.x || 17.x"
 	},
