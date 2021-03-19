@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, ComponentWillLoad, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
 import clsx from 'clsx';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options';
 
@@ -6,7 +6,7 @@ import { defaultBackground, defaultMode, defaultTheme } from '../../options';
 	tag: 'discord-messages',
 	styleUrl: 'discord-messages.css'
 })
-export class DiscordMessages implements ComponentWillLoad, ComponentInterface {
+export class DiscordMessages implements ComponentInterface {
 	/**
 	 * Whether to use light theme or not.
 	 */
@@ -25,7 +25,7 @@ export class DiscordMessages implements ComponentWillLoad, ComponentInterface {
 	@Prop({ mutable: true, reflect: true })
 	public compactMode: boolean;
 
-	public componentWillLoad() {
+	public componentWillRender() {
 		if (this.lightTheme || (defaultTheme === 'light' && this.lightTheme)) {
 			this.lightTheme = true;
 		}

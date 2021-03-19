@@ -39,7 +39,7 @@ export class DiscordMention implements ComponentInterface {
 		}
 	}
 
-	public componentWillLoad() {
+	public componentWillRender() {
 		this.handleType(this.type);
 	}
 

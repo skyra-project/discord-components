@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, ComponentWillLoad, Element, h, Host, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 import Fragment from '../../Fragment';
 import { avatars, Profile, profiles } from '../../options';
@@ -9,7 +9,7 @@ import { AuthorInfo } from '../author-info/author-info';
 	tag: 'discord-message',
 	styleUrl: 'discord-message.css'
 })
-export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
+export class DiscordMessage implements ComponentInterface {
 	/**
 	 * The DiscordMessage element.
 	 */
@@ -70,7 +70,7 @@ export class DiscordMessage implements ComponentWillLoad, ComponentInterface {
 		return handleTimestamp(value);
 	}
 
-	public componentWillLoad() {
+	public componentWillRender() {
 		this.timestamp = handleTimestamp(this.timestamp);
 	}
 

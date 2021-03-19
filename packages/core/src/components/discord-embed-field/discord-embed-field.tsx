@@ -1,11 +1,11 @@
-import { Component, ComponentInterface, ComponentWillLoad, Element, h, Host, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 
 @Component({
 	tag: 'discord-embed-field',
 	styleUrl: 'discord-embed-field.css'
 })
-export class DiscordEmbedField implements ComponentWillLoad, ComponentInterface {
+export class DiscordEmbedField implements ComponentInterface {
 	/**
 	 * The DiscordEmbedField element
 	 */
@@ -40,7 +40,7 @@ export class DiscordEmbedField implements ComponentWillLoad, ComponentInterface 
 		if (!this.validInlineIndices.has(Number(value))) throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
 	}
 
-	public componentWillLoad() {
+	public componentWillRender() {
 		this.checkInlineIndex(this.inlineIndex);
 	}
 

@@ -1,11 +1,11 @@
-import { Component, ComponentInterface, ComponentWillLoad, Element, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 import { validateImageExtension } from '../../util';
 
 @Component({
 	tag: 'discord-attachment',
 	styleUrl: 'discord-attachment.css'
 })
-export class DiscordAttachment implements ComponentWillLoad, ComponentInterface {
+export class DiscordAttachment implements ComponentInterface {
 	/**
 	 * The DiscordEmbed element.
 	 */
@@ -38,7 +38,7 @@ export class DiscordAttachment implements ComponentWillLoad, ComponentInterface 
 	@Prop()
 	public alt = 'discord attachment';
 
-	public componentWillLoad() {
+	public componentWillRender() {
 		validateImageExtension(this.url);
 	}
 
