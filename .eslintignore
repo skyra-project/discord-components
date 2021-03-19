@@ -7,3 +7,4 @@ packages/core/dist
 packages/core/loader
 packages/core/www
 node_modules/
+src/packages/core/src/components.d.ts
