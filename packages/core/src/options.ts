@@ -1,4 +1,4 @@
-interface Avatars {
+export interface Avatars {
 	blue: string;
 	gray: string;
 	green: string;

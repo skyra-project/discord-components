@@ -5,7 +5,7 @@
 	"repoHost": "https://github.com",
 	"files": ["README.md", "packages/core/README.md", "packages/react/README.md"],
 	"imageSize": 100,
-	"commit": false,
+	"commit": true,
 	"commitConvention": "angular",
 	"contributors": [
 		{
@@ -14,6 +14,20 @@
 			"avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
 			"profile": "https://favware.tech/",
 			"contributions": ["code", "doc", "example", "projectManagement"]
+		},
+		{
+			"login": "depfu[bot]",
+			"name": "depfu[bot]",
+			"avatar_url": "https://avatars.githubusercontent.com/in/715?v=4",
+			"profile": "https://github.com/apps/depfu",
+			"contributions": ["maintenance"]
+		},
+		{
+			"login": "dependabot[bot]",
+			"name": "dependabot[bot]",
+			"avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+			"profile": "https://github.com/apps/dependabot",
+			"contributions": ["maintenance"]
 		}
 	],
 	"contributorsPerLine": 7

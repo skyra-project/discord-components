@@ -1,46 +1,55 @@
 <div align="center">
-<p>
-<h1> @skyra/discord-components-react </h1>
-<h3> React bindings for @skyra/discord-components-core </h3>
-</p>
-<p>
-	<a href="https://github.com/skyra-project/discord-components/blob/main/LICENSE.md">
-	<img src="https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square" alt="NPM version" />
-	</a>
-</p>
-<p>
-<a href="https://www.npmjs.com/package/@skyra/discord-components-react">
-<img src="https://img.shields.io/npm/v/@skyra/discord-components-react.svg?maxAge=3600&logo=npm&style=flat-square" alt="NPM version" />
-</a>
-	
-<a href="https://www.npmjs.com/package/@skyra/discord-components-react">
-<img src="https://img.shields.io/npm/dt/@skyra/discord-components-react.svg?maxAge=3600&logo=npm&style=flat-square" alt="NPM downloads" />
-</a>
-</p>
-<p>
-<a href="https://bundlephobia.com/result?p=@skyra/discord-components-react">
-<img src="https://img.shields.io/bundlephobia/min/@skyra/discord-components-react?label=minified&logo=webpack&maxAge=3600&style=flat-square" alt="Minified Size">
-</a>
 
-<a href="https://bundlephobia.com/result?p=@skyra/discord-components-react">
-<img src="https://img.shields.io/bundlephobia/minzip/@skyra/discord-components-react?label=minzipped&logo=webpack&maxAge=3600&style=flat-square" alt="Minzipped Size">
-</a>
-</p>
+# @skyra/discord-components-react
 
-<a href="https://depfu.com/github/skyra-project/discord-components?project_id=11733">
-<img src="https://badges.depfu.com/badges/2be62b7690111eea9aef95f7c8ca07fa/count.svg" alt="Depfu" />
-</a>
+**React bindings for [@skyra/discord-components-core](https://www.npmjs.com/package/@skyra/discord-components-core)**
 
-<a href="https://donate.skyra.pw/patreon">
-<img src="https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon" alt="Patreon" />
-</a>
+[![License](https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square)](https://github.com/skyra-project/discord-components/blob/main/LICENSE.md)
+[![Depfu](https://badges.depfu.com/badges/2be62b7690111eea9aef95f7c8ca07fa/count.svg)](https://depfu.com/github/skyra-project/discord-components?project_id=11733)
+[![Patreon](https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon)](https://donate.skyra.pw/patreon)
 
-<a href="https://stenciljs.com/">
-<img src="https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square" Alt="Stencil" />
-</a>
+[![npm](https://img.shields.io/npm/v/@skyra/discord-components-react?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-react)](https://www.npmjs.com/package/@skyra/discord-components-react)
+[![npm](https://img.shields.io/npm/dt/@skyra/discord-components-react.svg?maxAge=3600&logo=npm)](https://www.npmjs.com/package/@skyra/discord-components-react)
+[![npm](https://img.shields.io/bundlephobia/min/@skyra/discord-components-react?label=minified&logo=webpack&maxAge=3600)](https://bundlephobia.com/result?p=@skyra/discord-components-react)
+[![Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d)](https://stenciljs.com)
+
+[![Support Server](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://website.sapphire-project.vercel.app/discord)
+
 </div>
 
-**This is an adoptation of [wc-discord-message] from [Danktuary].**
+---
+
+**_Table of Contents_**
+
+-   [@skyra/discord-components-react](#skyradiscord-components-react)
+    -   [Description](#description)
+    -   [Features](#features)
+    -   [Installation](#installation)
+    -   [Usage](#usage)
+        -   [Live Demo](#live-demo)
+        -   [Sample code](#sample-code)
+    -   [Notes](#notes)
+        -   [Default font](#default-font)
+        -   [TypeScript module augments](#typescript-module-augments)
+        -   [Avatar shortcuts](#avatar-shortcuts)
+        -   [Profile shortcuts](#profile-shortcuts)
+        -   [Theming](#theming)
+        -   [Components notes](#components-notes)
+            -   [DiscordMessages component](#discordmessages-component)
+            -   [DiscordMention component](#discordmention-component)
+            -   [DiscordEmbed component](#discordembed-component)
+            -   [EmbedFields component](#embedfields-component)
+            -   [EmbedField component](#embedfield-component)
+    -   [Screenshots](#screenshots)
+        -   [Dark Mode](#dark-mode)
+        -   [Light Mode](#light-mode)
+    -   [Contributors ✨](#contributors-%E2%9C%A8)
+
+## Description
+
+Discord message components to easily build and display fake Discord messages on your webpage.
+
+**This is an adaptation of [wc-discord-message] from [Danktuary]**
 
 ## Features
 
@@ -52,50 +61,6 @@
 -   Complete embed support
 -   Simple syntax!
 
-## Preview
-
-![@skyra/discord-components-core preview](https://i.imgur.com/xHL8Xyx.png)
-
-<details><summary> Code for this preview </summary>
-
-```tsx
-<DiscordMessages>
-	<DiscordMessage>Hey guys, I'm new here! Glad to be able to join you all!</DiscordMessage>
-	<DiscordMessage author="Dawn" avatar="red">
-		Hi, I'm new here too!
-	</DiscordMessage>
-	<DiscordMessage author="Sanctuary" avatar="https://i.imgur.com/0TeacfY.png" roleColor="#0099ff">
-		Hey, <DiscordMention>User</DiscordMention> and <DiscordMention>Dawn</DiscordMention>. Welcome to our server! Be sure to read through the{' '}
-		<DiscordMention type="channel">rules</DiscordMention>. You can ping{' '}
-		<DiscordMention type="role" color="#70f0b4">
-			Support
-		</DiscordMention>{' '}
-		if you need help.
-	</DiscordMessage>
-	<DiscordMessage author="Twelve" avatar="https://i.imgur.com/Mc0F0Hf.png" roleColor="#70f0b4">
-		Hello everyone! How's it going?
-	</DiscordMessage>
-	<DiscordMessage author="User">
-		Thank you <DiscordMention highlight>Sanctuary</DiscordMention>!
-	</DiscordMessage>
-	<DiscordMessage author="Yotsuba" avatar="https://i.imgur.com/amw0MGJ.png">
-		I'm doing well, <DiscordMention>Twelve</DiscordMention>. What about yourself?
-	</DiscordMessage>
-	<DiscordMessage author="Twelve" avatar="https://i.imgur.com/Mc0F0Hf.png" roleColor="#70f0b4">
-		!8ball How am I doing today?
-	</DiscordMessage>
-	<DiscordMessage author="Rinon" avatar="https://i.imgur.com/axQ9wJl.png" roleColor="violet" bot>
-		Yes.
-	</DiscordMessage>
-</DiscordMessages>
-```
-
-</details>
-
-&nbsp;
-
-Check out the [live demo](https://skyra-discord-components.netlify.app/) for further examples.
-
 ## Installation
 
 ```bash
@@ -104,6 +69,12 @@ yarn add @skyra/discord-components-core @skyra/discord-components-react
 ```
 
 ## Usage
+
+### Live Demo
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-react-64k90)
+
+### Sample code
 
 The syntax is kept fairly simple. Here's a basic example of a regular conversation:
 
@@ -179,32 +150,11 @@ In order to load the Discord font add the following code:
 This module uses a custom object on the browser `window` for configuration. In order to this you will need to include the following snippet in your source code when working in TypeScript:
 
 ```ts
+import type { DiscordMessageOptions } from '@skyra/discord-components-core/dist/types/options';
+
 declare global {
-	type DiscordMessageAvatars = Record<string, string> &
-		Partial<{
-			blue: string;
-			gray: string;
-			green: string;
-			orange: string;
-			red: string;
-		}>;
-
-	type DiscordMessageProfile = Partial<{
-		author: string;
-		avatar: string;
-		bot: boolean;
-		verified: boolean;
-		roleColor: string;
-	}>;
-
 	interface Window {
-		$discordMessage: Partial<{
-			avatars: DiscordMessageAvatars;
-			profiles: Record<string, DiscordMessageProfile>;
-			defaultTheme: string;
-			defaultMode: string;
-			defaultBackground: 'discord' | 'none';
-		}>;
+		$discordMessage: DiscordMessageOptions;
 	}
 }
 ```
@@ -337,6 +287,36 @@ At least 2 consecutive fields need to be marked as inline in order for them to a
 </DiscordMessage>
 ```
 
+## Screenshots
+
+### Dark Mode
+
+**_A normal conversation_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/dark_mode/normal_conversation.png)
+
+**_Compact mode_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/dark_mode/compact_mode.png)
+
+**_With an embed_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/dark_mode/with_embed.png)
+
+### Light Mode
+
+**_A normal conversation_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/normal_conversation.png)
+
+**_Compact mode_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/compact_mode.png)
+
+**_With an embed_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/with_embed.png)
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -347,10 +327,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Documentation">📖</a> <a href="#example-Favna" title="Examples">💡</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/apps/dependabot"><img src="https://avatars.githubusercontent.com/in/29110?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dependabot[bot]</b></sub></a><br /><a href="#maintenance-dependabot[bot]" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -361,6 +343,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
 [danktuary]: https://github.com/Danktuary
-[rollup]: https://rollupjs.org/
-[@stencil/react-output-target]: https://www.npmjs.com/package/@stencil/react-output-target
 [the respective folder]: (https://github.com/skyra-project/discord-components/blob/main/packages/core/src/components/)

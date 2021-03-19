@@ -1,4 +1,4 @@
-name: Build
+name: Continuous Integration
 
 on:
   push:
@@ -30,24 +30,46 @@ jobs:
     outputs:
       commit_message: $( [ -z "${{ steps.pr_get_commit_message.outputs.pr_commit_message }}" ] && echo "${{ steps.push_get_commit_message.outputs.push_commit_message }}" || echo "${{ steps.pr_get_commit_message.outputs.pr_commit_message }}" )
 
-  build:
-    name: Build
+  Linting:
+    name: Linting
     runs-on: ubuntu-latest
     if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
     needs: pre_ci
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
-      - name: Install NodeJS v12
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
       - name: Restore CI Cache
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-12-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
         run: yarn --ignore-scripts --frozen-lockfile
-      - name: Build libraries
+      - name: Run ESLint
+        run: yarn lint --fix=false
+
+  Building:
+    name: Compile source code
+    runs-on: ubuntu-latest
+    if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
+    needs: pre_ci
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Restore CI Cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies
+        run: yarn --ignore-scripts --frozen-lockfile
+      - name: Build Code
         run: yarn build

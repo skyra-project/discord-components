@@ -16,7 +16,7 @@
 	"homepage": "https://github.com/skyra-project/discord-message-components/tree/main/packages/core#readme",
 	"scripts": {
 		"build": "stencil build --docs",
-		"serve": "stencil build --dev --watch --serve",
+		"start": "stencil build --dev --watch --serve",
 		"generate": "stencil generate"
 	},
 	"dependencies": {

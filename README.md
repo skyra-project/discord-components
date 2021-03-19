@@ -1,26 +1,41 @@
 <div align="center">
-<p>
-<h1> Discord Components </h1>
-<h3> Fake Discord messages for the web </h3>
-</p>
-<p>
-	<a href="https://github.com/skyra-project/discord-components/blob/main/LICENSE.md">
-	<img src="https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square" alt="NPM version" />
-	</a>
-</p>
 
-<a href="https://depfu.com/github/skyra-project/discord-components?project_id=11733">
-<img src="https://badges.depfu.com/badges/2be62b7690111eea9aef95f7c8ca07fa/count.svg" alt="Depfu" />
-</a>
+# Discord Components
 
-<a href="https://donate.skyra.pw/patreon">
-<img src="https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon" alt="Patreon" />
-</a>
+**Fake Discord messages for the web**
+
+[![License](https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square)](https://github.com/skyra-project/discord-components/blob/main/LICENSE.md)
+[![Depfu](https://badges.depfu.com/badges/2be62b7690111eea9aef95f7c8ca07fa/count.svg)](https://depfu.com/github/skyra-project/discord-components?project_id=11733)
+[![Patreon](https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon)](https://donate.skyra.pw/patreon)
+
+[![npm](https://img.shields.io/npm/v/@skyra/discord-components-core?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-core)](https://www.npmjs.com/package/@skyra/discord-components-core)
+[![npm](https://img.shields.io/npm/v/@skyra/discord-components-react?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-react)](https://www.npmjs.com/package/@skyra/discord-components-react)
+
+[![Support Server](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://website.sapphire-project.vercel.app/discord)
+
 </div>
+
+---
+
+**_Table of Contents_**
+
+-   [Discord Components](#discord-components)
+    -   [Description](#description)
+    -   [Features](#features)
+    -   [Demos](#demos)
+        -   [Angular](#angular)
+        -   [React](#react)
+        -   [Vue](#vue)
+    -   [Screenshots](#screenshots)
+        -   [Dark Mode](#dark-mode)
+        -   [Light Mode](#light-mode)
+    -   [Contributors ✨](#contributors-%E2%9C%A8)
+
+## Description
 
 Discord message components to easily build and display fake Discord messages on your webpage.
 
-**This is an adoptation of [wc-discord-message] from [Danktuary]**
+**This is an adaptation of [wc-discord-message] from [Danktuary]**
 
 ## Features
 
@@ -31,9 +46,50 @@ Discord message components to easily build and display fake Discord messages on 
 -   Display fake user, role, and channel mentions
 -   Complete embed support
 -   Simple syntax!
--   Available as WebComponents and ReactComponents
 
-Check out the [live demo](https://skyra-discord-components.netlify.app/) for further examples.
+## Demos
+
+### Angular
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-angular-0xz0z)
+
+### React
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-react-64k90)
+
+### Vue
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-vue-g1w48)
+
+## Screenshots
+
+### Dark Mode
+
+**_A normal conversation_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/dark_mode/normal_conversation.png)
+
+**_Compact mode_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/dark_mode/compact_mode.png)
+
+**_With an embed_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/dark_mode/with_embed.png)
+
+### Light Mode
+
+**_A normal conversation_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/normal_conversation.png)
+
+**_Compact mode_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/compact_mode.png)
+
+**_With an embed_**
+
+![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/with_embed.png)
 
 ## Contributors ✨
 
@@ -45,10 +101,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Documentation">📖</a> <a href="#example-Favna" title="Examples">💡</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/apps/dependabot"><img src="https://avatars.githubusercontent.com/in/29110?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dependabot[bot]</b></sub></a><br /><a href="#maintenance-dependabot[bot]" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
