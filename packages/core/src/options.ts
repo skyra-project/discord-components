@@ -23,7 +23,7 @@ export interface DiscordMessageOptions {
 	defaultBackground?: 'discord' | 'none';
 }
 
-const discordAvatars: Avatars = {
+export const defaultDiscordAvatars: Avatars = {
 	blue: 'https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png',
 	gray: 'https://cdn.discordapp.com/attachments/654503812593090602/665721746569166849/gray.png',
 	green: 'https://cdn.discordapp.com/attachments/654503812593090602/665721748431306753/green.png',
@@ -33,8 +33,8 @@ const discordAvatars: Avatars = {
 
 const globalAvatars: Avatars = window.$discordMessage?.avatars ?? ({} as Avatars);
 
-export const avatars: Avatars = Object.assign(discordAvatars, globalAvatars, {
-	default: discordAvatars[globalAvatars.default] ?? globalAvatars.default ?? discordAvatars.blue
+export const avatars: Avatars = Object.assign(defaultDiscordAvatars, globalAvatars, {
+	default: defaultDiscordAvatars[globalAvatars.default] ?? globalAvatars.default ?? defaultDiscordAvatars.blue
 });
 
 export const profiles: { [key: string]: Profile } = window.$discordMessage?.profiles ?? {};
