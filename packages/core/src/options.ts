@@ -1,10 +1,11 @@
 export interface Avatars {
-	blue: string;
-	gray: string;
-	green: string;
-	orange: string;
-	red: string;
-	[key: string]: string;
+	default: 'blue' | 'gray' | 'green' | 'orange' | 'red';
+	blue?: string;
+	gray?: string;
+	green?: string;
+	orange?: string;
+	red?: string;
+	[key: string]: string | undefined;
 }
 
 export interface Profile {
@@ -23,7 +24,7 @@ export interface DiscordMessageOptions {
 	defaultBackground?: 'discord' | 'none';
 }
 
-export const defaultDiscordAvatars: Avatars = {
+export const defaultDiscordAvatars: Omit<Avatars, 'default'> = {
 	blue: 'https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png',
 	gray: 'https://cdn.discordapp.com/attachments/654503812593090602/665721746569166849/gray.png',
 	green: 'https://cdn.discordapp.com/attachments/654503812593090602/665721748431306753/green.png',
