@@ -100,7 +100,7 @@ export class DiscordEmbed implements ComponentInterface {
 		return handleTimestamp(new Date(value));
 	}
 
-	public componentWillLoad() {
+	public componentWillRender() {
 		this.timestamp = this.updateTimestamp(this.timestamp);
 	}
 
