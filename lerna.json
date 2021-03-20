@@ -13,6 +13,7 @@
 			"allowBranch": "main",
 			"conventionalCommits": true,
 			"push": true,
+			"createRelease": "github",
 			"signGitCommit": true,
 			"signGitTag": true
 		}
