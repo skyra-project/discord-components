@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3-alpha.0](https://github.com/skyra-project/discord-message-components/compare/v2.0.2...v2.0.3-alpha.0) (2021-03-20)
+
+### Bug Fixes
+
+-   **core:** export options on top level ([d128f13](https://github.com/skyra-project/discord-message-components/commit/d128f13b69a22f134ef89a5fbdd4ad9db94006d0))
+-   **core:** use proper lifecycle for embed ([e17ddb9](https://github.com/skyra-project/discord-message-components/commit/e17ddb9f413b380cb668a7d6a8554c5df31e05ff))
+-   change lifecycle hooks to `componentWillRender` so props are recomputed on re-renders ([e19f9c3](https://github.com/skyra-project/discord-message-components/commit/e19f9c3345ee6e943b5d19e383bb4268d1cbc516))
+-   fixed readmes and such ([bdb8846](https://github.com/skyra-project/discord-message-components/commit/bdb8846db2ded36567ef624ddddedf95f59e549b))
+
 ## [2.0.2](https://github.com/skyra-project/discord-message-components/compare/v2.0.1...v2.0.2) (2020-10-26)
 
 **Note:** Version bump only for package @skyra/discord-components-core

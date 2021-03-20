@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3-alpha.0](https://github.com/skyra-project/discord-message-components/compare/v2.0.2...v2.0.3-alpha.0) (2021-03-20)
+
+### Bug Fixes
+
+-   **react:** move core from peer to regular dependencies ([8d1e3ff](https://github.com/skyra-project/discord-message-components/commit/8d1e3ff85a519b27f5590d9f01e98111de7695ae))
+-   fixed readmes and such ([bdb8846](https://github.com/skyra-project/discord-message-components/commit/bdb8846db2ded36567ef624ddddedf95f59e549b))
+
 ## [2.0.2](https://github.com/skyra-project/discord-message-components/compare/v2.0.1...v2.0.2) (2020-10-26)
 
 ### Bug Fixes
