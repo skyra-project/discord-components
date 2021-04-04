@@ -5,8 +5,14 @@
 	"author": "@skyra",
 	"license": "MIT",
 	"main": "dist/index.js",
-	"module": "dist/index.es.js",
+	"module": "dist/index.mjs",
+	"browser": "dist/index.umd.js",
+	"unpkg": "dist/index.umd.js",
 	"typings": "dist/index.d.ts",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js"
+	},
 	"homepage": "https://github.com/skyra-project/discord-message-components/tree/main/packages/react#readme",
 	"scripts": {
 		"build": "rollup -c rollup.config.ts"

@@ -16,7 +16,7 @@ export default {
 			sourcemap: true
 		},
 		{
-			file: './dist/index.es.js',
+			file: './dist/index.mjs',
 			format: 'es',
 			exports: 'named',
 			sourcemap: true
@@ -28,7 +28,11 @@ export default {
 		}),
 		external(),
 		typescript(),
-		resolveNode({ preferBuiltins: true }),
+		resolveNode({
+			browser: true,
+			preferBuiltins: true,
+			dedupe: ['react', 'react-dom']
+		}),
 		commonjs({ extensions: ['ts', '.tsx'] }),
 		terser({
 			ecma: 2016,
