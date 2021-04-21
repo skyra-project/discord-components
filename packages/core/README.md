@@ -65,7 +65,7 @@ Discord message components to easily build and display fake Discord messages on 
 
 ## Features
 
--   Design modeled after [Discord](https://discordapp.com/) itself
+-   Design modelled after [Discord](https://discordapp.com/) itself
 -   Comfy and compact mode support
 -   Dark and light themes support
 -   Set the message author's username, avatar (use defaults or provide your own), role color, and "bot" tag status
