@@ -93,11 +93,11 @@ export class DiscordMessage implements ComponentInterface {
 		});
 
 		return (
-			<Host class={clsx('discord-message row', { 'discord-highlight-mention': highlightMention })}>
+			<Host class={clsx('discord-message', { 'discord-highlight-mention': highlightMention })}>
 				<div class="discord-author-avatar">
 					<img src={profile.avatar} alt={profile.author} />
 				</div>
-				<div class="col-xs-8 discord-message-content">
+				<div class="discord-message-content">
 					{!parent.compactMode && (
 						<Fragment>
 							<AuthorInfo
@@ -125,9 +125,8 @@ export class DiscordMessage implements ComponentInterface {
 						{this.edited ? <span class="discord-message-edited">(edited)</span> : ''}
 					</div>
 					<slot name="embeds"></slot>
+					<slot name="attachments"></slot>
 				</div>
-
-				<slot name="attachments"></slot>
 			</Host>
 		);
 	}

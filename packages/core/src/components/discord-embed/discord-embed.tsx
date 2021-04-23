@@ -145,7 +145,11 @@ export class DiscordEmbed implements ComponentInterface {
 								<slot></slot>
 							</div>
 							<slot name="fields"></slot>
-							<div class={clsx('discord-embed-media', { 'discord-embed-media-video': Boolean(this.video) })}>{this.renderMedia()}</div>
+							{this.image || this.video ? (
+								<div class={clsx('discord-embed-media', { 'discord-embed-media-video': Boolean(this.video) })}>
+									{this.renderMedia()}
+								</div>
+							) : null}
 
 							{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
 							{(footerSlot || this.timestamp) && (
