@@ -45,10 +45,8 @@ export class DiscordAttachment implements ComponentInterface {
 	public render() {
 		return (
 			<Host class="discord-attachment">
-				<div class="discord-attachment-root">
-					<div class="discord-image-wrapper" style={{ height: `${this.height}px`, width: `${this.width}px` }}>
-						<img alt={this.alt} src={this.url} height={this.height} width={this.width} />
-					</div>
+				<div class="discord-image-wrapper" style={{ height: `${this.height}px`, width: `${this.width}px` }}>
+					<img alt={this.alt} src={this.url} height={this.height} width={this.width} />
 				</div>
 			</Host>
 		);

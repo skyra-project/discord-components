@@ -6,7 +6,6 @@
 	display: block;
 	font-size: 16px;
 	font-family: 'Roboto', sans-serif;
-	padding: 2px 8px;
 	line-height: 170%;
 	border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -20,9 +19,3 @@
 .discord-messages.discord-no-background {
 	background-color: unset;
 }
-
-.col-xs-offset-0_25 {
-	margin-left: 2.0833333325%;
-}
-
-@import './flexboxgrid.min.css';

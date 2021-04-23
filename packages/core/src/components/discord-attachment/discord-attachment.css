@@ -5,27 +5,9 @@
 	line-height: 150%;
 	margin-bottom: 8px;
 	margin-top: 8px;
-	margin-left: 56px;
 }
 
-.discord-attachment-root {
-	display: grid;
-	grid-auto-flow: row;
-	grid-row-gap: 0.25rem;
-	text-indent: 0;
-	min-height: 0;
-	min-width: 0;
-	padding-top: 0.125rem;
-	padding-bottom: 0.125rem;
-}
-
-.discord-attachment-root > * {
-	justify-self: start;
-	-ms-flex-item-align: start;
-	align-self: start;
-}
-
-.discord-attachment-root .discord-image-wrapper {
+.discord-attachment .discord-image-wrapper {
 	display: block;
 	position: relative;
 	-webkit-user-select: text;
@@ -34,13 +16,4 @@
 	user-select: text;
 	overflow: hidden;
 	border-radius: 3px;
-}
-
-.discord-attachment .discord-image-wrapper img {
-	position: absolute;
-	text-indent: -9999px;
-}
-
-img[alt] {
-	text-indent: -9999px;
 }
