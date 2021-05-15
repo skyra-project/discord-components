@@ -16,7 +16,7 @@
 	"homepage": "https://github.com/skyra-project/discord-message-components/tree/main/packages/react#readme",
 	"scripts": {
 		"clean": "node scripts/clean.mjs",
-		"build": "run-s clean build:**",
+		"build": "run-s clean build:*",
 		"build:1": "node scripts/build.mjs",
 		"build:2": "tsc -p ./tsconfig.types.json",
 		"build:3": "rollup -c rollup.config.ts"
