@@ -28,6 +28,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
 			"profile": "https://github.com/apps/dependabot",
 			"contributions": ["maintenance"]
+		},
+		{
+			"login": "iCrawl",
+			"name": "Noel",
+			"avatar_url": "https://avatars.githubusercontent.com/u/20760160?v=4",
+			"profile": "https://ko-fi.com/crawltogo",
+			"contributions": ["code", "bug", "design"]
 		}
 	],
 	"contributorsPerLine": 7
