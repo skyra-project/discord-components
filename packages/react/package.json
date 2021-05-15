@@ -13,7 +13,7 @@
 		"import": "./dist/index.mjs",
 		"require": "./dist/index.mjs"
 	},
-	"homepage": "https://github.com/skyra-project/discord-message-components/tree/main/packages/react#readme",
+	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
 		"clean": "node scripts/clean.mjs",
 		"build": "run-s clean build:*",
@@ -42,10 +42,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/skyra-project/discord-message-components.git"
+		"url": "git+https://github.com/skyra-project/discord-components.git"
 	},
 	"bugs": {
-		"url": "https://github.com/skyra-project/discord-message-components/issues"
+		"url": "https://github.com/skyra-project/discord-components/issues"
 	},
 	"keywords": [
 		"skyra",

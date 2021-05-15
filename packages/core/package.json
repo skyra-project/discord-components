@@ -12,7 +12,7 @@
 	"unpkg": "dist/skyra-discord-components-core/skyra-discord-components-core.esm.js",
 	"collection:main": "dist/collection/index.js",
 	"collection": "dist/collection/collection-manifest.json",
-	"homepage": "https://github.com/skyra-project/discord-message-components/tree/main/packages/core#readme",
+	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
 	"scripts": {
 		"build": "stencil build --docs",
 		"start": "stencil build --dev --watch --serve",
@@ -38,10 +38,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/skyra-project/discord-message-components.git"
+		"url": "git+https://github.com/skyra-project/discord-components.git"
 	},
 	"bugs": {
-		"url": "https://github.com/skyra-project/discord-message-components/issues"
+		"url": "https://github.com/skyra-project/discord-components/issues"
 	},
 	"keywords": [
 		"skyra",

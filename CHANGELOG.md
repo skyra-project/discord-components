@@ -13,11 +13,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   "chore: re-add prepublishOnly" ([3609469](https://github.com/skyra-project/discord-components/commit/360946963177a61e158b2082b648adab531f4e63))
 
-## [2.0.3-alpha.2](https://github.com/skyra-project/discord-message-components/compare/v2.0.3-alpha.1...v2.0.3-alpha.2) (2021-05-15)
+## [2.0.3-alpha.2](https://github.com/skyra-project/discord-components/compare/v2.0.3-alpha.1...v2.0.3-alpha.2) (2021-05-15)
 
 ### Bug Fixes
 
--   **react:** include polyfills again ([43ca559](https://github.com/skyra-project/discord-message-components/commit/43ca5590416559b92a32fb6e9cd1a53c357322a2))
+-   **react:** include polyfills again ([43ca559](https://github.com/skyra-project/discord-components/commit/43ca5590416559b92a32fb6e9cd1a53c357322a2))
 
 ## [2.0.3-alpha.1](https://github.com/skyra-project/discord-components/compare/v2.0.3-alpha.0...v2.0.3-alpha.1) (2021-05-15)
 
