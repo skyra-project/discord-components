@@ -19,7 +19,7 @@
 		"build": "run-s clean build:*",
 		"build:1": "node scripts/build.mjs",
 		"build:2": "tsc -p ./tsconfig.types.json",
-		"build:3": "rollup -c rollup.config.ts"
+		"build:3": "rollup -c"
 	},
 	"dependencies": {
 		"@skyra/discord-components-core": "latest"

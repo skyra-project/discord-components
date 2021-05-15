@@ -22,6 +22,7 @@ loader/
 *.js.map
 *.jsx.map
 *.tgz
+!rollup.config.js
 
 # Misc
 *~
