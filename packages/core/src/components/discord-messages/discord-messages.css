@@ -1,11 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
+/* Whitney font face to match Discord */
+@font-face {
+	/* Whitney-Light */
+	font-family: Whitney;
+	font-style: light;
+	font-weight: 300;
+	src: url('https://cdn.skyra.pw/whitney-font/Light.woff') format('woff');
+}
+@font-face {
+	/* Whitney-Normal */
+	font-family: Whitney;
+	font-style: normal;
+	font-weight: 500;
+	src: url('https://cdn.skyra.pw/whitney-font/Normal.woff') format('woff');
+}
+@font-face {
+	/* Whitney-Medium-Regular */
+	font-family: Whitney;
+	font-style: medium;
+	font-weight: 600;
+	src: url('https://cdn.skyra.pw/whitney-font/Medium-Regular.woff') format('woff');
+}
+@font-face {
+	/* Whitney-Medium-Extra */
+	font-family: WhitneyMedium;
+	font-style: medium;
+	font-weight: 600;
+	src: url('https://cdn.skyra.pw/whitney-font/Medium-Extra.woff') format('woff');
+}
+@font-face {
+	/* Whitney-Bold */
+	font-family: Whitney;
+	font-style: bold;
+	font-weight: 700;
+	src: url('https://cdn.skyra.pw/whitney-font/Bold.woff') format('woff');
+}
+
 .discord-messages {
 	color: #fff;
 	background-color: #36393e;
 	display: block;
 	font-size: 16px;
-	font-family: 'Roboto', sans-serif;
+	font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 170%;
 	border: 1px solid rgba(255, 255, 255, 0.05);
 }

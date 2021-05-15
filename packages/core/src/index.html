@@ -31,50 +31,6 @@
 				padding-bottom: 0.25em;
 			}
 		</style>
-		<style>
-			/* Whitney font face to match Discord */
-			@font-face {
-				/* Whitney-Light */
-				font-family: Whitney;
-				font-style: light;
-				font-weight: 300;
-				src: url('/static/fonts/Whitney-Light.woff') format('woff');
-			}
-			@font-face {
-				/* Whitney-Normal */
-				font-family: Whitney;
-				font-style: normal;
-				font-weight: 500;
-				src: url('/static/fonts/Whitney-Normal.woff') format('woff');
-			}
-			@font-face {
-				/* Whitney-Medium-Regular */
-				font-family: Whitney;
-				font-style: medium;
-				font-weight: 600;
-				src: url('/static/fonts/Whitney-Medium-Regular.woff') format('woff');
-			}
-			@font-face {
-				/* Whitney-Medium-Extra */
-				font-family: WhitneyMedium;
-				font-style: medium;
-				font-weight: 600;
-				src: url('/static/fonts/Whitney-Medium-Extra.woff') format('woff');
-			}
-			@font-face {
-				/* Whitney-Bold */
-				font-family: Whitney;
-				font-style: bold;
-				font-weight: 700;
-				src: url('/static/fonts/Whitney-Bold.woff') format('woff');
-			}
-
-			/* Setting default CSS for Discord messages */
-			.discord-message,
-			.discord-messages {
-				font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-			}
-		</style>
 		<script>
 			window.$discordMessage = {
 				profiles: {
@@ -290,7 +246,7 @@
 				<h3 class="title">Inline fields with a thumbnail</h3>
 				<discord-messages>
 					<discord-message profile="skyra">
-						<discord-embed slot="embeds" thumbnail="/static/klasa.png">
+						<discord-embed slot="embeds" thumbnail="/static/sapphire.png">
 							<discord-embed-fields slot="fields">
 								<discord-embed-field field-title="Inline field title" inline> Some value here </discord-embed-field>
 								<discord-embed-field field-title="Inline field title" inline> Some value here </discord-embed-field>
