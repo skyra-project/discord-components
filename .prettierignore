@@ -3,5 +3,4 @@ loader/
 node_modules/
 www/
 *.png
-flexboxgrid.min.css
 packages/core/src/components.d.ts
