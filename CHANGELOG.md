@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/skyra-project/discord-components/compare/v2.0.4...v2.0.5) (2021-05-15)
+
+### Bug Fixes
+
+-   **core:** update mention colours to match Discord May 2021 redesign ([a7c7a84](https://github.com/skyra-project/discord-components/commit/a7c7a847082738aeb2405340e79a738ade3563db))
+
 ## [2.0.4](https://github.com/skyra-project/discord-components/compare/v2.0.3...v2.0.4) (2021-05-15)
 
 ### Bug Fixes
