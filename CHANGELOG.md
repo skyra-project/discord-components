@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3-alpha.1](https://github.com/skyra-project/discord-components/compare/v2.0.3-alpha.0...v2.0.3-alpha.1) (2021-05-15)
+
+### Bug Fixes
+
+-   fixed Avatar options ([2b97ca8](https://github.com/skyra-project/discord-components/commit/2b97ca80c89e64ad00ffb7f5660fbeed91bacf24))
+-   fixed package bundling ([11d2627](https://github.com/skyra-project/discord-components/commit/11d2627bad707a1997e286a02b3004035dfdb306))
+-   styling of components ([#72](https://github.com/skyra-project/discord-components/issues/72)) ([b440c2f](https://github.com/skyra-project/discord-components/commit/b440c2fd0b3c1411c0e96e68b0c599b1b95dfecd))
+
+### Features
+
+-   use whitney font as default font ([d7c9267](https://github.com/skyra-project/discord-components/commit/d7c9267a7680df5a3b8c7dbab5e14f673ada162b))
+
 ## [2.0.3-alpha.0](https://github.com/skyra-project/discord-components/compare/v2.0.2...v2.0.3-alpha.0) (2021-03-20)
 
 ### Bug Fixes

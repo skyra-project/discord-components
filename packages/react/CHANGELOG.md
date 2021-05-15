@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3-alpha.1](https://github.com/skyra-project/discord-message-components/compare/v2.0.3-alpha.0...v2.0.3-alpha.1) (2021-05-15)
+
+### Bug Fixes
+
+-   fixed package bundling ([11d2627](https://github.com/skyra-project/discord-message-components/commit/11d2627bad707a1997e286a02b3004035dfdb306))
+
+### Features
+
+-   use whitney font as default font ([d7c9267](https://github.com/skyra-project/discord-message-components/commit/d7c9267a7680df5a3b8c7dbab5e14f673ada162b))
+
 ## [2.0.3-alpha.0](https://github.com/skyra-project/discord-message-components/compare/v2.0.2...v2.0.3-alpha.0) (2021-03-20)
 
 ### Bug Fixes
