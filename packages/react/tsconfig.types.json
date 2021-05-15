@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"emitDeclarationOnly": true,
 		"declarationDir": "build",
-		"incremental": false
+		"tsBuildInfoFile": "build/.tsbuildinfo"
 	},
 	"include": ["src"]
 }
