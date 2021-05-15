@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/skyra-project/discord-components/compare/v2.0.3...v2.0.4) (2021-05-15)
+
+### Bug Fixes
+
+-   change links from discord-message-components to discord-components ([5a8e1e1](https://github.com/skyra-project/discord-components/commit/5a8e1e1e0b3a34020a91f0dae9464141195d8fab))
+
 ## [2.0.3](https://github.com/skyra-project/discord-components/compare/v2.0.3-alpha.3...v2.0.3) (2021-05-15)
 
 **Note:** Version bump only for package @skyra/discord-components-react
