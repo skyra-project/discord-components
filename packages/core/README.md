@@ -417,6 +417,5 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
 [danktuary]: https://github.com/Danktuary
-[rollup]: https://rollupjs.org/
 [@stencil/react-output-target]: https://www.npmjs.com/package/@stencil/react-output-target
 [the respective folder]: (https://github.com/skyra-project/discord-components/blob/main/packages/core/src/components/)

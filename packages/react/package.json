@@ -4,18 +4,22 @@
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
-	"main": "dist/index.js",
+	"main": "dist/index.mjs",
 	"module": "dist/index.mjs",
-	"browser": "dist/index.umd.js",
-	"unpkg": "dist/index.umd.js",
+	"browser": "dist/index.mjs",
+	"unpkg": "dist/index.mjs",
 	"typings": "dist/index.d.ts",
 	"exports": {
 		"import": "./dist/index.mjs",
-		"require": "./dist/index.js"
+		"require": "./dist/index.mjs"
 	},
 	"homepage": "https://github.com/skyra-project/discord-message-components/tree/main/packages/react#readme",
 	"scripts": {
-		"build": "rollup -c rollup.config.ts"
+		"clean": "node scripts/clean.mjs",
+		"build": "run-s clean build:**",
+		"build:1": "node scripts/build.mjs",
+		"build:2": "tsc -p ./tsconfig.types.json",
+		"build:3": "rollup -c rollup.config.ts"
 	},
 	"dependencies": {
 		"@skyra/discord-components-core": "latest"
