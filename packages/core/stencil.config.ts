@@ -8,7 +8,7 @@ export const config: Config = {
 			componentCorePackage: '@skyra/discord-components-core',
 			proxiesFile: '../react/src/index.ts',
 			includeDefineCustomElements: true,
-			includePolyfills: true
+			includePolyfills: false
 		}),
 		{
 			type: 'dist',

@@ -5,9 +5,9 @@ import { createReactComponent } from './react-component-lib';
 
 import type { JSX } from '@skyra/discord-components-core';
 
-import { applyPolyfills, defineCustomElements } from '@skyra/discord-components-core/loader';
+import { defineCustomElements } from '@skyra/discord-components-core/loader';
 
-applyPolyfills().then(() => defineCustomElements());
+defineCustomElements();
 export const DiscordAttachment = /*@__PURE__*/ createReactComponent<JSX.DiscordAttachment, HTMLDiscordAttachmentElement>('discord-attachment');
 export const DiscordEmbed = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbed, HTMLDiscordEmbedElement>('discord-embed');
 export const DiscordEmbedField = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedField, HTMLDiscordEmbedFieldElement>('discord-embed-field');
