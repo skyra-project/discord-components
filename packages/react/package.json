@@ -13,6 +13,9 @@
 		"import": "./dist/index.mjs",
 		"require": "./dist/index.mjs"
 	},
+	"sideEffects": [
+		"./dist/index.mjs"
+	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
 		"clean": "node scripts/clean.mjs",

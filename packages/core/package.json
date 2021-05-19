@@ -6,12 +6,23 @@
 	"license": "MIT",
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.js",
-	"es2015": "dist/esm/index.mjs",
-	"es2017": "dist/esm/index.mjs",
+	"es2015": "dist/esm/index.js",
+	"es2017": "dist/esm/index.js",
 	"types": "dist/types/index.d.ts",
 	"unpkg": "dist/skyra-discord-components-core/skyra-discord-components-core.esm.js",
 	"collection:main": "dist/collection/index.js",
 	"collection": "dist/collection/collection-manifest.json",
+	"exports": {
+		"import": "./dist/index.cjs.js",
+		"require": "./dist/esm/index.js"
+	},
+	"sideEffects": [
+		"./loader/index.js",
+		"./dist/skyra-discord-components-core/p-*",
+		"**/*skyra-discord-components-core*.js",
+		"./dist/esm/loader.js",
+		"./dist/esm/polyfills/*"
+	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
 	"scripts": {
 		"build": "stencil build --docs",
