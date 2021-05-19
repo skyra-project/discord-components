@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/skyra-project/discord-components/compare/v2.0.5...v2.0.6) (2021-05-19)
+
+### Bug Fixes
+
+-   specify sideEffects and fix `es2015` and `es2017` file paths ([b759b3c](https://github.com/skyra-project/discord-components/commit/b759b3c4ca9e505b49592d4152f1b5ada4876cc5))
+
 ## [2.0.5](https://github.com/skyra-project/discord-components/compare/v2.0.4...v2.0.5) (2021-05-15)
 
 ### Bug Fixes
