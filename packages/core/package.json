@@ -13,11 +13,24 @@
 	"collection:main": "dist/collection/index.js",
 	"collection": "dist/collection/collection-manifest.json",
 	"exports": {
-		"import": "./dist/index.cjs.js",
-		"require": "./dist/esm/index.js"
+		".": [
+			{
+				"require": "./dist/index.cjs.js",
+				"import": "./dist/index.js"
+			},
+			"./dist/index.cjs.js"
+		],
+		"./loader": [
+			{
+				"require": "./loader/index.cjs.js",
+				"import": "./loader/index.js"
+			},
+			"./loader/index.cjs.js"
+		]
 	},
 	"sideEffects": [
 		"./loader/index.js",
+		"./loader/index.cjs.js",
 		"./dist/skyra-discord-components-core/p-*",
 		"**/*skyra-discord-components-core*.js",
 		"./dist/esm/loader.js",
