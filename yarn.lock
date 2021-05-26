@@ -1081,16 +1081,7 @@
     tslib "2.2.0"
     typescript "4.2.4"
 
-"@skyra/discord-components-core@latest":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@skyra/discord-components-core/-/discord-components-core-2.0.2.tgz#d39f2c550ba3103ad285ea694b8af52c58653501"
-  integrity sha512-ipuEoieSLaUtZKRfvJjWQ0Y+F/z9WDucCWQUUpvtwlI2qUD1zI3XBsmyOV5vigvO3yMLbNcc0YB2mUysJPwjVQ==
-  dependencies:
-    "@stencil/core" "^2.1.1"
-    clsx "^1.1.1"
-    hex-to-rgba "^2.0.1"
-
-"@stencil/core@^2.1.1", "@stencil/core@^2.5.2":
+"@stencil/core@^2.5.2":
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.5.2.tgz#ad00d495ee37bbed4044524d59c7f22de15ab4a7"
   integrity sha512-bgjPXkSzzg1WnTgVUm6m5ZzpKt602WmA/QljODAW1xVN40OHJdbGblzF/F6MFzqv2c5Cy30CB41arc8qADIdcQ==
