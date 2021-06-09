@@ -28,7 +28,7 @@
 		"@stencil/react-output-target": "^0.0.9",
 		"@types/node": "^15.6.1",
 		"@types/react": "17.0.8",
-		"@types/react-dom": "17.0.5",
+		"@types/react-dom": "17.0.6",
 		"@typescript-eslint/eslint-plugin": "^4.24.0",
 		"@typescript-eslint/parser": "^4.24.0",
 		"cz-conventional-changelog": "^3.3.0",
