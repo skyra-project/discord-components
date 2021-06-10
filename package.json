@@ -69,7 +69,8 @@
 		"acorn": "^8.2.4",
 		"minimist": "^1.2.5",
 		"kind-of": "^6.0.3",
-		"dot-prop": "^6.0.1"
+		"dot-prop": "^6.0.1",
+		"trim-newlines": "^3.0.1"
 	},
 	"prettier": "@sapphire/prettier-config"
 }
