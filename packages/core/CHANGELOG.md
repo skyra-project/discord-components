@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/skyra-project/discord-components/compare/v2.0.7...v2.0.8) (2021-06-21)
+
+### Bug Fixes
+
+-   **docs:** add live demo for "No Framework" ([b58242f](https://github.com/skyra-project/discord-components/commit/b58242f39b7f3d316616c844ed922aa0c4834034))
+-   **docs:** remove default font from ToC ([82a1281](https://github.com/skyra-project/discord-components/commit/82a1281e84c51287ad01282d399c1be530d8ab2d))
+
 ## [2.0.7](https://github.com/skyra-project/discord-components/compare/v2.0.7-alpha.0...v2.0.7) (2021-05-20)
 
 **Note:** Version bump only for package @skyra/discord-components-core
