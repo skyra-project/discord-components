@@ -220,7 +220,7 @@ The components should then be available in any of the Vue templates
 If you're want to use the browser build, you can pull it in via unpkg.
 
 ```html
-<script src="https://unpkg.com/browse/@skyra/discord-components-core"></script>
+<script type="module" src="https://unpkg.com/@skyra/discord-components-core"></script>
 ```
 
 ## Notes
