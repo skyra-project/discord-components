@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/skyra-project/discord-components/compare/v2.0.8...v2.0.9) (2021-06-21)
+
+### Bug Fixes
+
+-   **css:** update to discord rebrand colors ([fe03134](https://github.com/skyra-project/discord-components/commit/fe031344284f0e1674813dfcbc9e43a33b1b78fd))
+
 ## [2.0.8](https://github.com/skyra-project/discord-components/compare/v2.0.7...v2.0.8) (2021-06-21)
 
 ### Bug Fixes
