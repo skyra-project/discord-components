@@ -1,6 +1,6 @@
 .discord-message .discord-mention {
 	color: #e3e7f8;
-	background-color: rgba(114, 137, 218, 0.3);
+	background-color: hsla(235, 85.6%, 64.7%, 0.3);
 	font-weight: 500;
 	padding: 0 2px;
 	border-radius: 3px;
@@ -13,17 +13,17 @@
 
 .discord-message .discord-mention:hover {
 	color: #fff;
-	background-color: #7289da;
+	background-color: hsl(235, 85.6%, 64.7%);
 }
 
 .discord-light-theme .discord-message .discord-mention {
 	color: #687dc6;
-	background-color: rgba(114, 137, 218, 0.15);
+	background-color: hsla(235, 85.6%, 64.7%, 0.15);
 }
 
 .discord-light-theme .discord-message .discord-mention:hover {
 	color: #ffffff;
-	background-color: #7289da;
+	background-color: hsl(235, 85.6%, 64.7%);
 }
 
 .discord-message.discord-highlight-mention {

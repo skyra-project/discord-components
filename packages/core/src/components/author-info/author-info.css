@@ -16,7 +16,7 @@
 }
 
 .discord-message .discord-author-info .discord-bot-tag {
-	background-color: #7289da;
+	background-color: hsl(235, 85.6%, 64.7%);
 	font-size: 0.65em;
 	margin-left: 5px;
 	border-radius: 3px;
