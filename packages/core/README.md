@@ -40,6 +40,8 @@
             -   [Live Demo](#live-demo-2)
             -   [Sample code](#sample-code-2)
         -   [No Framework](#no-framework)
+            -   [Live Demo](#live-demo-3)
+            -   [Sample Code](#sample-code)
     -   [Notes](#notes)
         -   [TypeScript module augments](#typescript-module-augments)
         -   [Avatar shortcuts](#avatar-shortcuts)
@@ -215,6 +217,12 @@ The components should then be available in any of the Vue templates
 ```
 
 ### No Framework
+
+#### Live Demo
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-static-nhwkl)
+
+#### Sample Code
 
 If you're want to use the browser build, you can pull it in via unpkg.
 
