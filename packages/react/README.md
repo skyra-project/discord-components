@@ -29,7 +29,6 @@
         -   [Live Demo](#live-demo)
         -   [Sample code](#sample-code)
     -   [Notes](#notes)
-        -   [Default font](#default-font)
         -   [TypeScript module augments](#typescript-module-augments)
         -   [Avatar shortcuts](#avatar-shortcuts)
         -   [Profile shortcuts](#profile-shortcuts)
