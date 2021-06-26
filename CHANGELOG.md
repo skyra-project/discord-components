@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/skyra-project/discord-components/compare/v2.0.9...v2.1.0) (2021-06-26)
+
+### Features
+
+-   add support for server crosspost webhook messages ([a02ec25](https://github.com/skyra-project/discord-components/commit/a02ec254f6804ea76282d081a674c838a87ef396)), closes [#88](https://github.com/skyra-project/discord-components/issues/88)
+
 ## [2.0.9](https://github.com/skyra-project/discord-components/compare/v2.0.8...v2.0.9) (2021-06-21)
 
 ### Bug Fixes
