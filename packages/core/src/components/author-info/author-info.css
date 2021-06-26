@@ -15,7 +15,7 @@
 	color: #23262a;
 }
 
-.discord-message .discord-author-info .discord-bot-tag {
+.discord-message .discord-author-info .discord-application-tag {
 	background-color: hsl(235, 85.6%, 64.7%);
 	font-size: 0.65em;
 	margin-left: 5px;
@@ -32,14 +32,14 @@
 	border-radius: 0.1875rem;
 }
 
-.discord-message .discord-author-info .discord-bot-tag-verified {
+.discord-message .discord-author-info .discord-application-tag-verified {
 	display: inline-block;
 	width: 0.9375rem;
 	height: 0.9375rem;
 	margin-left: -0.25rem;
 }
 
-.discord-light-theme .discord-message .discord-author-info .discord-bot-tag {
+.discord-light-theme .discord-message .discord-author-info .discord-application-tag {
 	color: #fff;
 }
 
@@ -48,7 +48,7 @@
 	margin-right: 4px;
 }
 
-.discord-compact-mode .discord-message .discord-author-info .discord-bot-tag {
+.discord-compact-mode .discord-message .discord-author-info .discord-application-tag {
 	margin-left: 0;
 	margin-right: 5px;
 	padding-left: 3px;

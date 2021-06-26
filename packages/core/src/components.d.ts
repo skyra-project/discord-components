@@ -126,7 +126,7 @@ export namespace Components {
          */
         "avatar": string;
         /**
-          * Whether the message author is a bot or not.
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
          */
         "bot": boolean;
         /**
@@ -138,15 +138,19 @@ export namespace Components {
          */
         "profile": string;
         /**
-          * The message author's primary role color. Can be any {@link https://www.w3schools.com/cssref/css_colors_legal.asp CSS color value}.
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
          */
         "roleColor": string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server": boolean;
         /**
           * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
          */
         "timestamp": DiscordTimestamp;
         /**
-          * Whether the bot is verified or not.
+          * Whether the bot is verified or not. Only works if `bot` is `true`
          */
         "verified": boolean;
     }
@@ -338,7 +342,7 @@ declare namespace LocalJSX {
          */
         "avatar"?: string;
         /**
-          * Whether the message author is a bot or not.
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
          */
         "bot"?: boolean;
         /**
@@ -350,15 +354,19 @@ declare namespace LocalJSX {
          */
         "profile"?: string;
         /**
-          * The message author's primary role color. Can be any {@link https://www.w3schools.com/cssref/css_colors_legal.asp CSS color value}.
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
          */
         "roleColor"?: string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server"?: boolean;
         /**
           * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
          */
         "timestamp"?: DiscordTimestamp;
         /**
-          * Whether the bot is verified or not.
+          * Whether the bot is verified or not. Only works if `bot` is `true`
          */
         "verified"?: boolean;
     }

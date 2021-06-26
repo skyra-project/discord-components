@@ -55,6 +55,12 @@
 						author: 'Favna',
 						avatar: 'https://github.com/favna.png',
 						roleColor: '#a155ab'
+					},
+					discordjs: {
+						author: 'Discord.js Official #announcements',
+						avatar: '/static/discordjs.png',
+						roleColor: '#ffffff',
+						server: true
 					}
 				}
 			};
@@ -78,7 +84,7 @@
 						sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping
 						<discord-mention type="role" color="#70f0b4">Support</discord-mention> if you need help.
 					</discord-message>
-					<discord-message profile="willard"> Hello everyone! How's it going? </discord-message>
+					<discord-message profile="willard">Hello everyone! How's it going?</discord-message>
 					<discord-message author="Alyx Vargas">
 						Thank you <discord-mention highlight>Maximillian Osborn</discord-mention>!
 					</discord-message>
@@ -195,6 +201,26 @@
 							</discord-embed-fields>
 							<span slot="footer">Open source libraries to aid in the creation of Discord bots</span>
 						</discord-embed>
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Server crosspost messages</h3>
+				<discord-messages>
+					<discord-message profile="discordjs" timestamp="12/06/2021">
+						Hey peeps!
+						<br />
+						<br />
+						We have a redesigned website over at <a target="_blank" href="https://discord.js.org/">https://discord.js.org/</a>
+						<br />
+						Check it out if you want or not
+						<br />
+						<br />
+						You're most likely using a cached version of the old website because of our service worker, so make sure to clear your cache
+						and any cookies/service workers you have. For some of you nothing needs to be done, for others a so called "hard-refresh" will
+						do the trick too.
+						<br />
+						<br />
+						Bugs and improvement requests go into our <discord-mention type="channel">site-discussion</discord-mention> channel (you have
+						to be in the server for this)
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Embedded video</h3>

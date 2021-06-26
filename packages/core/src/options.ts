@@ -13,6 +13,7 @@ export interface Profile {
 	avatar?: string;
 	bot?: boolean;
 	verified?: boolean;
+	server?: boolean;
 	roleColor?: string;
 }
 

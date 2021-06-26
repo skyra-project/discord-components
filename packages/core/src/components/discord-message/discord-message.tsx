@@ -37,12 +37,21 @@ export class DiscordMessage implements ComponentInterface {
 
 	/**
 	 * Whether the message author is a bot or not.
+	 * Only works if `server` is `false` or `undefined`.
 	 */
 	@Prop()
 	public bot = false;
 
 	/**
+	 * Whether the message author is a server crosspost webhook or not.
+	 * Only works if `bot` is `false` or `undefined`.
+	 */
+	@Prop()
+	public server = false;
+
+	/**
 	 * Whether the bot is verified or not.
+	 * Only works if `bot` is `true`
 	 */
 	@Prop()
 	public verified = false;
@@ -54,7 +63,7 @@ export class DiscordMessage implements ComponentInterface {
 	public edited = false;
 
 	/**
-	 * The message author's primary role color. Can be any {@link https://www.w3schools.com/cssref/css_colors_legal.asp CSS color value}.
+	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
 	@Prop()
 	public roleColor: string;
@@ -83,7 +92,7 @@ export class DiscordMessage implements ComponentInterface {
 
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
-		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, roleColor: this.roleColor };
+		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, server: this.server, roleColor: this.roleColor };
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
@@ -103,6 +112,7 @@ export class DiscordMessage implements ComponentInterface {
 							<AuthorInfo
 								author={profile.author ?? ''}
 								bot={profile.bot ?? false}
+								server={profile.server ?? false}
 								verified={profile.verified ?? false}
 								roleColor={profile.roleColor ?? ''}
 							/>
@@ -116,6 +126,7 @@ export class DiscordMessage implements ComponentInterface {
 								<AuthorInfo
 									author={profile.author ?? ''}
 									bot={profile.bot ?? false}
+									server={profile.server ?? false}
 									verified={profile.verified ?? false}
 									roleColor={profile.roleColor ?? ''}
 								/>
