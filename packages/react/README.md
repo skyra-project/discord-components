@@ -26,7 +26,8 @@
     -   [Features](#features)
     -   [Installation](#installation)
     -   [Usage](#usage)
-        -   [Live Demo](#live-demo)
+        -   [Live Demo (Create React App)](#live-demo-create-react-app)
+        -   [Live Demo (NextJS)](#live-demo-nextjs)
         -   [Sample code](#sample-code)
     -   [Notes](#notes)
         -   [TypeScript module augments](#typescript-module-augments)
@@ -52,7 +53,7 @@ Discord message components to easily build and display fake Discord messages on 
 
 ## Features
 
--   Design modeled after [Discord](https://discordapp.com/) itself
+-   Design modelled after [Discord](https://discord.com/) itself
 -   Comfy and compact mode support
 -   Dark and light themes support
 -   Set the message author's username, avatar (use defaults or provide your own), role color, and "bot" tag status
@@ -69,9 +70,13 @@ yarn add @skyra/discord-components-core @skyra/discord-components-react
 
 ## Usage
 
-### Live Demo
+#### Live Demo (Create React App)
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-react-64k90)
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-create-react-app-64k90)
+
+#### Live Demo (NextJS)
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-hdzov)
 
 ### Sample code
 

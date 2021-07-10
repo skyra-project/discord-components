@@ -34,13 +34,14 @@
             -   [Calling defineCustomElements](#calling-definecustomelements)
                 -   [Edge (Chakra Core) and IE11 polyfills](#edge-chakra-core-and-ie11-polyfills)
         -   [React](#react)
-            -   [Live Demo](#live-demo-1)
+            -   [Live Demo (Create React App)](#live-demo-create-react-app)
+            -   [Live Demo (NextJS)](#live-demo-nextjs)
             -   [Sample code](#sample-code-1)
         -   [Vue](#vue)
-            -   [Live Demo](#live-demo-2)
+            -   [Live Demo](#live-demo-1)
             -   [Sample code](#sample-code-2)
         -   [No Framework](#no-framework)
-            -   [Live Demo](#live-demo-3)
+            -   [Live Demo](#live-demo-2)
             -   [Sample Code](#sample-code)
     -   [Notes](#notes)
         -   [TypeScript module augments](#typescript-module-augments)
@@ -66,7 +67,7 @@ Discord message components to easily build and display fake Discord messages on 
 
 ## Features
 
--   Design modelled after [Discord](https://discordapp.com/) itself
+-   Design modelled after [Discord](https://discord.com/) itself
 -   Comfy and compact mode support
 -   Dark and light themes support
 -   Set the message author's username, avatar (use defaults or provide your own), role color, and "bot" tag status
@@ -163,9 +164,13 @@ applyPolyfills().then(() => {
 
 ### React
 
-#### Live Demo
+#### Live Demo (Create React App)
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-react-64k90)
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-create-react-app-64k90)
+
+#### Live Demo (NextJS)
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-hdzov)
 
 #### Sample code
 

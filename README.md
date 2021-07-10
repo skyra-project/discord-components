@@ -39,7 +39,7 @@ Discord message components to easily build and display fake Discord messages on 
 
 ## Features
 
--   Design modeled after [Discord](https://discordapp.com/) itself
+-   Design modelled after [Discord](https://discord.com/) itself
 -   Comfy and compact mode support
 -   Dark and light themes support
 -   Set the message author's username, avatar (use defaults or provide your own), role color, and "bot" tag status
@@ -55,7 +55,11 @@ Discord message components to easily build and display fake Discord messages on 
 
 ### React
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-react-64k90)
+**Create React App**
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-create-react-app-64k90)
+
+**NextJS**
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-hdzov)
 
 ### Vue
 
