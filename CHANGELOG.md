@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/skyra-project/discord-components/compare/v2.1.0...v2.1.1) (2021-07-10)
+
+### Bug Fixes
+
+-   **readme:** update urls and add nextJS demo ([551f9e7](https://github.com/skyra-project/discord-components/commit/551f9e763a48b0854450054404476e6d641a77d3))
+
 # [2.1.0](https://github.com/skyra-project/discord-components/compare/v2.0.9...v2.1.0) (2021-06-26)
 
 ### Features
