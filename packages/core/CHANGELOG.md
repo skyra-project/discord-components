@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/skyra-project/discord-components/compare/v2.1.1...v2.2.0) (2021-07-22)
+
+### Features
+
+-   add invite and attachments container components ([#94](https://github.com/skyra-project/discord-components/issues/94)) ([3b782a0](https://github.com/skyra-project/discord-components/commit/3b782a0147a46ce8779bd7387786a07fdc94f5ac))
+
 ## [2.1.1](https://github.com/skyra-project/discord-components/compare/v2.1.0...v2.1.1) (2021-07-10)
 
 ### Bug Fixes
