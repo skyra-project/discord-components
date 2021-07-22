@@ -27,6 +27,8 @@ export namespace Components {
          */
         "width": number;
     }
+    interface DiscordAttachments {
+    }
     interface DiscordEmbed {
         /**
           * The author's avatar URL.
@@ -100,6 +102,39 @@ export namespace Components {
         "inlineIndex": number;
     }
     interface DiscordEmbedFields {
+    }
+    interface DiscordInvite {
+        /**
+          * The server icon to display for the invite.
+         */
+        "icon": string | undefined;
+        /**
+          * The number of members on the server.
+          * @default 0
+         */
+        "members": number;
+        /**
+          * The server's name.
+          * @default 'Discord Server'
+         */
+        "name": string;
+        /**
+          * The number of members online on the server.
+          * @default 0
+         */
+        "online": number;
+        /**
+          * Whether the server is partnered. Only works if `verified` is `false` or `undefined`.
+         */
+        "partnered": boolean;
+        /**
+          * The URL to open when you click on the join button.
+         */
+        "url": string;
+        /**
+          * Whether the server is verified. Only works if `partnered` is `false` or `undefined`.
+         */
+        "verified": boolean;
     }
     interface DiscordMention {
         /**
@@ -176,6 +211,12 @@ declare global {
         prototype: HTMLDiscordAttachmentElement;
         new (): HTMLDiscordAttachmentElement;
     };
+    interface HTMLDiscordAttachmentsElement extends Components.DiscordAttachments, HTMLStencilElement {
+    }
+    var HTMLDiscordAttachmentsElement: {
+        prototype: HTMLDiscordAttachmentsElement;
+        new (): HTMLDiscordAttachmentsElement;
+    };
     interface HTMLDiscordEmbedElement extends Components.DiscordEmbed, HTMLStencilElement {
     }
     var HTMLDiscordEmbedElement: {
@@ -193,6 +234,12 @@ declare global {
     var HTMLDiscordEmbedFieldsElement: {
         prototype: HTMLDiscordEmbedFieldsElement;
         new (): HTMLDiscordEmbedFieldsElement;
+    };
+    interface HTMLDiscordInviteElement extends Components.DiscordInvite, HTMLStencilElement {
+    }
+    var HTMLDiscordInviteElement: {
+        prototype: HTMLDiscordInviteElement;
+        new (): HTMLDiscordInviteElement;
     };
     interface HTMLDiscordMentionElement extends Components.DiscordMention, HTMLStencilElement {
     }
@@ -214,9 +261,11 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "discord-attachment": HTMLDiscordAttachmentElement;
+        "discord-attachments": HTMLDiscordAttachmentsElement;
         "discord-embed": HTMLDiscordEmbedElement;
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
         "discord-embed-fields": HTMLDiscordEmbedFieldsElement;
+        "discord-invite": HTMLDiscordInviteElement;
         "discord-mention": HTMLDiscordMentionElement;
         "discord-message": HTMLDiscordMessageElement;
         "discord-messages": HTMLDiscordMessagesElement;
@@ -242,6 +291,8 @@ declare namespace LocalJSX {
           * The width of the image in pixels
          */
         "width"?: number;
+    }
+    interface DiscordAttachments {
     }
     interface DiscordEmbed {
         /**
@@ -317,6 +368,39 @@ declare namespace LocalJSX {
     }
     interface DiscordEmbedFields {
     }
+    interface DiscordInvite {
+        /**
+          * The server icon to display for the invite.
+         */
+        "icon"?: string | undefined;
+        /**
+          * The number of members on the server.
+          * @default 0
+         */
+        "members"?: number;
+        /**
+          * The server's name.
+          * @default 'Discord Server'
+         */
+        "name"?: string;
+        /**
+          * The number of members online on the server.
+          * @default 0
+         */
+        "online"?: number;
+        /**
+          * Whether the server is partnered. Only works if `verified` is `false` or `undefined`.
+         */
+        "partnered"?: boolean;
+        /**
+          * The URL to open when you click on the join button.
+         */
+        "url"?: string;
+        /**
+          * Whether the server is verified. Only works if `partnered` is `false` or `undefined`.
+         */
+        "verified"?: boolean;
+    }
     interface DiscordMention {
         /**
           * The color to use for this mention. Only works for role mentions and must be in hex format.
@@ -386,9 +470,11 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "discord-attachment": DiscordAttachment;
+        "discord-attachments": DiscordAttachments;
         "discord-embed": DiscordEmbed;
         "discord-embed-field": DiscordEmbedField;
         "discord-embed-fields": DiscordEmbedFields;
+        "discord-invite": DiscordInvite;
         "discord-mention": DiscordMention;
         "discord-message": DiscordMessage;
         "discord-messages": DiscordMessages;
@@ -399,9 +485,11 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "discord-attachment": LocalJSX.DiscordAttachment & JSXBase.HTMLAttributes<HTMLDiscordAttachmentElement>;
+            "discord-attachments": LocalJSX.DiscordAttachments & JSXBase.HTMLAttributes<HTMLDiscordAttachmentsElement>;
             "discord-embed": LocalJSX.DiscordEmbed & JSXBase.HTMLAttributes<HTMLDiscordEmbedElement>;
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
             "discord-embed-fields": LocalJSX.DiscordEmbedFields & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldsElement>;
+            "discord-invite": LocalJSX.DiscordInvite & JSXBase.HTMLAttributes<HTMLDiscordInviteElement>;
             "discord-mention": LocalJSX.DiscordMention & JSXBase.HTMLAttributes<HTMLDiscordMentionElement>;
             "discord-message": LocalJSX.DiscordMessage & JSXBase.HTMLAttributes<HTMLDiscordMessageElement>;
             "discord-messages": LocalJSX.DiscordMessages & JSXBase.HTMLAttributes<HTMLDiscordMessagesElement>;

@@ -1,0 +1,179 @@
+.discord-invite {
+	background-color: #2f3136;
+	border-radius: 4px;
+	padding: 16px;
+	width: 432px;
+}
+
+.discord-light-theme .discord-invite {
+	background-color: #f2f3f5;
+}
+
+.discord-invite .discord-invite-header {
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 16px;
+	margin-bottom: 12px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-transform: uppercase;
+	color: #b9bbbe;
+}
+
+.discord-light-theme .discord-invite .discord-invite-header {
+	color: #4f5660;
+}
+
+.discord-invite .discord-invite-root {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.discord-invite .discord-invite-icon {
+	background-color: #36393f;
+	border-radius: 15px;
+	margin-right: 16px;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	width: 50px;
+	height: 50px;
+}
+
+.discord-light-theme .discord-invite .discord-invite-icon {
+	background-color: #fff;
+}
+
+.discord-invite .discord-invite-info {
+	font-family: WhitneyMedium, Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.discord-invite .discord-invite-title {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin-bottom: 2px;
+	color: white;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 700;
+	display: flex;
+	flex-direction: row;
+}
+
+.discord-light-theme .discord-invite .discord-invite-title {
+	color: #060607;
+}
+
+.discord-invite .discord-invite-name {
+	flex: 1 1 auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.discord-invite .discord-invite-counts {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 600;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #b9bbbe;
+	line-height: 16px;
+}
+
+.discord-invite .discord-invite-status {
+	display: block;
+	margin-right: 4px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: #747f8d;
+}
+
+.discord-invite .discord-invite-status-online {
+	background-color: #3ba55d;
+}
+
+.discord-invite .discord-invite-count {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 1 auto;
+	flex: 0 1 auto;
+	margin-right: 8px;
+	color: #b9bbbe;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.discord-invite .discord-invite-join {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	padding: 0 20px;
+	align-self: center;
+	margin-left: 10px;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	line-height: 20px;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: 600;
+	color: white !important;
+	background-color: #3ba55d;
+	-webkit-transition: background-color 0.17s ease;
+	transition: background-color 0.17s ease;
+}
+
+.discord-invite .discord-invite-join:hover {
+	background-color: #2d7d46;
+	text-decoration: none;
+}
+
+.discord-invite .discord-invite-badge {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	margin-right: 8px;
+	width: 16px;
+	height: 16px;
+	align-self: center;
+	position: relative;
+}
+
+.discord-invite .discord-invite-badge-verified {
+	color: #3ba55d;
+}
+
+.discord-invite .discord-invite-badge-partnered {
+	color: #5865f2;
+}
+
+.discord-invite .discord-invite-badge-container {
+	position: absolute;
+	top: -0.05px;
+	left: 0.05px;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	color: white;
+}
+
+.discord-light-theme .discord-invite .discord-invite-counts,
+.discord-light-theme .discord-invite .discord-invite-count {
+	color: #4f5660;
+}
