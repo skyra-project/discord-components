@@ -1,0 +1,17 @@
+.discord-message .discord-attachments {
+	display: grid;
+	grid-auto-flow: row;
+	grid-row-gap: 0.25rem;
+	text-indent: 0;
+	min-height: 0;
+	min-width: 0;
+	padding-top: 0.125rem;
+	padding-bottom: 0.125rem;
+	position: relative;
+}
+
+.discord-message .discord-attachments > * {
+	justify-self: start;
+	-ms-flex-item-align: start;
+	align-self: start;
+}
