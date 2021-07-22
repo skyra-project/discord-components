@@ -5,6 +5,10 @@
 	width: 432px;
 }
 
+.discord-light-theme .discord-invite {
+	background-color: #f2f3f5;
+}
+
 .discord-invite .discord-invite-header {
 	font-weight: 700;
 	font-size: 12px;
@@ -15,6 +19,10 @@
 	overflow: hidden;
 	text-transform: uppercase;
 	color: #b9bbbe;
+}
+
+.discord-light-theme .discord-invite .discord-invite-header {
+	color: #4f5660;
 }
 
 .discord-invite .discord-invite-root {
@@ -31,6 +39,10 @@
 	flex: 0 0 auto;
 	width: 50px;
 	height: 50px;
+}
+
+.discord-light-theme .discord-invite .discord-invite-icon {
+	background-color: #fff;
 }
 
 .discord-invite .discord-invite-info {
@@ -54,6 +66,10 @@
 	font-weight: 700;
 	display: flex;
 	flex-direction: row;
+}
+
+.discord-light-theme .discord-invite .discord-invite-title {
+	color: #060607;
 }
 
 .discord-invite .discord-invite-name {
@@ -114,7 +130,7 @@
 	border-radius: 3px;
 	font-size: 14px;
 	font-weight: 600;
-	color: white;
+	color: white !important;
 	background-color: #3ba55d;
 	-webkit-transition: background-color 0.17s ease;
 	transition: background-color 0.17s ease;
@@ -155,4 +171,9 @@
 	justify-content: center;
 	pointer-events: none;
 	color: white;
+}
+
+.discord-light-theme .discord-invite .discord-invite-counts,
+.discord-light-theme .discord-invite .discord-invite-count {
+	color: #4f5660;
 }
