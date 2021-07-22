@@ -1,5 +1,4 @@
 import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
-// import Fragment from '../../Fragment';
 import { defaultDiscordAvatars } from '../../options';
 
 @Component({
