@@ -113,7 +113,7 @@ export class DiscordInvite implements ComponentInterface {
 							<span class="discord-invite-count">{this.members.toLocaleString()} Members</span>
 						</div>
 					</div>
-					<a class="discord-invite-join" href={this.url}>
+					<a class="discord-invite-join" href={this.url} target="_blank" rel="noopener noreferrer">
 						Join
 					</a>
 				</div>
