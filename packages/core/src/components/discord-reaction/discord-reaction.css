@@ -11,14 +11,27 @@
 	border: 1px solid transparent;
 }
 
+.discord-light-theme .discord-reaction {
+	background-color: #f2f3f5;
+}
+
 .discord-reaction:hover {
 	background-color: #36393f;
 	border-color: #fff2;
 }
 
+.discord-light-theme .discord-reaction:not(.discord-reaction-reacted):hover {
+	background-color: white;
+	border-color: #0003;
+}
+
 .discord-reaction.discord-reaction-reacted {
 	background-color: #5865f226;
 	border-color: #5865f2;
+}
+
+.discord-light-theme .discord-reaction.discord-reaction-reacted {
+	background-color: #e7e9fd;
 }
 
 .discord-reaction .discord-reaction-inner {
@@ -45,6 +58,14 @@
 	color: #b9bbbe;
 }
 
+.discord-light-theme .discord-reaction .discord-reaction-count {
+	color: #4f5660;
+}
+
 .discord-reaction.discord-reaction-reacted .discord-reaction-count {
 	color: #dee0fc;
+}
+
+.discord-light-theme .discord-reaction.discord-reaction-reacted .discord-reaction-count {
+	color: #5865f2;
 }
