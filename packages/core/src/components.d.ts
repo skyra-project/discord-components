@@ -203,6 +203,27 @@ export namespace Components {
          */
         "noBackground": boolean;
     }
+    interface DiscordReaction {
+        /**
+          * The number of people who reacted.
+          * @default 1
+         */
+        "count": number;
+        /**
+          * The reaction emoji image URL.
+         */
+        "emoji": string;
+        /**
+          * The name of the emoji to use as alternative image text.
+         */
+        "name": string;
+        /**
+          * Whether the reaction should show as reacted by the user.
+         */
+        "reacted": boolean;
+    }
+    interface DiscordReactions {
+    }
 }
 declare global {
     interface HTMLDiscordAttachmentElement extends Components.DiscordAttachment, HTMLStencilElement {
@@ -259,6 +280,18 @@ declare global {
         prototype: HTMLDiscordMessagesElement;
         new (): HTMLDiscordMessagesElement;
     };
+    interface HTMLDiscordReactionElement extends Components.DiscordReaction, HTMLStencilElement {
+    }
+    var HTMLDiscordReactionElement: {
+        prototype: HTMLDiscordReactionElement;
+        new (): HTMLDiscordReactionElement;
+    };
+    interface HTMLDiscordReactionsElement extends Components.DiscordReactions, HTMLStencilElement {
+    }
+    var HTMLDiscordReactionsElement: {
+        prototype: HTMLDiscordReactionsElement;
+        new (): HTMLDiscordReactionsElement;
+    };
     interface HTMLElementTagNameMap {
         "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-attachments": HTMLDiscordAttachmentsElement;
@@ -269,6 +302,8 @@ declare global {
         "discord-mention": HTMLDiscordMentionElement;
         "discord-message": HTMLDiscordMessageElement;
         "discord-messages": HTMLDiscordMessagesElement;
+        "discord-reaction": HTMLDiscordReactionElement;
+        "discord-reactions": HTMLDiscordReactionsElement;
     }
 }
 declare namespace LocalJSX {
@@ -468,6 +503,27 @@ declare namespace LocalJSX {
          */
         "noBackground"?: boolean;
     }
+    interface DiscordReaction {
+        /**
+          * The number of people who reacted.
+          * @default 1
+         */
+        "count"?: number;
+        /**
+          * The reaction emoji image URL.
+         */
+        "emoji"?: string;
+        /**
+          * The name of the emoji to use as alternative image text.
+         */
+        "name"?: string;
+        /**
+          * Whether the reaction should show as reacted by the user.
+         */
+        "reacted"?: boolean;
+    }
+    interface DiscordReactions {
+    }
     interface IntrinsicElements {
         "discord-attachment": DiscordAttachment;
         "discord-attachments": DiscordAttachments;
@@ -478,6 +534,8 @@ declare namespace LocalJSX {
         "discord-mention": DiscordMention;
         "discord-message": DiscordMessage;
         "discord-messages": DiscordMessages;
+        "discord-reaction": DiscordReaction;
+        "discord-reactions": DiscordReactions;
     }
 }
 export { LocalJSX as JSX };
@@ -493,6 +551,8 @@ declare module "@stencil/core" {
             "discord-mention": LocalJSX.DiscordMention & JSXBase.HTMLAttributes<HTMLDiscordMentionElement>;
             "discord-message": LocalJSX.DiscordMessage & JSXBase.HTMLAttributes<HTMLDiscordMessageElement>;
             "discord-messages": LocalJSX.DiscordMessages & JSXBase.HTMLAttributes<HTMLDiscordMessagesElement>;
+            "discord-reaction": LocalJSX.DiscordReaction & JSXBase.HTMLAttributes<HTMLDiscordReactionElement>;
+            "discord-reactions": LocalJSX.DiscordReactions & JSXBase.HTMLAttributes<HTMLDiscordReactionsElement>;
         }
     }
 }
