@@ -16,6 +16,11 @@
 	background-color: hsl(235, 85.6%, 64.7%);
 }
 
+.discord-message .discord-mention.discord-voice-mention {
+	padding-left: 1.25rem !important;
+	position: relative;
+}
+
 .discord-light-theme .discord-message .discord-mention {
 	color: #687dc6;
 	background-color: hsla(235, 85.6%, 64.7%, 0.15);
@@ -24,6 +29,15 @@
 .discord-light-theme .discord-message .discord-mention:hover {
 	color: #ffffff;
 	background-color: hsl(235, 85.6%, 64.7%);
+}
+
+.discord-message .discord-mention .discord-mention-icon {
+	width: 1rem;
+	height: 1rem;
+	object-fit: contain;
+	position: absolute;
+	left: 0.125rem;
+	top: 0.125rem;
 }
 
 .discord-message.discord-highlight-mention {
