@@ -28,7 +28,7 @@
     -   [Usage](#usage)
         -   [Live Demo (Create React App)](#live-demo-create-react-app)
         -   [Live Demo (NextJS)](#live-demo-nextjs)
-        -   [Sample code](#sample-code)
+        *   [Sample code](#sample-code)
     -   [Notes](#notes)
         -   [TypeScript module augments](#typescript-module-augments)
         -   [Avatar shortcuts](#avatar-shortcuts)

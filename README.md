@@ -26,6 +26,7 @@
         -   [Angular](#angular)
         -   [React](#react)
         -   [Vue](#vue)
+        -   [No Framework](#no-framework)
     -   [Screenshots](#screenshots)
         -   [Dark Mode](#dark-mode)
         -   [Light Mode](#light-mode)
