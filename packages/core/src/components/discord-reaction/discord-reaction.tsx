@@ -28,7 +28,7 @@ export class DiscordReaction implements ComponentInterface {
 	 * The number of people who reacted.
 	 * @default 1
 	 */
-	@Prop()
+	@Prop({ mutable: true })
 	public count = 1;
 
 	/**
@@ -39,12 +39,24 @@ export class DiscordReaction implements ComponentInterface {
 
 	public render() {
 		return (
-			<div class={clsx('discord-reaction', { 'discord-reaction-reacted': this.reacted })}>
+			<div class={clsx('discord-reaction', { 'discord-reaction-reacted': this.reacted })} onClick={this.handleReactionClick.bind(this)}>
 				<div class="discord-reaction-inner">
 					<img src={this.emoji} alt={this.name} draggable={false} />
 					<span class="discord-reaction-count">{this.count}</span>
 				</div>
 			</div>
 		);
+	}
+
+	private handleReactionClick(event: MouseEvent) {
+		if (event.shiftKey) {
+			this.count--;
+		} else {
+			this.count++;
+		}
+
+		if (this.count <= 0) {
+			this.count = 1;
+		}
 	}
 }
