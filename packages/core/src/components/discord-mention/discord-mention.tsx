@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import hexToRgba from 'hex-to-rgba';
+import VoiceChannel from '../svgs/voice-channel';
 
 @Component({
 	tag: 'discord-mention',
@@ -34,8 +35,8 @@ export class DiscordMention implements ComponentInterface {
 	public handleType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordMention `type` prop must be a string.');
-		} else if (!['user', 'channel', 'role'].includes(value)) {
-			throw new RangeError("DiscordMention `type` prop must be one of: 'user', 'channel', 'role' ");
+		} else if (!['user', 'channel', 'role', 'voice'].includes(value)) {
+			throw new RangeError("DiscordMention `type` prop must be one of: 'user', 'channel', 'role', 'voice' ");
 		}
 	}
 
@@ -73,9 +74,24 @@ export class DiscordMention implements ComponentInterface {
 			'background-color'?: string;
 		} = !color || type !== 'role' ? {} : { color, 'background-color': hexToRgba(color, 0.1) };
 
+		let mentionPrepend = '';
+
+		switch (this.type) {
+			case 'channel':
+				mentionPrepend = '#';
+				break;
+			case 'user':
+			case 'role':
+				mentionPrepend = '@';
+				break;
+			case 'voice':
+				mentionPrepend = <VoiceChannel class="discord-mention-icon" />;
+				break;
+		}
+
 		return (
 			<Host style={colorStyle} class={`discord-mention discord-${type}-mention`}>
-				{type === 'channel' ? '#' : '@'}
+				{mentionPrepend}
 				<slot></slot>
 			</Host>
 		);
