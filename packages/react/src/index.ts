@@ -17,3 +17,5 @@ export const DiscordInvite = /*@__PURE__*/ createReactComponent<JSX.DiscordInvit
 export const DiscordMention = /*@__PURE__*/ createReactComponent<JSX.DiscordMention, HTMLDiscordMentionElement>('discord-mention');
 export const DiscordMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordMessage, HTMLDiscordMessageElement>('discord-message');
 export const DiscordMessages = /*@__PURE__*/ createReactComponent<JSX.DiscordMessages, HTMLDiscordMessagesElement>('discord-messages');
+export const DiscordReaction = /*@__PURE__*/ createReactComponent<JSX.DiscordReaction, HTMLDiscordReactionElement>('discord-reaction');
+export const DiscordReactions = /*@__PURE__*/ createReactComponent<JSX.DiscordReactions, HTMLDiscordReactionsElement>('discord-reactions');

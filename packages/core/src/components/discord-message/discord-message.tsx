@@ -137,6 +137,7 @@ export class DiscordMessage implements ComponentInterface {
 					</div>
 					<slot name="embeds"></slot>
 					<slot name="attachments"></slot>
+					<slot name="reactions"></slot>
 				</div>
 			</Host>
 		);
