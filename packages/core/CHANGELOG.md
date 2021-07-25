@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/skyra-project/discord-components/compare/v2.2.0...v2.3.0) (2021-07-25)
+
+### Features
+
+-   add click event handler to reactions ([7686af8](https://github.com/skyra-project/discord-components/commit/7686af8653233b234315e3932e4e38c13448a6b9))
+-   add reactions ([#96](https://github.com/skyra-project/discord-components/issues/96)) ([3bb19a6](https://github.com/skyra-project/discord-components/commit/3bb19a69912b9666f922c36eabe6fb959b4fc495))
+-   add voice type to mentions ([#97](https://github.com/skyra-project/discord-components/issues/97)) ([9b9fcb2](https://github.com/skyra-project/discord-components/commit/9b9fcb298933405e287ded6b3df27a7f4a60c3ff))
+
 # [2.2.0](https://github.com/skyra-project/discord-components/compare/v2.1.1...v2.2.0) (2021-07-22)
 
 ### Features
