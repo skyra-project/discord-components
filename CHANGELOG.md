@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/skyra-project/discord-components/compare/v2.3.0...v2.4.0) (2021-07-25)
+
+### Features
+
+-   add option to make reactions non-interactive ([b5f61b0](https://github.com/skyra-project/discord-components/commit/b5f61b07ffbd5d4e547b0e8324117ad582fc6295))
+
 # [2.3.0](https://github.com/skyra-project/discord-components/compare/v2.2.0...v2.3.0) (2021-07-25)
 
 ### Features
