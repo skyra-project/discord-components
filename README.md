@@ -67,6 +67,10 @@ Discord message components to easily build and display fake Discord messages on 
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-vue-g1w48)
 
+### No Framework
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-static-nhwkl)
+
 ## Screenshots
 
 ### Dark Mode
