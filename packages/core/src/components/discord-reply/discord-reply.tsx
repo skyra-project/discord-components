@@ -111,7 +111,6 @@ export class DiscordReply implements ComponentInterface {
 				) : (
 					<img class="discord-replied-message-avatar" src={profile.avatar} alt={profile.author} />
 				)}
-				{/* Name and bot tag positions are reversed in replied messages */}
 				{
 					<Fragment>
 						{profile.bot && !profile.server && (

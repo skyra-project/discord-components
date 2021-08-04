@@ -29,6 +29,29 @@ export namespace Components {
     }
     interface DiscordAttachments {
     }
+    interface DiscordCommand {
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author": string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar": string;
+        /**
+          * The name of the command invoked.
+         */
+        "command": string;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile": string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor": string;
+    }
     interface DiscordEmbed {
         /**
           * The author's avatar URL.
@@ -297,6 +320,12 @@ declare global {
         prototype: HTMLDiscordAttachmentsElement;
         new (): HTMLDiscordAttachmentsElement;
     };
+    interface HTMLDiscordCommandElement extends Components.DiscordCommand, HTMLStencilElement {
+    }
+    var HTMLDiscordCommandElement: {
+        prototype: HTMLDiscordCommandElement;
+        new (): HTMLDiscordCommandElement;
+    };
     interface HTMLDiscordEmbedElement extends Components.DiscordEmbed, HTMLStencilElement {
     }
     var HTMLDiscordEmbedElement: {
@@ -360,6 +389,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-attachments": HTMLDiscordAttachmentsElement;
+        "discord-command": HTMLDiscordCommandElement;
         "discord-embed": HTMLDiscordEmbedElement;
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
         "discord-embed-fields": HTMLDiscordEmbedFieldsElement;
@@ -394,6 +424,29 @@ declare namespace LocalJSX {
         "width"?: number;
     }
     interface DiscordAttachments {
+    }
+    interface DiscordCommand {
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author"?: string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar"?: string;
+        /**
+          * The name of the command invoked.
+         */
+        "command"?: string;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile"?: string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor"?: string;
     }
     interface DiscordEmbed {
         /**
@@ -652,6 +705,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "discord-attachment": DiscordAttachment;
         "discord-attachments": DiscordAttachments;
+        "discord-command": DiscordCommand;
         "discord-embed": DiscordEmbed;
         "discord-embed-field": DiscordEmbedField;
         "discord-embed-fields": DiscordEmbedFields;
@@ -670,6 +724,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "discord-attachment": LocalJSX.DiscordAttachment & JSXBase.HTMLAttributes<HTMLDiscordAttachmentElement>;
             "discord-attachments": LocalJSX.DiscordAttachments & JSXBase.HTMLAttributes<HTMLDiscordAttachmentsElement>;
+            "discord-command": LocalJSX.DiscordCommand & JSXBase.HTMLAttributes<HTMLDiscordCommandElement>;
             "discord-embed": LocalJSX.DiscordEmbed & JSXBase.HTMLAttributes<HTMLDiscordEmbedElement>;
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
             "discord-embed-fields": LocalJSX.DiscordEmbedFields & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldsElement>;
