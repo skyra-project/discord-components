@@ -82,11 +82,13 @@ export class DiscordMessage implements ComponentInterface {
 
 	@Watch('timestamp')
 	public updateTimestamp(value: DiscordTimestamp): string | null {
-		return handleTimestamp(value);
+		const parent: HTMLDiscordMessagesElement = this.el.parentElement as HTMLDiscordMessagesElement;
+		return handleTimestamp(value, parent.compactMode);
 	}
 
 	public componentWillRender() {
-		this.timestamp = handleTimestamp(this.timestamp);
+		const parent: HTMLDiscordMessagesElement = this.el.parentElement as HTMLDiscordMessagesElement;
+		this.timestamp = handleTimestamp(this.timestamp, parent.compactMode);
 	}
 
 	public render() {
