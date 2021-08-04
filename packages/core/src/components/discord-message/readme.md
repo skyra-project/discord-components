@@ -14,7 +14,7 @@
 | `profile`   | `profile`    | The id of the profile data to use.                                                                                            | `string`                 | `undefined`  |
 | `roleColor` | `role-color` | The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp). | `string`                 | `undefined`  |
 | `server`    | `server`     | Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.               | `boolean`                | `false`      |
-| `timestamp` | `timestamp`  | The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.                          | `Date \| null \| string` | `new Date()` |
+| `timestamp` | `timestamp`  | The timestamp to use for the message date.                                                                                    | `Date \| null \| string` | `new Date()` |
 | `verified`  | `verified`   | Whether the bot is verified or not. Only works if `bot` is `true`                                                             | `boolean`                | `false`      |
 
 ---

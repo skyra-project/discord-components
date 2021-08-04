@@ -185,7 +185,7 @@ export namespace Components {
          */
         "server": boolean;
         /**
-          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
+          * The timestamp to use for the message date.
          */
         "timestamp": DiscordTimestamp;
         /**
@@ -551,7 +551,7 @@ declare namespace LocalJSX {
          */
         "server"?: boolean;
         /**
-          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
+          * The timestamp to use for the message date.
          */
         "timestamp"?: DiscordTimestamp;
         /**
