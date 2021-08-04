@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/skyra-project/discord-components/compare/v2.4.0...v2.5.0) (2021-08-04)
+
+### Bug Fixes
+
+-   fixed published bundle ([5f5c545](https://github.com/skyra-project/discord-components/commit/5f5c5456b74dc14096b32d4b5e8fe8d503686c55))
+
+### Features
+
+-   add locked type for mentions ([#102](https://github.com/skyra-project/discord-components/issues/102)) ([e70a5bb](https://github.com/skyra-project/discord-components/commit/e70a5bb242ed695352e5088f6434574dd3614678))
+
 # [2.4.0](https://github.com/skyra-project/discord-components/compare/v2.3.0...v2.4.0) (2021-07-25)
 
 ### Features
