@@ -212,6 +212,10 @@ export namespace Components {
          */
         "timestamp": DiscordTimestamp;
         /**
+          * Whether to use 24-hour format for the timestamp.
+         */
+        "twentyFour": boolean;
+        /**
           * Whether the bot is verified or not. Only works if `bot` is `true`
          */
         "verified": boolean;
@@ -607,6 +611,10 @@ declare namespace LocalJSX {
           * The timestamp to use for the message date.
          */
         "timestamp"?: DiscordTimestamp;
+        /**
+          * Whether to use 24-hour format for the timestamp.
+         */
+        "twentyFour"?: boolean;
         /**
           * Whether the bot is verified or not. Only works if `bot` is `true`
          */

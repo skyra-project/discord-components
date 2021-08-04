@@ -80,15 +80,22 @@ export class DiscordMessage implements ComponentInterface {
 	@Prop({ mutable: true, reflect: true })
 	public timestamp: DiscordTimestamp = new Date();
 
+	/**
+	 * Whether to use 24-hour format for the timestamp.
+	 */
+	@Prop()
+	public twentyFour = false;
+
 	@Watch('timestamp')
 	public updateTimestamp(value: DiscordTimestamp): string | null {
 		const parent: HTMLDiscordMessagesElement = this.el.parentElement as HTMLDiscordMessagesElement;
-		return handleTimestamp(value, parent.compactMode);
+		return handleTimestamp(value, parent.compactMode, this.twentyFour);
 	}
 
 	public componentWillRender() {
+		console.log(this.twentyFour);
 		const parent: HTMLDiscordMessagesElement = this.el.parentElement as HTMLDiscordMessagesElement;
-		this.timestamp = handleTimestamp(this.timestamp, parent.compactMode);
+		this.timestamp = handleTimestamp(this.timestamp, parent.compactMode, this.twentyFour);
 	}
 
 	public render() {
