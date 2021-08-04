@@ -27,10 +27,11 @@ export class DiscordMention implements ComponentInterface {
 	public color: string;
 
 	/**
-	 * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`
+	 * The type of mention this should be. This will prepend the proper prefix character.
+	 * Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
 	 */
 	@Prop()
-	public type = 'user';
+	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' = 'user';
 
 	@Watch('type')
 	public handleType(value: string) {
