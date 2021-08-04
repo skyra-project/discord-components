@@ -107,7 +107,7 @@ export class DiscordMessage implements ComponentInterface {
 		const highlightMention: boolean =
 			// @ts-expect-error ts doesn't understand this
 			Array.from(this.el.children).some((child: HTMLDiscordMentionElement): boolean => {
-				return child.tagName.toLowerCase() === 'discord-mention' && child.highlight && child.type !== 'channel';
+				return child.tagName.toLowerCase() === 'discord-mention' && child.highlight && ['user', 'role'].includes(child.type);
 			}) || this.highlight;
 
 		return (
