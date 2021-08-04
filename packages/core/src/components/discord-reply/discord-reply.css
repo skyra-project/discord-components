@@ -66,6 +66,11 @@
 	background: #202225;
 }
 
+.discord-light-theme .discord-replied-message .discord-reply-badge {
+	color: #4f5660;
+	background: #e3e5e8;
+}
+
 .discord-replied-message .discord-application-tag {
 	background-color: hsl(235, 85.6%, 64.7%);
 	color: #fff;
