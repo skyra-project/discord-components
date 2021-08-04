@@ -124,6 +124,7 @@ export class DiscordMessage implements ComponentInterface {
 									server={profile.server ?? false}
 									verified={profile.verified ?? false}
 									roleColor={profile.roleColor ?? ''}
+									compact={parent.compactMode}
 								/>
 								<span class="discord-message-timestamp">{this.timestamp}</span>
 							</Fragment>
@@ -138,6 +139,7 @@ export class DiscordMessage implements ComponentInterface {
 										server={profile.server ?? false}
 										verified={profile.verified ?? false}
 										roleColor={profile.roleColor ?? ''}
+										compact={parent.compactMode}
 									/>
 								</Fragment>
 							)}
