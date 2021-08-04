@@ -20,6 +20,14 @@
 	margin-top: 1.0625rem;
 }
 
+.discord-message .discord-message-inner {
+	display: flex;
+	position: relative;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+}
+
 .discord-message.discord-message-highlight {
 	background-color: rgba(250, 166, 26, 0.05);
 }

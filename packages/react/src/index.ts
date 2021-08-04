@@ -19,3 +19,4 @@ export const DiscordMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordMess
 export const DiscordMessages = /*@__PURE__*/ createReactComponent<JSX.DiscordMessages, HTMLDiscordMessagesElement>('discord-messages');
 export const DiscordReaction = /*@__PURE__*/ createReactComponent<JSX.DiscordReaction, HTMLDiscordReactionElement>('discord-reaction');
 export const DiscordReactions = /*@__PURE__*/ createReactComponent<JSX.DiscordReactions, HTMLDiscordReactionsElement>('discord-reactions');
+export const DiscordReply = /*@__PURE__*/ createReactComponent<JSX.DiscordReply, HTMLDiscordReplyElement>('discord-reply');

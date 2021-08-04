@@ -169,6 +169,10 @@ export namespace Components {
          */
         "edited": boolean;
         /**
+          * Whether to highlight this message.
+         */
+        "highlight": boolean;
+        /**
           * The id of the profile data to use.
          */
         "profile": string;
@@ -231,6 +235,53 @@ export namespace Components {
         "reacted": boolean;
     }
     interface DiscordReactions {
+    }
+    interface DiscordReply {
+        /**
+          * Whether the referenced message contains attachments.
+         */
+        "attachment": boolean;
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author": string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar": string;
+        /**
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
+         */
+        "bot": boolean;
+        /**
+          * Whether the referenced message is from a response of a slash command.
+         */
+        "command": boolean;
+        /**
+          * Whether the message has been edited or not.
+         */
+        "edited": boolean;
+        /**
+          * Whether this reply pings the original message sender, prepending an "@" on the author's username.
+         */
+        "mentions": boolean;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile": string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor": string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server": boolean;
+        /**
+          * Whether the bot is verified or not. Only works if `bot` is `true`
+         */
+        "verified": boolean;
     }
 }
 declare global {
@@ -300,6 +351,12 @@ declare global {
         prototype: HTMLDiscordReactionsElement;
         new (): HTMLDiscordReactionsElement;
     };
+    interface HTMLDiscordReplyElement extends Components.DiscordReply, HTMLStencilElement {
+    }
+    var HTMLDiscordReplyElement: {
+        prototype: HTMLDiscordReplyElement;
+        new (): HTMLDiscordReplyElement;
+    };
     interface HTMLElementTagNameMap {
         "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-attachments": HTMLDiscordAttachmentsElement;
@@ -312,6 +369,7 @@ declare global {
         "discord-messages": HTMLDiscordMessagesElement;
         "discord-reaction": HTMLDiscordReactionElement;
         "discord-reactions": HTMLDiscordReactionsElement;
+        "discord-reply": HTMLDiscordReplyElement;
     }
 }
 declare namespace LocalJSX {
@@ -477,6 +535,10 @@ declare namespace LocalJSX {
          */
         "edited"?: boolean;
         /**
+          * Whether to highlight this message.
+         */
+        "highlight"?: boolean;
+        /**
           * The id of the profile data to use.
          */
         "profile"?: string;
@@ -540,6 +602,53 @@ declare namespace LocalJSX {
     }
     interface DiscordReactions {
     }
+    interface DiscordReply {
+        /**
+          * Whether the referenced message contains attachments.
+         */
+        "attachment"?: boolean;
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author"?: string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar"?: string;
+        /**
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
+         */
+        "bot"?: boolean;
+        /**
+          * Whether the referenced message is from a response of a slash command.
+         */
+        "command"?: boolean;
+        /**
+          * Whether the message has been edited or not.
+         */
+        "edited"?: boolean;
+        /**
+          * Whether this reply pings the original message sender, prepending an "@" on the author's username.
+         */
+        "mentions"?: boolean;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile"?: string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor"?: string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server"?: boolean;
+        /**
+          * Whether the bot is verified or not. Only works if `bot` is `true`
+         */
+        "verified"?: boolean;
+    }
     interface IntrinsicElements {
         "discord-attachment": DiscordAttachment;
         "discord-attachments": DiscordAttachments;
@@ -552,6 +661,7 @@ declare namespace LocalJSX {
         "discord-messages": DiscordMessages;
         "discord-reaction": DiscordReaction;
         "discord-reactions": DiscordReactions;
+        "discord-reply": DiscordReply;
     }
 }
 export { LocalJSX as JSX };
@@ -569,6 +679,7 @@ declare module "@stencil/core" {
             "discord-messages": LocalJSX.DiscordMessages & JSXBase.HTMLAttributes<HTMLDiscordMessagesElement>;
             "discord-reaction": LocalJSX.DiscordReaction & JSXBase.HTMLAttributes<HTMLDiscordReactionElement>;
             "discord-reactions": LocalJSX.DiscordReactions & JSXBase.HTMLAttributes<HTMLDiscordReactionsElement>;
+            "discord-reply": LocalJSX.DiscordReply & JSXBase.HTMLAttributes<HTMLDiscordReplyElement>;
         }
     }
 }

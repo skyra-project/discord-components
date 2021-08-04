@@ -69,6 +69,12 @@ export class DiscordMessage implements ComponentInterface {
 	public roleColor: string;
 
 	/**
+	 * Whether to highlight this message.
+	 */
+	@Prop()
+	public highlight = false;
+
+	/**
 	 * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
 	 */
 	@Prop({ mutable: true, reflect: true })
@@ -96,33 +102,22 @@ export class DiscordMessage implements ComponentInterface {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		// @ts-expect-error ts doesn't understand this
-		const highlightMention: boolean = Array.from(this.el.children).some((child: HTMLDiscordMentionElement): boolean => {
-			return child.tagName.toLowerCase() === 'discord-mention' && child.highlight && child.type !== 'channel';
-		});
+		const highlightMention: boolean =
+			// @ts-expect-error ts doesn't understand this
+			Array.from(this.el.children).some((child: HTMLDiscordMentionElement): boolean => {
+				return child.tagName.toLowerCase() === 'discord-mention' && child.highlight && child.type !== 'channel';
+			}) || this.highlight;
 
 		return (
 			<Host class={clsx('discord-message', { 'discord-highlight-mention': highlightMention })}>
-				<div class="discord-author-avatar">
-					<img src={profile.avatar} alt={profile.author} />
-				</div>
-				<div class="discord-message-content">
-					{!parent.compactMode && (
-						<Fragment>
-							<AuthorInfo
-								author={profile.author ?? ''}
-								bot={profile.bot ?? false}
-								server={profile.server ?? false}
-								verified={profile.verified ?? false}
-								roleColor={profile.roleColor ?? ''}
-							/>
-							<span class="discord-message-timestamp">{this.timestamp}</span>
-						</Fragment>
-					)}
-					<div class="discord-message-body">
-						{parent.compactMode && (
+				<slot name="reply"></slot>
+				<div class="discord-message-inner">
+					<div class="discord-author-avatar">
+						<img src={profile.avatar} alt={profile.author} />
+					</div>
+					<div class="discord-message-content">
+						{!parent.compactMode && (
 							<Fragment>
-								<span class="discord-message-timestamp">{this.timestamp}</span>
 								<AuthorInfo
 									author={profile.author ?? ''}
 									bot={profile.bot ?? false}
@@ -130,14 +125,29 @@ export class DiscordMessage implements ComponentInterface {
 									verified={profile.verified ?? false}
 									roleColor={profile.roleColor ?? ''}
 								/>
+								<span class="discord-message-timestamp">{this.timestamp}</span>
 							</Fragment>
 						)}
-						<slot></slot>
-						{this.edited ? <span class="discord-message-edited">(edited)</span> : ''}
+						<div class="discord-message-body">
+							{parent.compactMode && (
+								<Fragment>
+									<span class="discord-message-timestamp">{this.timestamp}</span>
+									<AuthorInfo
+										author={profile.author ?? ''}
+										bot={profile.bot ?? false}
+										server={profile.server ?? false}
+										verified={profile.verified ?? false}
+										roleColor={profile.roleColor ?? ''}
+									/>
+								</Fragment>
+							)}
+							<slot></slot>
+							{this.edited ? <span class="discord-message-edited">(edited)</span> : ''}
+						</div>
+						<slot name="embeds"></slot>
+						<slot name="attachments"></slot>
+						<slot name="reactions"></slot>
 					</div>
-					<slot name="embeds"></slot>
-					<slot name="attachments"></slot>
-					<slot name="reactions"></slot>
 				</div>
 			</Host>
 		);
