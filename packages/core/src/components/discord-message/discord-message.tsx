@@ -75,7 +75,7 @@ export class DiscordMessage implements ComponentInterface {
 	public highlight = false;
 
 	/**
-	 * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
+	 * The timestamp to use for the message date.
 	 */
 	@Prop({ mutable: true, reflect: true })
 	public timestamp: DiscordTimestamp = new Date();

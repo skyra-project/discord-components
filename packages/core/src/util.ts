@@ -19,7 +19,7 @@ const formatTime = (value: DiscordTimestamp): string | null => {
 
 export const handleTimestamp = (value: DiscordTimestamp, useTime = false): string | null => {
 	if (!(value instanceof Date) && typeof value !== 'string') {
-		throw new TypeError('Timestamp prop must be a Date object or a string in the format of `01/31/2000`.');
+		throw new TypeError('Timestamp prop must be a Date object or a string.');
 	}
 
 	return useTime ? formatTime(value) : formatDate(value);
