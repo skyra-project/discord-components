@@ -112,6 +112,7 @@ export class DiscordMessage implements ComponentInterface {
 			<Host class={clsx('discord-message', { 'discord-highlight-mention': highlightMention })}>
 				<slot name="reply"></slot>
 				<div class="discord-message-inner">
+					{parent.compactMode && <span class="discord-message-timestamp">{this.timestamp}</span>}
 					<div class="discord-author-avatar">
 						<img src={profile.avatar} alt={profile.author} />
 					</div>
@@ -131,24 +132,25 @@ export class DiscordMessage implements ComponentInterface {
 						)}
 						<div class="discord-message-body">
 							{parent.compactMode && (
-								<Fragment>
-									<span class="discord-message-timestamp">{this.timestamp}</span>
-									<AuthorInfo
-										author={profile.author ?? ''}
-										bot={profile.bot ?? false}
-										server={profile.server ?? false}
-										verified={profile.verified ?? false}
-										roleColor={profile.roleColor ?? ''}
-										compact={parent.compactMode}
-									/>
-								</Fragment>
+								<AuthorInfo
+									author={profile.author ?? ''}
+									bot={profile.bot ?? false}
+									server={profile.server ?? false}
+									verified={profile.verified ?? false}
+									roleColor={profile.roleColor ?? ''}
+									compact={parent.compactMode}
+								/>
 							)}
-							<slot></slot>
+							<span class="discord-message-markup">
+								<slot></slot>
+							</span>
 							{this.edited ? <span class="discord-message-edited">(edited)</span> : ''}
 						</div>
-						<slot name="embeds"></slot>
-						<slot name="attachments"></slot>
-						<slot name="reactions"></slot>
+						<div class="discord-message-compact-indent">
+							<slot name="embeds"></slot>
+							<slot name="attachments"></slot>
+							<slot name="reactions"></slot>
+						</div>
 					</div>
 				</div>
 			</Host>

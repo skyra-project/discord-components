@@ -111,6 +111,8 @@
 }
 
 .discord-message .discord-message-body {
+	font-size: 1rem;
+	font-weight: 400;
 	word-break: break-word;
 	position: relative;
 }
@@ -150,6 +152,16 @@
 	margin-top: unset;
 }
 
+.discord-compact-mode .discord-message .discord-message-body {
+	line-height: 1.375rem;
+	padding-left: 10px;
+	text-indent: -6px;
+}
+
+.discord-compact-mode .discord-message .discord-message-compact-indent {
+	padding-left: 10px;
+}
+
 .discord-message:first-of-type {
 	margin-top: 0.5rem;
 }
@@ -157,6 +169,14 @@
 .discord-message:last-of-type {
 	margin-bottom: 0.5rem;
 	border-bottom-width: 0;
+}
+
+.discord-message .discord-message-markup {
+	font-size: 1rem;
+	line-height: 1.375rem;
+	word-wrap: break-word;
+	user-select: text;
+	font-weight: 400;
 }
 
 .discord-compact-mode .discord-author-avatar {

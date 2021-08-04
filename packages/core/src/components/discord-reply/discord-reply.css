@@ -115,6 +115,10 @@
 	color: #000;
 }
 
+.discord-replied-message .discord-replied-message-content .discord-message-edited {
+	margin-left: 0.25rem;
+}
+
 .discord-replied-message .discord-replied-message-content-icon {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 0 auto;
