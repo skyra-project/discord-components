@@ -17,6 +17,7 @@
 
 .discord-message .discord-author-info .discord-application-tag {
 	background-color: hsl(235, 85.6%, 64.7%);
+	color: #fff;
 	font-size: 0.65em;
 	margin-left: 5px;
 	border-radius: 3px;
@@ -50,8 +51,8 @@
 
 .discord-compact-mode .discord-message .discord-author-info .discord-application-tag {
 	margin-left: 0;
+	margin-left: 5px;
 	margin-right: 5px;
 	padding-left: 3px;
 	padding-right: 3px;
-	font-size: 0.6em;
 }

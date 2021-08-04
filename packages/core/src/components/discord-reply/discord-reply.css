@@ -71,7 +71,6 @@
 	color: #fff;
 	font-size: 0.625rem;
 	margin-right: 0.25rem;
-	border-radius: 3px;
 	line-height: 100%;
 	text-transform: uppercase;
 	/* Use flex layout to ensure both verified icon and "BOT" text are aligned to center */
@@ -87,7 +86,7 @@
 .discord-replied-message .discord-application-tag .discord-application-tag-verified {
 	width: 0.9375rem;
 	height: 0.9375rem;
-	margin-left: -0.25rem;
+	margin-left: -0.1rem;
 }
 
 .discord-replied-message .discord-replied-message-username {
