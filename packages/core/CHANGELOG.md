@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/skyra-project/discord-components/compare/v2.5.0...v2.6.0) (2021-08-05)
+
+### Bug Fixes
+
+-   specify string union type for DiscordMention#type prop ([3b8204e](https://github.com/skyra-project/discord-components/commit/3b8204e11bdbe41b17bd2963f6afa11d6e903511))
+
+### Features
+
+-   add replies (+ style changes) ([#103](https://github.com/skyra-project/discord-components/issues/103)) ([065e452](https://github.com/skyra-project/discord-components/commit/065e452f9d0386dfd1b426793aca4c7f07c9c0ae))
+
 # [2.5.0](https://github.com/skyra-project/discord-components/compare/v2.4.0...v2.5.0) (2021-08-04)
 
 ### Features
