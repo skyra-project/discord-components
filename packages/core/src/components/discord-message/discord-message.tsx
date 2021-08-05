@@ -93,7 +93,6 @@ export class DiscordMessage implements ComponentInterface {
 	}
 
 	public componentWillRender() {
-		console.log(this.twentyFour);
 		const parent: HTMLDiscordMessagesElement = this.el.parentElement as HTMLDiscordMessagesElement;
 		this.timestamp = handleTimestamp(this.timestamp, parent.compactMode, this.twentyFour);
 	}
