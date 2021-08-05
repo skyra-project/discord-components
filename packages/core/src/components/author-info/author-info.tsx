@@ -23,13 +23,19 @@ interface AuthorInfoProps {
 	 * Whether this bot is verified by Discord. Only works if `bot` is `true`
 	 */
 	verified: boolean;
+	/**
+	 * Whether to reverse the order of the author info for compact mode.
+	 */
+	compact: boolean;
 }
 
-export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, server, roleColor, verified }) => (
+export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, server, roleColor, verified, compact }) => (
 	<span class="discord-author-info">
-		<span class="discord-author-username" style={{ color: roleColor }}>
-			{author}
-		</span>
+		{!compact && (
+			<span class="discord-author-username" style={{ color: roleColor }}>
+				{author}
+			</span>
+		)}
 		{
 			<Fragment>
 				{/* If bot is true then we need to render a Bot tag */}
@@ -43,5 +49,10 @@ export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, 
 				{server && !bot && <span class="discord-application-tag">Server</span>}
 			</Fragment>
 		}
+		{compact && (
+			<span class="discord-author-username" style={{ color: roleColor }}>
+				{author}
+			</span>
+		)}
 	</span>
 );

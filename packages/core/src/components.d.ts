@@ -29,6 +29,29 @@ export namespace Components {
     }
     interface DiscordAttachments {
     }
+    interface DiscordCommand {
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author": string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar": string;
+        /**
+          * The name of the command invoked.
+         */
+        "command": string;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile": string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor": string;
+    }
     interface DiscordEmbed {
         /**
           * The author's avatar URL.
@@ -169,6 +192,10 @@ export namespace Components {
          */
         "edited": boolean;
         /**
+          * Whether to highlight this message.
+         */
+        "highlight": boolean;
+        /**
           * The id of the profile data to use.
          */
         "profile": string;
@@ -181,9 +208,13 @@ export namespace Components {
          */
         "server": boolean;
         /**
-          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
+          * The timestamp to use for the message date.
          */
         "timestamp": DiscordTimestamp;
+        /**
+          * Whether to use 24-hour format for the timestamp.
+         */
+        "twentyFour": boolean;
         /**
           * Whether the bot is verified or not. Only works if `bot` is `true`
          */
@@ -232,6 +263,53 @@ export namespace Components {
     }
     interface DiscordReactions {
     }
+    interface DiscordReply {
+        /**
+          * Whether the referenced message contains attachments.
+         */
+        "attachment": boolean;
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author": string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar": string;
+        /**
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
+         */
+        "bot": boolean;
+        /**
+          * Whether the referenced message is from a response of a slash command.
+         */
+        "command": boolean;
+        /**
+          * Whether the message has been edited or not.
+         */
+        "edited": boolean;
+        /**
+          * Whether this reply pings the original message sender, prepending an "@" on the author's username.
+         */
+        "mentions": boolean;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile": string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor": string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server": boolean;
+        /**
+          * Whether the bot is verified or not. Only works if `bot` is `true`
+         */
+        "verified": boolean;
+    }
 }
 declare global {
     interface HTMLDiscordAttachmentElement extends Components.DiscordAttachment, HTMLStencilElement {
@@ -245,6 +323,12 @@ declare global {
     var HTMLDiscordAttachmentsElement: {
         prototype: HTMLDiscordAttachmentsElement;
         new (): HTMLDiscordAttachmentsElement;
+    };
+    interface HTMLDiscordCommandElement extends Components.DiscordCommand, HTMLStencilElement {
+    }
+    var HTMLDiscordCommandElement: {
+        prototype: HTMLDiscordCommandElement;
+        new (): HTMLDiscordCommandElement;
     };
     interface HTMLDiscordEmbedElement extends Components.DiscordEmbed, HTMLStencilElement {
     }
@@ -300,9 +384,16 @@ declare global {
         prototype: HTMLDiscordReactionsElement;
         new (): HTMLDiscordReactionsElement;
     };
+    interface HTMLDiscordReplyElement extends Components.DiscordReply, HTMLStencilElement {
+    }
+    var HTMLDiscordReplyElement: {
+        prototype: HTMLDiscordReplyElement;
+        new (): HTMLDiscordReplyElement;
+    };
     interface HTMLElementTagNameMap {
         "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-attachments": HTMLDiscordAttachmentsElement;
+        "discord-command": HTMLDiscordCommandElement;
         "discord-embed": HTMLDiscordEmbedElement;
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
         "discord-embed-fields": HTMLDiscordEmbedFieldsElement;
@@ -312,6 +403,7 @@ declare global {
         "discord-messages": HTMLDiscordMessagesElement;
         "discord-reaction": HTMLDiscordReactionElement;
         "discord-reactions": HTMLDiscordReactionsElement;
+        "discord-reply": HTMLDiscordReplyElement;
     }
 }
 declare namespace LocalJSX {
@@ -336,6 +428,29 @@ declare namespace LocalJSX {
         "width"?: number;
     }
     interface DiscordAttachments {
+    }
+    interface DiscordCommand {
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author"?: string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar"?: string;
+        /**
+          * The name of the command invoked.
+         */
+        "command"?: string;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile"?: string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor"?: string;
     }
     interface DiscordEmbed {
         /**
@@ -477,6 +592,10 @@ declare namespace LocalJSX {
          */
         "edited"?: boolean;
         /**
+          * Whether to highlight this message.
+         */
+        "highlight"?: boolean;
+        /**
           * The id of the profile data to use.
          */
         "profile"?: string;
@@ -489,9 +608,13 @@ declare namespace LocalJSX {
          */
         "server"?: boolean;
         /**
-          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
+          * The timestamp to use for the message date.
          */
         "timestamp"?: DiscordTimestamp;
+        /**
+          * Whether to use 24-hour format for the timestamp.
+         */
+        "twentyFour"?: boolean;
         /**
           * Whether the bot is verified or not. Only works if `bot` is `true`
          */
@@ -540,9 +663,57 @@ declare namespace LocalJSX {
     }
     interface DiscordReactions {
     }
+    interface DiscordReply {
+        /**
+          * Whether the referenced message contains attachments.
+         */
+        "attachment"?: boolean;
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author"?: string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar"?: string;
+        /**
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
+         */
+        "bot"?: boolean;
+        /**
+          * Whether the referenced message is from a response of a slash command.
+         */
+        "command"?: boolean;
+        /**
+          * Whether the message has been edited or not.
+         */
+        "edited"?: boolean;
+        /**
+          * Whether this reply pings the original message sender, prepending an "@" on the author's username.
+         */
+        "mentions"?: boolean;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile"?: string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor"?: string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server"?: boolean;
+        /**
+          * Whether the bot is verified or not. Only works if `bot` is `true`
+         */
+        "verified"?: boolean;
+    }
     interface IntrinsicElements {
         "discord-attachment": DiscordAttachment;
         "discord-attachments": DiscordAttachments;
+        "discord-command": DiscordCommand;
         "discord-embed": DiscordEmbed;
         "discord-embed-field": DiscordEmbedField;
         "discord-embed-fields": DiscordEmbedFields;
@@ -552,6 +723,7 @@ declare namespace LocalJSX {
         "discord-messages": DiscordMessages;
         "discord-reaction": DiscordReaction;
         "discord-reactions": DiscordReactions;
+        "discord-reply": DiscordReply;
     }
 }
 export { LocalJSX as JSX };
@@ -560,6 +732,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "discord-attachment": LocalJSX.DiscordAttachment & JSXBase.HTMLAttributes<HTMLDiscordAttachmentElement>;
             "discord-attachments": LocalJSX.DiscordAttachments & JSXBase.HTMLAttributes<HTMLDiscordAttachmentsElement>;
+            "discord-command": LocalJSX.DiscordCommand & JSXBase.HTMLAttributes<HTMLDiscordCommandElement>;
             "discord-embed": LocalJSX.DiscordEmbed & JSXBase.HTMLAttributes<HTMLDiscordEmbedElement>;
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
             "discord-embed-fields": LocalJSX.DiscordEmbedFields & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldsElement>;
@@ -569,6 +742,7 @@ declare module "@stencil/core" {
             "discord-messages": LocalJSX.DiscordMessages & JSXBase.HTMLAttributes<HTMLDiscordMessagesElement>;
             "discord-reaction": LocalJSX.DiscordReaction & JSXBase.HTMLAttributes<HTMLDiscordReactionElement>;
             "discord-reactions": LocalJSX.DiscordReactions & JSXBase.HTMLAttributes<HTMLDiscordReactionsElement>;
+            "discord-reply": LocalJSX.DiscordReply & JSXBase.HTMLAttributes<HTMLDiscordReplyElement>;
         }
     }
 }

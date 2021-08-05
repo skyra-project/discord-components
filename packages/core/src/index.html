@@ -121,7 +121,7 @@
 						sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping
 						<discord-mention type="role" color="#70f0b4">Support</discord-mention>
 						if you need help. Feel free to join
-						<discord-mention type="voice" color="#70f0b4">General</discord-mention>
+						<discord-mention type="voice">General</discord-mention>
 						and talk with us.
 					</discord-message>
 					<discord-message author="Alyx Vargas">
@@ -179,6 +179,50 @@
 							<discord-reaction name="👀" emoji="/static/eyes.svg" count="2" reacted></discord-reaction>
 							<discord-reaction interactive="true" name="dragonite" emoji="/static/dragonite.png" count="10" reacted></discord-reaction>
 						</discord-reactions>
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Replies</h3>
+				<discord-messages>
+					<discord-message profile="favna">
+						<discord-reply slot="reply" profile="skyra" edited attachment>What do you think about this image?</discord-reply>
+						Looks nice!
+					</discord-message>
+					<discord-message profile="maximillian" highlight>
+						<discord-reply slot="reply" profile="favna" mentions>Looks nice!</discord-reply>
+						I agree!
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Replies in Compact Mode</h3>
+				<discord-messages compact-mode>
+					<discord-message profile="favna">
+						<discord-reply slot="reply" profile="skyra" edited attachment>What do you think about this image?</discord-reply>
+						Looks nice!
+					</discord-message>
+					<discord-message profile="maximillian" highlight>
+						<discord-reply slot="reply" profile="favna" mentions>Looks nice!</discord-reply>
+						I agree!
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Commands</h3>
+				<discord-messages>
+					<discord-message profile="skyra">
+						<discord-command slot="reply" profile="favna" command="ping"></discord-command>
+						Pong!
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-reply slot="reply" profile="skyra" command>Pong!</discord-reply>
+						Took 100ms.
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Commands in Compact Mode</h3>
+				<discord-messages compact-mode>
+					<discord-message profile="skyra">
+						<discord-command slot="reply" profile="favna" command="ping"></discord-command>
+						Pong!
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-reply slot="reply" profile="skyra" command>Pong!</discord-reply>
+						Took 100ms.
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Verified Discord bots</h3>
