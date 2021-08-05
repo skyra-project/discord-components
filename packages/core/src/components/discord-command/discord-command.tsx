@@ -48,7 +48,7 @@ export class DiscordCommand implements ComponentInterface {
 		const parent: HTMLDiscordMessageElement = this.el.parentElement as HTMLDiscordMessageElement;
 
 		if (parent.tagName.toLowerCase() !== 'discord-message') {
-			throw new Error('All <discord-reply> components must be direct children of <discord-message>.');
+			throw new Error('All <discord-command> components must be direct children of <discord-message>.');
 		}
 
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
