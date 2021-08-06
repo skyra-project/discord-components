@@ -1,0 +1,123 @@
+.discord-system-message {
+	color: #8e9297;
+	display: flex;
+	font-weight: 400;
+	font-size: 1rem;
+	font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding: 0px 1em;
+
+	position: relative;
+	word-wrap: break-word;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	padding-right: 0;
+	min-height: 1.375rem;
+	padding-right: 48px !important;
+	margin-top: 1.0625rem;
+}
+
+.discord-light-theme .discord-system-message {
+	color: #2e3338;
+	border-color: #eceeef;
+}
+
+.discord-system-message.discord-channel-name-change {
+	color: #fff;
+}
+
+.discord-light-theme .discord-system-message.discord-channel-name-change {
+	color: #060607;
+}
+
+.discord-system-message.discord-boost-system-message svg {
+	color: #ff73fa;
+}
+
+.discord-system-message.discord-alert-system-message svg {
+	color: #faa81a;
+}
+
+.discord-system-message.discord-error-system-message svg {
+	color: #faa81a;
+}
+
+.discord-system-message:first-child {
+	margin-top: 0.5rem;
+}
+
+.discord-system-message:last-child {
+	margin-bottom: 0.5rem;
+	border-bottom-width: 0;
+}
+
+.discord-system-message .discord-message-icon {
+	margin-right: 16px;
+	margin-top: 5px;
+	min-width: 40px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.discord-system-message .discord-message-icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+.discord-system-message .discord-message-timestamp {
+	color: #72767d;
+	font-size: 12px;
+	margin-left: 3px;
+}
+
+.discord-light-theme .discord-system-message .discord-message-timestamp {
+	color: #747f8d;
+}
+
+.discord-system-message .discord-message-system-edited {
+	color: #72767d;
+	font-size: 10px;
+}
+
+.discord-light-theme .discord-system-message .discord-message-edited {
+	color: #99aab5;
+}
+
+.discord-system-message .discord-message-content {
+	width: 100%;
+	line-height: 160%;
+	font-weight: normal;
+	padding-top: 2px;
+	display: flex;
+	flex-direction: column;
+}
+
+.discord-system-message .discord-message-content i {
+	font-style: normal;
+	cursor: pointer;
+	color: white;
+	font-weight: 500;
+}
+
+.discord-light-theme .discord-system-message .discord-message-content i {
+	color: #060607;
+}
+
+.discord-system-message .discord-message-content i:hover {
+	text-decoration: underline;
+}
+
+.discord-system-message:hover {
+	background-color: rgba(4, 4, 5, 0.07);
+}
+
+.discord-light-theme .discord-system-message:hover {
+	background-color: rgba(6, 6, 7, 0.02);
+}
+
+@import '../author-info/author-info.css';

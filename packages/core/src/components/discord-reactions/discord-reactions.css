@@ -1,4 +1,5 @@
-.discord-message .discord-reactions {
+.discord-message .discord-reactions,
+.discord-system-message .discord-reactions {
 	display: flex;
 	-webkit-box-flex: 1;
 	-ms-flex: 1 0 auto;
