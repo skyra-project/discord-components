@@ -162,11 +162,11 @@
 	padding-left: 10px;
 }
 
-.discord-message:first-of-type {
+.discord-message:first-child {
 	margin-top: 0.5rem;
 }
 
-.discord-message:last-of-type {
+.discord-message:last-child {
 	margin-bottom: 0.5rem;
 	border-bottom-width: 0;
 }

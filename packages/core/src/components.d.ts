@@ -310,6 +310,20 @@ export namespace Components {
          */
         "verified": boolean;
     }
+    interface DiscordSystemMessage {
+        /**
+          * Whether this message is to show channel name changes, used to match Discord's style.
+         */
+        "channelName": boolean;
+        /**
+          * The timestamp to use for the message date.
+         */
+        "timestamp": DiscordTimestamp;
+        /**
+          * The type of system message this is, this will change the icon shown. Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `alert`, and `error`.
+         */
+        "type": 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'alert' | 'error';
+    }
 }
 declare global {
     interface HTMLDiscordAttachmentElement extends Components.DiscordAttachment, HTMLStencilElement {
@@ -390,6 +404,12 @@ declare global {
         prototype: HTMLDiscordReplyElement;
         new (): HTMLDiscordReplyElement;
     };
+    interface HTMLDiscordSystemMessageElement extends Components.DiscordSystemMessage, HTMLStencilElement {
+    }
+    var HTMLDiscordSystemMessageElement: {
+        prototype: HTMLDiscordSystemMessageElement;
+        new (): HTMLDiscordSystemMessageElement;
+    };
     interface HTMLElementTagNameMap {
         "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-attachments": HTMLDiscordAttachmentsElement;
@@ -404,6 +424,7 @@ declare global {
         "discord-reaction": HTMLDiscordReactionElement;
         "discord-reactions": HTMLDiscordReactionsElement;
         "discord-reply": HTMLDiscordReplyElement;
+        "discord-system-message": HTMLDiscordSystemMessageElement;
     }
 }
 declare namespace LocalJSX {
@@ -710,6 +731,20 @@ declare namespace LocalJSX {
          */
         "verified"?: boolean;
     }
+    interface DiscordSystemMessage {
+        /**
+          * Whether this message is to show channel name changes, used to match Discord's style.
+         */
+        "channelName"?: boolean;
+        /**
+          * The timestamp to use for the message date.
+         */
+        "timestamp"?: DiscordTimestamp;
+        /**
+          * The type of system message this is, this will change the icon shown. Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `alert`, and `error`.
+         */
+        "type"?: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'alert' | 'error';
+    }
     interface IntrinsicElements {
         "discord-attachment": DiscordAttachment;
         "discord-attachments": DiscordAttachments;
@@ -724,6 +759,7 @@ declare namespace LocalJSX {
         "discord-reaction": DiscordReaction;
         "discord-reactions": DiscordReactions;
         "discord-reply": DiscordReply;
+        "discord-system-message": DiscordSystemMessage;
     }
 }
 export { LocalJSX as JSX };
@@ -743,6 +779,7 @@ declare module "@stencil/core" {
             "discord-reaction": LocalJSX.DiscordReaction & JSXBase.HTMLAttributes<HTMLDiscordReactionElement>;
             "discord-reactions": LocalJSX.DiscordReactions & JSXBase.HTMLAttributes<HTMLDiscordReactionsElement>;
             "discord-reply": LocalJSX.DiscordReply & JSXBase.HTMLAttributes<HTMLDiscordReplyElement>;
+            "discord-system-message": LocalJSX.DiscordSystemMessage & JSXBase.HTMLAttributes<HTMLDiscordSystemMessageElement>;
         }
     }
 }

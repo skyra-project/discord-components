@@ -143,6 +143,33 @@
 						<discord-attachment slot="attachments" url="/static/dragonite.png" height="512" width="512" alt="dragonite" />
 					</discord-message>
 				</discord-messages>
+				<h3 class="title">System Messages</h3>
+				<discord-messages>
+					<discord-system-message type="join">
+						Welcome, <i style="color: #a155ab">Snazzah</i>. We hope you brought pizza.
+						<discord-reactions slot="reactions">
+							<discord-reaction name="👀" emoji="/static/eyes.svg"></discord-reaction>
+						</discord-reactions>
+					</discord-system-message>
+					<discord-system-message type="join">
+						<i>Snazzah</i> has added <i>Discord Developers #discord-api-announcements</i> to this channel. Its most important updates will
+						show up here.
+					</discord-system-message>
+					<discord-system-message type="boost"> <i style="color: #a155ab">Favna</i> just boosted the server! </discord-system-message>
+					<discord-system-message type="thread">
+						<i style="color: #a155ab">Favna</i> started a thread: <i>Skyra Suggestion Thread</i>. See all <i>threads</i>.
+					</discord-system-message>
+				</discord-messages>
+				<discord-messages>
+					<discord-system-message type="join"> <i>Snazzah</i> added <i>Favna</i> to the group. </discord-system-message>
+					<discord-system-message type="call"> <i>Favna</i> started a call that lasted an hour. </discord-system-message>
+					<discord-system-message type="edit"> <i>Snazzah</i> changed the channel icon. </discord-system-message>
+					<discord-system-message type="edit" channel-name>
+						<i>Snazzah</i> changed the channel name: <b>A humble Group DM</b>
+					</discord-system-message>
+					<discord-system-message type="missed-call"> You missed a call from <i>Favna</i> that lasted a minute. </discord-system-message>
+					<discord-system-message type="leave"> <i>Favna</i> left the group. </discord-system-message>
+				</discord-messages>
 				<h3 class="title">Server Invites</h3>
 				<discord-messages>
 					<discord-message profile="favna">
