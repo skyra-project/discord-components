@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/skyra-project/discord-components/compare/v2.7.0...v2.7.1) (2021-08-07)
+
+### Bug Fixes
+
+-   **react:** minify build output ([932aaf8](https://github.com/skyra-project/discord-components/commit/932aaf875afb493c818487fd07f8c642e3935a02))
+
 # [2.7.0](https://github.com/skyra-project/discord-components/compare/v2.6.0...v2.7.0) (2021-08-07)
 
 ### Features
