@@ -18,5 +18,5 @@ await esbuild.build({
 	tsconfig: join(fileURLToPath(rootFolder), 'tsconfig.json'),
 	sourcemap: true,
 	external: ['react', 'react-dom', '@skyra/discord-components-core', '@skyra/discord-components-core/loader'],
-	minify: false
+	minify: true
 });
