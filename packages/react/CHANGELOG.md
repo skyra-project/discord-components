@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/skyra-project/discord-components/compare/v2.6.0...v2.7.0) (2021-08-07)
+
+### Features
+
+-   add system messages ([#105](https://github.com/skyra-project/discord-components/issues/105)) ([53440f4](https://github.com/skyra-project/discord-components/commit/53440f44cbe30d7458cc9e38f30c7636483b4a7a))
+
 # [2.6.0](https://github.com/skyra-project/discord-components/compare/v2.5.0...v2.6.0) (2021-08-05)
 
 ### Features
