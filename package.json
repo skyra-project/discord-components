@@ -24,7 +24,7 @@
 		"@commitlint/config-conventional": "^13.1.0",
 		"@sapphire/eslint-config": "^3.2.3",
 		"@sapphire/prettier-config": "^1.1.6",
-		"@sapphire/ts-config": "^2.3.2",
+		"@sapphire/ts-config": "^3.0.0",
 		"@stencil/react-output-target": "^0.0.9",
 		"@types/node": "^16.4.13",
 		"@types/react": "17.0.15",
