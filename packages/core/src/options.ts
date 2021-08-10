@@ -31,7 +31,7 @@ export const defaultDiscordAvatars: Omit<Avatars, 'default'> = {
 	green: 'https://cdn.discordapp.com/embed/avatars/2.png',
 	orange: 'https://cdn.discordapp.com/embed/avatars/3.png',
 	red: 'https://cdn.discordapp.com/embed/avatars/4.png',
-        pink: 'https://cdn.discordapp.com/embed/avatars/5.png'
+	pink: 'https://cdn.discordapp.com/embed/avatars/5.png'
 };
 
 const globalAvatars: Avatars = window.$discordMessage?.avatars ?? ({} as Avatars);
