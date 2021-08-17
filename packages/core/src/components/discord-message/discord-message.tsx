@@ -157,6 +157,7 @@ export class DiscordMessage implements ComponentInterface {
 						<div class="discord-message-compact-indent">
 							<slot name="embeds"></slot>
 							<slot name="attachments"></slot>
+							<slot name="components"></slot>
 							<slot name="reactions"></slot>
 						</div>
 					</div>

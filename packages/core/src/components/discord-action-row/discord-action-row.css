@@ -1,0 +1,4 @@
+.discord-action-row {
+	display: flex;
+	flex-wrap: nowrap;
+}

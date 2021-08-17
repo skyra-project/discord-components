@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DiscordTimestamp } from "./util";
 export namespace Components {
+    interface DiscordActionRow {
+    }
     interface DiscordAttachment {
         /**
           * The alt text to show in case the image was unable to load
@@ -28,6 +30,28 @@ export namespace Components {
         "width": number;
     }
     interface DiscordAttachments {
+    }
+    interface DiscordButton {
+        /**
+          * Whether to show the button as disabled.
+         */
+        "disabled": boolean;
+        /**
+          * The emoji URL to use in the button.
+         */
+        "emoji": string;
+        /**
+          * The name of the emoji used in the button.
+         */
+        "emojiName": string;
+        /**
+          * The type of button this is, this will change the color of the button. Valid values: `primary`, `secondary`, `success`, `destructive`.
+         */
+        "type": 'primary' | 'secondary' | 'success' | 'destructive';
+        /**
+          * The URL for the button. Setting this will force the button type to be `secondary`.
+         */
+        "url": string;
     }
     interface DiscordCommand {
         /**
@@ -326,6 +350,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDiscordActionRowElement extends Components.DiscordActionRow, HTMLStencilElement {
+    }
+    var HTMLDiscordActionRowElement: {
+        prototype: HTMLDiscordActionRowElement;
+        new (): HTMLDiscordActionRowElement;
+    };
     interface HTMLDiscordAttachmentElement extends Components.DiscordAttachment, HTMLStencilElement {
     }
     var HTMLDiscordAttachmentElement: {
@@ -337,6 +367,12 @@ declare global {
     var HTMLDiscordAttachmentsElement: {
         prototype: HTMLDiscordAttachmentsElement;
         new (): HTMLDiscordAttachmentsElement;
+    };
+    interface HTMLDiscordButtonElement extends Components.DiscordButton, HTMLStencilElement {
+    }
+    var HTMLDiscordButtonElement: {
+        prototype: HTMLDiscordButtonElement;
+        new (): HTMLDiscordButtonElement;
     };
     interface HTMLDiscordCommandElement extends Components.DiscordCommand, HTMLStencilElement {
     }
@@ -411,8 +447,10 @@ declare global {
         new (): HTMLDiscordSystemMessageElement;
     };
     interface HTMLElementTagNameMap {
+        "discord-action-row": HTMLDiscordActionRowElement;
         "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-attachments": HTMLDiscordAttachmentsElement;
+        "discord-button": HTMLDiscordButtonElement;
         "discord-command": HTMLDiscordCommandElement;
         "discord-embed": HTMLDiscordEmbedElement;
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
@@ -428,6 +466,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface DiscordActionRow {
+    }
     interface DiscordAttachment {
         /**
           * The alt text to show in case the image was unable to load
@@ -449,6 +489,28 @@ declare namespace LocalJSX {
         "width"?: number;
     }
     interface DiscordAttachments {
+    }
+    interface DiscordButton {
+        /**
+          * Whether to show the button as disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * The emoji URL to use in the button.
+         */
+        "emoji"?: string;
+        /**
+          * The name of the emoji used in the button.
+         */
+        "emojiName"?: string;
+        /**
+          * The type of button this is, this will change the color of the button. Valid values: `primary`, `secondary`, `success`, `destructive`.
+         */
+        "type"?: 'primary' | 'secondary' | 'success' | 'destructive';
+        /**
+          * The URL for the button. Setting this will force the button type to be `secondary`.
+         */
+        "url"?: string;
     }
     interface DiscordCommand {
         /**
@@ -746,8 +808,10 @@ declare namespace LocalJSX {
         "type"?: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'alert' | 'error';
     }
     interface IntrinsicElements {
+        "discord-action-row": DiscordActionRow;
         "discord-attachment": DiscordAttachment;
         "discord-attachments": DiscordAttachments;
+        "discord-button": DiscordButton;
         "discord-command": DiscordCommand;
         "discord-embed": DiscordEmbed;
         "discord-embed-field": DiscordEmbedField;
@@ -766,8 +830,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "discord-action-row": LocalJSX.DiscordActionRow & JSXBase.HTMLAttributes<HTMLDiscordActionRowElement>;
             "discord-attachment": LocalJSX.DiscordAttachment & JSXBase.HTMLAttributes<HTMLDiscordAttachmentElement>;
             "discord-attachments": LocalJSX.DiscordAttachments & JSXBase.HTMLAttributes<HTMLDiscordAttachmentsElement>;
+            "discord-button": LocalJSX.DiscordButton & JSXBase.HTMLAttributes<HTMLDiscordButtonElement>;
             "discord-command": LocalJSX.DiscordCommand & JSXBase.HTMLAttributes<HTMLDiscordCommandElement>;
             "discord-embed": LocalJSX.DiscordEmbed & JSXBase.HTMLAttributes<HTMLDiscordEmbedElement>;
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
