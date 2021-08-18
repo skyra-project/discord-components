@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/skyra-project/discord-components/compare/v2.7.1...v2.8.0) (2021-08-18)
+
+### Features
+
+-   add component buttons ([#110](https://github.com/skyra-project/discord-components/issues/110)) ([50f78c5](https://github.com/skyra-project/discord-components/commit/50f78c5643277164e791261f8a8af76a8d893015))
+
 ## [2.7.1](https://github.com/skyra-project/discord-components/compare/v2.7.0...v2.7.1) (2021-08-07)
 
 ### Bug Fixes
