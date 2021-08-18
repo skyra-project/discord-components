@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.1](https://github.com/skyra-project/discord-components/compare/v2.8.0...v2.8.1) (2021-08-18)
+
+### Bug Fixes
+
+-   **discord-command:** remove prepending slash in names ([#111](https://github.com/skyra-project/discord-components/issues/111)) ([c86a17e](https://github.com/skyra-project/discord-components/commit/c86a17ea3494fb050914bddbb385e375fea60876))
+
 # [2.8.0](https://github.com/skyra-project/discord-components/compare/v2.7.1...v2.8.0) (2021-08-18)
 
 ### Bug Fixes
