@@ -72,7 +72,7 @@ export class DiscordCommand implements ComponentInterface {
 					{profile.author}
 				</span>
 				{' used '}
-				<div class="discord-replied-message-content discord-command-name">{`/${this.command}`}</div>
+				<div class="discord-replied-message-content discord-command-name">{this.command}</div>
 			</Host>
 		);
 	}
