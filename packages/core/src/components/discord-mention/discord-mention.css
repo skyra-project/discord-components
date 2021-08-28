@@ -17,7 +17,8 @@
 }
 
 .discord-message .discord-mention.discord-voice-mention,
-.discord-message .discord-mention.discord-locked-mention {
+.discord-message .discord-mention.discord-locked-mention,
+.discord-message .discord-mention.discord-thread-mention {
 	padding-left: 1.25rem !important;
 	position: relative;
 }
