@@ -195,7 +195,7 @@ export namespace Components {
         /**
           * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
          */
-        "type": 'user' | 'channel' | 'role' | 'voice' | 'locked';
+        "type": 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread';
     }
     interface DiscordMessage {
         /**
@@ -654,7 +654,7 @@ declare namespace LocalJSX {
         /**
           * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
          */
-        "type"?: 'user' | 'channel' | 'role' | 'voice' | 'locked';
+        "type"?: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread';
     }
     interface DiscordMessage {
         /**
