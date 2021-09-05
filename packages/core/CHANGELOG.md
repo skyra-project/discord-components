@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/skyra-project/discord-components/compare/v2.8.1...v2.9.0) (2021-09-05)
+
+### Features
+
+-   **discord-mention:** add new thread type ([#117](https://github.com/skyra-project/discord-components/issues/117)) ([3719679](https://github.com/skyra-project/discord-components/commit/371967908b60421a67fd72ad3ad5ec4adab932a2))
+
 ## [2.8.1](https://github.com/skyra-project/discord-components/compare/v2.8.0...v2.8.1) (2021-08-18)
 
 ### Bug Fixes
