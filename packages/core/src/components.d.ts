@@ -354,10 +354,6 @@ export namespace Components {
          */
         "height": number;
         /**
-          * The URL for the video thumbnail
-         */
-        "thumbnail": string;
-        /**
           * The URL for the video
          */
         "url": string;
@@ -837,10 +833,6 @@ declare namespace LocalJSX {
           * The height of the video in pixels
          */
         "height"?: number;
-        /**
-          * The URL for the video thumbnail
-         */
-        "thumbnail"?: string;
         /**
           * The URL for the video
          */
