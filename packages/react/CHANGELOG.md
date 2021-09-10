@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1-alpha.0](https://github.com/skyra-project/discord-components/compare/v2.9.0...v2.9.1-alpha.0) (2021-09-10)
+
+**Note:** Version bump only for package @skyra/discord-components-react
+
 # [2.9.0](https://github.com/skyra-project/discord-components/compare/v2.8.1...v2.9.0) (2021-09-05)
 
 **Note:** Version bump only for package @skyra/discord-components-react
