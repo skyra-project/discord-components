@@ -1,8 +1,8 @@
-import { OverlayEventDetail } from './interfaces';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { attachProps } from './utils';
+import { OverlayEventDetail } from './interfaces';
+import { StencilReactForwardedRef, attachProps, setRef } from './utils';
 
 interface OverlayElement extends HTMLElement {
 	present: () => Promise<void>;
@@ -29,16 +29,20 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
 
 	type Props = OverlayComponent &
 		ReactOverlayProps & {
-			forwardedRef?: React.RefObject<OverlayType>;
+			forwardedRef?: StencilReactForwardedRef<OverlayType>;
 		};
+
+	let isDismissing = false;
 
 	class Overlay extends React.Component<Props> {
 		overlay?: OverlayType;
-		el: HTMLDivElement;
+		el!: HTMLDivElement;
 
 		constructor(props: Props) {
 			super(props);
-			this.el = document.createElement('div');
+			if (typeof document !== 'undefined') {
+				this.el = document.createElement('div');
+			}
 			this.handleDismiss = this.handleDismiss.bind(this);
 		}
 
@@ -62,9 +66,16 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
 			if (this.props.onDidDismiss) {
 				this.props.onDidDismiss(event);
 			}
-			if (this.props.forwardedRef) {
-				(this.props.forwardedRef as any).current = undefined;
+			setRef(this.props.forwardedRef, null);
+		}
+
+		shouldComponentUpdate(nextProps: Props) {
+			// Check if the overlay component is about to dismiss
+			if (this.overlay && nextProps.isOpen !== this.props.isOpen && !nextProps.isOpen) {
+				isDismissing = true;
 			}
+
+			return true;
 		}
 
 		async componentDidUpdate(prevProps: Props) {
@@ -77,6 +88,14 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
 			}
 			if (this.overlay && prevProps.isOpen !== this.props.isOpen && this.props.isOpen === false) {
 				await this.overlay.dismiss();
+				isDismissing = false;
+
+				/**
+				 * Now that the overlay is dismissed
+				 * we need to render again so that any
+				 * inner components will be unmounted
+				 */
+				this.forceUpdate();
 			}
 		}
 
@@ -97,17 +116,19 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
 				componentProps: {}
 			});
 
-			if (this.props.forwardedRef) {
-				(this.props.forwardedRef as any).current = this.overlay;
-			}
-
+			setRef(this.props.forwardedRef, this.overlay);
 			attachProps(this.overlay, elementProps, prevProps);
 
 			await this.overlay.present();
 		}
 
 		render() {
-			return ReactDOM.createPortal(this.props.isOpen ? this.props.children : null, this.el);
+			/**
+			 * Continue to render the component even when
+			 * overlay is dismissing otherwise component
+			 * will be hidden before animation is done.
+			 */
+			return ReactDOM.createPortal(this.props.isOpen || isDismissing ? this.props.children : null, this.el);
 		}
 	}
 

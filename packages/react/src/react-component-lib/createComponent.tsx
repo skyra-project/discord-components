@@ -43,7 +43,7 @@ export const createReactComponent = <PropType, ElementType extends HTMLStencilEl
 			let propsToPass = Object.keys(cProps).reduce((acc, name) => {
 				if (name.startsWith('on') && name[2] === name[2].toUpperCase()) {
 					const eventName = name.substring(2).toLowerCase();
-					if (typeof document !== 'undefined' && isCoveredByReact(eventName, document)) {
+					if (typeof document !== 'undefined' && isCoveredByReact(eventName)) {
 						(acc as any)[name] = (cProps as any)[name];
 					}
 				} else {

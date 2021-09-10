@@ -6,7 +6,7 @@ const rootFolder = new URL('../', import.meta.url);
 const distFolder = new URL('dist/', rootFolder);
 const srcFolder = new URL('src/', rootFolder);
 
-await esbuild.build({
+const result = await esbuild.build({
 	logLevel: 'info',
 	entryPoints: [fileURLToPath(new URL('index.ts', srcFolder))],
 	format: 'esm',
@@ -18,5 +18,8 @@ await esbuild.build({
 	tsconfig: join(fileURLToPath(rootFolder), 'tsconfig.json'),
 	sourcemap: true,
 	external: ['react', 'react-dom', '@skyra/discord-components-core', '@skyra/discord-components-core/loader'],
-	minify: true
+	minify: true,
+	metafile: true
 });
+
+console.log(await esbuild.analyzeMetafile(result.metafile));
