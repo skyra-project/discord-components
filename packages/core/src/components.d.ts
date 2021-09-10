@@ -348,6 +348,24 @@ export namespace Components {
          */
         "type": 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'alert' | 'error';
     }
+    interface DiscordTenorVideo {
+        /**
+          * The height of the video in pixels
+         */
+        "height": number;
+        /**
+          * The URL for the video thumbnail
+         */
+        "thumbnail": string;
+        /**
+          * The URL for the video
+         */
+        "url": string;
+        /**
+          * The width of the video in pixels
+         */
+        "width": number;
+    }
 }
 declare global {
     interface HTMLDiscordActionRowElement extends Components.DiscordActionRow, HTMLStencilElement {
@@ -446,6 +464,12 @@ declare global {
         prototype: HTMLDiscordSystemMessageElement;
         new (): HTMLDiscordSystemMessageElement;
     };
+    interface HTMLDiscordTenorVideoElement extends Components.DiscordTenorVideo, HTMLStencilElement {
+    }
+    var HTMLDiscordTenorVideoElement: {
+        prototype: HTMLDiscordTenorVideoElement;
+        new (): HTMLDiscordTenorVideoElement;
+    };
     interface HTMLElementTagNameMap {
         "discord-action-row": HTMLDiscordActionRowElement;
         "discord-attachment": HTMLDiscordAttachmentElement;
@@ -463,6 +487,7 @@ declare global {
         "discord-reactions": HTMLDiscordReactionsElement;
         "discord-reply": HTMLDiscordReplyElement;
         "discord-system-message": HTMLDiscordSystemMessageElement;
+        "discord-tenor-video": HTMLDiscordTenorVideoElement;
     }
 }
 declare namespace LocalJSX {
@@ -807,6 +832,24 @@ declare namespace LocalJSX {
          */
         "type"?: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'alert' | 'error';
     }
+    interface DiscordTenorVideo {
+        /**
+          * The height of the video in pixels
+         */
+        "height"?: number;
+        /**
+          * The URL for the video thumbnail
+         */
+        "thumbnail"?: string;
+        /**
+          * The URL for the video
+         */
+        "url"?: string;
+        /**
+          * The width of the video in pixels
+         */
+        "width"?: number;
+    }
     interface IntrinsicElements {
         "discord-action-row": DiscordActionRow;
         "discord-attachment": DiscordAttachment;
@@ -824,6 +867,7 @@ declare namespace LocalJSX {
         "discord-reactions": DiscordReactions;
         "discord-reply": DiscordReply;
         "discord-system-message": DiscordSystemMessage;
+        "discord-tenor-video": DiscordTenorVideo;
     }
 }
 export { LocalJSX as JSX };
@@ -846,6 +890,7 @@ declare module "@stencil/core" {
             "discord-reactions": LocalJSX.DiscordReactions & JSXBase.HTMLAttributes<HTMLDiscordReactionsElement>;
             "discord-reply": LocalJSX.DiscordReply & JSXBase.HTMLAttributes<HTMLDiscordReplyElement>;
             "discord-system-message": LocalJSX.DiscordSystemMessage & JSXBase.HTMLAttributes<HTMLDiscordSystemMessageElement>;
+            "discord-tenor-video": LocalJSX.DiscordTenorVideo & JSXBase.HTMLAttributes<HTMLDiscordTenorVideoElement>;
         }
     }
 }
