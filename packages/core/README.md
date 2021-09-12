@@ -417,6 +417,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/apps/dependabot"><img src="https://avatars.githubusercontent.com/in/29110?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dependabot[bot]</b></sub></a><br /><a href="#maintenance-dependabot[bot]" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://ko-fi.com/crawltogo"><img src="https://avatars.githubusercontent.com/u/20760160?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Noel</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=iCrawl" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/issues?q=author%3AiCrawl" title="Bug reports">🐛</a> <a href="#design-iCrawl" title="Design">🎨</a></td>
     <td align="center"><a href="http://snazzah.com"><img src="https://avatars.githubusercontent.com/u/7025343?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Snazzah</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Snazzah" title="Code">💻</a></td>
+    <td align="center"><a href="https://darkguy10.github.io/"><img src="https://avatars.githubusercontent.com/u/62807269?v=4?s=100" width="100px;" alt=""/><br /><sub><b>DarkGuy10</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=DarkGuy10" title="Code">💻</a></td>
   </tr>
 </table>
 
