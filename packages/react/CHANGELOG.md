@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/skyra-project/discord-components/compare/v2.9.1...v2.10.0) (2021-09-12)
+
+### Features
+
+-   add `discord-tenor-video` component ([#127](https://github.com/skyra-project/discord-components/issues/127)) ([c90dde0](https://github.com/skyra-project/discord-components/commit/c90dde02c23b8c9d25c676249518c60daeaf5d58))
+
 ## [2.9.1](https://github.com/skyra-project/discord-components/compare/v2.9.1-alpha.0...v2.9.1) (2021-09-12)
 
 **Note:** Version bump only for package @skyra/discord-components-react
