@@ -26,3 +26,4 @@ export const DiscordReply = /*@__PURE__*/ createReactComponent<JSX.DiscordReply,
 export const DiscordSystemMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordSystemMessage, HTMLDiscordSystemMessageElement>(
 	'discord-system-message'
 );
+export const DiscordTenorVideo = /*@__PURE__*/ createReactComponent<JSX.DiscordTenorVideo, HTMLDiscordTenorVideoElement>('discord-tenor-video');
