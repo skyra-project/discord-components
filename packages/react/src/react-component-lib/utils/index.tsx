@@ -33,5 +33,11 @@ export const createForwardRef = <PropType, ElementType>(ReactComponent: any, dis
 	return React.forwardRef(forwardRef);
 };
 
+export const defineCustomElement = (tagName: string, customElement: any) => {
+	if (customElement !== undefined && typeof customElements !== 'undefined' && !customElements.get(tagName)) {
+		customElements.define(tagName, customElement);
+	}
+};
+
 export * from './attachProps';
 export * from './case';
