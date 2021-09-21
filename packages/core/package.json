@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/discord-components-core",
-	"version": "2.10.0",
+	"version": "2.10.1-alpha.0",
 	"description": "Web components to easily build and display fake Discord messages on your webpages.",
 	"author": "@skyra",
 	"license": "MIT",

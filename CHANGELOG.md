@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1-alpha.0](https://github.com/skyra-project/discord-components/compare/v2.10.0...v2.10.1-alpha.0) (2021-09-21)
+
+### Bug Fixes
+
+-   output react bundle as `.js` to fix a Webpack issue, not loading named imports of `.mjs` files ([bc166f6](https://github.com/skyra-project/discord-components/commit/bc166f6c80b1b0b491144c179bf1a1cc30b6d1b5))
+
 # [2.10.0](https://github.com/skyra-project/discord-components/compare/v2.9.1...v2.10.0) (2021-09-12)
 
 ### Features
