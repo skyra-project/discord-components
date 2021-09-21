@@ -1118,10 +1118,10 @@
   resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.8.1.tgz#21b15c115d9a5e2f56379774fcbd9bc947bf336f"
   integrity sha512-iv9J6oLO/lv7/aO45M05yw3pp1J7olY400vlOZgdMVs3s5zHfalY1ZPYM0KyqU4+7DZuadKYbd0aQZ/g2PInZw==
 
-"@stencil/react-output-target@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@stencil/react-output-target/-/react-output-target-0.0.12.tgz#3114ae7e0f1b327937d8a318ebc535bcc6a16a5a"
-  integrity sha512-X/lWAI/FW4tg/pjwe5UWy8KbRk2vWcWR+S6tBqNzKO6pKD6qr60dfajN13EO9nnm5hGr48FP1m/M8kqFbjpZrg==
+"@stencil/react-output-target@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@stencil/react-output-target/-/react-output-target-0.1.0.tgz#cdb586051bbd54e4a3d9af5da66b55b66244b558"
+  integrity sha512-NWeN2S43dwWDIousfojzGXIMkJJhfcdS1JxpwgE7IOqy4tZ+nqlDLPhM6tXvZ3eq4rJm8bkF+3/WbPJNR9xR7Q==
 
 "@tootallnate/once@1":
   version "1.1.2"
