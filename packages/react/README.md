@@ -5,7 +5,6 @@
 **React bindings for [@skyra/discord-components-core](https://github.com/skyra-project/discord-components/tree/main/packages/core)**
 
 [![License](https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square)](https://github.com/skyra-project/discord-components/blob/main/LICENSE.md)
-[![Depfu](https://badges.depfu.com/badges/2be62b7690111eea9aef95f7c8ca07fa/count.svg)](https://depfu.com/github/skyra-project/discord-components?project_id=11733)
 [![Patreon](https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon)](https://donate.skyra.pw/patreon)
 
 [![npm](https://img.shields.io/npm/v/@skyra/discord-components-react?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-react)](https://www.npmjs.com/package/@skyra/discord-components-react)
