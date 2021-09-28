@@ -55,7 +55,7 @@
 		"loader/"
 	],
 	"engines": {
-		"node": ">=v10.24.1"
+		"node": ">=v14.18.0"
 	},
 	"publishConfig": {
 		"access": "public"
