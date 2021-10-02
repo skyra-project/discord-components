@@ -3,6 +3,7 @@ import hexToRgba from 'hex-to-rgba';
 import ChannelThread from '../svgs/channel-thread';
 import LockedVoiceChannel from '../svgs/locked-voice-channel';
 import VoiceChannel from '../svgs/voice-channel';
+import ChannelIcon from '../svgs/channel-icon';
 
 @Component({
 	tag: 'discord-mention',
@@ -81,7 +82,7 @@ export class DiscordMention implements ComponentInterface {
 
 		switch (this.type) {
 			case 'channel':
-				mentionPrepend = '#';
+				mentionPrepend = <ChannelIcon class="discord-mention-icon" />;
 				break;
 			case 'user':
 			case 'role':
