@@ -27,3 +27,7 @@ export const DiscordSystemMessage = /*@__PURE__*/ createReactComponent<JSX.Disco
 	'discord-system-message'
 );
 export const DiscordTenorVideo = /*@__PURE__*/ createReactComponent<JSX.DiscordTenorVideo, HTMLDiscordTenorVideoElement>('discord-tenor-video');
+export const DiscordThread = /*@__PURE__*/ createReactComponent<JSX.DiscordThread, HTMLDiscordThreadElement>('discord-thread');
+export const DiscordThreadMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordThreadMessage, HTMLDiscordThreadMessageElement>(
+	'discord-thread-message'
+);

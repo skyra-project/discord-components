@@ -100,8 +100,19 @@ export class DiscordSystemMessage implements ComponentInterface {
 				break;
 		}
 
+		const hasThread: boolean =
+			// @ts-expect-error ts doesn't understand this
+			Array.from(this.el.children).some((child: HTMLDiscordThreadElement): boolean => {
+				return child.tagName.toLowerCase() === 'discord-thread';
+			});
+
 		return (
-			<Host class={clsx('discord-system-message', `discord-${this.type}-system-message`, { 'discord-channel-name-change': this.channelName })}>
+			<Host
+				class={clsx('discord-system-message', `discord-${this.type}-system-message`, {
+					'discord-system-message-has-thread': hasThread,
+					'discord-channel-name-change': this.channelName
+				})}
+			>
 				<div class="discord-message-icon">{icon}</div>
 				<div class="discord-message-content">
 					<span>
@@ -109,6 +120,7 @@ export class DiscordSystemMessage implements ComponentInterface {
 						<span class="discord-message-timestamp">{this.timestamp}</span>
 					</span>
 					<slot name="reactions"></slot>
+					<slot name="thread"></slot>
 				</div>
 			</Host>
 		);

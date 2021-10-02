@@ -203,6 +203,19 @@
 					<discord-system-message type="missed-call"> You missed a call from <i>Favna</i> that lasted a minute. </discord-system-message>
 					<discord-system-message type="leave"> <i>Favna</i> left the group. </discord-system-message>
 				</discord-messages>
+				<h3 class="title">Threads</h3>
+				<discord-messages>
+					<discord-system-message type="thread">
+						<i style="color: #a155ab">Favna</i> started a thread: <i>Skyra Suggestion Thread</i>. See all <i>threads</i>.
+						<discord-thread slot="thread" cta="2 Messages">
+							<discord-thread-message profile="skyra">Pong!</discord-thread-message>
+						</discord-thread>
+					</discord-system-message>
+					<discord-message profile="favna">
+						Let's make a thread!
+						<discord-thread slot="thread" name="A cool thread!">There are no messages in this thread yet.</discord-thread>
+					</discord-message>
+				</discord-messages>
 				<h3 class="title">Reactions</h3>
 				<discord-messages>
 					<discord-message profile="favna">
