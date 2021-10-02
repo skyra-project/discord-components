@@ -362,6 +362,55 @@ export namespace Components {
          */
         "width": number;
     }
+    interface DiscordThread {
+        /**
+          * The the text within the call to action text. (i.e. 'See Thread' or 'x Messages')
+         */
+        "cta": string;
+        /**
+          * The name of the thread.
+         */
+        "name": string;
+    }
+    interface DiscordThreadMessage {
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author": string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar": string;
+        /**
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
+         */
+        "bot": boolean;
+        /**
+          * Whether the message has been edited or not.
+         */
+        "edited": boolean;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile": string;
+        /**
+          * The relative timestamp of the message.
+         */
+        "relativeTimestamp": string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor": string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server": boolean;
+        /**
+          * Whether the bot is verified or not. Only works if `bot` is `true`
+         */
+        "verified": boolean;
+    }
 }
 declare global {
     interface HTMLDiscordActionRowElement extends Components.DiscordActionRow, HTMLStencilElement {
@@ -466,6 +515,18 @@ declare global {
         prototype: HTMLDiscordTenorVideoElement;
         new (): HTMLDiscordTenorVideoElement;
     };
+    interface HTMLDiscordThreadElement extends Components.DiscordThread, HTMLStencilElement {
+    }
+    var HTMLDiscordThreadElement: {
+        prototype: HTMLDiscordThreadElement;
+        new (): HTMLDiscordThreadElement;
+    };
+    interface HTMLDiscordThreadMessageElement extends Components.DiscordThreadMessage, HTMLStencilElement {
+    }
+    var HTMLDiscordThreadMessageElement: {
+        prototype: HTMLDiscordThreadMessageElement;
+        new (): HTMLDiscordThreadMessageElement;
+    };
     interface HTMLElementTagNameMap {
         "discord-action-row": HTMLDiscordActionRowElement;
         "discord-attachment": HTMLDiscordAttachmentElement;
@@ -484,6 +545,8 @@ declare global {
         "discord-reply": HTMLDiscordReplyElement;
         "discord-system-message": HTMLDiscordSystemMessageElement;
         "discord-tenor-video": HTMLDiscordTenorVideoElement;
+        "discord-thread": HTMLDiscordThreadElement;
+        "discord-thread-message": HTMLDiscordThreadMessageElement;
     }
 }
 declare namespace LocalJSX {
@@ -842,6 +905,55 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
+    interface DiscordThread {
+        /**
+          * The the text within the call to action text. (i.e. 'See Thread' or 'x Messages')
+         */
+        "cta"?: string;
+        /**
+          * The name of the thread.
+         */
+        "name"?: string;
+    }
+    interface DiscordThreadMessage {
+        /**
+          * The message author's username.
+          * @default 'User'
+         */
+        "author"?: string;
+        /**
+          * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
+         */
+        "avatar"?: string;
+        /**
+          * Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.
+         */
+        "bot"?: boolean;
+        /**
+          * Whether the message has been edited or not.
+         */
+        "edited"?: boolean;
+        /**
+          * The id of the profile data to use.
+         */
+        "profile"?: string;
+        /**
+          * The relative timestamp of the message.
+         */
+        "relativeTimestamp"?: string;
+        /**
+          * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+         */
+        "roleColor"?: string;
+        /**
+          * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
+         */
+        "server"?: boolean;
+        /**
+          * Whether the bot is verified or not. Only works if `bot` is `true`
+         */
+        "verified"?: boolean;
+    }
     interface IntrinsicElements {
         "discord-action-row": DiscordActionRow;
         "discord-attachment": DiscordAttachment;
@@ -860,6 +972,8 @@ declare namespace LocalJSX {
         "discord-reply": DiscordReply;
         "discord-system-message": DiscordSystemMessage;
         "discord-tenor-video": DiscordTenorVideo;
+        "discord-thread": DiscordThread;
+        "discord-thread-message": DiscordThreadMessage;
     }
 }
 export { LocalJSX as JSX };
@@ -883,6 +997,8 @@ declare module "@stencil/core" {
             "discord-reply": LocalJSX.DiscordReply & JSXBase.HTMLAttributes<HTMLDiscordReplyElement>;
             "discord-system-message": LocalJSX.DiscordSystemMessage & JSXBase.HTMLAttributes<HTMLDiscordSystemMessageElement>;
             "discord-tenor-video": LocalJSX.DiscordTenorVideo & JSXBase.HTMLAttributes<HTMLDiscordTenorVideoElement>;
+            "discord-thread": LocalJSX.DiscordThread & JSXBase.HTMLAttributes<HTMLDiscordThreadElement>;
+            "discord-thread-message": LocalJSX.DiscordThreadMessage & JSXBase.HTMLAttributes<HTMLDiscordThreadMessageElement>;
         }
     }
 }

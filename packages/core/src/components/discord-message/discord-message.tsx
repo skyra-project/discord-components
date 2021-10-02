@@ -116,8 +116,14 @@ export class DiscordMessage implements ComponentInterface {
 				return child.tagName.toLowerCase() === 'discord-mention' && child.highlight && ['user', 'role'].includes(child.type);
 			}) || this.highlight;
 
+		const hasThread: boolean =
+			// @ts-expect-error ts doesn't understand this
+			Array.from(this.el.children).some((child: HTMLDiscordThreadElement): boolean => {
+				return child.tagName.toLowerCase() === 'discord-thread';
+			});
+
 		return (
-			<Host class={clsx('discord-message', { 'discord-highlight-mention': highlightMention })}>
+			<Host class={clsx('discord-message', { 'discord-highlight-mention': highlightMention, 'discord-message-has-thread': hasThread })}>
 				<slot name="reply"></slot>
 				<div class="discord-message-inner">
 					{parent.compactMode && <span class="discord-message-timestamp">{this.timestamp}</span>}
@@ -159,6 +165,7 @@ export class DiscordMessage implements ComponentInterface {
 							<slot name="attachments"></slot>
 							<slot name="components"></slot>
 							<slot name="reactions"></slot>
+							<slot name="thread"></slot>
 						</div>
 					</div>
 				</div>

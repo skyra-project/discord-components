@@ -120,4 +120,20 @@
 	background-color: rgba(6, 6, 7, 0.02);
 }
 
+.discord-system-message.discord-system-message-has-thread:after {
+	width: 2rem;
+	left: 2.2rem;
+	top: 1.75rem;
+	border-left: 2px solid #4f545c;
+	border-bottom: 2px solid #4f545c;
+	border-bottom-left-radius: 8px;
+	bottom: 29px;
+	content: '';
+	position: absolute;
+}
+
+.discord-light-theme .discord-system-message.discord-system-message-has-thread:after {
+	border-color: #747f8d;
+}
+
 @import '../author-info/author-info.css';

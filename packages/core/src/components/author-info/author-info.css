@@ -16,7 +16,7 @@
 }
 
 .discord-message .discord-author-info .discord-application-tag {
-	background-color: hsl(235, 85.6%, 64.7%);
+	background-color: #5865f2;
 	color: #fff;
 	font-size: 0.65em;
 	margin-left: 5px;
@@ -38,10 +38,6 @@
 	width: 0.9375rem;
 	height: 0.9375rem;
 	margin-left: -0.25rem;
-}
-
-.discord-light-theme .discord-message .discord-author-info .discord-application-tag {
-	color: #fff;
 }
 
 .discord-compact-mode .discord-message .discord-author-info .discord-author-username {
