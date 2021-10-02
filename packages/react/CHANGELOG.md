@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/skyra-project/discord-components/compare/v2.10.1-alpha.0...v2.11.0) (2021-10-02)
+
+### Features
+
+-   Thread Accessories ([#150](https://github.com/skyra-project/discord-components/issues/150)) ([232f05d](https://github.com/skyra-project/discord-components/commit/232f05d915fef41486150e2db43589e9fc11c742))
+
 ## [2.10.1-alpha.0](https://github.com/skyra-project/discord-components/compare/v2.10.0...v2.10.1-alpha.0) (2021-09-21)
 
 ### Bug Fixes

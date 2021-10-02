@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/skyra-project/discord-components/compare/v2.10.1-alpha.0...v2.11.0) (2021-10-02)
+
+### Features
+
+-   Thread Accessories ([#150](https://github.com/skyra-project/discord-components/issues/150)) ([232f05d](https://github.com/skyra-project/discord-components/commit/232f05d915fef41486150e2db43589e9fc11c742))
+-   Use channel icons in mentions ([#151](https://github.com/skyra-project/discord-components/issues/151)) ([b3fe40d](https://github.com/skyra-project/discord-components/commit/b3fe40dfbfce68df531e38908d28efacb21cc61b))
+
 ## [2.10.1-alpha.0](https://github.com/skyra-project/discord-components/compare/v2.10.0...v2.10.1-alpha.0) (2021-09-21)
 
 **Note:** Version bump only for package @skyra/discord-components-core
