@@ -13,7 +13,7 @@ const result = await esbuild.build({
 	bundle: true,
 	resolveExtensions: ['.ts', '.tsx'],
 	write: true,
-	outfile: fileURLToPath(new URL('index.js', distFolder)),
+	outfile: fileURLToPath(new URL('index.mjs', distFolder)),
 	platform: 'browser',
 	tsconfig: join(fileURLToPath(rootFolder), 'tsconfig.json'),
 	sourcemap: true,
