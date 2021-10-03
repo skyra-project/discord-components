@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.2](https://github.com/skyra-project/discord-components/compare/v2.11.1...v2.11.2) (2021-10-03)
+
+### Bug Fixes
+
+-   re-fix react bundle. The output file _has_ to be mjs for this to all work ([946652b](https://github.com/skyra-project/discord-components/commit/946652bb6166e1cf06c681e3fb410ef92975914b))
+
+### Reverts
+
+-   Revert "fix(react): fixed output targets" ([129f14f](https://github.com/skyra-project/discord-components/commit/129f14f8aa2f335a7b37f2d2f068ea87623fce49))
+
 ## [2.11.1](https://github.com/skyra-project/discord-components/compare/v2.11.0...v2.11.1) (2021-10-03)
 
 ### Bug Fixes

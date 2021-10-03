@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/discord-components-react",
-	"version": "2.11.1",
+	"version": "2.11.2",
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
@@ -25,7 +25,7 @@
 		"build:3": "rollup -c"
 	},
 	"dependencies": {
-		"@skyra/discord-components-core": "^2.11.1"
+		"@skyra/discord-components-core": "^2.11.2"
 	},
 	"peerDependencies": {
 		"react": "16.8.x || 17.x",
