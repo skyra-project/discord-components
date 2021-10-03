@@ -4,17 +4,17 @@
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"browser": "dist/index.js",
-	"unpkg": "dist/index.js",
+	"main": "dist/index.mjs",
+	"module": "dist/index.mjs",
+	"browser": "dist/index.mjs",
+	"unpkg": "dist/index.mjs",
 	"typings": "dist/index.d.ts",
 	"exports": {
-		"import": "./dist/index.js",
-		"require": "./dist/index.js"
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.mjs"
 	},
 	"sideEffects": [
-		"./dist/index.js"
+		"./dist/index.mjs"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
