@@ -22,9 +22,9 @@
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.0",
 		"@commitlint/config-conventional": "^13.2.0",
-		"@sapphire/eslint-config": "^3.2.3",
-		"@sapphire/prettier-config": "^1.1.6",
-		"@sapphire/ts-config": "^3.0.0",
+		"@sapphire/eslint-config": "^3.3.1",
+		"@sapphire/prettier-config": "^1.2.1",
+		"@sapphire/ts-config": "^3.1.0",
 		"@stencil/react-output-target": "^0.1.0",
 		"@types/node": "^16.9.1",
 		"@types/react": "17.0.26",
