@@ -23,11 +23,20 @@ export class DiscordEmoji implements ComponentInterface {
 	@Prop()
 	public url: string;
 
+	/**
+	 * Determines whether or not the emoji is used in an embed, or a message.
+	 * If it is used in an embed, the sizing is adjusted accordingly.
+	 */
+	@Prop()
+	public embedEmoji: boolean;
+
 	public render() {
 		const name = `:${this.name}:`;
+		const emojiClassName = this.embedEmoji ? 'discord-embed-emoji' : 'discord-emoji';
+		const emojiImageClassName = this.embedEmoji ? 'discord-embed-emoji-image' : 'discord-emoji-image';
 		return (
-			<span class="discord-emoji-container">
-				<img aria-label={name} src={this.url} alt={name} draggable={false} class="discord-emoji-image" />
+			<span class={emojiClassName}>
+				<img aria-label={name} src={this.url} alt={name} draggable={false} class={emojiImageClassName} />
 			</span>
 		);
 	}

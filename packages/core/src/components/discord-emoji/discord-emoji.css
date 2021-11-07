@@ -1,10 +1,19 @@
-.discord-emoji-container {
+.discord-emoji {
     display: inline-block;
     cursor: pointer;
 }
-.discord-emoji-container .discord-emoji-image {
+.discord-emoji .discord-emoji-image {
     width: 1.375rem;
     height: 1.375rem;
     vertical-align: bottom;
 }
 
+.discord-embed-emoji {
+    display: inline-block;
+}
+
+.discord-embed-emoji .discord-embed-emoji-image {
+    width: 18px;
+    height: 18px;
+    vertical-align: bottom;
+}
