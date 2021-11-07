@@ -1,10 +1,10 @@
 import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
 
 @Component({
-	tag: 'discord-emoji',
+	tag: 'discord-custom-emoji',
 	styleUrl: 'discord-emoji.css'
 })
-export class DiscordEmoji implements ComponentInterface {
+export class DiscordCustomEmoji implements ComponentInterface {
 	/**
 	 * The DiscordReaction element.
 	 */

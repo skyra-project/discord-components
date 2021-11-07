@@ -62,6 +62,16 @@
 						roleColor: '#ffffff',
 						server: true
 					}
+				},
+				emojis: {
+					diamond: {
+						name: 'diamond',
+						url: 'https://cdn.discordapp.com/emojis/325348812065603594.png?size=96'
+					},
+					AIChainSmile: {
+						name: 'AIChainSmile',
+						url: 'https://cdn.discordapp.com/emojis/772214995030900768.png?size=96'
+					}
 				}
 			};
 		</script>
@@ -77,7 +87,13 @@
 			<main>
 				<h3 class="title">A normal conversation</h3>
 				<discord-messages>
-					<discord-message author="Alyx Vargas"> Hey guys, I'm new here! Glad to be able to join you all! </discord-message>
+					<discord-message author="Alyx Vargas">
+						Hey guys, I'm new here! Glad to be able to join you all!
+						<discord-custom-emoji
+							name="AIChainSmile"
+							url="https://cdn.discordapp.com/emojis/772214995030900768.png?size=96"
+						></discord-custom-emoji
+					></discord-message>
 					<discord-message author="Fenton Smart" avatar="/static/avafive.png"> Hi, I'm new here too! </discord-message>
 					<discord-message profile="maximillian">
 						Hey, <discord-mention>Alyx Vargas</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server!<br />Be
@@ -104,7 +120,10 @@
 				<h3 class="title">Compact mode</h3>
 				<discord-messages compact-mode>
 					<discord-message>Look at me I'm a beautiful butterfly</discord-message>
-					<discord-message>Fluttering in the moonlight 🌝</discord-message>
+					<discord-message>
+						<discord-emoji name="test" url="https://cdn.discordapp.com/emojis/502324831879036931.png?size=80"></discord-emoji> Fluttering
+						in the moonlight</discord-message
+					>
 					<discord-message>Waiting for the day when</discord-message>
 					<discord-message>Compact mode would be turned on</discord-message>
 					<discord-message>Oh here it is!</discord-message>
@@ -112,7 +131,10 @@
 				<h3 class="title">No Background mode</h3>
 				<discord-messages no-background>
 					<discord-message>This message blends perfectly with your own background</discord-message>
-					<discord-message>No Background mode is turned on here</discord-message>
+					<discord-message
+						>No Background mode is turned on here
+						<discord-emoji name="test" url="https://cdn.discordapp.com/emojis/502324831879036931.png?size=80"></discord-emoji>
+					</discord-message>
 				</discord-messages>
 				<h3 class="title">Mentions</h3>
 				<discord-messages>
@@ -359,6 +381,36 @@
 						</discord-embed>
 					</discord-message>
 				</discord-messages>
+				<h3 class="title">Embed with Emojis</h3>
+				<discord-messages>
+					<discord-message profile="skyra">
+						<discord-embed
+							slot="embeds"
+							author-image=""
+							author-name=""
+							author-url=""
+							color="#0F52BA"
+							embed-title="diamond Sapphire"
+							footer-image="/static/sapphire.png"
+							image="/static/sapphire.png"
+							thumbnail="/static/sapphire.png"
+							timestamp="03/20/2021"
+							url="https://sapphirejs.dev"
+						>
+							Sapphire is a next-gen object-oriented
+							<a target="_blank" rel="noopener noreferrer" href="https://discord.js.org/">Discord.js</a>
+							bot framework.<br /><br />Sapphire is a community driven framework that aims to give you all the features you need to make
+							your Discord bot.<br /><br />With a history of many other Discord bot frameworks (both for NodeJS and other languages) to
+							inspire Sapphire, it has become the ultimate modern experience of writing your code.
+							<discord-custom-emoji
+								name="party"
+								url="https://cdn.discordapp.com/emojis/425247186524176391.gif?size=56"
+								embed-emoji
+							></discord-custom-emoji>
+							<span slot="footer">Open source libraries to aid in the creation of Discord bots</span>
+						</discord-embed>
+					</discord-message>
+				</discord-messages>
 				<h3 class="title">Server crosspost messages</h3>
 				<discord-messages>
 					<discord-message profile="discordjs" timestamp="12/06/2021">
@@ -410,6 +462,14 @@
 								</discord-embed-field>
 								<discord-embed-field field-title="Field title">
 									Some value here. Some value here. Some value here.
+								</discord-embed-field>
+								<discord-embed-field field-title="AIChainSmile Field title with Emoji">
+									Some value here. Some value here. Some value here. Some Emoji:
+									<discord-custom-emoji
+										name="skyra"
+										url="https://cdn.discordapp.com/emojis/819227046453444620.png?size=240"
+										embed-emoji
+									></discord-custom-emoji>
 								</discord-embed-field>
 							</discord-embed-fields>
 						</discord-embed>

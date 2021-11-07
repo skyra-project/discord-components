@@ -20,6 +20,7 @@ export interface Profile {
 export interface DiscordMessageOptions {
 	avatars?: Avatars;
 	profiles?: { [key: string]: Profile };
+	emojis?: { [key: string]: Emoji };
 	defaultTheme?: string;
 	defaultMode?: string;
 	defaultBackground?: 'discord' | 'none';
@@ -34,6 +35,11 @@ export const defaultDiscordAvatars: Omit<Avatars, 'default'> = {
 	pink: 'https://cdn.discordapp.com/embed/avatars/5.png'
 };
 
+export interface Emoji {
+	name?: string;
+	url?: string;
+}
+
 const globalAvatars: Avatars = window.$discordMessage?.avatars ?? ({} as Avatars);
 
 export const avatars: Avatars = Object.assign(defaultDiscordAvatars, globalAvatars, {
@@ -41,6 +47,8 @@ export const avatars: Avatars = Object.assign(defaultDiscordAvatars, globalAvata
 });
 
 export const profiles: { [key: string]: Profile } = window.$discordMessage?.profiles ?? {};
+
+export const emojis: { [key: string]: Emoji } = window.$discordMessage?.emojis ?? {};
 
 export const defaultTheme: string = window.$discordMessage?.defaultTheme === 'light' ? 'light' : 'dark';
 
