@@ -27,13 +27,13 @@
 		"@sapphire/ts-config": "^3.1.4",
 		"@stencil/react-output-target": "^0.1.0",
 		"@types/node": "^16.11.6",
-		"@types/react": "17.0.33",
-		"@types/react-dom": "17.0.10",
-		"@typescript-eslint/eslint-plugin": "^5.2.0",
-		"@typescript-eslint/parser": "^5.2.0",
+		"@types/react": "17.0.34",
+		"@types/react-dom": "17.0.11",
+		"@typescript-eslint/eslint-plugin": "^5.3.0",
+		"@typescript-eslint/parser": "^5.3.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.13.12",
-		"eslint": "^8.1.0",
+		"eslint": "^8.2.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.25.2",
 		"eslint-plugin-jsx-a11y": "^6.4.1",
@@ -48,8 +48,8 @@
 		"pretty-quick": "^3.1.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
-		"rollup": "^2.58.3",
-		"rollup-plugin-dts": "^4.0.0",
+		"rollup": "^2.59.0",
+		"rollup-plugin-dts": "^4.0.1",
 		"typescript": "^4.4.4"
 	},
 	"commitlint": {
@@ -67,8 +67,8 @@
 	},
 	"resolutions": {
 		"acorn": "^8.5.0",
-		"@types/react": "17.0.33",
-		"@types/react-dom": "17.0.10"
+		"@types/react": "17.0.34",
+		"@types/react-dom": "17.0.11"
 	},
 	"prettier": "@sapphire/prettier-config"
 }
