@@ -212,3 +212,13 @@
 .discord-light-theme .discord-embed .discord-embed-footer .discord-footer-separator {
 	color: #e4e4e4;
 }
+
+.discord-embed-emoji {
+	display: inline-block;
+}
+
+.discord-embed-emoji .discord-embed-emoji-image {
+	width: 18px;
+	height: 18px;
+	vertical-align: bottom;
+}

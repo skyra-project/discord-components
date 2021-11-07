@@ -2,6 +2,7 @@ import { Component, ComponentInterface, Element, h, Prop, Watch } from '@stencil
 import clsx from 'clsx';
 import Fragment from '../../Fragment';
 import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
+import { Emoji, emojis } from '../../options';
 
 @Component({
 	tag: 'discord-embed',
@@ -106,6 +107,8 @@ export class DiscordEmbed implements ComponentInterface {
 
 	public render() {
 		const footerSlot: Element | undefined = findSlotElement(this.el.children, 'footer');
+		const newAuthorName = this.parseTitle(this.authorName);
+		const newTitle = this.parseTitle(this.embedTitle);
 
 		return (
 			<div class="discord-embed">
@@ -123,10 +126,10 @@ export class DiscordEmbed implements ComponentInterface {
 									{this.authorImage ? <img src={this.authorImage} alt="" class="discord-author-image" /> : ''}
 									{this.authorUrl ? (
 										<a href={this.authorUrl} target="_blank" rel="noopener noreferrer">
-											{this.authorName}
+											{...newAuthorName}
 										</a>
 									) : (
-										<Fragment>{this.authorName}</Fragment>
+										<Fragment>{...newAuthorName}</Fragment>
 									)}
 								</div>
 							)}
@@ -134,10 +137,10 @@ export class DiscordEmbed implements ComponentInterface {
 								<div class="discord-embed-title">
 									{this.url ? (
 										<a href={this.url} target="_blank" rel="noopener noreferrer">
-											{this.embedTitle}
+											{...newTitle}
 										</a>
 									) : (
-										<Fragment>{this.embedTitle}</Fragment>
+										<Fragment>{...newTitle}</Fragment>
 									)}
 								</div>
 							)}
@@ -181,5 +184,25 @@ export class DiscordEmbed implements ComponentInterface {
 		}
 
 		return null;
+	}
+
+	private parseTitle(title: string) {
+		const resolveEmoji = (emoji: string): Emoji => emojis[emoji] ?? {};
+		const words = title.split(' ');
+		return words.map((word: string, idx: number) => {
+			const emoji = resolveEmoji(word);
+			let el = '';
+			if (emoji.name) {
+				el = (
+					<span class="discord-embed-emoji">
+						<img src={emoji.url} alt={emoji.name} class="discord-embed-emoji-image" />
+						<span>&nbsp;</span>
+					</span>
+				);
+			} else {
+				el = idx < words.length - 1 ? `${word} ` : word;
+			}
+			return el;
+		});
 	}
 }
