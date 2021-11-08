@@ -1359,7 +1359,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@skyra/discord-components-core@^2.11.3-alpha.1, @skyra/discord-components-core@workspace:packages/core":
+"@skyra/discord-components-core@^2.11.3-alpha.2, @skyra/discord-components-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-core@workspace:packages/core"
   dependencies:
@@ -1373,7 +1373,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-react@workspace:packages/react"
   dependencies:
-    "@skyra/discord-components-core": ^2.11.3-alpha.1
+    "@skyra/discord-components-core": ^2.11.3-alpha.2
+    tslib: ^2.3.1
   peerDependencies:
     react: 16.8.x || 17.x
     react-dom: 16.8.x || 17.x
