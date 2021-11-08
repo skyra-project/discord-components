@@ -61,7 +61,7 @@ Discord message components to easily build and display fake Discord messages on 
 
 **NextJS**
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-hdzov)
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-ovqfu)
 
 ### Vue
 

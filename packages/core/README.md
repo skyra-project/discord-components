@@ -169,7 +169,7 @@ applyPolyfills().then(() => {
 
 #### Live Demo (NextJS)
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-hdzov)
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-ovqfu)
 
 #### Sample code
 

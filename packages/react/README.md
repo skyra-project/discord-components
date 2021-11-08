@@ -75,7 +75,7 @@ yarn add @skyra/discord-components-core @skyra/discord-components-react
 
 #### Live Demo (NextJS)
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-hdzov)
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-ovqfu)
 
 ### Sample code
 
