@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"rootDir": "src",
 		"outDir": "dist",
+		"module": "CommonJS",
 		"tsBuildInfoFile": "dist/.tsbuildinfo",
 		"importsNotUsedAsValues": "remove",
 		"declarationMap": true
