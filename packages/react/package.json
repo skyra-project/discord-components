@@ -4,25 +4,21 @@
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
-	"main": "dist/index.mjs",
+	"main": "dist/index.js",
 	"module": "dist/index.mjs",
-	"browser": "dist/index.mjs",
-	"unpkg": "dist/index.mjs",
 	"typings": "dist/index.d.ts",
 	"exports": {
 		"import": "./dist/index.mjs",
-		"require": "./dist/index.mjs"
+		"require": "./dist/index.js"
 	},
 	"sideEffects": [
-		"./dist/index.mjs"
+		"./dist/index.mjs",
+		"./dist/index.js"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
 		"clean": "node scripts/clean.mjs",
-		"build": "yarn clean  && yarn build:1 && yarn build:2 && yarn build:3",
-		"build:1": "node scripts/build.mjs",
-		"build:2": "tsc -p ./tsconfig.types.json",
-		"build:3": "rollup -c"
+		"build": "yarn clean  && tsc -p . && gen-esm-wrapper dist/index.js dist/index.mjs"
 	},
 	"dependencies": {
 		"@skyra/discord-components-core": "^2.11.3-alpha.1"
@@ -35,7 +31,8 @@
 		"lib": "src"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"!dist/*.tsbuildinfo"
 	],
 	"engines": {
 		"node": ">=v14.0.0"

@@ -3,8 +3,10 @@
 	"compilerOptions": {
 		"rootDir": "src",
 		"outDir": "dist",
-		"strictNullChecks": false,
-		"importsNotUsedAsValues": "remove"
+		"module": "CommonJS",
+		"tsBuildInfoFile": "dist/.tsbuildinfo",
+		"importsNotUsedAsValues": "remove",
+		"declarationMap": true
 	},
 	"include": ["src"]
 }

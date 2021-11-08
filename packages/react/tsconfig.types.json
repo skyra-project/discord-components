@@ -1,9 +1,0 @@
-{
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"emitDeclarationOnly": true,
-		"declarationDir": "build",
-		"tsBuildInfoFile": "build/.tsbuildinfo"
-	},
-	"include": ["src"]
-}

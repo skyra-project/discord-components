@@ -9,7 +9,6 @@ const coreWwwDirectory = new URL('www/', coreDirectory);
 
 const reactSrcDirectory = new URL('src/', reactDirectory);
 const reactDistDirectory = new URL('dist/', reactDirectory);
-const reactBuildDirectory = new URL('build/', reactDirectory);
 
 const options = { recursive: true, force: true };
 
@@ -18,6 +17,5 @@ await Promise.all([
 	rm(coreLoaderDirectory, options),
 	rm(coreWwwDirectory, options),
 	rm(reactSrcDirectory, options),
-	rm(reactDistDirectory, options),
-	rm(reactBuildDirectory, options)
+	rm(reactDistDirectory, options)
 ]);
