@@ -10,8 +10,7 @@
 		"format": "prettier --write --loglevel=warn \"packages/**/src/**\"",
 		"prebuild": "yarn clean",
 		"start": "yarn workspace @skyra/discord-components-core start",
-		"build": "run-s build:core build:react",
-		"postbuild": "yarn lint && yarn format",
+		"build": "yarn build:core && yarn build:react && yarn lint && yarn format",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
 		"build:react": "yarn workspace @skyra/discord-components-react build",
 		"commit": "git-cz",
@@ -29,8 +28,8 @@
 		"@types/node": "^16.11.6",
 		"@types/react": "17.0.34",
 		"@types/react-dom": "17.0.11",
-		"@typescript-eslint/eslint-plugin": "^5.3.0",
-		"@typescript-eslint/parser": "^5.3.0",
+		"@typescript-eslint/eslint-plugin": "^5.3.1",
+		"@typescript-eslint/parser": "^5.3.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.13.12",
 		"eslint": "^8.2.0",
@@ -43,7 +42,6 @@
 		"husky": "^7.0.4",
 		"lerna": "^4.0.0",
 		"lint-staged": "^11.2.6",
-		"npm-run-all": "^4.1.5",
 		"prettier": "^2.4.1",
 		"pretty-quick": "^3.1.1",
 		"react": "^17.0.2",
@@ -65,10 +63,6 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"resolutions": {
-		"acorn": "^8.5.0",
-		"@types/react": "17.0.34",
-		"@types/react-dom": "17.0.11"
-	},
-	"prettier": "@sapphire/prettier-config"
+	"prettier": "@sapphire/prettier-config",
+	"packageManager": "yarn@3.1.0"
 }

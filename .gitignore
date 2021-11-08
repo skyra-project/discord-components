@@ -8,6 +8,9 @@ package-lock.json
 .idea/
 .vscode/
 
+# Yarn files
+.yarn/install-state.gz
+.yarn/build-state.yml
 
 # Output
 dist/
