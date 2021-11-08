@@ -38,7 +38,7 @@
 		"dist"
 	],
 	"engines": {
-		"node": ">=v14.18.0"
+		"node": ">=v14.0.0"
 	},
 	"publishConfig": {
 		"access": "public"
