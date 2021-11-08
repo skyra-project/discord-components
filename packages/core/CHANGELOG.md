@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.3-alpha.0](https://github.com/skyra-project/discord-components/compare/v2.11.2...v2.11.3-alpha.0) (2021-11-08)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([#158](https://github.com/skyra-project/discord-components/issues/158)) ([069255e](https://github.com/skyra-project/discord-components/commit/069255edf3b42b7549cb8a5382fc8f8899a95ac2))
+-   **deps:** update all non-major dependencies ([#166](https://github.com/skyra-project/discord-components/issues/166)) ([8d22036](https://github.com/skyra-project/discord-components/commit/8d22036549cca3f7eb2518ac14deda46902f5d55))
+
 ## [2.11.2](https://github.com/skyra-project/discord-components/compare/v2.11.1...v2.11.2) (2021-10-03)
 
 **Note:** Version bump only for package @skyra/discord-components-core
