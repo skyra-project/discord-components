@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.3-alpha.2](https://github.com/skyra-project/discord-components/compare/v2.11.3-alpha.1...v2.11.3-alpha.2) (2021-11-08)
+
+### Bug Fixes
+
+-   **react:** no longer use esbuild for bundling ([d03ed4d](https://github.com/skyra-project/discord-components/commit/d03ed4d170493380d724d24268b195c1f4e4d71d))
+
 ## [2.11.3-alpha.1](https://github.com/skyra-project/discord-components/compare/v2.11.3-alpha.0...v2.11.3-alpha.1) (2021-11-08)
 
 ### Bug Fixes
