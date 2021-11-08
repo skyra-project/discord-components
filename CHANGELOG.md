@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.3-alpha.3](https://github.com/skyra-project/discord-components/compare/v2.11.3-alpha.2...v2.11.3-alpha.3) (2021-11-08)
+
+### Bug Fixes
+
+-   **react:** add dependency on tslib ([cc0b85e](https://github.com/skyra-project/discord-components/commit/cc0b85e23434611302bc1494aa2a76273912f6d1))
+
 ## [2.11.3-alpha.2](https://github.com/skyra-project/discord-components/compare/v2.11.3-alpha.1...v2.11.3-alpha.2) (2021-11-08)
 
 ### Bug Fixes
