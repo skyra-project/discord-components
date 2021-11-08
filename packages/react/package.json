@@ -5,10 +5,10 @@
 	"author": "@skyra",
 	"license": "MIT",
 	"main": "dist/index.js",
-	"module": "dist/index.mjs",
+	"module": "dist/index.js",
 	"typings": "dist/index.d.ts",
 	"exports": {
-		"import": "./dist/index.mjs",
+		"import": "./dist/index.js",
 		"require": "./dist/index.js"
 	},
 	"sideEffects": [
@@ -18,7 +18,7 @@
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
 		"clean": "node scripts/clean.mjs",
-		"build": "yarn clean  && tsc -p . && gen-esm-wrapper dist/index.js dist/index.mjs"
+		"build": "yarn clean && tsc -p ."
 	},
 	"dependencies": {
 		"@skyra/discord-components-core": "^2.11.4",
