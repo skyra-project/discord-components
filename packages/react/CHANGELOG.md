@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.6](https://github.com/skyra-project/discord-components/compare/v2.11.5...v2.11.6) (2021-11-08)
+
+### Bug Fixes
+
+-   **react:** fix ESM loading ([8a43f53](https://github.com/skyra-project/discord-components/commit/8a43f5367b48d086bdd46c52d393547bc6209170))
+
 ## [2.11.5](https://github.com/skyra-project/discord-components/compare/v2.11.4...v2.11.5) (2021-11-08)
 
 ### Bug Fixes
