@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.5](https://github.com/skyra-project/discord-components/compare/v2.11.4...v2.11.5) (2021-11-08)
+
+### Bug Fixes
+
+-   **react:** only output ESM bundle ([cf9da04](https://github.com/skyra-project/discord-components/commit/cf9da04318fc5013f8637f01bd4c733b617ad074))
+
 ## [2.11.4](https://github.com/skyra-project/discord-components/compare/v2.11.3...v2.11.4) (2021-11-08)
 
 ### Bug Fixes
