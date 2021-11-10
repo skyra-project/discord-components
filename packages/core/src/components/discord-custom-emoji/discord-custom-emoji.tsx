@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
+import { getGlobalEmojiUrl } from '../../util';
 
 @Component({
 	tag: 'discord-custom-emoji',
@@ -20,15 +21,26 @@ export class DiscordCustomEmoji implements ComponentInterface {
 	/**
 	 * The emoji URL to use in the message.
 	 */
-	@Prop()
+	@Prop({ mutable: true })
 	public url: string;
 
 	/**
 	 * Determines whether or not the emoji is used in an embed, or a message.
 	 * If it is used in an embed, the sizing is adjusted accordingly.
 	 */
-	@Prop()
+	@Prop({ mutable: true })
 	public embedEmoji: boolean;
+
+	public componentWillRender() {
+		if (!this.url && Boolean(this.name)) {
+			const emojiFromGlobal = getGlobalEmojiUrl(this.name);
+
+			if (emojiFromGlobal) {
+				this.url ??= emojiFromGlobal.url ?? '';
+				this.embedEmoji ??= emojiFromGlobal.embedEmoji ?? false;
+			}
+		}
+	}
 
 	public render() {
 		const name = `:${this.name}:`;
