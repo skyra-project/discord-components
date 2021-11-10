@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
-import { Emoji, emojis } from '../../options';
+import type { Emoji } from '../../options';
+import { getGlobalEmojiUrl } from '../../util';
 
 @Component({
 	tag: 'discord-embed-field',
@@ -75,11 +76,10 @@ export class DiscordEmbedField implements ComponentInterface {
 	private parseTitle(title?: string) {
 		if (!title) return null;
 
-		const resolveEmoji = (emoji: string): Emoji => emojis[emoji] ?? {};
 		const words = title.split(' ');
 
 		return words.map((word: string, idx: number) => {
-			const emoji = resolveEmoji(word);
+			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
 			let el = '';
 			if (emoji.name) {
 				el = (

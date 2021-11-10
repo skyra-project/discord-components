@@ -38,6 +38,7 @@ export const defaultDiscordAvatars: Omit<Avatars, 'default'> = {
 export interface Emoji {
 	name?: string;
 	url?: string;
+	embedEmoji?: boolean;
 }
 
 const globalAvatars: Avatars = window.$discordMessage?.avatars ?? ({} as Avatars);
@@ -47,8 +48,6 @@ export const avatars: Avatars = Object.assign(defaultDiscordAvatars, globalAvata
 });
 
 export const profiles: { [key: string]: Profile } = window.$discordMessage?.profiles ?? {};
-
-export const emojis: { [key: string]: Emoji } = window.$discordMessage?.emojis ?? {};
 
 export const defaultTheme: string = window.$discordMessage?.defaultTheme === 'light' ? 'light' : 'dark';
 

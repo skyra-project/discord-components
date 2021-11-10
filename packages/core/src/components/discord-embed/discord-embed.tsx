@@ -1,8 +1,8 @@
 import { Component, ComponentInterface, Element, h, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 import Fragment from '../../Fragment';
-import { Emoji, emojis } from '../../options';
-import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
+import type { Emoji } from '../../options';
+import { DiscordTimestamp, findSlotElement, getGlobalEmojiUrl, handleTimestamp } from '../../util';
 
 @Component({
 	tag: 'discord-embed',
@@ -189,11 +189,10 @@ export class DiscordEmbed implements ComponentInterface {
 	private parseTitle(title?: string) {
 		if (!title) return null;
 
-		const resolveEmoji = (emoji: string): Emoji => emojis[emoji] ?? {};
 		const words = title.split(' ');
 
 		return words.map((word: string, idx: number) => {
-			const emoji = resolveEmoji(word);
+			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
 			let el = '';
 			if (emoji.name) {
 				el = (
