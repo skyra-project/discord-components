@@ -2,7 +2,7 @@ import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
 
 @Component({
 	tag: 'discord-custom-emoji',
-	styleUrl: 'discord-emoji.css'
+	styleUrl: 'discord-custom-emoji.css'
 })
 export class DiscordCustomEmoji implements ComponentInterface {
 	/**
@@ -32,8 +32,8 @@ export class DiscordCustomEmoji implements ComponentInterface {
 
 	public render() {
 		const name = `:${this.name}:`;
-		const emojiClassName = this.embedEmoji ? 'discord-embed-emoji' : 'discord-emoji';
-		const emojiImageClassName = this.embedEmoji ? 'discord-embed-emoji-image' : 'discord-emoji-image';
+		const emojiClassName = this.embedEmoji ? 'discord-embed-custom-emoji' : 'discord-custom-emoji';
+		const emojiImageClassName = this.embedEmoji ? 'discord-embed-custom-emoji-image' : 'discord-custom-emoji-image';
 
 		return (
 			<span class={emojiClassName}>

@@ -83,8 +83,8 @@ export class DiscordEmbedField implements ComponentInterface {
 			let el = '';
 			if (emoji.name) {
 				el = (
-					<span class="discord-embed-emoji">
-						<img src={emoji.url} alt={emoji.name} class="discord-embed-emoji-image" />
+					<span class="discord-embed-custom-emoji">
+						<img src={emoji.url} alt={emoji.name} class="discord-embed-custom-emoji-image" />
 						<span>&nbsp;</span>
 					</span>
 				);

@@ -1,8 +1,8 @@
 import { Component, ComponentInterface, Element, h, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
 import Fragment from '../../Fragment';
-import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
 import { Emoji, emojis } from '../../options';
+import { DiscordTimestamp, findSlotElement, handleTimestamp } from '../../util';
 
 @Component({
 	tag: 'discord-embed',
@@ -197,8 +197,8 @@ export class DiscordEmbed implements ComponentInterface {
 			let el = '';
 			if (emoji.name) {
 				el = (
-					<span class="discord-embed-emoji">
-						<img src={emoji.url} alt={emoji.name} class="discord-embed-emoji-image" />
+					<span class="discord-embed-custom-emoji">
+						<img src={emoji.url} alt={emoji.name} class="discord-embed-custom-emoji-image" />
 						<span>&nbsp;</span>
 					</span>
 				);

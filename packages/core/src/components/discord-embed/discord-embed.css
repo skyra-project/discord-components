@@ -213,11 +213,11 @@
 	color: #e4e4e4;
 }
 
-.discord-embed-emoji {
+.discord-embed-custom-emoji {
 	display: inline-block;
 }
 
-.discord-embed-emoji .discord-embed-emoji-image {
+.discord-embed-custom-emoji .discord-embed-custom-emoji-image {
 	width: 18px;
 	height: 18px;
 	vertical-align: bottom;

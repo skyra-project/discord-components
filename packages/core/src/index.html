@@ -46,7 +46,7 @@
 					},
 					skyra: {
 						author: 'Skyra',
-						avatar: 'https://github.com/NM-EEA-Y.png',
+						avatar: '/static/skyra.png',
 						roleColor: '#1e88e5',
 						bot: true,
 						verified: true
@@ -66,11 +66,11 @@
 				emojis: {
 					diamond: {
 						name: 'diamond',
-						url: 'https://cdn.discordapp.com/emojis/325348812065603594.png?size=96'
+						url: '/static/diamond.png'
 					},
-					AIChainSmile: {
-						name: 'AIChainSmile',
-						url: 'https://cdn.discordapp.com/emojis/772214995030900768.png?size=96'
+					aichansmile: {
+						name: 'aichansmile',
+						url: '/static/aichansmile.png'
 					}
 				}
 			};
@@ -89,10 +89,7 @@
 				<discord-messages>
 					<discord-message author="Alyx Vargas">
 						Hey guys, I'm new here! Glad to be able to join you all!
-						<discord-custom-emoji
-							name="AIChainSmile"
-							url="https://cdn.discordapp.com/emojis/772214995030900768.png?size=96"
-						></discord-custom-emoji
+						<discord-custom-emoji name="aichansmile" url="/static/aichansmile.png"></discord-custom-emoji
 					></discord-message>
 					<discord-message author="Fenton Smart" avatar="/static/avafive.png"> Hi, I'm new here too! </discord-message>
 					<discord-message profile="maximillian">
@@ -120,10 +117,7 @@
 				<h3 class="title">Compact mode</h3>
 				<discord-messages compact-mode>
 					<discord-message>Look at me I'm a beautiful butterfly</discord-message>
-					<discord-message>
-						<discord-emoji name="test" url="https://cdn.discordapp.com/emojis/502324831879036931.png?size=80"></discord-emoji> Fluttering
-						in the moonlight</discord-message
-					>
+					<discord-message>Fluttering in the moonlight 😀</discord-message>
 					<discord-message>Waiting for the day when</discord-message>
 					<discord-message>Compact mode would be turned on</discord-message>
 					<discord-message>Oh here it is!</discord-message>
@@ -133,7 +127,7 @@
 					<discord-message>This message blends perfectly with your own background</discord-message>
 					<discord-message
 						>No Background mode is turned on here
-						<discord-emoji name="test" url="https://cdn.discordapp.com/emojis/502324831879036931.png?size=80"></discord-emoji>
+						<discord-custom-emoji name="test" url="/static/pikawow.png"></discord-custom-emoji>
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Mentions</h3>
@@ -402,11 +396,7 @@
 							bot framework.<br /><br />Sapphire is a community driven framework that aims to give you all the features you need to make
 							your Discord bot.<br /><br />With a history of many other Discord bot frameworks (both for NodeJS and other languages) to
 							inspire Sapphire, it has become the ultimate modern experience of writing your code.
-							<discord-custom-emoji
-								name="party"
-								url="https://cdn.discordapp.com/emojis/425247186524176391.gif?size=56"
-								embed-emoji
-							></discord-custom-emoji>
+							<discord-custom-emoji name="blobparty" url="/static/blobparty.gif" embed-emoji></discord-custom-emoji>
 							<span slot="footer">Open source libraries to aid in the creation of Discord bots</span>
 						</discord-embed>
 					</discord-message>
@@ -439,6 +429,7 @@
 						<discord-embed
 							slot="embeds"
 							provider="Blender"
+							emojiParsedEmbedFieldTitle
 							author-name="Blender"
 							author-url="https://peach.blender.org/download/"
 							color="#019DD8"
@@ -463,13 +454,9 @@
 								<discord-embed-field field-title="Field title">
 									Some value here. Some value here. Some value here.
 								</discord-embed-field>
-								<discord-embed-field field-title="AIChainSmile Field title with Emoji">
+								<discord-embed-field field-title="aichansmile Field title with Emoji">
 									Some value here. Some value here. Some value here. Some Emoji:
-									<discord-custom-emoji
-										name="skyra"
-										url="https://cdn.discordapp.com/emojis/819227046453444620.png?size=240"
-										embed-emoji
-									></discord-custom-emoji>
+									<discord-custom-emoji name="skyra" url="/static/skyra.png" embed-emoji></discord-custom-emoji>
 								</discord-embed-field>
 							</discord-embed-fields>
 						</discord-embed>

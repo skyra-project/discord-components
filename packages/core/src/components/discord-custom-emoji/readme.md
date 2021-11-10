@@ -1,7 +1,6 @@
-# discord-emoji
+# discord-custom-emoji
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -11,7 +10,6 @@
 | `name`       | `name`        | The name of the emoji                                                                                                                 | `string`  | `undefined` |
 | `url`        | `url`         | The emoji URL to use in the message.                                                                                                  | `string`  | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
