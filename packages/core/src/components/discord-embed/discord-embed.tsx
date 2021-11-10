@@ -107,8 +107,8 @@ export class DiscordEmbed implements ComponentInterface {
 
 	public render() {
 		const footerSlot: Element | undefined = findSlotElement(this.el.children, 'footer');
-		const newAuthorName = this.parseTitle(this.authorName);
-		const newTitle = this.parseTitle(this.embedTitle);
+		const emojiParsedAuthorName = this.parseTitle(this.authorName);
+		const emojiParsedEmbedTitle = this.parseTitle(this.embedTitle);
 
 		return (
 			<div class="discord-embed">
@@ -121,26 +121,26 @@ export class DiscordEmbed implements ComponentInterface {
 									<Fragment>{this.provider}</Fragment>
 								</div>
 							)}
-							{this.authorName && (
+							{emojiParsedAuthorName && (
 								<div class="discord-embed-author">
 									{this.authorImage ? <img src={this.authorImage} alt="" class="discord-author-image" /> : ''}
 									{this.authorUrl ? (
 										<a href={this.authorUrl} target="_blank" rel="noopener noreferrer">
-											{...newAuthorName}
+											{...emojiParsedAuthorName}
 										</a>
 									) : (
-										<Fragment>{...newAuthorName}</Fragment>
+										<Fragment>{...emojiParsedAuthorName}</Fragment>
 									)}
 								</div>
 							)}
-							{this.embedTitle && (
+							{emojiParsedEmbedTitle && (
 								<div class="discord-embed-title">
 									{this.url ? (
 										<a href={this.url} target="_blank" rel="noopener noreferrer">
-											{...newTitle}
+											{...emojiParsedEmbedTitle}
 										</a>
 									) : (
-										<Fragment>{...newTitle}</Fragment>
+										<Fragment>{...emojiParsedEmbedTitle}</Fragment>
 									)}
 								</div>
 							)}
@@ -186,9 +186,12 @@ export class DiscordEmbed implements ComponentInterface {
 		return null;
 	}
 
-	private parseTitle(title: string) {
+	private parseTitle(title?: string) {
+		if (!title) return null;
+
 		const resolveEmoji = (emoji: string): Emoji => emojis[emoji] ?? {};
 		const words = title.split(' ');
+
 		return words.map((word: string, idx: number) => {
 			const emoji = resolveEmoji(word);
 			let el = '';

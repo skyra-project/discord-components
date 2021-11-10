@@ -34,6 +34,7 @@ export class DiscordCustomEmoji implements ComponentInterface {
 		const name = `:${this.name}:`;
 		const emojiClassName = this.embedEmoji ? 'discord-embed-emoji' : 'discord-emoji';
 		const emojiImageClassName = this.embedEmoji ? 'discord-embed-emoji-image' : 'discord-emoji-image';
+
 		return (
 			<span class={emojiClassName}>
 				<img aria-label={name} src={this.url} alt={name} draggable={false} class={emojiImageClassName} />

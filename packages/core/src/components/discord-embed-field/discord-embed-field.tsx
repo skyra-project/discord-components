@@ -52,7 +52,8 @@ export class DiscordEmbedField implements ComponentInterface {
 			throw new SyntaxError('All <discord-embed-field> components must be direct children of <discord-embed-fields>.');
 		}
 
-		const newTitle = this.parseTitle(this.fieldTitle);
+		const emojiParsedEmbedFieldTitle = this.parseTitle(this.fieldTitle);
+
 		return (
 			<Host
 				class={clsx(
@@ -65,15 +66,18 @@ export class DiscordEmbedField implements ComponentInterface {
 					'discord-embed-field'
 				)}
 			>
-				<div class="discord-field-title">{[...newTitle]}</div>
+				{emojiParsedEmbedFieldTitle && <div class="discord-field-title">{[...emojiParsedEmbedFieldTitle]}</div>}
 				<slot></slot>
 			</Host>
 		);
 	}
 
-	private parseTitle(title: string) {
+	private parseTitle(title?: string) {
+		if (!title) return null;
+
 		const resolveEmoji = (emoji: string): Emoji => emojis[emoji] ?? {};
 		const words = title.split(' ');
+
 		return words.map((word: string, idx: number) => {
 			const emoji = resolveEmoji(word);
 			let el = '';
