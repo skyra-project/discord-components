@@ -1,3 +1,5 @@
+import type { Emoji } from './options';
+
 export type DiscordTimestamp = Date | string | null;
 
 const padZeroes = (value: string): string => {
@@ -31,6 +33,9 @@ export const findSlotElement = (elements: HTMLCollection, name: string): Element
 };
 
 export const IMAGE_EXTENSION = /\.(bmp|jpe?g|png|gif|webp|tiff)$/i;
+
 export const validateImageExtension = (url: string) => {
 	if (!IMAGE_EXTENSION.test(url)) throw new Error(`The url of an image for discord-attachment should match the regex ${IMAGE_EXTENSION}`);
 };
+
+export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => window.$discordMessage?.emojis?.[emojiName];

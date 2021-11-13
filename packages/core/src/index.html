@@ -46,7 +46,7 @@
 					},
 					skyra: {
 						author: 'Skyra',
-						avatar: 'https://github.com/NM-EEA-Y.png',
+						avatar: '/static/skyra.png',
 						roleColor: '#1e88e5',
 						bot: true,
 						verified: true
@@ -61,6 +61,24 @@
 						avatar: '/static/discordjs.png',
 						roleColor: '#ffffff',
 						server: true
+					}
+				},
+				emojis: {
+					diamond: {
+						name: 'diamond',
+						url: '/static/diamond.png'
+					},
+					aichansmile: {
+						name: 'aichansmile',
+						url: '/static/aichansmile.png'
+					},
+					dragonite: {
+						name: 'dragonite',
+						url: '/static/dragonite.png'
+					},
+					sapphire: {
+						name: 'sapphire',
+						url: '/static/sapphire.png'
 					}
 				}
 			};
@@ -127,6 +145,23 @@
 					<discord-message author="Alyx Vargas">
 						Hey there
 						<discord-mention highlight>Maximillian Osborn</discord-mention>, thanks! I will!
+					</discord-message>
+				</discord-messages>
+				<h3 class="title">Custom Discord Emojis</h3>
+				<discord-messages>
+					<discord-message profile="favna">
+						Hey these are some custom emojis:
+						<discord-custom-emoji name="blobparty" url="/static/blobparty.gif"></discord-custom-emoji>
+						<discord-custom-emoji name="skyra" url="/static/skyra.png"></discord-custom-emoji>
+						<discord-embed slot="embeds" color="#0F52BA" embed-title="diamond Emojis in the embed title">
+							Custom emojis in the embed description:
+							<discord-custom-emoji name="pikawow" url="/static/pikawow.png" embed-emoji></discord-custom-emoji>
+							<discord-embed-fields slot="fields">
+								<discord-embed-field field-title="dragonite Custom emojis in the field title">
+									Custom emojis in the field content <discord-custom-emoji name="sapphire" embed-emoji></discord-custom-emoji>
+								</discord-embed-field>
+							</discord-embed-fields>
+						</discord-embed>
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Server Invites</h3>

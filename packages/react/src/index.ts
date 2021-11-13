@@ -13,6 +13,7 @@ export const DiscordAttachment = /*@__PURE__*/ createReactComponent<JSX.DiscordA
 export const DiscordAttachments = /*@__PURE__*/ createReactComponent<JSX.DiscordAttachments, HTMLDiscordAttachmentsElement>('discord-attachments');
 export const DiscordButton = /*@__PURE__*/ createReactComponent<JSX.DiscordButton, HTMLDiscordButtonElement>('discord-button');
 export const DiscordCommand = /*@__PURE__*/ createReactComponent<JSX.DiscordCommand, HTMLDiscordCommandElement>('discord-command');
+export const DiscordCustomEmoji = /*@__PURE__*/ createReactComponent<JSX.DiscordCustomEmoji, HTMLDiscordCustomEmojiElement>('discord-custom-emoji');
 export const DiscordEmbed = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbed, HTMLDiscordEmbedElement>('discord-embed');
 export const DiscordEmbedField = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedField, HTMLDiscordEmbedFieldElement>('discord-embed-field');
 export const DiscordEmbedFields = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedFields, HTMLDiscordEmbedFieldsElement>('discord-embed-fields');

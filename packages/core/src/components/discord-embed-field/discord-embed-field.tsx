@@ -1,5 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import clsx from 'clsx';
+import type { Emoji } from '../../options';
+import { getGlobalEmojiUrl } from '../../util';
 
 @Component({
 	tag: 'discord-embed-field',
@@ -51,6 +53,8 @@ export class DiscordEmbedField implements ComponentInterface {
 			throw new SyntaxError('All <discord-embed-field> components must be direct children of <discord-embed-fields>.');
 		}
 
+		const emojiParsedEmbedFieldTitle = this.parseTitle(this.fieldTitle);
+
 		return (
 			<Host
 				class={clsx(
@@ -63,9 +67,31 @@ export class DiscordEmbedField implements ComponentInterface {
 					'discord-embed-field'
 				)}
 			>
-				<div class="discord-field-title">{this.fieldTitle}</div>
+				{emojiParsedEmbedFieldTitle && <div class="discord-field-title">{[...emojiParsedEmbedFieldTitle]}</div>}
 				<slot></slot>
 			</Host>
 		);
+	}
+
+	private parseTitle(title?: string) {
+		if (!title) return null;
+
+		const words = title.split(' ');
+
+		return words.map((word: string, idx: number) => {
+			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
+			let el = '';
+			if (emoji.name) {
+				el = (
+					<span class="discord-embed-custom-emoji">
+						<img src={emoji.url} alt={emoji.name} class="discord-embed-custom-emoji-image" />
+						<span>&nbsp;</span>
+					</span>
+				);
+			} else {
+				el = idx < words.length - 1 ? `${word} ` : word;
+			}
+			return el;
+		});
 	}
 }

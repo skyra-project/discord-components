@@ -20,6 +20,7 @@ export interface Profile {
 export interface DiscordMessageOptions {
 	avatars?: Avatars;
 	profiles?: { [key: string]: Profile };
+	emojis?: { [key: string]: Emoji };
 	defaultTheme?: string;
 	defaultMode?: string;
 	defaultBackground?: 'discord' | 'none';
@@ -33,6 +34,12 @@ export const defaultDiscordAvatars: Omit<Avatars, 'default'> = {
 	red: 'https://cdn.discordapp.com/embed/avatars/4.png',
 	pink: 'https://cdn.discordapp.com/embed/avatars/5.png'
 };
+
+export interface Emoji {
+	name?: string;
+	url?: string;
+	embedEmoji?: boolean;
+}
 
 const globalAvatars: Avatars = window.$discordMessage?.avatars ?? ({} as Avatars);
 

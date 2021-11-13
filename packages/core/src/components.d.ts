@@ -76,6 +76,20 @@ export namespace Components {
          */
         "roleColor": string;
     }
+    interface DiscordCustomEmoji {
+        /**
+          * Determines whether or not the emoji is used in an embed, or a message. If it is used in an embed, the sizing is adjusted accordingly.
+         */
+        "embedEmoji": boolean;
+        /**
+          * The name of the emoji
+         */
+        "name": string;
+        /**
+          * The emoji URL to use in the message.
+         */
+        "url": string;
+    }
     interface DiscordEmbed {
         /**
           * The author's avatar URL.
@@ -443,6 +457,12 @@ declare global {
         prototype: HTMLDiscordCommandElement;
         new (): HTMLDiscordCommandElement;
     };
+    interface HTMLDiscordCustomEmojiElement extends Components.DiscordCustomEmoji, HTMLStencilElement {
+    }
+    var HTMLDiscordCustomEmojiElement: {
+        prototype: HTMLDiscordCustomEmojiElement;
+        new (): HTMLDiscordCustomEmojiElement;
+    };
     interface HTMLDiscordEmbedElement extends Components.DiscordEmbed, HTMLStencilElement {
     }
     var HTMLDiscordEmbedElement: {
@@ -533,6 +553,7 @@ declare global {
         "discord-attachments": HTMLDiscordAttachmentsElement;
         "discord-button": HTMLDiscordButtonElement;
         "discord-command": HTMLDiscordCommandElement;
+        "discord-custom-emoji": HTMLDiscordCustomEmojiElement;
         "discord-embed": HTMLDiscordEmbedElement;
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
         "discord-embed-fields": HTMLDiscordEmbedFieldsElement;
@@ -618,6 +639,20 @@ declare namespace LocalJSX {
           * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
          */
         "roleColor"?: string;
+    }
+    interface DiscordCustomEmoji {
+        /**
+          * Determines whether or not the emoji is used in an embed, or a message. If it is used in an embed, the sizing is adjusted accordingly.
+         */
+        "embedEmoji"?: boolean;
+        /**
+          * The name of the emoji
+         */
+        "name"?: string;
+        /**
+          * The emoji URL to use in the message.
+         */
+        "url"?: string;
     }
     interface DiscordEmbed {
         /**
@@ -960,6 +995,7 @@ declare namespace LocalJSX {
         "discord-attachments": DiscordAttachments;
         "discord-button": DiscordButton;
         "discord-command": DiscordCommand;
+        "discord-custom-emoji": DiscordCustomEmoji;
         "discord-embed": DiscordEmbed;
         "discord-embed-field": DiscordEmbedField;
         "discord-embed-fields": DiscordEmbedFields;
@@ -985,6 +1021,7 @@ declare module "@stencil/core" {
             "discord-attachments": LocalJSX.DiscordAttachments & JSXBase.HTMLAttributes<HTMLDiscordAttachmentsElement>;
             "discord-button": LocalJSX.DiscordButton & JSXBase.HTMLAttributes<HTMLDiscordButtonElement>;
             "discord-command": LocalJSX.DiscordCommand & JSXBase.HTMLAttributes<HTMLDiscordCommandElement>;
+            "discord-custom-emoji": LocalJSX.DiscordCustomEmoji & JSXBase.HTMLAttributes<HTMLDiscordCustomEmojiElement>;
             "discord-embed": LocalJSX.DiscordEmbed & JSXBase.HTMLAttributes<HTMLDiscordEmbedElement>;
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
             "discord-embed-fields": LocalJSX.DiscordEmbedFields & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldsElement>;
