@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/skyra-project/discord-components/compare/v2.11.6...v2.12.0) (2021-11-13)
+
+### Features
+
+-   Add `discord-custom-emoji` component & custom emojis in embed titles ([#168](https://github.com/skyra-project/discord-components/issues/168)) ([61a808e](https://github.com/skyra-project/discord-components/commit/61a808e46f16d3ce9c7ea888e208cd1fcbe30e75)), closes [#163](https://github.com/skyra-project/discord-components/issues/163)
+
 ## [2.11.6](https://github.com/skyra-project/discord-components/compare/v2.11.5...v2.11.6) (2021-11-08)
 
 **Note:** Version bump only for package @skyra/discord-components-core
