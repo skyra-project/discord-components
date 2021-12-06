@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/skyra-project/discord-components/compare/v2.12.0...v2.12.1) (2021-12-06)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([#177](https://github.com/skyra-project/discord-components/issues/177)) ([36a4c5d](https://github.com/skyra-project/discord-components/commit/36a4c5d871b08418ff96bcf471035bdb19f73598))
+-   **discord-embed:** hide embed description when not provided ([f3f3302](https://github.com/skyra-project/discord-components/commit/f3f33029ca62f4517de8dfc3051855b36d8485db)), closes [#180](https://github.com/skyra-project/discord-components/issues/180)
+
 # [2.12.0](https://github.com/skyra-project/discord-components/compare/v2.11.6...v2.12.0) (2021-11-13)
 
 ### Features
