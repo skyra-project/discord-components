@@ -21,7 +21,7 @@ jobs:
           node-version: 16
           cache: yarn
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Run ESLint
         run: yarn lint --fix=false
 
@@ -39,6 +39,6 @@ jobs:
           node-version: 16
           cache: yarn
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Build Code
         run: yarn build
