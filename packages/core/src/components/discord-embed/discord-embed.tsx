@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Prop, State, Watch } from '@stencil/core';
 import clsx from 'clsx';
 import Fragment from '../../Fragment';
 import type { Emoji } from '../../options';
@@ -95,6 +95,11 @@ export class DiscordEmbed implements ComponentInterface {
 	@Prop({ mutable: true, reflect: true })
 	public timestamp?: DiscordTimestamp;
 
+	private hasPerformedRerenderChecks: 'dirty' | 'pristine' = 'pristine';
+
+	@State()
+	private hasProvidedDescriptionSlot = true;
+
 	@Watch('timestamp')
 	public updateTimestamp(value?: DiscordTimestamp): string | null {
 		if (!value || isNaN(new Date(value).getTime())) return null;
@@ -103,6 +108,17 @@ export class DiscordEmbed implements ComponentInterface {
 
 	public componentWillRender() {
 		this.timestamp = this.updateTimestamp(this.timestamp);
+	}
+
+	public componentDidRender() {
+		if (this.hasPerformedRerenderChecks === 'pristine') {
+			try {
+				const discordEmbedDescriptionChild = this.el.querySelector('.discord-embed-description');
+				this.hasProvidedDescriptionSlot = Boolean(discordEmbedDescriptionChild?.innerHTML.trim());
+			} finally {
+				this.hasPerformedRerenderChecks = 'dirty';
+			}
+		}
 	}
 
 	public render() {
@@ -144,9 +160,13 @@ export class DiscordEmbed implements ComponentInterface {
 									)}
 								</div>
 							)}
-							<div class="discord-embed-description">
-								<slot></slot>
-							</div>
+
+							{this.hasProvidedDescriptionSlot && (
+								<div class="discord-embed-description">
+									<slot></slot>
+								</div>
+							)}
+
 							<slot name="fields"></slot>
 							{this.image || this.video ? (
 								<div class={clsx('discord-embed-media', { 'discord-embed-media-video': Boolean(this.video) })}>
