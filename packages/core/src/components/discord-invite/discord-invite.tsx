@@ -62,10 +62,24 @@ export class DiscordInvite implements ComponentInterface {
 	@Prop()
 	public partnered = false;
 
+	/**
+	 * Invitation embed title.
+	 * @default "You've been invited to join a server"
+	 */
+	@Prop()
+	public inviteTitle = 'You\'ve been invited to join a server';
+
+	/**
+	 * The join button.
+	 * @default 'Join'
+	 */
+	@Prop()
+	public joinBtn = 'Join';
+
 	public render() {
 		return (
 			<div class="discord-invite">
-				<div class="discord-invite-header">You've been invited to join a server</div>
+				<div class="discord-invite-header">{this.inviteTitle}</div>
 				<div class="discord-invite-root">
 					<img class="discord-invite-icon" src={this.icon} alt={this.name} />
 					<div class="discord-invite-info">
@@ -91,7 +105,7 @@ export class DiscordInvite implements ComponentInterface {
 						</div>
 					</div>
 					<a class="discord-invite-join" href={this.url} target="_blank" rel="noopener noreferrer">
-						Join
+						{this.joinBtn}
 					</a>
 				</div>
 			</div>
