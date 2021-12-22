@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { attachProps, createForwardRef, dashToPascalCase, defineCustomElement, isCoveredByReact, mergeRefs } from './utils';
+import { attachProps, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
 
 export interface HTMLStencilElement extends HTMLElement {
 	componentOnReady(): Promise<this>;
@@ -15,9 +15,11 @@ export const createReactComponent = <PropType, ElementType extends HTMLStencilEl
 	tagName: string,
 	ReactComponentContext?: React.Context<ContextStateType>,
 	manipulatePropsFunction?: (originalProps: StencilReactInternalProps<ElementType>, propsToPass: any) => ExpandedPropsTypes,
-	customElement?: any
+	defineCustomElement?: () => void
 ) => {
-	defineCustomElement(tagName, customElement);
+	if (defineCustomElement !== undefined) {
+		defineCustomElement();
+	}
 
 	const displayName = dashToPascalCase(tagName);
 	const ReactComponent = class extends React.Component<StencilReactInternalProps<ElementType>> {

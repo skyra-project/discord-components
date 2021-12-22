@@ -170,6 +170,16 @@ export namespace Components {
          */
         "icon": string | undefined;
         /**
+          * Invitation embed title.
+          * @default "You've been invited to join a server"
+         */
+        "inviteTitle": string;
+        /**
+          * The join button.
+          * @default 'Join'
+         */
+        "joinBtn": string;
+        /**
           * The number of members on the server.
           * @default 0
          */
@@ -733,6 +743,16 @@ declare namespace LocalJSX {
           * The server icon to display for the invite.
          */
         "icon"?: string | undefined;
+        /**
+          * Invitation embed title.
+          * @default "You've been invited to join a server"
+         */
+        "inviteTitle"?: string;
+        /**
+          * The join button.
+          * @default 'Join'
+         */
+        "joinBtn"?: string;
         /**
           * The number of members on the server.
           * @default 0
