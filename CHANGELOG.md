@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/skyra-project/discord-components/compare/v2.12.1...v2.13.0) (2021-12-22)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([#184](https://github.com/skyra-project/discord-components/issues/184)) ([792e791](https://github.com/skyra-project/discord-components/commit/792e791bba008eacea279b7802da506e9fb64a68))
+
+### Features
+
+-   **discord-invite:** localization support for invite title and button ([#183](https://github.com/skyra-project/discord-components/issues/183)) ([8fd541b](https://github.com/skyra-project/discord-components/commit/8fd541b60b8157aae26748b5400b647753594578))
+
 ## [2.12.1](https://github.com/skyra-project/discord-components/compare/v2.12.0...v2.12.1) (2021-12-06)
 
 ### Bug Fixes
