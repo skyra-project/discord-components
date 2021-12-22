@@ -67,7 +67,7 @@ export class DiscordInvite implements ComponentInterface {
 	 * @default "You've been invited to join a server"
 	 */
 	@Prop()
-	public inviteTitle = 'You\'ve been invited to join a server';
+	public inviteTitle = "You've been invited to join a server";
 
 	/**
 	 * The join button.
