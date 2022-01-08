@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/skyra-project/discord-components/compare/v3.0.0...v3.0.1) (2022-01-08)
+
+### Bug Fixes
+
+-   **react:** use createElement named import for better compatibility with Vite ([1d770da](https://github.com/skyra-project/discord-components/commit/1d770daa291ce9222428d228ed7a7f8f9fad6ee8))
+
 # [3.0.0](https://github.com/skyra-project/discord-components/compare/v2.13.0...v3.0.0) (2022-01-08)
 
 ### Bug Fixes
