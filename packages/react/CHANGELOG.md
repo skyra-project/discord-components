@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/skyra-project/discord-components/compare/v2.13.0...v3.0.0) (2022-01-08)
+
+### Bug Fixes
+
+-   fixed embed description and footer disappearing when dynamically editing title ([bdec29c](https://github.com/skyra-project/discord-components/commit/bdec29c1999969a2ea0cf1198d3eb1986a80d674))
+
+### BREAKING CHANGES
+
+-   `discord-embed` no longer takes the properties `footer-image` and `timestamp`, they are moved to the `discord-embed-footer` component.
+-   The embed description now has to go into its own component, `discord-embed-description`
+
+```diff
+<discord-embed slot="embeds">
+-  Custom emojis in the embed description:
++  <discord-embed-description slot="description">Custom emojis in the embed description:</discord-embed-description>
+</discord-embed>
+```
+
+-   The embed footer now has to go into its own component, `discord-embed-footer`
+
+```diff
+- <discord-embed slot="embeds" footer-image="/static/sapphire.png" timestamp="03/20/2021">
++ <discord-embed slot="embeds">
+{ /* other embed components */ }
+-  <span slot="footer">Open source libraries to aid in the creation of Discord bots</span>
++  <discord-embed-footer slot="footer" footer-image="/static/sapphire.png" timestamp="03/20/2021">
++    Open source libraries to aid in the creation of Discord bots
++  </discord-embed-footer>
+</discord-embed>
+```
+
 # [2.13.0](https://github.com/skyra-project/discord-components/compare/v2.12.1...v2.13.0) (2021-12-22)
 
 **Note:** Version bump only for package @skyra/discord-components-react
