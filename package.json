@@ -8,9 +8,8 @@
 		"clean": "node scripts/clean.mjs",
 		"lint": "eslint packages/ --fix --ext ts,tsx",
 		"format": "prettier --write --loglevel=warn \"packages/**/src/**\"",
-		"prebuild": "yarn clean",
 		"start": "yarn workspace @skyra/discord-components-core start",
-		"build": "yarn build:core && yarn build:react && yarn lint && yarn format",
+		"build": "yarn clean && yarn build:core && yarn build:react && yarn lint && yarn format",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
 		"build:react": "yarn workspace @skyra/discord-components-react build",
 		"prepare": "husky install .github/husky"

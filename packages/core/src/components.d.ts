@@ -112,10 +112,6 @@ export namespace Components {
          */
         "embedTitle": string;
         /**
-          * The image to use next to the footer text.
-         */
-        "footerImage": string;
-        /**
           * The embed image to use (displayed at the bottom).
          */
         "image": string;
@@ -129,10 +125,6 @@ export namespace Components {
          */
         "thumbnail": string;
         /**
-          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
-         */
-        "timestamp"?: DiscordTimestamp;
-        /**
           * The URL to open when you click on the embed title.
          */
         "url": string;
@@ -144,6 +136,8 @@ export namespace Components {
           * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
          */
         "video": string;
+    }
+    interface DiscordEmbedDescription {
     }
     interface DiscordEmbedField {
         /**
@@ -163,6 +157,16 @@ export namespace Components {
         "inlineIndex": number;
     }
     interface DiscordEmbedFields {
+    }
+    interface DiscordEmbedFooter {
+        /**
+          * The image to use next to the footer text.
+         */
+        "footerImage": string;
+        /**
+          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
+         */
+        "timestamp"?: DiscordTimestamp;
     }
     interface DiscordInvite {
         /**
@@ -479,6 +483,12 @@ declare global {
         prototype: HTMLDiscordEmbedElement;
         new (): HTMLDiscordEmbedElement;
     };
+    interface HTMLDiscordEmbedDescriptionElement extends Components.DiscordEmbedDescription, HTMLStencilElement {
+    }
+    var HTMLDiscordEmbedDescriptionElement: {
+        prototype: HTMLDiscordEmbedDescriptionElement;
+        new (): HTMLDiscordEmbedDescriptionElement;
+    };
     interface HTMLDiscordEmbedFieldElement extends Components.DiscordEmbedField, HTMLStencilElement {
     }
     var HTMLDiscordEmbedFieldElement: {
@@ -490,6 +500,12 @@ declare global {
     var HTMLDiscordEmbedFieldsElement: {
         prototype: HTMLDiscordEmbedFieldsElement;
         new (): HTMLDiscordEmbedFieldsElement;
+    };
+    interface HTMLDiscordEmbedFooterElement extends Components.DiscordEmbedFooter, HTMLStencilElement {
+    }
+    var HTMLDiscordEmbedFooterElement: {
+        prototype: HTMLDiscordEmbedFooterElement;
+        new (): HTMLDiscordEmbedFooterElement;
     };
     interface HTMLDiscordInviteElement extends Components.DiscordInvite, HTMLStencilElement {
     }
@@ -565,8 +581,10 @@ declare global {
         "discord-command": HTMLDiscordCommandElement;
         "discord-custom-emoji": HTMLDiscordCustomEmojiElement;
         "discord-embed": HTMLDiscordEmbedElement;
+        "discord-embed-description": HTMLDiscordEmbedDescriptionElement;
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
         "discord-embed-fields": HTMLDiscordEmbedFieldsElement;
+        "discord-embed-footer": HTMLDiscordEmbedFooterElement;
         "discord-invite": HTMLDiscordInviteElement;
         "discord-mention": HTMLDiscordMentionElement;
         "discord-message": HTMLDiscordMessageElement;
@@ -686,10 +704,6 @@ declare namespace LocalJSX {
          */
         "embedTitle"?: string;
         /**
-          * The image to use next to the footer text.
-         */
-        "footerImage"?: string;
-        /**
           * The embed image to use (displayed at the bottom).
          */
         "image"?: string;
@@ -703,10 +717,6 @@ declare namespace LocalJSX {
          */
         "thumbnail"?: string;
         /**
-          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
-         */
-        "timestamp"?: DiscordTimestamp;
-        /**
           * The URL to open when you click on the embed title.
          */
         "url"?: string;
@@ -718,6 +728,8 @@ declare namespace LocalJSX {
           * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
          */
         "video"?: string;
+    }
+    interface DiscordEmbedDescription {
     }
     interface DiscordEmbedField {
         /**
@@ -737,6 +749,16 @@ declare namespace LocalJSX {
         "inlineIndex"?: number;
     }
     interface DiscordEmbedFields {
+    }
+    interface DiscordEmbedFooter {
+        /**
+          * The image to use next to the footer text.
+         */
+        "footerImage"?: string;
+        /**
+          * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
+         */
+        "timestamp"?: DiscordTimestamp;
     }
     interface DiscordInvite {
         /**
@@ -1017,8 +1039,10 @@ declare namespace LocalJSX {
         "discord-command": DiscordCommand;
         "discord-custom-emoji": DiscordCustomEmoji;
         "discord-embed": DiscordEmbed;
+        "discord-embed-description": DiscordEmbedDescription;
         "discord-embed-field": DiscordEmbedField;
         "discord-embed-fields": DiscordEmbedFields;
+        "discord-embed-footer": DiscordEmbedFooter;
         "discord-invite": DiscordInvite;
         "discord-mention": DiscordMention;
         "discord-message": DiscordMessage;
@@ -1043,8 +1067,10 @@ declare module "@stencil/core" {
             "discord-command": LocalJSX.DiscordCommand & JSXBase.HTMLAttributes<HTMLDiscordCommandElement>;
             "discord-custom-emoji": LocalJSX.DiscordCustomEmoji & JSXBase.HTMLAttributes<HTMLDiscordCustomEmojiElement>;
             "discord-embed": LocalJSX.DiscordEmbed & JSXBase.HTMLAttributes<HTMLDiscordEmbedElement>;
+            "discord-embed-description": LocalJSX.DiscordEmbedDescription & JSXBase.HTMLAttributes<HTMLDiscordEmbedDescriptionElement>;
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
             "discord-embed-fields": LocalJSX.DiscordEmbedFields & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldsElement>;
+            "discord-embed-footer": LocalJSX.DiscordEmbedFooter & JSXBase.HTMLAttributes<HTMLDiscordEmbedFooterElement>;
             "discord-invite": LocalJSX.DiscordInvite & JSXBase.HTMLAttributes<HTMLDiscordInviteElement>;
             "discord-mention": LocalJSX.DiscordMention & JSXBase.HTMLAttributes<HTMLDiscordMentionElement>;
             "discord-message": LocalJSX.DiscordMessage & JSXBase.HTMLAttributes<HTMLDiscordMessageElement>;

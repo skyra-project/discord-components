@@ -1,0 +1,9 @@
+.discord-embed .discord-embed-description {
+	font-size: 0.875rem;
+	font-weight: 400;
+	grid-column: 1/1;
+	line-height: 1.125rem;
+	margin-top: 8px;
+	min-width: 0;
+	white-space: pre-line;
+}

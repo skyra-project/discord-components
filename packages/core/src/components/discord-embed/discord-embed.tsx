@@ -1,8 +1,8 @@
-import { Component, ComponentInterface, Element, h, Prop, State, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Prop, State } from '@stencil/core';
 import clsx from 'clsx';
 import Fragment from '../../Fragment';
 import type { Emoji } from '../../options';
-import { DiscordTimestamp, findSlotElement, getGlobalEmojiUrl, handleTimestamp } from '../../util';
+import { getGlobalEmojiUrl } from '../../util';
 
 @Component({
 	tag: 'discord-embed',
@@ -83,32 +83,10 @@ export class DiscordEmbed implements ComponentInterface {
 	@Prop()
 	public provider: string;
 
-	/**
-	 * The image to use next to the footer text.
-	 */
-	@Prop()
-	public footerImage: string;
-
-	/**
-	 * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
-	 */
-	@Prop({ mutable: true, reflect: true })
-	public timestamp?: DiscordTimestamp;
-
 	private hasPerformedRerenderChecks: 'dirty' | 'pristine' = 'pristine';
 
 	@State()
 	private hasProvidedDescriptionSlot = true;
-
-	@Watch('timestamp')
-	public updateTimestamp(value?: DiscordTimestamp): string | null {
-		if (!value || isNaN(new Date(value).getTime())) return null;
-		return handleTimestamp(new Date(value));
-	}
-
-	public componentWillRender() {
-		this.timestamp = this.updateTimestamp(this.timestamp);
-	}
 
 	public componentDidRender() {
 		if (this.hasPerformedRerenderChecks === 'pristine') {
@@ -122,7 +100,6 @@ export class DiscordEmbed implements ComponentInterface {
 	}
 
 	public render() {
-		const footerSlot: Element | undefined = findSlotElement(this.el.children, 'footer');
 		const emojiParsedAuthorName = this.parseTitle(this.authorName);
 		const emojiParsedEmbedTitle = this.parseTitle(this.embedTitle);
 
@@ -161,11 +138,7 @@ export class DiscordEmbed implements ComponentInterface {
 								</div>
 							)}
 
-							{this.hasProvidedDescriptionSlot && (
-								<div class="discord-embed-description">
-									<slot></slot>
-								</div>
-							)}
+							{this.hasProvidedDescriptionSlot && <slot name="description"></slot>}
 
 							<slot name="fields"></slot>
 							{this.image || this.video ? (
@@ -175,16 +148,7 @@ export class DiscordEmbed implements ComponentInterface {
 							) : null}
 
 							{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
-							{(footerSlot || this.timestamp) && (
-								<div class="discord-embed-footer">
-									{footerSlot && this.footerImage ? <img src={this.footerImage} alt="" class="discord-footer-image" /> : ''}
-									<Fragment>
-										<slot name="footer"></slot>
-										{footerSlot && this.timestamp ? <span class="discord-footer-separator">&bull;</span> : ''}
-										{this.timestamp ? <Fragment>{this.timestamp}</Fragment> : ''}
-									</Fragment>
-								</div>
-							)}
+							<slot name="footer"></slot>
 						</div>
 					</div>
 				</div>

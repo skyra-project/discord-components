@@ -154,7 +154,7 @@
 						<discord-custom-emoji name="blobparty" url="/static/blobparty.gif"></discord-custom-emoji>
 						<discord-custom-emoji name="skyra" url="/static/skyra.png"></discord-custom-emoji>
 						<discord-embed slot="embeds" color="#0F52BA" embed-title="diamond Emojis in the embed title">
-							Custom emojis in the embed description:
+							<discord-embed-description slot="description">Custom emojis in the embed description:</discord-embed-description>
 							<discord-custom-emoji name="pikawow" url="/static/pikawow.png" embed-emoji></discord-custom-emoji>
 							<discord-embed-fields slot="fields">
 								<discord-embed-field field-title="dragonite Custom emojis in the field title">
@@ -342,17 +342,17 @@
 							author-url="https://sapphirejs.dev"
 							color="#0F52BA"
 							embed-title="Sapphire"
-							footer-image="/static/sapphire.png"
 							image="/static/sapphire.png"
 							thumbnail="/static/sapphire.png"
-							timestamp="03/20/2021"
 							url="https://sapphirejs.dev"
 						>
-							Sapphire is a next-gen object-oriented
-							<a target="_blank" rel="noopener noreferrer" href="https://discord.js.org/">Discord.js</a>
-							bot framework.<br /><br />Sapphire is a community driven framework that aims to give you all the features you need to make
-							your Discord bot.<br /><br />With a history of many other Discord bot frameworks (both for NodeJS and other languages) to
-							inspire Sapphire, it has become the ultimate modern experience of writing your code.
+							<discord-embed-description slot="description">
+								Sapphire is a next-gen object-oriented
+								<a target="_blank" rel="noopener noreferrer" href="https://discord.js.org/">Discord.js</a>
+								bot framework.<br /><br />Sapphire is a community driven framework that aims to give you all the features you need to
+								make your Discord bot.<br /><br />With a history of many other Discord bot frameworks (both for NodeJS and other
+								languages) to inspire Sapphire, it has become the ultimate modern experience of writing your code.
+							</discord-embed-description>
 							<discord-embed-fields slot="fields">
 								<discord-embed-field field-title="Installation"> yarn add @sapphire/framework </discord-embed-field>
 								<discord-embed-field field-title="Key Features">
@@ -390,7 +390,9 @@
 									</ul>
 								</discord-embed-field>
 							</discord-embed-fields>
-							<span slot="footer">Open source libraries to aid in the creation of Discord bots</span>
+							<discord-embed-footer slot="footer" footer-image="/static/sapphire.png" timestamp="03/20/2021">
+								Open source libraries to aid in the creation of Discord bots
+							</discord-embed-footer>
 						</discord-embed>
 					</discord-message>
 				</discord-messages>

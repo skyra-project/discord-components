@@ -28,10 +28,6 @@ export const handleTimestamp = (value: DiscordTimestamp, useTime = false, hour24
 	return useTime ? formatTime(value, hour24) : formatDate(value);
 };
 
-export const findSlotElement = (elements: HTMLCollection, name: string): Element | undefined => {
-	return Array.from(elements).find((child: Element): boolean => child?.slot === name);
-};
-
 export const IMAGE_EXTENSION = /\.(bmp|jpe?g|png|gif|webp|tiff)$/i;
 
 export const validateImageExtension = (url: string) => {

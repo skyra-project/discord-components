@@ -15,8 +15,12 @@ export const DiscordButton = /*@__PURE__*/ createReactComponent<JSX.DiscordButto
 export const DiscordCommand = /*@__PURE__*/ createReactComponent<JSX.DiscordCommand, HTMLDiscordCommandElement>('discord-command');
 export const DiscordCustomEmoji = /*@__PURE__*/ createReactComponent<JSX.DiscordCustomEmoji, HTMLDiscordCustomEmojiElement>('discord-custom-emoji');
 export const DiscordEmbed = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbed, HTMLDiscordEmbedElement>('discord-embed');
+export const DiscordEmbedDescription = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedDescription, HTMLDiscordEmbedDescriptionElement>(
+	'discord-embed-description'
+);
 export const DiscordEmbedField = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedField, HTMLDiscordEmbedFieldElement>('discord-embed-field');
 export const DiscordEmbedFields = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedFields, HTMLDiscordEmbedFieldsElement>('discord-embed-fields');
+export const DiscordEmbedFooter = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedFooter, HTMLDiscordEmbedFooterElement>('discord-embed-footer');
 export const DiscordInvite = /*@__PURE__*/ createReactComponent<JSX.DiscordInvite, HTMLDiscordInviteElement>('discord-invite');
 export const DiscordMention = /*@__PURE__*/ createReactComponent<JSX.DiscordMention, HTMLDiscordMentionElement>('discord-mention');
 export const DiscordMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordMessage, HTMLDiscordMessageElement>('discord-message');

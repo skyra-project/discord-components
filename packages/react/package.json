@@ -18,7 +18,7 @@
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
 		"clean": "node scripts/clean.mjs",
-		"build": "yarn clean && tsc -p . && gen-esm-wrapper dist/index.js dist/index.mjs && replace-in-file --configFile=scripts/replaceDefaultMod.cjs"
+		"build": "yarn clean && tsc && gen-esm-wrapper dist/index.js dist/index.mjs && replace-in-file --configFile=scripts/replaceDefaultMod.cjs"
 	},
 	"dependencies": {
 		"@skyra/discord-components-core": "^2.13.0",
