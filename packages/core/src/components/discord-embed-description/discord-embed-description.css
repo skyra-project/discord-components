@@ -7,3 +7,52 @@
 	min-width: 0;
 	white-space: pre-line;
 }
+
+.discord-embed .discord-embed-description code {
+	background: #202225;
+	padding: 2.5px;
+	border-radius: 3px;
+}
+
+.discord-embed .discord-embed-description code.multiline {
+	display: block;
+	padding: 7px;
+	border-radius: 4px;
+	white-space: break-spaces;
+}
+  
+.discord-embed .discord-embed-description pre {
+	margin: 0;
+	margin-top: 6px;
+}
+  
+.discord-embed .discord-embed-description img.emoji {
+	width: 22px;
+	height: 22px;
+}
+  
+.discord-embed .discord-embed-description blockquote {
+	position: relative;
+	padding: 0 8px 0 12px;
+	margin: 0;
+}
+
+.discord-embed .discord-embed-description blockquote::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 4px;
+	border-radius: 4px;
+	background: #4f545c;
+}
+
+.discord-embed .discord-embed-description .spoiler {
+	background: #202225;
+	color: transparent;
+}
+
+.discord-embed .discord-embed-description .spoiler:active {
+	color: inherit;
+}
