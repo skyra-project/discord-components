@@ -9,7 +9,7 @@
 }
 
 .discord-embed .discord-embed-description code {
-	background: #202225;
+	background-color: #202225;
 	padding: 2.5px;
 	border-radius: 3px;
 }
@@ -20,17 +20,17 @@
 	border-radius: 4px;
 	white-space: break-spaces;
 }
-  
+
 .discord-embed .discord-embed-description pre {
 	margin: 0;
 	margin-top: 6px;
 }
-  
+
 .discord-embed .discord-embed-description img.emoji {
 	width: 22px;
 	height: 22px;
 }
-  
+
 .discord-embed .discord-embed-description blockquote {
 	position: relative;
 	padding: 0 8px 0 12px;
@@ -38,21 +38,27 @@
 }
 
 .discord-embed .discord-embed-description blockquote::before {
-	content: "";
+	content: '';
 	display: block;
 	position: absolute;
 	left: 0;
 	height: 100%;
 	width: 4px;
 	border-radius: 4px;
-	background: #4f545c;
+	background-color: #4f545c;
 }
 
 .discord-embed .discord-embed-description .spoiler {
-	background: #202225;
+	background-color: #202225;
 	color: transparent;
+	cursor: pointer;
+}
+
+.discord-embed .discord-embed-description .spoiler:hover {
+	background-color: rgba(32, 34, 37, 0.8);
 }
 
 .discord-embed .discord-embed-description .spoiler:active {
 	color: inherit;
+	background-color: hsla(0, 0%, 100%, 0.1);
 }
