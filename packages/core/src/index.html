@@ -396,6 +396,30 @@
 						</discord-embed>
 					</discord-message>
 				</discord-messages>
+				<h3 class="title">Embed description built-in styling example</h3>
+				<discord-messages>
+					<discord-message profile="skyra">
+						<discord-embed slot="embeds" color="#0F52BA">
+							<discord-embed-description slot="description">
+								You can use several HTML tags to get discord-like styling in your embed description:
+								<ul>
+									<li>&lt;code&gt;content&lt;/code&gt; for <code>content</code><br /></li>
+									<li>&lt;code class="multiline"&gt;content&lt;/code&gt; for <code class="multiline">content</code></li>
+									<li>
+										&lt;pre&gt;content&lt;/pre&gt; for
+										<pre>content</pre>
+									</li>
+									<li>&lt;img class="emoji" /&gt; for <img class="emoji" src="/static/sapphire.png" /></li>
+									<li>
+										&lt;blockquote&gt;content&lt;/blockquote&gt; for
+										<blockquote>content</blockquote>
+									</li>
+									<li>&lt;span class="spoiler"&gt;content&lt;/span&gt; for <span class="spoiler">content</span></li>
+								</ul>
+							</discord-embed-description>
+						</discord-embed>
+					</discord-message>
+				</discord-messages>
 				<h3 class="title">Server crosspost messages</h3>
 				<discord-messages>
 					<discord-message profile="discordjs" timestamp="12/06/2021">
