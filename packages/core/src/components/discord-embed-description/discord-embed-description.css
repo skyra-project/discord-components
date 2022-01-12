@@ -14,6 +14,10 @@
 	border-radius: 3px;
 }
 
+.discord-light-theme .discord-embed-description code {
+	background-color: #e3e5e8;
+}
+
 .discord-embed .discord-embed-description code.multiline {
 	display: block;
 	padding: 7px;
@@ -48,17 +52,33 @@
 	background-color: #4f545c;
 }
 
+.discord-light-theme .discord-embed-description blockquote::before {
+	background-color: #c7ccd1;
+}
+
 .discord-embed .discord-embed-description .spoiler {
 	background-color: #202225;
 	color: transparent;
 	cursor: pointer;
 }
 
+.discord-light-theme .discord-embed .discord-embed-description .spoiler {
+	background-color: #b9bbbe;
+}
+
 .discord-embed .discord-embed-description .spoiler:hover {
 	background-color: rgba(32, 34, 37, 0.8);
+}
+
+.discord-light-theme .discord-embed .discord-embed-description .spoiler:hover {
+	background-color: rgba(185,187,190,.8);
 }
 
 .discord-embed .discord-embed-description .spoiler:active {
 	color: inherit;
 	background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.discord-light-theme .discord-embed .discord-embed-description .spoiler:active {
+	background-color: rgba(0,0,0,.1);
 }
