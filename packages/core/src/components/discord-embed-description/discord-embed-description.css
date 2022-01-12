@@ -71,7 +71,7 @@
 }
 
 .discord-light-theme .discord-embed .discord-embed-description .spoiler:hover {
-	background-color: rgba(185,187,190,.8);
+	background-color: rgba(185, 187, 190, 0.8);
 }
 
 .discord-embed .discord-embed-description .spoiler:active {
@@ -80,5 +80,5 @@
 }
 
 .discord-light-theme .discord-embed .discord-embed-description .spoiler:active {
-	background-color: rgba(0,0,0,.1);
+	background-color: rgba(0, 0, 0, 0.1);
 }
