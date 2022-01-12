@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/skyra-project/discord-components/compare/v3.0.1...v3.1.0) (2022-01-12)
+
+### Features
+
+-   **discord-embed-description:** add styles for nested HTML tags ([#195](https://github.com/skyra-project/discord-components/issues/195)) ([6ee7b9f](https://github.com/skyra-project/discord-components/commit/6ee7b9ffea10cfb0ed82a5771b88017060f04711))
+
 ## [3.0.1](https://github.com/skyra-project/discord-components/compare/v3.0.0...v3.0.1) (2022-01-08)
 
 ### Bug Fixes
