@@ -178,6 +178,7 @@
 	word-wrap: break-word;
 	user-select: text;
 	font-weight: 400;
+	white-space: pre;
 }
 
 .discord-compact-mode .discord-author-avatar {
