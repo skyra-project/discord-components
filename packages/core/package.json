@@ -43,7 +43,7 @@
 		"generate": "stencil generate"
 	},
 	"dependencies": {
-		"@stencil/core": "^2.13.0",
+		"@stencil/core": "^2.14.0",
 		"clsx": "^1.1.1",
 		"hex-to-rgba": "^2.0.1"
 	},
