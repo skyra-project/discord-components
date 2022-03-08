@@ -100,6 +100,8 @@
 	line-height: inherit;
 	margin-right: 0.25rem;
 	opacity: 0.64;
+	font-weight: 500;
+	color: #fff;
 }
 
 .discord-replied-message .discord-replied-message-content {

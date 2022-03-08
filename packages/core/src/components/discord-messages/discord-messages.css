@@ -37,6 +37,33 @@
 	src: url('https://cdn.skyra.pw/whitney-font/Bold.woff') format('woff');
 }
 
+/* New Whitney fonts to match rebrading */
+/* --- uncomment after CDN assets are fixed --- */
+/*
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('./assets/fonts/Whitney-Book.woff') format('woff');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Whitney';
+	src: url('./assets/fonts/Whitney-Medium.woff') format('woff');
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Whitney';
+	src: url('./assets/fonts/Whitney-Semibold.woff') format('woff');
+	font-weight: 600;
+}
+@font-face {
+	font-family: 'Whitney';
+	src: url('./assets/fonts/Whitney-Bold.woff') format('woff');
+	font-weight: 700;
+}
+
+*/
+
 .discord-messages {
 	color: #fff;
 	background-color: #36393e;
