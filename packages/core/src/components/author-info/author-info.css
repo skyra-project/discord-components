@@ -1,14 +1,13 @@
 .discord-message .discord-author-info {
 	display: inline-flex;
 	align-items: center;
-	font-size: 15px;
+	font-size: 16px;
 }
 
 .discord-message .discord-author-info .discord-author-username {
 	color: #fff;
-	font-size: 1.1em;
+	font-size: 1em;
 	font-weight: 500;
-	letter-spacing: 0.5px;
 }
 
 .discord-light-theme .discord-message .discord-author-info .discord-author-username {
@@ -18,8 +17,8 @@
 .discord-message .discord-author-info .discord-application-tag {
 	background-color: #5865f2;
 	color: #fff;
-	font-size: 0.65em;
-	margin-left: 5px;
+	font-size: 0.625em;
+	margin-left: 4px;
 	border-radius: 3px;
 	line-height: 100%;
 	text-transform: uppercase;

@@ -74,9 +74,9 @@
 	-webkit-box-align: center;
 	align-items: center;
 	color: #fff;
-	font-size: 0.875rem;
+	font-size: 14px;
 	display: flex;
-	font-weight: 500;
+	font-weight: 600;
 	grid-column: 1 / 1;
 	margin-top: 8px;
 	min-width: 0;
@@ -88,7 +88,7 @@
 
 .discord-embed .discord-embed-author a {
 	color: #fff;
-	font-weight: 700;
+	font-weight: 600;
 }
 
 .discord-light-theme .discord-embed .discord-embed-author a {
@@ -129,7 +129,7 @@
 }
 
 .discord-embed .discord-embed-title a {
-	color: #00b0f4;
+	color: #00aff4;
 	font-weight: 600;
 }
 

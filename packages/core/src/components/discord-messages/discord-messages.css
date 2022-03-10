@@ -1,40 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
-/* Whitney font face to match Discord */
+/* New Whitney fonts to match rebrading */
 @font-face {
-	/* Whitney-Light */
-	font-family: Whitney;
-	font-style: light;
-	font-weight: 300;
-	src: url('https://cdn.skyra.pw/whitney-font/Light.woff') format('woff');
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+	font-weight: 400;
 }
 @font-face {
-	/* Whitney-Normal */
-	font-family: Whitney;
-	font-style: normal;
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
 	font-weight: 500;
-	src: url('https://cdn.skyra.pw/whitney-font/Normal.woff') format('woff');
 }
 @font-face {
-	/* Whitney-Medium-Regular */
-	font-family: Whitney;
-	font-style: medium;
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
 	font-weight: 600;
-	src: url('https://cdn.skyra.pw/whitney-font/Medium-Regular.woff') format('woff');
 }
 @font-face {
-	/* Whitney-Medium-Extra */
-	font-family: WhitneyMedium;
-	font-style: medium;
-	font-weight: 600;
-	src: url('https://cdn.skyra.pw/whitney-font/Medium-Extra.woff') format('woff');
-}
-@font-face {
-	/* Whitney-Bold */
-	font-family: Whitney;
-	font-style: bold;
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
 	font-weight: 700;
-	src: url('https://cdn.skyra.pw/whitney-font/Bold.woff') format('woff');
 }
 
 .discord-messages {
