@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 
-import { attachProps, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
+import { attachProps, camelToDashCase, createForwardRef, dashToPascalCase, isCoveredByReact, mergeRefs } from './utils';
 
 export interface HTMLStencilElement extends HTMLElement {
 	componentOnReady(): Promise<this>;
@@ -44,14 +44,22 @@ export const createReactComponent = <PropType, ElementType extends HTMLStencilEl
 		render() {
 			const { children, forwardedRef, style, className, ref, ...cProps } = this.props;
 
-			let propsToPass = Object.keys(cProps).reduce((acc, name) => {
+			let propsToPass = Object.keys(cProps).reduce((acc: any, name) => {
+				const value = (cProps as any)[name];
+
 				if (name.startsWith('on') && name[2] === name[2].toUpperCase()) {
 					const eventName = name.substring(2).toLowerCase();
 					if (typeof document !== 'undefined' && isCoveredByReact(eventName)) {
-						(acc as any)[name] = (cProps as any)[name];
+						acc[name] = value;
 					}
 				} else {
-					(acc as any)[name] = (cProps as any)[name];
+					// we should only render strings, booleans, and numbers as attrs in html.
+					// objects, functions, arrays etc get synced via properties on mount.
+					const type = typeof value;
+
+					if (type === 'string' || type === 'boolean' || type === 'number') {
+						acc[camelToDashCase(name)] = value;
+					}
 				}
 				return acc;
 			}, {});
