@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/skyra-project/discord-components/compare/v3.1.0...v3.1.1) (2022-03-10)
+
+### Bug Fixes
+
+-   bump `@stencil/core` dependency ([ecca4d8](https://github.com/skyra-project/discord-components/commit/ecca4d812ae371b57415c09fae7b5c8fa842700c))
+-   **deps:** update all non-major dependencies ([#200](https://github.com/skyra-project/discord-components/issues/200)) ([c95dd81](https://github.com/skyra-project/discord-components/commit/c95dd81b03c042e695dd21db3c62c7137a4426f1))
+-   **deps:** update all non-major dependencies ([#209](https://github.com/skyra-project/discord-components/issues/209)) ([2c0dd8a](https://github.com/skyra-project/discord-components/commit/2c0dd8a550ef78d23cf969597a3f08d7fb5c65ba))
+-   match rebranded syles ([#216](https://github.com/skyra-project/discord-components/issues/216)) ([7ea32a9](https://github.com/skyra-project/discord-components/commit/7ea32a965557953416ad5f66ddbefed4a641c0fe))
+
 # [3.1.0](https://github.com/skyra-project/discord-components/compare/v3.0.1...v3.1.0) (2022-01-12)
 
 ### Features
