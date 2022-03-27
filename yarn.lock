@@ -1341,7 +1341,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/eslint-config@npm:^4.3.1":
+"@sapphire/eslint-config@npm:^4.3.2":
   version: 4.3.2
   resolution: "@sapphire/eslint-config@npm:4.3.2"
   dependencies:
@@ -1356,7 +1356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/prettier-config@npm:^1.4.0":
+"@sapphire/prettier-config@npm:^1.4.1":
   version: 1.4.1
   resolution: "@sapphire/prettier-config@npm:1.4.1"
   dependencies:
@@ -1365,7 +1365,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^3.3.2":
+"@sapphire/ts-config@npm:^3.3.3":
   version: 3.3.3
   resolution: "@sapphire/ts-config@npm:3.3.3"
   dependencies:
@@ -7023,9 +7023,9 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^16.2.3
     "@commitlint/config-conventional": ^16.2.1
-    "@sapphire/eslint-config": ^4.3.1
-    "@sapphire/prettier-config": ^1.4.0
-    "@sapphire/ts-config": ^3.3.2
+    "@sapphire/eslint-config": ^4.3.2
+    "@sapphire/prettier-config": ^1.4.1
+    "@sapphire/ts-config": ^3.3.3
     "@stencil/react-output-target": ^0.3.1
     "@types/node": ^17.0.21
     "@types/react": ^17.0.43
