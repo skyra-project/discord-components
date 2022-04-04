@@ -31,6 +31,8 @@ export namespace Components {
     }
     interface DiscordAttachments {
     }
+    interface DiscordBold {
+    }
     interface DiscordButton {
         /**
           * Whether to show the button as disabled.
@@ -168,6 +170,8 @@ export namespace Components {
          */
         "timestamp"?: DiscordTimestamp;
     }
+    interface DiscordInlineCode {
+    }
     interface DiscordInvite {
         /**
           * The server icon to display for the invite.
@@ -210,6 +214,8 @@ export namespace Components {
           * Whether the server is verified. Only works if `partnered` is `false` or `undefined`.
          */
         "verified": boolean;
+    }
+    interface DiscordItalic {
     }
     interface DiscordMention {
         /**
@@ -286,6 +292,8 @@ export namespace Components {
          */
         "noBackground": boolean;
     }
+    interface DiscordQuote {
+    }
     interface DiscordReaction {
         /**
           * The number of people who reacted.
@@ -361,6 +369,8 @@ export namespace Components {
           * Whether the bot is verified or not. Only works if `bot` is `true`
          */
         "verified": boolean;
+    }
+    interface DiscordSpoiler {
     }
     interface DiscordSystemMessage {
         /**
@@ -439,6 +449,8 @@ export namespace Components {
          */
         "verified": boolean;
     }
+    interface DiscordUnderlined {
+    }
 }
 declare global {
     interface HTMLDiscordActionRowElement extends Components.DiscordActionRow, HTMLStencilElement {
@@ -458,6 +470,12 @@ declare global {
     var HTMLDiscordAttachmentsElement: {
         prototype: HTMLDiscordAttachmentsElement;
         new (): HTMLDiscordAttachmentsElement;
+    };
+    interface HTMLDiscordBoldElement extends Components.DiscordBold, HTMLStencilElement {
+    }
+    var HTMLDiscordBoldElement: {
+        prototype: HTMLDiscordBoldElement;
+        new (): HTMLDiscordBoldElement;
     };
     interface HTMLDiscordButtonElement extends Components.DiscordButton, HTMLStencilElement {
     }
@@ -507,11 +525,23 @@ declare global {
         prototype: HTMLDiscordEmbedFooterElement;
         new (): HTMLDiscordEmbedFooterElement;
     };
+    interface HTMLDiscordInlineCodeElement extends Components.DiscordInlineCode, HTMLStencilElement {
+    }
+    var HTMLDiscordInlineCodeElement: {
+        prototype: HTMLDiscordInlineCodeElement;
+        new (): HTMLDiscordInlineCodeElement;
+    };
     interface HTMLDiscordInviteElement extends Components.DiscordInvite, HTMLStencilElement {
     }
     var HTMLDiscordInviteElement: {
         prototype: HTMLDiscordInviteElement;
         new (): HTMLDiscordInviteElement;
+    };
+    interface HTMLDiscordItalicElement extends Components.DiscordItalic, HTMLStencilElement {
+    }
+    var HTMLDiscordItalicElement: {
+        prototype: HTMLDiscordItalicElement;
+        new (): HTMLDiscordItalicElement;
     };
     interface HTMLDiscordMentionElement extends Components.DiscordMention, HTMLStencilElement {
     }
@@ -531,6 +561,12 @@ declare global {
         prototype: HTMLDiscordMessagesElement;
         new (): HTMLDiscordMessagesElement;
     };
+    interface HTMLDiscordQuoteElement extends Components.DiscordQuote, HTMLStencilElement {
+    }
+    var HTMLDiscordQuoteElement: {
+        prototype: HTMLDiscordQuoteElement;
+        new (): HTMLDiscordQuoteElement;
+    };
     interface HTMLDiscordReactionElement extends Components.DiscordReaction, HTMLStencilElement {
     }
     var HTMLDiscordReactionElement: {
@@ -548,6 +584,12 @@ declare global {
     var HTMLDiscordReplyElement: {
         prototype: HTMLDiscordReplyElement;
         new (): HTMLDiscordReplyElement;
+    };
+    interface HTMLDiscordSpoilerElement extends Components.DiscordSpoiler, HTMLStencilElement {
+    }
+    var HTMLDiscordSpoilerElement: {
+        prototype: HTMLDiscordSpoilerElement;
+        new (): HTMLDiscordSpoilerElement;
     };
     interface HTMLDiscordSystemMessageElement extends Components.DiscordSystemMessage, HTMLStencilElement {
     }
@@ -573,10 +615,17 @@ declare global {
         prototype: HTMLDiscordThreadMessageElement;
         new (): HTMLDiscordThreadMessageElement;
     };
+    interface HTMLDiscordUnderlinedElement extends Components.DiscordUnderlined, HTMLStencilElement {
+    }
+    var HTMLDiscordUnderlinedElement: {
+        prototype: HTMLDiscordUnderlinedElement;
+        new (): HTMLDiscordUnderlinedElement;
+    };
     interface HTMLElementTagNameMap {
         "discord-action-row": HTMLDiscordActionRowElement;
         "discord-attachment": HTMLDiscordAttachmentElement;
         "discord-attachments": HTMLDiscordAttachmentsElement;
+        "discord-bold": HTMLDiscordBoldElement;
         "discord-button": HTMLDiscordButtonElement;
         "discord-command": HTMLDiscordCommandElement;
         "discord-custom-emoji": HTMLDiscordCustomEmojiElement;
@@ -585,17 +634,22 @@ declare global {
         "discord-embed-field": HTMLDiscordEmbedFieldElement;
         "discord-embed-fields": HTMLDiscordEmbedFieldsElement;
         "discord-embed-footer": HTMLDiscordEmbedFooterElement;
+        "discord-inline-code": HTMLDiscordInlineCodeElement;
         "discord-invite": HTMLDiscordInviteElement;
+        "discord-italic": HTMLDiscordItalicElement;
         "discord-mention": HTMLDiscordMentionElement;
         "discord-message": HTMLDiscordMessageElement;
         "discord-messages": HTMLDiscordMessagesElement;
+        "discord-quote": HTMLDiscordQuoteElement;
         "discord-reaction": HTMLDiscordReactionElement;
         "discord-reactions": HTMLDiscordReactionsElement;
         "discord-reply": HTMLDiscordReplyElement;
+        "discord-spoiler": HTMLDiscordSpoilerElement;
         "discord-system-message": HTMLDiscordSystemMessageElement;
         "discord-tenor-video": HTMLDiscordTenorVideoElement;
         "discord-thread": HTMLDiscordThreadElement;
         "discord-thread-message": HTMLDiscordThreadMessageElement;
+        "discord-underlined": HTMLDiscordUnderlinedElement;
     }
 }
 declare namespace LocalJSX {
@@ -622,6 +676,8 @@ declare namespace LocalJSX {
         "width"?: number;
     }
     interface DiscordAttachments {
+    }
+    interface DiscordBold {
     }
     interface DiscordButton {
         /**
@@ -760,6 +816,8 @@ declare namespace LocalJSX {
          */
         "timestamp"?: DiscordTimestamp;
     }
+    interface DiscordInlineCode {
+    }
     interface DiscordInvite {
         /**
           * The server icon to display for the invite.
@@ -802,6 +860,8 @@ declare namespace LocalJSX {
           * Whether the server is verified. Only works if `partnered` is `false` or `undefined`.
          */
         "verified"?: boolean;
+    }
+    interface DiscordItalic {
     }
     interface DiscordMention {
         /**
@@ -878,6 +938,8 @@ declare namespace LocalJSX {
          */
         "noBackground"?: boolean;
     }
+    interface DiscordQuote {
+    }
     interface DiscordReaction {
         /**
           * The number of people who reacted.
@@ -953,6 +1015,8 @@ declare namespace LocalJSX {
           * Whether the bot is verified or not. Only works if `bot` is `true`
          */
         "verified"?: boolean;
+    }
+    interface DiscordSpoiler {
     }
     interface DiscordSystemMessage {
         /**
@@ -1031,10 +1095,13 @@ declare namespace LocalJSX {
          */
         "verified"?: boolean;
     }
+    interface DiscordUnderlined {
+    }
     interface IntrinsicElements {
         "discord-action-row": DiscordActionRow;
         "discord-attachment": DiscordAttachment;
         "discord-attachments": DiscordAttachments;
+        "discord-bold": DiscordBold;
         "discord-button": DiscordButton;
         "discord-command": DiscordCommand;
         "discord-custom-emoji": DiscordCustomEmoji;
@@ -1043,17 +1110,22 @@ declare namespace LocalJSX {
         "discord-embed-field": DiscordEmbedField;
         "discord-embed-fields": DiscordEmbedFields;
         "discord-embed-footer": DiscordEmbedFooter;
+        "discord-inline-code": DiscordInlineCode;
         "discord-invite": DiscordInvite;
+        "discord-italic": DiscordItalic;
         "discord-mention": DiscordMention;
         "discord-message": DiscordMessage;
         "discord-messages": DiscordMessages;
+        "discord-quote": DiscordQuote;
         "discord-reaction": DiscordReaction;
         "discord-reactions": DiscordReactions;
         "discord-reply": DiscordReply;
+        "discord-spoiler": DiscordSpoiler;
         "discord-system-message": DiscordSystemMessage;
         "discord-tenor-video": DiscordTenorVideo;
         "discord-thread": DiscordThread;
         "discord-thread-message": DiscordThreadMessage;
+        "discord-underlined": DiscordUnderlined;
     }
 }
 export { LocalJSX as JSX };
@@ -1063,6 +1135,7 @@ declare module "@stencil/core" {
             "discord-action-row": LocalJSX.DiscordActionRow & JSXBase.HTMLAttributes<HTMLDiscordActionRowElement>;
             "discord-attachment": LocalJSX.DiscordAttachment & JSXBase.HTMLAttributes<HTMLDiscordAttachmentElement>;
             "discord-attachments": LocalJSX.DiscordAttachments & JSXBase.HTMLAttributes<HTMLDiscordAttachmentsElement>;
+            "discord-bold": LocalJSX.DiscordBold & JSXBase.HTMLAttributes<HTMLDiscordBoldElement>;
             "discord-button": LocalJSX.DiscordButton & JSXBase.HTMLAttributes<HTMLDiscordButtonElement>;
             "discord-command": LocalJSX.DiscordCommand & JSXBase.HTMLAttributes<HTMLDiscordCommandElement>;
             "discord-custom-emoji": LocalJSX.DiscordCustomEmoji & JSXBase.HTMLAttributes<HTMLDiscordCustomEmojiElement>;
@@ -1071,17 +1144,22 @@ declare module "@stencil/core" {
             "discord-embed-field": LocalJSX.DiscordEmbedField & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldElement>;
             "discord-embed-fields": LocalJSX.DiscordEmbedFields & JSXBase.HTMLAttributes<HTMLDiscordEmbedFieldsElement>;
             "discord-embed-footer": LocalJSX.DiscordEmbedFooter & JSXBase.HTMLAttributes<HTMLDiscordEmbedFooterElement>;
+            "discord-inline-code": LocalJSX.DiscordInlineCode & JSXBase.HTMLAttributes<HTMLDiscordInlineCodeElement>;
             "discord-invite": LocalJSX.DiscordInvite & JSXBase.HTMLAttributes<HTMLDiscordInviteElement>;
+            "discord-italic": LocalJSX.DiscordItalic & JSXBase.HTMLAttributes<HTMLDiscordItalicElement>;
             "discord-mention": LocalJSX.DiscordMention & JSXBase.HTMLAttributes<HTMLDiscordMentionElement>;
             "discord-message": LocalJSX.DiscordMessage & JSXBase.HTMLAttributes<HTMLDiscordMessageElement>;
             "discord-messages": LocalJSX.DiscordMessages & JSXBase.HTMLAttributes<HTMLDiscordMessagesElement>;
+            "discord-quote": LocalJSX.DiscordQuote & JSXBase.HTMLAttributes<HTMLDiscordQuoteElement>;
             "discord-reaction": LocalJSX.DiscordReaction & JSXBase.HTMLAttributes<HTMLDiscordReactionElement>;
             "discord-reactions": LocalJSX.DiscordReactions & JSXBase.HTMLAttributes<HTMLDiscordReactionsElement>;
             "discord-reply": LocalJSX.DiscordReply & JSXBase.HTMLAttributes<HTMLDiscordReplyElement>;
+            "discord-spoiler": LocalJSX.DiscordSpoiler & JSXBase.HTMLAttributes<HTMLDiscordSpoilerElement>;
             "discord-system-message": LocalJSX.DiscordSystemMessage & JSXBase.HTMLAttributes<HTMLDiscordSystemMessageElement>;
             "discord-tenor-video": LocalJSX.DiscordTenorVideo & JSXBase.HTMLAttributes<HTMLDiscordTenorVideoElement>;
             "discord-thread": LocalJSX.DiscordThread & JSXBase.HTMLAttributes<HTMLDiscordThreadElement>;
             "discord-thread-message": LocalJSX.DiscordThreadMessage & JSXBase.HTMLAttributes<HTMLDiscordThreadMessageElement>;
+            "discord-underlined": LocalJSX.DiscordUnderlined & JSXBase.HTMLAttributes<HTMLDiscordUnderlinedElement>;
         }
     }
 }
