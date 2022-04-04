@@ -47,6 +47,7 @@
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
+		"minimist": "^1.2.6",
 		"@types/react": "^17.0.43",
 		"@types/react-dom": "^17.0.14"
 	},
