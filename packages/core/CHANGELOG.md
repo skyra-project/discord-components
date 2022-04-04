@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/skyra-project/discord-components/compare/v3.1.1...v3.2.0) (2022-04-04)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([#217](https://github.com/skyra-project/discord-components/issues/217)) ([3c391b6](https://github.com/skyra-project/discord-components/commit/3c391b68a28084ba514d9e5a8c3666fb7d456166))
+-   **deps:** update all non-major dependencies ([#225](https://github.com/skyra-project/discord-components/issues/225)) ([87349f3](https://github.com/skyra-project/discord-components/commit/87349f3355c89c9c055ced1be7750f0251085132))
+
+### Features
+
+-   added multiple style specific components ([80ed132](https://github.com/skyra-project/discord-components/commit/80ed1326ea075cbe142cc8bc400d2f54a5bfaf30)), closes [#220](https://github.com/skyra-project/discord-components/issues/220)
+
 ## [3.1.1](https://github.com/skyra-project/discord-components/compare/v3.1.0...v3.1.1) (2022-03-10)
 
 ### Bug Fixes
