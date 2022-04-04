@@ -20,20 +20,20 @@
 
 .discord-button.discord-button-success {
 	color: #fff;
-	background-color: #3ba55d;
+	background-color: #2d7d46;
 }
 
 .discord-button.discord-button-success.discord-button-hoverable:hover {
-	background-color: #2d7d46;
+	background-color: #215b32;
 }
 
 .discord-button.discord-button-destructive {
 	color: #fff;
-	background-color: #ed4245;
+	background-color: #d83c3e;
 }
 
 .discord-button.discord-button-destructive.discord-button-hoverable:hover {
-	background-color: #c03537;
+	background-color: #a12d2f;
 }
 
 .discord-button.discord-button-primary {
@@ -51,7 +51,7 @@
 }
 
 .discord-button.discord-button-secondary.discord-button-hoverable:hover {
-	background-color: #5d6269;
+	background-color: #686d73;
 }
 
 .discord-button.discord-button-disabled {
