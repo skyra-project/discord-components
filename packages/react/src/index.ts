@@ -41,4 +41,5 @@ export const DiscordThread = /*@__PURE__*/ createReactComponent<JSX.DiscordThrea
 export const DiscordThreadMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordThreadMessage, HTMLDiscordThreadMessageElement>(
 	'discord-thread-message'
 );
+export const DiscordTime = /*@__PURE__*/ createReactComponent<JSX.DiscordTime, HTMLDiscordTimeElement>('discord-time');
 export const DiscordUnderlined = /*@__PURE__*/ createReactComponent<JSX.DiscordUnderlined, HTMLDiscordUnderlinedElement>('discord-underlined');
