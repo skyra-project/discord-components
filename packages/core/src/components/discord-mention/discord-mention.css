@@ -46,34 +46,3 @@
 	left: 0.125rem;
 	top: 0.125rem;
 }
-
-.discord-message.discord-highlight-mention {
-	background-color: rgba(250, 166, 26, 0.1);
-	border-radius: 0 3px 3px 0;
-	padding-right: 5px;
-	position: relative;
-}
-
-.discord-light-theme .discord-message.discord-highlight-mention {
-	background-color: rgba(250, 166, 26, 0.1);
-}
-
-.discord-message.discord-highlight-mention:hover {
-	background-color: rgba(250, 166, 26, 0.08);
-}
-
-.discord-light-theme .discord-message.discord-highlight-mention:hover {
-	background-color: rgba(250, 166, 26, 0.2);
-}
-
-.discord-message.discord-highlight-mention::before {
-	background-color: rgb(250, 166, 26);
-	content: ' ';
-	position: relative;
-	display: block;
-	top: 0;
-	left: -0.75rem;
-	bottom: 0;
-	pointer-events: none;
-	width: 2px;
-}

@@ -4,6 +4,7 @@ import Fragment from '../../Fragment';
 import { avatars, Profile, profiles } from '../../options';
 import { DiscordTimestamp, handleTimestamp } from '../../util';
 import { AuthorInfo } from '../author-info/author-info';
+import Ephemeral from '../svgs/ephemeral';
 
 @Component({
 	tag: 'discord-message',
@@ -75,6 +76,12 @@ export class DiscordMessage implements ComponentInterface {
 	public highlight = false;
 
 	/**
+	 * Whether to make this message ephemeral.
+	 */
+	@Prop()
+	public ephemeral = false;
+
+	/**
 	 * The timestamp to use for the message date.
 	 */
 	@Prop({ mutable: true, reflect: true })
@@ -123,7 +130,13 @@ export class DiscordMessage implements ComponentInterface {
 			});
 
 		return (
-			<Host class={clsx('discord-message', { 'discord-highlight-mention': highlightMention, 'discord-message-has-thread': hasThread })}>
+			<Host
+				class={clsx('discord-message', {
+					'discord-highlight-mention': highlightMention,
+					'discord-message-has-thread': hasThread,
+					'discord-highlight-ephemeral': this.ephemeral
+				})}
+			>
 				<slot name="reply"></slot>
 				<div class="discord-message-inner">
 					{parent.compactMode && <span class="discord-message-timestamp">{this.timestamp}</span>}
@@ -166,6 +179,14 @@ export class DiscordMessage implements ComponentInterface {
 							<slot name="components"></slot>
 							<slot name="reactions"></slot>
 							<slot name="thread"></slot>
+							{this.ephemeral ? (
+								<div class="discord-message-ephemeral">
+									<Ephemeral class="discord-message-ephemeral-icon" />
+									Only you can see this • <span class="discord-message-ephemeral-link">Dismiss message</span>
+								</div>
+							) : (
+								''
+							)}
 						</div>
 					</div>
 				</div>
