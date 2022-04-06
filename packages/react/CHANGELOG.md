@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/skyra-project/discord-components/compare/v3.2.0...v3.3.0) (2022-04-06)
+
+### Features
+
+-   add `discord-time` component ([#229](https://github.com/skyra-project/discord-components/issues/229)) ([cdf0810](https://github.com/skyra-project/discord-components/commit/cdf08108e9a54e11c75e050ff176a42715aceb49))
+
 # [3.2.0](https://github.com/skyra-project/discord-components/compare/v3.1.1...v3.2.0) (2022-04-04)
 
 ### Features
