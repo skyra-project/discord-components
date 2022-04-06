@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 @Component({
 	tag: 'discord-time',
@@ -7,9 +7,9 @@ import { Component, h } from '@stencil/core';
 export class DiscordTime {
 	public render() {
 		return (
-			<span class="discord-time">
+			<Host class="discord-time">
 				<slot></slot>
-			</span>
+			</Host>
 		);
 	}
 }
