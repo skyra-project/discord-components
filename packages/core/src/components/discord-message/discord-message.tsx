@@ -179,13 +179,11 @@ export class DiscordMessage implements ComponentInterface {
 							<slot name="components"></slot>
 							<slot name="reactions"></slot>
 							<slot name="thread"></slot>
-							{this.ephemeral ? (
+							{this.ephemeral && (
 								<div class="discord-message-ephemeral">
 									<Ephemeral class="discord-message-ephemeral-icon" />
 									Only you can see this • <span class="discord-message-ephemeral-link">Dismiss message</span>
 								</div>
-							) : (
-								''
 							)}
 						</div>
 					</div>
