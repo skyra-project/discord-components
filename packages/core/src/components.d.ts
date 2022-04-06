@@ -250,6 +250,10 @@ export namespace Components {
          */
         "edited": boolean;
         /**
+          * Whether to make this message ephemeral.
+         */
+        "ephemeral": boolean;
+        /**
           * Whether to highlight this message.
          */
         "highlight": boolean;
@@ -895,6 +899,10 @@ declare namespace LocalJSX {
           * Whether the message has been edited or not.
          */
         "edited"?: boolean;
+        /**
+          * Whether to make this message ephemeral.
+         */
+        "ephemeral"?: boolean;
         /**
           * Whether to highlight this message.
          */

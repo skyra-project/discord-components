@@ -10,6 +10,7 @@
 | `avatar`     | `avatar`      | The message author's avatar. Can be an avatar shortcut, relative path, or external link.                                      | `string`                 | `undefined`  |
 | `bot`        | `bot`         | Whether the message author is a bot or not. Only works if `server` is `false` or `undefined`.                                 | `boolean`                | `false`      |
 | `edited`     | `edited`      | Whether the message has been edited or not.                                                                                   | `boolean`                | `false`      |
+| `ephemeral`  | `ephemeral`   | Whether to make this message ephemeral.                                                                                       | `boolean`                | `false`      |
 | `highlight`  | `highlight`   | Whether to highlight this message.                                                                                            | `boolean`                | `false`      |
 | `profile`    | `profile`     | The id of the profile data to use.                                                                                            | `string`                 | `undefined`  |
 | `roleColor`  | `role-color`  | The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp). | `string`                 | `undefined`  |

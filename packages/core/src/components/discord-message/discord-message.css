@@ -29,16 +29,14 @@
 	flex: 0 0 auto;
 }
 
-.discord-message.discord-message-highlight {
-	background-color: rgba(250, 166, 26, 0.05);
+.discord-message.discord-highlight-mention,
+.discord-message.discord-highlight-ephemeral {
+	padding-right: 5px;
+	position: relative;
 }
 
-.discord-message.discord-message-highlight:hover {
-	background-color: rgba(250, 166, 26, 0.08);
-}
-
-.discord-message.discord-message-highlight::before {
-	background-color: #faa61a;
+.discord-message.discord-highlight-mention::before,
+.discord-message.discord-highlight-ephemeral::before {
 	content: '';
 	position: absolute;
 	display: block;
@@ -47,6 +45,42 @@
 	bottom: 0;
 	pointer-events: none;
 	width: 2px;
+}
+
+.discord-message.discord-highlight-mention {
+	background-color: rgba(250, 166, 26, 0.1);
+}
+
+.discord-light-theme .discord-message.discord-highlight-mention {
+	background-color: rgba(250, 166, 26, 0.1);
+}
+
+.discord-message.discord-highlight-mention:hover {
+	background-color: rgba(250, 166, 26, 0.08);
+}
+
+.discord-light-theme .discord-message.discord-highlight-mention:hover {
+	background-color: rgba(250, 166, 26, 0.2);
+}
+
+.discord-message.discord-highlight-mention::before {
+	background-color: #faa61a;
+}
+
+.discord-message.discord-highlight-ephemeral {
+	background-color: rgba(88, 101, 242, 0.05);
+}
+
+.discord-light-theme .discord-message.discord-highlight-ephemeral {
+	background-color: rgba(250, 166, 26, 0.1);
+}
+
+.discord-message.discord-highlight-ephemeral:hover {
+	background-color: rgba(88, 101, 242, 0.1);
+}
+
+.discord-message.discord-highlight-ephemeral::before {
+	background-color: #5865f2;
 }
 
 .discord-light-theme .discord-message {
@@ -223,6 +257,33 @@
 
 .discord-light-theme .discord-message.discord-message-has-thread:after {
 	border-color: #747f8d;
+}
+
+.discord-message-ephemeral {
+	color: #72767d;
+	margin-top: 4px;
+	font-size: 12px;
+	font-weight: 400;
+	color: #72767d;
+}
+
+.discord-light-theme .discord-message-ephemeral {
+	color: #747f8d;
+}
+
+.discord-message-ephemeral .discord-message-ephemeral-link {
+	color: #00aff4;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.discord-message-ephemeral .discord-message-ephemeral-link:hover {
+	text-decoration: underline;
+}
+
+.discord-message-ephemeral .discord-message-ephemeral-icon {
+	margin-right: 4px;
+	vertical-align: text-bottom;
 }
 
 @import '../author-info/author-info.css';
