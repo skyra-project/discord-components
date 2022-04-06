@@ -453,6 +453,8 @@ export namespace Components {
          */
         "verified": boolean;
     }
+    interface DiscordTime {
+    }
     interface DiscordUnderlined {
     }
 }
@@ -619,6 +621,12 @@ declare global {
         prototype: HTMLDiscordThreadMessageElement;
         new (): HTMLDiscordThreadMessageElement;
     };
+    interface HTMLDiscordTimeElement extends Components.DiscordTime, HTMLStencilElement {
+    }
+    var HTMLDiscordTimeElement: {
+        prototype: HTMLDiscordTimeElement;
+        new (): HTMLDiscordTimeElement;
+    };
     interface HTMLDiscordUnderlinedElement extends Components.DiscordUnderlined, HTMLStencilElement {
     }
     var HTMLDiscordUnderlinedElement: {
@@ -653,6 +661,7 @@ declare global {
         "discord-tenor-video": HTMLDiscordTenorVideoElement;
         "discord-thread": HTMLDiscordThreadElement;
         "discord-thread-message": HTMLDiscordThreadMessageElement;
+        "discord-time": HTMLDiscordTimeElement;
         "discord-underlined": HTMLDiscordUnderlinedElement;
     }
 }
@@ -1103,6 +1112,8 @@ declare namespace LocalJSX {
          */
         "verified"?: boolean;
     }
+    interface DiscordTime {
+    }
     interface DiscordUnderlined {
     }
     interface IntrinsicElements {
@@ -1133,6 +1144,7 @@ declare namespace LocalJSX {
         "discord-tenor-video": DiscordTenorVideo;
         "discord-thread": DiscordThread;
         "discord-thread-message": DiscordThreadMessage;
+        "discord-time": DiscordTime;
         "discord-underlined": DiscordUnderlined;
     }
 }
@@ -1167,6 +1179,7 @@ declare module "@stencil/core" {
             "discord-tenor-video": LocalJSX.DiscordTenorVideo & JSXBase.HTMLAttributes<HTMLDiscordTenorVideoElement>;
             "discord-thread": LocalJSX.DiscordThread & JSXBase.HTMLAttributes<HTMLDiscordThreadElement>;
             "discord-thread-message": LocalJSX.DiscordThreadMessage & JSXBase.HTMLAttributes<HTMLDiscordThreadMessageElement>;
+            "discord-time": LocalJSX.DiscordTime & JSXBase.HTMLAttributes<HTMLDiscordTimeElement>;
             "discord-underlined": LocalJSX.DiscordUnderlined & JSXBase.HTMLAttributes<HTMLDiscordUnderlinedElement>;
         }
     }
