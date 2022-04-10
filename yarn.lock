@@ -1515,14 +1515,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17.0.44":
-  version: 17.0.44
-  resolution: "@types/react@npm:17.0.44"
+"@types/react@npm:^18.0.1":
+  version: 18.0.1
+  resolution: "@types/react@npm:18.0.1"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: ebee02778ca08f954c316dc907802264e0121c87b8fa2e7e0156ab0ef2a1b0a09d968c016a3600ec4c9a17dc09b4274f292d9b15a1a5369bb7e4072def82808f
+  checksum: ede927ed3766fef5fec513fe75e79180bb3c97d21ca7707321e969193c596bc4a531160238546a845e4131df02ec9be7803277a268bc270156362d16b29b4ffb
   languageName: node
   linkType: hard
 
@@ -6874,7 +6874,7 @@ __metadata:
     "@sapphire/ts-config": ^3.3.4
     "@stencil/react-output-target": ^0.3.1
     "@types/node": ^17.0.23
-    "@types/react": ^17.0.44
+    "@types/react": ^18.0.1
     "@types/react-dom": ^17.0.15
     "@typescript-eslint/eslint-plugin": ^5.18.0
     "@typescript-eslint/parser": ^5.18.0
