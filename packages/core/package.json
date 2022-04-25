@@ -38,7 +38,7 @@
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
 	"scripts": {
-		"build": "stencil build --docs",
+		"build": "stencil build --docs && replace-in-file --configFile=scripts/replaceImportInPolyfills.cjs",
 		"start": "stencil build --dev --watch --serve",
 		"generate": "stencil generate"
 	},
