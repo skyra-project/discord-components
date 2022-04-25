@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/skyra-project/discord-components/compare/v3.3.0...v3.3.1) (2022-04-25)
+
+### Bug Fixes
+
+-   **core:** emit `[@vite-ignore](https://github.com/vite-ignore)` comments on dynamic imports ([ba84b9e](https://github.com/skyra-project/discord-components/commit/ba84b9ec4e8fe81ec452aba4c89b7b481b00ccaa))
+-   **deps:** update all non-major dependencies ([#240](https://github.com/skyra-project/discord-components/issues/240)) ([e0e22fe](https://github.com/skyra-project/discord-components/commit/e0e22fe72158f1e9f92d61a5b04c58b7bf546de5))
+
 # [3.3.0](https://github.com/skyra-project/discord-components/compare/v3.2.0...v3.3.0) (2022-04-06)
 
 ### Features
