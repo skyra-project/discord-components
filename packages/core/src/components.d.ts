@@ -266,6 +266,14 @@ export namespace Components {
          */
         "roleColor": string;
         /**
+          * The message author's role icon URL.
+         */
+        "roleIcon": string;
+        /**
+          * The name of the role to use as alternative image text.
+         */
+        "roleName": string;
+        /**
           * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
          */
         "server": boolean;
@@ -924,6 +932,14 @@ declare namespace LocalJSX {
           * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
          */
         "roleColor"?: string;
+        /**
+          * The message author's role icon URL.
+         */
+        "roleIcon"?: string;
+        /**
+          * The name of the role to use as alternative image text.
+         */
+        "roleName"?: string;
         /**
           * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
          */
