@@ -16,6 +16,10 @@ interface AuthorInfoProps {
 	 */
 	server: boolean;
 	/**
+	 * Whether this author is the original poster.
+	 */
+	op: boolean;
+	/**
 	 * The colour of the author, which comes from their highest role
 	 */
 	roleColor: string;
@@ -29,7 +33,7 @@ interface AuthorInfoProps {
 	compact: boolean;
 }
 
-export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, server, roleColor, verified, compact }) => (
+export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, server, op, roleColor, verified, compact }) => (
 	<span class="discord-author-info">
 		{!compact && (
 			<span class="discord-author-username" style={{ color: roleColor }}>
@@ -47,6 +51,7 @@ export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, 
 					</span>
 				)}
 				{server && !bot && <span class="discord-application-tag">Server</span>}
+				{op && <span class="discord-application-tag discord-application-tag-op">OP</span>}
 			</Fragment>
 		}
 		{compact && (

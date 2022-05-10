@@ -51,6 +51,12 @@ export class DiscordReply implements ComponentInterface {
 	public server = false;
 
 	/**
+	 * Whether the author is the original poster.
+	 */
+	@Prop()
+	public op = false;
+
+	/**
 	 * Whether the bot is verified or not.
 	 * Only works if `bot` is `true`
 	 */
@@ -96,7 +102,14 @@ export class DiscordReply implements ComponentInterface {
 
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
-		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, server: this.server, roleColor: this.roleColor };
+		const defaultData: Profile = {
+			author: this.author,
+			bot: this.bot,
+			verified: this.verified,
+			op: this.op,
+			server: this.server,
+			roleColor: this.roleColor
+		};
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
@@ -120,6 +133,7 @@ export class DiscordReply implements ComponentInterface {
 							</span>
 						)}
 						{profile.server && !profile.bot && <span class="discord-application-tag">Server</span>}
+						{profile.op && <span class="discord-application-tag discord-application-tag-op">OP</span>}
 					</Fragment>
 				}
 				<span class="discord-replied-message-username" style={{ color: profile.roleColor ?? '' }}>

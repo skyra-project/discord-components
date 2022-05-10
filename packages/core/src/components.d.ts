@@ -258,6 +258,10 @@ export namespace Components {
          */
         "highlight": boolean;
         /**
+          * Whether the author is the original poster.
+         */
+        "op": boolean;
+        /**
           * The id of the profile data to use.
          */
         "profile": string;
@@ -357,6 +361,10 @@ export namespace Components {
           * Whether this reply pings the original message sender, prepending an "@" on the author's username.
          */
         "mentions": boolean;
+        /**
+          * Whether the author is the original poster.
+         */
+        "op": boolean;
         /**
           * The id of the profile data to use.
          */
@@ -917,6 +925,10 @@ declare namespace LocalJSX {
          */
         "highlight"?: boolean;
         /**
+          * Whether the author is the original poster.
+         */
+        "op"?: boolean;
+        /**
           * The id of the profile data to use.
          */
         "profile"?: string;
@@ -1016,6 +1028,10 @@ declare namespace LocalJSX {
           * Whether this reply pings the original message sender, prepending an "@" on the author's username.
          */
         "mentions"?: boolean;
+        /**
+          * Whether the author is the original poster.
+         */
+        "op"?: boolean;
         /**
           * The id of the profile data to use.
          */

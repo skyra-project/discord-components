@@ -2,6 +2,11 @@
 	display: inline-flex;
 	align-items: center;
 	font-size: 16px;
+	margin-right: 0.25rem;
+}
+
+.discord-compact-mode .discord-message .discord-author-info {
+	margin-right: 0;
 }
 
 .discord-message .discord-author-info .discord-author-username {
@@ -32,6 +37,12 @@
 	border-radius: 0.1875rem;
 }
 
+.discord-message .discord-author-info .discord-application-tag.discord-application-tag-op {
+	background-color: #c9cdfb;
+	color: #4752c4;
+	border-radius: 0.4rem;
+}
+
 .discord-message .discord-author-info .discord-application-tag-verified {
 	display: inline-block;
 	width: 0.9375rem;
@@ -48,6 +59,11 @@
 	margin-left: 0;
 	margin-left: 5px;
 	margin-right: 5px;
-	padding-left: 3px;
-	padding-right: 3px;
+	padding-left: 10px;
+	padding-right: 4px;
+}
+
+.discord-compact-mode .discord-message .discord-author-info .discord-application-tag-verified {
+	margin-right: 0.7em;
+	margin-left: -0.7em;
 }

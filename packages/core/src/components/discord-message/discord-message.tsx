@@ -58,6 +58,12 @@ export class DiscordMessage implements ComponentInterface {
 	public verified = false;
 
 	/**
+	 * Whether the author is the original poster.
+	 */
+	@Prop()
+	public op = false;
+
+	/**
 	 * Whether the message has been edited or not.
 	 */
 	@Prop()
@@ -113,7 +119,14 @@ export class DiscordMessage implements ComponentInterface {
 
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
-		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, server: this.server, roleColor: this.roleColor };
+		const defaultData: Profile = {
+			author: this.author,
+			bot: this.bot,
+			verified: this.verified,
+			server: this.server,
+			op: this.op,
+			roleColor: this.roleColor
+		};
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
@@ -151,6 +164,7 @@ export class DiscordMessage implements ComponentInterface {
 									bot={profile.bot ?? false}
 									server={profile.server ?? false}
 									verified={profile.verified ?? false}
+									op={profile.op ?? false}
 									roleColor={profile.roleColor ?? ''}
 									compact={parent.compactMode}
 								/>
@@ -164,6 +178,7 @@ export class DiscordMessage implements ComponentInterface {
 									bot={profile.bot ?? false}
 									server={profile.server ?? false}
 									verified={profile.verified ?? false}
+									op={profile.op ?? false}
 									roleColor={profile.roleColor ?? ''}
 									compact={parent.compactMode}
 								/>
