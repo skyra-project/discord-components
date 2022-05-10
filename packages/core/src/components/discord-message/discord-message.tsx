@@ -125,7 +125,15 @@ export class DiscordMessage implements ComponentInterface {
 
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
-		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, server: this.server, roleColor: this.roleColor };
+		const defaultData: Profile = {
+			author: this.author,
+			bot: this.bot,
+			verified: this.verified,
+			server: this.server,
+			roleColor: this.roleColor,
+			roleIcon: this.roleIcon,
+			roleName: this.roleName
+		};
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
