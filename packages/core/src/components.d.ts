@@ -227,9 +227,9 @@ export namespace Components {
          */
         "highlight": boolean;
         /**
-          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
+          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
          */
-        "type": 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread';
+        "type": 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum';
     }
     interface DiscordMessage {
         /**
@@ -886,9 +886,9 @@ declare namespace LocalJSX {
          */
         "highlight"?: boolean;
         /**
-          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
+          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
          */
-        "type"?: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread';
+        "type"?: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum';
     }
     interface DiscordMessage {
         /**
