@@ -16,6 +16,8 @@ export interface Profile {
 	server?: boolean;
 	op?: boolean;
 	roleColor?: string;
+	roleIcon?: string;
+	roleName?: string;
 }
 
 export interface DiscordMessageOptions {

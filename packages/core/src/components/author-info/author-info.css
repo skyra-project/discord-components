@@ -50,6 +50,13 @@
 	margin-left: -0.25rem;
 }
 
+.discord-message .discord-author-info .discord-author-role-icon {
+	margin-left: 0.25rem;
+	vertical-align: top;
+	height: calc(1rem + 4px);
+	width: calc(1rem + 4px);
+}
+
 .discord-compact-mode .discord-message .discord-author-info .discord-author-username {
 	margin-left: 8px;
 	margin-right: 4px;

@@ -227,9 +227,9 @@ export namespace Components {
          */
         "highlight": boolean;
         /**
-          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
+          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
          */
-        "type": 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread';
+        "type": 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum';
     }
     interface DiscordMessage {
         /**
@@ -269,6 +269,14 @@ export namespace Components {
           * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
          */
         "roleColor": string;
+        /**
+          * The message author's role icon URL.
+         */
+        "roleIcon": string;
+        /**
+          * The name of the role to use as alternative image text.
+         */
+        "roleName": string;
         /**
           * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
          */
@@ -894,9 +902,9 @@ declare namespace LocalJSX {
          */
         "highlight"?: boolean;
         /**
-          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
+          * The type of mention this should be. This will prepend the proper prefix character. Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
          */
-        "type"?: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread';
+        "type"?: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum';
     }
     interface DiscordMessage {
         /**
@@ -936,6 +944,14 @@ declare namespace LocalJSX {
           * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
          */
         "roleColor"?: string;
+        /**
+          * The message author's role icon URL.
+         */
+        "roleIcon"?: string;
+        /**
+          * The name of the role to use as alternative image text.
+         */
+        "roleName"?: string;
         /**
           * Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.
          */

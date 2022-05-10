@@ -4,6 +4,7 @@ import ChannelThread from '../svgs/channel-thread';
 import LockedVoiceChannel from '../svgs/locked-voice-channel';
 import VoiceChannel from '../svgs/voice-channel';
 import ChannelIcon from '../svgs/channel-icon';
+import ChannnelForum from '../svgs/channel-forum';
 
 @Component({
 	tag: 'discord-mention',
@@ -30,17 +31,17 @@ export class DiscordMention implements ComponentInterface {
 
 	/**
 	 * The type of mention this should be. This will prepend the proper prefix character.
-	 * Valid values: `user`, `channel`, `role`, `voice`, and `locked`.
+	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
 	 */
 	@Prop()
-	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' = 'user';
+	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' = 'user';
 
 	@Watch('type')
 	public handleType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordMention `type` prop must be a string.');
-		} else if (!['user', 'channel', 'role', 'voice', 'locked', 'thread'].includes(value)) {
-			throw new RangeError("DiscordMention `type` prop must be one of: 'user', 'channel', 'role', 'voice', 'locked', 'thread' ");
+		} else if (!['user', 'channel', 'role', 'voice', 'locked', 'thread', 'forum'].includes(value)) {
+			throw new RangeError("DiscordMention `type` prop must be one of: 'user', 'channel', 'role', 'voice', 'locked', 'thread', 'forum'");
 		}
 	}
 
@@ -96,6 +97,9 @@ export class DiscordMention implements ComponentInterface {
 				break;
 			case 'thread':
 				mentionPrepend = <ChannelThread class="discord-mention-icon" />;
+				break;
+			case 'forum':
+				mentionPrepend = <ChannnelForum class="discord-mention-icon" />;
 				break;
 		}
 
