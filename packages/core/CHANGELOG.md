@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/skyra-project/discord-components/compare/v3.3.1...v3.4.0) (2022-05-10)
+
+### Features
+
+-   add forum mention icon ([#244](https://github.com/skyra-project/discord-components/issues/244)) ([eea0ee7](https://github.com/skyra-project/discord-components/commit/eea0ee70698637054f2685ea03179ad9a126f451))
+-   add OP tag to profiles (+ author info style fixes) ([#245](https://github.com/skyra-project/discord-components/issues/245)) ([9206d4f](https://github.com/skyra-project/discord-components/commit/9206d4f5e7cca47a3f1c6df4e2854519ff3dada0))
+-   add role icons ([#243](https://github.com/skyra-project/discord-components/issues/243)) ([b2a4dd0](https://github.com/skyra-project/discord-components/commit/b2a4dd077a49bfa8a032e13eeea9c871c5c3ebd4))
+
 ## [3.3.1](https://github.com/skyra-project/discord-components/compare/v3.3.0...v3.3.1) (2022-04-25)
 
 ### Bug Fixes
