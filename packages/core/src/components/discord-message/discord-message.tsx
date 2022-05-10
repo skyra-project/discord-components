@@ -70,6 +70,18 @@ export class DiscordMessage implements ComponentInterface {
 	public roleColor: string;
 
 	/**
+	 * The message author's role icon URL.
+	 */
+	@Prop()
+	public roleIcon: string;
+
+	/**
+	 * The name of the role to use as alternative image text.
+	 */
+	@Prop()
+	public roleName: string;
+
+	/**
 	 * Whether to highlight this message.
 	 */
 	@Prop()
@@ -113,7 +125,15 @@ export class DiscordMessage implements ComponentInterface {
 
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
-		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, server: this.server, roleColor: this.roleColor };
+		const defaultData: Profile = {
+			author: this.author,
+			bot: this.bot,
+			verified: this.verified,
+			server: this.server,
+			roleColor: this.roleColor,
+			roleIcon: this.roleIcon,
+			roleName: this.roleName
+		};
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
@@ -152,6 +172,8 @@ export class DiscordMessage implements ComponentInterface {
 									server={profile.server ?? false}
 									verified={profile.verified ?? false}
 									roleColor={profile.roleColor ?? ''}
+									roleIcon={profile.roleIcon ?? ''}
+									roleName={profile.roleName ?? ''}
 									compact={parent.compactMode}
 								/>
 								<span class="discord-message-timestamp">{this.timestamp}</span>
@@ -165,6 +187,8 @@ export class DiscordMessage implements ComponentInterface {
 									server={profile.server ?? false}
 									verified={profile.verified ?? false}
 									roleColor={profile.roleColor ?? ''}
+									roleIcon={profile.roleIcon ?? ''}
+									roleName={profile.roleName ?? ''}
 									compact={parent.compactMode}
 								/>
 							)}

@@ -20,6 +20,14 @@ interface AuthorInfoProps {
 	 */
 	roleColor: string;
 	/**
+	 * The role icon of the author, which comes from their highest role
+	 */
+	roleIcon: string;
+	/**
+	 * The role name of the author, which comes from their highest role
+	 */
+	roleName: string;
+	/**
 	 * Whether this bot is verified by Discord. Only works if `bot` is `true`
 	 */
 	verified: boolean;
@@ -29,12 +37,15 @@ interface AuthorInfoProps {
 	compact: boolean;
 }
 
-export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, server, roleColor, verified, compact }) => (
+export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, server, roleColor, roleIcon, roleName, verified, compact }) => (
 	<span class="discord-author-info">
 		{!compact && (
-			<span class="discord-author-username" style={{ color: roleColor }}>
-				{author}
-			</span>
+			<Fragment>
+				<span class="discord-author-username" style={{ color: roleColor }}>
+					{author}
+				</span>
+				{roleIcon && <img class="discord-author-role-icon" src={roleIcon} height="20" width="20" alt={roleName} draggable={false} />}
+			</Fragment>
 		)}
 		{
 			<Fragment>
