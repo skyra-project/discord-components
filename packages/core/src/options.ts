@@ -14,6 +14,7 @@ export interface Profile {
 	bot?: boolean;
 	verified?: boolean;
 	server?: boolean;
+	op?: boolean;
 	roleColor?: string;
 	roleIcon?: string;
 	roleName?: string;

@@ -13,6 +13,7 @@
 | `command`    | `command`    | Whether the referenced message is from a response of a slash command.                                                         | `boolean` | `false`     |
 | `edited`     | `edited`     | Whether the message has been edited or not.                                                                                   | `boolean` | `false`     |
 | `mentions`   | `mentions`   | Whether this reply pings the original message sender, prepending an "@" on the author's username.                             | `boolean` | `false`     |
+| `op`         | `op`         | Whether the author is the original poster.                                                                                    | `boolean` | `false`     |
 | `profile`    | `profile`    | The id of the profile data to use.                                                                                            | `string`  | `undefined` |
 | `roleColor`  | `role-color` | The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp). | `string`  | `undefined` |
 | `server`     | `server`     | Whether the message author is a server crosspost webhook or not. Only works if `bot` is `false` or `undefined`.               | `boolean` | `false`     |
