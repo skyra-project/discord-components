@@ -5,20 +5,20 @@
 	"author": "@skyra",
 	"license": "MIT",
 	"main": "dist/index.js",
-	"module": "dist/index.mjs",
+	"module": "dist/index.js",
 	"typings": "dist/index.d.ts",
+	"type": "module",
 	"exports": {
-		"import": "./dist/index.mjs",
+		"import": "./dist/index.js",
 		"require": "./dist/index.js"
 	},
 	"sideEffects": [
-		"./dist/index.mjs",
 		"./dist/index.js"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
 		"clean": "node scripts/clean.mjs",
-		"build": "yarn clean && tsc && gen-esm-wrapper dist/index.js dist/index.mjs && replace-in-file --configFile=scripts/replaceDefaultMod.cjs"
+		"build": "yarn clean && tsc"
 	},
 	"dependencies": {
 		"@skyra/discord-components-core": "^3.4.0",
@@ -57,7 +57,7 @@
 		"bot",
 		"components",
 		"webcomponents",
-		"stencil",
+		"lit",
 		"react"
 	]
 }

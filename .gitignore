@@ -14,31 +14,11 @@ package-lock.json
 
 # Output
 dist/
-docs/
-build-scripts/
-build/
-www/
-loader/
-*.tsbuildinfo
-*.js
-*.jsx
-*.js.map
-*.jsx.map
-*.tgz
-!rollup.config.js
 
 # Misc
-*~
-*.sw[mnpcod]
 *.log
 *.tmp
 *.tmp.*
-log.txt
-.sass-cache/
-.versions/
-.stencil/
-$RECYCLE.BIN/
 .DS_Store
 Thumbs.db
-UserInterfaceState.xcuserstate
 .env
