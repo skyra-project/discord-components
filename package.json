@@ -18,7 +18,7 @@
 		"@commitlint/cli": "^16.3.0",
 		"@commitlint/config-conventional": "^16.2.4",
 		"@lerna-lite/cli": "^1.3.0",
-		"@sapphire/eslint-config": "^4.3.4",
+		"@sapphire/eslint-config": "^4.3.5",
 		"@sapphire/prettier-config": "^1.4.3",
 		"@sapphire/ts-config": "^3.3.4",
 		"@stencil/react-output-target": "^0.3.1",
