@@ -4,39 +4,16 @@
 	"description": "Web components to easily build and display fake Discord messages on your webpages.",
 	"author": "@skyra",
 	"license": "MIT",
-	"main": "dist/index.cjs.js",
+	"main": "dist/index.js",
 	"module": "dist/index.js",
-	"es2015": "dist/esm/index.js",
-	"es2017": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
-	"unpkg": "dist/skyra-discord-components-core/skyra-discord-components-core.esm.js",
-	"collection:main": "dist/collection/index.js",
-	"collection": "dist/collection/collection-manifest.json",
+	"types": "dist/index.d.ts",
+	"type": "module",
 	"exports": {
-		".": [
-			{
-				"types": "./dist/types/index.d.ts",
-				"require": "./dist/index.cjs.js",
-				"import": "./dist/index.js"
-			},
-			"./dist/index.cjs.js"
-		],
-		"./loader": [
-			{
-				"types": "./loader/index.d.ts",
-				"require": "./loader/index.cjs.js",
-				"import": "./loader/index.js"
-			},
-			"./loader/index.cjs.js"
-		]
+		"require": "./dist/index.js",
+		"import": "./dist/index.js"
 	},
 	"sideEffects": [
-		"./loader/index.js",
-		"./loader/index.cjs.js",
-		"./dist/skyra-discord-components-core/p-*",
-		"**/*skyra-discord-components-core*.js",
-		"./dist/esm/loader.js",
-		"./dist/esm/polyfills/*"
+		"./dist/index.js"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
 	"scripts": {
@@ -45,7 +22,6 @@
 		"generate": "stencil generate"
 	},
 	"dependencies": {
-		"@stencil/core": "^3.4.1",
 		"clsx": "^1.2.1",
 		"hex-to-rgba": "^2.0.1"
 	},
@@ -53,11 +29,10 @@
 		"lib": "src"
 	},
 	"files": [
-		"dist/",
-		"loader/"
+		"dist/"
 	],
 	"engines": {
-		"node": ">=v14.0.0"
+		"node": ">=v14"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -78,6 +53,6 @@
 		"bot",
 		"components",
 		"webcomponents",
-		"stencil"
+		"lit"
 	]
 }
