@@ -12,7 +12,7 @@
 		"build": "yarn clean && yarn build:core && yarn build:react && yarn lint && yarn format",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
 		"build:react": "yarn workspace @skyra/discord-components-react build",
-		"prepare": "husky install .github/husky"
+		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.0.1",
