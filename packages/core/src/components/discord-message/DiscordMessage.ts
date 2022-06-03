@@ -54,7 +54,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				margin-top: 1.0625rem;
 			}
 
-			.discord-message .discord-message-inner {
+			discord-message .discord-message-inner {
 				display: flex;
 				position: relative;
 				-webkit-box-flex: 0;
@@ -62,14 +62,14 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				flex: 0 0 auto;
 			}
 
-			.discord-message.discord-highlight-mention,
-			.discord-message.discord-highlight-ephemeral {
+			.discord-highlight-mention,
+			.discord-highlight-ephemeral {
 				padding-right: 5px;
 				position: relative;
 			}
 
-			.discord-message.discord-highlight-mention::before,
-			.discord-message.discord-highlight-ephemeral::before {
+			.discord-highlight-mention::before,
+			.discord-highlight-ephemeral::before {
 				content: '';
 				position: absolute;
 				display: block;
@@ -80,149 +80,149 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				width: 2px;
 			}
 
-			.discord-message.discord-highlight-mention {
+			.discord-highlight-mention {
 				background-color: rgba(250, 166, 26, 0.1);
 			}
 
-			.discord-light-theme .discord-message.discord-highlight-mention {
+			.discord-light-theme .discord-highlight-mention {
 				background-color: rgba(250, 166, 26, 0.1);
 			}
 
-			.discord-message.discord-highlight-mention:hover {
+			.discord-highlight-mention:hover {
 				background-color: rgba(250, 166, 26, 0.08);
 			}
 
-			.discord-light-theme .discord-message.discord-highlight-mention:hover {
+			.discord-light-theme .discord-highlight-mention:hover {
 				background-color: rgba(250, 166, 26, 0.2);
 			}
 
-			.discord-message.discord-highlight-mention::before {
+			.discord-highlight-mention::before {
 				background-color: #faa61a;
 			}
 
-			.discord-message.discord-highlight-ephemeral {
+			.discord-highlight-ephemeral {
 				background-color: rgba(88, 101, 242, 0.05);
 			}
 
-			.discord-light-theme .discord-message.discord-highlight-ephemeral {
+			.discord-light-theme .discord-highlight-ephemeral {
 				background-color: rgba(250, 166, 26, 0.1);
 			}
 
-			.discord-message.discord-highlight-ephemeral:hover {
+			.discord-highlight-ephemeral:hover {
 				background-color: rgba(88, 101, 242, 0.1);
 			}
 
-			.discord-message.discord-highlight-ephemeral::before {
+			.discord-highlight-ephemeral::before {
 				background-color: #5865f2;
 			}
 
-			.discord-light-theme .discord-message {
+			.discord-light-theme discord-message {
 				color: #2e3338;
 				border-color: #eceeef;
 			}
 
-			.discord-message a {
+			discord-message a {
 				color: #00aff4;
 				font-weight: normal;
 				text-decoration: none;
 			}
 
-			.discord-message a:hover {
+			discord-message a:hover {
 				text-decoration: underline;
 			}
 
-			.discord-light-theme .discord-message a {
+			.discord-light-theme discord-message a {
 				color: #00b0f4;
 			}
 
-			.discord-message a:hover {
+			discord-message a:hover {
 				text-decoration: underline;
 			}
 
-			.discord-message .discord-author-avatar {
+			discord-message .discord-author-avatar {
 				margin-right: 16px;
 				margin-top: 5px;
 				min-width: 40px;
 				z-index: 1;
 			}
 
-			.discord-message .discord-author-avatar img {
+			discord-message .discord-author-avatar img {
 				width: 40px;
 				height: 40px;
 				border-radius: 50%;
 			}
 
-			.discord-message .discord-message-timestamp {
+			discord-message .discord-message-timestamp {
 				color: #72767d;
 				font-size: 12px;
 				margin-left: 3px;
 			}
 
-			.discord-light-theme .discord-message .discord-message-timestamp {
+			.discord-light-theme discord-message .discord-message-timestamp {
 				color: #747f8d;
 			}
 
-			.discord-message .discord-message-edited {
+			discord-message .discord-message-edited {
 				color: #72767d;
 				font-size: 10px;
 			}
 
-			.discord-light-theme .discord-message .discord-message-edited {
+			.discord-light-theme discord-message .discord-message-edited {
 				color: #99aab5;
 			}
 
-			.discord-message .discord-message-content {
+			discord-message .discord-message-content {
 				width: 100%;
 				line-height: 160%;
 				font-weight: normal;
 				padding-top: 2px;
 			}
 
-			.discord-message .discord-message-body {
+			discord-message .discord-message-body {
 				font-size: 1rem;
 				font-weight: 400;
 				word-break: break-word;
 				position: relative;
 			}
 
-			.discord-message .discord-message-body strong {
+			discord-message .discord-message-body strong {
 				font-weight: 700;
 			}
 
-			.discord-message .discord-message-body em {
+			discord-message .discord-message-body em {
 				font-style: italic;
 			}
 
-			.discord-message .discord-message-body u {
+			discord-message .discord-message-body u {
 				text-decoration-color: rgb(220, 221, 222);
 				text-decoration-line: underline;
 				text-decoration-style: solid;
 				text-decoration-thickness: auto;
 			}
 
-			.discord-message .discord-message-body pre {
+			discord-message .discord-message-body pre {
 				border: 1px solid #202225;
 				border-radius: 4px;
 			}
 
-			.discord-message .discord-message-body code {
+			discord-message .discord-message-body code {
 				background: #2f3136;
 				white-space: break-spaces;
 				font-family: Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono,
 					Liberation Mono, Nimbus Mono L, Monaco, Courier New, Courier, monospace;
 			}
 
-			.discord-light-theme .discord-message .discord-message-timestamp,
-			.discord-compact-mode .discord-message:hover .discord-message-timestamp,
-			.discord-compact-mode.discord-light-theme .discord-message:hover .discord-message-timestamp {
+			.discord-light-theme discord-message .discord-message-timestamp,
+			.discord-compact-mode discord-message:hover .discord-message-timestamp,
+			.discord-compact-mode.discord-light-theme discord-message:hover .discord-message-timestamp {
 				color: #99aab5;
 			}
 
-			.discord-compact-mode.discord-light-theme .discord-message .discord-message-timestamp {
+			.discord-compact-mode.discord-light-theme discord-message .discord-message-timestamp {
 				color: #d1d9de;
 			}
 
-			.discord-compact-mode .discord-message .discord-message-timestamp {
+			.discord-compact-mode discord-message .discord-message-timestamp {
 				display: inline-block;
 				width: 3.1rem;
 				text-align: right;
@@ -233,30 +233,30 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				text-indent: 0;
 			}
 
-			.discord-compact-mode .discord-message {
+			.discord-compact-mode discord-message {
 				margin-top: unset;
 			}
 
-			.discord-compact-mode .discord-message .discord-message-body {
+			.discord-compact-mode discord-message .discord-message-body {
 				line-height: 1.375rem;
 				padding-left: 10px;
 				text-indent: -6px;
 			}
 
-			.discord-compact-mode .discord-message .discord-message-compact-indent {
+			.discord-compact-mode discord-message .discord-message-compact-indent {
 				padding-left: 10px;
 			}
 
-			.discord-message:first-child {
+			discord-message:first-child {
 				margin-top: 0.5rem;
 			}
 
-			.discord-message:last-child {
+			discord-message:last-child {
 				margin-bottom: 0.5rem;
 				border-bottom-width: 0;
 			}
 
-			.discord-message .discord-message-markup {
+			discord-message .discord-message-markup {
 				font-size: 1rem;
 				line-height: 1.375rem;
 				word-wrap: break-word;
@@ -268,7 +268,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				display: none;
 			}
 
-			.discord-message:hover {
+			discord-message:hover {
 				background-color: rgba(4, 4, 5, 0.07);
 			}
 
@@ -276,7 +276,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				background-color: rgba(6, 6, 7, 0.02);
 			}
 
-			.discord-message.discord-message-has-thread:after {
+			.discord-message-has-thread:after {
 				width: 2rem;
 				left: 2.2rem;
 				top: 1.75rem;
@@ -288,11 +288,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				position: absolute;
 			}
 
-			.discord-light-theme .discord-message.discord-message-has-thread:after {
+			.discord-light-theme .discord-message-has-thread:after {
 				border-color: #747f8d;
 			}
 
-			.discord-message-ephemeral {
+			discord-message-ephemeral {
 				color: #72767d;
 				margin-top: 4px;
 				font-size: 12px;
@@ -300,21 +300,21 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				color: #72767d;
 			}
 
-			.discord-light-theme .discord-message-ephemeral {
+			.discord-light-theme discord-message-ephemeral {
 				color: #747f8d;
 			}
 
-			.discord-message-ephemeral .discord-message-ephemeral-link {
+			discord-message-ephemeral .discord-message-ephemeral-link {
 				color: #00aff4;
 				font-weight: 500;
 				cursor: pointer;
 			}
 
-			.discord-message-ephemeral .discord-message-ephemeral-link:hover {
+			discord-message-ephemeral .discord-message-ephemeral-link:hover {
 				text-decoration: underline;
 			}
 
-			.discord-message-ephemeral .discord-message-ephemeral-icon {
+			discord-message-ephemeral .discord-message-ephemeral-icon {
 				margin-right: 4px;
 				vertical-align: text-bottom;
 			}
