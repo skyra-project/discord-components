@@ -1,13 +1,11 @@
 {
-	"extends": "@sapphire/ts-config",
+	"extends": "@sapphire/ts-config/extra-strict",
 	"compilerOptions": {
 		"lib": ["ESNext", "DOM"],
 		"module": "ESNext",
 		"moduleResolution": "Node",
-		"target": "ES2017",
-		"jsx": "react",
-		"strictPropertyInitialization": false,
-		"useDefineForClassFields": false,
-		"declarationMap": false
+		"target": "ES2019",
+		"emitDecoratorMetadata": false,
+		"useDefineForClassFields": false
 	}
 }

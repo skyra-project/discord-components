@@ -57,9 +57,3 @@ export const defaultTheme: string = window.$discordMessage?.defaultTheme === 'li
 export const defaultMode: string = window.$discordMessage?.defaultMode === 'compact' ? 'compact' : 'cozy';
 
 export const defaultBackground: string = window.$discordMessage?.defaultBackground === 'none' ? 'none' : 'discord';
-
-declare global {
-	interface Window {
-		$discordMessage: DiscordMessageOptions;
-	}
-}
