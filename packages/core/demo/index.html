@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+		<title>Discord Components Core</title>
+		<style>
+			body {
+				color: #eee;
+				background-color: #2a2a2a;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			a {
+				color: #0099ff;
+			}
+
+			a:hover {
+				color: #037cce;
+			}
+
+			.logo {
+				display: inline-block;
+				font-weight: bold;
+				font-size: 2em;
+				margin: 0;
+			}
+
+			.title {
+				border-bottom: 1px solid #4a4a4a;
+				padding-bottom: 0.25em;
+			}
+		</style>
+		<script>
+			window.$discordMessage = {
+				profiles: {
+					maximillian: {
+						author: 'Maximillian Osborn',
+						avatar: `/demo/static/avaone.png`,
+						roleColor: '#f9d61b'
+					},
+					willard: {
+						author: 'Willard Walton',
+						avatar: `/demo/static/avatwo.png`,
+						roleColor: '#ffb12f'
+					},
+					skyra: {
+						author: 'Skyra',
+						avatar: '/demo/static/skyra.png',
+						roleColor: '#1e88e5',
+						bot: true,
+						verified: true
+					},
+					favna: {
+						author: 'Favna',
+						avatar: 'https://github.com/favna.png',
+						roleColor: '#a155ab',
+						roleIcon: '/demo/static/booster.png',
+						roleName: 'Booster'
+					},
+					discordjs: {
+						author: 'Discord.js Official #announcements',
+						avatar: '/demo/static/discordjs.png',
+						roleColor: '#ffffff',
+						server: true
+					}
+				},
+				emojis: {
+					diamond: {
+						name: 'diamond',
+						url: '/demo/static/diamond.png'
+					},
+					aichansmile: {
+						name: 'aichansmile',
+						url: '/demo/static/aichansmile.png'
+					},
+					dragonite: {
+						name: 'dragonite',
+						url: '/demo/static/dragonite.png'
+					},
+					sapphire: {
+						name: 'sapphire',
+						url: '/demo/static/sapphire.png'
+					}
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<div>
+			<div>
+				<h1 class="logo">@skyra/discord-components-core</h1>
+				<span>[<a target="_blank" rel="noopener noreferrer" href="https://github.com/skyra-project/discord-components/">Github</a>]</span>
+			</div>
+
+			<main id="demo"></main>
+		</div>
+
+		<script type="module">
+			import { html, render } from 'lit';
+			import '../dist/src/index.js';
+
+			render(
+				html`
+					<h3 class="title">A normal conversation</h3>
+					<discord-messages>
+						<discord-message author="Alyx Vargas"> Hey guys, I'm new here! Glad to be able to join you all! </discord-message>
+						<discord-message author="Fenton Smart" avatar="/demo/static/avafive.png"> Hi, I'm new here too! </discord-message>
+						<discord-message profile="maximillian">
+							Hey, <discord-mention>Alyx Vargas</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server!<br />Be
+							sure to read through the <discord-mention type="channel">rules</discord-mention>. You can ping
+							<discord-mention type="role" color="#70f0b4">Support</discord-mention>
+							if you need help.
+						</discord-message>
+						<discord-message profile="willard">Hello everyone! How's it going?</discord-message>
+						<discord-message author="Alyx Vargas">
+							Thank you
+							<discord-mention highlight>Maximillian Osborn</discord-mention>!
+						</discord-message>
+						<discord-message author="Kayla Feeney" avatar="/demo/static/avafour.png">
+							I'm doing well, <discord-mention>Willard Walton</discord-mention>. What about yourself?
+						</discord-message>
+						<discord-message profile="willard"> s!8ball How am I doing today? </discord-message>
+						<discord-message profile="skyra"> Yes. </discord-message>
+					</discord-messages>
+				`,
+				document.querySelector('#demo')
+			);
+		</script>
+	</body>
+</html>

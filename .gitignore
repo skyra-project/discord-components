@@ -6,14 +6,10 @@ package-lock.json
 
 # IDE config
 .idea/
-.vscode/
 
 # Yarn files
 .yarn/install-state.gz
 .yarn/build-state.yml
-
-# Output
-dist/
 
 # Misc
 *.log
@@ -22,3 +18,9 @@ dist/
 .DS_Store
 Thumbs.db
 .env
+
+# build
+dist/
+coverage/
+
+custom-elements.json
