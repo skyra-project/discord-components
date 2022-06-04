@@ -51,6 +51,7 @@
 		"import/no-amd": "error",
 		"import/no-webpack-loader-syntax": "error",
 		"import/no-extraneous-dependencies": "off",
-		"import/no-unresolved": "off"
+		"import/no-unresolved": "off",
+		"wc/guard-super-call": "off"
 	}
 }

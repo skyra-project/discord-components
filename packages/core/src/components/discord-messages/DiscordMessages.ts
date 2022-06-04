@@ -43,13 +43,13 @@ export class DiscordMessages extends LitElement {
 			border: 1px solid rgba(255, 255, 255, 0.05);
 		}
 
-		.light-theme {
+		:host([light-theme]) {
 			color: #747f8d;
 			background-color: #fff;
 			border-color: #dedede;
 		}
 
-		.no-background {
+		:host([no-background]) {
 			background-color: unset;
 		}
 	`;
@@ -57,13 +57,13 @@ export class DiscordMessages extends LitElement {
 	/**
 	 * Whether to use light theme or not.
 	 */
-	@property({ type: Boolean, reflect: true })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	/**
 	 * Whether to exclude the background or not.
 	 */
-	@property({ type: Boolean, reflect: true })
+	@property({ type: Boolean, reflect: true, attribute: 'no-background' })
 	public noBackground = false;
 
 	/**
@@ -73,6 +73,8 @@ export class DiscordMessages extends LitElement {
 	public compactMode = false;
 
 	public override connectedCallback(): void {
+		super.connectedCallback();
+
 		if (this.lightTheme || (defaultTheme === 'light' && this.lightTheme)) {
 			this.lightTheme = true;
 		}
@@ -87,9 +89,6 @@ export class DiscordMessages extends LitElement {
 	}
 
 	protected override render() {
-		return html`<div>
-			<div>test</div>
-			<slot></slot>
-		</div>`;
+		return html`<slot></slot>`;
 	}
 }
