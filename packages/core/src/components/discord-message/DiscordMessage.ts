@@ -52,11 +52,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			margin-top: 1.0625rem;
 		}
 
-		:host:first-child {
+		:host(:first-child) {
 			margin-top: 0.5rem;
 		}
 
-		:host:last-child {
+		:host(:last-child) {
 			margin-bottom: 0.5rem;
 			border-bottom-width: 0;
 		}
@@ -220,8 +220,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 		}
 
 		.discord-light-theme .discord-message-timestamp,
-		.discord-compact-mode discord-message:hover .discord-message-timestamp,
-		.discord-compact-mode.discord-light-theme discord-message:hover .discord-message-timestamp {
+		.discord-compact-mode :host:hover .discord-message-timestamp,
+		.discord-compact-mode.discord-light-theme :host:hover .discord-message-timestamp {
 			color: #99aab5;
 		}
 
@@ -262,15 +262,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			font-weight: 400;
 		}
 
-		.discord-compact-mode .discord-author-avatar {
-			display: none;
-		}
-
 		:hover {
 			background-color: rgba(4, 4, 5, 0.07);
 		}
 
-		.discord-light-theme .discord-message:hover {
+		.discord-light-theme :host:hover {
 			background-color: rgba(6, 6, 7, 0.02);
 		}
 
@@ -451,40 +447,45 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 		});
 
 		const parentIsCompact = (this.parentElement && Boolean((this.parentElement as DiscordMessages).compactMode)) ?? false;
+		const parentHasNoBackground = (this.parentElement && Boolean((this.parentElement as DiscordMessages).noBackground)) ?? false;
+		const parentIsLightMode = (this.parentElement && Boolean((this.parentElement as DiscordMessages).lightTheme)) ?? false;
 
 		return html`
 			<div
 				class=${classMap({
 					'discord-highlight-mention': highlightMention,
 					'discord-message-has-thread': hasThread,
-					'discord-highlight-ephemeral': this.ephemeral
+					'discord-highlight-ephemeral': this.ephemeral,
+					'discord-light-theme': parentIsLightMode,
+					'discord-compact-mode': parentIsCompact,
+					'discord-no-background': parentHasNoBackground
 				})}
 			>
 				<slot name="reply"></slot>
 				<div class="discord-message-inner">
-					${parentIsCompact ? html`<span class="discord-message-timestamp">{this.timestamp}</span>` : ''}
+					${parentIsCompact ? html`<span class="discord-message-timestamp">${this.timestamp}</span>` : ''}
+					${parentIsCompact
+						? ''
+						: html`<div class="discord-author-avatar">
+								<img src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />
+						  </div>`}
 
-					<div class="discord-author-avatar">
-						<img src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />
-					</div>
 					<div class="discord-message-content">
 						${parentIsCompact
 							? ''
 							: html`
-									<div>
-										<discord-author-info
-											author=${profile.author ?? ''}
-											?bot=${profile.bot ?? false}
-											?server=${profile.server ?? false}
-											?verified=${profile.verified ?? false}
-											?op=${profile.op ?? false}
-											roleColor=${profile.roleColor ?? ''}
-											roleIcon=${profile.roleIcon ?? ''}
-											roleName=${profile.roleName ?? ''}
-											?compact=${parentIsCompact}
-										></discord-author-info>
-										<span class="discord-message-timestamp">${this.timestamp}</span>
-									</div>
+									<discord-author-info
+										author=${profile.author ?? ''}
+										?bot=${profile.bot ?? false}
+										?server=${profile.server ?? false}
+										?verified=${profile.verified ?? false}
+										?op=${profile.op ?? false}
+										roleColor=${profile.roleColor ?? ''}
+										roleIcon=${profile.roleIcon ?? ''}
+										roleName=${profile.roleName ?? ''}
+										?compact=${false}
+									></discord-author-info>
+									<span class="discord-message-timestamp">${this.timestamp}</span>
 							  `}
 						<div class="discord-message-body">
 							${parentIsCompact
@@ -497,7 +498,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 										roleColor=${profile.roleColor ?? ''}
 										roleIcon=${profile.roleIcon ?? ''}
 										roleName=${profile.roleName ?? ''}
-										?compact=${parentIsCompact}
+										?compact=${true}
 								  ></discord-author-info>`
 								: ''}
 							<span class="discord-message-markup">
