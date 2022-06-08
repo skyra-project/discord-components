@@ -1,6 +1,5 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-// import { classMap } from 'lit/directives/class-map.js';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
 
 @customElement('discord-messages')
@@ -60,7 +59,6 @@ export class DiscordMessages extends LitElement {
 			this.noBackground = true;
 		}
 	}
-	// https://fonts.googleapis.com/css?family=Roboto:400,500,700
 
 	protected override render() {
 		return html` <slot></slot> `;

@@ -2515,7 +2515,6 @@ __metadata:
     "@web/dev-server-storybook": next
     "@web/test-runner": next
     concurrently: ^5.3.0
-    hex-to-rgba: ^2.0.1
     lit: ^2.2.5
     tslib: ^2.4.0
   languageName: unknown
@@ -6989,13 +6988,6 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
-  languageName: node
-  linkType: hard
-
-"hex-to-rgba@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "hex-to-rgba@npm:2.0.1"
-  checksum: adbb81babe9d06cf743b925e2104968bb32d9e10f0de328b71c9e20ff52da4028fadde4623261866eaed4d9a3b975fb325fa34f2422eb035e839ed71ec462431
   languageName: node
   linkType: hard
 

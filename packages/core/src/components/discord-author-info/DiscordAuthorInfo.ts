@@ -1,6 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import { VerifiedTick } from '../svgs/VerifiedTick.js';
 
 @customElement('discord-author-info')
@@ -140,24 +141,25 @@ export class DiscordAuthorInfo extends LitElement {
 
 	protected override render() {
 		return html`
-			<div>
-				${this.compact ? '' : html`<span class="discord-author-username" style="color: ${this.roleColor}">${this.author}</span>`}
-				${this.roleIcon
-					? html`<img
-							class="discord-author-role-icon"
-							src=${this.roleIcon}
-							height="20"
-							width="20"
-							alt=${ifDefined(this.roleName)}
-							draggable="false"
-					  />`
-					: ''}
-			</div>
-
+			${this.compact
+				? ''
+				: html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`}
+			${this.roleIcon
+				? html`<img
+						class="discord-author-role-icon"
+						src=${this.roleIcon}
+						height="20"
+						width="20"
+						alt=${ifDefined(this.roleName)}
+						draggable="false"
+				  />`
+				: ''}
 			${this.bot && !this.server ? html` <span class="discord-application-tag">${this.verified && VerifiedTick} Bot</span>` : ''}
 			${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
 			${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
-			${this.compact ? html`<span class="discord-author-username" style="color: ${this.roleColor}">${this.author}</span>` : ''}
+			${this.compact
+				? html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`
+				: ''}
 		`;
 	}
 }

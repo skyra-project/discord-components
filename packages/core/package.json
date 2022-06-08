@@ -35,7 +35,6 @@
 		"storybook:build": "tsc && yarn analyze --exclude dist && build-storybook"
 	},
 	"dependencies": {
-		"hex-to-rgba": "^2.0.1",
 		"lit": "^2.2.5",
 		"tslib": "^2.4.0"
 	},

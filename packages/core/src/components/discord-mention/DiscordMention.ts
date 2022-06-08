@@ -1,0 +1,143 @@
+import { css, html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { styleMap, type StyleInfo } from 'lit/directives/style-map.js';
+import { hexToRgba } from '../../hex-to-rgba.js';
+import { ChannelForum } from '../svgs/ChannelForum.js';
+import { ChannelIcon } from '../svgs/ChannelIcon.js';
+import { ChannelThread } from '../svgs/ChannelThread.js';
+import { LockedVoiceChannel } from '../svgs/LockedVoiceChannel.js';
+import { VoiceChannel } from '../svgs/VoiceChannel.js';
+
+@customElement('discord-mention')
+export class DiscordMention extends LitElement {
+	static override styles = css`
+		:host {
+			font-weight: 500;
+			padding: 0 2px;
+			border-radius: 3px;
+			unicode-bidi: -moz-plaintext;
+			unicode-bidi: plaintext;
+			-webkit-transition: background-color 50ms ease-out, color 50ms ease-out;
+			transition: background-color 50ms ease-out, color 50ms ease-out;
+			cursor: pointer;
+		}
+
+		:host([type='channel']) {
+			padding-left: 1.2rem !important;
+			position: relative;
+		}
+
+		:host([type='voice']),
+		:host([type='locked']),
+		:host([type='thread']),
+		:host([type='forum']) {
+			padding-left: 1.25rem !important;
+			position: relative;
+		}
+
+		:host(:hover) {
+			color: #fff;
+			background-color: hsl(235, 85.6%, 64.7%);
+		}
+
+		.discord-light-theme {
+			color: #687dc6;
+			background-color: hsla(235, 85.6%, 64.7%, 0.15);
+		}
+
+		.discord-light-theme:hover {
+			color: #ffffff;
+			background-color: hsl(235, 85.6%, 64.7%);
+		}
+
+		.discord-mention-icon {
+			width: 1rem;
+			height: 1rem;
+			object-fit: contain;
+			position: absolute;
+			left: 0.125rem;
+			top: 0.125rem;
+		}
+	`;
+
+	/**
+	 * Whether this entire message block should be highlighted (to emulate the "logged in user" being pinged).
+	 */
+	@property({ type: Boolean, reflect: true, attribute: 'highlight' })
+	public highlight = false;
+
+	/**
+	 * The color to use for this mention. Only works for role mentions and must be in hex format.
+	 */
+	@property({ type: String })
+	public color = '#e3e7f8';
+
+	/**
+	 * The type of mention this should be. This will prepend the proper prefix character.
+	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
+	 */
+	@property({ type: String, reflect: true, attribute: 'type' })
+	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' = 'user';
+
+	public override connectedCallback(): void {
+		super.connectedCallback();
+
+		if (this.color && this.type === 'role') {
+			this.addEventListener('mouseover', this.setHoverColor.bind(this));
+			this.addEventListener('mouseout', this.resetHoverColor.bind(this));
+		}
+	}
+
+	public override disconnectedCallback(): void {
+		if (this.color && this.type === 'role') {
+			this.removeEventListener('mouseover', this.setHoverColor.bind(this));
+			this.removeEventListener('mouseout', this.resetHoverColor.bind(this));
+		}
+	}
+
+	public setHoverColor() {
+		this.style.backgroundColor = hexToRgba(this.color, 0.3);
+	}
+
+	public resetHoverColor() {
+		this.style.backgroundColor = hexToRgba(this.color, 0.1);
+	}
+
+	protected override render() {
+		const colorStyle: Readonly<StyleInfo> = {
+			color: this.color,
+			'background-color': this.type === 'role' ? hexToRgba(this.color, 0.1) : 'hsla(235, 85.6%, 64.7%, 0.3)'
+		} as const;
+
+		let mentionPrepend: ReturnType<typeof html>;
+
+		switch (this.type) {
+			case 'channel':
+				mentionPrepend = html`${ChannelIcon}`;
+				break;
+			case 'user':
+			case 'role':
+				mentionPrepend = html`@`;
+				break;
+			case 'voice':
+				mentionPrepend = html`${VoiceChannel}`;
+				break;
+			case 'locked':
+				mentionPrepend = html`${LockedVoiceChannel}`;
+				break;
+			case 'thread':
+				mentionPrepend = html`${ChannelThread}`;
+				break;
+			case 'forum':
+				mentionPrepend = html`${ChannelForum}`;
+				break;
+		}
+
+		return html`
+			<span style=${styleMap(colorStyle)}>
+				${mentionPrepend}
+				<slot></slot>
+			</span>
+		`;
+	}
+}
