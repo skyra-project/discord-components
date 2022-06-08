@@ -30,15 +30,16 @@
         -   [Live Demo](#live-demo)
         -   [Sample code](#sample-code)
             -   [Including the Custom Element Schema](#including-the-custom-element-schema)
-            -   [Calling defineCustomElements](#calling-definecustomelements)
-                -   [Edge (Chakra Core) and IE11 polyfills](#edge-chakra-core-and-ie11-polyfills)
+            -   [Including the web-components](#including-the-web-components)
         -   [React](#react)
             -   [Live Demo (Create React App)](#live-demo-create-react-app)
             -   [Live Demo (NextJS)](#live-demo-nextjs)
             -   [Sample code](#sample-code-1)
         -   [Vue](#vue)
             -   [Live Demo](#live-demo-1)
-            -   [Sample code](#sample-code-2)
+            -   [Sample code Vue 2](#sample-code-vue-2)
+            -   [Sample code Vue 3](#sample-code-vue-3)
+            -   [Sample code when using Vite](#sample-code-when-using-vite)
         -   [No Framework](#no-framework)
             -   [Live Demo](#live-demo-2)
             -   [Sample Code](#sample-code)
@@ -50,9 +51,9 @@
         -   [Components notes](#components-notes)
             -   [discord-messages component](#discord-messages-component)
             -   [discord-mention component](#discord-mention-component)
-            -   [DiscordEmbed component](#discordembed-component)
-            -   [EmbedFields component](#embedfields-component)
-            -   [EmbedField component](#embedfield-component)
+            -   [discord-embed component](#discord-embed-component)
+            -   [discord-embed-fields component](#discord-embed-fields-component)
+            -   [discord-embed-field component](#discord-embed-field-component)
     -   [Screenshots](#screenshots)
         -   [Dark Mode](#dark-mode)
         -   [Light Mode](#light-mode)
@@ -157,39 +158,21 @@ export class AppModule {}
 
 The `CUSTOM_ELEMENTS_SCHEMA` needs to be included in any module that uses custom elements.
 
-#### Calling defineCustomElements
+#### Including the web-components
 
-A component collection built with Lit includes a main function that is used to load the components in the collection. That function is called `defineCustomElements()` and it needs to be called once during the bootstrapping of your application. One convenient place to do this is in `main.ts` as such:
-
-```ts
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { defineCustomElements } from '@skyra/discord-components-core/loader';
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-if (environment.production) {
-	enableProdMode();
-}
-
-platformBrowserDynamic()
-	.bootstrapModule(AppModule)
-	.catch((err) => console.error(err));
-
-// Loading @skyra/discord-components-core
-defineCustomElements();
-```
-
-##### Edge (Chakra Core) and IE11 polyfills
-
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+Once you have defined the `CUSTOM_ELEMENTS_SCHEMA` you can include the web components in your components. Here is a simple example:
 
 ```ts
-import { applyPolyfills, defineCustomElements } from '@skyra/discord-components-core/loader';
+import { Component } from '@angular/core';
 
-applyPolyfills().then(() => {
-	defineCustomElements();
-});
+import '@skyra/discord-components-core'; // <-- import the web component
+
+@Component({
+	selector: 'app',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent {}
 ```
 
 ### React
@@ -212,23 +195,17 @@ See [@skyra/discord-components-react](https://github.com/skyra-project/discord-c
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-vue-g1w48)
 
-#### Sample code
+#### Sample code Vue 2
 
-In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file. For example:
+In order to use the custom element library within the Vue 2 app you will need to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file. For example:
 
 ```tsx
 import Vue from 'vue';
 import App from './App.vue';
-import { applyPolyfills, defineCustomElements } from '@skyra/discord-components-core/loader';
+import '@skyra/discord-components-core';
 
-Vue.config.productionTip = false;
 // Tell Vue to ignore all components defined in the @skyra/discord-components-core package.
 Vue.config.ignoredElements = [/discord-\w*/];
-
-// Bind the custom elements to the window object
-applyPolyfills().then(() => {
-	defineCustomElements();
-});
 
 new Vue({
 	render: (h) => h(App)
@@ -251,6 +228,46 @@ The components should then be available in any of the Vue templates
 </script>
 ```
 
+#### Sample code Vue 3
+
+The setup for Vue 3 is largely the same but differs due the how Vue 3 applications are configured:
+
+```tsx
+import { createApp } from 'vue';
+import App from './App.vue';
+import '@skyra/discord-components-core';
+
+// Tell Vue to ignore all components defined in the @skyra/discord-components-core package.
+Vue.config.ignoredElements = [/discord-\w*/];
+
+const app = createApp(App);
+
+app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('discord-');
+app.mount('#app');
+```
+
+#### Sample code when using Vite
+
+And lastly when using Vite the setup is slightly different again, when using Vite you should configure the custom elements in your `vite.config.ts`
+like so:
+
+```ts
+import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+	plugins: [
+		vue({
+			template: {
+				compilerOptions: {
+					isCustomElement: (tag) => tag.startsWith('discord-')
+				}
+			}
+		})
+	]
+});
+```
+
 ### No Framework
 
 #### Live Demo
@@ -269,10 +286,10 @@ If you're want to use the browser build, you can pull it in via unpkg.
 
 ### TypeScript module augments
 
-This module uses a custom object on the browser `window` for configuration. In order to this you will need to include the following snippet in your source code when working in TypeScript:
+This module uses a custom object on the browser `window` for configuration. Under normal circumstances by simply importing the package (with `import @skyra/discord-components-core`) the module augmentations should also be loaded. If for whatever reason this does not happen, then you can define them manually yourself. You can do so with the following code snippet:
 
 ```ts
-import type { DiscordMessageOptions } from '@skyra/discord-components-core/dist/types/options';
+import type { DiscordMessageOptions } from '@skyra/discord-components-core';
 
 declare global {
 	interface Window {
@@ -333,23 +350,23 @@ window.$discordMessage = {
 And then in your React code:
 
 ```tsx
-<DiscordMessages>
-	<DiscordMessage profile="skyra">
-		Welcome to our server, <mention>Favna</mention>!
-	</DiscordMessage>
-	<DiscordMessage profile="favna">Hey, glad to be here!</DiscordMessage>
-</DiscordMessages>
+<discord-messages>
+	<discord-message profile="skyra">
+		Welcome to our server, <discord-mention>Favna</discord-mention>!
+	</discord-message>
+	<discord-message profile="favna">Hey, glad to be here!</discord-message>
+</discord-messages>
 ```
 
 ### Theming
 
-Each of the components accepts the standard HTML properties for passing styling, such as `className` for passing CSS classes (JSS / CSS / SCSS etc.) or `style` to pass inline style.
+Each of the components accepts the standard HTML properties for passing styling, such as `class` for passing CSS classes (JSS / CSS / SCSS etc.) or `style` to pass inline style.
 
-You can also pass your own custom HTML tags, for example set a `data-qa` to be able to navigate to the component in your unit tests / end-to-end tests
+You can also pass your own custom HTML tags, for example set a `data-testid` to be able to navigate to the component in your unit tests / end-to-end tests
 
 ### Components notes
 
-Below are notes for a few certain components. If you want to see what props each component has, check their readme.md file in [the respective folder].
+Below are notes for a few specific components.
 
 #### discord-messages component
 
@@ -357,9 +374,18 @@ This is a wrapper for any child `<discord-message>` component. It must be used i
 
 #### discord-mention component
 
-If the default slot is left empty, the mention will be rendered as `'User'`, `'Role'`, or `'channel`', depending on the `type` prop given.
+1. If the default slot is left empty, the mention will be rendered as `'User'`, `'Role'`, or `'channel`', depending on the `type` prop given.
 
-#### DiscordEmbed component
+2. If you want to customize the color of a `role` type mention then you can pass the color as a **hex** code in the `style` property. For example:
+
+```html
+<discord-message>
+	<discord-mention type="role" style="--discord-mention-color: #70f0b4;">Green</discord-mention>
+	<discord-mention type="role" style="--discord-mention-color: #ff0000;">Red</discord-mention>
+</discord-message>
+```
+
+#### discord-embed component
 
 An embed that can be attached to the end of your messages. The default slot is used for the embed's description. The `footer` slot is used for the footer text.
 
@@ -368,38 +394,38 @@ To ensure the embed gets displayed correctly inside your message, be sure to giv
 ```html
 <discord-message>
 	Hi, I'm part of the normal message content.
-	<DiscordEmbed slot="embeds" color="#ff0000"> Hi, I'm part of the embed message content. </DiscordEmbed>
+	<discord-embed slot="embeds" color="#ff0000"> Hi, I'm part of the embed message content. </discord-embed>
 </discord-message>
 ```
 
-#### EmbedFields component
+#### discord-embed-fields component
 
-A wrapper for any child `<DiscordEmbedField>` components. Must be used in order for fields to display properly. To ensure the embed fields gets displayed correctly inside your embed, be sure to give it the proper `slot` attribute.
+A wrapper for any child `<discord-embed-fields>` components. Must be used in order for fields to display properly. To ensure the embed fields gets displayed correctly inside your embed, be sure to give it the proper `slot` attribute.
 
 ```html
 <discord-message>
-	<DiscordEmbed slot="embeds">
+	<discord-embed slot="embeds">
 		Hi, I'm part of the embed message content.
-		<DiscordEmbedFields slot="fields">
+		<discord-embed-fields slot="fields">
 			<!-- Embed fields go here -->
-		</DiscordEmbedFields>
-	</DiscordEmbed>
+		</discord-embed-fields>
+	</discord-embed>
 </discord-message>
 ```
 
-#### EmbedField component
+#### discord-embed-field component
 
 At least 2 consecutive fields need to be marked as inline in order for them to actually display next to each other. The maximum amount of inline fields is 3, and drops to 2 if an embed thumbnail is used.
 
 ```html
 <discord-message>
-	<DiscordEmbed slot="embeds">
+	<discord-embed slot="embeds">
 		Hi, I'm part of the embed message content.
-		<DiscordEmbedFields slot="fields">
-			<DiscordEmbedField fieldTitle="Inline field" inline> Field content. </DiscordEmbedField>
-			<DiscordEmbedField fieldTitle="Inline field" inline> Field content. </DiscordEmbedField>
-		</DiscordEmbedFields>
-	</DiscordEmbed>
+		<discord-embed-fields slot="fields">
+			<discord-embed-field fieldTitle="Inline field" inline> Field content. </discord-embed-field>
+			<discord-embed-field fieldTitle="Inline field" inline> Field content. </discord-embed-field>
+		</discord-embed-fields>
+	</discord-embed>
 </discord-message>
 ```
 
@@ -462,5 +488,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
 [danktuary]: https://github.com/Danktuary
-[the respective folder]: (https://github.com/skyra-project/discord-components/blob/main/packages/core/src/components/)
 [lit]: https://lit.dev
