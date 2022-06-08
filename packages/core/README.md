@@ -260,13 +260,12 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import '@skyra/discord-components-core';
 
-// Tell Vue to ignore all components defined in the @skyra/discord-components-core package.
-Vue.config.ignoredElements = [/discord-\w*/];
-
 const app = createApp(App);
 
+// Tell Vue to ignore all components defined in the @skyra/discord-components-core package.
 app.config.compilerOptions.isCustomElement = (tag) =>
   tag.startsWith('discord-');
+
 app.mount('#app');
 ```
 
@@ -284,6 +283,7 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
+          // Tell Vite to ignore all components defined in the @skyra/discord-components-core package.
           isCustomElement: (tag) => tag.startsWith('discord-')
         }
       }
