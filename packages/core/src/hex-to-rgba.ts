@@ -8,8 +8,6 @@ const parseHex = (nakedHex: string): HexObject => {
 	const twoDigitHexB = isShort ? `${nakedHex.slice(2, 3)}${nakedHex.slice(2, 3)}` : nakedHex.slice(4, 6);
 	const twoDigitHexA = (isShort ? `${nakedHex.slice(3, 4)}${nakedHex.slice(3, 4)}` : nakedHex.slice(6, 8)) || 'ff';
 
-	// const numericA = +((parseInt(a, 16) / 255).toFixed(2));
-
 	return {
 		r: twoDigitHexR,
 		g: twoDigitHexG,
