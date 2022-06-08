@@ -1,6 +1,5 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { styleMap, type StyleInfo } from 'lit/directives/style-map.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
 import { ChannelForum } from '../svgs/ChannelForum.js';
 import { ChannelIcon } from '../svgs/ChannelIcon.js';
@@ -8,10 +7,14 @@ import { ChannelThread } from '../svgs/ChannelThread.js';
 import { LockedVoiceChannel } from '../svgs/LockedVoiceChannel.js';
 import { VoiceChannel } from '../svgs/VoiceChannel.js';
 
+const colorCodeExtractor = /--discord-mention-color: (?<colorCode>#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}));/;
+
 @customElement('discord-mention')
 export class DiscordMention extends LitElement {
 	static override styles = css`
 		:host {
+			color: var(--discord-mention-color, #e3e7f8);
+			background-color: hsla(235, 85.6%, 64.7%, 0.3);
 			font-weight: 500;
 			padding: 0 2px;
 			border-radius: 3px;
@@ -20,6 +23,10 @@ export class DiscordMention extends LitElement {
 			-webkit-transition: background-color 50ms ease-out, color 50ms ease-out;
 			transition: background-color 50ms ease-out, color 50ms ease-out;
 			cursor: pointer;
+		}
+
+		:host([type='role']) {
+			background-color: rgba(var(--discord-mention-color, #e3e7f8), 0.1);
 		}
 
 		:host([type='channel']) {
@@ -67,12 +74,6 @@ export class DiscordMention extends LitElement {
 	public highlight = false;
 
 	/**
-	 * The color to use for this mention. Only works for role mentions and must be in hex format.
-	 */
-	@property({ type: String })
-	public color = '#e3e7f8';
-
-	/**
 	 * The type of mention this should be. This will prepend the proper prefix character.
 	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
 	 */
@@ -82,33 +83,32 @@ export class DiscordMention extends LitElement {
 	public override connectedCallback(): void {
 		super.connectedCallback();
 
-		if (this.color && this.type === 'role') {
-			this.addEventListener('mouseover', this.setHoverColor.bind(this));
-			this.addEventListener('mouseout', this.resetHoverColor.bind(this));
+		const colorCodeFromStyles = colorCodeExtractor.exec(this.style.cssText)?.groups?.colorCode;
+		if (colorCodeFromStyles && this.type === 'role') {
+			this.addEventListener('mouseover', this.setHoverColor.bind(this, colorCodeFromStyles));
+			this.addEventListener('mouseout', this.resetHoverColor.bind(this, colorCodeFromStyles));
 		}
 	}
 
 	public override disconnectedCallback(): void {
-		if (this.color && this.type === 'role') {
-			this.removeEventListener('mouseover', this.setHoverColor.bind(this));
-			this.removeEventListener('mouseout', this.resetHoverColor.bind(this));
+		super.disconnectedCallback();
+
+		const colorCodeFromStyles = colorCodeExtractor.exec(this.style.cssText)?.groups?.colorCode;
+		if (colorCodeFromStyles && this.type === 'role') {
+			this.removeEventListener('mouseover', this.setHoverColor.bind(this, colorCodeFromStyles));
+			this.removeEventListener('mouseout', this.resetHoverColor.bind(this, colorCodeFromStyles));
 		}
 	}
 
-	public setHoverColor() {
-		this.style.backgroundColor = hexToRgba(this.color, 0.3);
+	public setHoverColor(colorCodeFromStyles: string) {
+		this.style.backgroundColor = hexToRgba(colorCodeFromStyles, 0.3);
 	}
 
-	public resetHoverColor() {
-		this.style.backgroundColor = hexToRgba(this.color, 0.1);
+	public resetHoverColor(colorCodeFromStyles: string) {
+		this.style.backgroundColor = hexToRgba(colorCodeFromStyles, 0.1);
 	}
 
 	protected override render() {
-		const colorStyle: Readonly<StyleInfo> = {
-			color: this.color,
-			'background-color': this.type === 'role' ? hexToRgba(this.color, 0.1) : 'hsla(235, 85.6%, 64.7%, 0.3)'
-		} as const;
-
 		let mentionPrepend: ReturnType<typeof html>;
 
 		switch (this.type) {
@@ -134,10 +134,8 @@ export class DiscordMention extends LitElement {
 		}
 
 		return html`
-			<span style=${styleMap(colorStyle)}>
-				${mentionPrepend}
-				<slot></slot>
-			</span>
+			${mentionPrepend}
+			<slot></slot>
 		`;
 	}
 }
