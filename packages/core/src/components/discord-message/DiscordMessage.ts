@@ -1,4 +1,4 @@
-import { css, html, LitElement, PropertyValueMap } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -250,6 +250,10 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			text-indent: -6px;
 		}
 
+		.discord-compact-mode .discord-message-content {
+			margin-left: 8px;
+		}
+
 		.discord-compact-mode .discord-message-compact-indent {
 			padding-left: 10px;
 		}
@@ -412,13 +416,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 	@property({ type: Boolean })
 	public twentyFour = false;
 
-	protected override updated(changedProperties: PropertyValueMap<DiscordMessageProps>): void {
-		if (changedProperties.has('timestamp')) {
-			// @ts-expect-error Working on this
-			this.timestamp = handleTimestamp(this.timestamp, this.parentElement?.compactMode ?? false, this.twentyFour);
-		}
-	}
-
 	protected override render() {
 		const resolveAvatar = (avatar: string | undefined): string =>
 			avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
@@ -438,21 +435,25 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
 		const highlightMention: boolean =
-			Array.from(this.children).some((child): boolean => {
-				return child.tagName.toLowerCase() === 'discord-mention' /* && child.highlight && ['user', 'role'].includes(child.type)*/;
-			}) || this.highlight;
+			Array.from(this.children).some(
+				(child): boolean =>
+					child.tagName.toLowerCase() === 'discord-mention' &&
+					child.hasAttribute('highlight') &&
+					(child.getAttribute('type') === 'user' || child.getAttribute('type') === 'role')
+			) || this.highlight;
 
-		const hasThread: boolean = Array.from(this.children).some((child): boolean => {
-			return child.tagName.toLowerCase() === 'discord-thread';
-		});
+		const hasThread: boolean = Array.from(this.children).some((child): boolean => child.tagName.toLowerCase() === 'discord-thread');
 
 		const parentIsCompact = (this.parentElement && Boolean((this.parentElement as DiscordMessages).compactMode)) ?? false;
 		const parentHasNoBackground = (this.parentElement && Boolean((this.parentElement as DiscordMessages).noBackground)) ?? false;
 		const parentIsLightMode = (this.parentElement && Boolean((this.parentElement as DiscordMessages).lightTheme)) ?? false;
 
+		const computedTimestamp = handleTimestamp(this.timestamp, this.parentElement?.hasAttribute('compact-mode'), this.twentyFour);
+
 		return html`
 			<div
 				class=${classMap({
+					'discord-message': true,
 					'discord-highlight-mention': highlightMention,
 					'discord-message-has-thread': hasThread,
 					'discord-highlight-ephemeral': this.ephemeral,
@@ -463,7 +464,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			>
 				<slot name="reply"></slot>
 				<div class="discord-message-inner">
-					${parentIsCompact ? html`<span class="discord-message-timestamp">${this.timestamp}</span>` : ''}
+					${parentIsCompact ? html`<span class="discord-message-timestamp">${computedTimestamp}</span>` : ''}
 					${parentIsCompact
 						? ''
 						: html`<div class="discord-author-avatar">
@@ -485,7 +486,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 										roleName=${profile.roleName ?? ''}
 										?compact=${false}
 									></discord-author-info>
-									<span class="discord-message-timestamp">${this.timestamp}</span>
+									<span class="discord-message-timestamp">${computedTimestamp}</span>
 							  `}
 						<div class="discord-message-body">
 							${parentIsCompact
