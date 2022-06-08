@@ -21,6 +21,7 @@
 -   [Discord Components](#discord-components)
     -   [Description](#description)
     -   [Features](#features)
+    -   [Using the Discord font](#using-the-discord-font)
     -   [Demos](#demos)
         -   [Angular](#angular)
         -   [React](#react)
@@ -46,6 +47,36 @@ Discord message components to easily build and display fake Discord messages on 
 -   Display fake user, role, and channel mentions
 -   Complete embed support
 -   Simple syntax!
+
+## Using the Discord font
+
+This library can use the Discord font if you load it into your project. You can do so by including the CSS below:
+
+```css
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
+	font-weight: 700;
+}
+```
 
 ## Demos
 

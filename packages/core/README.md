@@ -24,6 +24,7 @@
     -   [Features](#features)
     -   [Installation](#installation)
     -   [Usage](#usage)
+    -   [Using the Discord font](#using-the-discord-font)
     -   [Framework Integration](#framework-integration)
         -   [Angular](#angular)
         -   [Live Demo](#live-demo)
@@ -71,13 +72,14 @@ Discord message components to easily build and display fake Discord messages on 
 -   Set the message author's username, avatar (use defaults or provide your own), role color, and "bot" tag status
 -   Display fake user, role, and channel mentions
 -   Complete embed support
+-   Uses [Lit Element][lit] to support all browsers and environments
 -   Simple syntax!
 
 ## Installation
 
 ```bash
-yarn add @skyra/discord-components-core @skyra/discord-components-react
-# or npm install @skyra/discord-components-core @skyra/discord-components-react
+yarn add @skyra/discord-components-core
+# or npm install @skyra/discord-components-core
 ```
 
 ## Usage
@@ -92,6 +94,36 @@ The syntax is kept fairly simple. Here's a basic example of a regular conversati
 		Hey, <discord-mention>User</discord-mention> and <discord-mention>Dawn</discord-mention>. Welcome to our server!
 	</discord-message>
 </discord-messages>
+```
+
+## Using the Discord font
+
+This library can use the Discord font if you load it into your project. You can do so by including the CSS below:
+
+```css
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
+	font-weight: 700;
+}
 ```
 
 ## Framework Integration
@@ -431,3 +463,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
 [danktuary]: https://github.com/Danktuary
 [the respective folder]: (https://github.com/skyra-project/discord-components/blob/main/packages/core/src/components/)
+[lit]: https://lit.dev

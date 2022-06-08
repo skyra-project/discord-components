@@ -6,33 +6,6 @@ import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
 @customElement('discord-messages')
 export class DiscordMessages extends LitElement {
 	static override styles = css`
-		@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-
-		/* New Whitney fonts to match rebranding */
-		@font-face {
-			font-family: 'Whitney';
-			src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
-			font-weight: 400;
-		}
-
-		@font-face {
-			font-family: 'Whitney';
-			src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
-			font-weight: 500;
-		}
-
-		@font-face {
-			font-family: 'Whitney';
-			src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
-			font-weight: 600;
-		}
-
-		@font-face {
-			font-family: 'Whitney';
-			src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
-			font-weight: 700;
-		}
-
 		:host {
 			color: #fff;
 			background-color: #36393e;
@@ -87,8 +60,9 @@ export class DiscordMessages extends LitElement {
 			this.noBackground = true;
 		}
 	}
+	// https://fonts.googleapis.com/css?family=Roboto:400,500,700
 
 	protected override render() {
-		return html`<slot></slot>`;
+		return html` <slot></slot> `;
 	}
 }

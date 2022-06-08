@@ -24,9 +24,10 @@
     -   [Features](#features)
     -   [Installation](#installation)
     -   [Usage](#usage)
-        -   [Live Demo (Create React App)](#live-demo-create-react-app)
-        -   [Live Demo (NextJS)](#live-demo-nextjs)
-        *   [Sample code](#sample-code)
+        -   [Using the Discord font](#using-the-discord-font)
+            -   [Live Demo (Create React App)](#live-demo-create-react-app)
+            -   [Live Demo (NextJS)](#live-demo-nextjs)
+        -   [Sample code](#sample-code)
     -   [Notes](#notes)
         -   [TypeScript module augments](#typescript-module-augments)
         -   [Avatar shortcuts](#avatar-shortcuts)
@@ -67,6 +68,36 @@ yarn add @skyra/discord-components-core @skyra/discord-components-react
 ```
 
 ## Usage
+
+### Using the Discord font
+
+This library can use the Discord font if you load it into your project. You can do so by including the CSS below:
+
+```css
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
+	font-weight: 700;
+}
+```
 
 #### Live Demo (Create React App)
 
