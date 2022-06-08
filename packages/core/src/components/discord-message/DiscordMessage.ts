@@ -505,7 +505,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 							<span class="discord-message-markup">
 								<slot></slot>
 							</span>
-							${this.edited ? `<span class="discord-message-edited">(edited)</span>` : ''}
+							${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}
 						</div>
 						<div class="discord-message-compact-indent">
 							<slot name="embeds"></slot>
