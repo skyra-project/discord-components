@@ -18,63 +18,66 @@
 
 **_Table of Contents_**
 
--   [Discord Components](#discord-components)
-    -   [Description](#description)
-    -   [Features](#features)
-    -   [Using the Discord font](#using-the-discord-font)
-    -   [Demos](#demos)
-        -   [Angular](#angular)
-        -   [React](#react)
-        -   [Vue](#vue)
-        -   [No Framework](#no-framework)
-    -   [Screenshots](#screenshots)
-        -   [Dark Mode](#dark-mode)
-        -   [Light Mode](#light-mode)
-    -   [Contributors ✨](#contributors-%E2%9C%A8)
+- [Discord Components](#discord-components)
+  - [Description](#description)
+  - [Features](#features)
+  - [Using the Discord font](#using-the-discord-font)
+  - [Demos](#demos)
+    - [Angular](#angular)
+    - [React](#react)
+    - [Vue](#vue)
+    - [No Framework](#no-framework)
+  - [Screenshots](#screenshots)
+    - [Dark Mode](#dark-mode)
+    - [Light Mode](#light-mode)
+  - [Contributors ✨](#contributors-%E2%9C%A8)
 
 ## Description
 
-Discord message components to easily build and display fake Discord messages on your webpage.
+Discord message components to easily build and display fake Discord messages on
+your webpage.
 
 **This is an adaptation of [wc-discord-message] from [Danktuary]**
 
 ## Features
 
--   Design modelled after [Discord](https://discord.com/) itself
--   Comfy and compact mode support
--   Dark and light themes support
--   Set the message author's username, avatar (use defaults or provide your own), role color, and "bot" tag status
--   Display fake user, role, and channel mentions
--   Complete embed support
--   Simple syntax!
+- Design modelled after [Discord](https://discord.com/) itself
+- Comfy and compact mode support
+- Dark and light themes support
+- Set the message author's username, avatar (use defaults or provide your own),
+  role color, and "bot" tag status
+- Display fake user, role, and channel mentions
+- Complete embed support
+- Simple syntax!
 
 ## Using the Discord font
 
-This library can use the Discord font if you load it into your project. You can do so by including the CSS below:
+This library can use the Discord font if you load it into your project. You can
+do so by including the CSS below:
 
 ```css
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
-	font-weight: 400;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+  font-weight: 400;
 }
 
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
-	font-weight: 500;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
+  font-weight: 500;
 }
 
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
-	font-weight: 600;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
+  font-weight: 600;
 }
 
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
-	font-weight: 700;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
+  font-weight: 700;
 }
 ```
 
@@ -134,7 +137,8 @@ This library can use the Discord font if you load it into your project. You can 
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -155,7 +159,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!
 
 <!-- LINK DUMP -->
 

@@ -1,4 +1,6 @@
+CHANGELOG.md
 dist/
+coverage/
 loader/
 node_modules/
 www/
