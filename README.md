@@ -18,63 +18,66 @@
 
 **_Table of Contents_**
 
--   [Discord Components](#discord-components)
-    -   [Description](#description)
-    -   [Features](#features)
-    -   [Using the Discord font](#using-the-discord-font)
-    -   [Demos](#demos)
-        -   [Angular](#angular)
-        -   [React](#react)
-        -   [Vue](#vue)
-        -   [No Framework](#no-framework)
-    -   [Screenshots](#screenshots)
-        -   [Dark Mode](#dark-mode)
-        -   [Light Mode](#light-mode)
-    -   [Contributors](#contributors)
+- [Discord Components](#discord-components)
+  - [Description](#description)
+  - [Features](#features)
+  - [Using the Discord font](#using-the-discord-font)
+  - [Demos](#demos)
+    - [Angular](#angular)
+    - [React](#react)
+    - [Vue](#vue)
+    - [No Framework](#no-framework)
+  - [Screenshots](#screenshots)
+    - [Dark Mode](#dark-mode)
+    - [Light Mode](#light-mode)
+  - [Contributors ✨](#contributors-%E2%9C%A8)
 
 ## Description
 
-Discord message components to easily build and display fake Discord messages on your webpage.
+Discord message components to easily build and display fake Discord messages on
+your webpage.
 
 **This is an adaptation of [wc-discord-message] from [Danktuary]**
 
 ## Features
 
--   Design modelled after [Discord](https://discord.com/) itself
--   Comfy and compact mode support
--   Dark and light themes support
--   Set the message author's username, avatar (use defaults or provide your own), role color, and "bot" tag status
--   Display fake user, role, and channel mentions
--   Complete embed support
--   Simple syntax!
+- Design modelled after [Discord](https://discord.com/) itself
+- Comfy and compact mode support
+- Dark and light themes support
+- Set the message author's username, avatar (use defaults or provide your own),
+  role color, and "bot" tag status
+- Display fake user, role, and channel mentions
+- Complete embed support
+- Simple syntax!
 
 ## Using the Discord font
 
-This library can use the Discord font if you load it into your project. You can do so by including the CSS below:
+This library can use the Discord font if you load it into your project. You can
+do so by including the CSS below:
 
 ```css
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
-	font-weight: 400;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+  font-weight: 400;
 }
 
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
-	font-weight: 500;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
+  font-weight: 500;
 }
 
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
-	font-weight: 600;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
+  font-weight: 600;
 }
 
 @font-face {
-	font-family: 'Whitney';
-	src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
-	font-weight: 700;
+  font-family: 'Whitney';
+  src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
+  font-weight: 700;
 }
 ```
 
@@ -132,16 +135,35 @@ This library can use the Discord font if you load it into your project. You can 
 
 ![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/with_embed.png)
 
-## Contributors
+## Contributors ✨
 
-Please make sure to read the [Contributing Guide][contributing] before making a pull request.
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
-Thank you to all the people who already contributed to Skyra Project!
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Documentation">📖</a> <a href="#example-Favna" title="Examples">💡</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/apps/dependabot"><img src="https://avatars.githubusercontent.com/in/29110?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dependabot[bot]</b></sub></a><br /><a href="#maintenance-dependabot[bot]" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://ko-fi.com/crawltogo"><img src="https://avatars.githubusercontent.com/u/20760160?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Noel</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=iCrawl" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/issues?q=author%3AiCrawl" title="Bug reports">🐛</a> <a href="#design-iCrawl" title="Design">🎨</a></td>
+    <td align="center"><a href="http://snazzah.com"><img src="https://avatars.githubusercontent.com/u/7025343?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Snazzah</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Snazzah" title="Code">💻</a></td>
+    <td align="center"><a href="https://darkguy10.github.io/"><img src="https://avatars.githubusercontent.com/u/62807269?v=4?s=100" width="100px;" alt=""/><br /><sub><b>DarkGuy10</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=DarkGuy10" title="Code">💻</a></td>
+  </tr>
+</table>
 
-<a href="https://github.com/skyra-project/discord-components/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=skyra-project/discord-components" />
-</a>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-[contributing]: https://github.com/skyra-project/.github/blob/main/.github/CONTRIBUTING.md
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!
+
+<!-- LINK DUMP -->
+
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
 [danktuary]: https://github.com/Danktuary

@@ -60,6 +60,5 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"prettier": "@sapphire/prettier-config",
 	"packageManager": "yarn@3.6.1"
 }
