@@ -1,9 +1,11 @@
 {
 	"$schema": "http://json.schemastore.org/lerna",
-	"packages": ["packages/*"],
+	"packages": [
+		"packages/*"
+	],
 	"npmClient": "yarn",
 	"useWorkspaces": true,
-	"version": "3.4.0",
+	"version": "3.4.1",
 	"command": {
 		"publish": {
 			"conventionalCommits": true,

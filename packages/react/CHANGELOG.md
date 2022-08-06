@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/skyra-project/discord-components/compare/v3.4.0...v3.4.1) (2022-08-06)
+
+**Note:** Version bump only for package @skyra/discord-components-react
+
 # [3.4.0](https://github.com/skyra-project/discord-components/compare/v3.3.1...v3.4.0) (2022-05-10)
 
 **Note:** Version bump only for package @skyra/discord-components-react

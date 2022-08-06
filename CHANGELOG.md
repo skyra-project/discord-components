@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/skyra-project/discord-components/compare/v3.4.0...v3.4.1) (2022-08-06)
+
+### Bug Fixes
+
+* **core:** enable `experimentalImportInjection` to ensure compatibility with Vite/NextJS builds ([053c8eb](https://github.com/skyra-project/discord-components/commit/053c8eb52ecf9cb763afd39441f11fdf81e76e21))
+* **deps:** update all non-major dependencies ([#271](https://github.com/skyra-project/discord-components/issues/271)) ([7896b9c](https://github.com/skyra-project/discord-components/commit/7896b9cfa081cbfa746bf9714db6cac31dfdc9bd))
+
 # [3.4.0](https://github.com/skyra-project/discord-components/compare/v3.3.1...v3.4.0) (2022-05-10)
 
 ### Features
