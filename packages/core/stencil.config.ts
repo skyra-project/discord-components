@@ -3,6 +3,9 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
 	namespace: 'skyra-discord-components-core',
+	extras: {
+		experimentalImportInjection: true
+	},
 	outputTargets: [
 		reactOutputTarget({
 			componentCorePackage: '@skyra/discord-components-core',
