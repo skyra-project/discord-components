@@ -23,17 +23,17 @@
 		"@sapphire/ts-config": "^3.3.4",
 		"@stencil/react-output-target": "^0.3.1",
 		"@types/node": "^18.6.4",
-		"@types/react": "^18.0.18",
+		"@types/react": "^18.0.19",
 		"@types/react-dom": "^18.0.6",
-		"@typescript-eslint/eslint-plugin": "^5.36.1",
-		"@typescript-eslint/parser": "^5.36.1",
+		"@typescript-eslint/eslint-plugin": "^5.36.2",
+		"@typescript-eslint/parser": "^5.36.2",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.23.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-jsx-a11y": "^6.6.1",
 		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-react": "^7.31.5",
+		"eslint-plugin-react": "^7.31.8",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"gen-esm-wrapper": "^1.1.3",
 		"husky": "^8.0.1",
@@ -43,12 +43,12 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"replace-in-file": "^6.3.5",
-		"typescript": "^4.8.2"
+		"typescript": "^4.8.3"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.6",
-		"@types/react": "^18.0.18",
+		"@types/react": "^18.0.19",
 		"@types/react-dom": "^18.0.6"
 	},
 	"commitlint": {
