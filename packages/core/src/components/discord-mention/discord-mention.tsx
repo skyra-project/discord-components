@@ -31,17 +31,19 @@ export class DiscordMention implements ComponentInterface {
 
 	/**
 	 * The type of mention this should be. This will prepend the proper prefix character.
-	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
+	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, `forum`, and `slash`.
 	 */
 	@Prop()
-	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' = 'user';
+	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' | 'slash' = 'user';
 
 	@Watch('type')
 	public handleType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordMention `type` prop must be a string.');
-		} else if (!['user', 'channel', 'role', 'voice', 'locked', 'thread', 'forum'].includes(value)) {
-			throw new RangeError("DiscordMention `type` prop must be one of: 'user', 'channel', 'role', 'voice', 'locked', 'thread', 'forum'");
+		} else if (!['user', 'channel', 'role', 'voice', 'locked', 'thread', 'forum', 'slash'].includes(value)) {
+			throw new RangeError(
+				"DiscordMention `type` prop must be one of: 'user', 'channel', 'role', 'voice', 'locked', 'thread', 'forum', 'slash'"
+			);
 		}
 	}
 
@@ -100,6 +102,9 @@ export class DiscordMention implements ComponentInterface {
 				break;
 			case 'forum':
 				mentionPrepend = <ChannnelForum class="discord-mention-icon" />;
+				break;
+			case 'slash':
+				mentionPrepend = '/';
 				break;
 		}
 
