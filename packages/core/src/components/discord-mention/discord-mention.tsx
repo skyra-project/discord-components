@@ -4,7 +4,7 @@ import ChannelThread from '../svgs/channel-thread';
 import LockedVoiceChannel from '../svgs/locked-voice-channel';
 import VoiceChannel from '../svgs/voice-channel';
 import ChannelIcon from '../svgs/channel-icon';
-import ChannnelForum from '../svgs/channel-forum';
+import ChannelForum from '../svgs/channel-forum';
 
 @Component({
 	tag: 'discord-mention',
@@ -99,7 +99,7 @@ export class DiscordMention implements ComponentInterface {
 				mentionPrepend = <ChannelThread class="discord-mention-icon" />;
 				break;
 			case 'forum':
-				mentionPrepend = <ChannnelForum class="discord-mention-icon" />;
+				mentionPrepend = <ChannelForum class="discord-mention-icon" />;
 				break;
 		}
 

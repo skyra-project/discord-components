@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 
-export default function ChannnelForum<T>(props: T) {
+export default function ChannelForum<T>(props: T) {
 	return (
 		<svg {...props} aria-hidden="false" width="24" height="24" viewBox="0 0 20 20" fill="none">
 			<path
