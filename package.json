@@ -15,18 +15,18 @@
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.1.2",
-		"@commitlint/config-conventional": "^17.1.0",
+		"@commitlint/cli": "^17.2.0",
+		"@commitlint/config-conventional": "^17.2.0",
 		"@lerna-lite/cli": "^1.12.0",
 		"@sapphire/eslint-config": "^4.3.8",
 		"@sapphire/prettier-config": "^1.4.4",
 		"@sapphire/ts-config": "^3.3.4",
 		"@stencil/react-output-target": "^0.3.1",
-		"@types/node": "^18.11.7",
-		"@types/react": "^18.0.24",
+		"@types/node": "^18.11.9",
+		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.8",
-		"@typescript-eslint/eslint-plugin": "^5.41.0",
-		"@typescript-eslint/parser": "^5.41.0",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"@typescript-eslint/parser": "^5.42.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.26.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -48,7 +48,7 @@
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.7",
-		"@types/react": "^18.0.24",
+		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.8"
 	},
 	"commitlint": {
