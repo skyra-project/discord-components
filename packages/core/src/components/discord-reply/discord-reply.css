@@ -2,7 +2,8 @@
 	color: #b9bbbe;
 	display: flex;
 	font-size: 0.875rem;
-	font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: Whitney, 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, 'system-ui', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 	padding-top: 2px;
 	margin-left: 56px;

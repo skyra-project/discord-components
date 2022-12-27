@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import url('https://fonts.bunny.net/css?family=roboto:400,500,700');
 
 /* New Whitney fonts to match rebrading */
 @font-face {
@@ -27,7 +27,8 @@
 	background-color: #36393e;
 	display: block;
 	font-size: 16px;
-	font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: Whitney, 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, 'system-ui', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	line-height: 170%;
 	border: 1px solid rgba(255, 255, 255, 0.05);
 }

@@ -3,7 +3,8 @@
 	display: flex;
 	flex-direction: column;
 	font-size: 0.9em;
-	font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: Whitney, 'Source Sans Pro', ui-sans-serif, system-ui, -apple-system, 'system-ui', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	padding: 0px 1em;
 
 	position: relative;
