@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/discord-components-react",
-	"version": "3.4.1",
+	"version": "3.5.0",
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
@@ -21,7 +21,7 @@
 		"build": "yarn clean && tsc && gen-esm-wrapper dist/index.js dist/index.mjs && replace-in-file --configFile=scripts/replaceDefaultMod.cjs"
 	},
 	"dependencies": {
-		"@skyra/discord-components-core": "^3.4.1",
+		"@skyra/discord-components-core": "^3.5.0",
 		"tslib": "^2.4.1"
 	},
 	"peerDependencies": {

@@ -3,12 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/skyra-project/discord-components/compare/v3.4.1...v3.5.0) (2022-12-27)
+
+### Bug Fixes
+
+-   change to bunny font cdn and update font families ([10184ab](https://github.com/skyra-project/discord-components/commit/10184abd60de16977f9e88c595b93a44ac3521a4)), closes [#308](https://github.com/skyra-project/discord-components/issues/308)
+-   **deps:** update all non-major dependencies ([#283](https://github.com/skyra-project/discord-components/issues/283)) ([8c225c4](https://github.com/skyra-project/discord-components/commit/8c225c4630b68d58f87d71250cc3aa984e623458))
+-   **deps:** update all non-major dependencies ([#290](https://github.com/skyra-project/discord-components/issues/290)) ([185ef07](https://github.com/skyra-project/discord-components/commit/185ef075f614d00e3e5a0f6be375f28bd6496721))
+-   **deps:** update all non-major dependencies ([#296](https://github.com/skyra-project/discord-components/issues/296)) ([58a4aa2](https://github.com/skyra-project/discord-components/commit/58a4aa2794d9241d85a7a071a3c46a74d0a3460f))
+-   **deps:** update all non-major dependencies ([#302](https://github.com/skyra-project/discord-components/issues/302)) ([7642c51](https://github.com/skyra-project/discord-components/commit/7642c51868c557c0b8145cf26a040e726204a875))
+-   **deps:** update all non-major dependencies ([#305](https://github.com/skyra-project/discord-components/issues/305)) ([68ae3f6](https://github.com/skyra-project/discord-components/commit/68ae3f63dc61e06f449805e4829e2eaa30e11541))
+-   resolved typo in `ChannelForum` ([#289](https://github.com/skyra-project/discord-components/issues/289)) ([c30908d](https://github.com/skyra-project/discord-components/commit/c30908d5395561e0b77cfebaad7822c98ef8b0fe))
+
+### Features
+
+-   mention for slash commands ([#288](https://github.com/skyra-project/discord-components/issues/288)) ([294d0b5](https://github.com/skyra-project/discord-components/commit/294d0b5c926a96f0759bff5dfd703432cf6791d8))
+
 ## [3.4.1](https://github.com/skyra-project/discord-components/compare/v3.4.0...v3.4.1) (2022-08-06)
 
 ### Bug Fixes
 
-* **core:** enable `experimentalImportInjection` to ensure compatibility with Vite/NextJS builds ([053c8eb](https://github.com/skyra-project/discord-components/commit/053c8eb52ecf9cb763afd39441f11fdf81e76e21))
-* **deps:** update all non-major dependencies ([#271](https://github.com/skyra-project/discord-components/issues/271)) ([7896b9c](https://github.com/skyra-project/discord-components/commit/7896b9cfa081cbfa746bf9714db6cac31dfdc9bd))
+-   **core:** enable `experimentalImportInjection` to ensure compatibility with Vite/NextJS builds ([053c8eb](https://github.com/skyra-project/discord-components/commit/053c8eb52ecf9cb763afd39441f11fdf81e76e21))
+-   **deps:** update all non-major dependencies ([#271](https://github.com/skyra-project/discord-components/issues/271)) ([7896b9c](https://github.com/skyra-project/discord-components/commit/7896b9cfa081cbfa746bf9714db6cac31dfdc9bd))
 
 # [3.4.0](https://github.com/skyra-project/discord-components/compare/v3.3.1...v3.4.0) (2022-05-10)
 
