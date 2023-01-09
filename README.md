@@ -105,7 +105,7 @@ Discord message components to easily build and display fake Discord messages on 
 
 Please make sure to read the [Contributing Guide][contributing] before making a pull request.
 
-Thank you to all the people who already contributed to Sapphire!
+Thank you to all the people who already contributed to Skyra Project!
 
 <a href="https://github.com/skyra-project/discord-components/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=skyra-project/discord-components" />
