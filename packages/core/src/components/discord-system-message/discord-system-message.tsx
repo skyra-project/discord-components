@@ -4,6 +4,7 @@ import { DiscordTimestamp, handleTimestamp } from '../../util';
 import Boost from '../svgs/boost';
 import DMCall from '../svgs/dm-call';
 import DMEdit from '../svgs/dm-edit';
+import Pin from '../svgs/pin';
 import DMMissedCall from '../svgs/dm-missed-call';
 import SystemAlert from '../svgs/system-alert';
 import SystemError from '../svgs/system-error';
@@ -30,10 +31,10 @@ export class DiscordSystemMessage implements ComponentInterface {
 
 	/**
 	 * The type of system message this is, this will change the icon shown.
-	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `alert`, and `error`.
+	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `pin`, `alert`, and `error`.
 	 */
 	@Prop()
-	public type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'alert' | 'error' = 'join';
+	public type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'pin' | 'alert' | 'error' = 'join';
 
 	/**
 	 * Whether this message is to show channel name changes, used to match Discord's style.
@@ -45,9 +46,9 @@ export class DiscordSystemMessage implements ComponentInterface {
 	public handleType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordSystemMessage `type` prop must be a string.');
-		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'alert', 'error'].includes(value)) {
+		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'].includes(value)) {
 			throw new RangeError(
-				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread' 'alert', 'error'"
+				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'pin', 'thread' 'alert', 'error'"
 			);
 		}
 	}
