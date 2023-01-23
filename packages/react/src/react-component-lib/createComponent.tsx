@@ -44,7 +44,7 @@ export const createReactComponent = <PropType, ElementType extends HTMLStencilEl
 		render() {
 			const { children, forwardedRef, style, className, ref, ...cProps } = this.props;
 
-			let propsToPass = Object.keys(cProps).reduce((acc: any, name) => {
+			let propsToPass = Object.keys(cProps).reduce<ExpandedPropsTypes>((acc: any, name) => {
 				const value = (cProps as any)[name];
 
 				if (name.startsWith('on') && name[2] === name[2].toUpperCase()) {
