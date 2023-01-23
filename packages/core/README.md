@@ -56,7 +56,7 @@
     -   [Screenshots](#screenshots)
         -   [Dark Mode](#dark-mode)
         -   [Light Mode](#light-mode)
-    -   [Contributors ✨](#contributors-%E2%9C%A8)
+    -   [Contributors](#contributors)
 
 ## Description
 

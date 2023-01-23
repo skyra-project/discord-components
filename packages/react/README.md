@@ -42,7 +42,7 @@
     -   [Screenshots](#screenshots)
         -   [Dark Mode](#dark-mode)
         -   [Light Mode](#light-mode)
-    -   [Contributors ✨](#contributors-%E2%9C%A8)
+    -   [Contributors](#contributors)
 
 ## Description
 
@@ -163,7 +163,7 @@ And then in your React code:
 ```tsx
 <DiscordMessages>
 	<DiscordMessage profile="skyra">
-		Welcome to our server, <mention>Favna</mention>!
+		Welcome to our server, <DiscordMention>Favna</DiscordMention>!
 	</DiscordMessage>
 	<DiscordMessage profile="favna">Hey, glad to be here!</DiscordMessage>
 </DiscordMessages>
