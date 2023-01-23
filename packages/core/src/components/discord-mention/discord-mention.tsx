@@ -1,10 +1,10 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import hexToRgba from 'hex-to-rgba';
+import ChannelForum from '../svgs/channel-forum';
+import ChannelIcon from '../svgs/channel-icon';
 import ChannelThread from '../svgs/channel-thread';
 import LockedVoiceChannel from '../svgs/locked-voice-channel';
 import VoiceChannel from '../svgs/voice-channel';
-import ChannelIcon from '../svgs/channel-icon';
-import ChannelForum from '../svgs/channel-forum';
 
 @Component({
 	tag: 'discord-mention',

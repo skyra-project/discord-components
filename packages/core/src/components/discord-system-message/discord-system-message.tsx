@@ -4,8 +4,8 @@ import { DiscordTimestamp, handleTimestamp } from '../../util';
 import Boost from '../svgs/boost';
 import DMCall from '../svgs/dm-call';
 import DMEdit from '../svgs/dm-edit';
-import Pin from '../svgs/pin';
 import DMMissedCall from '../svgs/dm-missed-call';
+import Pin from '../svgs/pin';
 import SystemAlert from '../svgs/system-alert';
 import SystemError from '../svgs/system-error';
 import Thread from '../svgs/thread';
@@ -98,6 +98,9 @@ export class DiscordSystemMessage implements ComponentInterface {
 				break;
 			case 'error':
 				icon = <SystemError />;
+				break;
+			case 'pin':
+				icon = <Pin />;
 				break;
 		}
 
