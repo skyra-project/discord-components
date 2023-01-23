@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/skyra-project/discord-components/compare/v3.5.0...v3.6.0) (2023-01-23)
+
+### Bug Fixes
+
+-   update @stencil/core dependency ([df07642](https://github.com/skyra-project/discord-components/commit/df07642b48debf1ecbc05cceaeafd5cfed081c9a))
+-   update name in LICENSE ([139caa5](https://github.com/skyra-project/discord-components/commit/139caa5e2798fd0d32258d532822b4b4ff8c0696))
+
+### Features
+
+-   add pin icon to system messages ([#317](https://github.com/skyra-project/discord-components/issues/317)) ([b34d635](https://github.com/skyra-project/discord-components/commit/b34d6357e02467ad4843a64591897e6b5ea99b22))
+
 # [3.5.0](https://github.com/skyra-project/discord-components/compare/v3.4.1...v3.5.0) (2022-12-27)
 
 ### Bug Fixes

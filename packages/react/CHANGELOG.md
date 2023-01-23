@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/skyra-project/discord-components/compare/v3.5.0...v3.6.0) (2023-01-23)
+
+### Bug Fixes
+
+-   update @stencil/core dependency ([df07642](https://github.com/skyra-project/discord-components/commit/df07642b48debf1ecbc05cceaeafd5cfed081c9a))
+
 # [3.5.0](https://github.com/skyra-project/discord-components/compare/v3.4.1...v3.5.0) (2022-12-27)
 
 **Note:** Version bump only for package @skyra/discord-components-react
