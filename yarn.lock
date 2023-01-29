@@ -971,7 +971,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-core@workspace:packages/core"
   dependencies:
-    "@stencil/core": ^2.22.2
+    "@stencil/core": ^3.0.0
     clsx: ^1.2.1
     hex-to-rgba: ^2.0.1
   languageName: unknown
@@ -989,12 +989,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@stencil/core@npm:^2.22.2":
-  version: 2.22.2
-  resolution: "@stencil/core@npm:2.22.2"
+"@stencil/core@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@stencil/core@npm:3.0.0"
   bin:
     stencil: bin/stencil
-  checksum: 139a7b63b81c7eaa5026e76e1c947a402f58d0a6d1d353a34883995ea7e480fa6991e71c0c3d812f7046d395b99d0f7f7b11af9277f04a3c62aba96cda18dd5d
+  checksum: 1396d1e68686d9cb646b07e844523602d09a29d837627fd3a46fbaf806331872181a61a47bba3efd68f9486e140c1bf72d20a73ab5922f1c4dc4a37d99c308b2
   languageName: node
   linkType: hard
 
