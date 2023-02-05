@@ -17,16 +17,16 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.2",
 		"@commitlint/config-conventional": "^17.4.2",
-		"@lerna-lite/cli": "^1.14.2",
+		"@lerna-lite/cli": "^1.15.0",
 		"@sapphire/eslint-config": "^4.3.8",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
 		"@stencil/react-output-target": "^0.4.0",
-		"@types/node": "^18.11.18",
+		"@types/node": "^18.11.19",
 		"@types/react": "^18.0.27",
 		"@types/react-dom": "^18.0.10",
-		"@typescript-eslint/eslint-plugin": "^5.49.0",
-		"@typescript-eslint/parser": "^5.49.0",
+		"@typescript-eslint/eslint-plugin": "^5.50.0",
+		"@typescript-eslint/parser": "^5.50.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.33.0",
 		"eslint-config-prettier": "^8.6.0",
@@ -43,7 +43,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"replace-in-file": "^6.3.5",
-		"typescript": "^4.9.4"
+		"typescript": "^4.9.5"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
@@ -65,5 +65,5 @@
 		}
 	},
 	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@3.3.1"
+	"packageManager": "yarn@3.4.1"
 }
