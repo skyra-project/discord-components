@@ -15,18 +15,18 @@
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.4.2",
-		"@commitlint/config-conventional": "^17.4.2",
+		"@commitlint/cli": "^17.4.4",
+		"@commitlint/config-conventional": "^17.4.4",
 		"@lerna-lite/cli": "^1.15.1",
 		"@sapphire/eslint-config": "^4.3.8",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
 		"@stencil/react-output-target": "^0.4.0",
-		"@types/node": "^18.13.0",
+		"@types/node": "^18.14.0",
 		"@types/react": "^18.0.28",
-		"@types/react-dom": "^18.0.10",
-		"@typescript-eslint/eslint-plugin": "^5.51.0",
-		"@typescript-eslint/parser": "^5.51.0",
+		"@types/react-dom": "^18.0.11",
+		"@typescript-eslint/eslint-plugin": "^5.52.0",
+		"@typescript-eslint/parser": "^5.52.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.34.0",
 		"eslint-config-prettier": "^8.6.0",
@@ -37,7 +37,7 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"gen-esm-wrapper": "^1.1.3",
 		"husky": "^8.0.3",
-		"lint-staged": "^13.1.1",
+		"lint-staged": "^13.1.2",
 		"prettier": "^2.8.4",
 		"pretty-quick": "^3.1.3",
 		"react": "^18.2.0",
@@ -49,7 +49,7 @@
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
 		"@types/react": "^18.0.28",
-		"@types/react-dom": "^18.0.10"
+		"@types/react-dom": "^18.0.11"
 	},
 	"commitlint": {
 		"extends": [
