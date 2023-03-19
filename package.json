@@ -43,7 +43,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"replace-in-file": "^6.3.5",
-		"typescript": "^4.9.5"
+		"typescript": "^5.0.2"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
