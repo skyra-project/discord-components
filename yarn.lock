@@ -41,7 +41,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^17.4.4":
+"@commitlint/cli@npm:^17.5.0":
   version: 17.5.0
   resolution: "@commitlint/cli@npm:17.5.0"
   dependencies:
@@ -1008,10 +1008,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.15.3":
+"@types/node@npm:*":
   version: 18.15.9
   resolution: "@types/node@npm:18.15.9"
   checksum: 5165f84f2fe25699879129b98c405c05e8d0428414c99fa544e22bdd0ea502aac384d26418298a31983064fa18c98e2fba5791b9c907bd78ccbcb49c23101bee
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.15.10":
+  version: 18.15.10
+  resolution: "@types/node@npm:18.15.10"
+  checksum: 9aeae0b683eda82892def5315812bdee3f1a28c4898b7e70f8e2514564538b16c4dccbe8339c1266f8fc1d707a48f152689264a854f5ebc2eba5011e793612d9
   languageName: node
   linkType: hard
 
@@ -1038,7 +1045,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.0.28":
+"@types/react@npm:^18.0.29":
   version: 18.0.29
   resolution: "@types/react@npm:18.0.29"
   dependencies:
@@ -1063,7 +1070,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.33.1, @typescript-eslint/eslint-plugin@npm:^5.55.0":
+"@typescript-eslint/eslint-plugin@npm:^5.33.1, @typescript-eslint/eslint-plugin@npm:^5.56.0":
   version: 5.56.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.56.0"
   dependencies:
@@ -1087,7 +1094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.33.1, @typescript-eslint/parser@npm:^5.55.0":
+"@typescript-eslint/parser@npm:^5.33.1, @typescript-eslint/parser@npm:^5.56.0":
   version: 5.56.0
   resolution: "@typescript-eslint/parser@npm:5.56.0"
   dependencies:
@@ -2660,7 +2667,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.5.0, eslint-config-prettier@npm:^8.7.0":
+"eslint-config-prettier@npm:^8.5.0, eslint-config-prettier@npm:^8.8.0":
   version: 8.8.0
   resolution: "eslint-config-prettier@npm:8.8.0"
   peerDependencies:
@@ -5899,7 +5906,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.7.1, prettier@npm:^2.8.2, prettier@npm:^2.8.4":
+"prettier@npm:^2.7.1, prettier@npm:^2.8.2, prettier@npm:^2.8.7":
   version: 2.8.7
   resolution: "prettier@npm:2.8.7"
   bin:
@@ -6375,21 +6382,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@commitlint/cli": ^17.4.4
+    "@commitlint/cli": ^17.5.0
     "@commitlint/config-conventional": ^17.4.4
     "@lerna-lite/cli": ^1.17.0
     "@sapphire/eslint-config": ^4.3.8
     "@sapphire/prettier-config": ^1.4.5
     "@sapphire/ts-config": ^3.3.4
     "@stencil/react-output-target": ^0.4.0
-    "@types/node": ^18.15.3
-    "@types/react": ^18.0.28
+    "@types/node": ^18.15.10
+    "@types/react": ^18.0.29
     "@types/react-dom": ^18.0.11
-    "@typescript-eslint/eslint-plugin": ^5.55.0
-    "@typescript-eslint/parser": ^5.55.0
+    "@typescript-eslint/eslint-plugin": ^5.56.0
+    "@typescript-eslint/parser": ^5.56.0
     cz-conventional-changelog: ^3.3.0
     eslint: ^8.36.0
-    eslint-config-prettier: ^8.7.0
+    eslint-config-prettier: ^8.8.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jsx-a11y: ^6.7.1
     eslint-plugin-prettier: ^4.2.1
@@ -6398,7 +6405,7 @@ __metadata:
     gen-esm-wrapper: ^1.1.3
     husky: ^8.0.3
     lint-staged: ^13.2.0
-    prettier: ^2.8.4
+    prettier: ^2.8.7
     pretty-quick: ^3.1.3
     react: ^18.2.0
     react-dom: ^18.2.0
