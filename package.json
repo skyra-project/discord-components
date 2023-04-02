@@ -15,20 +15,20 @@
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.5.0",
+		"@commitlint/cli": "^17.5.1",
 		"@commitlint/config-conventional": "^17.4.4",
 		"@lerna-lite/cli": "^1.17.0",
 		"@sapphire/eslint-config": "^4.3.8",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
-		"@stencil/react-output-target": "^0.4.0",
-		"@types/node": "^18.15.10",
-		"@types/react": "^18.0.29",
+		"@stencil/react-output-target": "^0.5.0",
+		"@types/node": "^18.15.11",
+		"@types/react": "^18.0.32",
 		"@types/react-dom": "^18.0.11",
-		"@typescript-eslint/eslint-plugin": "^5.56.0",
-		"@typescript-eslint/parser": "^5.56.0",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.36.0",
+		"eslint": "^8.37.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
@@ -43,12 +43,12 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"replace-in-file": "^6.3.5",
-		"typescript": "^5.0.2"
+		"typescript": "^5.0.3"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
-		"@types/react": "^18.0.29",
+		"@types/react": "^18.0.32",
 		"@types/react-dom": "^18.0.11"
 	},
 	"commitlint": {
