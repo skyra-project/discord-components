@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DiscordTimestamp } from "./util";
+export { DiscordTimestamp } from "./util";
 export namespace Components {
     interface DiscordActionRow {
     }
