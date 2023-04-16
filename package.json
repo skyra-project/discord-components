@@ -20,7 +20,7 @@
 		"@lerna-lite/cli": "^1.17.0",
 		"@sapphire/eslint-config": "^4.4.1",
 		"@sapphire/prettier-config": "^1.4.5",
-		"@sapphire/ts-config": "^3.3.4",
+		"@sapphire/ts-config": "^4.0.0",
 		"@stencil/react-output-target": "^0.5.0",
 		"@types/node": "^18.15.11",
 		"@types/react": "^18.0.35",
