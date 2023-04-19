@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
-import { DiscordTimestamp, handleTimestamp } from '../../util.js';
+import { handleTimestamp, type DiscordTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
 import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
 import { Ephemeral } from '../svgs/Ephemeral.js';
@@ -431,7 +431,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			roleName: this.roleName
 		};
 
-		const profileData: Profile = (this.profile !== undefined && Reflect.get(profiles, this.profile)) ?? {};
+		const profileData: Profile = (this.profile !== undefined && Reflect.get(profiles, this.profile)) || {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
 		const highlightMention: boolean =
