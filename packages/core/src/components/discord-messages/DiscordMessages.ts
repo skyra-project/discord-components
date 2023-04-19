@@ -10,7 +10,7 @@ export class DiscordMessages extends LitElement {
 			background-color: #36393e;
 			display: block;
 			font-size: 16px;
-			font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 			line-height: 170%;
 			border: 1px solid rgba(255, 255, 255, 0.05);
 		}
