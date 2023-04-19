@@ -4,7 +4,7 @@ import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
 
 @customElement('discord-messages')
 export class DiscordMessages extends LitElement {
-	static override styles = css`
+	public static override styles = css`
 		:host {
 			color: #fff;
 			background-color: #36393e;

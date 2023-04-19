@@ -11,7 +11,7 @@ const colorCodeExtractor = /--discord-mention-color: (?<colorCode>#([A-Fa-f0-9]{
 
 @customElement('discord-mention')
 export class DiscordMention extends LitElement {
-	static override styles = css`
+	public static override styles = css`
 		:host {
 			color: var(--discord-mention-color, #e3e7f8);
 			background-color: hsla(235, 85.6%, 64.7%, 0.3);
