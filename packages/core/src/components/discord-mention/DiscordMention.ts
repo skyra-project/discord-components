@@ -133,9 +133,6 @@ export class DiscordMention extends LitElement {
 				break;
 		}
 
-		return html`
-			${mentionPrepend}
-			<slot></slot>
-		`;
+		return html` ${mentionPrepend}<slot></slot> `;
 	}
 }

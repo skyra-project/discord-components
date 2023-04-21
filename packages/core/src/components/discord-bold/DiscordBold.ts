@@ -1,4 +1,4 @@
-import { html, LitElement } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-bold')

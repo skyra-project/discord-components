@@ -29,7 +29,7 @@ interface DiscordMessageProps {
 @customElement('discord-message')
 export class DiscordMessage extends LitElement implements DiscordMessageProps {
 	public static override styles = css`
-		:host {
+		.discord-message {
 			color: #dcddde;
 			display: flex;
 			flex-direction: column;
@@ -413,7 +413,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 	/**
 	 * Whether to use 24-hour format for the timestamp.
 	 */
-	@property({ type: Boolean })
+	@property({ type: Boolean, attribute: 'twenty-four' })
 	public twentyFour = false;
 
 	protected override render() {
@@ -431,7 +431,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			roleName: this.roleName
 		};
 
-		const profileData: Profile = (this.profile !== undefined && Reflect.get(profiles, this.profile)) || {};
+		const profileData: Profile = ((this.profile !== undefined && Reflect.get(profiles, this.profile)) as Profile) || {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
 		const highlightMention: boolean =
