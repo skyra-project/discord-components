@@ -133,7 +133,7 @@ export class DiscordReaction extends LitElement {
 		`;
 	}
 
-	private handleReactionClick(event: MouseEvent) {
+	private handleReactionClick = (event: MouseEvent) => {
 		if (this.interactive) {
 			if (event.shiftKey) {
 				this.count--;
@@ -145,5 +145,5 @@ export class DiscordReaction extends LitElement {
 				this.count = 1;
 			}
 		}
-	}
+	};
 }

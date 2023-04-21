@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { avatars, Profile, profiles } from '../../options.js';
+import { Profile, avatars, profiles } from '../../options.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import { CommandIcon } from '../svgs/CommandIcon.js';
 

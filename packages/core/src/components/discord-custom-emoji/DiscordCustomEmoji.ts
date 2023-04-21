@@ -8,6 +8,7 @@ export class DiscordCustomEmoji extends LitElement {
 			display: inline-block;
 			cursor: pointer;
 		}
+
 		.discord-custom-emoji .discord-custom-emoji-image {
 			object-fit: contain;
 			width: 1.375rem;
