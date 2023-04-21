@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { avatars, Profile, profiles } from '../../options.js';
+import { Profile, avatars, profiles } from '../../options.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
 import { AttachmentReply } from '../svgs/AttachmentReply.js';
 import { CommandReply } from '../svgs/CommandReply.js';
@@ -18,7 +18,7 @@ export class DiscordReply extends LitElement {
 				color: #b9bbbe;
 				display: flex;
 				font-size: 0.875rem;
-				font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 
 				padding-top: 2px;
 				margin-left: 56px;

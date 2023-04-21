@@ -55,7 +55,7 @@ export class DiscordInvite extends LitElement {
 		}
 
 		.discord-invite .discord-invite-info {
-			font-family: WhitneyMedium, Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-family: 'gg sans', 'Noto Sans', WhitneyMedium, Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 			display: flex;
 			flex: 1 1 auto;
 			flex-direction: column;

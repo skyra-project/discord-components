@@ -23,7 +23,7 @@ export class DiscordSystemMessage extends LitElement {
 				display: flex;
 				font-weight: 400;
 				font-size: 1rem;
-				font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 				padding: 0px 1em;
 
 				position: relative;

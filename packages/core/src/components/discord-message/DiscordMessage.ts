@@ -34,7 +34,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			display: flex;
 			flex-direction: column;
 			font-size: 0.9em;
-			font-family: Whitney, Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 			padding: 0px 1em;
 
 			position: relative;
