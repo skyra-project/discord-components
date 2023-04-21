@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
-import { VerifiedTick } from '../svgs/VerifiedTick.js';
+import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-thread-message')
 export class DiscordThreadMessage extends LitElement {
@@ -161,7 +161,7 @@ export class DiscordThreadMessage extends LitElement {
 				<img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
 				${html`
 					${profile.bot && !profile.server
-						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick : ''} Bot </span> `
+						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : ''} Bot </span> `
 						: ''}
 					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
 				`}

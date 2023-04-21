@@ -1,9 +1,13 @@
+import { spread } from '@open-wc/lit-helpers';
 import { html, svg } from 'lit';
 
-const svgContent = svg`<path d="M7.4,11.17,4,8.62,5,7.26l2,1.53L10.64,4l1.36,1Z" fill="currentColor" />`;
+const svgContent = svg`
+	<path d="M7.4,11.17,4,8.62,5,7.26l2,1.53L10.64,4l1.36,1Z" fill="currentColor" />
+`;
 
-export const VerifiedTick = html`
-	<svg
+export default function VerifiedTick(props: Record<string, unknown> = {}) {
+	return html` <svg
+		${spread(props)}
 		class="discord-application-tag-verified"
 		aria-label="Verified Bot"
 		aria-hidden="false"
@@ -13,5 +17,5 @@ export const VerifiedTick = html`
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		${svgContent}
-	</svg>
-`;
+	</svg>`;
+}

@@ -1,3 +1,4 @@
+import { spread } from '@open-wc/lit-helpers';
 import { html, svg } from 'lit';
 
 const svgContent = svg`
@@ -9,4 +10,6 @@ const svgContent = svg`
 	/>
 `;
 
-export const SystemAlert = html` <svg aria-hidden="false" width="20" height="20" viewBox="0 0 20 20">${svgContent}</svg>`;
+export default function SystemAlert(props: Record<string, unknown> = {}) {
+	return html`<svg ${spread(props)} aria-hidden="false" width="20" height="20" viewBox="0 0 20 20">${svgContent}</svg>`;
+}

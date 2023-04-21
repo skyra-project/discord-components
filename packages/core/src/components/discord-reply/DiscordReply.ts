@@ -4,10 +4,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { Profile, avatars, profiles } from '../../options.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
-import { AttachmentReply } from '../svgs/AttachmentReply.js';
-import { CommandReply } from '../svgs/CommandReply.js';
+import AttachmentReply from '../svgs/AttachmentReply.js';
+import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
-import { VerifiedTick } from '../svgs/VerifiedTick.js';
+import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement {
@@ -260,11 +260,11 @@ export class DiscordReply extends LitElement {
 		return html`
 			<div class="discord-replied-message">
 				${messageParent.compactMode
-					? html` <div class="discord-reply-badge">${ReplyIcon({})}</div> `
+					? html` <div class="discord-reply-badge">${ReplyIcon()}</div> `
 					: html` <img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" /> `}
 				${html`
 					${profile.bot && !profile.server
-						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick : ''} Bot </span>`
+						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : ''} Bot </span>`
 						: ''}
 					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
 					${profile.op ? html` <span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
@@ -276,9 +276,8 @@ export class DiscordReply extends LitElement {
 					<slot></slot>${this.edited ? html` <span class="discord-message-edited">(edited)</span>` : ''}
 				</div>
 				${this.command
-					? CommandReply
-					: /* <CommandReply class="discord-replied-message-content-icon" />*/
-					  html` ${this.attachment ? AttachmentReply /* <AttachmentReply class="discord-replied-message-content-icon" /> `*/ : ''} `}
+					? CommandReply({ class: 'discord-replied-message-content-icon' })
+					: html` ${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''} `}
 			</div>
 		`;
 	}

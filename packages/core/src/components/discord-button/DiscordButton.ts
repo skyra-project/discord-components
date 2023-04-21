@@ -1,6 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { LaunchIcon } from '../svgs/LaunchIcon.js';
+import LaunchIcon from '../svgs/LaunchIcon.js';
 
 interface DiscordButtonProps {
 	emoji?: string;
@@ -142,7 +142,7 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 			<span>
 				<slot></slot>
 			</span>
-			${this.url ? html`${LaunchIcon}` : ''}
+			${this.url ? html`${LaunchIcon()}` : ''}
 		`;
 
 		if (isActive) {

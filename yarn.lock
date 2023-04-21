@@ -2109,6 +2109,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@open-wc/lit-helpers@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "@open-wc/lit-helpers@npm:0.5.1"
+  peerDependencies:
+    lit: ^2.0.0
+  checksum: 51428cd784660bcee38b44aaa1416eb33d08f79cda51f2be9be64b36d2ccafd0ccef24a0e23bb0acaa29d368f749ed0192fc544adcca8d52d8c98a6ed180cfc1
+  languageName: node
+  linkType: hard
+
 "@open-wc/scoped-elements@npm:^2.0.0, @open-wc/scoped-elements@npm:^2.1.1, @open-wc/scoped-elements@npm:^2.1.3":
   version: 2.1.4
   resolution: "@open-wc/scoped-elements@npm:2.1.4"
@@ -2280,6 +2289,7 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": ^0.8.0
     "@open-wc/eslint-config": ^10.0.0
+    "@open-wc/lit-helpers": ^0.5.1
     "@open-wc/testing": ^3.1.8
     "@web/dev-server": ^0.2.0
     "@web/dev-server-storybook": ^0.7.0
@@ -10296,7 +10306,7 @@ __metadata:
     pretty-quick: ^3.1.3
     react: ^18.2.0
     tslib: ^2.5.0
-    typescript: ^4.9.5
+    typescript: ^4.5.2
   languageName: unknown
   linkType: soft
 
@@ -11316,7 +11326,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.3, typescript@npm:^4.9.5":
+"typescript@npm:^4.5.2, typescript@npm:^4.6.3":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -11346,7 +11356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=7ad353"
   bin:
