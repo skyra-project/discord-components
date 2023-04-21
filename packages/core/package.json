@@ -79,7 +79,7 @@
 	"scripts": {
 		"build:ts": "tsc -b src",
 		"analyze": "cem analyze --litelement",
-		"start": "yarn build:ts && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
+		"start": "yarn build:ts && concurrently -k -r \"tsc -b src --watch --preserveWatchOutput\" \"wds\"",
 		"build": "yarn build:ts && yarn analyze --exclude dist",
 		"prepack": "yarn build:ts && yarn analyze --exclude dist",
 		"lint": "eslint --ext .ts --fix",
