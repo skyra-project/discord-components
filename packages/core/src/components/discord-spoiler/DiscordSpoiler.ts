@@ -38,3 +38,9 @@ export class DiscordSpoiler extends LitElement {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-spoiler': DiscordSpoiler;
+	}
+}

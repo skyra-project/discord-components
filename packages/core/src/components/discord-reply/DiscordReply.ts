@@ -283,3 +283,9 @@ export class DiscordReply extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-reply': DiscordReply;
+	}
+}

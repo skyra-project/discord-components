@@ -9,3 +9,9 @@ export class DiscordInlineCode extends LitElement {
 		</code>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-inline-code': DiscordInlineCode;
+	}
+}

@@ -73,3 +73,9 @@ export class DiscordTenorVideo extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-tenor-video': DiscordTenorVideo;
+	}
+}

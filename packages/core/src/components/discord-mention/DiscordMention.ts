@@ -136,3 +136,9 @@ export class DiscordMention extends LitElement {
 		return html` ${mentionPrepend}<slot></slot> `;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-mention': DiscordMention;
+	}
+}

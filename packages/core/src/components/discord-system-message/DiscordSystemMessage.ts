@@ -262,3 +262,9 @@ export class DiscordSystemMessage extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-system-message': DiscordSystemMessage;
+	}
+}

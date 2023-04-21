@@ -528,3 +528,9 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-message': DiscordMessage;
+	}
+}

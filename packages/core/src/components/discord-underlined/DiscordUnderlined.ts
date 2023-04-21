@@ -11,3 +11,9 @@ export class DiscordUnderlined extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-underlined': DiscordUnderlined;
+	}
+}

@@ -30,3 +30,9 @@ export class DiscordAttachments extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-attachments': DiscordAttachments;
+	}
+}

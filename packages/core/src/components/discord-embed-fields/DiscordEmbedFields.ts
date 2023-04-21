@@ -18,3 +18,9 @@ export class DiscordEmbedFields extends LitElement {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-embed-fields': DiscordEmbedFields;
+	}
+}

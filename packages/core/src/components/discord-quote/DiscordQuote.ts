@@ -39,3 +39,9 @@ export class DiscordQuote extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-quote': DiscordQuote;
+	}
+}

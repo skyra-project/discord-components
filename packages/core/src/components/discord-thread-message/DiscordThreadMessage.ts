@@ -175,3 +175,9 @@ export class DiscordThreadMessage extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-thread-message': DiscordThreadMessage;
+	}
+}

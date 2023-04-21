@@ -360,3 +360,9 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 		});
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-embed': DiscordEmbed;
+	}
+}

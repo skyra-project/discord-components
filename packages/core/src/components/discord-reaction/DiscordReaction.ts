@@ -147,3 +147,9 @@ export class DiscordReaction extends LitElement {
 		}
 	};
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-reaction': DiscordReaction;
+	}
+}

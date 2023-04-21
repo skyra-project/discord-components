@@ -17,3 +17,9 @@ export class DiscordTime extends LitElement {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-time': DiscordTime;
+	}
+}

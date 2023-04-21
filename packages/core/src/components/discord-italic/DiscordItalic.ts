@@ -11,3 +11,9 @@ export class DiscordItalic extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-italic': DiscordItalic;
+	}
+}

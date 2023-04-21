@@ -58,3 +58,9 @@ export class DiscordCustomEmoji extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-custom-emoji': DiscordCustomEmoji;
+	}
+}
