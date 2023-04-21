@@ -23,3 +23,9 @@ export class DiscordReactions extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-reactions': DiscordReactions;
+	}
+}

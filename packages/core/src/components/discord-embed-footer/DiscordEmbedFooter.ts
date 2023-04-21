@@ -76,3 +76,9 @@ export class DiscordEmbedFooter extends LitElement {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-embed-footer': DiscordEmbedFooter;
+	}
+}

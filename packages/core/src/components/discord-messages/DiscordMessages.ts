@@ -64,3 +64,9 @@ export class DiscordMessages extends LitElement {
 		return html` <slot></slot> `;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-messages': DiscordMessages;
+	}
+}

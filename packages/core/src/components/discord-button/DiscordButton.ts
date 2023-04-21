@@ -155,3 +155,9 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-button': DiscordButton;
+	}
+}

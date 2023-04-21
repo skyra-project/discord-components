@@ -285,3 +285,9 @@ export class DiscordInvite extends LitElement {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-invite': DiscordInvite;
+	}
+}

@@ -93,3 +93,9 @@ export class DiscordThread extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-thread': DiscordThread;
+	}
+}

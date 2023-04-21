@@ -100,3 +100,9 @@ export class DiscordEmbedDescription extends LitElement {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-embed-description': DiscordEmbedDescription;
+	}
+}

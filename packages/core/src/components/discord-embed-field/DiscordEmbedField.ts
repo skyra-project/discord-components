@@ -121,3 +121,9 @@ export class DiscordEmbedField extends LitElement {
 		});
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-embed-field': DiscordEmbedField;
+	}
+}

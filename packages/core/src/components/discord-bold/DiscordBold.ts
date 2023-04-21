@@ -11,3 +11,9 @@ export class DiscordBold extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-bold': DiscordBold;
+	}
+}

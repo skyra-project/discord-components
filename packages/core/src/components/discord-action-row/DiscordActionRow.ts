@@ -18,3 +18,9 @@ export class DiscordActionRow extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-action-row': DiscordActionRow;
+	}
+}

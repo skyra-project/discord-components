@@ -240,3 +240,9 @@ export class DiscordAuthorInfo extends LitElement {
 		`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-author-info': DiscordAuthorInfo;
+	}
+}

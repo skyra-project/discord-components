@@ -5,6 +5,7 @@
 		"module": "ESNext",
 		"moduleResolution": "Node",
 		"target": "ES2019",
+		"incremental": false,
 		"emitDecoratorMetadata": false,
 		"useDefineForClassFields": false
 	}
