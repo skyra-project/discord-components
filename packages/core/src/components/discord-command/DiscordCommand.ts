@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
-import { CommandIcon } from '../svgs/CommandIcon.js';
+import CommandIcon from '../svgs/CommandIcon.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement {
@@ -75,7 +75,7 @@ export class DiscordCommand extends LitElement {
 		return html`
 			<div class="discord-replied-message discord-executed-command">
 				${messageParent?.compactMode
-					? html` <div class="discord-reply-badge">${CommandIcon}</div>`
+					? html` <div class="discord-reply-badge">${CommandIcon()}</div>`
 					: html` <img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" /> `}
 				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}> ${profile.author} </span>
 				used

@@ -6,7 +6,7 @@ import { avatars, profiles, type Profile } from '../../options.js';
 import { handleTimestamp, type DiscordTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
 import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
-import { Ephemeral } from '../svgs/Ephemeral.js';
+import Ephemeral from '../svgs/Ephemeral.js';
 
 interface DiscordMessageProps {
 	profile: string | undefined;
@@ -516,7 +516,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 							${this.ephemeral
 								? html`
 										<div class="discord-message-ephemeral">
-											${Ephemeral} Only you can see this •
+											${Ephemeral()} Only you can see this •
 											<span class="discord-message-ephemeral-link">Dismiss message</span>
 										</div>
 								  `

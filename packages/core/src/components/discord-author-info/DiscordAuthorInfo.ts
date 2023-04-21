@@ -2,7 +2,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { VerifiedTick } from '../svgs/VerifiedTick.js';
+import VerifiedTick from '../svgs/VerifiedTick.js';
 /*
 .discord-message .discord-author-info {
 	display: inline-flex;
@@ -231,7 +231,7 @@ export class DiscordAuthorInfo extends LitElement {
 						draggable="false"
 				  />`
 				: ''}
-			${this.bot && !this.server ? html` <span class="discord-application-tag">${this.verified && VerifiedTick} Bot</span>` : ''}
+			${this.bot && !this.server ? html` <span class="discord-application-tag">${this.verified && VerifiedTick()} Bot</span>` : ''}
 			${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
 			${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
 			${this.compact

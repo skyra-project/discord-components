@@ -3,6 +3,8 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { defaultDiscordAvatars } from '../../options.js';
 import GuildBadge from '../svgs/GuildBadge.js';
+import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
+import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement {
@@ -263,11 +265,7 @@ export class DiscordInvite extends LitElement {
 										class: `discord-invite-badge-${this.partnered ? 'partnered' : 'verified'}`
 									})}
 									<div class="discord-invite-badge-container">
-										${
-											this.partnered
-												? html`<div></div>`
-												: html`<div></div>` /* <<PartnerBadgeOverlay /> : <VerifiedBadgeOverlay />*/
-										}
+										${this.partnered ? PartnerBadgeOverlay() : VerifiedBadgeOverlay()}
 									</div>
 							  </div>`
 							: ''}
@@ -280,7 +278,7 @@ export class DiscordInvite extends LitElement {
 						<span class="discord-invite-count">${this.members.toLocaleString()} Members</span>
 					</div>
 				</div>
-				<a class="discord-invite-join" href="{this.url}" target="_blank" rel="noopener noreferrer"> ${this.joinBtn} </a>
+				<a class="discord-invite-join" href="${this.url}" target="_blank" rel="noopener noreferrer"> ${this.joinBtn} </a>
 			</div>
 		</div>`;
 	}

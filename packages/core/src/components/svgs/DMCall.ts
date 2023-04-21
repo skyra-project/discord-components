@@ -1,3 +1,4 @@
+import { spread } from '@open-wc/lit-helpers';
 import { html, svg } from 'lit';
 
 const svgContent = svg`
@@ -8,4 +9,6 @@ const svgContent = svg`
 	/>
 `;
 
-export const DMCall = html` <svg aria-hidden="false" width="18" height="18" viewBox="0 0 18 18">${svgContent}</svg>`;
+export default function DMCall(props: Record<string, unknown> = {}) {
+	return html`<svg ${spread(props)} aria-hidden="false" width="18" height="18" viewBox="0 0 18 18">${svgContent}</svg>`;
+}

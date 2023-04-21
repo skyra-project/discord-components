@@ -1,11 +1,11 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
-import { ChannelForum } from '../svgs/ChannelForum.js';
-import { ChannelIcon } from '../svgs/ChannelIcon.js';
-import { ChannelThread } from '../svgs/ChannelThread.js';
-import { LockedVoiceChannel } from '../svgs/LockedVoiceChannel.js';
-import { VoiceChannel } from '../svgs/VoiceChannel.js';
+import ChannelIcon from '../svgs/ChannelIcon.js';
+import ChannelThread from '../svgs/ChannelThread.js';
+import ChannelForum from '../svgs/ChannelForum.js';
+import VoiceChannel from '../svgs/VoiceChannel.js';
+import LockedVoiceChannel from '../svgs/LockedVoiceChannel.js';
 
 const colorCodeExtractor = /--discord-mention-color: (?<colorCode>#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}));/;
 
@@ -113,23 +113,23 @@ export class DiscordMention extends LitElement {
 
 		switch (this.type) {
 			case 'channel':
-				mentionPrepend = html`${ChannelIcon}`;
+				mentionPrepend = html`${ChannelIcon()}`;
 				break;
 			case 'user':
 			case 'role':
 				mentionPrepend = html`@`;
 				break;
 			case 'voice':
-				mentionPrepend = html`${VoiceChannel}`;
+				mentionPrepend = html`${VoiceChannel()}`;
 				break;
 			case 'locked':
-				mentionPrepend = html`${LockedVoiceChannel}`;
+				mentionPrepend = html`${LockedVoiceChannel()}`;
 				break;
 			case 'thread':
-				mentionPrepend = html`${ChannelThread}`;
+				mentionPrepend = html`${ChannelThread()}`;
 				break;
 			case 'forum':
-				mentionPrepend = html`${ChannelForum}`;
+				mentionPrepend = html`${ChannelForum()}`;
 				break;
 		}
 

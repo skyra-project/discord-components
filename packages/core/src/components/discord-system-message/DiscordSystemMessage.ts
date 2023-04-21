@@ -3,15 +3,15 @@ import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { DiscordTimestamp, handleTimestamp } from '../../util.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
-import { Boost } from '../svgs/Boost.js';
-import { DMCall } from '../svgs/DMCall.js';
-import { DMEdit } from '../svgs/DMEdit.js';
-import { DMMissedCall } from '../svgs/DMMissedCall.js';
-import { SystemAlert } from '../svgs/SystemAlert.js';
-import { SystemError } from '../svgs/SystemError.js';
-import { Thread } from '../svgs/Thread.js';
-import { UserJoin } from '../svgs/UserJoin.js';
-import { UserLeave } from '../svgs/UserLeave.js';
+import DMCall from '../svgs/DMCall.js';
+import DMEdit from '../svgs/DMEdit.js';
+import Boost from '../svgs/Boost.js';
+import UserJoin from '../svgs/UserJoin.js';
+import UserLeave from '../svgs/UserLeave.js';
+import DMMissedCall from '../svgs/DMMissedCall.js';
+import Thread from '../svgs/Thread.js';
+import SystemAlert from '../svgs/SystemAlert.js';
+import SystemError from '../svgs/SystemError.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement {
@@ -208,31 +208,31 @@ export class DiscordSystemMessage extends LitElement {
 
 		switch (this.type) {
 			case 'join':
-				icon = UserJoin;
+				icon = UserJoin();
 				break;
 			case 'leave':
-				icon = UserLeave;
+				icon = UserLeave();
 				break;
 			case 'call':
-				icon = DMCall;
+				icon = DMCall();
 				break;
 			case 'missed-call':
-				icon = DMMissedCall;
+				icon = DMMissedCall();
 				break;
 			case 'edit':
-				icon = DMEdit;
+				icon = DMEdit();
 				break;
 			case 'boost':
-				icon = Boost;
+				icon = Boost();
 				break;
 			case 'thread':
-				icon = Thread;
+				icon = Thread();
 				break;
 			case 'alert':
-				icon = SystemAlert;
+				icon = SystemAlert();
 				break;
 			case 'error':
-				icon = SystemError;
+				icon = SystemError();
 				break;
 		}
 

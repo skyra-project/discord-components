@@ -1,3 +1,4 @@
+import { spread } from '@open-wc/lit-helpers';
 import { html, svg } from 'lit';
 
 const svgContent = svg`
@@ -11,4 +12,6 @@ const svgContent = svg`
 	/>
 `;
 
-export const Thread = html` <svg aria-hidden="false" width="24" height="24" viewBox="0 0 24 24">${svgContent}</svg>`;
+export default function Thread(props: Record<string, unknown> = {}) {
+	return html`<svg ${spread(props)} aria-hidden="false" width="24" height="24" viewBox="0 0 24 24">${svgContent}</svg>`;
+}
