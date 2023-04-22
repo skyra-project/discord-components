@@ -1,6 +1,7 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import type { DiscordReactions } from '../discord-reactions/DiscordReactions.js';
 
 @customElement('discord-reaction')
 export class DiscordReaction extends LitElement {
@@ -18,7 +19,7 @@ export class DiscordReaction extends LitElement {
 			border: 1px solid transparent;
 		}
 
-		.discord-light-theme .discord-reaction {
+		.discord-light-theme.discord-reaction {
 			background-color: #f2f3f5;
 		}
 
@@ -27,7 +28,7 @@ export class DiscordReaction extends LitElement {
 			border-color: #fff2;
 		}
 
-		.discord-light-theme .discord-reaction:not(.discord-reaction-reacted):hover {
+		.discord-light-theme.discord-reaction:not(.discord-reaction-reacted):hover {
 			background-color: white;
 			border-color: #0003;
 		}
@@ -37,7 +38,7 @@ export class DiscordReaction extends LitElement {
 			border-color: #5865f2;
 		}
 
-		.discord-light-theme .discord-reaction.discord-reaction-reacted {
+		.discord-light-theme.discord-reaction.discord-reaction-reacted {
 			background-color: #e7e9fd;
 		}
 
@@ -65,7 +66,7 @@ export class DiscordReaction extends LitElement {
 			color: #b9bbbe;
 		}
 
-		.discord-light-theme .discord-reaction .discord-reaction-count {
+		.discord-light-theme.discord-reaction .discord-reaction-count {
 			color: #4f5660;
 		}
 
@@ -73,7 +74,7 @@ export class DiscordReaction extends LitElement {
 			color: #dee0fc;
 		}
 
-		.discord-light-theme .discord-reaction.discord-reaction-reacted .discord-reaction-count {
+		.discord-light-theme.discord-reaction.discord-reaction-reacted .discord-reaction-count {
 			color: #5865f2;
 		}
 	`;
@@ -115,11 +116,23 @@ export class DiscordReaction extends LitElement {
 	@property({ type: Boolean })
 	public interactive = false;
 
+	@state()
+	public lightTheme = false;
+
 	protected override render() {
+		const parent = this.parentElement as DiscordReactions;
+
+		if (!parent || parent.tagName.toLowerCase() !== 'discord-reactions') {
+			throw new Error('All <discord-reaction> components must be direct children of <discord-reactions>.');
+		}
+
+		this.lightTheme = parent.lightTheme;
+
 		return html`
 			<div
 				class=${classMap({
 					'discord-reaction': true,
+					'discord-light-theme': this.lightTheme,
 					'discord-reaction-reacted': this.reacted
 				})}
 				@click=${this.handleReactionClick}

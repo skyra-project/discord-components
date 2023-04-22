@@ -5,6 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import type { Emoji } from '../../options.js';
 import { getGlobalEmojiUrl } from '../../util.js';
+import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 
 export interface DiscordEmbedProps {
 	color: string;
@@ -31,7 +32,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 			margin-top: 8px;
 		}
 
-		.discord-light-theme .discord-embed {
+		.discord-light-theme.discord-embed {
 			color: #2e3338;
 		}
 
@@ -42,7 +43,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 			width: 4px;
 		}
 
-		.discord-light-theme .discord-embed .discord-left-border {
+		.discord-light-theme.discord-embed .discord-left-border {
 			background-color: #e3e5e8;
 		}
 
@@ -66,7 +67,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 			box-sizing: border-box;
 		}
 
-		.discord-light-theme .discord-embed .discord-embed-wrapper {
+		.discord-light-theme.discord-embed .discord-embed-wrapper {
 			background-color: rgba(249, 249, 249, 0.3);
 			border-color: rgba(205, 205, 205, 0.3);
 		}
@@ -106,7 +107,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 			min-width: 0;
 		}
 
-		.discord-light-theme .discord-embed .discord-embed-author {
+		.discord-light-theme.discord-embed .discord-embed-author {
 			color: #4f545c;
 		}
 
@@ -115,7 +116,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 			font-weight: 600;
 		}
 
-		.discord-light-theme .discord-embed .discord-embed-author a {
+		.discord-light-theme.discord-embed .discord-embed-author a {
 			color: #4f545c;
 		}
 
@@ -136,7 +137,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 			text-align: left;
 		}
 
-		.discord-light-theme .discord-embed .discord-embed-provider {
+		.discord-light-theme.discord-embed .discord-embed-provider {
 			color: #4f545c;
 		}
 
@@ -282,40 +283,58 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 	@state()
 	private hasProvidedDescriptionSlot = true;
 
+	@state()
+	public lightTheme = false;
+
+	@state()
+	public compactMode = false;
+
 	protected override render() {
+		const parent = this.parentElement as DiscordMessage | null;
+
+		if (!parent || parent.tagName.toLowerCase() !== 'discord-message') {
+			throw new Error('All <discord-embed> components must be direct children of <discord-message>.');
+		}
+
+		this.lightTheme = parent.lightTheme;
+
 		const emojiParsedAuthorName = this.parseTitle(this.authorName);
 		const emojiParsedEmbedTitle = this.parseTitle(this.embedTitle);
 
-		return html` <div class="discord-embed">
+		return html`<div
+			class=${classMap({
+				'discord-embed': true,
+				'discord-light-theme': this.lightTheme
+			})}
+		>
 			<div style=${styleMap({ 'background-color': this.color })} class="discord-left-border"></div>
 			<div class="discord-embed-root">
 				<div class="discord-embed-wrapper">
 					<div class="discord-embed-grid">
-						${this.provider ? html` <div class="discord-embed-provider">${this.provider}</div>` : ''}
+						${this.provider ? html` <div class="discord-embed-provider">${this.provider}</div>` : null}
 						${emojiParsedAuthorName
 							? html` <div class="discord-embed-author">
-									${this.authorImage ? html`<img src="${this.authorImage}" alt="" class="discord-author-image" />` : ''}
+									${this.authorImage ? html`<img src="${this.authorImage}" alt="" class="discord-author-image" />` : null}
 									${this.authorUrl
 										? html` <a href="${this.authorUrl}" target="_blank" rel="noopener noreferrer"> ${emojiParsedAuthorName} </a> `
 										: html` ${emojiParsedAuthorName} `}
 							  </div>`
-							: ''}
+							: null}
 						${emojiParsedEmbedTitle
 							? html` <div class="discord-embed-title">
 									${this.url
 										? html` <a href="${this.url}" target="_blank" rel="noopener noreferrer"> ${emojiParsedEmbedTitle} </a> `
 										: html` ${emojiParsedEmbedTitle} `}
 							  </div>`
-							: ''}
-						${this.hasProvidedDescriptionSlot ? html` <slot name="description"></slot>` : ''}
-
+							: null}
+						${this.hasProvidedDescriptionSlot ? html` <slot name="description"></slot>` : null}
 						<slot name="fields"></slot>
 						${this.image || this.video
 							? html` <div class=${classMap({ 'discord-embed-media': true, 'discord-embed-media-video': Boolean(this.video) })}>
 									${this.renderMedia()}
 							  </div>`
 							: null}
-						${this.thumbnail ? html`<img src=${this.thumbnail} alt="" class="discord-embed-thumbnail" />` : ''}
+						${this.thumbnail ? html`<img src=${this.thumbnail} alt="" class="discord-embed-thumbnail" />` : null}
 						<slot name="footer"></slot>
 					</div>
 				</div>
@@ -338,7 +357,6 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 		return null;
 	}
 
-	/* TODO: used to include <img/>: <span>& nbsp; </span>*/
 	private parseTitle(title?: string) {
 		if (!title) return null;
 
@@ -351,6 +369,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 				el = html`
 					<span class="discord-embed-custom-emoji">
 						<img src="${ifDefined(emoji.url)}" alt="${emoji.name}" class="discord-embed-custom-emoji-image" />
+						<span>&nbsp;</span>
 					</span>
 				`;
 			} else {

@@ -1,5 +1,5 @@
 import { css, html, LitElement, TemplateResult } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { DiscordTimestamp, handleTimestamp } from '../../util.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
@@ -12,6 +12,7 @@ import DMMissedCall from '../svgs/DMMissedCall.js';
 import Thread from '../svgs/Thread.js';
 import SystemAlert from '../svgs/SystemAlert.js';
 import SystemError from '../svgs/SystemError.js';
+import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement {
@@ -41,7 +42,7 @@ export class DiscordSystemMessage extends LitElement {
 				margin-top: 1.0625rem;
 			}
 
-			.discord-light-theme .discord-system-message {
+			.discord-light-theme.discord-system-message {
 				color: #2e3338;
 				border-color: #eceeef;
 			}
@@ -50,7 +51,7 @@ export class DiscordSystemMessage extends LitElement {
 				color: #fff;
 			}
 
-			.discord-light-theme .discord-system-message.discord-channel-name-change {
+			.discord-light-theme.discord-system-message.discord-channel-name-change {
 				color: #060607;
 			}
 
@@ -95,7 +96,7 @@ export class DiscordSystemMessage extends LitElement {
 				margin-left: 3px;
 			}
 
-			.discord-light-theme .discord-system-message .discord-message-timestamp {
+			.discord-light-theme.discord-system-message .discord-message-timestamp {
 				color: #747f8d;
 			}
 
@@ -104,7 +105,7 @@ export class DiscordSystemMessage extends LitElement {
 				font-size: 10px;
 			}
 
-			.discord-light-theme .discord-system-message .discord-message-edited {
+			.discord-light-theme.discord-system-message .discord-message-edited {
 				color: #99aab5;
 			}
 
@@ -117,18 +118,18 @@ export class DiscordSystemMessage extends LitElement {
 				flex-direction: column;
 			}
 
-			.discord-system-message .discord-message-content i {
+			.discord-system-message .discord-message-content ::slotted(i) {
 				font-style: normal;
 				cursor: pointer;
 				color: white;
 				font-weight: 500;
 			}
 
-			.discord-light-theme .discord-system-message .discord-message-content i {
+			.discord-light-theme.discord-system-message .discord-message-content ::slotted(i) {
 				color: #060607;
 			}
 
-			.discord-system-message .discord-message-content i:hover {
+			.discord-system-message .discord-message-content ::slotted(i:hover) {
 				text-decoration: underline;
 			}
 
@@ -136,7 +137,7 @@ export class DiscordSystemMessage extends LitElement {
 				background-color: rgba(4, 4, 5, 0.07);
 			}
 
-			.discord-light-theme .discord-system-message:hover {
+			.discord-light-theme.discord-system-message:hover {
 				background-color: rgba(6, 6, 7, 0.02);
 			}
 
@@ -152,7 +153,7 @@ export class DiscordSystemMessage extends LitElement {
 				position: absolute;
 			}
 
-			.discord-light-theme .discord-system-message.discord-system-message-has-thread:after {
+			.discord-light-theme.discord-system-message.discord-system-message-has-thread:after {
 				border-color: #747f8d;
 			}
 		`
@@ -161,7 +162,7 @@ export class DiscordSystemMessage extends LitElement {
 	/**
 	 * The timestamp to use for the message date.
 	 */
-	@property({ reflect: true })
+	@property()
 	public timestamp: DiscordTimestamp = new Date();
 
 	/**
@@ -174,11 +175,14 @@ export class DiscordSystemMessage extends LitElement {
 	/**
 	 * Whether this message is to show channel name changes, used to match Discord's style.
 	 */
-	@property({ type: Boolean, reflect: true })
+	@property({ type: Boolean, attribute: 'channel-name' })
 	public channelName = false;
 
+	@state()
+	public lightTheme = false;
+
 	// @Watch('type')
-	public handleType(value: string) {
+	public checkType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordSystemMessage `type` prop must be a string.');
 		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'alert', 'error'].includes(value)) {
@@ -188,21 +192,17 @@ export class DiscordSystemMessage extends LitElement {
 		}
 	}
 
-	// @Watch('timestamp')
-	public updateTimestamp(value: DiscordTimestamp): string | null {
-		return handleTimestamp(value);
-	}
-
-	public componentWillRender() {
-		this.timestamp = handleTimestamp(this.timestamp);
-	}
-
 	protected override render() {
-		const parent = this.parentElement;
+		const parent = this.parentElement as DiscordMessages;
 
 		if (!parent || parent.tagName.toLowerCase() !== 'discord-messages') {
 			throw new Error('All <discord-system-message> components must be direct children of <discord-messages>.');
 		}
+
+		this.timestamp = handleTimestamp(this.timestamp);
+		this.checkType(this.type);
+
+		this.lightTheme = parent.lightTheme;
 
 		let icon: TemplateResult<1>;
 
@@ -242,6 +242,7 @@ export class DiscordSystemMessage extends LitElement {
 
 		const classes: Record<string, boolean> = {
 			'discord-system-message': true,
+			'discord-light-theme': this.lightTheme,
 			'discord-system-message-has-thread': hasThread,
 			'discord-channel-name-change': this.channelName
 		};

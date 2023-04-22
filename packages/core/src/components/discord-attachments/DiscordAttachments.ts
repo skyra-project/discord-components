@@ -1,5 +1,6 @@
 import { LitElement, css, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, state } from 'lit/decorators.js';
+import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 
 @customElement('discord-attachments')
 export class DiscordAttachments extends LitElement {
@@ -22,7 +23,18 @@ export class DiscordAttachments extends LitElement {
 		}
 	`;
 
+	@state()
+	public lightTheme = false;
+
 	protected override render() {
+		const parent = this.parentElement as DiscordMessage;
+
+		if (!parent || parent.tagName.toLowerCase() !== 'discord-message') {
+			throw new Error('All <discord-attachments> components must be direct children of <discord-message>.');
+		}
+
+		this.lightTheme = parent.lightTheme;
+
 		return html`
 			<div class="discord-attachments">
 				<slot></slot>

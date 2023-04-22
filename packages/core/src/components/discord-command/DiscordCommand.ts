@@ -73,12 +73,11 @@ export class DiscordCommand extends LitElement {
 		const messageParent = parent?.parentElement as any;
 
 		return html`
-			<div class="discord-replied-message discord-executed-command">
+			<div class="discord-reply discord-replied-message discord-executed-command">
 				${messageParent?.compactMode
 					? html` <div class="discord-reply-badge">${CommandIcon()}</div>`
 					: html` <img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" /> `}
-				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}> ${profile.author} </span>
-				used
+				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span> used
 				<div class="discord-replied-message-content discord-command-name">${this.command}</div>
 			</div>
 		`;

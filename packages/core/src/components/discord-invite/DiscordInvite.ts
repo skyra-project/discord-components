@@ -1,10 +1,12 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { defaultDiscordAvatars } from '../../options.js';
 import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
 import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
+import type { DiscordAttachments } from '../discord-attachments/DiscordAttachments.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement {
@@ -16,7 +18,7 @@ export class DiscordInvite extends LitElement {
 			width: 432px;
 		}
 
-		.discord-light-theme .discord-invite {
+		.discord-light-theme.discord-invite {
 			background-color: #f2f3f5;
 		}
 
@@ -32,7 +34,7 @@ export class DiscordInvite extends LitElement {
 			color: #b9bbbe;
 		}
 
-		.discord-light-theme .discord-invite .discord-invite-header {
+		.discord-light-theme.discord-invite .discord-invite-header {
 			color: #4f5660;
 		}
 
@@ -52,7 +54,7 @@ export class DiscordInvite extends LitElement {
 			height: 50px;
 		}
 
-		.discord-light-theme .discord-invite .discord-invite-icon {
+		.discord-light-theme.discord-invite .discord-invite-icon {
 			background-color: #fff;
 		}
 
@@ -79,7 +81,7 @@ export class DiscordInvite extends LitElement {
 			flex-direction: row;
 		}
 
-		.discord-light-theme .discord-invite .discord-invite-title {
+		.discord-light-theme.discord-invite .discord-invite-title {
 			color: #060607;
 		}
 
@@ -184,8 +186,8 @@ export class DiscordInvite extends LitElement {
 			color: white;
 		}
 
-		.discord-light-theme .discord-invite .discord-invite-counts,
-		.discord-light-theme .discord-invite .discord-invite-count {
+		.discord-light-theme.discord-invite .discord-invite-counts,
+		.discord-light-theme.discord-invite .discord-invite-count {
 			color: #4f5660;
 		}
 	`;
@@ -251,8 +253,24 @@ export class DiscordInvite extends LitElement {
 	@property({ attribute: 'join-btn' })
 	public joinBtn = 'Join';
 
+	@state()
+	public lightTheme = false;
+
 	protected override render() {
-		return html` <div class="discord-invite">
+		const parent = this.parentElement as DiscordAttachments;
+
+		if (!parent || parent.tagName.toLowerCase() !== 'discord-attachments') {
+			throw new Error('All <discord-attachments> components must be direct children of <discord-attachments>.');
+		}
+
+		this.lightTheme = parent.lightTheme;
+
+		return html` <div
+			class=${classMap({
+				'discord-invite': true,
+				'discord-light-theme': this.lightTheme
+			})}
+		>
 			<div class="discord-invite-header">${this.inviteTitle}</div>
 			<div class="discord-invite-root">
 				<img class="discord-invite-icon" src="${ifDefined(this.icon)}" alt="${this.name}" />
@@ -268,7 +286,7 @@ export class DiscordInvite extends LitElement {
 										${this.partnered ? PartnerBadgeOverlay() : VerifiedBadgeOverlay()}
 									</div>
 							  </div>`
-							: ''}
+							: null}
 						<span class="discord-invite-name">${this.name}</span>
 					</div>
 					<div class="discord-invite-counts">

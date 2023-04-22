@@ -1,9 +1,11 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
+import type { DiscordThread } from '../discord-thread/DiscordThread.js';
 
 @customElement('discord-thread-message')
 export class DiscordThreadMessage extends LitElement {
@@ -39,7 +41,7 @@ export class DiscordThreadMessage extends LitElement {
 			overflow: hidden;
 		}
 
-		.discord-light-theme .discord-thread-message .discord-thread-message-username {
+		.discord-light-theme.discord-thread-message .discord-thread-message-username {
 			color: #060607;
 		}
 
@@ -85,8 +87,8 @@ export class DiscordThreadMessage extends LitElement {
 			line-height: 1.125rem;
 		}
 
-		.discord-light-theme .discord-thread-message .discord-thread-message-timestamp,
-		.discord-light-theme .discord-thread-message .discord-message-edited {
+		.discord-light-theme.discord-thread-message .discord-thread-message-timestamp,
+		.discord-light-theme.discord-thread-message .discord-message-edited {
 			color: #747f8d;
 		}
 	`;
@@ -149,7 +151,18 @@ export class DiscordThreadMessage extends LitElement {
 	@property({ attribute: 'relative-timestamp' })
 	public relativeTimestamp = '1m ago';
 
+	@state()
+	public lightTheme = false;
+
 	protected override render() {
+		const parent = this.parentElement as DiscordThread;
+
+		if (!parent || parent.tagName.toLowerCase() !== 'discord-thread') {
+			throw new Error('All <discord-thread-message> components must be direct children of <discord-thread>.');
+		}
+
+		this.lightTheme = parent.lightTheme;
+
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
 		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, server: this.server, roleColor: this.roleColor };
@@ -157,18 +170,23 @@ export class DiscordThreadMessage extends LitElement {
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
 		return html`
-			<div class="discord-thread-message">
+			<div
+				class=${classMap({
+					'discord-thread-message': true,
+					'discord-light-theme': this.lightTheme
+				})}
+			>
 				<img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
 				${html`
 					${profile.bot && !profile.server
-						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : ''} Bot </span> `
-						: ''}
-					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
+						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : null} Bot </span> `
+						: null}
+					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : null}
 				`}
 				<span class="discord-thread-message-username" style=${styleMap({ color: profile.roleColor })}> ${profile.author} </span>
 				<div class="discord-thread-message-content">
 					<slot></slot>
-					${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}
+					${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
 				</div>
 				<span class="discord-thread-message-timestamp">${this.relativeTimestamp}</span>
 			</div>

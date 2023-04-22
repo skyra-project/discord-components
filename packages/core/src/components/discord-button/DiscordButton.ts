@@ -138,11 +138,11 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 		const isActive = this.url && !this.disabled;
 
 		const content = html`
-			${this.emoji ? html`<img src=${this.emoji} alt=${this.emojiName} draggable="true" class="discord-button-emoji" />` : ''}
+			${this.emoji ? html`<img src=${this.emoji} alt=${this.emojiName} draggable="true" class="discord-button-emoji" />` : null}
 			<span>
 				<slot></slot>
 			</span>
-			${this.url ? html`${LaunchIcon()}` : ''}
+			${this.url ? html`${LaunchIcon()}` : null}
 		`;
 
 		if (isActive) {

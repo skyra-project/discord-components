@@ -1,6 +1,8 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { DiscordTimestamp, handleTimestamp } from '../../util.js';
+import type { DiscordEmbed } from '../discord-embed/DiscordEmbed.js';
 
 @customElement('discord-embed-footer')
 export class DiscordEmbedFooter extends LitElement {
@@ -33,7 +35,7 @@ export class DiscordEmbedFooter extends LitElement {
 			margin: 0 4px;
 		}
 
-		.discord-light-theme .discord-embed-footer .discord-footer-separator {
+		.discord-light-theme.discord-embed-footer .discord-footer-separator {
 			color: #e4e4e4;
 		}
 	`;
@@ -41,7 +43,7 @@ export class DiscordEmbedFooter extends LitElement {
 	/**
 	 * The image to use next to the footer text.
 	 */
-	@property()
+	@property({ attribute: 'footer-image' })
 	public footerImage: string;
 
 	/**
@@ -50,25 +52,32 @@ export class DiscordEmbedFooter extends LitElement {
 	@property({ reflect: true })
 	public timestamp?: DiscordTimestamp;
 
-	// @Watch('timestamp')
+	@state()
+	public lightTheme = false;
+
 	public updateTimestamp(value?: DiscordTimestamp): string | null {
 		if (!value || isNaN(new Date(value).getTime())) return null;
 		return handleTimestamp(new Date(value));
 	}
 
-	public componentWillRender() {
-		this.timestamp = this.updateTimestamp(this.timestamp);
-	}
-
 	protected override render() {
-		const parent = this.parentElement;
+		const parent = this.parentElement as DiscordEmbed | null;
 
 		if (!parent || parent.tagName.toLowerCase() !== 'discord-embed') {
 			throw new Error('All <discord-embed-footer> components must be direct children of <discord-embed>.');
 		}
 
-		return html` <div class="discord-embed-footer">
-			${this.footerImage ? html`<img src="{this.footerImage}" alt="" class="discord-footer-image" />` : ''}
+		this.lightTheme = parent.lightTheme;
+
+		this.updateTimestamp(this.timestamp);
+
+		return html`<div
+			class=${classMap({
+				'discord-embed-footer': true,
+				'discord-light-theme': this.lightTheme
+			})}
+		>
+			${this.footerImage ? html`<img src="${this.footerImage}" alt="" class="discord-footer-image" />` : ''}
 			${html`
 				<slot></slot>
 				${this.timestamp ? html`<span class="discord-footer-separator">&bull;</span>` : ''} ${this.timestamp ? html`${this.timestamp}` : ''}

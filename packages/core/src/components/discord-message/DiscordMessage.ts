@@ -1,5 +1,5 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
@@ -24,6 +24,8 @@ interface DiscordMessageProps {
 	ephemeral: boolean;
 	timestamp: DiscordTimestamp;
 	twentyFour: boolean;
+	lightTheme: boolean;
+	compactMode: boolean;
 }
 
 @customElement('discord-message')
@@ -50,15 +52,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			min-height: 1.375rem;
 			padding-right: 48px !important;
 			margin-top: 1.0625rem;
-		}
-
-		:host(:first-child) {
-			margin-top: 0.5rem;
-		}
-
-		:host(:last-child) {
-			margin-bottom: 0.5rem;
-			border-bottom-width: 0;
 		}
 
 		.discord-message-inner {
@@ -212,7 +205,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			border-radius: 4px;
 		}
 
-		.discord-message-body code {
+		// TODO: Is this the best way to do this?
+		::slotted(discord-inline-code) {
 			background: #2f3136;
 			white-space: break-spaces;
 			font-family: Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono,
@@ -220,8 +214,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 		}
 
 		.discord-light-theme .discord-message-timestamp,
-		.discord-compact-mode :host:hover .discord-message-timestamp,
-		.discord-compact-mode.discord-light-theme :host:hover .discord-message-timestamp {
+		.discord-compact-mode .discord-message:hover .discord-message-timestamp,
+		.discord-compact-mode.discord-light-theme .discord-message:hover .discord-message-timestamp {
 			color: #99aab5;
 		}
 
@@ -266,11 +260,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			font-weight: 400;
 		}
 
-		:hover {
+		.discord-message:hover {
 			background-color: rgba(4, 4, 5, 0.07);
 		}
 
-		.discord-light-theme :host:hover {
+		.discord-light-theme.discord-message:hover {
 			background-color: rgba(6, 6, 7, 0.02);
 		}
 
@@ -286,7 +280,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			position: absolute;
 		}
 
-		.discord-light-theme .discord-message-has-thread:after {
+		.discord-light-theme.discord-message-has-thread:after {
 			border-color: #747f8d;
 		}
 
@@ -298,7 +292,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			color: #72767d;
 		}
 
-		.discord-light-theme .discord-message-ephemeral {
+		.discord-light-theme.discord-message-ephemeral {
 			color: #747f8d;
 		}
 
@@ -373,19 +367,19 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 	/**
 	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
-	@property({ type: String })
+	@property({ type: String, attribute: 'role-color' })
 	public roleColor: string | undefined = undefined;
 
 	/**
 	 * The message author's role icon URL.
 	 */
-	@property({ type: String })
+	@property({ type: String, attribute: 'role-icon' })
 	public roleIcon: string | undefined = undefined;
 
 	/**
 	 * The name of the role to use as alternative image text.
 	 */
-	@property({ type: String })
+	@property({ type: String, attribute: 'role-name' })
 	public roleName: string | undefined = undefined;
 
 	/**
@@ -416,7 +410,19 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 	@property({ type: Boolean, attribute: 'twenty-four' })
 	public twentyFour = false;
 
+	@state()
+	public lightTheme = false;
+
+	@state()
+	public compactMode = false;
+
 	protected override render() {
+		const parent = this.parentElement as DiscordMessages | null;
+
+		if (!parent || parent.tagName.toLowerCase() !== 'discord-messages') {
+			throw new Error('All <discord-message> components must be direct children of <discord-messages>.');
+		}
+
 		const resolveAvatar = (avatar: string | undefined): string =>
 			avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
 
@@ -444,9 +450,12 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 
 		const hasThread: boolean = Array.from(this.children).some((child): boolean => child.tagName.toLowerCase() === 'discord-thread');
 
-		const parentIsCompact = (this.parentElement && Boolean((this.parentElement as DiscordMessages).compactMode)) ?? false;
-		const parentHasNoBackground = (this.parentElement && Boolean((this.parentElement as DiscordMessages).noBackground)) ?? false;
-		const parentIsLightMode = (this.parentElement && Boolean((this.parentElement as DiscordMessages).lightTheme)) ?? false;
+		const parentIsCompact = parent.compactMode ?? false;
+		const parentHasNoBackground = parent.noBackground ?? false;
+		const parentIsLightMode = parent.lightTheme ?? false;
+
+		this.lightTheme = parentIsLightMode;
+		this.compactMode = parentIsCompact;
 
 		const computedTimestamp = handleTimestamp(this.timestamp, this.parentElement?.hasAttribute('compact-mode'), this.twentyFour);
 
@@ -464,16 +473,16 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			>
 				<slot name="reply"></slot>
 				<div class="discord-message-inner">
-					${parentIsCompact ? html`<span class="discord-message-timestamp">${computedTimestamp}</span>` : ''}
+					${parentIsCompact ? html`<span class="discord-message-timestamp">${computedTimestamp}</span>` : null}
 					${parentIsCompact
-						? ''
+						? null
 						: html`<div class="discord-author-avatar">
 								<img src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />
 						  </div>`}
 
 					<div class="discord-message-content">
 						${parentIsCompact
-							? ''
+							? null
 							: html`
 									<discord-author-info
 										author=${profile.author ?? ''}
@@ -501,11 +510,10 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 										roleName=${profile.roleName ?? ''}
 										?compact=${true}
 								  ></discord-author-info>`
-								: ''}
-							<span class="discord-message-markup">
-								<slot></slot>
-							</span>
-							${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}
+								: null}
+							<span class="discord-message-markup"> <slot></slot></span>${this.edited
+								? html`<span class="discord-message-edited">(edited)</span>`
+								: null}
 						</div>
 						<div class="discord-message-compact-indent">
 							<slot name="embeds"></slot>
@@ -520,7 +528,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 											<span class="discord-message-ephemeral-link">Dismiss message</span>
 										</div>
 								  `
-								: ''}
+								: null}
 						</div>
 					</div>
 				</div>
