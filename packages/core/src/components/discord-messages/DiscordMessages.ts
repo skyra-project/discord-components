@@ -24,6 +24,15 @@ export class DiscordMessages extends LitElement {
 		:host([no-background]) {
 			background-color: unset;
 		}
+
+		::slotted(*:first-child) {
+			margin-top: 0.5rem;
+		}
+
+		::slotted(*:last-child) {
+			margin-bottom: 0.5rem;
+			border-bottom-width: 0;
+		}
 	`;
 
 	/**
@@ -61,7 +70,7 @@ export class DiscordMessages extends LitElement {
 	}
 
 	protected override render() {
-		return html` <slot></slot> `;
+		return html`<slot></slot>`;
 	}
 }
 

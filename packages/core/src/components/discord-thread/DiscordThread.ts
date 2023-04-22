@@ -1,5 +1,7 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 
 @customElement('discord-thread')
 export class DiscordThread extends LitElement {
@@ -17,7 +19,7 @@ export class DiscordThread extends LitElement {
 			flex-direction: column;
 		}
 
-		.discord-light-theme .discord-thread {
+		.discord-light-theme.discord-thread {
 			background-color: #f2f3f5;
 		}
 
@@ -79,9 +81,25 @@ export class DiscordThread extends LitElement {
 	@property()
 	public cta = 'See Thread';
 
+	@state()
+	public lightTheme = false;
+
 	protected override render() {
+		const parent = this.parentElement as DiscordMessage;
+
+		if (!parent || (parent.tagName.toLowerCase() !== 'discord-message' && parent.tagName.toLowerCase() !== 'discord-system-message')) {
+			throw new Error('All <discord-thread> components must be direct children of either <discord-message> or <discord-system-message>.');
+		}
+
+		this.lightTheme = parent.lightTheme;
+
 		return html`
-			<div class="discord-thread">
+			<div
+				class=${classMap({
+					'discord-thread': true,
+					'discord-light-theme': this.lightTheme
+				})}
+			>
 				<div class="discord-thread-top">
 					<span class="discord-thread-name">${this.name}</span>
 					<span class="discord-thread-cta" aria-hidden="true"> ${this.cta} › </span>

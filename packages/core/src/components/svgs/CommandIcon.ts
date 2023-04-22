@@ -6,7 +6,7 @@ const svgContent = svg`
 `;
 
 export default function CommandIcon(props: Record<string, unknown> = {}) {
-	return html`<svg ${spread(props)} class="discord-command-icon" aria-hidden="false" width="16" height="16" viewBox="0 0 24 24">
+	return html`<svg ${spread(props)} class="discord-command-icon" aria-hidden="false" width="6" height="10" viewBox="0 0 6 10" fill="none">
 		${svgContent}
 	</svg>`;
 }

@@ -1,20 +1,22 @@
 import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { Profile, avatars, profiles } from '../../options.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
+import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement {
 	public static override styles = [
 		DiscordAuthorInfo.styles,
 		css`
-			.discord-reply .discord-replied-message {
+			.discord-reply.discord-replied-message {
 				color: #b9bbbe;
 				display: flex;
 				font-size: 0.875rem;
@@ -30,7 +32,7 @@ export class DiscordReply extends LitElement {
 				user-select: none;
 			}
 
-			.discord-light-theme .discord-replied-message {
+			.discord-light-theme.discord-replied-message {
 				color: #4f5660;
 			}
 
@@ -58,7 +60,7 @@ export class DiscordReply extends LitElement {
 				border-top-left-radius: 6px;
 			}
 
-			.discord-light-theme .discord-replied-message:before {
+			.discord-light-theme.discord-replied-message:before {
 				border-color: #747f8d;
 			}
 
@@ -82,7 +84,7 @@ export class DiscordReply extends LitElement {
 				background: #202225;
 			}
 
-			.discord-light-theme .discord-replied-message .discord-reply-badge {
+			.discord-light-theme.discord-replied-message .discord-reply-badge {
 				color: #4f5660;
 				background: #e3e5e8;
 			}
@@ -140,7 +142,7 @@ export class DiscordReply extends LitElement {
 				color: #fff;
 			}
 
-			.discord-light-theme .discord-replied-message .discord-replied-message-content:hover {
+			.discord-light-theme.discord-replied-message .discord-replied-message-content:hover {
 				color: #000;
 			}
 
@@ -235,12 +237,17 @@ export class DiscordReply extends LitElement {
 	@property({ type: Boolean })
 	public mentions = false;
 
+	@state()
+	public lightTheme = false;
+
 	protected override render() {
-		const parent = this.parentElement;
+		const parent = this.parentElement as DiscordMessage;
 
 		if (!parent || parent.tagName.toLowerCase() !== 'discord-message') {
 			throw new Error('All <discord-reply> components must be direct children of <discord-message>.');
 		}
+
+		this.lightTheme = parent.lightTheme;
 
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
@@ -258,20 +265,26 @@ export class DiscordReply extends LitElement {
 		const messageParent = parent.parentElement as any;
 
 		return html`
-			<div class="discord-replied-message">
+			<div
+				class=${classMap({
+					'discord-replied-message': true,
+					'discord-reply': true,
+					'discord-light-theme': this.lightTheme
+				})}
+			>
 				${messageParent.compactMode
 					? html` <div class="discord-reply-badge">${ReplyIcon()}</div> `
 					: html` <img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" /> `}
 				${html`
 					${profile.bot && !profile.server
 						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : ''} Bot </span>`
-						: ''}
+						: null}
 					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
 					${profile.op ? html` <span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
 				`}
-				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>
-					${this.mentions ? '@' : ''}${profile.author}
-				</span>
+				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
+					>${this.mentions ? '@' : ''} ${profile.author}</span
+				>
 				<div class="discord-replied-message-content">
 					<slot></slot>${this.edited ? html` <span class="discord-message-edited">(edited)</span>` : ''}
 				</div>

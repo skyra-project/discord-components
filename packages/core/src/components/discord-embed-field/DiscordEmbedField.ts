@@ -1,14 +1,15 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Emoji } from '../../options.js';
 import { getGlobalEmojiUrl } from '../../util.js';
+import type { DiscordEmbedFields } from '../discord-embed-fields/DiscordEmbedFields.js';
 
 @customElement('discord-embed-field')
 export class DiscordEmbedField extends LitElement {
 	public static override styles = css`
-		:host {
+		.discord-embed-field {
 			font-size: 0.875rem;
 			line-height: 1.125rem;
 			min-width: 0;
@@ -31,20 +32,8 @@ export class DiscordEmbedField extends LitElement {
 			min-width: 150px;
 		}
 
-		.discord-light-theme .discord-embed .discord-embed-field .discord-field-title {
+		.discord-light-theme.discord-embed-field .discord-field-title {
 			color: #747f8d;
-		}
-
-		.discord-embed-inline-field-3 {
-			grid-column: 9/13 !important;
-		}
-
-		.discord-embed-inline-field-2 {
-			grid-column: 5/9 !important;
-		}
-
-		.discord-embed-inline-field-1 {
-			grid-column: 1/5 !important;
 		}
 	`;
 
@@ -66,36 +55,36 @@ export class DiscordEmbedField extends LitElement {
 	@property({ type: Number, reflect: true, attribute: 'inline-index' })
 	public inlineIndex = 1;
 
+	@state()
+	public lightTheme = false;
+
 	private validInlineIndices = new Set([1, 2, 3]);
 
-	// @Watch('inlineIndex')
 	public checkInlineIndex(value: DiscordEmbedField['inlineIndex']) {
 		if (!this.validInlineIndices.has(Number(value))) throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
 	}
 
-	public componentWillRender() {
-		this.checkInlineIndex(this.inlineIndex);
-	}
-
 	protected override render() {
-		const parent = this.parentElement;
+		const parent = this.parentElement as DiscordEmbedFields | null;
 
 		if (!parent || parent.tagName.toLowerCase() !== 'discord-embed-fields') {
 			throw new SyntaxError('All <discord-embed-field> components must be direct children of <discord-embed-fields>.');
 		}
+
+		this.lightTheme = parent.lightTheme;
+
+		this.checkInlineIndex(this.inlineIndex);
 
 		const emojiParsedEmbedFieldTitle = this.parseTitle(this.fieldTitle);
 
 		return html` <div
 			class=${classMap({
 				'discord-embed-field': true,
-				'discord-embed-inline-field': this.inline,
-				'discord-embed-inline-field-1': this.inline && this.inlineIndex === 1,
-				'discord-embed-inline-field-2': this.inline && this.inlineIndex === 2,
-				'discord-embed-inline-field-3': this.inline && this.inlineIndex === 3
+				'discord-light-theme': this.lightTheme,
+				'discord-embed-inline-field': this.inline
 			})}
 		>
-			${emojiParsedEmbedFieldTitle ? html`<div class="discord-field-title">${[...emojiParsedEmbedFieldTitle]}</div>` : ''}
+			${emojiParsedEmbedFieldTitle ? html`<div class="discord-field-title">${[...emojiParsedEmbedFieldTitle]}</div>` : null}
 			<slot></slot>
 		</div>`;
 	}
@@ -112,6 +101,7 @@ export class DiscordEmbedField extends LitElement {
 				el = html`
 					<span class="discord-embed-custom-emoji">
 						<img src="${ifDefined(emoji.url)}" alt="${emoji.name}" class="discord-embed-custom-emoji-image" />
+						<span>&nbsp;</span>
 					</span>
 				`;
 			} else {
