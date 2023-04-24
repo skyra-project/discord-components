@@ -1884,6 +1884,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/react@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@lit-labs/react@npm:1.1.1"
+  checksum: e46b87a3e04b329b62e67360a7a1b21c55abf91c17d3059b550654565b53c73a25832e95426698e9b78488cc4ebaeb20b8a8ca64a220325e31633355a245710d
+  languageName: node
+  linkType: hard
+
 "@lit-labs/ssr-dom-shim@npm:^1.0.0, @lit-labs/ssr-dom-shim@npm:^1.1.0":
   version: 1.1.0
   resolution: "@lit-labs/ssr-dom-shim@npm:1.1.0"
@@ -2304,8 +2311,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-react@workspace:packages/react"
   dependencies:
+    "@lit-labs/react": ^1.1.1
     "@skyra/discord-components-core": ^3.4.0
+    "@types/react": ^18.0.38
+    react: ^18.2.0
     tslib: ^2.5.0
+    typescript: ^4.9.5
   peerDependencies:
     react: 16.8.x || 17.x || 18.x
     react-dom: 16.8.x || 17.x || 18.x
@@ -10306,7 +10317,7 @@ __metadata:
     pretty-quick: ^3.1.3
     react: ^18.2.0
     tslib: ^2.5.0
-    typescript: ^4.5.2
+    typescript: ^4.9.5
   languageName: unknown
   linkType: soft
 
@@ -11326,7 +11337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.5.2, typescript@npm:^4.6.3":
+"typescript@npm:^4.6.3, typescript@npm:^4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -11356,7 +11367,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.5.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=7ad353"
   bin:
