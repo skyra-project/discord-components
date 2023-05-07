@@ -5,3 +5,4 @@
 node_modules/
 packages/core/demo/index.html
 packages/core/old-src/
+packages/**/dist/
