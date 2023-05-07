@@ -205,14 +205,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			border-radius: 4px;
 		}
 
-		// TODO: Is this the best way to do this?
-		::slotted(discord-inline-code) {
-			background: #2f3136;
-			white-space: break-spaces;
-			font-family: Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono,
-				Liberation Mono, Nimbus Mono L, Monaco, Courier New, Courier, monospace;
-		}
-
 		.discord-light-theme .discord-message-timestamp,
 		.discord-compact-mode .discord-message:hover .discord-message-timestamp,
 		.discord-compact-mode.discord-light-theme .discord-message:hover .discord-message-timestamp {
