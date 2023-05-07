@@ -29,6 +29,10 @@ export class DiscordMessages extends LitElement {
 			margin-top: 0.5rem;
 		}
 
+		::slotted(*:not(:first-child)) {
+			margin-top: 1.0625rem;
+		}
+
 		::slotted(*:last-child) {
 			margin-bottom: 0.5rem;
 			border-bottom-width: 0;
