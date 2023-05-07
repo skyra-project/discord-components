@@ -75,10 +75,10 @@ export class DiscordMention extends LitElement {
 
 	/**
 	 * The type of mention this should be. This will prepend the proper prefix character.
-	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, and `forum`.
+	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, `forum`, and `slash`.
 	 */
 	@property({ type: String, reflect: true, attribute: 'type' })
-	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' = 'user';
+	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' | 'slash' = 'user';
 
 	public override connectedCallback(): void {
 		super.connectedCallback();
@@ -130,6 +130,9 @@ export class DiscordMention extends LitElement {
 				break;
 			case 'forum':
 				mentionPrepend = html`${ChannelForum()}`;
+				break;
+			case 'slash':
+				mentionPrepend = html`/`;
 				break;
 		}
 
