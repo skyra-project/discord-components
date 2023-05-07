@@ -4,18 +4,14 @@ import { customElement } from 'lit/decorators.js';
 @customElement('discord-action-row')
 export class DiscordActionRow extends LitElement {
 	public static override styles = css`
-		.discord-action-row {
+		:host {
 			display: flex;
 			flex-wrap: nowrap;
 		}
 	`;
 
 	protected override render() {
-		return html`
-			<div class="discord-action-row">
-				<slot></slot>
-			</div>
-		`;
+		return html`<slot></slot>`;
 	}
 }
 
