@@ -52,6 +52,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			min-height: 1.375rem;
 			padding-right: 48px !important;
 			margin-top: inherit;
+			margin-bottom: inherit;
 		}
 
 		.discord-message-inner {
