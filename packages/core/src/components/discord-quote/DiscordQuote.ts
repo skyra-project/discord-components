@@ -4,7 +4,7 @@ import { customElement } from 'lit/decorators.js';
 @customElement('discord-quote')
 export class DiscordQuote extends LitElement {
 	public static override styles = css`
-		.discord-quote-container {
+		:host {
 			display: flex;
 		}
 
@@ -30,12 +30,10 @@ export class DiscordQuote extends LitElement {
 
 	protected override render() {
 		return html`
-			<div class="discord-quote-container">
-				<div class="discord-quote-divider"></div>
-				<blockquote>
-					<slot></slot>
-				</blockquote>
-			</div>
+			<div class="discord-quote-divider"></div>
+			<blockquote>
+				<slot></slot>
+			</blockquote>
 		`;
 	}
 }
