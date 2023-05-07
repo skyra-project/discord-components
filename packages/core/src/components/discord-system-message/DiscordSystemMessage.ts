@@ -3,16 +3,17 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { DiscordTimestamp, handleTimestamp } from '../../util.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
+import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
+import Boost from '../svgs/Boost.js';
 import DMCall from '../svgs/DMCall.js';
 import DMEdit from '../svgs/DMEdit.js';
-import Boost from '../svgs/Boost.js';
-import UserJoin from '../svgs/UserJoin.js';
-import UserLeave from '../svgs/UserLeave.js';
 import DMMissedCall from '../svgs/DMMissedCall.js';
-import Thread from '../svgs/Thread.js';
+import Pin from '../svgs/Pin.js';
 import SystemAlert from '../svgs/SystemAlert.js';
 import SystemError from '../svgs/SystemError.js';
-import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
+import Thread from '../svgs/Thread.js';
+import UserJoin from '../svgs/UserJoin.js';
+import UserLeave from '../svgs/UserLeave.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement {
@@ -167,10 +168,10 @@ export class DiscordSystemMessage extends LitElement {
 
 	/**
 	 * The type of system message this is, this will change the icon shown.
-	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `alert`, and `error`.
+	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `pin`, `alert`, and `error`.
 	 */
 	@property()
-	public type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'alert' | 'error' = 'join';
+	public type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'pin' | 'alert' | 'error' = 'join';
 
 	/**
 	 * Whether this message is to show channel name changes, used to match Discord's style.
@@ -185,9 +186,9 @@ export class DiscordSystemMessage extends LitElement {
 	public checkType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordSystemMessage `type` prop must be a string.');
-		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'alert', 'error'].includes(value)) {
+		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'].includes(value)) {
 			throw new RangeError(
-				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread' 'alert', 'error'"
+				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'"
 			);
 		}
 	}
@@ -227,6 +228,9 @@ export class DiscordSystemMessage extends LitElement {
 				break;
 			case 'thread':
 				icon = Thread();
+				break;
+			case 'pin':
+				icon = Pin();
 				break;
 			case 'alert':
 				icon = SystemAlert();
