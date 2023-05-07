@@ -182,7 +182,6 @@ export class DiscordSystemMessage extends LitElement {
 	@state()
 	public lightTheme = false;
 
-	// @Watch('type')
 	public checkType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordSystemMessage `type` prop must be a string.');

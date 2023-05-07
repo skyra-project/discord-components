@@ -119,7 +119,6 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 	@property({ type: String, reflect: true, attribute: 'type' })
 	public type: 'primary' | 'secondary' | 'success' | 'destructive' = 'secondary';
 
-	// @Watch('type')
 	public handleType(value: string) {
 		if (typeof value !== 'string') {
 			throw new TypeError('DiscordButton `type` prop must be a string.');
@@ -129,8 +128,6 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 	}
 
 	protected override render() {
-		// const parent: HTMLDiscordActionRowElement = this.el.parentElement as HTMLDiscordActionRowElement;
-
 		if (this.parentElement?.tagName.toLowerCase() !== 'discord-action-row') {
 			throw new Error('All <discord-button> components must be direct children of <discord-action-row>.');
 		}
