@@ -147,11 +147,11 @@ export class DiscordInvite extends LitElement {
 			background-color: #3ba55d;
 			-webkit-transition: background-color 0.17s ease;
 			transition: background-color 0.17s ease;
+			text-decoration: none;
 		}
 
 		.discord-invite .discord-invite-join:hover {
 			background-color: #2d7d46;
-			text-decoration: none;
 		}
 
 		.discord-invite .discord-invite-badge {
