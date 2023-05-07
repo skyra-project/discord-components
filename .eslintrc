@@ -54,5 +54,13 @@
 		"import/no-extraneous-dependencies": "off",
 		"import/no-unresolved": "off",
 		"wc/guard-super-call": "off"
-	}
+	},
+	"overrides": [
+		{
+			"files": ["packages/core/test/**/*.ts"],
+			"rules": {
+				"@typescript-eslint/no-floating-promises": "off"
+			}
+		}
+	]
 }

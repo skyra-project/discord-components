@@ -90,17 +90,17 @@
 		"storybook:build": "yarn build:ts && yarn analyze --exclude dist && build-storybook"
 	},
 	"dependencies": {
-		"lit": "^2.7.2",
+		"lit": "^2.7.4",
 		"tslib": "^2.5.0"
 	},
 	"devDependencies": {
-		"@custom-elements-manifest/analyzer": "^0.8.0",
+		"@custom-elements-manifest/analyzer": "^0.8.1",
 		"@open-wc/eslint-config": "^10.0.0",
 		"@open-wc/lit-helpers": "^0.5.1",
 		"@open-wc/testing": "^3.1.8",
-		"@web/dev-server": "^0.2.0",
-		"@web/dev-server-storybook": "^0.7.0",
-		"@web/test-runner": "^0.16.0",
+		"@web/dev-server": "^0.2.1",
+		"@web/dev-server-storybook": "^0.7.1",
+		"@web/test-runner": "^0.16.1",
 		"concurrently": "^8.0.1"
 	},
 	"files": [
