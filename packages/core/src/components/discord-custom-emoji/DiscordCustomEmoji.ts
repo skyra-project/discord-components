@@ -47,7 +47,7 @@ export class DiscordCustomEmoji extends LitElement {
 	@property({ type: Boolean, attribute: 'embed-emoji' })
 	public embedEmoji: boolean;
 
-	public componentWillRender() {
+	public override willUpdate() {
 		if (!this.url && Boolean(this.name)) {
 			const emojiFromGlobal = getGlobalEmojiUrl(this.name);
 
@@ -59,8 +59,6 @@ export class DiscordCustomEmoji extends LitElement {
 	}
 
 	protected override render() {
-		this.componentWillRender();
-
 		const name = `:${this.name}:`;
 		const emojiClassName = this.embedEmoji ? 'discord-embed-custom-emoji' : 'discord-custom-emoji';
 		const emojiImageClassName = this.embedEmoji ? 'discord-embed-custom-emoji-image' : 'discord-custom-emoji-image';
