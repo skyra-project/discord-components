@@ -1,4 +1,4 @@
-import { LitElement, css, html } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 
@@ -16,7 +16,7 @@ export class DiscordAttachments extends LitElement {
 			padding-bottom: 0.125rem;
 			position: relative;
 		}
-		.discord-attachments > * {
+		:host > * {
 			justify-self: start;
 			-ms-flex-item-align: start;
 			align-self: start;
@@ -35,11 +35,7 @@ export class DiscordAttachments extends LitElement {
 
 		this.lightTheme = parent.lightTheme;
 
-		return html`
-			<div class="discord-attachments">
-				<slot></slot>
-			</div>
-		`;
+		return html`<slot></slot>`;
 	}
 }
 
