@@ -15,20 +15,20 @@
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.6.1",
-		"@commitlint/config-conventional": "^17.6.1",
-		"@lerna-lite/cli": "^2.1.0",
-		"@sapphire/eslint-config": "^4.4.1",
+		"@commitlint/cli": "^17.6.3",
+		"@commitlint/config-conventional": "^17.6.3",
+		"@lerna-lite/cli": "^2.3.0",
+		"@sapphire/eslint-config": "^4.4.2",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^4.0.0",
 		"@stencil/react-output-target": "^0.5.0",
-		"@types/node": "^18.16.3",
-		"@types/react": "^18.2.0",
-		"@types/react-dom": "^18.2.1",
-		"@typescript-eslint/eslint-plugin": "^5.59.1",
-		"@typescript-eslint/parser": "^5.59.1",
+		"@types/node": "^18.16.5",
+		"@types/react": "^18.2.6",
+		"@types/react-dom": "^18.2.4",
+		"@typescript-eslint/eslint-plugin": "^5.59.2",
+		"@typescript-eslint/parser": "^5.59.2",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.39.0",
+		"eslint": "^8.40.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
@@ -48,8 +48,8 @@
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
-		"@types/react": "^18.2.0",
-		"@types/react-dom": "^18.2.1",
+		"@types/react": "^18.2.6",
+		"@types/react-dom": "^18.2.4",
 		"@sapphire/ts-config@^4.0.0": "patch:@sapphire/ts-config@npm%3A4.0.0#./.yarn/patches/@sapphire-ts-config-npm-4.0.0-cfd20d4fc5.patch"
 	},
 	"commitlint": {
@@ -66,5 +66,5 @@
 		}
 	},
 	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@3.5.0"
+	"packageManager": "yarn@3.5.1"
 }
