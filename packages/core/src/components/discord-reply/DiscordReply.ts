@@ -285,9 +285,10 @@ export class DiscordReply extends LitElement {
 				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
 					>${this.mentions ? '@' : ''} ${profile.author}</span
 				>
-				<div class="discord-replied-message-content">
-					<slot></slot>${this.edited ? html` <span class="discord-message-edited">(edited)</span>` : ''}
-				</div>
+				<!-- display: inline -->
+				<div class="discord-replied-message-content"
+					><slot></slot>${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}</div
+				>
 				${this.command
 					? CommandReply({ class: 'discord-replied-message-content-icon' })
 					: html` ${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''} `}
