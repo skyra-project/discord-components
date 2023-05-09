@@ -138,6 +138,15 @@ export class DiscordReply extends LitElement {
 				cursor: pointer;
 			}
 
+			.discord-message-edited {
+				color: #72767d;
+				font-size: 10px;
+			}
+
+			.discord-light-theme .discord-message-edited {
+				color: #99aab5;
+			}
+
 			.discord-replied-message-content:hover {
 				color: #fff;
 			}
@@ -277,7 +286,7 @@ export class DiscordReply extends LitElement {
 					: html` <img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" /> `}
 				${html`
 					${profile.bot && !profile.server
-						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : ''} Bot </span>`
+						? html` <span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
 						: null}
 					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
 					${profile.op ? html` <span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
