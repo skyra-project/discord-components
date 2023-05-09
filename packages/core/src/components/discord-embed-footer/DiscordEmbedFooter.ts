@@ -15,8 +15,6 @@ export class DiscordEmbedFooter extends LitElement {
 			font-size: 12px;
 			line-height: 16px;
 			font-weight: 500;
-			grid-column: 1/3;
-			grid-row: auto/auto;
 			margin-top: 8px;
 		}
 
