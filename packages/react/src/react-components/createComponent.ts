@@ -1,18 +1,15 @@
 import React from 'react';
-import { createComponent, EventName } from '@lit-labs/react';
+import { createComponent } from '@lit-labs/react';
 import type { LitElement } from 'lit';
 
 declare interface Constructor<T> {
 	new (): T;
 }
 
-declare type EventNames = Record<string, EventName | string>;
-
-export function createReactComponent<T extends LitElement>(tagName: string, elementClass: Constructor<T>, events?: EventNames) {
+export function createReactComponent<T extends LitElement>(tagName: string, elementClass: Constructor<T>) {
 	return createComponent({
 		tagName,
 		elementClass,
-		react: React,
-		events
+		react: React
 	});
 }
