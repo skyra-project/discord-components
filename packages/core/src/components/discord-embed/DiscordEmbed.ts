@@ -208,6 +208,11 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 			height: 18px;
 			vertical-align: bottom;
 		}
+
+		slot[name='footer']::slotted(*) {
+			grid-column: 1/3;
+			grid-row: auto/auto;
+		}
 	`;
 
 	/**
