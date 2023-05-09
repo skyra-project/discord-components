@@ -16,6 +16,10 @@ export class DiscordAuthorInfo extends LitElement {
 			margin-right: 0.25rem;
 		}
 
+		.discord-author-info.discord-compact-mode {
+			margin-right: 0;
+		}
+
 		.discord-compact-mode.discord-message .discord-author-info {
 			margin-right: 0;
 		}

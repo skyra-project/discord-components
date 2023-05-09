@@ -210,18 +210,10 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			text-indent: 0;
 		}
 
-		.discord-compact-mode {
-			margin-top: unset;
-		}
-
 		.discord-compact-mode .discord-message-body {
 			line-height: 1.375rem;
 			padding-left: 10px;
 			text-indent: -6px;
-		}
-
-		.discord-compact-mode .discord-message-content {
-			margin-left: 8px;
 		}
 
 		.discord-compact-mode .discord-message-compact-indent {
@@ -486,10 +478,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 										roleName=${profile.roleName ?? ''}
 										?compact=${true}
 								  ></discord-author-info>`
-								: null}
-							<span class="discord-message-markup"> <slot></slot></span>${this.edited
-								? html`<span class="discord-message-edited">(edited)</span>`
-								: null}
+								: null}<span class="discord-message-markup"><slot></slot></span>
+							${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
 						</div>
 						<div class="discord-message-compact-indent">
 							<slot name="embeds"></slot>
