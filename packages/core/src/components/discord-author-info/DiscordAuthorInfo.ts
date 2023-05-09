@@ -157,36 +157,34 @@ export class DiscordAuthorInfo extends LitElement {
 
 		if ((rootParent as DiscordMessage).compactMode) this.compact = true;
 
-		return html`
-			<div
-				class=${classMap({
-					'discord-author-info': true,
-					'discord-compact-mode': this.compact,
-					'discord-light-theme': parentIsLightMode,
-					'discord-message': true
-				})}
-			>
-				${this.compact
-					? null
-					: html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`}
-				${this.roleIcon
-					? html`<img
-							class="discord-author-role-icon"
-							src=${this.roleIcon}
-							height="20"
-							width="20"
-							alt=${ifDefined(this.roleName)}
-							draggable="false"
-					  />`
-					: null}
-				${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified && VerifiedTick()} Bot</span>` : null}
-				${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : null}
-				${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : null}
-				${this.compact
-					? html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`
-					: null}
-			</div>
-		`;
+		return html` <div
+			class=${classMap({
+				'discord-author-info': true,
+				'discord-compact-mode': this.compact,
+				'discord-light-theme': parentIsLightMode,
+				'discord-message': true
+			})}
+		>
+			${this.compact
+				? null
+				: html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`}
+			${this.roleIcon
+				? html`<img
+						class="discord-author-role-icon"
+						src=${this.roleIcon}
+						height="20"
+						width="20"
+						alt=${ifDefined(this.roleName)}
+						draggable="false"
+				  />`
+				: null}
+			${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified && VerifiedTick()} Bot</span>` : null}
+			${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : null}
+			${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : null}
+			${this.compact
+				? html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`
+				: null}
+		</div>`;
 	}
 }
 

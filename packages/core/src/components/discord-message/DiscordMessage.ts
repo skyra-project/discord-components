@@ -488,8 +488,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 										roleIcon=${profile.roleIcon ?? ''}
 										roleName=${profile.roleName ?? ''}
 										?compact=${false}
-									></discord-author-info>
-									<span class="discord-message-timestamp">${computedTimestamp}</span>
+									></discord-author-info
+									><span class="discord-message-timestamp">${computedTimestamp}</span>
 							  `}
 						<div class="discord-message-body">
 							${parentIsCompact
