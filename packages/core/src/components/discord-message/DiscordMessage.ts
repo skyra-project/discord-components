@@ -5,6 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
 import { handleTimestamp, type DiscordTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
+import type { DiscordMention } from '../discord-mention/DiscordMention.js';
 import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
 import Ephemeral from '../svgs/Ephemeral.js';
 
@@ -438,7 +439,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 				(child): boolean =>
 					child.tagName.toLowerCase() === 'discord-mention' &&
 					child.hasAttribute('highlight') &&
-					(child.getAttribute('type') === 'user' || child.getAttribute('type') === 'role')
+					((child as DiscordMention).type === 'user' || (child as DiscordMention).type === 'role')
 			) || this.highlight;
 
 		const hasThread: boolean = Array.from(this.children).some((child): boolean => child.tagName.toLowerCase() === 'discord-thread');
