@@ -123,24 +123,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps {
 			border-color: #eceeef;
 		}
 
-		a {
-			color: #00aff4;
-			font-weight: normal;
-			text-decoration: none;
-		}
-
-		a:hover {
-			text-decoration: underline;
-		}
-
-		.discord-light-theme a {
-			color: #00b0f4;
-		}
-
-		a:hover {
-			text-decoration: underline;
-		}
-
 		.discord-author-avatar {
 			margin-right: 16px;
 			margin-top: 5px;
