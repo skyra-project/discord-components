@@ -169,7 +169,10 @@
 							<discord-underlined>I am underlined text!</discord-underlined>
 						</discord-message>
 						<discord-message>
-							<discord-inline-code>I am inline-code text!</discord-inline-code>
+							<discord-code>I am inline-code text!</discord-code>
+						</discord-message>
+						<discord-message>
+							<discord-code multiline>I am multi-\nline code text!</discord-code>
 						</discord-message>
 						<discord-message>
 							<discord-spoiler>I am spoiler text!</discord-spoiler>
@@ -473,20 +476,20 @@
 						<discord-message profile="skyra">
 							<discord-embed slot="embeds" color="#0F52BA">
 								<discord-embed-description slot="description">
-									You can use several HTML tags to get discord-like styling in your embed description:
+									You can use our own HTML tags to get discord-like styling in your embed description:
 									<ul>
-										<li>&lt;code&gt;content&lt;/code&gt; for <code>content</code><br /></li>
-										<li>&lt;code class="multiline"&gt;content&lt;/code&gt; for <code class="multiline">content</code></li>
+										<li>&lt;discord-code embed&gt;content&lt;/discord-code&gt; for <discord-code embed>content</discord-code><br /></li>
+										<li>&lt;discord-code embed multiline&gt;content&lt;/discord-code&gt; for <discord-code embed multiline>content</discord-code></li>
 										<li>
-											&lt;pre&gt;content&lt;/pre&gt; for
-											<pre>content</pre>
+											&lt;discord-pre&gt;content&lt;/discord-pre&gt; for
+											<discord-pre>content</discord-pre>
 										</li>
-										<li>&lt;img class="emoji" /&gt; for <img class="emoji" src="/demo/static/sapphire.png" /></li>
+										<li>&lt;discord-custom-emoji /&gt; for <discord-custom-emoji url="/demo/static/sapphire.png" /></li>
 										<li>
-											&lt;blockquote&gt;content&lt;/blockquote&gt; for
-											<blockquote>content</blockquote>
+											&lt;discord-quote&gt;content&lt;/discord-quote&gt; for
+											<discord-quote>content</discord-quote>
 										</li>
-										<li>&lt;span class="spoiler"&gt;content&lt;/span&gt; for <span class="spoiler">content</span></li>
+										<li>&lt;discord-spoiler&gt;content&lt;/discord-spoiler&gt; for <discord-spoiler>content</discord-spoiler></li>
 									</ul>
 								</discord-embed-description>
 							</discord-embed>

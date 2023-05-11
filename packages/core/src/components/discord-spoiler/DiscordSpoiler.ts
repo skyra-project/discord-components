@@ -1,25 +1,27 @@
 import { css, html, LitElement } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-spoiler')
-export class DiscordSpoiler extends LitElement {
+export class DiscordSpoiler extends LitElement implements LightTheme {
 	public static override styles = css`
 		:host {
 			background-color: #202225;
+			border-radius: 3px;
 			color: transparent;
 			cursor: pointer;
 		}
 
-		.discord-light-theme .discord-message .discord-message-body :host {
-			background-color: #b9bbbe;
+		:host([light-theme]) {
+			background-color: #c4c9ce;
 		}
 
 		:host(:hover) {
 			background-color: rgba(32, 34, 37, 0.8);
 		}
 
-		.discord-light-theme .discord-message .discord-message-body :host(:hover) {
-			background-color: rgba(185, 187, 190, 0.8);
+		:host([light-theme]:hover) {
+			background-color: #cfd3d7;
 		}
 
 		:host(:active) {
@@ -27,10 +29,20 @@ export class DiscordSpoiler extends LitElement {
 			background-color: hsla(0, 0%, 100%, 0.1);
 		}
 
-		.discord-light-theme .discord-message .discord-message-body :host(:active) {
-			background-color: rgba(0, 0, 0, 0.1);
+		:host([light-theme]:active) {
+			background-color: #e5e5e5;
 		}
 	`;
+
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
+	public lightTheme = false;
+
+	public override willUpdate() {
+		if (this.parentElement && 'lightTheme' in this.parentElement) {
+			const parent = this.parentElement as { lightTheme: boolean };
+			this.lightTheme = parent.lightTheme;
+		}
+	}
 
 	protected override render() {
 		return html`<slot></slot>`;

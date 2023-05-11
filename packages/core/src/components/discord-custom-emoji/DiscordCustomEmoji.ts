@@ -63,11 +63,9 @@ export class DiscordCustomEmoji extends LitElement {
 		const emojiClassName = this.embedEmoji ? 'discord-embed-custom-emoji' : 'discord-custom-emoji';
 		const emojiImageClassName = this.embedEmoji ? 'discord-embed-custom-emoji-image' : 'discord-custom-emoji-image';
 
-		return html`
-			<span class="${emojiClassName}">
-				<img aria-label="${name}" src="${this.url}" alt="${name}" draggable="false" class="${emojiImageClassName}" />
-			</span>
-		`;
+		return html`<span class="${emojiClassName}"
+			><img aria-label="${name}" src="${this.url}" alt="${name}" draggable="false" class="${emojiImageClassName}"
+		/></span> `;
 	}
 }
 

@@ -1,9 +1,10 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
+import type { LightTheme } from '../../util.js';
 import type { DiscordEmbed } from '../discord-embed/DiscordEmbed.js';
 
 @customElement('discord-embed-fields')
-export class DiscordEmbedFields extends LitElement {
+export class DiscordEmbedFields extends LitElement implements LightTheme {
 	public static override styles = css`
 		.discord-embed-fields {
 			display: grid;

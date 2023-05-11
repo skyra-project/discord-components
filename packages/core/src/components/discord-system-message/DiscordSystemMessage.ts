@@ -1,7 +1,7 @@
 import { css, html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { DiscordTimestamp, handleTimestamp } from '../../util.js';
+import { DiscordTimestamp, handleTimestamp, LightTheme } from '../../util.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
 import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
 import Boost from '../svgs/Boost.js';
@@ -16,7 +16,7 @@ import UserJoin from '../svgs/UserJoin.js';
 import UserLeave from '../svgs/UserLeave.js';
 
 @customElement('discord-system-message')
-export class DiscordSystemMessage extends LitElement {
+export class DiscordSystemMessage extends LitElement implements LightTheme {
 	public static override styles = [
 		DiscordAuthorInfo.styles,
 		css`

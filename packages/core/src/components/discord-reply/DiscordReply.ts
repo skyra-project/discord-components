@@ -10,9 +10,10 @@ import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-reply')
-export class DiscordReply extends LitElement {
+export class DiscordReply extends LitElement implements LightTheme {
 	public static override styles = [
 		DiscordAuthorInfo.styles,
 		css`

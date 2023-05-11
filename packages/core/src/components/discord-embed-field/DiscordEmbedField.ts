@@ -3,11 +3,11 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Emoji } from '../../options.js';
-import { getGlobalEmojiUrl } from '../../util.js';
+import { getGlobalEmojiUrl, LightTheme } from '../../util.js';
 import type { DiscordEmbedFields } from '../discord-embed-fields/DiscordEmbedFields.js';
 
 @customElement('discord-embed-field')
-export class DiscordEmbedField extends LitElement {
+export class DiscordEmbedField extends LitElement implements LightTheme {
 	public static override styles = css`
 		.discord-embed-field {
 			font-size: 0.875rem;

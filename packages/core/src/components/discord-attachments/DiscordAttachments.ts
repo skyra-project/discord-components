@@ -1,9 +1,10 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
+import type { LightTheme } from '../../util.js';
 import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 
 @customElement('discord-attachments')
-export class DiscordAttachments extends LitElement {
+export class DiscordAttachments extends LitElement implements LightTheme {
 	public static override styles = css`
 		:host {
 			display: grid;
