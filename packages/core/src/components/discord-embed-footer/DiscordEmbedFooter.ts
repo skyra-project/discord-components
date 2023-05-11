@@ -1,11 +1,11 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { DiscordTimestamp, handleTimestamp } from '../../util.js';
+import { DiscordTimestamp, handleTimestamp, LightTheme } from '../../util.js';
 import type { DiscordEmbed } from '../discord-embed/DiscordEmbed.js';
 
 @customElement('discord-embed-footer')
-export class DiscordEmbedFooter extends LitElement {
+export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	public static override styles = css`
 		.discord-embed-footer {
 			-webkit-box-align: center;

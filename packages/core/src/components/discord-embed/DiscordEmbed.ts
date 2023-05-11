@@ -4,7 +4,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import type { Emoji } from '../../options.js';
-import { getGlobalEmojiUrl } from '../../util.js';
+import { getGlobalEmojiUrl, LightTheme } from '../../util.js';
 import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 
 export interface DiscordEmbedProps {
@@ -21,7 +21,7 @@ export interface DiscordEmbedProps {
 }
 
 @customElement('discord-embed')
-export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
+export class DiscordEmbed extends LitElement implements DiscordEmbedProps, LightTheme {
 	public static override styles = css`
 		.discord-embed {
 			color: #dcddde;

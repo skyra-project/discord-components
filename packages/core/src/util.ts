@@ -2,6 +2,10 @@ import type { Emoji } from './options';
 
 export type DiscordTimestamp = Date | string | null;
 
+export interface LightTheme {
+	lightTheme: boolean;
+}
+
 const padZeroes = (value: string): string => {
 	const [month, day, year]: string[] = value.split('/');
 	return `${month.padStart(2, '0')}/${day.padStart(2, '0')}/${year}`;

@@ -1,10 +1,11 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import type { LightTheme } from '../../util.js';
 import type { DiscordReactions } from '../discord-reactions/DiscordReactions.js';
 
 @customElement('discord-reaction')
-export class DiscordReaction extends LitElement {
+export class DiscordReaction extends LitElement implements LightTheme {
 	public static override styles = css`
 		.discord-reaction {
 			border-radius: 0.5rem;

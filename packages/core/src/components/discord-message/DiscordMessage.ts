@@ -3,7 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
-import { handleTimestamp, type DiscordTimestamp } from '../../util.js';
+import { handleTimestamp, LightTheme, type DiscordTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
 import type { DiscordMention } from '../discord-mention/DiscordMention.js';
 import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
@@ -30,7 +30,7 @@ interface DiscordMessageProps {
 }
 
 @customElement('discord-message')
-export class DiscordMessage extends LitElement implements DiscordMessageProps {
+export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {
 	public static override styles = css`
 		.discord-message {
 			color: #dcddde;

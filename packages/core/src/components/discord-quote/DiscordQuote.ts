@@ -1,8 +1,9 @@
 import { css, html, LitElement } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-quote')
-export class DiscordQuote extends LitElement {
+export class DiscordQuote extends LitElement implements LightTheme {
 	public static override styles = css`
 		:host {
 			display: flex;
@@ -19,6 +20,10 @@ export class DiscordQuote extends LitElement {
 			width: 4px;
 		}
 
+		:host([light-theme]) .discord-quote-divider {
+			background-color: #c4c9ce;
+		}
+
 		blockquote {
 			margin-block-end: unset;
 			margin-block-start: unset;
@@ -28,12 +33,21 @@ export class DiscordQuote extends LitElement {
 		}
 	`;
 
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
+	public lightTheme = false;
+
+	public override willUpdate() {
+		if (this.parentElement && 'lightTheme' in this.parentElement) {
+			const parent = this.parentElement as { lightTheme: boolean };
+			this.lightTheme = parent.lightTheme;
+		}
+	}
+
 	protected override render() {
 		return html`
 			<div class="discord-quote-divider"></div>
-			<blockquote>
-				<slot></slot>
-			</blockquote>
+			<!-- display: inline -->
+			<blockquote><slot></slot></blockquote>
 		`;
 	}
 }

@@ -1,9 +1,10 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
+import type { LightTheme } from '../../util.js';
 import type { DiscordEmbed } from '../discord-embed/DiscordEmbed.js';
 
 @customElement('discord-embed-description')
-export class DiscordEmbedDescription extends LitElement {
+export class DiscordEmbedDescription extends LitElement implements LightTheme {
 	public static override styles = css`
 		:host {
 			font-size: 0.875rem;
@@ -13,28 +14,6 @@ export class DiscordEmbedDescription extends LitElement {
 			margin-top: 8px;
 			min-width: 0;
 			white-space: pre-line;
-		}
-
-		:host code {
-			background-color: #202225;
-			padding: 2.5px;
-			border-radius: 3px;
-		}
-
-		:host([light-theme]) code {
-			background-color: #e3e5e8;
-		}
-
-		:host code.multiline {
-			display: block;
-			padding: 7px;
-			border-radius: 4px;
-			white-space: break-spaces;
-		}
-
-		:host pre {
-			margin: 0;
-			margin-top: 6px;
 		}
 
 		:host img.emoji {

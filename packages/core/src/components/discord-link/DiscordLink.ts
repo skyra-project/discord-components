@@ -2,9 +2,10 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-link')
-export class DiscordLink extends LitElement {
+export class DiscordLink extends LitElement implements LightTheme {
 	public static override styles = css`
 		a {
 			color: #00aff4;
@@ -35,7 +36,7 @@ export class DiscordLink extends LitElement {
 	public type?: string;
 
 	protected override render() {
-		if (this.parentElement && 'lightTheme' in this.parentElement) this.lightTheme = (this.parentElement as any).lightTheme;
+		if (this.parentElement && 'lightTheme' in this.parentElement) this.lightTheme = (this.parentElement as LightTheme).lightTheme;
 
 		return html`<a
 			href=${ifDefined(this.href)}

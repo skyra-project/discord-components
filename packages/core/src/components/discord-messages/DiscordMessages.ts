@@ -1,9 +1,10 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-messages')
-export class DiscordMessages extends LitElement {
+export class DiscordMessages extends LitElement implements LightTheme {
 	public static override styles = css`
 		:host {
 			color: #fff;

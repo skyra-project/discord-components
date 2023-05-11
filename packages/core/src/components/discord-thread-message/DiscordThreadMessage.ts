@@ -6,9 +6,10 @@ import { classMap } from 'lit/directives/class-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 import type { DiscordThread } from '../discord-thread/DiscordThread.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-thread-message')
-export class DiscordThreadMessage extends LitElement {
+export class DiscordThreadMessage extends LitElement implements LightTheme {
 	public static override styles = css`
 		.discord-thread-message {
 			height: 18px;

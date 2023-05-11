@@ -7,9 +7,10 @@ import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
 import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
 import type { DiscordAttachments } from '../discord-attachments/DiscordAttachments.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-invite')
-export class DiscordInvite extends LitElement {
+export class DiscordInvite extends LitElement implements LightTheme {
 	public static override styles = css`
 		.discord-invite {
 			background-color: #2f3136;
