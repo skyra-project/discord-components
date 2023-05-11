@@ -114,6 +114,11 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 		.discord-embed .discord-embed-author a {
 			color: #fff;
 			font-weight: 600;
+			text-decoration: none;
+		}
+
+		.discord-embed .discord-embed-author a:hover {
+			text-decoration: underline;
 		}
 
 		.discord-light-theme.discord-embed .discord-embed-author a {
@@ -156,6 +161,11 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps {
 		.discord-embed .discord-embed-title a {
 			color: #00aff4;
 			font-weight: 600;
+			text-decoration: none;
+		}
+
+		.discord-embed .discord-embed-title a:hover {
+			text-decoration: underline;
 		}
 
 		.discord-embed .discord-embed-image {

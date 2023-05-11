@@ -1,12 +1,11 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import type { DiscordEmbed } from '../discord-embed/DiscordEmbed.js';
 
 @customElement('discord-embed-description')
 export class DiscordEmbedDescription extends LitElement {
 	public static override styles = css`
-		.discord-embed-description {
+		:host {
 			font-size: 0.875rem;
 			font-weight: 400;
 			grid-column: 1/1;
@@ -16,40 +15,40 @@ export class DiscordEmbedDescription extends LitElement {
 			white-space: pre-line;
 		}
 
-		.discord-embed-description code {
+		:host code {
 			background-color: #202225;
 			padding: 2.5px;
 			border-radius: 3px;
 		}
 
-		.discord-light-theme.discord-embed-description code {
+		:host([light-theme]) code {
 			background-color: #e3e5e8;
 		}
 
-		.discord-embed-description code.multiline {
+		:host code.multiline {
 			display: block;
 			padding: 7px;
 			border-radius: 4px;
 			white-space: break-spaces;
 		}
 
-		.discord-embed-description pre {
+		:host pre {
 			margin: 0;
 			margin-top: 6px;
 		}
 
-		.discord-embed-description img.emoji {
+		:host img.emoji {
 			width: 22px;
 			height: 22px;
 		}
 
-		.discord-embed-description blockquote {
+		:host blockquote {
 			position: relative;
 			padding: 0 8px 0 12px;
 			margin: 0;
 		}
 
-		.discord-embed-description blockquote::before {
+		:host blockquote::before {
 			content: '';
 			display: block;
 			position: absolute;
@@ -60,34 +59,34 @@ export class DiscordEmbedDescription extends LitElement {
 			background-color: #4f545c;
 		}
 
-		.discord-light-theme.discord-embed-description blockquote::before {
+		:host([light-theme]) blockquote::before {
 			background-color: #c7ccd1;
 		}
 
-		.discord-embed-description .spoiler {
+		:host .spoiler {
 			background-color: #202225;
 			color: transparent;
 			cursor: pointer;
 		}
 
-		.discord-light-theme.discord-embed-description .spoiler {
+		:host([light-theme]) .spoiler {
 			background-color: #b9bbbe;
 		}
 
-		.discord-embed-description .spoiler:hover {
+		:host .spoiler:hover {
 			background-color: rgba(32, 34, 37, 0.8);
 		}
 
-		.discord-light-theme.discord-embed-description .spoiler:hover {
+		:host([light-theme]) .spoiler:hover {
 			background-color: rgba(185, 187, 190, 0.8);
 		}
 
-		.discord-embed-description .spoiler:active {
+		:host .spoiler:active {
 			color: inherit;
 			background-color: hsla(0, 0%, 100%, 0.1);
 		}
 
-		.discord-light-theme.discord-embed-description .spoiler:active {
+		:host([light-theme]) .spoiler:active {
 			background-color: rgba(0, 0, 0, 0.1);
 		}
 	`;
@@ -104,14 +103,7 @@ export class DiscordEmbedDescription extends LitElement {
 
 		this.lightTheme = parent.lightTheme;
 
-		return html`<div
-			class=${classMap({
-				'discord-embed-description': true,
-				'discord-light-theme': this.lightTheme
-			})}
-		>
-			<slot></slot>
-		</div>`;
+		return html`<slot></slot>`;
 	}
 }
 
