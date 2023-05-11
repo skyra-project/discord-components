@@ -169,26 +169,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			position: relative;
 		}
 
-		.discord-message-body strong {
-			font-weight: 700;
-		}
-
-		.discord-message-body em {
-			font-style: italic;
-		}
-
-		.discord-message-body u {
-			text-decoration-color: rgb(220, 221, 222);
-			text-decoration-line: underline;
-			text-decoration-style: solid;
-			text-decoration-thickness: auto;
-		}
-
-		.discord-message-body pre {
-			border: 1px solid #202225;
-			border-radius: 4px;
-		}
-
 		.discord-light-theme .discord-message-timestamp,
 		.discord-compact-mode .discord-message:hover .discord-message-timestamp,
 		.discord-compact-mode.discord-light-theme .discord-message:hover .discord-message-timestamp {
