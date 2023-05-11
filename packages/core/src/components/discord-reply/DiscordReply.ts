@@ -293,7 +293,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 					${profile.op ? html` <span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
 				`}
 				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
-					>${this.mentions ? '@' : ''} ${profile.author}</span
+					>${this.mentions ? '@' : ''}${profile.author}</span
 				>
 				<!-- display: inline -->
 				<div class="discord-replied-message-content"
