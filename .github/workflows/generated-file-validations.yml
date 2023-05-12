@@ -1,0 +1,80 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  ValidateReadmes:
+    name: Validate README files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3
+      - name: Use Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Build Code
+        run: yarn inject-readme-markdown
+      - name: Format files
+        run: yarn prettier --write README.md packages/core/README.md packages/react/README.md
+      - name: Validate changes
+        run: |
+          if ! git diff-index --quiet HEAD --; then
+            echo "::error file=README.md::File did not match generated file after script. Please review and adjust accordingly."
+            exit 1;
+          fi
+
+  ValidateExports:
+    name: Validate core exports and side effects
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3
+      - name: Use Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Build Code
+        run: yarn inject-package-exports
+      - name: Format files
+        run: yarn prettier --write packages/core/package.json
+      - name: Validate changes
+        run: |
+          if ! git diff-index --quiet HEAD --; then
+            echo "::error file=packages/core/package.json::File did not match generated file after script. Please review and adjust accordingly."
+            exit 1;
+          fi
+
+  ValidateCoreIndexReExports:
+    name: Validate core index.ts re-exports
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3
+      - name: Use Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Build Code
+        run: yarn inject-index-re-exports
+      - name: Format files
+        run: yarn prettier --write packages/core/src/index.ts
+      - name: Validate changes
+        run: |
+          if ! git diff-index --quiet HEAD --; then
+            echo "::error file=packages/core/src/index.ts::File did not match generated file after script. Please review and adjust accordingly."
+            exit 1;
+          fi
