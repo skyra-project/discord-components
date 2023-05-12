@@ -384,7 +384,6 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 				el = html`
 					<span class="discord-embed-custom-emoji">
 						<img src="${ifDefined(emoji.url)}" alt="${emoji.name}" class="discord-embed-custom-emoji-image" />
-						<span>&nbsp;</span>
 					</span>
 				`;
 			} else {

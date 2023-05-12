@@ -89,24 +89,24 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 		</div>`;
 	}
 
-	/* TODO: used to have <img/>: <span>& nbsp; </span>*/
 	private parseTitle(title?: string) {
 		if (!title) return null;
 
 		const words = title.split(' ');
 		return words.map((word: string, idx: number) => {
 			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
-			let el;
+			let el: string | ReturnType<typeof html>;
+
 			if (emoji.name) {
 				el = html`
 					<span class="discord-embed-custom-emoji">
 						<img src="${ifDefined(emoji.url)}" alt="${emoji.name}" class="discord-embed-custom-emoji-image" />
-						<span>&nbsp;</span>
 					</span>
 				`;
 			} else {
 				el = idx < words.length - 1 ? `${word} ` : word;
 			}
+
 			return el;
 		});
 	}
