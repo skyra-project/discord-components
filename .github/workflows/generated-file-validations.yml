@@ -23,7 +23,7 @@ jobs:
       - name: Build Code
         run: yarn inject-readme-markdown
       - name: Format files
-        run: yarn prettier --write README.md packages/core/README.md packages/react/README.md
+        run: yarn format
       - name: Validate changes
         run: |
           if ! git diff-index --quiet HEAD --; then
@@ -47,7 +47,7 @@ jobs:
       - name: Build Code
         run: yarn inject-package-exports
       - name: Format files
-        run: yarn prettier --write packages/core/package.json
+        run: yarn format
       - name: Validate changes
         run: |
           if ! git diff-index --quiet HEAD --; then
@@ -71,7 +71,7 @@ jobs:
       - name: Build Code
         run: yarn inject-index-re-exports
       - name: Format files
-        run: yarn prettier --write packages/core/src/index.ts
+        run: yarn format
       - name: Validate changes
         run: |
           if ! git diff-index --quiet HEAD --; then

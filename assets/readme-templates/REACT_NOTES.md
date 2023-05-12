@@ -12,9 +12,9 @@ when working in TypeScript:
 import type { DiscordMessageOptions } from '@skyra/discord-components-core/dist/types/options';
 
 declare global {
-	interface Window {
-		$discordMessage: DiscordMessageOptions;
-	}
+  interface Window {
+    $discordMessage: DiscordMessageOptions;
+  }
 }
 ```
 
@@ -25,11 +25,11 @@ The current avatar shortcut strings available are "blue" (default), "gray",
 
 ```json
 {
-	"blue": "https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png",
-	"gray": "https://cdn.discordapp.com/attachments/654503812593090602/665721746569166849/gray.png",
-	"green": "https://cdn.discordapp.com/attachments/654503812593090602/665721748431306753/green.png",
-	"orange": "https://cdn.discordapp.com/attachments/654503812593090602/665721750201434138/orange.png",
-	"red": "https://cdn.discordapp.com/attachments/654503812593090602/665721752277483540/red.png"
+  "blue": "https://cdn.discordapp.com/attachments/654503812593090602/665721745466195978/blue.png",
+  "gray": "https://cdn.discordapp.com/attachments/654503812593090602/665721746569166849/gray.png",
+  "green": "https://cdn.discordapp.com/attachments/654503812593090602/665721748431306753/green.png",
+  "orange": "https://cdn.discordapp.com/attachments/654503812593090602/665721750201434138/orange.png",
+  "red": "https://cdn.discordapp.com/attachments/654503812593090602/665721752277483540/red.png"
 }
 ```
 
@@ -38,11 +38,11 @@ If you want to add to or override the shortcuts, you can set them via
 
 ```ts
 window.$discordMessage = {
-	avatars: {
-		default: 'blue',
-		skyra: 'https://github.com/NM-EEA-Y.png',
-		djs: require('./assets/discord-avatar-djs.png') // You can use require syntax as well
-	}
+  avatars: {
+    default: 'blue',
+    skyra: 'https://github.com/NM-EEA-Y.png',
+    djs: require('./assets/discord-avatar-djs.png') // You can use require syntax as well
+  }
 };
 ```
 
@@ -54,20 +54,20 @@ can do so by providing an object of profiles in
 
 ```ts
 window.$discordMessage = {
-	profiles: {
-		skyra: {
-			author: 'Skyra',
-			avatar: 'https://github.com/NM-EEA-Y.png',
-			bot: true,
-			verified: true,
-			roleColor: '#1e88e5'
-		},
-		favna: {
-			author: 'Favna',
-			avatar: 'https://github.com/favna.png',
-			roleColor: '#ff0000'
-		}
-	}
+  profiles: {
+    skyra: {
+      author: 'Skyra',
+      avatar: 'https://github.com/NM-EEA-Y.png',
+      bot: true,
+      verified: true,
+      roleColor: '#1e88e5'
+    },
+    favna: {
+      author: 'Favna',
+      avatar: 'https://github.com/favna.png',
+      roleColor: '#ff0000'
+    }
+  }
 };
 ```
 
@@ -75,10 +75,10 @@ And then in your React code:
 
 ```tsx
 <DiscordMessages>
-	<DiscordMessage profile="skyra">
-		Welcome to our server, <mention>Favna</mention>!
-	</DiscordMessage>
-	<DiscordMessage profile="favna">Hey, glad to be here!</DiscordMessage>
+  <DiscordMessage profile="skyra">
+    Welcome to our server, <mention>Favna</mention>!
+  </DiscordMessage>
+  <DiscordMessage profile="favna">Hey, glad to be here!</DiscordMessage>
 </DiscordMessages>
 ```
 
@@ -116,10 +116,10 @@ give it the proper `slot` attribute.
 
 ```tsx
 <DiscordMessage>
-	Hi, I'm part of the normal message content.
-	<DiscordEmbed slot="embeds" color="#0099ff">
-		Hi, I'm part of the embed message content.
-	</DiscordEmbed>
+  Hi, I'm part of the normal message content.
+  <DiscordEmbed slot="embeds" color="#0099ff">
+    Hi, I'm part of the embed message content.
+  </DiscordEmbed>
 </DiscordMessage>
 ```
 
@@ -148,17 +148,17 @@ and drops to 2 if an embed thumbnail is used.
 
 ```tsx
 <DiscordMessage>
-	<DiscordEmbed slot="embeds">
-		Hi, I'm part of the embed message content.
-		<DiscordEmbedFields slot="fields">
-			<DiscordEmbedField fieldTitle="Inline field" inline>
-				Field content.
-			</DiscordEmbedField>
-			<DiscordEmbedField fieldTitle="Inline field" inline>
-				Field content.
-			</DiscordEmbedField>
-		</DiscordEmbedFields>
-	</DiscordEmbed>
+  <DiscordEmbed slot="embeds">
+    Hi, I'm part of the embed message content.
+    <DiscordEmbedFields slot="fields">
+      <DiscordEmbedField fieldTitle="Inline field" inline>
+        Field content.
+      </DiscordEmbedField>
+      <DiscordEmbedField fieldTitle="Inline field" inline>
+        Field content.
+      </DiscordEmbedField>
+    </DiscordEmbedFields>
+  </DiscordEmbed>
 </DiscordMessage>
 ```
 
