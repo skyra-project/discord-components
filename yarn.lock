@@ -1585,9 +1585,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@custom-elements-manifest/analyzer@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "@custom-elements-manifest/analyzer@npm:0.8.1"
+"@custom-elements-manifest/analyzer@npm:^0.8.2":
+  version: 0.8.2
+  resolution: "@custom-elements-manifest/analyzer@npm:0.8.2"
   dependencies:
     "@custom-elements-manifest/find-dependencies": ^0.0.5
     "@github/catalyst": ^1.6.0
@@ -1602,7 +1602,7 @@ __metadata:
   bin:
     cem: cem.js
     custom-elements-manifest: cem.js
-  checksum: 5672e2c0621c1081e70da735abb945d2f6f3c7aac36086e010c9958fd004caff407bba995cd2332fe32d72fc94acc2295a7b014e597fe0f25ddfb65ad4181bd3
+  checksum: c39c64737212e011e7f44fe5a292ba1048ac02caab5ef9f1c4570f0a3f9882715359f41f885ad49ef7e15bf203bc207a583022fc614d59a3949cc2da0b4f00ef
   languageName: node
   linkType: hard
 
@@ -2311,7 +2311,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-core@workspace:packages/core"
   dependencies:
-    "@custom-elements-manifest/analyzer": ^0.8.1
+    "@custom-elements-manifest/analyzer": ^0.8.2
     "@open-wc/eslint-config": ^10.0.0
     "@open-wc/lit-helpers": ^0.5.1
     "@open-wc/testing": ^3.1.8
@@ -2700,10 +2700,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.16.6":
-  version: 18.16.6
-  resolution: "@types/node@npm:18.16.6"
-  checksum: 99417418952c0b1a6ff5dd40ccf01c2cd18db6a1c54bfaaff29c700c877e2e541aa31ea33090592f3817adb2b8c0946b86c7fb57049131e7c08252d70075f09b
+"@types/node@npm:*, @types/node@npm:^18.16.8":
+  version: 18.16.8
+  resolution: "@types/node@npm:18.16.8"
+  checksum: d2ec9b61abd260b0fa1e33e4eca8f0089ebb6f6ec1ad2f036a4d01af11dba4f1dbff95b2a1f5dbe9eab3a6f38ed4bd8bf95eb2de9ad96b1caa1f67671e623c1d
   languageName: node
   linkType: hard
 
@@ -10573,7 +10573,7 @@ __metadata:
     "@sapphire/eslint-config": ^4.4.2
     "@sapphire/prettier-config": ^1.4.5
     "@sapphire/ts-config": ^3.3.4
-    "@types/node": ^18.16.6
+    "@types/node": ^18.16.8
     "@types/react": ^18.2.6
     "@typescript-eslint/eslint-plugin": ^5.59.5
     "@typescript-eslint/parser": ^5.59.5
