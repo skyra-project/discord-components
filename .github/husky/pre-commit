@@ -1,9 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn inject-readme-markdown \
-&& yarn inject-package-exports \
-&& git add README.md && git add packages/core/README.md && git add packages/react/README.md \
-&& git add packages/core/package.json \
-&& yarn pretty-quick --staged \
-&& yarn lint-staged
+yarn pretty-quick --staged && yarn lint-staged

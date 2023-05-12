@@ -17,12 +17,11 @@ jobs:
         run: |
           echo "::add-matcher::.github/problemMatchers/eslint.json"
           echo "::add-matcher::.github/problemMatchers/tsc.json"
-      - name: Use Node.js v16
+      - name: Use Node.js v18
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: yarn
-          registry: https://registry.yarnpkg.com
       - name: Install Dependencies
         run: yarn --immutable
       - name: Build Code
