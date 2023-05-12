@@ -33,52 +33,52 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 			text-decoration: none !important;
 		}
 
-		.discord-button-success {
+		.success {
 			color: #fff;
 			background-color: #3ba55d;
 		}
 
-		.discord-button-success.discord-button-hoverable:hover {
+		.success.hoverable:hover {
 			background-color: #2d7d46;
 		}
 
-		.discord-button-destructive {
+		.destructive {
 			color: #fff;
 			background-color: #ed4245;
 		}
 
-		.discord-button-destructive.discord-button-hoverable:hover {
+		.destructive.hoverable:hover {
 			background-color: #c03537;
 		}
 
-		.discord-button-primary {
+		.primary {
 			color: #fff;
 			background-color: #5865f2;
 		}
 
-		.discord-button-primary.discord-button-hoverable:hover {
+		.primary.hoverable:hover {
 			background-color: #4752c4;
 		}
 
-		.discord-button-secondary {
+		.secondary {
 			color: #fff;
 			background-color: #4f545c;
 		}
 
-		.discord-button-secondary.discord-button-hoverable:hover {
+		.secondary.hoverable:hover {
 			background-color: #5d6269;
 		}
 
-		.discord-button-disabled {
+		.disabled {
 			cursor: not-allowed;
 			opacity: 0.5;
 		}
 
-		.discord-button-launch {
+		.launch {
 			margin-left: 8px;
 		}
 
-		.discord-button-emoji {
+		.emoji {
 			margin-right: 4px;
 			object-fit: contain;
 			width: 1.375em;
@@ -134,7 +134,7 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 		const isActive = this.url && !this.disabled;
 
 		const content = html`
-			${this.emoji ? html`<img src=${this.emoji} alt=${this.emojiName} draggable="true" class="discord-button-emoji" />` : null}
+			${this.emoji ? html`<img src=${this.emoji} alt=${this.emojiName} draggable="true" class="emoji" />` : null}
 			<span>
 				<slot></slot>
 			</span>
@@ -142,10 +142,10 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 		`;
 
 		if (isActive) {
-			return html`<a class="discord-button-secondary" href=${this.url} target="_blank" rel="noopener noreferrer"> ${content} </a>`;
+			return html`<a class="secondary" href=${this.url} target="_blank" rel="noopener noreferrer"> ${content} </a>`;
 		}
 
-		return html`<div class=${`discord-button-${this.type} discord-button-${this.disabled ? 'disabled' : 'hoverable'}`}>${content}</div>`;
+		return html`<div class=${`${this.type} ${this.disabled ? 'disabled' : 'hoverable'}`}>${content}</div>`;
 	}
 }
 
