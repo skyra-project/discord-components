@@ -13,7 +13,7 @@ const svgContent = svg`
 `;
 
 export default function PartnerBadgeOverlay(props: Record<string, unknown> = {}) {
-	return html` <svg ${spread(props)} class="partner-badge-overlay" aria-hidden="false" width="16" height="16" viewBox="0 0 16 16">
+	return html`<svg ${spread(props)} class="partner-badge-overlay" aria-hidden="false" width="16" height="16" viewBox="0 0 16 16">
 		${svgContent}
 	</svg>`;
 }

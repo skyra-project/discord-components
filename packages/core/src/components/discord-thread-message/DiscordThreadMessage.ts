@@ -1,12 +1,12 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
-import VerifiedTick from '../svgs/VerifiedTick.js';
-import type { DiscordThread } from '../discord-thread/DiscordThread.js';
 import type { LightTheme } from '../../util.js';
+import type { DiscordThread } from '../discord-thread/DiscordThread.js';
+import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-thread-message')
 export class DiscordThreadMessage extends LitElement implements LightTheme {
@@ -180,7 +180,7 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 				<img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
 				${html`
 					${profile.bot && !profile.server
-						? html` <span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : null} Bot </span> `
+						? html`<span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : null} Bot </span>`
 						: null}
 					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : null}
 				`}

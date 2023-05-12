@@ -6,7 +6,7 @@ const svgContent = svg`
 `;
 
 export default function VerifiedTick(props: Record<string, unknown> = {}) {
-	return html` <svg
+	return html`<svg
 		${spread(props)}
 		class="discord-application-tag-verified"
 		aria-label="Verified Bot"

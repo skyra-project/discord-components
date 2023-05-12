@@ -7,5 +7,5 @@ const svgContent = svg`
 `;
 
 export default function Boost(props: Record<string, unknown> = {}) {
-	return html` <svg ${spread(props)} aria-hidden="false" width="24" height="24" viewBox="0 0 8 12">${svgContent}</svg>`;
+	return html`<svg ${spread(props)} aria-hidden="false" width="24" height="24" viewBox="0 0 8 12">${svgContent}</svg>`;
 }
