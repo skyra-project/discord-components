@@ -1,5 +1,5 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
 import ChannelForum from '../svgs/ChannelForum.js';
 import ChannelIcon from '../svgs/ChannelIcon.js';
@@ -80,32 +80,36 @@ export class DiscordMention extends LitElement {
 	@property({ reflect: true, attribute: 'type' })
 	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' | 'slash' = 'user';
 
+	@state()
+	private colorCodeFromStyles: string | undefined;
+
+	public setHoverColor = () => {
+		if (this.colorCodeFromStyles) {
+			this.style.backgroundColor = hexToRgba(this.colorCodeFromStyles, 0.3);
+		}
+	};
+
+	public resetHoverColor = () => {
+		if (this.colorCodeFromStyles) {
+			this.style.backgroundColor = hexToRgba(this.colorCodeFromStyles, 0.1);
+		}
+	};
+
 	public override connectedCallback(): void {
 		super.connectedCallback();
 
-		const colorCodeFromStyles = colorCodeExtractor.exec(this.style.cssText)?.groups?.colorCode;
-		if (colorCodeFromStyles && this.type === 'role') {
-			this.addEventListener('mouseover', this.setHoverColor.bind(this, colorCodeFromStyles));
-			this.addEventListener('mouseout', this.resetHoverColor.bind(this, colorCodeFromStyles));
+		this.colorCodeFromStyles = colorCodeExtractor.exec(this.style.cssText)?.groups?.colorCode;
+		if (this.colorCodeFromStyles && this.type === 'role') {
+			this.addEventListener('mouseover', this.setHoverColor);
+			this.addEventListener('mouseout', this.resetHoverColor);
 		}
 	}
 
 	public override disconnectedCallback(): void {
+		this.removeEventListener('mouseover', this.setHoverColor);
+		this.removeEventListener('mouseout', this.resetHoverColor);
+
 		super.disconnectedCallback();
-
-		const colorCodeFromStyles = colorCodeExtractor.exec(this.style.cssText)?.groups?.colorCode;
-		if (colorCodeFromStyles && this.type === 'role') {
-			this.removeEventListener('mouseover', this.setHoverColor.bind(this, colorCodeFromStyles));
-			this.removeEventListener('mouseout', this.resetHoverColor.bind(this, colorCodeFromStyles));
-		}
-	}
-
-	public setHoverColor(colorCodeFromStyles: string) {
-		this.style.backgroundColor = hexToRgba(colorCodeFromStyles, 0.3);
-	}
-
-	public resetHoverColor(colorCodeFromStyles: string) {
-		this.style.backgroundColor = hexToRgba(colorCodeFromStyles, 0.1);
 	}
 
 	protected override render() {
