@@ -4,5 +4,6 @@ coverage/
 loader/
 node_modules/
 www/
+.yarn/
 *.png
-packages/core/src/components.d.ts
+packages/core/custom-elements.json
