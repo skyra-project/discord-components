@@ -12,9 +12,8 @@ interface DiscordButtonProps {
 
 @customElement('discord-button')
 export class DiscordButton extends LitElement implements DiscordButtonProps {
-	// TODO: Why isn't host: working?
 	public static override styles = css`
-		.discord-button {
+		:host > *:first-child {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -143,13 +142,10 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 		`;
 
 		if (isActive) {
-			return html` <a class="discord-button discord-button-secondary" href=${this.url} target="_blank" rel="noopener noreferrer">
-				${content}
-			</a>`;
+			return html`<a class="discord-button-secondary" href=${this.url} target="_blank" rel="noopener noreferrer"> ${content} </a>`;
 		}
-		return html` <div class=${`discord-button discord-button-${this.type} discord-button-${this.disabled ? 'disabled' : 'hoverable'}`}>
-			${content}
-		</div>`;
+
+		return html`<div class=${`discord-button-${this.type} discord-button-${this.disabled ? 'disabled' : 'hoverable'}`}>${content}</div>`;
 	}
 }
 
