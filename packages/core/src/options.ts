@@ -44,16 +44,18 @@ export interface Emoji {
 	embedEmoji?: boolean;
 }
 
-const globalAvatars: Avatars = window.$discordMessage?.avatars ?? ({} as Avatars);
+const serverSideSafeWindow = window ?? globalThis;
+
+const globalAvatars: Avatars = serverSideSafeWindow.$discordMessage?.avatars ?? ({} as Avatars);
 
 export const avatars: Avatars = Object.assign(defaultDiscordAvatars, globalAvatars, {
 	default: defaultDiscordAvatars[globalAvatars.default] ?? globalAvatars.default ?? defaultDiscordAvatars.blue
 });
 
-export const profiles: { [key: string]: Profile } = window.$discordMessage?.profiles ?? {};
+export const profiles: { [key: string]: Profile } = serverSideSafeWindow.$discordMessage?.profiles ?? {};
 
-export const defaultTheme: string = window.$discordMessage?.defaultTheme === 'light' ? 'light' : 'dark';
+export const defaultTheme: string = serverSideSafeWindow.$discordMessage?.defaultTheme === 'light' ? 'light' : 'dark';
 
-export const defaultMode: string = window.$discordMessage?.defaultMode === 'compact' ? 'compact' : 'cozy';
+export const defaultMode: string = serverSideSafeWindow.$discordMessage?.defaultMode === 'compact' ? 'compact' : 'cozy';
 
-export const defaultBackground: string = window.$discordMessage?.defaultBackground === 'none' ? 'none' : 'discord';
+export const defaultBackground: string = serverSideSafeWindow.$discordMessage?.defaultBackground === 'none' ? 'none' : 'discord';
