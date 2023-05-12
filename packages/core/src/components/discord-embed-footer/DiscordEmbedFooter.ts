@@ -45,6 +45,12 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	public footerImage: string;
 
 	/**
+	 * The alt attribute to use for the {@link footerImage}
+	 */
+	@property({ attribute: 'footer-image-alt' })
+	public footerImageAlt: string;
+
+	/**
 	 * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
 	 */
 	@property({ reflect: true })
@@ -75,10 +81,11 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 				'discord-light-theme': this.lightTheme
 			})}
 		>
-			${this.footerImage ? html`<img src="${this.footerImage}" alt="" class="discord-footer-image" />` : ''}
+			${this.footerImage ? html`<img src="${this.footerImage}" alt="${this.footerImageAlt}" class="discord-footer-image" />` : null}
 			${html`
 				<slot></slot>
-				${this.timestamp ? html`<span class="discord-footer-separator">&bull;</span>` : ''} ${this.timestamp ? html`${this.timestamp}` : ''}
+				${this.timestamp ? html`<span class="discord-footer-separator">&bull;</span>` : null}
+				${this.timestamp ? html`${this.timestamp}` : null}
 			`}
 		</div>`;
 	}
