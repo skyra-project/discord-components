@@ -47,7 +47,8 @@ export class DiscordCommand extends LitElement {
 	public avatar: string;
 
 	/**
-	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+	 * The message author's primary role color.
+	 * Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
 	@property({ attribute: 'role-color' })
 	public roleColor: string;
