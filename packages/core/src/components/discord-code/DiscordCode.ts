@@ -72,10 +72,12 @@ export class DiscordCode extends LitElement implements LightTheme {
 	}
 
 	protected override render() {
-		if (this.multiline)
+		if (this.multiline) {
 			return html`<discord-pre embed
 				><code><slot></slot></code
 			></discord-pre>`;
+		}
+
 		return html`<code><slot></slot></code>`;
 	}
 }
