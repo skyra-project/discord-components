@@ -82,7 +82,7 @@ _React Bindings_
 ## Description
 
 Discord message components to easily build and display fake Discord messages on
-your webpage. Bogus edit
+your webpage.
 
 **This is an adaptation of [wc-discord-message] from [Danktuary]**
 
