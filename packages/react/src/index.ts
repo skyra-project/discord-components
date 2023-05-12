@@ -1,6 +1,8 @@
 import * as ReactComponents from '@skyra/discord-components-core';
 import { createReactComponent } from './react-components/createComponent.js';
 
+/* IMPORTS START */
+
 export const DiscordActionRow = createReactComponent('discord-action-row', ReactComponents.DiscordActionRow);
 export const DiscordAttachment = createReactComponent('discord-attachment', ReactComponents.DiscordAttachment);
 export const DiscordAttachments = createReactComponent('discord-attachments', ReactComponents.DiscordAttachments);
@@ -31,5 +33,7 @@ export const DiscordSystemMessage = createReactComponent('discord-system-message
 export const DiscordTenorVideo = createReactComponent('discord-tenor-video', ReactComponents.DiscordTenorVideo);
 export const DiscordThread = createReactComponent('discord-thread', ReactComponents.DiscordThread);
 export const DiscordThreadMessage = createReactComponent('discord-thread-message', ReactComponents.DiscordThreadMessage);
-export const DiscordTime = createReactComponent('discord-timestamp', ReactComponents.DiscordTime);
+export const DiscordTime = createReactComponent('discord-time', ReactComponents.DiscordTime);
 export const DiscordUnderlined = createReactComponent('discord-underlined', ReactComponents.DiscordUnderlined);
+
+/* IMPORTS END */

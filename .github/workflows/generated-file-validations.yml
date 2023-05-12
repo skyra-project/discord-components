@@ -71,7 +71,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
       - name: Generate code
-        run: yarn inject-index-re-exports
+        run: yarn inject-core-index-re-exports
       - name: Format files
         run: yarn format
       - name: Validate changes
@@ -79,5 +79,30 @@ jobs:
           git status
           if ! git diff-index --quiet HEAD --; then
             echo "::error file=packages/core/src/index.ts::File did not match generated file after script. Please review and adjust accordingly."
+            exit 1;
+          fi
+
+  ValidateReactIndexExports:
+    name: Validate react index.ts exports
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3
+      - name: Use Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn --immutable
+      - name: Generate code
+        run: yarn inject-react-index-exports
+      - name: Format files
+        run: yarn format
+      - name: Validate changes
+        run: |
+          git status
+          if ! git diff-index --quiet HEAD --; then
+            echo "::error file=packages/react/src/index.ts::File did not match generated file after script. Please review and adjust accordingly."
             exit 1;
           fi
