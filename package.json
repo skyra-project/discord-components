@@ -7,7 +7,7 @@
 	"scripts": {
 		"clean": "node scripts/clean.mjs",
 		"lint": "eslint packages/ --fix --ext ts,tsx",
-		"format": "prettier --write .",
+		"format": "prettier --loglevel=warn --write .",
 		"inject-readme-markdown": "node scripts/inject-readme-markdown.mjs",
 		"inject-package-exports": "node scripts/update-exports-and-side-effects.mjs",
 		"inject-index-re-exports": "node scripts/update-core-index-exports.mjs",
