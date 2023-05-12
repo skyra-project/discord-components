@@ -90,14 +90,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			background-color: rgba(250, 166, 26, 0.1);
 		}
 
-		.discord-highlight-mention:hover {
-			background-color: rgba(250, 166, 26, 0.08);
-		}
-
-		.discord-light-theme .discord-highlight-mention:hover {
-			background-color: rgba(250, 166, 26, 0.2);
-		}
-
 		.discord-highlight-mention::before {
 			background-color: #faa61a;
 		}
@@ -209,11 +201,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		}
 
 		.discord-message:hover {
-			background-color: rgba(4, 4, 5, 0.07);
+			background-color: hsl(0 calc(1 * 0%) 0.8%/0.03);
 		}
 
-		.discord-light-theme.discord-message:hover {
-			background-color: rgba(6, 6, 7, 0.02);
+		.discord-highlight-mention:hover {
+			background-color: hsl(40 calc(1 * 86.4%) 56.9%/0.08);
 		}
 
 		.discord-message-has-thread:after {
