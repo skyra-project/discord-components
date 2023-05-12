@@ -12,9 +12,11 @@ export class DiscordLink extends LitElement implements LightTheme {
 			font-weight: normal;
 			text-decoration: none;
 		}
+
 		a:hover {
 			text-decoration: underline;
 		}
+
 		.discord-light-theme a {
 			color: #00b0f4;
 		}
