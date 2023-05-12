@@ -16,9 +16,11 @@ export class DiscordEmbedFields extends LitElement implements LightTheme {
 		::slotted([inline-index='1']) {
 			grid-column: 1/5 !important;
 		}
+
 		::slotted([inline-index='2']) {
 			grid-column: 5/9 !important;
 		}
+
 		::slotted([inline-index='3']) {
 			grid-column: 9/13 !important;
 		}
