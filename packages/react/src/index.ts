@@ -7,8 +7,11 @@ export const DiscordAttachment = createReactComponent('discord-attachment', Reac
 export const DiscordAttachments = createReactComponent('discord-attachments', ReactComponents.DiscordAttachments);
 
 export const DiscordAuthorInfo = createReactComponent('discord-author-info', ReactComponents.DiscordAuthorInfo);
+
 export const DiscordBold = createReactComponent('discord-bold', ReactComponents.DiscordBold);
 export const DiscordButton = createReactComponent('discord-button', ReactComponents.DiscordButton);
+
+export const DiscordCode = createReactComponent('discord-code', ReactComponents.DiscordCode);
 export const DiscordCommand = createReactComponent('discord-command', ReactComponents.DiscordCommand);
 export const DiscordCustomEmoji = createReactComponent('discord-custom-emoji', ReactComponents.DiscordCustomEmoji);
 
@@ -18,13 +21,17 @@ export const DiscordEmbedField = createReactComponent('discord-embed-field', Rea
 export const DiscordEmbedFields = createReactComponent('discord-embed-fields', ReactComponents.DiscordEmbedFields);
 export const DiscordEmbedFooter = createReactComponent('discord-embed-footer', ReactComponents.DiscordEmbedFooter);
 
-export const DiscordInlineCode = createReactComponent('discord-inline-code', ReactComponents.DiscordInlineCode);
 export const DiscordInvite = createReactComponent('discord-invite', ReactComponents.DiscordInvite);
 export const DiscordItalic = createReactComponent('discord-italic', ReactComponents.DiscordItalic);
+
+export const DiscordLink = createReactComponent('discord-link', ReactComponents.DiscordLink);
+
 export const DiscordMention = createReactComponent('discord-mention', ReactComponents.DiscordMention);
 
 export const DiscordMessage = createReactComponent('discord-message', ReactComponents.DiscordMessage);
 export const DiscordMessages = createReactComponent('discord-messages', ReactComponents.DiscordMessages);
+
+export const DiscordPre = createReactComponent('discord-pre', ReactComponents.DiscordPre);
 
 export const DiscordQuote = createReactComponent('discord-quote', ReactComponents.DiscordQuote);
 
