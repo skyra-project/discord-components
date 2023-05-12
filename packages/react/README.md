@@ -5,14 +5,29 @@
 **React bindings for
 [@skyra/discord-components-core](https://github.com/skyra-project/discord-components/tree/main/packages/core)**
 
+<!-- # HEADER START # -->
+
+**Web components to easily build and display fake Discord messages on your
+webpages**
+
 [![License](https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square)](https://github.com/skyra-project/discord-components/blob/main/LICENSE.md)
 [![Patreon](https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon)](https://donate.skyra.pw/patreon)
+
+_Core Package_
+
+[![npm](https://img.shields.io/npm/v/@skyra/discord-components-core?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-core)](https://www.npmjs.com/package/@skyra/discord-components-core)
+[![npm](https://img.shields.io/npm/dt/@skyra/discord-components-core.svg?maxAge=3600&logo=npm)](https://www.npmjs.com/package/@skyra/discord-components-core)
+[![npm](https://img.shields.io/bundlephobia/min/@skyra/discord-components-core?label=minified&logo=webpack&maxAge=3600)](https://bundlephobia.com/result?p=@skyra/discord-components-core)
+
+_React Bindings_
 
 [![npm](https://img.shields.io/npm/v/@skyra/discord-components-react?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-react)](https://www.npmjs.com/package/@skyra/discord-components-react)
 [![npm](https://img.shields.io/npm/dt/@skyra/discord-components-react.svg?maxAge=3600&logo=npm)](https://www.npmjs.com/package/@skyra/discord-components-react)
 [![npm](https://img.shields.io/bundlephobia/min/@skyra/discord-components-react?label=minified&logo=webpack&maxAge=3600)](https://bundlephobia.com/result?p=@skyra/discord-components-react)
 
 [![Support Server](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://join.skyra.pw)
+
+<!-- # HEADER END # -->
 
 </div>
 
@@ -50,12 +65,18 @@
     - [Light Mode](#light-mode)
   - [Contributors](#contributors)
 
+<!-- # DESCRIPTION START # -->
+
 ## Description
 
 Discord message components to easily build and display fake Discord messages on
 your webpage.
 
 **This is an adaptation of [wc-discord-message] from [Danktuary]**
+
+<!-- # DESCRIPTION END # -->
+
+<!-- # FEATURES START # -->
 
 ## Features
 
@@ -66,7 +87,10 @@ your webpage.
   role color, and "bot" tag status
 - Display fake user, role, and channel mentions
 - Complete embed support
+- Uses [Lit Element][lit] to support all browsers and environments
 - Simple syntax!
+
+<!-- # FEATURES END # -->
 
 ## Installation
 
@@ -74,6 +98,8 @@ your webpage.
 yarn add @skyra/discord-components-core @skyra/discord-components-react
 # or npm install @skyra/discord-components-core @skyra/discord-components-react
 ```
+
+<!-- # REACT_USAGE START # -->
 
 ## Usage
 
@@ -157,6 +183,10 @@ conversation:
   </DiscordMessage>
 </DiscordMessages>
 ```
+
+<!-- # REACT_USAGE END # -->
+
+<!-- # REACT_NOTES START # -->
 
 ## Notes
 
@@ -320,6 +350,10 @@ and drops to 2 if an embed thumbnail is used.
 </DiscordMessage>
 ```
 
+<!-- # REACT_NOTES END # -->
+
+<!-- # SCREENSHOTS START # -->
+
 ## Screenshots
 
 ### Dark Mode
@@ -350,6 +384,10 @@ and drops to 2 if an embed thumbnail is used.
 
 ![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/with_embed.png)
 
+<!-- # SCREENSHOTS END # -->
+
+<!-- # CONTRIBUTING START # -->
+
 ## Contributors
 
 Please make sure to read the [Contributing Guide][contributing] before making a
@@ -360,6 +398,8 @@ Thank you to all the people who already contributed to Discord Components!
 <a href="https://github.com/skyra-project/discord-components/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=skyra-project/discord-components" />
 </a>
+
+<!-- # CONTRIBUTING END # -->
 
 [contributing]: ../../.github/CONTRIBUTING.md
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message

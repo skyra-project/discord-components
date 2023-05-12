@@ -2,17 +2,29 @@
 
 # @skyra/discord-components-core
 
+<!-- # HEADER START # -->
+
 **Web components to easily build and display fake Discord messages on your
 webpages**
 
 [![License](https://img.shields.io/github/license/skyra-project/discord-components?logo=github&maxAge=3600&style=flat-square)](https://github.com/skyra-project/discord-components/blob/main/LICENSE.md)
 [![Patreon](https://img.shields.io/badge/donate-patreon-F96854.svg?logo=patreon)](https://donate.skyra.pw/patreon)
 
+_Core Package_
+
 [![npm](https://img.shields.io/npm/v/@skyra/discord-components-core?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-core)](https://www.npmjs.com/package/@skyra/discord-components-core)
 [![npm](https://img.shields.io/npm/dt/@skyra/discord-components-core.svg?maxAge=3600&logo=npm)](https://www.npmjs.com/package/@skyra/discord-components-core)
 [![npm](https://img.shields.io/bundlephobia/min/@skyra/discord-components-core?label=minified&logo=webpack&maxAge=3600)](https://bundlephobia.com/result?p=@skyra/discord-components-core)
 
+_React Bindings_
+
+[![npm](https://img.shields.io/npm/v/@skyra/discord-components-react?color=crimson&logo=npm&style=flat-square&label=@skyra/discord-components-react)](https://www.npmjs.com/package/@skyra/discord-components-react)
+[![npm](https://img.shields.io/npm/dt/@skyra/discord-components-react.svg?maxAge=3600&logo=npm)](https://www.npmjs.com/package/@skyra/discord-components-react)
+[![npm](https://img.shields.io/bundlephobia/min/@skyra/discord-components-react?label=minified&logo=webpack&maxAge=3600)](https://bundlephobia.com/result?p=@skyra/discord-components-react)
+
 [![Support Server](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://join.skyra.pw)
+
+<!-- # HEADER END # -->
 
 </div>
 
@@ -25,32 +37,31 @@ webpages**
   - [Features](#features)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Using the Discord font](#using-the-discord-font)
-  - [Framework Integration](#framework-integration)
-    - [Angular](#angular)
-    - [Live Demo](#live-demo)
-    - [Sample code](#sample-code)
-      - [Including the Custom Element Schema](#including-the-custom-element-schema)
-      - [Including the web-components](#including-the-web-components)
-    - [React](#react)
-      - [Vite](#vite)
-        - [Live Demo](#live-demo-1)
-      - [Create React App](#create-react-app)
-        - [Live Demo](#live-demo-2)
-      - [NextJS](#nextjs)
-        - [Important Notes](#important-notes)
+    - [Using the Discord font](#using-the-discord-font)
+    - [Framework Integration](#framework-integration)
+      - [Angular](#angular)
+        - [Live Demo](#live-demo)
+        - [Including the Custom Element Schema](#including-the-custom-element-schema)
+        - [Including the web-components](#including-the-web-components)
+      - [React](#react)
+        - [Vite](#vite)
+          - [Live Demo](#live-demo-1)
+        - [Create React App](#create-react-app)
+          - [Live Demo](#live-demo-2)
+        - [NextJS](#nextjs)
+          - [Important Notes](#important-notes)
         - [Live Demo](#live-demo-3)
-      - [Sample code](#sample-code-1)
-    - [Vue](#vue)
-      - [Vite](#vite-1)
-        - [Live Demo](#live-demo-4)
-        - [Configuration](#configuration)
-      - [Nuxt](#nuxt)
-        - [Live Demo](#live-demo-5)
-        - [Sample Code](#sample-code)
-    - [No Framework](#no-framework)
-      - [Live Demo](#live-demo-6)
-      - [Sample Code](#sample-code-1)
+        - [Sample code](#sample-code)
+      - [Vue](#vue)
+        - [Vite](#vite-1)
+          - [Live Demo](#live-demo-4)
+          - [Configuration](#configuration)
+        - [Nuxt](#nuxt)
+          - [Live Demo](#live-demo-5)
+          - [Sample Code](#sample-code)
+      - [No Framework](#no-framework)
+        - [Live Demo](#live-demo-6)
+        - [Sample Code](#sample-code-1)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -67,12 +78,18 @@ webpages**
     - [Light Mode](#light-mode)
   - [Contributors](#contributors)
 
+<!-- # DESCRIPTION START # -->
+
 ## Description
 
 Discord message components to easily build and display fake Discord messages on
 your webpage.
 
 **This is an adaptation of [wc-discord-message] from [Danktuary]**
+
+<!-- # DESCRIPTION END # -->
+
+<!-- # FEATURES START # -->
 
 ## Features
 
@@ -86,12 +103,16 @@ your webpage.
 - Uses [Lit Element][lit] to support all browsers and environments
 - Simple syntax!
 
+<!-- # FEATURES END # -->
+
 ## Installation
 
 ```bash
 yarn add @skyra/discord-components-core
 # or npm install @skyra/discord-components-core
 ```
+
+<!-- # CORE_USAGE START # -->
 
 ## Usage
 
@@ -293,6 +314,10 @@ If you're want to use the browser build, you can pull it in via unpkg.
 ></script>
 ```
 
+<!-- # CORE_USAGE END # -->
+
+<!-- # CORE_NOTES START # -->
+
 ## Notes
 
 ### TypeScript module augments
@@ -470,6 +495,10 @@ and drops to 2 if an embed thumbnail is used.
 </discord-message>
 ```
 
+<!-- # CORE_NOTES END # -->
+
+<!-- # SCREENSHOTS START # -->
+
 ## Screenshots
 
 ### Dark Mode
@@ -500,6 +529,10 @@ and drops to 2 if an embed thumbnail is used.
 
 ![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/with_embed.png)
 
+<!-- # SCREENSHOTS END # -->
+
+<!-- # CONTRIBUTING START # -->
+
 ## Contributors
 
 Please make sure to read the [Contributing Guide][contributing] before making a
@@ -510,6 +543,8 @@ Thank you to all the people who already contributed to Discord Components!
 <a href="https://github.com/skyra-project/discord-components/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=skyra-project/discord-components" />
 </a>
+
+<!-- # CONTRIBUTING END # -->
 
 [contributing]: ../../.github/CONTRIBUTING.md
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
