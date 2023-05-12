@@ -29,6 +29,7 @@ jobs:
           git status
           if ! git diff-index --quiet HEAD --; then
             echo "::error file=README.md::File did not match generated file after script. Please review and adjust accordingly."
+            exit 1;
           fi
 
   ValidateExports:
