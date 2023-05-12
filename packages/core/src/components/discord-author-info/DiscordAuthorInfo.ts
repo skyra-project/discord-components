@@ -43,9 +43,11 @@ export class DiscordAuthorInfo extends LitElement {
 			line-height: 100%;
 			text-transform: uppercase;
 
+			/* Use flex layout to ensure both verified icon and "BOT" text are aligned to center */
 			display: flex;
 			align-items: center;
 
+			/* Styling taken through Inspect Element on Discord client for Windows */
 			height: 0.9375rem;
 			padding: 0 0.275rem;
 			margin-top: 0.075em;
