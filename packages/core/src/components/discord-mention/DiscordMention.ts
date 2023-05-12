@@ -1,11 +1,11 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
+import ChannelForum from '../svgs/ChannelForum.js';
 import ChannelIcon from '../svgs/ChannelIcon.js';
 import ChannelThread from '../svgs/ChannelThread.js';
-import ChannelForum from '../svgs/ChannelForum.js';
-import VoiceChannel from '../svgs/VoiceChannel.js';
 import LockedVoiceChannel from '../svgs/LockedVoiceChannel.js';
+import VoiceChannel from '../svgs/VoiceChannel.js';
 
 const colorCodeExtractor = /--discord-mention-color: (?<colorCode>#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}));/;
 
@@ -77,7 +77,7 @@ export class DiscordMention extends LitElement {
 	 * The type of mention this should be. This will prepend the proper prefix character.
 	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, `forum`, and `slash`.
 	 */
-	@property({ type: String, reflect: true, attribute: 'type' })
+	@property({ reflect: true, attribute: 'type' })
 	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' | 'slash' = 'user';
 
 	public override connectedCallback(): void {

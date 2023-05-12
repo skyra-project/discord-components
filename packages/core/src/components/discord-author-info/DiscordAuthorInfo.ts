@@ -1,10 +1,10 @@
 import { css, html, LitElement } from 'lit';
+import { classMap } from 'lit-html/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { classMap } from 'lit-html/directives/class-map.js';
-import VerifiedTick from '../svgs/VerifiedTick.js';
 import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
+import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-author-info')
 export class DiscordAuthorInfo extends LitElement {
@@ -96,7 +96,7 @@ export class DiscordAuthorInfo extends LitElement {
 	/**
 	 * The name of the author
 	 */
-	@property({ type: String })
+	@property()
 	public author: string | undefined = undefined;
 
 	/**
@@ -120,19 +120,19 @@ export class DiscordAuthorInfo extends LitElement {
 	/**
 	 * The colour of the author, which comes from their highest role
 	 */
-	@property({ type: String })
+	@property()
 	public roleColor: string | undefined = undefined;
 
 	/**
 	 * The role icon of the author, which comes from their highest role
 	 */
-	@property({ type: String })
+	@property()
 	public roleIcon: string | undefined = undefined;
 
 	/**
 	 * The role name of the author, which comes from their highest role
 	 */
-	@property({ type: String })
+	@property()
 	public roleName: string | undefined = undefined;
 
 	/**

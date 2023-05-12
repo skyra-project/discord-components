@@ -1,4 +1,4 @@
-import { LitElement, css, html } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { validateImageExtension } from '../../util.js';
@@ -31,7 +31,7 @@ export class DiscordAttachment extends LitElement {
 	 * The URL for the image attachment
 	 * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
 	 */
-	@property({ type: String, reflect: true, attribute: 'url' })
+	@property({ reflect: true, attribute: 'url' })
 	public url: string;
 
 	/**
@@ -50,7 +50,7 @@ export class DiscordAttachment extends LitElement {
 	 * The alt text to show in case the image was unable to load
 	 * @default 'discord attachment'
 	 */
-	@property({ type: String, reflect: true, attribute: 'alt' })
+	@property({ reflect: true, attribute: 'alt' })
 	public alt = 'discord attachment';
 
 	public componentWillRender() {

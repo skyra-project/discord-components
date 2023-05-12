@@ -163,7 +163,7 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 	/**
 	 * The timestamp to use for the message date.
 	 */
-	@property()
+	@property({ type: Date })
 	public timestamp: DiscordTimestamp = new Date();
 
 	/**

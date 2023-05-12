@@ -44,7 +44,7 @@ export class DiscordTenorVideo extends LitElement {
 	/**
 	 * The URL for the video
 	 */
-	@property({ type: String })
+	@property()
 	public url: string;
 
 	/**
