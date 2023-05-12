@@ -37,7 +37,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 		}
 	`;
 
-	@property({ type: String, reflect: true, attribute: 'field-title' })
+	@property({ reflect: true, attribute: 'field-title' })
 	public fieldTitle!: string;
 
 	/**

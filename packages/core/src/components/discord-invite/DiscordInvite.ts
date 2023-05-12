@@ -1,13 +1,13 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { defaultDiscordAvatars } from '../../options.js';
+import type { LightTheme } from '../../util.js';
+import type { DiscordAttachments } from '../discord-attachments/DiscordAttachments.js';
 import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
 import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
-import type { DiscordAttachments } from '../discord-attachments/DiscordAttachments.js';
-import type { LightTheme } from '../../util.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement implements LightTheme {
@@ -216,14 +216,14 @@ export class DiscordInvite extends LitElement implements LightTheme {
 	 * The number of members online on the server.
 	 * @default 0
 	 */
-	@property()
+	@property({ type: Number })
 	public online = 0;
 
 	/**
 	 * The number of members on the server.
 	 * @default 0
 	 */
-	@property()
+	@property({ type: Number })
 	public members = 0;
 
 	/**

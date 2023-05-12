@@ -83,14 +83,14 @@ export class DiscordReaction extends LitElement implements LightTheme {
 	/**
 	 * The reaction emoji image URL.
 	 */
-	@property({ type: String })
+	@property()
 	public emoji: string;
 
 	/**
 	 * The name of the emoji to use as alternative image text.
 	 * @default ':emoji'
 	 */
-	@property({ type: String })
+	@property()
 	public name = ':emoji:';
 
 	/**

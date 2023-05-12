@@ -263,20 +263,20 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	/**
 	 * The id of the profile data to use.
 	 */
-	@property({ type: String })
+	@property()
 	public profile: string | undefined = undefined;
 
 	/**
 	 * The message author's username.
 	 * @default 'User'
 	 */
-	@property({ type: String })
+	@property()
 	public author: string | undefined = 'User';
 
 	/**
 	 * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
 	 */
-	@property({ type: String })
+	@property()
 	public avatar: string | undefined = undefined;
 
 	/**
@@ -315,19 +315,19 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	/**
 	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
-	@property({ type: String, attribute: 'role-color' })
+	@property({ attribute: 'role-color' })
 	public roleColor: string | undefined = undefined;
 
 	/**
 	 * The message author's role icon URL.
 	 */
-	@property({ type: String, attribute: 'role-icon' })
+	@property({ attribute: 'role-icon' })
 	public roleIcon: string | undefined = undefined;
 
 	/**
 	 * The name of the role to use as alternative image text.
 	 */
-	@property({ type: String, attribute: 'role-name' })
+	@property({ attribute: 'role-name' })
 	public roleName: string | undefined = undefined;
 
 	/**
