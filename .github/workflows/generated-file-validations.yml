@@ -20,7 +20,7 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: yarn --immutable
-      - name: Build Code
+      - name: Generate code
         run: yarn inject-readme-markdown
       - name: Format files
         run: yarn format
@@ -44,7 +44,7 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: yarn --immutable
-      - name: Build Code
+      - name: Generate code
         run: yarn inject-package-exports
       - name: Format files
         run: yarn format
@@ -69,7 +69,7 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: yarn --immutable
-      - name: Build Code
+      - name: Generate code
         run: yarn inject-index-re-exports
       - name: Format files
         run: yarn format
