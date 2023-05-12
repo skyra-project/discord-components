@@ -16,6 +16,7 @@ export class DiscordAttachment extends LitElement {
 			overflow: hidden;
 			border-radius: 3px;
 		}
+
 		.discord-attachment {
 			color: #dcddde;
 			display: flex;

@@ -17,6 +17,7 @@ export class DiscordAttachments extends LitElement implements LightTheme {
 			padding-bottom: 0.125rem;
 			position: relative;
 		}
+
 		:host > * {
 			justify-self: start;
 			-ms-flex-item-align: start;
