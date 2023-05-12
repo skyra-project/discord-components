@@ -33,17 +33,24 @@ webpages**
       - [Including the Custom Element Schema](#including-the-custom-element-schema)
       - [Including the web-components](#including-the-web-components)
     - [React](#react)
-      - [Live Demo (Create React App)](#live-demo-create-react-app)
-      - [Live Demo (NextJS)](#live-demo-nextjs)
+      - [Vite](#vite)
+        - [Live Demo](#live-demo-1)
+      - [Create React App](#create-react-app)
+        - [Live Demo](#live-demo-2)
+      - [NextJS](#nextjs)
+        - [Important Notes](#important-notes)
+        - [Live Demo](#live-demo-3)
       - [Sample code](#sample-code-1)
     - [Vue](#vue)
-      - [Live Demo](#live-demo-1)
-      - [Sample code Vue 2](#sample-code-vue-2)
-      - [Sample code Vue 3](#sample-code-vue-3)
-      - [Sample code when using Vite](#sample-code-when-using-vite)
+      - [Vite](#vite-1)
+        - [Live Demo](#live-demo-4)
+        - [Configuration](#configuration)
+      - [Nuxt](#nuxt)
+        - [Live Demo](#live-demo-5)
+        - [Sample Code](#sample-code)
     - [No Framework](#no-framework)
-      - [Live Demo](#live-demo-2)
-      - [Sample Code](#sample-code)
+      - [Live Demo](#live-demo-6)
+      - [Sample Code](#sample-code-1)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -58,7 +65,7 @@ webpages**
   - [Screenshots](#screenshots)
     - [Dark Mode](#dark-mode)
     - [Light Mode](#light-mode)
-  - [Contributors ✨](#contributors-%E2%9C%A8)
+  - [Contributors](#contributors)
 
 ## Description
 
@@ -110,7 +117,7 @@ conversation:
 </discord-messages>
 ```
 
-## Using the Discord font
+### Using the Discord font
 
 This library can use the Discord font if you load it into your project. You can
 do so by including the CSS below:
@@ -141,17 +148,15 @@ do so by including the CSS below:
 }
 ```
 
-## Framework Integration
+### Framework Integration
 
-### Angular
+#### Angular
 
-### Live Demo
+##### Live Demo
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-angular-0xz0z)
 
-### Sample code
-
-#### Including the Custom Element Schema
+##### Including the Custom Element Schema
 
 Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of the web
 components in the HTML markup without the compiler producing errors. This code
@@ -176,15 +181,17 @@ export class AppModule {}
 The `CUSTOM_ELEMENTS_SCHEMA` needs to be included in any module that uses custom
 elements.
 
-#### Including the web-components
+##### Including the web-components
 
-Once you have defined the `CUSTOM_ELEMENTS_SCHEMA` you can include the web
-components in your components. Here is a simple example:
+Once you have defined the `CUSTOM_ELEMENTS_SCHEMA` you can include the
+webcomponents in your components. Here is a simple example:
 
 ```ts
 import { Component } from '@angular/core';
 
-import '@skyra/discord-components-core'; // <-- import the web component
+// Import the webcomponents that will be used in this file
+import '@skyra/discord-components-core/discord-messages';
+import '@skyra/discord-components-core/discord-message';
 
 @Component({
   selector: 'app',
@@ -194,89 +201,56 @@ import '@skyra/discord-components-core'; // <-- import the web component
 export class AppComponent {}
 ```
 
-### React
+#### React
 
-#### Live Demo (Create React App)
+##### Vite
+
+###### Live Demo
+
+<!-- TODO: Insert React Vite live demo -->
+
+##### Create React App
+
+###### Live Demo
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-create-react-app-64k90)
 
-#### Live Demo (NextJS)
+##### NextJS
+
+###### Important Notes
+
+When using this library with NextJS you _have_ to install the
+[@lit-labs/nextjs ](https://www.npmjs.com/package/@lit-labs/nextjs) package.
+Without this package your SSR rendering will fail! A stackblitz (provided by the
+Lit team) showing how to use this package can be found
+[here](https://stackblitz.com/edit/nextjs-lit-ssr?file=next.config.js)
+
+##### Live Demo
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-ovqfu)
 
-#### Sample code
+##### Sample code
 
-See
-[@skyra/discord-components-react](https://github.com/skyra-project/discord-components/tree/main/packages/react)
+See [@skyra/discord-components-react](packages/react/README.md#sample-code)
 
-### Vue
+#### Vue
 
-#### Live Demo
+##### Vite
+
+###### Live Demo
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-vue-g1w48)
 
-#### Sample code Vue 2
+###### Configuration
 
-In order to use the custom element library within the Vue 2 app you will need to
-inform the Vue compiler which elements to ignore during compilation. This can
-all be done within the `main.js` file. For example:
-
-```tsx
-import Vue from 'vue';
-import App from './App.vue';
-import '@skyra/discord-components-core';
-
-// Tell Vue to ignore all components defined in the @skyra/discord-components-core package.
-Vue.config.ignoredElements = [/discord-\w*/];
-
-new Vue({
-  render: (h) => h(App)
-}).$mount('#app');
-```
-
-The components should then be available in any of the Vue templates
-
-```html
-<template>
-  <discord-messages>
-    <discord-message author="Sample User"> Hello World! </discord-message>
-  </discord-messages>
-</template>
-
-<script>
-  export default {
-    name: 'App'
-  };
-</script>
-```
-
-#### Sample code Vue 3
-
-The setup for Vue 3 is largely the same but differs due the how Vue 3
-applications are configured:
-
-```tsx
-import { createApp } from 'vue';
-import App from './App.vue';
-import '@skyra/discord-components-core';
-
-const app = createApp(App);
-
-// Tell Vue to ignore all components defined in the @skyra/discord-components-core package.
-app.config.compilerOptions.isCustomElement = (tag) =>
-  tag.startsWith('discord-');
-
-app.mount('#app');
-```
-
-#### Sample code when using Vite
-
-And lastly when using Vite the setup is slightly different again, when using
-Vite you should configure the custom elements in your `vite.config.ts` like so:
+When using Vue 3 with Vite you need to setup Vite to recognise the custom
+components. You can do that with the following code in your `vite.config.ts`:
 
 ```ts
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
+
+const regex = /^discord-/;
 
 export default defineConfig({
   plugins: [
@@ -284,7 +258,7 @@ export default defineConfig({
       template: {
         compilerOptions: {
           // Tell Vite to ignore all components defined in the @skyra/discord-components-core package.
-          isCustomElement: (tag) => tag.startsWith('discord-')
+          isCustomElement: (tag) => regex.test(tag)
         }
       }
     })
@@ -292,13 +266,23 @@ export default defineConfig({
 });
 ```
 
-### No Framework
+##### Nuxt
 
-#### Live Demo
+###### Live Demo
+
+<!-- TODO: Insert Nuxt live demo -->
+
+###### Sample Code
+
+<!-- TODO: Insert Nuxt sample code -->
+
+#### No Framework
+
+##### Live Demo
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-static-nhwkl)
 
-#### Sample Code
+##### Sample Code
 
 If you're want to use the browser build, you can pull it in via unpkg.
 
@@ -516,36 +500,18 @@ and drops to 2 if an embed thumbnail is used.
 
 ![](https://raw.githubusercontent.com/skyra-project/discord-components/main/assets/light_mode/with_embed.png)
 
-## Contributors ✨
+## Contributors
 
-Thanks goes to these wonderful people
-([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Please make sure to read the [Contributing Guide][contributing] before making a
+pull request.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/commits?author=Favna" title="Documentation">📖</a> <a href="#example-Favna" title="Examples">💡</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
-    <td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://github.com/apps/dependabot"><img src="https://avatars.githubusercontent.com/in/29110?v=4?s=100" width="100px;" alt=""/><br /><sub><b>dependabot[bot]</b></sub></a><br /><a href="#maintenance-dependabot[bot]" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://ko-fi.com/crawltogo"><img src="https://avatars.githubusercontent.com/u/20760160?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Noel</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=iCrawl" title="Code">💻</a> <a href="https://github.com/skyra-project/discord-components/issues?q=author%3AiCrawl" title="Bug reports">🐛</a> <a href="#design-iCrawl" title="Design">🎨</a></td>
-    <td align="center"><a href="http://snazzah.com"><img src="https://avatars.githubusercontent.com/u/7025343?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Snazzah</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=Snazzah" title="Code">💻</a></td>
-    <td align="center"><a href="https://darkguy10.github.io/"><img src="https://avatars.githubusercontent.com/u/62807269?v=4?s=100" width="100px;" alt=""/><br /><sub><b>DarkGuy10</b></sub></a><br /><a href="https://github.com/skyra-project/discord-components/commits?author=DarkGuy10" title="Code">💻</a></td>
-  </tr>
-</table>
+Thank you to all the people who already contributed to Discord Components!
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+<a href="https://github.com/skyra-project/discord-components/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=skyra-project/discord-components" />
+</a>
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the
-[all-contributors](https://github.com/all-contributors/all-contributors)
-specification. Contributions of any kind welcome!
-
-<!-- LINK DUMP -->
-
+[contributing]: ../../.github/CONTRIBUTING.md
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
 [danktuary]: https://github.com/Danktuary
 [lit]: https://lit.dev
