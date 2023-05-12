@@ -266,7 +266,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 
 		this.lightTheme = parent.lightTheme;
 
-		return html` <div
+		return html`<div
 			class=${classMap({
 				'discord-invite': true,
 				'discord-light-theme': this.lightTheme
@@ -278,7 +278,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 				<div class="discord-invite-info">
 					<div class="discord-invite-title">
 						${(this.verified && !this.partnered) || (!this.verified && this.partnered)
-							? html` <div class="discord-invite-badge">
+							? html`<div class="discord-invite-badge">
 									${GuildBadge({
 										'aria-label': this.partnered ? 'Discord Partner' : 'Verified',
 										class: `discord-invite-badge-${this.partnered ? 'partnered' : 'verified'}`

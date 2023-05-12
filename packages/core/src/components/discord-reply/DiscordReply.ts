@@ -1,16 +1,16 @@
-import { LitElement, css, html } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { classMap } from 'lit/directives/class-map.js';
-import { Profile, avatars, profiles } from '../../options.js';
+import { avatars, Profile, profiles } from '../../options.js';
+import type { LightTheme } from '../../util.js';
 import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
+import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
-import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
-import type { LightTheme } from '../../util.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {
@@ -283,14 +283,14 @@ export class DiscordReply extends LitElement implements LightTheme {
 				})}
 			>
 				${messageParent.compactMode
-					? html` <div class="discord-reply-badge">${ReplyIcon()}</div> `
-					: html` <img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" /> `}
+					? html`<div class="discord-reply-badge">${ReplyIcon()}</div>`
+					: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
 				${html`
 					${profile.bot && !profile.server
-						? html` <span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
+						? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
 						: null}
 					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
-					${profile.op ? html` <span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
+					${profile.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
 				`}
 				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
 					>${this.mentions ? '@' : ''}${profile.author}</span
@@ -301,7 +301,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 				>
 				${this.command
 					? CommandReply({ class: 'discord-replied-message-content-icon' })
-					: html` ${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''} `}
+					: html`${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''}`}
 			</div>
 		`;
 	}

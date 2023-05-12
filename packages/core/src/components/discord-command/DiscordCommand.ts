@@ -76,8 +76,8 @@ export class DiscordCommand extends LitElement {
 		return html`
 			<div class="discord-reply discord-replied-message discord-executed-command">
 				${messageParent?.compactMode
-					? html` <div class="discord-reply-badge">${CommandIcon()}</div>`
-					: html` <img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" /> `}
+					? html`<div class="discord-reply-badge">${CommandIcon()}</div>`
+					: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
 				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
 				<span> used </span>
 				<div class="discord-replied-message-content discord-command-name">${this.command}</div>

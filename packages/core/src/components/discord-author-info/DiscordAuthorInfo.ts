@@ -163,7 +163,7 @@ export class DiscordAuthorInfo extends LitElement {
 
 		if ((rootParent as DiscordMessage).compactMode) this.compact = true;
 
-		return html` <div
+		return html`<div
 			class=${classMap({
 				'discord-author-info': true,
 				'discord-compact-mode': this.compact,

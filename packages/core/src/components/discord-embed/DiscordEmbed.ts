@@ -226,7 +226,8 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	`;
 
 	/**
-	 * The color to use for the embed's left border. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
+	 * The color to use for the embed's left border.
+	 * Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
 	@property()
 	public color: string;
@@ -326,26 +327,26 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			<div class="discord-embed-root">
 				<div class="discord-embed-wrapper">
 					<div class="discord-embed-grid">
-						${this.provider ? html` <div class="discord-embed-provider">${this.provider}</div>` : null}
+						${this.provider ? html`<div class="discord-embed-provider">${this.provider}</div>` : null}
 						${emojiParsedAuthorName
-							? html` <div class="discord-embed-author">
+							? html`<div class="discord-embed-author">
 									${this.authorImage ? html`<img src="${this.authorImage}" alt="" class="discord-author-image" />` : null}
 									${this.authorUrl
-										? html` <a href="${this.authorUrl}" target="_blank" rel="noopener noreferrer"> ${emojiParsedAuthorName} </a> `
-										: html` ${emojiParsedAuthorName} `}
+										? html`<a href="${this.authorUrl}" target="_blank" rel="noopener noreferrer"> ${emojiParsedAuthorName} </a> `
+										: html`${emojiParsedAuthorName}`}
 							  </div>`
 							: null}
 						${emojiParsedEmbedTitle
-							? html` <div class="discord-embed-title">
+							? html`<div class="discord-embed-title">
 									${this.url
-										? html` <a href="${this.url}" target="_blank" rel="noopener noreferrer"> ${emojiParsedEmbedTitle} </a> `
-										: html` ${emojiParsedEmbedTitle} `}
+										? html`<a href="${this.url}" target="_blank" rel="noopener noreferrer"> ${emojiParsedEmbedTitle} </a>`
+										: html`${emojiParsedEmbedTitle}`}
 							  </div>`
 							: null}
-						${this.hasProvidedDescriptionSlot ? html` <slot name="description"></slot>` : null}
+						${this.hasProvidedDescriptionSlot ? html`<slot name="description"></slot>` : null}
 						<slot name="fields"></slot>
 						${this.image || this.video
-							? html` <div class=${classMap({ 'discord-embed-media': true, 'discord-embed-media-video': Boolean(this.video) })}>
+							? html`<div class=${classMap({ 'discord-embed-media': true, 'discord-embed-media-video': Boolean(this.video) })}>
 									${this.renderMedia()}
 							  </div>`
 							: null}

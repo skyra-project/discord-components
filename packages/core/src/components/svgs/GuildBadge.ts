@@ -1,5 +1,5 @@
-import { html, svg } from 'lit';
 import { spread } from '@open-wc/lit-helpers';
+import { html, svg } from 'lit';
 
 const svgContent = svg`
 <path
@@ -10,7 +10,7 @@ const svgContent = svg`
 `;
 
 export default function GuildBadge(props: Record<string, unknown>) {
-	return html` <svg ${spread(props)} class="discord-guild-badge" aria-hidden="false" width="16" height="16" viewBox="0 0 16 15.2">
+	return html`<svg ${spread(props)} class="discord-guild-badge" aria-hidden="false" width="16" height="16" viewBox="0 0 16 15.2">
 		${svgContent}
 	</svg>`;
 }

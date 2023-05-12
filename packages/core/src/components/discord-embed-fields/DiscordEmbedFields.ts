@@ -38,7 +38,7 @@ export class DiscordEmbedFields extends LitElement implements LightTheme {
 
 		this.lightTheme = parent.lightTheme;
 
-		return html` <div class="discord-embed-fields">
+		return html`<div class="discord-embed-fields">
 			<slot></slot>
 		</div>`;
 	}
