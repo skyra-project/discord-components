@@ -44,18 +44,21 @@ export interface Emoji {
 	embedEmoji?: boolean;
 }
 
-const serverSideSafeWindow = window ?? globalThis;
+// We need to test for typeof window !== 'undefined' because of how most SSR frameworks work.
+const serverSideSafeWindow = typeof window !== 'undefined' && window !== undefined && window !== null ? window : globalThis;
 
-const globalAvatars: Avatars = serverSideSafeWindow.$discordMessage?.avatars ?? ({} as Avatars);
+const discordMessage = (serverSideSafeWindow as any).$discordMessage as DiscordMessageOptions | undefined;
+
+const globalAvatars: Avatars = discordMessage?.avatars ?? ({} as Avatars);
 
 export const avatars: Avatars = Object.assign(defaultDiscordAvatars, globalAvatars, {
 	default: defaultDiscordAvatars[globalAvatars.default] ?? globalAvatars.default ?? defaultDiscordAvatars.blue
 });
 
-export const profiles: { [key: string]: Profile } = serverSideSafeWindow.$discordMessage?.profiles ?? {};
+export const profiles: { [key: string]: Profile } = discordMessage?.profiles ?? {};
 
-export const defaultTheme: string = serverSideSafeWindow.$discordMessage?.defaultTheme === 'light' ? 'light' : 'dark';
+export const defaultTheme: string = discordMessage?.defaultTheme === 'light' ? 'light' : 'dark';
 
-export const defaultMode: string = serverSideSafeWindow.$discordMessage?.defaultMode === 'compact' ? 'compact' : 'cozy';
+export const defaultMode: string = discordMessage?.defaultMode === 'compact' ? 'compact' : 'cozy';
 
-export const defaultBackground: string = serverSideSafeWindow.$discordMessage?.defaultBackground === 'none' ? 'none' : 'discord';
+export const defaultBackground: string = discordMessage?.defaultBackground === 'none' ? 'none' : 'discord';
