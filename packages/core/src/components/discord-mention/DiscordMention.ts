@@ -1,6 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
+import type { LightTheme } from '../../util.js';
 import ChannelForum from '../svgs/ChannelForum.js';
 import ChannelIcon from '../svgs/ChannelIcon.js';
 import ChannelThread from '../svgs/ChannelThread.js';
@@ -10,7 +11,7 @@ import VoiceChannel from '../svgs/VoiceChannel.js';
 const colorCodeExtractor = /--discord-mention-color: (?<colorCode>#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}));/;
 
 @customElement('discord-mention')
-export class DiscordMention extends LitElement {
+export class DiscordMention extends LitElement implements LightTheme {
 	public static override styles = css`
 		:host {
 			color: var(--discord-mention-color, #e3e7f8);
@@ -47,12 +48,16 @@ export class DiscordMention extends LitElement {
 			background-color: hsl(235, 85.6%, 64.7%);
 		}
 
-		.discord-light-theme {
-			color: #687dc6;
+		:host([type='user']:hover) {
+			text-decoration: underline;
+		}
+
+		:host([light-theme]) {
+			color: #5865f2;
 			background-color: hsla(235, 85.6%, 64.7%, 0.15);
 		}
 
-		.discord-light-theme:hover {
+		:host([light-theme]:hover) {
 			color: #ffffff;
 			background-color: hsl(235, 85.6%, 64.7%);
 		}
@@ -94,6 +99,8 @@ export class DiscordMention extends LitElement {
 			this.style.backgroundColor = hexToRgba(this.colorCodeFromStyles, 0.1);
 		}
 	};
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
+	public lightTheme: boolean;
 
 	public override connectedCallback(): void {
 		super.connectedCallback();
@@ -110,6 +117,13 @@ export class DiscordMention extends LitElement {
 		this.removeEventListener('mouseout', this.resetHoverColor);
 
 		super.disconnectedCallback();
+	}
+
+	protected override willUpdate() {
+		if (this.parentElement && 'lightTheme' in this.parentElement) {
+			const parent = this.parentElement as { lightTheme: boolean };
+			this.lightTheme = parent.lightTheme;
+		}
 	}
 
 	protected override render() {
