@@ -36,11 +36,9 @@ export { DiscordTime } from './components/discord-time/DiscordTime.js';
 export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderlined.js';
 
 /* EXPORTS END */
-
 export type { Avatars, DiscordMessageOptions, Emoji, Profile } from './options.js';
 
 declare global {
-	interface Window {
-		$discordMessage: DiscordMessageOptions;
-	}
+	// eslint-disable-next-line no-var
+	var $discordMessage: DiscordMessageOptions | undefined;
 }
