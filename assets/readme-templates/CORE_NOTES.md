@@ -14,9 +14,8 @@ manually yourself. You can do so with the following code snippet:
 import type { DiscordMessageOptions } from '@skyra/discord-components-core';
 
 declare global {
-  interface Window {
-    $discordMessage: DiscordMessageOptions;
-  }
+  // eslint-disable-next-line no-var
+  var $discordMessage: DiscordMessageOptions | undefined;
 }
 ```
 
