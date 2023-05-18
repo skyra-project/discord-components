@@ -1,15 +1,15 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Emoji } from '../../options.js';
 import { getGlobalEmojiUrl, LightTheme } from '../../util.js';
-import type { DiscordEmbedFields } from '../discord-embed-fields/DiscordEmbedFields.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-embed-field')
 export class DiscordEmbedField extends LitElement implements LightTheme {
 	public static override styles = css`
-		.discord-embed-field {
+		:host {
 			font-size: 0.875rem;
 			line-height: 1.125rem;
 			min-width: 0;
@@ -17,7 +17,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 			grid-column: 1/13;
 		}
 
-		.discord-embed-field .discord-field-title {
+		:host .discord-field-title {
 			color: #ffffff;
 			font-weight: 600;
 			font-size: 0.875rem;
@@ -26,14 +26,14 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 			margin-bottom: 2px;
 		}
 
-		.discord-embed-field .discord-inline-field {
+		:host .discord-inline-field {
 			flex-grow: 1;
 			flex-basis: auto;
 			min-width: 150px;
 		}
 
-		.discord-light-theme.discord-embed-field .discord-field-title {
-			color: #747f8d;
+		:host([light-theme]) .discord-field-title {
+			color: #313338;
 		}
 	`;
 
@@ -55,7 +55,8 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	@property({ type: Number, reflect: true, attribute: 'inline-index' })
 	public inlineIndex = 1;
 
-	@state()
+	@consume({ context: messagesLightTheme, subscribe: true })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	private validInlineIndices = new Set([1, 2, 3]);
@@ -65,28 +66,12 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	}
 
 	protected override render() {
-		const parent = this.parentElement as DiscordEmbedFields | null;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-embed-fields') {
-			throw new SyntaxError('All <discord-embed-field> components must be direct children of <discord-embed-fields>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
 		this.checkInlineIndex(this.inlineIndex);
 
 		const emojiParsedEmbedFieldTitle = this.parseTitle(this.fieldTitle);
 
-		return html`<div
-			class=${classMap({
-				'discord-embed-field': true,
-				'discord-light-theme': this.lightTheme,
-				'discord-embed-inline-field': this.inline
-			})}
-		>
-			${emojiParsedEmbedFieldTitle ? html`<div class="discord-field-title">${[...emojiParsedEmbedFieldTitle]}</div>` : null}
-			<slot></slot>
-		</div>`;
+		return html` ${emojiParsedEmbedFieldTitle ? html`<div class="discord-field-title">${[...emojiParsedEmbedFieldTitle]}</div>` : null}
+			<slot></slot>`;
 	}
 
 	private parseTitle(title?: string) {

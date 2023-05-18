@@ -1,6 +1,8 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import type { LightTheme } from '../../util.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-spoiler')
 export class DiscordSpoiler extends LitElement implements LightTheme {
@@ -34,15 +36,12 @@ export class DiscordSpoiler extends LitElement implements LightTheme {
 		}
 	`;
 
+	/**
+	 * Whether to use light theme or not.
+	 */
+	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
-
-	public override willUpdate() {
-		if (this.parentElement && 'lightTheme' in this.parentElement) {
-			const parent = this.parentElement as { lightTheme: boolean };
-			this.lightTheme = parent.lightTheme;
-		}
-	}
 
 	protected override render() {
 		return html`<slot></slot>`;

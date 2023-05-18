@@ -1,27 +1,30 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
+import type { LightTheme } from '../../util.js';
+import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
 
 @customElement('discord-command')
-export class DiscordCommand extends LitElement {
+export class DiscordCommand extends LitElement implements LightTheme {
 	public static override styles = [
 		DiscordReply.styles,
 		css`
-			.discord-replied-message.discord-executed-command .discord-command-name {
+			:host .discord-command-name {
 				color: #00aff4;
 				font-weight: 500;
 			}
 
-			.discord-replied-message.discord-executed-command .discord-command-name:hover {
+			:host .discord-command-name:hover {
 				color: #00aff4;
 				text-decoration: underline;
 			}
 
-			.discord-replied-message.discord-executed-command .discord-replied-message-username {
+			:host .discord-replied-message-username {
 				margin-right: 0;
 			}
 		`
@@ -59,29 +62,31 @@ export class DiscordCommand extends LitElement {
 	@property({ attribute: 'command' })
 	public command: string;
 
-	protected override render() {
-		const parent = this.parentElement;
-		if (this.parentElement?.tagName.toLowerCase() !== 'discord-message') {
-			throw new Error('All <discord-command> components must be direct children of <discord-message>.');
-		}
+	/**
+	 * Whether to use compact mode or not.
+	 */
+	@consume({ context: messagesCompactMode })
+	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
+	public compactMode = false;
 
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
+	public lightTheme = false;
+
+	protected override render() {
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
 		const defaultData: Profile = { author: this.author, bot: false, verified: false, server: false, roleColor: this.roleColor };
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		const messageParent = parent?.parentElement as any;
-
 		return html`
-			<div class="discord-reply discord-replied-message discord-executed-command">
-				${messageParent?.compactMode
-					? html`<div class="discord-reply-badge">${CommandIcon()}</div>`
-					: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
-				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
-				<span> used </span>
-				<div class="discord-replied-message-content discord-command-name">${this.command}</div>
-			</div>
+			${this.compactMode
+				? html`<div class="discord-reply-badge">${CommandIcon()}</div>`
+				: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
+			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
+			<span> used </span>
+			<div class="discord-replied-message-content discord-command-name">${this.command}</div>
 		`;
 	}
 }

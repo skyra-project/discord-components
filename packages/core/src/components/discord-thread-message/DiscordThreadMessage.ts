@@ -1,17 +1,17 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
 import type { LightTheme } from '../../util.js';
-import type { DiscordThread } from '../discord-thread/DiscordThread.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-thread-message')
 export class DiscordThreadMessage extends LitElement implements LightTheme {
 	public static override styles = css`
-		.discord-thread-message {
+		:host {
 			height: 18px;
 			min-width: 0;
 			display: flex;
@@ -20,7 +20,7 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 			line-height: 1.125rem;
 		}
 
-		.discord-thread-message .discord-thread-message-avatar {
+		:host .discord-thread-message-avatar {
 			margin-right: 8px;
 			flex: 0 0 auto;
 			width: 16px;
@@ -29,7 +29,7 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 			user-select: none;
 		}
 
-		.discord-thread-message .discord-thread-message-username {
+		:host .discord-thread-message-username {
 			flex-shrink: 0;
 			font-size: inherit;
 			line-height: inherit;
@@ -42,11 +42,11 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 			overflow: hidden;
 		}
 
-		.discord-light-theme.discord-thread-message .discord-thread-message-username {
+		:host([light-theme]) .discord-thread-message-username {
 			color: #060607;
 		}
 
-		.discord-thread-message .discord-application-tag {
+		:host .discord-application-tag {
 			background-color: #5865f2;
 			color: #fff;
 			font-size: 0.65em;
@@ -62,25 +62,25 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 			border-radius: 0.1875rem;
 		}
 
-		.discord-thread-message .discord-application-tag-verified {
+		:host .discord-application-tag-verified {
 			display: inline-block;
 			width: 0.9375rem;
 			height: 0.9375rem;
 			margin-left: -0.25rem;
 		}
 
-		.discord-thread-message .discord-thread-message-content {
+		:host .discord-thread-message-content {
 			display: flex;
 			align-items: baseline;
 		}
 
-		.discord-thread-message .discord-message-edited {
+		:host .discord-message-edited {
 			color: #72767d;
 			font-size: 10px;
 			margin-left: 5px;
 		}
 
-		.discord-thread-message .discord-thread-message-timestamp {
+		:host .discord-thread-message-timestamp {
 			color: #72767d;
 			flex-shrink: 0;
 			margin-left: 8px;
@@ -88,8 +88,8 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 			line-height: 1.125rem;
 		}
 
-		.discord-light-theme.discord-thread-message .discord-thread-message-timestamp,
-		.discord-light-theme.discord-thread-message .discord-message-edited {
+		:host([light-theme]) .discord-thread-message-timestamp,
+		:host([light-theme]) .discord-message-edited {
 			color: #747f8d;
 		}
 	`;
@@ -152,46 +152,30 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 	@property({ attribute: 'relative-timestamp' })
 	public relativeTimestamp = '1m ago';
 
-	@state()
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	protected override render() {
-		const parent = this.parentElement as DiscordThread;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-thread') {
-			throw new Error('All <discord-thread-message> components must be direct children of <discord-thread>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
 		const defaultData: Profile = { author: this.author, bot: this.bot, verified: this.verified, server: this.server, roleColor: this.roleColor };
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		return html`
-			<div
-				class=${classMap({
-					'discord-thread-message': true,
-					'discord-light-theme': this.lightTheme
-				})}
-			>
-				<img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
-				${html`
-					${profile.bot && !profile.server
-						? html`<span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : null} Bot </span>`
-						: null}
-					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : null}
-				`}
-				<span class="discord-thread-message-username" style=${styleMap({ color: profile.roleColor })}> ${profile.author} </span>
-				<div class="discord-thread-message-content">
-					<slot></slot>
-					${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
-				</div>
-				<span class="discord-thread-message-timestamp">${this.relativeTimestamp}</span>
+		return html` <img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
+			${html`
+				${profile.bot && !profile.server
+					? html`<span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : null} Bot </span>`
+					: null}
+				${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : null}
+			`}
+			<span class="discord-thread-message-username" style=${styleMap({ color: profile.roleColor })}> ${profile.author} </span>
+			<div class="discord-thread-message-content">
+				<slot></slot>
+				${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
 			</div>
-		`;
+			<span class="discord-thread-message-timestamp">${this.relativeTimestamp}</span>`;
 	}
 }
 

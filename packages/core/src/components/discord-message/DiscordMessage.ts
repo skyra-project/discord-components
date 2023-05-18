@@ -1,12 +1,12 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
 import { handleTimestamp, LightTheme, type DiscordTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
 import type { DiscordMention } from '../discord-mention/DiscordMention.js';
-import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
+import { messagesCompactMode, messagesLightTheme, messagesNoBackground } from '../discord-messages/DiscordMessages.js';
 import Ephemeral from '../svgs/Ephemeral.js';
 
 interface DiscordMessageProps {
@@ -32,7 +32,7 @@ interface DiscordMessageProps {
 @customElement('discord-message')
 export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {
 	public static override styles = css`
-		.discord-message {
+		:host {
 			color: #dcddde;
 			display: flex;
 			flex-direction: column;
@@ -64,14 +64,14 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			flex: 0 0 auto;
 		}
 
-		.discord-highlight-mention,
-		.discord-highlight-ephemeral {
+		:host([highlight]),
+		:host([ephemeral]) {
 			padding-right: 5px;
 			position: relative;
 		}
 
-		.discord-highlight-mention::before,
-		.discord-highlight-ephemeral::before {
+		:host([highlight])::before,
+		:host([ephemeral])::before {
 			content: '';
 			position: absolute;
 			display: block;
@@ -82,35 +82,35 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			width: 2px;
 		}
 
-		.discord-highlight-mention {
+		:host([highlight]) {
 			background-color: rgba(250, 166, 26, 0.1);
 		}
 
-		.discord-light-theme .discord-highlight-mention {
+		:host([highlight][light-theme]) {
 			background-color: rgba(250, 166, 26, 0.1);
 		}
 
-		.discord-highlight-mention::before {
+		:host([highlight])::before {
 			background-color: #faa61a;
 		}
 
-		.discord-highlight-ephemeral {
+		:host([light-theme][highlight])::before {
+			background-color: #af7615;
+		}
+
+		:host([ephemeral]) {
 			background-color: rgba(88, 101, 242, 0.05);
 		}
 
-		.discord-light-theme .discord-highlight-ephemeral {
-			background-color: rgba(250, 166, 26, 0.1);
-		}
-
-		.discord-highlight-ephemeral:hover {
+		:host([ephemeral]:hover) {
 			background-color: rgba(88, 101, 242, 0.1);
 		}
 
-		.discord-highlight-ephemeral::before {
+		:host([ephemeral])::before {
 			background-color: #5865f2;
 		}
 
-		.discord-light-theme {
+		:host([light-theme]) {
 			color: #2e3338;
 			border-color: #eceeef;
 		}
@@ -126,6 +126,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			width: 40px;
 			height: 40px;
 			border-radius: 50%;
+			cursor: pointer;
 		}
 
 		.discord-message-timestamp {
@@ -134,7 +135,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			margin-left: 3px;
 		}
 
-		.discord-light-theme .discord-message-timestamp {
+		:host([light-theme]) .discord-message-timestamp {
 			color: #747f8d;
 		}
 
@@ -143,7 +144,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			font-size: 10px;
 		}
 
-		.discord-light-theme .discord-message-edited {
+		:host([light-theme]) .discord-message-edited {
 			color: #99aab5;
 		}
 
@@ -161,17 +162,16 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			position: relative;
 		}
 
-		.discord-light-theme .discord-message-timestamp,
-		.discord-compact-mode .discord-message:hover .discord-message-timestamp,
-		.discord-compact-mode.discord-light-theme .discord-message:hover .discord-message-timestamp {
+		:host([light-theme]) .discord-message-timestamp,
+		:host([compact-mode]) .discord-message:hover .discord-message-timestamp {
 			color: #99aab5;
 		}
 
-		.discord-compact-mode.discord-light-theme .discord-message-timestamp {
+		:host([light-theme][compact-mode]).discord-message-timestamp {
 			color: #d1d9de;
 		}
 
-		.discord-compact-mode .discord-message-timestamp {
+		:host([compact-mode]) .discord-message-timestamp {
 			display: inline-block;
 			width: 3.1rem;
 			text-align: right;
@@ -182,13 +182,13 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			text-indent: 0;
 		}
 
-		.discord-compact-mode .discord-message-body {
+		:host([compact-mode]) .discord-message-body {
 			line-height: 1.375rem;
 			padding-left: 10px;
 			text-indent: -6px;
 		}
 
-		.discord-compact-mode .discord-message-compact-indent {
+		:host([compact-mode]) .discord-message-compact-indent {
 			padding-left: 10px;
 		}
 
@@ -200,15 +200,15 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			font-weight: 400;
 		}
 
-		.discord-message:hover {
+		:host(:hover) {
 			background-color: hsl(0 calc(1 * 0%) 0.8%/0.03);
 		}
 
-		.discord-highlight-mention:hover {
+		:host([highlight]:hover) {
 			background-color: hsl(40 calc(1 * 86.4%) 56.9%/0.08);
 		}
 
-		.discord-message-has-thread:after {
+		:host([has-Thread]:after) {
 			width: 2rem;
 			left: 2.2rem;
 			top: 1.75rem;
@@ -220,11 +220,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			position: absolute;
 		}
 
-		.discord-light-theme.discord-message-has-thread:after {
+		:host([light-theme][has-Thread]:after) {
 			border-color: #747f8d;
 		}
 
-		.discord-message-ephemeral {
+		:host([ephemeral]) {
 			color: #72767d;
 			margin-top: 4px;
 			font-size: 12px;
@@ -232,21 +232,21 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			color: #72767d;
 		}
 
-		.discord-light-theme.discord-message-ephemeral {
+		:host([light-theme][ephemeral]) {
 			color: #747f8d;
 		}
 
-		.discord-message-ephemeral .discord-message-ephemeral-link {
+		:host([ephemeral]) .discord-message-ephemeral-link {
 			color: #00aff4;
 			font-weight: 500;
 			cursor: pointer;
 		}
 
-		.discord-message-ephemeral .discord-message-ephemeral-link:hover {
+		:host([ephemeral]) .discord-message-ephemeral-link:hover {
 			text-decoration: underline;
 		}
 
-		.discord-message-ephemeral .discord-message-ephemeral-icon {
+		:host([ephemeral]) .discord-message-ephemeral-icon {
 			margin-right: 4px;
 			vertical-align: text-bottom;
 		}
@@ -325,7 +325,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	/**
 	 * Whether to highlight this message.
 	 */
-	@property({ type: Boolean })
+	@property({ type: Boolean, reflect: true })
 	public highlight = false;
 
 	/**
@@ -350,19 +350,34 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	@property({ type: Boolean, attribute: 'twenty-four' })
 	public twentyFour = false;
 
-	@state()
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
-	@state()
+	@consume({ context: messagesCompactMode })
+	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
 	public compactMode = false;
 
+	@consume({ context: messagesNoBackground })
+	@property({ type: Boolean, reflect: true, attribute: 'no-background' })
+	public noBackground = false;
+
+	@property({ type: Boolean, reflect: true, attribute: 'has-Thread' })
+	public hasThread = false;
+
+	protected override willUpdate(): void {
+		this.hasThread = Array.from(this.children).some((child): boolean => child.tagName.toLowerCase() === 'discord-thread');
+		this.highlight =
+			this.highlight ||
+			Array.from(this.children).some(
+				(child): boolean =>
+					child.tagName.toLowerCase() === 'discord-mention' &&
+					child.hasAttribute('highlight') &&
+					((child as DiscordMention).type === 'user' || (child as DiscordMention).type === 'role')
+			);
+	}
+
 	protected override render() {
-		const parent = this.parentElement as DiscordMessages | null;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-messages') {
-			throw new Error('All <discord-message> components must be direct children of <discord-messages>.');
-		}
-
 		const resolveAvatar = (avatar: string | undefined): string =>
 			avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
 
@@ -380,94 +395,65 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		const profileData: Profile = ((this.profile !== undefined && Reflect.get(profiles, this.profile)) as Profile) || {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		const highlightMention: boolean =
-			Array.from(this.children).some(
-				(child): boolean =>
-					child.tagName.toLowerCase() === 'discord-mention' &&
-					child.hasAttribute('highlight') &&
-					((child as DiscordMention).type === 'user' || (child as DiscordMention).type === 'role')
-			) || this.highlight;
-
-		const hasThread: boolean = Array.from(this.children).some((child): boolean => child.tagName.toLowerCase() === 'discord-thread');
-
-		const parentIsCompact = parent.compactMode ?? false;
-		const parentHasNoBackground = parent.noBackground ?? false;
-		const parentIsLightMode = parent.lightTheme ?? false;
-
-		this.lightTheme = parentIsLightMode;
-		this.compactMode = parentIsCompact;
-
-		const computedTimestamp = handleTimestamp(this.timestamp, this.parentElement?.hasAttribute('compact-mode'), this.twentyFour);
+		const computedTimestamp = handleTimestamp(this.timestamp, this.compactMode, this.twentyFour);
 
 		return html`
-			<div
-				class=${classMap({
-					'discord-message': true,
-					'discord-highlight-mention': highlightMention,
-					'discord-message-has-thread': hasThread,
-					'discord-highlight-ephemeral': this.ephemeral,
-					'discord-light-theme': parentIsLightMode,
-					'discord-compact-mode': parentIsCompact,
-					'discord-no-background': parentHasNoBackground
-				})}
-			>
-				<slot name="reply"></slot>
-				<div class="discord-message-inner">
-					${parentIsCompact ? html`<span class="discord-message-timestamp">${computedTimestamp}</span>` : null}
-					${parentIsCompact
-						? null
-						: html`<div class="discord-author-avatar">
-								<img src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />
-						  </div>`}
+			<slot name="reply"></slot>
+			<div class="discord-message-inner">
+				${this.compactMode ? html`<span class="discord-message-timestamp">${computedTimestamp}</span>` : null}
+				${this.compactMode
+					? null
+					: html`<div class="discord-author-avatar">
+							<img src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />
+					  </div>`}
 
-					<div class="discord-message-content">
-						${parentIsCompact
-							? null
-							: html`
-									<discord-author-info
-										author=${profile.author ?? ''}
-										?bot=${profile.bot ?? false}
-										?server=${profile.server ?? false}
-										?verified=${profile.verified ?? false}
-										?op=${profile.op ?? false}
-										roleColor=${profile.roleColor ?? ''}
-										roleIcon=${profile.roleIcon ?? ''}
-										roleName=${profile.roleName ?? ''}
-										?compact=${false}
-									></discord-author-info
-									><span class="discord-message-timestamp">${computedTimestamp}</span>
-							  `}
-						<div class="discord-message-body">
-							${parentIsCompact
-								? html`<discord-author-info
-										author=${profile.author ?? ''}
-										?bot=${profile.bot ?? false}
-										?server=${profile.server ?? false}
-										?verified=${profile.verified ?? false}
-										?op=${profile.op ?? false}
-										roleColor=${profile.roleColor ?? ''}
-										roleIcon=${profile.roleIcon ?? ''}
-										roleName=${profile.roleName ?? ''}
-										?compact=${true}
-								  ></discord-author-info>`
-								: null}<span class="discord-message-markup"><slot></slot></span>
-							${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
-						</div>
-						<div class="discord-message-compact-indent">
-							<slot name="embeds"></slot>
-							<slot name="attachments"></slot>
-							<slot name="components"></slot>
-							<slot name="reactions"></slot>
-							<slot name="thread"></slot>
-							${this.ephemeral
-								? html`
-										<div class="discord-message-ephemeral">
-											${Ephemeral()} Only you can see this •
-											<span class="discord-message-ephemeral-link">Dismiss message</span>
-										</div>
-								  `
-								: null}
-						</div>
+				<div class="discord-message-content">
+					${this.compactMode
+						? null
+						: html`
+								<discord-author-info
+									author=${profile.author ?? ''}
+									?bot=${profile.bot ?? false}
+									?server=${profile.server ?? false}
+									?verified=${profile.verified ?? false}
+									?op=${profile.op ?? false}
+									roleColor=${profile.roleColor ?? ''}
+									roleIcon=${profile.roleIcon ?? ''}
+									roleName=${profile.roleName ?? ''}
+									?compact=${false}
+								></discord-author-info
+								><span class="discord-message-timestamp">${computedTimestamp}</span>
+						  `}
+					<div class="discord-message-body">
+						${this.compactMode
+							? html`<discord-author-info
+									author=${profile.author ?? ''}
+									?bot=${profile.bot ?? false}
+									?server=${profile.server ?? false}
+									?verified=${profile.verified ?? false}
+									?op=${profile.op ?? false}
+									roleColor=${profile.roleColor ?? ''}
+									roleIcon=${profile.roleIcon ?? ''}
+									roleName=${profile.roleName ?? ''}
+									?compact=${true}
+							  ></discord-author-info>`
+							: null}<span class="discord-message-markup"><slot></slot></span>
+						${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
+					</div>
+					<div class="discord-message-compact-indent">
+						<slot name="embeds"></slot>
+						<slot name="attachments"></slot>
+						<slot name="components"></slot>
+						<slot name="reactions"></slot>
+						<slot name="thread"></slot>
+						${this.ephemeral
+							? html`
+									<div class="discord-message-ephemeral">
+										${Ephemeral()} Only you can see this •
+										<span class="discord-message-ephemeral-link">Dismiss message</span>
+									</div>
+							  `
+							: null}
 					</div>
 				</div>
 			</div>
