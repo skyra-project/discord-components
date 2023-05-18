@@ -1,13 +1,13 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import type { LightTheme } from '../../util.js';
-import type { DiscordReactions } from '../discord-reactions/DiscordReactions.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-reaction')
 export class DiscordReaction extends LitElement implements LightTheme {
 	public static override styles = css`
-		.discord-reaction {
+		:host > *:first-child {
 			border-radius: 0.5rem;
 			cursor: pointer;
 			flex-shrink: 0;
@@ -20,36 +20,36 @@ export class DiscordReaction extends LitElement implements LightTheme {
 			border: 1px solid transparent;
 		}
 
-		.discord-light-theme.discord-reaction {
+		:host([light-theme]) > *:first-child {
 			background-color: #f2f3f5;
 		}
 
-		.discord-reaction:hover {
+		:host > *:first-child:hover {
 			background-color: #36393f;
 			border-color: #fff2;
 		}
 
-		.discord-light-theme.discord-reaction:not(.discord-reaction-reacted):hover {
+		:host([light-theme]:not([reacted])) > *:first-child:hover {
 			background-color: white;
 			border-color: #0003;
 		}
 
-		.discord-reaction.discord-reaction-reacted {
+		:host([reacted]) > *:first-child {
 			background-color: rgba(88, 101, 242, 0.15);
 			border-color: #5865f2;
 		}
 
-		.discord-light-theme.discord-reaction.discord-reaction-reacted {
+		:host([light-theme][reacted]) > *:first-child {
 			background-color: #e7e9fd;
 		}
 
-		.discord-reaction .discord-reaction-inner {
+		:host .discord-reaction-inner {
 			display: flex;
 			align-items: center;
 			padding: 0.125rem 0.375rem;
 		}
 
-		.discord-reaction img {
+		:host img {
 			width: 1rem;
 			height: 1rem;
 			margin: 0.125rem 0;
@@ -59,7 +59,7 @@ export class DiscordReaction extends LitElement implements LightTheme {
 			vertical-align: bottom;
 		}
 
-		.discord-reaction .discord-reaction-count {
+		:host .discord-reaction-count {
 			font-size: 0.875rem;
 			font-weight: 500;
 			margin-left: 0.375rem;
@@ -67,15 +67,15 @@ export class DiscordReaction extends LitElement implements LightTheme {
 			color: #b9bbbe;
 		}
 
-		.discord-light-theme.discord-reaction .discord-reaction-count {
+		:host([light-theme]) .discord-reaction-count {
 			color: #4f5660;
 		}
 
-		.discord-reaction.discord-reaction-reacted .discord-reaction-count {
+		:host([reacted]) .discord-reaction-count {
 			color: #dee0fc;
 		}
 
-		.discord-light-theme.discord-reaction.discord-reaction-reacted .discord-reaction-count {
+		:host([light-theme][reacted]) .discord-reaction-count {
 			color: #5865f2;
 		}
 	`;
@@ -117,34 +117,15 @@ export class DiscordReaction extends LitElement implements LightTheme {
 	@property({ type: Boolean })
 	public interactive = false;
 
-	@state()
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	protected override render() {
-		const parent = this.parentElement as DiscordReactions;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-reactions') {
-			throw new Error('All <discord-reaction> components must be direct children of <discord-reactions>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
-		return html`
-			<div
-				class=${classMap({
-					'discord-reaction': true,
-					'discord-light-theme': this.lightTheme,
-					'discord-reaction-reacted': this.reacted
-				})}
-				@click=${this.handleReactionClick}
-				@keydown=${this.handleReactionClick}
-			>
-				<div class="discord-reaction-inner">
-					<img src="${this.emoji}" alt="${this.name}" draggable="false" />
-					<span class="discord-reaction-count">${this.count}</span>
-				</div>
-			</div>
-		`;
+		return html` <div class="discord-reaction-inner" @click=${this.handleReactionClick} @keydown=${this.handleReactionClick}>
+			<img src="${this.emoji}" alt="${this.name}" draggable="false" />
+			<span class="discord-reaction-count">${this.count}</span>
+		</div>`;
 	}
 
 	private handleReactionClick = (event: MouseEvent) => {

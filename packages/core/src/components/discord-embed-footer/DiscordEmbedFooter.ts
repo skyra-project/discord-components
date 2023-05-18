@@ -1,16 +1,15 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import { DiscordTimestamp, handleTimestamp, LightTheme } from '../../util.js';
-import type { DiscordEmbed } from '../discord-embed/DiscordEmbed.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-embed-footer')
 export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	public static override styles = css`
-		.discord-embed-footer {
+		:host {
 			-webkit-box-align: center;
 			align-items: center;
-			color: #dcddde;
 			display: flex;
 			font-size: 12px;
 			line-height: 16px;
@@ -18,7 +17,11 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 			margin-top: 8px;
 		}
 
-		.discord-embed-footer .discord-footer-image {
+		:host([light-theme]) {
+			color: #747f8d;
+		}
+
+		:host .discord-footer-image {
 			border-radius: 50%;
 			flex-shrink: 0;
 			height: 20px;
@@ -26,15 +29,15 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 			width: 20px;
 		}
 
-		.discord-embed-footer .discord-footer-separator {
+		:host .discord-footer-separator {
 			color: #dcddde;
 			font-weight: 500;
 			display: inline-block;
 			margin: 0 4px;
 		}
 
-		.discord-light-theme.discord-embed-footer .discord-footer-separator {
-			color: #e4e4e4;
+		:host([light-theme]) .discord-footer-separator {
+			color: #5c5e66;
 		}
 	`;
 
@@ -56,7 +59,8 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	@property({ reflect: true })
 	public timestamp?: DiscordTimestamp;
 
-	@state()
+	@consume({ context: messagesLightTheme, subscribe: true })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	public updateTimestamp(value?: DiscordTimestamp): string | null {
@@ -65,29 +69,13 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	}
 
 	protected override render() {
-		const parent = this.parentElement as DiscordEmbed | null;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-embed') {
-			throw new Error('All <discord-embed-footer> components must be direct children of <discord-embed>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
 		this.updateTimestamp(this.timestamp);
 
-		return html`<div
-			class=${classMap({
-				'discord-embed-footer': true,
-				'discord-light-theme': this.lightTheme
-			})}
-		>
-			${this.footerImage ? html`<img src="${this.footerImage}" alt="${this.footerImageAlt}" class="discord-footer-image" />` : null}
-			${html`
-				<slot></slot>
-				${this.timestamp ? html`<span class="discord-footer-separator">&bull;</span>` : null}
-				${this.timestamp ? html`${this.timestamp}` : null}
-			`}
-		</div>`;
+		return html` ${this.footerImage ? html`<img src="${this.footerImage}" alt="${this.footerImageAlt}" class="discord-footer-image" />` : null}
+		${html`
+			<slot></slot>
+			${this.timestamp ? html`<span class="discord-footer-separator">&bull;</span>` : null} ${this.timestamp ? html`${this.timestamp}` : null}
+		`}`;
 	}
 }
 

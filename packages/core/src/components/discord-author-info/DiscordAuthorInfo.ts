@@ -1,40 +1,41 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { classMap } from 'lit-html/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
+import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-author-info')
 export class DiscordAuthorInfo extends LitElement {
 	public static override styles = css`
-		.discord-author-info {
+		:host {
 			display: inline-flex;
 			align-items: center;
 			font-size: 16px;
 			margin-right: 0.25rem;
 		}
 
-		.discord-author-info.discord-compact-mode {
+		:host([compact-mode]) {
 			margin-right: 0;
 		}
 
-		.discord-compact-mode.discord-message .discord-author-info {
-			margin-right: 0;
-		}
-
-		.discord-message.discord-author-info .discord-author-username {
+		:host .discord-author-username {
 			color: #fff;
 			font-size: 1em;
 			font-weight: 500;
 		}
 
-		.discord-light-theme.discord-message.discord-author-info .discord-author-username {
+		:host .discord-author-username:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		:host([light-theme]) .discord-author-username {
 			color: #23262a;
 		}
 
-		.discord-message.discord-author-info .discord-application-tag {
+		:host .discord-application-tag {
 			background-color: #5865f2;
 			color: #fff;
 			font-size: 0.625em;
@@ -54,32 +55,32 @@ export class DiscordAuthorInfo extends LitElement {
 			border-radius: 0.1875rem;
 		}
 
-		.discord-message.discord-author-info .discord-application-tag.discord-application-tag-op {
+		:host .discord-application-tag.discord-application-tag-op {
 			background-color: #c9cdfb;
 			color: #4752c4;
 			border-radius: 0.4rem;
 		}
 
-		.discord-message.discord-author-info .discord-application-tag-verified {
+		:host .discord-application-tag-verified {
 			display: inline-block;
 			width: 0.9375rem;
 			height: 0.9375rem;
 			margin-left: -0.25rem;
 		}
 
-		.discord-message.discord-author-info .discord-author-role-icon {
+		:host .discord-author-role-icon {
 			margin-left: 0.25rem;
 			vertical-align: top;
 			height: calc(1rem + 4px);
 			width: calc(1rem + 4px);
 		}
 
-		.discord-compact-mode.discord-message.discord-author-info .discord-author-username {
+		:host([compact-mode]) .discord-author-username {
 			margin-left: 8px;
 			margin-right: 4px;
 		}
 
-		.discord-compact-mode.discord-message.discord-author-info .discord-application-tag {
+		:host([compact-mode]) .discord-application-tag {
 			margin-left: 0;
 			margin-left: 5px;
 			margin-right: 5px;
@@ -87,7 +88,7 @@ export class DiscordAuthorInfo extends LitElement {
 			padding-right: 4px;
 		}
 
-		.discord-compact-mode.discord-message.discord-author-info .discord-application-tag-verified {
+		:host([compact-mode]) .discord-application-tag-verified {
 			margin-right: 0.7em;
 			margin-left: -0.7em;
 		}
@@ -144,53 +145,34 @@ export class DiscordAuthorInfo extends LitElement {
 	/**
 	 * Whether to reverse the order of the author info for compact mode.
 	 */
-	@property({ type: Boolean })
-	public compact = false;
+	@consume({ context: messagesCompactMode })
+	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
+	public compactMode = false;
 
-	private getRootParent(): Element | undefined {
-		const parent = this.parentElement;
-		if (!(parent?.getRootNode() instanceof ShadowRoot)) return undefined;
-		return (parent.getRootNode() as ShadowRoot).host;
-	}
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
+	public lightTheme = false;
 
 	protected override render() {
-		const rootParent = this.getRootParent();
-		if (!rootParent || rootParent.tagName.toLowerCase() !== 'discord-message') {
-			throw new Error('All <discord-author-info> components must be direct children of <discord-message>.');
-		}
-
-		const parentIsLightMode = (rootParent as DiscordMessage).lightTheme ?? false;
-
-		if ((rootParent as DiscordMessage).compactMode) this.compact = true;
-
-		return html`<div
-			class=${classMap({
-				'discord-author-info': true,
-				'discord-compact-mode': this.compact,
-				'discord-light-theme': parentIsLightMode,
-				'discord-message': true
-			})}
-		>
-			${this.compact
-				? null
-				: html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`}
-			${this.roleIcon
-				? html`<img
-						class="discord-author-role-icon"
-						src=${this.roleIcon}
-						height="20"
-						width="20"
-						alt=${ifDefined(this.roleName)}
-						draggable="false"
-				  />`
-				: null}
-			${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified && VerifiedTick()} Bot</span>` : null}
-			${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : null}
-			${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : null}
-			${this.compact
-				? html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`
-				: null}
-		</div>`;
+		return html` ${this.compactMode
+			? null
+			: html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`}
+		${this.roleIcon && !this.compactMode
+			? html`<img
+					class="discord-author-role-icon"
+					src=${this.roleIcon}
+					height="20"
+					width="20"
+					alt=${ifDefined(this.roleName)}
+					draggable="false"
+			  />`
+			: null}
+		${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified && VerifiedTick()} Bot</span>` : null}
+		${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : null}
+		${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : null}
+		${this.compactMode
+			? html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`
+			: null}`;
 	}
 }
 

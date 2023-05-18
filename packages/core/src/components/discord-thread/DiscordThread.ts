@@ -1,13 +1,13 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import type { LightTheme } from '../../util.js';
-import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-thread')
 export class DiscordThread extends LitElement implements LightTheme {
 	public static override styles = css`
-		.discord-thread {
+		:host {
 			background-color: #2f3136;
 			border-radius: 4px;
 			cursor: pointer;
@@ -20,15 +20,15 @@ export class DiscordThread extends LitElement implements LightTheme {
 			flex-direction: column;
 		}
 
-		.discord-light-theme.discord-thread {
+		:host([light-theme]) {
 			background-color: #f2f3f5;
 		}
 
-		.discord-thread .discord-thread-top {
+		:host .discord-thread-top {
 			display: flex;
 		}
 
-		.discord-thread .discord-thread-bottom {
+		:host .discord-thread-bottom {
 			font-size: 0.875rem;
 			line-height: 1.125rem;
 			align-items: center;
@@ -38,11 +38,11 @@ export class DiscordThread extends LitElement implements LightTheme {
 			white-space: nowrap;
 		}
 
-		.discord-light-theme .discord-thread-bottom {
+		:host([light-theme]) .discord-thread-bottom {
 			color: #4f5660;
 		}
 
-		.discord-thread .discord-thread-name {
+		:host .discord-thread-name {
 			font-size: 0.875rem;
 			font-weight: 600;
 			line-height: 1.125rem;
@@ -53,16 +53,20 @@ export class DiscordThread extends LitElement implements LightTheme {
 			white-space: nowrap;
 		}
 
-		.discord-light-theme .discord-thread-name {
+		:host([light-theme]) .discord-thread-name {
 			color: #060607;
 		}
 
-		.discord-thread .discord-thread-cta {
+		:host .discord-thread-cta {
 			color: #00aff4;
 			flex-shrink: 0;
 			font-size: 0.875rem;
 			font-weight: 600;
 			line-height: 1.125rem;
+		}
+
+		:host .discord-thread-cta:hover {
+			text-decoration: underline;
 		}
 
 		.discord-thread:hover .discord-thread-cta {
@@ -82,33 +86,19 @@ export class DiscordThread extends LitElement implements LightTheme {
 	@property()
 	public cta = 'See Thread';
 
-	@state()
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	protected override render() {
-		const parent = this.parentElement as DiscordMessage;
-
-		if (!parent || (parent.tagName.toLowerCase() !== 'discord-message' && parent.tagName.toLowerCase() !== 'discord-system-message')) {
-			throw new Error('All <discord-thread> components must be direct children of either <discord-message> or <discord-system-message>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
 		return html`
-			<div
-				class=${classMap({
-					'discord-thread': true,
-					'discord-light-theme': this.lightTheme
-				})}
-			>
-				<div class="discord-thread-top">
-					<span class="discord-thread-name">${this.name}</span>
-					<span class="discord-thread-cta" aria-hidden="true"> ${this.cta} › </span>
-				</div>
-				<span class="discord-thread-bottom">
-					<slot></slot>
-				</span>
+			<div class="discord-thread-top">
+				<span class="discord-thread-name">${this.name}</span>
+				<span class="discord-thread-cta" aria-hidden="true"> ${this.cta} › </span>
 			</div>
+			<span class="discord-thread-bottom">
+				<slot></slot>
+			</span>
 		`;
 	}
 }

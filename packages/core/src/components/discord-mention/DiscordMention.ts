@@ -1,7 +1,9 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
 import type { LightTheme } from '../../util.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ChannelForum from '../svgs/ChannelForum.js';
 import ChannelIcon from '../svgs/ChannelIcon.js';
 import ChannelThread from '../svgs/ChannelThread.js';
@@ -99,6 +101,8 @@ export class DiscordMention extends LitElement implements LightTheme {
 			this.style.backgroundColor = hexToRgba(this.colorCodeFromStyles, 0.1);
 		}
 	};
+
+	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme: boolean;
 
@@ -117,13 +121,6 @@ export class DiscordMention extends LitElement implements LightTheme {
 		this.removeEventListener('mouseout', this.resetHoverColor);
 
 		super.disconnectedCallback();
-	}
-
-	protected override willUpdate() {
-		if (this.parentElement && 'lightTheme' in this.parentElement) {
-			const parent = this.parentElement as { lightTheme: boolean };
-			this.lightTheme = parent.lightTheme;
-		}
 	}
 
 	protected override render() {

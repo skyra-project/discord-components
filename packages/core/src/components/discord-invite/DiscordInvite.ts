@@ -1,10 +1,10 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { defaultDiscordAvatars } from '../../options.js';
 import type { LightTheme } from '../../util.js';
-import type { DiscordAttachments } from '../discord-attachments/DiscordAttachments.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
 import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
@@ -12,18 +12,18 @@ import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement implements LightTheme {
 	public static override styles = css`
-		.discord-invite {
+		:host {
 			background-color: #2f3136;
 			border-radius: 4px;
 			padding: 16px;
 			width: 432px;
 		}
 
-		.discord-light-theme.discord-invite {
+		:host([light-theme]) {
 			background-color: #f2f3f5;
 		}
 
-		.discord-invite .discord-invite-header {
+		:host .discord-invite-header {
 			font-weight: 700;
 			font-size: 12px;
 			line-height: 16px;
@@ -35,16 +35,16 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			color: #b9bbbe;
 		}
 
-		.discord-light-theme.discord-invite .discord-invite-header {
+		:host([light-theme]) .discord-invite-header {
 			color: #4f5660;
 		}
 
-		.discord-invite .discord-invite-root {
+		:host .discord-invite-root {
 			display: flex;
 			flex-flow: row nowrap;
 		}
 
-		.discord-invite .discord-invite-icon {
+		:host .discord-invite-icon {
 			background-color: #36393f;
 			border-radius: 15px;
 			margin-right: 16px;
@@ -55,11 +55,11 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			height: 50px;
 		}
 
-		.discord-light-theme.discord-invite .discord-invite-icon {
+		:host([light-theme]) .discord-invite-icon {
 			background-color: #fff;
 		}
 
-		.discord-invite .discord-invite-info {
+		:host .discord-invite-info {
 			font-family: 'gg sans', 'Noto Sans', WhitneyMedium, Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 			display: flex;
 			flex: 1 1 auto;
@@ -69,7 +69,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			justify-content: center;
 		}
 
-		.discord-invite .discord-invite-title {
+		:host .discord-invite-title {
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -82,18 +82,18 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			flex-direction: row;
 		}
 
-		.discord-light-theme.discord-invite .discord-invite-title {
+		:host([light-theme]) .discord-invite-title {
 			color: #060607;
 		}
 
-		.discord-invite .discord-invite-name {
+		:host .discord-invite-name {
 			flex: 1 1 auto;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
 
-		.discord-invite .discord-invite-counts {
+		:host .discord-invite-counts {
 			display: flex;
 			align-items: center;
 			font-size: 14px;
@@ -105,7 +105,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			line-height: 16px;
 		}
 
-		.discord-invite .discord-invite-status {
+		:host .discord-invite-status {
 			display: block;
 			margin-right: 4px;
 			width: 8px;
@@ -114,11 +114,11 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			background-color: #747f8d;
 		}
 
-		.discord-invite .discord-invite-status-online {
+		:host .discord-invite-status-online {
 			background-color: #3ba55d;
 		}
 
-		.discord-invite .discord-invite-count {
+		:host .discord-invite-count {
 			-webkit-box-flex: 0;
 			-ms-flex: 0 1 auto;
 			flex: 0 1 auto;
@@ -129,7 +129,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			overflow: hidden;
 		}
 
-		.discord-invite .discord-invite-join {
+		:host .discord-invite-join {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -151,11 +151,11 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			text-decoration: none;
 		}
 
-		.discord-invite .discord-invite-join:hover {
+		:host .discord-invite-join:hover {
 			background-color: #2d7d46;
 		}
 
-		.discord-invite .discord-invite-badge {
+		:host .discord-invite-badge {
 			-webkit-box-flex: 0;
 			-ms-flex: 0 0 auto;
 			flex: 0 0 auto;
@@ -166,15 +166,15 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			position: relative;
 		}
 
-		.discord-invite .discord-invite-badge-verified {
+		:host .discord-invite-badge-verified {
 			color: #3ba55d;
 		}
 
-		.discord-invite .discord-invite-badge-partnered {
+		:host .discord-invite-badge-partnered {
 			color: #5865f2;
 		}
 
-		.discord-invite .discord-invite-badge-container {
+		:host .discord-invite-badge-container {
 			position: absolute;
 			top: -0.05px;
 			left: 0.05px;
@@ -187,8 +187,8 @@ export class DiscordInvite extends LitElement implements LightTheme {
 			color: white;
 		}
 
-		.discord-light-theme.discord-invite .discord-invite-counts,
-		.discord-light-theme.discord-invite .discord-invite-count {
+		:host([light-theme]) .discord-invite-counts,
+		:host([light-theme]) .discord-invite-count {
 			color: #4f5660;
 		}
 	`;
@@ -254,25 +254,12 @@ export class DiscordInvite extends LitElement implements LightTheme {
 	@property({ attribute: 'join-btn' })
 	public joinBtn = 'Join';
 
-	@state()
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	protected override render() {
-		const parent = this.parentElement as DiscordAttachments;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-attachments') {
-			throw new Error('All <discord-attachments> components must be direct children of <discord-attachments>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
-		return html`<div
-			class=${classMap({
-				'discord-invite': true,
-				'discord-light-theme': this.lightTheme
-			})}
-		>
-			<div class="discord-invite-header">${this.inviteTitle}</div>
+		return html` <div class="discord-invite-header">${this.inviteTitle}</div>
 			<div class="discord-invite-root">
 				<img class="discord-invite-icon" src="${ifDefined(this.icon)}" alt="${this.name}" />
 				<div class="discord-invite-info">
@@ -298,8 +285,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 					</div>
 				</div>
 				<a class="discord-invite-join" href="${this.url}" target="_blank" rel="noopener noreferrer"> ${this.joinBtn} </a>
-			</div>
-		</div>`;
+			</div>`;
 	}
 }
 

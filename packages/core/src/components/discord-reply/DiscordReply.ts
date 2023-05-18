@@ -1,12 +1,11 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
 import type { LightTheme } from '../../util.js';
-import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
-import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
+import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
@@ -14,164 +13,166 @@ import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {
-	public static override styles = [
-		DiscordAuthorInfo.styles,
-		css`
-			.discord-reply.discord-replied-message {
-				color: #b9bbbe;
-				display: flex;
-				font-size: 0.875rem;
-				font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+	public static override styles = css`
+		:host {
+			color: #b9bbbe;
+			display: flex;
+			font-size: 0.875rem;
+			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 
-				padding-top: 2px;
-				margin-left: 56px;
-				margin-bottom: 4px;
-				align-items: center;
-				line-height: 1.125rem;
-				position: relative;
-				white-space: pre;
-				user-select: none;
-			}
+			padding-top: 2px;
+			margin-left: 56px;
+			margin-bottom: 4px;
+			align-items: center;
+			line-height: 1.125rem;
+			position: relative;
+			white-space: pre;
+			user-select: none;
+		}
 
-			.discord-light-theme.discord-replied-message {
-				color: #4f5660;
-			}
+		:host([light-theme]) {
+			color: #4f5660;
+		}
 
-			.discord-compact-mode .discord-replied-message {
-				margin-left: 62px;
-				margin-bottom: 0;
-			}
+		:host([compact-mode]) {
+			margin-left: 62px;
+			margin-bottom: 0;
+		}
 
-			.discord-replied-message:before {
-				content: '';
-				display: block;
-				position: absolute;
-				top: 50%;
-				right: 100%;
-				bottom: 0;
-				left: -36px;
-				margin-right: 4px;
-				margin-top: -1px;
-				margin-left: -1px;
-				margin-bottom: -2px;
-				border-left: 2px solid #4f545c;
-				border-bottom: 0 solid #4f545c;
-				border-right: 0 solid #4f545c;
-				border-top: 2px solid #4f545c;
-				border-top-left-radius: 6px;
-			}
+		:host:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 100%;
+			bottom: 0;
+			left: -36px;
+			margin-right: 4px;
+			margin-top: -1px;
+			margin-left: -1px;
+			margin-bottom: -2px;
+			border-left: 2px solid #4f545c;
+			border-bottom: 0 solid #4f545c;
+			border-right: 0 solid #4f545c;
+			border-top: 2px solid #4f545c;
+			border-top-left-radius: 6px;
+		}
 
-			.discord-light-theme.discord-replied-message:before {
-				border-color: #747f8d;
-			}
+		:host([light-theme]):before {
+			border-color: #747f8d;
+		}
 
-			.discord-replied-message-avatar,
-			.discord-reply-badge {
-				-webkit-box-flex: 0;
-				-ms-flex: 0 0 auto;
-				flex: 0 0 auto;
-				width: 16px;
-				height: 16px;
-				border-radius: 50%;
-				user-select: none;
-				margin-right: 0.25rem;
-			}
+		.discord-replied-message-avatar,
+		.discord-reply-badge {
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 auto;
+			flex: 0 0 auto;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			user-select: none;
+			margin-right: 0.25rem;
+		}
 
-			.discord-reply-badge {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: #b9bbbe;
-				background: #202225;
-			}
+		.discord-reply-badge {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #b9bbbe;
+			background: #202225;
+		}
 
-			.discord-light-theme.discord-replied-message .discord-reply-badge {
-				color: #4f5660;
-				background: #e3e5e8;
-			}
+		:host([light-theme]) .discord-reply-badge {
+			color: #4f5660;
+			background: #e3e5e8;
+		}
 
-			.discord-application-tag {
-				background-color: hsl(235, 85.6%, 64.7%);
-				color: #fff;
-				font-size: 0.625rem;
-				margin-right: 0.25rem;
-				line-height: 100%;
-				text-transform: uppercase;
+		.discord-application-tag {
+			background-color: hsl(235, 85.6%, 64.7%);
+			color: #fff;
+			font-size: 0.625rem;
+			margin-right: 0.25rem;
+			line-height: 100%;
+			text-transform: uppercase;
 
-				/* Use flex layout to ensure both verified icon and "BOT" text are aligned to center */
-				display: flex;
-				align-items: center;
+			/* Use flex layout to ensure both verified icon and "BOT" text are aligned to center */
+			display: flex;
+			align-items: center;
 
-				/* Styling taken through Inspect Element on Discord client for Windows */
-				height: 0.9375rem;
-				padding: 0 0.275rem;
-				margin-top: 0.075em;
-				border-radius: 0.1875rem;
-			}
+			/* Styling taken through Inspect Element on Discord client for Windows */
+			height: 0.9375rem;
+			padding: 0 0.275rem;
+			margin-top: 0.075em;
+			border-radius: 0.1875rem;
+		}
 
-			.discord-application-tag .discord-application-tag-verified {
-				width: 0.9375rem;
-				height: 0.9375rem;
-				margin-left: -0.1rem;
-			}
+		.discord-application-tag .discord-application-tag-verified {
+			width: 0.9375rem;
+			height: 0.9375rem;
+			margin-left: -0.1rem;
+		}
 
-			.discord-application-tag.discord-application-tag-op {
-				background-color: #c9cdfb;
-				color: #4752c4;
-				border-radius: 0.4rem;
-			}
+		.discord-application-tag.discord-application-tag-op {
+			background-color: #c9cdfb;
+			color: #4752c4;
+			border-radius: 0.4rem;
+		}
 
-			.discord-replied-message-username {
-				flex-shrink: 0;
-				font-size: inherit;
-				line-height: inherit;
-				margin-right: 0.25rem;
-				opacity: 0.64;
-				font-weight: 500;
-				color: #fff;
-			}
+		.discord-replied-message-username {
+			flex-shrink: 0;
+			font-size: inherit;
+			line-height: inherit;
+			margin-right: 0.25rem;
+			opacity: 0.64;
+			font-weight: 500;
+			color: #fff;
+		}
 
-			.discord-replied-message-content {
-				color: inherit;
-				font-size: inherit;
-				line-height: inherit;
-				white-space: pre;
-				text-overflow: ellipsis;
-				user-select: none;
-				cursor: pointer;
-			}
+		.discord-replied-message-username:hover {
+			text-decoration: underline;
+			cursor: pointer;
+		}
 
-			.discord-message-edited {
-				color: #72767d;
-				font-size: 10px;
-			}
+		.discord-replied-message-content {
+			color: inherit;
+			font-size: inherit;
+			line-height: inherit;
+			white-space: pre;
+			text-overflow: ellipsis;
+			user-select: none;
+			cursor: pointer;
+		}
 
-			.discord-light-theme .discord-message-edited {
-				color: #99aab5;
-			}
+		.discord-message-edited {
+			color: #72767d;
+			font-size: 10px;
+		}
 
-			.discord-replied-message-content:hover {
-				color: #fff;
-			}
+		:host([light-theme]) .discord-message-edited {
+			color: #99aab5;
+		}
 
-			.discord-light-theme.discord-replied-message .discord-replied-message-content:hover {
-				color: #000;
-			}
+		.discord-replied-message-content:hover {
+			color: #fff;
+		}
 
-			.discord-replied-message .discord-replied-message-content .discord-message-edited {
-				margin-left: 0.25rem;
-			}
+		:host([light-theme]) .discord-replied-message-content:hover {
+			color: #000;
+		}
 
-			.discord-replied-message-content-icon {
-				-webkit-box-flex: 0;
-				-ms-flex: 0 0 auto;
-				flex: 0 0 auto;
-				width: 20px;
-				height: 20px;
-				margin-left: 4px;
-			}
-		`
-	];
+		:host .discord-replied-message-content .discord-message-edited {
+			margin-left: 0.25rem;
+		}
+
+		.discord-replied-message-content-icon {
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 auto;
+			flex: 0 0 auto;
+			width: 20px;
+			height: 20px;
+			margin-left: 4px;
+		}
+	`;
 
 	/**
 	 * The id of the profile data to use.
@@ -249,18 +250,18 @@ export class DiscordReply extends LitElement implements LightTheme {
 	@property({ type: Boolean })
 	public mentions = false;
 
-	@state()
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
+	/**
+	 * Whether to use compact mode or not.
+	 */
+	@consume({ context: messagesCompactMode })
+	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
+	public compactMode = false;
+
 	protected override render() {
-		const parent = this.parentElement as DiscordMessage;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-message') {
-			throw new Error('All <discord-reply> components must be direct children of <discord-message>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
 
 		const defaultData: Profile = {
@@ -274,38 +275,26 @@ export class DiscordReply extends LitElement implements LightTheme {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		const messageParent = parent.parentElement as any;
-
-		return html`
-			<div
-				class=${classMap({
-					'discord-replied-message': true,
-					'discord-reply': true,
-					'discord-light-theme': this.lightTheme
-				})}
+		return html` ${this.compactMode
+				? html`<div class="discord-reply-badge">${ReplyIcon()}</div>`
+				: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
+			${html`
+				${profile.bot && !profile.server
+					? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
+					: null}
+				${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
+				${profile.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
+			`}
+			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
+				>${this.mentions ? '@' : ''}${profile.author}</span
 			>
-				${messageParent.compactMode
-					? html`<div class="discord-reply-badge">${ReplyIcon()}</div>`
-					: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
-				${html`
-					${profile.bot && !profile.server
-						? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
-						: null}
-					${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
-					${profile.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
-				`}
-				<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
-					>${this.mentions ? '@' : ''}${profile.author}</span
-				>
-				<!-- display: inline -->
-				<div class="discord-replied-message-content"
-					><slot></slot>${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}</div
-				>
-				${this.command
-					? CommandReply({ class: 'discord-replied-message-content-icon' })
-					: html`${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''}`}
-			</div>
-		`;
+			<!-- display: inline -->
+			<div class="discord-replied-message-content"
+				><slot></slot>${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}</div
+			>
+			${this.command
+				? CommandReply({ class: 'discord-replied-message-content-icon' })
+				: html`${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''}`}`;
 	}
 }
 

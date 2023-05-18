@@ -1,7 +1,12 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { createContext, provide } from '@lit-labs/context';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
 import type { LightTheme } from '../../util.js';
+
+export const messagesLightTheme = createContext<boolean>('light-theme');
+export const messagesCompactMode = createContext<boolean>('compact-mode');
+export const messagesNoBackground = createContext<boolean>('no-background');
 
 @customElement('discord-messages')
 export class DiscordMessages extends LitElement implements LightTheme {
@@ -47,18 +52,21 @@ export class DiscordMessages extends LitElement implements LightTheme {
 	/**
 	 * Whether to use light theme or not.
 	 */
+	@provide({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	/**
 	 * Whether to exclude the background or not.
 	 */
+	@provide({ context: messagesNoBackground })
 	@property({ type: Boolean, reflect: true, attribute: 'no-background' })
 	public noBackground = false;
 
 	/**
 	 * Whether to use compact mode or not.
 	 */
+	@provide({ context: messagesCompactMode })
 	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
 	public compactMode = false;
 

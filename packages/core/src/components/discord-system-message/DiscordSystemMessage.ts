@@ -1,9 +1,9 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement, TemplateResult } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property } from 'lit/decorators.js';
 import { DiscordTimestamp, handleTimestamp, LightTheme } from '../../util.js';
-import { DiscordAuthorInfo } from '../discord-author-info/DiscordAuthorInfo.js';
-import type { DiscordMessages } from '../discord-messages/DiscordMessages.js';
+
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import Boost from '../svgs/Boost.js';
 import DMCall from '../svgs/DMCall.js';
 import DMEdit from '../svgs/DMEdit.js';
@@ -17,148 +17,127 @@ import UserLeave from '../svgs/UserLeave.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement implements LightTheme {
-	public static override styles = [
-		DiscordAuthorInfo.styles,
-		css`
-			.discord-system-message {
-				color: #8e9297;
-				display: flex;
-				font-weight: 400;
-				font-size: 1rem;
-				font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-				padding: 0px 1em;
+	public static override styles = css`
+		:host {
+			color: #8e9297;
+			display: flex;
+			font-weight: 400;
+			font-size: 1rem;
+			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+			padding: 0px 1em;
 
-				position: relative;
-				word-wrap: break-word;
-				-webkit-user-select: text;
-				-moz-user-select: text;
-				-ms-user-select: text;
-				user-select: text;
-				-webkit-box-flex: 0;
-				-ms-flex: 0 0 auto;
-				flex: 0 0 auto;
-				padding-right: 0;
-				min-height: 1.375rem;
-				padding-right: 48px !important;
-				margin-top: 1.0625rem;
-			}
+			position: relative;
+			word-wrap: break-word;
+			-webkit-user-select: text;
+			-moz-user-select: text;
+			-ms-user-select: text;
+			user-select: text;
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 auto;
+			flex: 0 0 auto;
+			padding-right: 0;
+			min-height: 1.375rem;
+			padding-right: 48px !important;
+			margin-top: 1.0625rem;
+		}
 
-			.discord-light-theme.discord-system-message {
-				color: #2e3338;
-				border-color: #eceeef;
-			}
+		:host([light-theme]) {
+			color: #2e3338;
+			border-color: #eceeef;
+		}
 
-			.discord-system-message.discord-channel-name-change {
-				color: #fff;
-			}
+		:host([channel-name]) {
+			color: #fff;
+		}
 
-			.discord-light-theme.discord-system-message.discord-channel-name-change {
-				color: #060607;
-			}
+		:host([light-theme][channel-name]) {
+			color: #060607;
+		}
 
-			.discord-system-message.discord-boost-system-message svg {
-				color: #ff73fa;
-			}
+		:host([type='boost']) svg {
+			color: #ff73fa;
+		}
 
-			.discord-system-message.discord-alert-system-message svg {
-				color: #faa81a;
-			}
+		:host([type='alert']) svg {
+			color: #faa81a;
+		}
 
-			.discord-system-message.discord-error-system-message svg {
-				color: #faa81a;
-			}
+		:host([type='error']) svg {
+			color: #faa81a;
+		}
 
-			.discord-system-message:first-child {
-				margin-top: 0.5rem;
-			}
+		:host .discord-message-icon {
+			margin-right: 16px;
+			margin-top: 5px;
+			min-width: 40px;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+		}
 
-			.discord-system-message:last-child {
-				margin-bottom: 0.5rem;
-				border-bottom-width: 0;
-			}
+		:host .discord-message-icon svg {
+			width: 16px;
+			height: 16px;
+		}
 
-			.discord-system-message .discord-message-icon {
-				margin-right: 16px;
-				margin-top: 5px;
-				min-width: 40px;
-				display: flex;
-				align-items: flex-start;
-				justify-content: center;
-			}
+		:host .discord-message-timestamp {
+			color: #72767d;
+			font-size: 12px;
+			margin-left: 3px;
+		}
 
-			.discord-system-message .discord-message-icon svg {
-				width: 16px;
-				height: 16px;
-			}
+		:host([light-theme]) .discord-message-timestamp {
+			color: #747f8d;
+		}
 
-			.discord-system-message .discord-message-timestamp {
-				color: #72767d;
-				font-size: 12px;
-				margin-left: 3px;
-			}
+		:host .discord-message-content {
+			width: 100%;
+			line-height: 160%;
+			font-weight: normal;
+			padding-top: 2px;
+			display: flex;
+			flex-direction: column;
+		}
 
-			.discord-light-theme.discord-system-message .discord-message-timestamp {
-				color: #747f8d;
-			}
+		:host .discord-message-content ::slotted(i) {
+			font-style: normal;
+			cursor: pointer;
+			color: white;
+			font-weight: 500;
+		}
 
-			.discord-system-message .discord-message-system-edited {
-				color: #72767d;
-				font-size: 10px;
-			}
+		:host([light-theme]) .discord-message-content ::slotted(i) {
+			color: #060607;
+		}
 
-			.discord-light-theme.discord-system-message .discord-message-edited {
-				color: #99aab5;
-			}
+		:host .discord-message-content ::slotted(i:hover) {
+			text-decoration: underline;
+		}
 
-			.discord-system-message .discord-message-content {
-				width: 100%;
-				line-height: 160%;
-				font-weight: normal;
-				padding-top: 2px;
-				display: flex;
-				flex-direction: column;
-			}
+		:host(:hover) {
+			background-color: rgba(4, 4, 5, 0.07);
+		}
 
-			.discord-system-message .discord-message-content ::slotted(i) {
-				font-style: normal;
-				cursor: pointer;
-				color: white;
-				font-weight: 500;
-			}
+		:host([light-theme]:hover) {
+			background-color: rgba(6, 6, 7, 0.02);
+		}
 
-			.discord-light-theme.discord-system-message .discord-message-content ::slotted(i) {
-				color: #060607;
-			}
+		:host([has-thread]):after {
+			width: 2rem;
+			left: 2.2rem;
+			top: 1.75rem;
+			border-left: 2px solid #4f545c;
+			border-bottom: 2px solid #4f545c;
+			border-bottom-left-radius: 8px;
+			bottom: 29px;
+			content: '';
+			position: absolute;
+		}
 
-			.discord-system-message .discord-message-content ::slotted(i:hover) {
-				text-decoration: underline;
-			}
-
-			.discord-system-message:hover {
-				background-color: rgba(4, 4, 5, 0.07);
-			}
-
-			.discord-light-theme.discord-system-message:hover {
-				background-color: rgba(6, 6, 7, 0.02);
-			}
-
-			.discord-system-message.discord-system-message-has-thread:after {
-				width: 2rem;
-				left: 2.2rem;
-				top: 1.75rem;
-				border-left: 2px solid #4f545c;
-				border-bottom: 2px solid #4f545c;
-				border-bottom-left-radius: 8px;
-				bottom: 29px;
-				content: '';
-				position: absolute;
-			}
-
-			.discord-light-theme.discord-system-message.discord-system-message-has-thread:after {
-				border-color: #747f8d;
-			}
-		`
-	];
+		:host([light-theme][has-thread]):after {
+			border-color: #747f8d;
+		}
+	`;
 
 	/**
 	 * The timestamp to use for the message date.
@@ -179,7 +158,11 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 	@property({ type: Boolean, attribute: 'channel-name' })
 	public channelName = false;
 
-	@state()
+	@property({ type: Boolean, reflect: true, attribute: 'has-thread' })
+	public hasThread = false;
+
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
 	public checkType(value: string) {
@@ -192,17 +175,15 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 		}
 	}
 
+	protected override willUpdate(): void {
+		this.hasThread = Array.from(this.children).some((child): boolean => {
+			return child.tagName.toLowerCase() === 'discord-thread';
+		});
+	}
+
 	protected override render() {
-		const parent = this.parentElement as DiscordMessages;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-messages') {
-			throw new Error('All <discord-system-message> components must be direct children of <discord-messages>.');
-		}
-
 		this.timestamp = handleTimestamp(this.timestamp);
 		this.checkType(this.type);
-
-		this.lightTheme = parent.lightTheme;
 
 		let icon: TemplateResult<1>;
 
@@ -239,31 +220,15 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 				break;
 		}
 
-		const hasThread: boolean = Array.from(this.children).some((child): boolean => {
-			return child.tagName.toLowerCase() === 'discord-thread';
-		});
-
-		const classes: Record<string, boolean> = {
-			'discord-system-message': true,
-			'discord-light-theme': this.lightTheme,
-			'discord-system-message-has-thread': hasThread,
-			'discord-channel-name-change': this.channelName
-		};
-		classes[`discord-${this.type}-system-message`] = true;
-
-		return html`
-			<div class=${classMap(classes)}>
-				<div class="discord-message-icon">${icon}</div>
-				<div class="discord-message-content">
-					<span>
-						<slot></slot>
-						<span class="discord-message-timestamp">${this.timestamp}</span>
-					</span>
-					<slot name="reactions"></slot>
-					<slot name="thread"></slot>
-				</div>
-			</div>
-		`;
+		return html` <div class="discord-message-icon">${icon}</div>
+			<div class="discord-message-content">
+				<span>
+					<slot></slot>
+					<span class="discord-message-timestamp">${this.timestamp}</span>
+				</span>
+				<slot name="reactions"></slot>
+				<slot name="thread"></slot>
+			</div>`;
 	}
 }
 

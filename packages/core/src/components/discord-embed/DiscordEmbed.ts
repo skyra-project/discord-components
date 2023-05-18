@@ -1,3 +1,4 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -5,7 +6,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import type { Emoji } from '../../options.js';
 import { getGlobalEmojiUrl, LightTheme } from '../../util.js';
-import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 export interface DiscordEmbedProps {
 	color: string;
@@ -23,7 +24,7 @@ export interface DiscordEmbedProps {
 @customElement('discord-embed')
 export class DiscordEmbed extends LitElement implements DiscordEmbedProps, LightTheme {
 	public static override styles = css`
-		.discord-embed {
+		:host {
 			color: #dcddde;
 			display: flex;
 			font-size: 13px;
@@ -32,22 +33,22 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			margin-top: 8px;
 		}
 
-		.discord-light-theme.discord-embed {
+		:host([light-theme]) {
 			color: #2e3338;
 		}
 
-		.discord-embed .discord-left-border {
+		:host .discord-left-border {
 			background-color: #202225;
 			border-radius: 4px 0 0 4px;
 			flex-shrink: 0;
 			width: 4px;
 		}
 
-		.discord-light-theme.discord-embed .discord-left-border {
+		:host([light-theme]) .discord-left-border {
 			background-color: #e3e5e8;
 		}
 
-		.discord-embed .discord-embed-root {
+		:host .discord-embed-root {
 			display: grid;
 			grid-auto-flow: row;
 			grid-row-gap: 0.25rem;
@@ -56,7 +57,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			text-indent: 0;
 		}
 
-		.discord-embed .discord-embed-wrapper {
+		:host .discord-embed-wrapper {
 			background-color: #2f3136;
 			max-width: 520px;
 			border: 1px solid rgba(46, 48, 54, 0.6);
@@ -67,12 +68,12 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			box-sizing: border-box;
 		}
 
-		.discord-light-theme.discord-embed .discord-embed-wrapper {
-			background-color: rgba(249, 249, 249, 0.3);
+		:host([light-theme]) .discord-embed-wrapper {
+			background-color: rgb(242, 243, 245);
 			border-color: rgba(205, 205, 205, 0.3);
 		}
 
-		.discord-embed .discord-embed-wrapper .discord-embed-grid {
+		:host .discord-embed-wrapper .discord-embed-grid {
 			display: inline-grid;
 			grid-template-columns: auto -webkit-min-content;
 			grid-template-columns: auto min-content;
@@ -81,7 +82,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			padding: 0.5rem 1rem 1rem 0.75rem;
 		}
 
-		.discord-embed .discord-embed-thumbnail {
+		:host .discord-embed-thumbnail {
 			border-radius: 4px;
 			flex-shrink: 0;
 			grid-column: 2/2;
@@ -95,7 +96,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			object-position: top center;
 		}
 
-		.discord-embed .discord-embed-author {
+		:host .discord-embed-author {
 			-webkit-box-align: center;
 			align-items: center;
 			color: #fff;
@@ -107,32 +108,32 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			min-width: 0;
 		}
 
-		.discord-light-theme.discord-embed .discord-embed-author {
-			color: #4f545c;
+		:host([light-theme]) .discord-embed-author {
+			color: #060607;
 		}
 
-		.discord-embed .discord-embed-author a {
+		:host .discord-embed-author a {
 			color: #fff;
 			font-weight: 600;
 			text-decoration: none;
 		}
 
-		.discord-embed .discord-embed-author a:hover {
+		:host .discord-embed-author a:hover {
 			text-decoration: underline;
 		}
 
-		.discord-light-theme.discord-embed .discord-embed-author a {
-			color: #4f545c;
+		:host([light-theme]) .discord-embed-author a {
+			color: #060607;
 		}
 
-		.discord-embed .discord-embed-author .discord-author-image {
+		:host .discord-embed-author .discord-author-image {
 			border-radius: 50%;
 			height: 24px;
 			margin-right: 8px;
 			width: 24px;
 		}
 
-		.discord-embed .discord-embed-provider {
+		:host .discord-embed-provider {
 			font-size: 0.75rem;
 			line-height: 1rem;
 			font-weight: 400;
@@ -142,11 +143,11 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			text-align: left;
 		}
 
-		.discord-light-theme.discord-embed .discord-embed-provider {
+		:host([light-theme]) .discord-embed-provider {
 			color: #4f545c;
 		}
 
-		.discord-embed .discord-embed-title {
+		:host .discord-embed-title {
 			-webkit-box-align: center;
 			align-items: center;
 			color: #fff;
@@ -158,22 +159,26 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			min-width: 0;
 		}
 
-		.discord-embed .discord-embed-title a {
+		:host([light-theme]) .discord-embed-title {
+			color: #060607;
+		}
+
+		:host .discord-embed-title a {
 			color: #00aff4;
 			font-weight: 600;
 			text-decoration: none;
 		}
 
-		.discord-embed .discord-embed-title a:hover {
+		:host .discord-embed-title a:hover {
 			text-decoration: underline;
 		}
 
-		.discord-embed .discord-embed-image {
+		:host .discord-embed-image {
 			border-radius: 4px;
 			max-width: 100%;
 		}
 
-		.discord-embed .discord-embed-media {
+		:host .discord-embed-media {
 			border-radius: 4px;
 			contain: paint;
 			display: block;
@@ -181,17 +186,17 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			margin-top: 16px;
 		}
 
-		.discord-embed .discord-embed-media.discord-embed-media-video {
+		:host .discord-embed-media.discord-embed-media-video {
 			height: 225px;
 		}
 
-		.discord-embed .discord-embed.media .discord-embed-image {
+		:host .discord-embed.media .discord-embed-image {
 			overflow: hidden;
 			position: relative;
 			user-select: text;
 		}
 
-		.discord-embed .discord-embed-media .discord-embed-video {
+		:host .discord-embed-media .discord-embed-video {
 			-webkit-box-align: center;
 			-webkit-box-pack: center;
 			align-items: center;
@@ -299,31 +304,15 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	@state()
 	private hasProvidedDescriptionSlot = true;
 
-	@state()
+	@consume({ context: messagesLightTheme, subscribe: true })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
-	@state()
-	public compactMode = false;
-
 	protected override render() {
-		const parent = this.parentElement as DiscordMessage | null;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-message') {
-			throw new Error('All <discord-embed> components must be direct children of <discord-message>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
 		const emojiParsedAuthorName = this.parseTitle(this.authorName);
 		const emojiParsedEmbedTitle = this.parseTitle(this.embedTitle);
 
-		return html`<div
-			class=${classMap({
-				'discord-embed': true,
-				'discord-light-theme': this.lightTheme
-			})}
-		>
-			<div style=${styleMap({ 'background-color': this.color })} class="discord-left-border"></div>
+		return html` <div style=${styleMap({ 'background-color': this.color })} class="discord-left-border"></div>
 			<div class="discord-embed-root">
 				<div class="discord-embed-wrapper">
 					<div class="discord-embed-grid">
@@ -354,8 +343,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 						<slot name="footer"></slot>
 					</div>
 				</div>
-			</div>
-		</div>`;
+			</div>`;
 	}
 
 	private renderMedia() {

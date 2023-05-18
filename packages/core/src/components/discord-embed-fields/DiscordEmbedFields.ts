@@ -1,12 +1,10 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import type { LightTheme } from '../../util.js';
-import type { DiscordEmbed } from '../discord-embed/DiscordEmbed.js';
+import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-embed-fields')
-export class DiscordEmbedFields extends LitElement implements LightTheme {
+export class DiscordEmbedFields extends LitElement {
 	public static override styles = css`
-		.discord-embed-fields {
+		:host {
 			display: grid;
 			grid-column: 1/1;
 			margin-top: 8px;
@@ -26,21 +24,8 @@ export class DiscordEmbedFields extends LitElement implements LightTheme {
 		}
 	`;
 
-	@state()
-	public lightTheme = false;
-
 	protected override render() {
-		const parent = this.parentElement as DiscordEmbed | null;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-embed') {
-			throw new SyntaxError('All <discord-embed-fields> components must be direct children of <discord-embed>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
-		return html`<div class="discord-embed-fields">
-			<slot></slot>
-		</div>`;
+		return html`<slot></slot>`;
 	}
 }
 

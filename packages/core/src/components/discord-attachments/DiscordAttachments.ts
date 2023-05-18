@@ -1,10 +1,8 @@
 import { css, html, LitElement } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
-import type { LightTheme } from '../../util.js';
-import type { DiscordMessage } from '../discord-message/DiscordMessage.js';
+import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-attachments')
-export class DiscordAttachments extends LitElement implements LightTheme {
+export class DiscordAttachments extends LitElement {
 	public static override styles = css`
 		:host {
 			display: grid;
@@ -25,18 +23,7 @@ export class DiscordAttachments extends LitElement implements LightTheme {
 		}
 	`;
 
-	@state()
-	public lightTheme = false;
-
 	protected override render() {
-		const parent = this.parentElement as DiscordMessage;
-
-		if (!parent || parent.tagName.toLowerCase() !== 'discord-message') {
-			throw new Error('All <discord-attachments> components must be direct children of <discord-message>.');
-		}
-
-		this.lightTheme = parent.lightTheme;
-
 		return html`<slot></slot>`;
 	}
 }
