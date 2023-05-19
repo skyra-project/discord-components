@@ -15,6 +15,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 			min-width: 0;
 			font-weight: 400;
 			grid-column: 1/13;
+			word-break: break-word;
 		}
 
 		:host .discord-field-title {
