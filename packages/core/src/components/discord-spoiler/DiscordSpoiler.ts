@@ -26,12 +26,12 @@ export class DiscordSpoiler extends LitElement implements LightTheme {
 			background-color: #cfd3d7;
 		}
 
-		:host(:active) {
+		:host([activated]) {
 			color: inherit;
 			background-color: hsla(0, 0%, 100%, 0.1);
 		}
 
-		:host([light-theme]:active) {
+		:host([light-theme][activated]) {
 			background-color: #e5e5e5;
 		}
 	`;
@@ -43,8 +43,18 @@ export class DiscordSpoiler extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
+	@property({ type: Boolean, reflect: true })
+	public activated = false;
+
 	protected override render() {
-		return html`<slot></slot>`;
+		return html`<slot
+			@click=${() => {
+				this.activated = true;
+			}}
+			@keydown=${() => {
+				this.activated = true;
+			}}
+		></slot>`;
 	}
 }
 
