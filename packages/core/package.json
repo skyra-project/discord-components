@@ -94,6 +94,7 @@
 		"storybook:build": "yarn build:ts && yarn analyze --exclude dist && build-storybook"
 	},
 	"dependencies": {
+		"@lit-labs/context": "^0.3.1",
 		"lit": "^2.7.4",
 		"tslib": "^2.5.0"
 	},
