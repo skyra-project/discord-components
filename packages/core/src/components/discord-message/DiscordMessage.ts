@@ -224,29 +224,28 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			border-color: #747f8d;
 		}
 
-		:host([ephemeral]) {
-			color: #72767d;
+		.discord-message-ephemeral {
 			margin-top: 4px;
 			font-size: 12px;
 			font-weight: 400;
 			color: #72767d;
 		}
 
-		:host([light-theme][ephemeral]) {
+		:host([light-theme]) .discord-message-ephemeral {
 			color: #747f8d;
 		}
 
-		:host([ephemeral]) .discord-message-ephemeral-link {
+		.discord-message-ephemeral .discord-message-ephemeral-link {
 			color: #00aff4;
 			font-weight: 500;
 			cursor: pointer;
 		}
 
-		:host([ephemeral]) .discord-message-ephemeral-link:hover {
+		.discord-message-ephemeral .discord-message-ephemeral-link:hover {
 			text-decoration: underline;
 		}
 
-		:host([ephemeral]) .discord-message-ephemeral-icon {
+		.discord-message-ephemeral .discord-message-ephemeral-icon {
 			margin-right: 4px;
 			vertical-align: text-bottom;
 		}
