@@ -22,7 +22,7 @@
 	},
 	"dependencies": {
 		"@skyra/discord-components-core": "^3.6.0",
-		"tslib": "^2.5.2"
+		"tslib": "^2.5.3"
 	},
 	"peerDependencies": {
 		"react": "16.8.x || 17.x || 18.x",
