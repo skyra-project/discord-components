@@ -1,6 +1,6 @@
 import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
 import type { LightTheme } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -10,13 +10,11 @@ import ChannelThread from '../svgs/ChannelThread.js';
 import LockedVoiceChannel from '../svgs/LockedVoiceChannel.js';
 import VoiceChannel from '../svgs/VoiceChannel.js';
 
-const colorCodeExtractor = /--discord-mention-color: (?<colorCode>#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}));/;
-
 @customElement('discord-mention')
 export class DiscordMention extends LitElement implements LightTheme {
 	public static override styles = css`
 		:host {
-			color: var(--discord-mention-color, #e3e7f8);
+			color: #e3e7f8;
 			background-color: hsla(235, 85.6%, 64.7%, 0.3);
 			font-weight: 500;
 			padding: 0 2px;
@@ -29,7 +27,7 @@ export class DiscordMention extends LitElement implements LightTheme {
 		}
 
 		:host([type='role']) {
-			background-color: rgba(var(--discord-mention-color, #e3e7f8), 0.1);
+			background-color: rgba(#e3e7f8, 0.1);
 		}
 
 		:host([type='channel']) {
@@ -87,18 +85,18 @@ export class DiscordMention extends LitElement implements LightTheme {
 	@property({ reflect: true, attribute: 'type' })
 	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' | 'slash' = 'user';
 
-	@state()
-	private colorCodeFromStyles: string | undefined;
+	@property({ reflect: true })
+	public color?: string;
 
 	public setHoverColor = () => {
-		if (this.colorCodeFromStyles) {
-			this.style.backgroundColor = hexToRgba(this.colorCodeFromStyles, 0.3);
+		if (this.color) {
+			this.style.backgroundColor = hexToRgba(this.color, 0.3);
 		}
 	};
 
 	public resetHoverColor = () => {
-		if (this.colorCodeFromStyles) {
-			this.style.backgroundColor = hexToRgba(this.colorCodeFromStyles, 0.1);
+		if (this.color) {
+			this.style.backgroundColor = hexToRgba(this.color, 0.1);
 		}
 	};
 
@@ -109,8 +107,7 @@ export class DiscordMention extends LitElement implements LightTheme {
 	public override connectedCallback(): void {
 		super.connectedCallback();
 
-		this.colorCodeFromStyles = colorCodeExtractor.exec(this.style.cssText)?.groups?.colorCode;
-		if (this.colorCodeFromStyles && this.type === 'role') {
+		if (this.color && this.type === 'role') {
 			this.addEventListener('mouseover', this.setHoverColor);
 			this.addEventListener('mouseout', this.resetHoverColor);
 		}
@@ -123,9 +120,15 @@ export class DiscordMention extends LitElement implements LightTheme {
 		super.disconnectedCallback();
 	}
 
+	protected override willUpdate(): void {
+		if (this.color) {
+			this.style.color = this.color;
+			if (this.type === 'role') this.style.backgroundColor = hexToRgba(this.color, 0.1);
+		}
+	}
+
 	protected override render() {
 		let mentionPrepend: ReturnType<typeof html>;
-
 		switch (this.type) {
 			case 'channel':
 				mentionPrepend = html`${ChannelIcon()}`;
