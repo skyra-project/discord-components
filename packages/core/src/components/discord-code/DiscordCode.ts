@@ -55,7 +55,7 @@ export class DiscordCode extends LitElement implements LightTheme {
 		}
 	`;
 
-	@property({ type: Boolean })
+	@property({ type: Boolean, reflect: true })
 	public multiline = false;
 
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
