@@ -13,11 +13,11 @@ export class DiscordAuthorInfo extends LitElement {
 			display: inline-flex;
 			align-items: center;
 			font-size: 16px;
-			margin-right: 0.25rem;
 		}
 
 		:host([compact-mode]) {
 			margin-right: 0;
+			display: inline;
 		}
 
 		:host .discord-author-username {
@@ -45,7 +45,7 @@ export class DiscordAuthorInfo extends LitElement {
 			text-transform: uppercase;
 
 			/* Use flex layout to ensure both verified icon and "BOT" text are aligned to center */
-			display: flex;
+			display: inline-flex;
 			align-items: center;
 
 			/* Styling taken through Inspect Element on Discord client for Windows */
@@ -75,15 +75,7 @@ export class DiscordAuthorInfo extends LitElement {
 			width: calc(1rem + 4px);
 		}
 
-		:host([compact-mode]) .discord-author-username {
-			margin-left: 8px;
-			margin-right: 4px;
-		}
-
 		:host([compact-mode]) .discord-application-tag {
-			margin-left: 0;
-			margin-left: 5px;
-			margin-right: 5px;
 			padding-left: 10px;
 			padding-right: 4px;
 		}

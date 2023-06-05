@@ -275,7 +275,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		return html` ${this.compactMode
+		return html`${this.compactMode
 				? html`<div class="discord-reply-badge">${ReplyIcon()}</div>`
 				: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
 			${html`
