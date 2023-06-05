@@ -13,6 +13,8 @@ export class DiscordAuthorInfo extends LitElement {
 			display: inline-flex;
 			align-items: center;
 			font-size: 16px;
+			text-underline-offset: 1px;
+			margin-right: 0.25rem;
 		}
 
 		:host([compact-mode]) {
@@ -73,6 +75,10 @@ export class DiscordAuthorInfo extends LitElement {
 			vertical-align: top;
 			height: calc(1rem + 4px);
 			width: calc(1rem + 4px);
+		}
+
+		:host([compact-mode]) .discord-author-username {
+			margin-right: 0.25rem;
 		}
 
 		:host([compact-mode]) .discord-application-tag {
