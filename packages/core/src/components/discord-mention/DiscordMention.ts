@@ -48,8 +48,9 @@ export class DiscordMention extends LitElement implements LightTheme {
 			background-color: hsl(235, 85.6%, 64.7%);
 		}
 
-		:host([type='user']:hover) {
+		:host([highlight][type='user']:hover) {
 			text-decoration: underline;
+			text-underline-offset: 1px;
 		}
 
 		:host([light-theme]) {
