@@ -192,12 +192,13 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			padding-left: 10px;
 		}
 
-		.discord-message-markup {
+		:host .discord-message-markup {
 			font-size: 1rem;
 			line-height: 1.375rem;
 			word-wrap: break-word;
 			user-select: text;
 			font-weight: 400;
+			display: inline;
 		}
 
 		:host(:hover) {
