@@ -209,7 +209,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			background-color: hsl(40 calc(1 * 86.4%) 56.9%/0.08);
 		}
 
-		:host([has-Thread]:after) {
+		:host([has-Thread]):after {
 			width: 2rem;
 			left: 2.2rem;
 			top: 1.75rem;
@@ -221,7 +221,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			position: absolute;
 		}
 
-		:host([light-theme][has-Thread]:after) {
+		:host([light-theme][has-Thread]):after {
 			border-color: #747f8d;
 		}
 
