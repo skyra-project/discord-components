@@ -167,7 +167,7 @@ export class DiscordAuthorInfo extends LitElement {
 					draggable="false"
 			  />`
 			: null}
-		${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified && VerifiedTick()} Bot</span>` : null}
+		${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified ? VerifiedTick() : null} Bot</span>` : null}
 		${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : null}
 		${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : null}
 		${this.compactMode
