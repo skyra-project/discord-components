@@ -3,7 +3,7 @@ import { html } from 'lit';
 import '../src/components/discord-messages/DiscordMessages.js';
 import type { DiscordMessages } from '../src/components/discord-messages/DiscordMessages.js';
 
-describe('DiscordComponent', () => {
+describe('DiscordMessages', () => {
 	it('Defaults to Dark Mode with Background and Cozy mode', async () => {
 		const el = await fixture<DiscordMessages>(html`<discord-messages></discord-messages>`);
 
