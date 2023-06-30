@@ -13,7 +13,7 @@ describe('DiscordComponent', () => {
 	});
 
 	it('can override the properties via attribute', async () => {
-		const el = await fixture<DiscordMessages>(html`<discord-messages lightTheme noBackground compact-mode></discord-messages>`);
+		const el = await fixture<DiscordMessages>(html`<discord-messages light-theme no-background compact-mode></discord-messages>`);
 
 		expect(el.lightTheme).to.equal(true);
 		expect(el.noBackground).to.equal(true);
