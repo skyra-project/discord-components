@@ -88,8 +88,8 @@
 		"prepack": "yarn build:ts && yarn analyze --exclude dist",
 		"lint": "eslint --ext .ts --fix",
 		"format": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
-		"test": "yarn build:ts && wtr --coverage",
-		"test:watch": "yarn build:ts && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\""
+		"test": "wtr",
+		"test:watch": "concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\""
 	},
 	"dependencies": {
 		"@lit-labs/context": "^0.3.1",
