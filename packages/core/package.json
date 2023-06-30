@@ -89,9 +89,7 @@
 		"lint": "eslint --ext .ts --fix",
 		"format": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
 		"test": "yarn build:ts && wtr --coverage",
-		"test:watch": "yarn build:ts && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
-		"storybook": "yarn build:ts && yarn analyze --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
-		"storybook:build": "yarn build:ts && yarn analyze --exclude dist && build-storybook"
+		"test:watch": "yarn build:ts && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\""
 	},
 	"dependencies": {
 		"@lit-labs/context": "^0.3.1",
@@ -100,11 +98,11 @@
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.8.3",
+		"@open-wc/dev-server-hmr": "^0.2.0",
 		"@open-wc/eslint-config": "^10.0.0",
 		"@open-wc/lit-helpers": "^0.5.1",
 		"@open-wc/testing": "^3.1.8",
 		"@web/dev-server": "^0.2.1",
-		"@web/dev-server-storybook": "^0.7.1",
 		"@web/test-runner": "^0.16.1",
 		"concurrently": "^8.0.1",
 		"typescript": "^4.9.5"
