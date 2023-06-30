@@ -1,4 +1,5 @@
 {
+	"root": true,
 	"extends": ["@open-wc", "plugin:lit/recommended", "@sapphire", "plugin:import/typescript"],
 	"parserOptions": {
 		"ecmaVersion": 2020,
