@@ -5,6 +5,7 @@ const filteredLogs = [
 	//
 	'Running in dev mode',
 	'lit-html is in dev mode',
+	'Lit is in dev mode.',
 	'[vite] connecting...',
 	'[vite] connected.'
 ];
@@ -22,8 +23,15 @@ export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
 		}
 		return true;
 	},
+	coverage: true,
+	coverageConfig: {
+		// See https://github.com/modernweb-dev/web/issues/1400#issuecomment-1543733840 for more info on this wacky inclusion pattern
+		include: ['**'],
+		exclude: ['**/node_modules/**'],
+		reporters: ['text', 'lcov', 'clover']
+	},
 	plugins: [vitePlugin()],
-	concurrentBrowsers: 2,
+	concurrentBrowsers: 3,
 	concurrency: 1,
 	browsers: [
 		//
