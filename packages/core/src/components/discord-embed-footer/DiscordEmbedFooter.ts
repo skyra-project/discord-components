@@ -56,16 +56,22 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	/**
 	 * The timestamp to use for the message date. When supplying a string, the format must be `01/31/2000`.
 	 */
-	@property({ reflect: true })
+	@property({
+		type: String,
+		reflect: true,
+		converter: (value) => handleTimestamp(value),
+		attribute: true
+	})
 	public timestamp?: DiscordTimestamp;
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
-	public updateTimestamp(value?: DiscordTimestamp): string | null {
-		if (!value || isNaN(new Date(value).getTime())) return null;
-		return handleTimestamp(new Date(value));
+	public updateTimestamp(value?: DiscordTimestamp): void {
+		if (value && !isNaN(new Date(value).getTime())) {
+			this.timestamp = handleTimestamp(value);
+		}
 	}
 
 	protected override render() {
