@@ -312,7 +312,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 		const emojiParsedAuthorName = this.parseTitle(this.authorName);
 		const emojiParsedEmbedTitle = this.parseTitle(this.embedTitle);
 
-		return html` <div style=${styleMap({ 'background-color': this.color })} class="discord-left-border"></div>
+		return html`<div style=${styleMap({ 'background-color': this.color })} class="discord-left-border"></div>
 			<div class="discord-embed-root">
 				<div class="discord-embed-wrapper">
 					<div class="discord-embed-grid">

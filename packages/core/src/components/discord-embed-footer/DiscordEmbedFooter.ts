@@ -77,7 +77,7 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	protected override render() {
 		this.updateTimestamp(this.timestamp);
 
-		return html` ${this.footerImage ? html`<img src="${this.footerImage}" alt="${this.footerImageAlt}" class="discord-footer-image" />` : null}
+		return html`${this.footerImage ? html`<img src="${this.footerImage}" alt="${this.footerImageAlt}" class="discord-footer-image" />` : null}
 		${html`
 			<slot></slot>
 			${this.timestamp ? html`<span class="discord-footer-separator">&bull;</span>` : null} ${this.timestamp ? html`${this.timestamp}` : null}

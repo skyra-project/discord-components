@@ -163,7 +163,7 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		return html` <img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
+		return html`<img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
 			${html`
 				${profile.bot && !profile.server
 					? html`<span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : null} Bot </span>`
