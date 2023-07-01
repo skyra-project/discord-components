@@ -6,22 +6,19 @@ export interface LightTheme {
 	lightTheme: boolean;
 }
 
-const padZeroes = (value: string): string => {
-	const [month, day, year]: string[] = value.split('/');
-	return `${month.padStart(2, '0')}/${day.padStart(2, '0')}/${year}`;
-};
+const intlDateFormat = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' });
+const intlTwelveHourFormat = new Intl.DateTimeFormat('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
+const intlTwentyFourHourFormat = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
 
 const formatDate = (value: DiscordTimestamp): string | null => {
 	if (!(value instanceof Date)) return value;
-	return padZeroes(`${value.getMonth() + 1}/${value.getDate()}/${value.getFullYear()}`);
+	return intlDateFormat.format(value);
 };
 
 const formatTime = (value: DiscordTimestamp, hour24 = false): string | null => {
 	if (!(value instanceof Date)) return value;
-	if (hour24) return `${value.getHours()}:${value.getMinutes().toString().padStart(2, '0')}`;
-	const hour = value.getHours() % 12 || 12;
-	const meridiem = value.getHours() < 12 ? 'AM' : 'PM';
-	return `${hour}:${value.getMinutes().toString().padStart(2, '0')} ${meridiem}`;
+	if (hour24) return intlTwentyFourHourFormat.format(value);
+	return intlTwelveHourFormat.format(value);
 };
 
 export const handleTimestamp = (value: DiscordTimestamp, useTime = false, hour24 = false): string | null => {
