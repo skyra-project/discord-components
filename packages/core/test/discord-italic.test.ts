@@ -1,12 +1,8 @@
 import { expect, fixture } from '@open-wc/testing';
 import { html } from 'lit';
-import '../src/components/discord-italic/DiscordItalic.js';
-import '../src/components/discord-message/DiscordMessage.js';
-import '../src/components/discord-messages/DiscordMessages.js';
+import '../src/index.js';
 import { getNotNullFirstChildElement, getNotNullQuerySelectedElement } from './matchers.js';
-import type { DiscordItalic } from '../src/components/discord-italic/DiscordItalic.js';
-import type { DiscordMessage } from '../src/components/discord-message/DiscordMessage.js';
-import type { DiscordMessages } from '../src/components/discord-messages/DiscordMessages.js';
+import type { DiscordItalic, DiscordMessage, DiscordMessages } from '../src/index.js';
 
 describe('DiscordItalic', () => {
 	it('will italicize the text', async () => {
