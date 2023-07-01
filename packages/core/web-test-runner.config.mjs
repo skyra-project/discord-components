@@ -10,6 +10,8 @@ const filteredLogs = [
 	'[vite] connected.'
 ];
 
+const manual = process.argv.includes('--manual');
+
 export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
 	files: 'test/**/*.test.ts',
 	nodeResolve: {
@@ -29,6 +31,8 @@ export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
 		exclude: ['**/node_modules/**'],
 		reporters: ['text', 'lcov', 'clover']
 	},
+	open: manual,
+	manual,
 	plugins: [vitePlugin()],
 	concurrentBrowsers: 3,
 	concurrency: 1,

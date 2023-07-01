@@ -10,12 +10,12 @@ const intlDateFormat = new Intl.DateTimeFormat('en-US', { day: '2-digit', month:
 const intlTwelveHourFormat = new Intl.DateTimeFormat('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
 const intlTwentyFourHourFormat = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
 
-const formatDate = (value: DiscordTimestamp): string | null => {
+const formatDate = (value: Exclude<DiscordTimestamp, null>): string | null => {
 	if (!(value instanceof Date)) return value;
 	return intlDateFormat.format(value);
 };
 
-const formatTime = (value: DiscordTimestamp, hour24 = false): string | null => {
+const formatTime = (value: Exclude<DiscordTimestamp, null>, hour24 = false): string | null => {
 	if (!(value instanceof Date)) return value;
 	if (hour24) return intlTwentyFourHourFormat.format(value);
 	return intlTwelveHourFormat.format(value);
