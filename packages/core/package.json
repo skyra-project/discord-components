@@ -89,7 +89,8 @@
 		"lint": "eslint --ext .ts --fix",
 		"format": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
 		"test": "wtr",
-		"test:watch": "concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\""
+		"test:coverage": "wtr --coverage",
+		"test:watch": "wtr --watch"
 	},
 	"dependencies": {
 		"@lit-labs/context": "^0.3.1",

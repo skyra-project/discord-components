@@ -23,7 +23,6 @@ export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
 		}
 		return true;
 	},
-	coverage: true,
 	coverageConfig: {
 		// See https://github.com/modernweb-dev/web/issues/1400#issuecomment-1543733840 for more info on this wacky inclusion pattern
 		include: ['**'],
