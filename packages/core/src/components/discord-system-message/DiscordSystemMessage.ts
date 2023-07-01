@@ -2,7 +2,6 @@ import { consume } from '@lit-labs/context';
 import { css, html, LitElement, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { DiscordTimestamp, handleTimestamp, LightTheme } from '../../util.js';
-
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import Boost from '../svgs/Boost.js';
 import DMCall from '../svgs/DMCall.js';

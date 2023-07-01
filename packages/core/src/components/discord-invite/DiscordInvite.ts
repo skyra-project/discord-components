@@ -3,11 +3,11 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { defaultDiscordAvatars } from '../../options.js';
-import type { LightTheme } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
 import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement implements LightTheme {

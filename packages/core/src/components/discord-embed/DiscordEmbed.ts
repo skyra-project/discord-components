@@ -4,9 +4,9 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import type { Emoji } from '../../options.js';
 import { getGlobalEmojiUrl, LightTheme } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import type { Emoji } from '../../options.js';
 
 export interface DiscordEmbedProps {
 	color: string;

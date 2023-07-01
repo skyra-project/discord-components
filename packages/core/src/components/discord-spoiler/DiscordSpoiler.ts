@@ -1,8 +1,8 @@
 import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import type { LightTheme } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-spoiler')
 export class DiscordSpoiler extends LitElement implements LightTheme {

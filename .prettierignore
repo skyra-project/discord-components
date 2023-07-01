@@ -1,9 +1,7 @@
 CHANGELOG.md
 dist/
 coverage/
-loader/
 node_modules/
-www/
 .yarn/
 *.png
-packages/core/custom-elements.json
+custom-elements.json

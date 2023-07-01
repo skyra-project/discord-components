@@ -5,9 +5,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
 import { handleTimestamp, LightTheme, type DiscordTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
-import type { DiscordMention } from '../discord-mention/DiscordMention.js';
 import { messagesCompactMode, messagesLightTheme, messagesNoBackground } from '../discord-messages/DiscordMessages.js';
 import Ephemeral from '../svgs/Ephemeral.js';
+import type { DiscordMention } from '../discord-mention/DiscordMention.js';
 
 interface DiscordMessageProps {
 	profile: string | undefined;

@@ -86,8 +86,8 @@
 		"start": "yarn build:ts && concurrently -k -r \"tsc -b src --watch --preserveWatchOutput\" \"wds\"",
 		"build": "yarn build:ts && yarn analyze --exclude dist",
 		"prepack": "yarn build:ts && yarn analyze --exclude dist",
-		"lint": "eslint --ext .ts --fix",
-		"format": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
+		"lint": "eslint src test --ext .ts --fix",
+		"format": "prettier . --write --ignore-path ../../.prettierignore",
 		"test": "wtr",
 		"test:coverage": "wtr --coverage",
 		"test:watch": "wtr --watch"
