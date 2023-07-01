@@ -93,21 +93,21 @@
 		"test:watch": "wtr --watch"
 	},
 	"dependencies": {
-		"@lit-labs/context": "^0.3.1",
-		"lit": "^2.7.4",
-		"tslib": "^2.5.2"
+		"@lit-labs/context": "^0.3.3",
+		"lit": "^2.7.5",
+		"tslib": "^2.6.0"
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.8.3",
 		"@open-wc/dev-server-hmr": "^0.2.0",
-		"@open-wc/eslint-config": "^10.0.0",
-		"@open-wc/lit-helpers": "^0.5.1",
-		"@open-wc/testing": "^3.1.8",
+		"@open-wc/eslint-config": "^12.0.0",
+		"@open-wc/lit-helpers": "^0.6.0",
+		"@open-wc/testing": "^3.2.0",
 		"@remcovaes/web-test-runner-vite-plugin": "^1.2.0",
-		"@web/dev-server": "^0.2.1",
+		"@web/dev-server": "^0.2.3",
 		"@web/test-runner": "^0.16.1",
 		"@web/test-runner-playwright": "^0.10.1",
-		"concurrently": "^8.0.1",
+		"concurrently": "^8.2.0",
 		"typescript": "^4.9.5",
 		"vite": "^4.3.9"
 	},
