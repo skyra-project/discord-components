@@ -122,7 +122,7 @@ export class DiscordReaction extends LitElement implements LightTheme {
 	public lightTheme = false;
 
 	protected override render() {
-		return html` <div class="discord-reaction-inner" @click=${this.handleReactionClick} @keydown=${this.handleReactionClick}>
+		return html`<div class="discord-reaction-inner" @click=${this.handleReactionClick} @keydown=${this.handleReactionClick}>
 			<img src="${this.emoji}" alt="${this.name}" draggable="false" />
 			<span class="discord-reaction-count">${this.count}</span>
 		</div>`;

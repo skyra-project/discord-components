@@ -219,7 +219,7 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 				break;
 		}
 
-		return html` <div class="discord-message-icon">${icon}</div>
+		return html`<div class="discord-message-icon">${icon}</div>
 			<div class="discord-message-content">
 				<span>
 					<slot></slot>

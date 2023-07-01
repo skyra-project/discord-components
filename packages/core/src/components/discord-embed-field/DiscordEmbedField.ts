@@ -71,7 +71,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 
 		const emojiParsedEmbedFieldTitle = this.parseTitle(this.fieldTitle);
 
-		return html` ${emojiParsedEmbedFieldTitle ? html`<div class="discord-field-title">${[...emojiParsedEmbedFieldTitle]}</div>` : null}
+		return html`${emojiParsedEmbedFieldTitle ? html`<div class="discord-field-title">${[...emojiParsedEmbedFieldTitle]}</div>` : null}
 			<slot></slot>`;
 	}
 

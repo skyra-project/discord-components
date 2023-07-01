@@ -152,7 +152,7 @@ export class DiscordAuthorInfo extends LitElement {
 	public lightTheme = false;
 
 	protected override render() {
-		return html` ${this.compactMode
+		return html`${this.compactMode
 			? null
 			: html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`}
 		${this.roleIcon && !this.compactMode

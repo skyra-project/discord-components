@@ -259,7 +259,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 	public lightTheme = false;
 
 	protected override render() {
-		return html` <div class="discord-invite-header">${this.inviteTitle}</div>
+		return html`<div class="discord-invite-header">${this.inviteTitle}</div>
 			<div class="discord-invite-root">
 				<img class="discord-invite-icon" src="${ifDefined(this.icon)}" alt="${this.name}" />
 				<div class="discord-invite-info">
