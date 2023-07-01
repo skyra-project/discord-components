@@ -46,4 +46,4 @@ jobs:
         run: yarn dlx playwright install --with-deps
       - name: Run tests
         working-directory: packages/core
-        run: yarn test
+        run: yarn test:coverage
