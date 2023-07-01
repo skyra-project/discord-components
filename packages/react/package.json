@@ -21,13 +21,13 @@
 		"build": "yarn clean && tsc -b src"
 	},
 	"dependencies": {
-		"@lit-labs/react": "^1.1.1",
+		"@lit-labs/react": "^1.2.0",
 		"@skyra/discord-components-core": "^3.4.0",
 		"react": "^18.2.0",
-		"tslib": "^2.5.2"
+		"tslib": "^2.6.0"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.7",
+		"@types/react": "^18.2.14",
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
