@@ -1,6 +1,6 @@
+import { createContext, provide } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { createContext, provide } from '@lit-labs/context';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
 import type { LightTheme } from '../../util.js';
 

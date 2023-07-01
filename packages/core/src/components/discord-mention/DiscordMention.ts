@@ -2,13 +2,13 @@ import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
-import type { LightTheme } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ChannelForum from '../svgs/ChannelForum.js';
 import ChannelIcon from '../svgs/ChannelIcon.js';
 import ChannelThread from '../svgs/ChannelThread.js';
 import LockedVoiceChannel from '../svgs/LockedVoiceChannel.js';
 import VoiceChannel from '../svgs/VoiceChannel.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-mention')
 export class DiscordMention extends LitElement implements LightTheme {

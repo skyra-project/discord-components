@@ -4,12 +4,12 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
-import type { LightTheme } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {

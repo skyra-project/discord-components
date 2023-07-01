@@ -4,10 +4,10 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, Profile, profiles } from '../../options.js';
-import type { LightTheme } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
+import type { LightTheme } from '../../util.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {
