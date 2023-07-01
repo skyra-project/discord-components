@@ -6,7 +6,7 @@ import { getNotNullFirstChildElement } from './matchers.js';
 import type { DiscordMessage } from '../src/components/discord-message/DiscordMessage.js';
 import type { DiscordMessages } from '../src/components/discord-messages/DiscordMessages.js';
 
-describe('DiscordMessages', () => {
+describe('DiscordMessage', () => {
 	it('will propagate theme properties through context', async () => {
 		const el = await fixture<DiscordMessages>(html`
 			<discord-messages light-theme compact-mode no-background>
