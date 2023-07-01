@@ -1,12 +1,8 @@
 import { expect, fixture } from '@open-wc/testing';
 import { html } from 'lit';
-import '../src/components/discord-message/DiscordMessage.js';
-import '../src/components/discord-messages/DiscordMessages.js';
-import '../src/components/discord-time/DiscordTime.js';
+import '../src/index.js';
 import { getNotNullFirstChildElement, getNotNullQuerySelectedElement } from './matchers.js';
-import type { DiscordMessage } from '../src/components/discord-message/DiscordMessage.js';
-import type { DiscordMessages } from '../src/components/discord-messages/DiscordMessages.js';
-import type { DiscordTime } from '../src/components/discord-time/DiscordTime.js';
+import type { DiscordTime, DiscordMessage, DiscordMessages } from '../src/index.js';
 
 describe('DiscordTime', () => {
 	it('will bolden the text', async () => {
