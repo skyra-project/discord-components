@@ -103,7 +103,7 @@ export class DiscordMention extends LitElement implements LightTheme {
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme: boolean;
+	public lightTheme = false;
 
 	public override connectedCallback(): void {
 		super.connectedCallback();
