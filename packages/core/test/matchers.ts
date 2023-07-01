@@ -7,3 +7,11 @@ export function getNotNullFirstChildElement<T = unknown>(el: Element) {
 
 	return firstElementChild;
 }
+
+export function getNotNullQuerySelectedElement<T = unknown>(el: Element, selector: string) {
+	const querySelectedElement = el.querySelector(selector) as T;
+
+	expect(querySelectedElement).not.to.be.null;
+
+	return querySelectedElement;
+}
