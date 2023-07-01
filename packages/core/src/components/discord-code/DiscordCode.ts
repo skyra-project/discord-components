@@ -1,5 +1,7 @@
+import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { LightTheme } from '../../util.js';
 
 @customElement('discord-code')
@@ -58,6 +60,7 @@ export class DiscordCode extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true })
 	public multiline = false;
 
+	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public lightTheme = false;
 
