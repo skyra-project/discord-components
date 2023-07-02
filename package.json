@@ -22,13 +22,13 @@
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^4.0.0",
 		"@stencil/react-output-target": "^0.5.3",
-		"@types/node": "^18.16.18",
+		"@types/node": "^18.16.19",
 		"@types/react": "^18.2.14",
 		"@types/react-dom": "^18.2.6",
-		"@typescript-eslint/eslint-plugin": "^5.60.0",
-		"@typescript-eslint/parser": "^5.60.0",
+		"@typescript-eslint/eslint-plugin": "^5.60.1",
+		"@typescript-eslint/parser": "^5.60.1",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.43.0",
+		"eslint": "^8.44.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
@@ -37,13 +37,13 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"gen-esm-wrapper": "^1.1.3",
 		"husky": "^8.0.3",
-		"lint-staged": "^13.2.2",
+		"lint-staged": "^13.2.3",
 		"prettier": "^2.8.8",
 		"pretty-quick": "^3.1.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"replace-in-file": "^6.3.5",
-		"typescript": "^5.1.3"
+		"typescript": "^5.1.6"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
@@ -66,5 +66,5 @@
 		}
 	},
 	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@3.6.0"
+	"packageManager": "yarn@3.6.1"
 }
