@@ -44,7 +44,7 @@
 	},
 	"dependencies": {
 		"@stencil/core": "^3.4.1",
-		"clsx": "^1.2.1",
+		"clsx": "^2.0.0",
 		"hex-to-rgba": "^2.0.1"
 	},
 	"directories": {
