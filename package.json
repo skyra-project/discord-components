@@ -19,7 +19,7 @@
 		"@commitlint/config-conventional": "^17.6.6",
 		"@lerna-lite/cli": "^2.5.0",
 		"@sapphire/eslint-config": "^4.4.3",
-		"@sapphire/prettier-config": "^1.4.5",
+		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^4.0.0",
 		"@stencil/react-output-target": "^0.5.3",
 		"@types/node": "^18.16.19",
