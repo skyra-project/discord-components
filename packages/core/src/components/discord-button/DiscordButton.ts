@@ -24,8 +24,12 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 			height: 32px;
 			min-width: 60px;
 			min-height: 32px;
-			-webkit-transition: background-color 0.17s ease, color 0.17s ease;
-			transition: background-color 0.17s ease, color 0.17s ease;
+			-webkit-transition:
+				background-color 0.17s ease,
+				color 0.17s ease;
+			transition:
+				background-color 0.17s ease,
+				color 0.17s ease;
 			border-radius: 3px;
 			font-size: 14px;
 			font-weight: 500;

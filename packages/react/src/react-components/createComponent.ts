@@ -1,5 +1,5 @@
-import React from 'react';
 import { createComponent } from '@lit-labs/react';
+import React from 'react';
 import type { LitElement } from 'lit';
 
 declare interface Constructor<T> {

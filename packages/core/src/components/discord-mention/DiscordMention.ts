@@ -21,8 +21,12 @@ export class DiscordMention extends LitElement implements LightTheme {
 			border-radius: 3px;
 			unicode-bidi: -moz-plaintext;
 			unicode-bidi: plaintext;
-			-webkit-transition: background-color 50ms ease-out, color 50ms ease-out;
-			transition: background-color 50ms ease-out, color 50ms ease-out;
+			-webkit-transition:
+				background-color 50ms ease-out,
+				color 50ms ease-out;
+			transition:
+				background-color 50ms ease-out,
+				color 50ms ease-out;
 			cursor: pointer;
 		}
 

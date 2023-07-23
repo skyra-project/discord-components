@@ -10,8 +10,20 @@ export class DiscordCode extends LitElement implements LightTheme {
 		:host {
 			background-color: #2f3136;
 			white-space: break-spaces;
-			font-family: Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono,
-				Liberation Mono, Nimbus Mono L, Monaco, Courier New, Courier, monospace;
+			font-family:
+				Consolas,
+				Andale Mono WT,
+				Andale Mono,
+				Lucida Console,
+				Lucida Sans Typewriter,
+				DejaVu Sans Mono,
+				Bitstream Vera Sans Mono,
+				Liberation Mono,
+				Nimbus Mono L,
+				Monaco,
+				Courier New,
+				Courier,
+				monospace;
 			border-radius: 3px;
 		}
 

@@ -184,9 +184,8 @@ describe('DiscordMessage', () => {
 			?.querySelector('discord-author-info')
 			?.shadowRoot?.querySelector('.discord-application-tag')
 			?.textContent?.trim();
-		const verifiedTag = discordMessage.shadowRoot
-			?.querySelector('discord-author-info')
-			?.shadowRoot?.querySelector('.discord-application-tag')?.firstElementChild;
+		const verifiedTag = discordMessage.shadowRoot?.querySelector('discord-author-info')?.shadowRoot?.querySelector('.discord-application-tag')
+			?.firstElementChild;
 
 		expect(discordMessage.bot).to.equal(true);
 		expect(discordMessage.verified).to.equal(true);
