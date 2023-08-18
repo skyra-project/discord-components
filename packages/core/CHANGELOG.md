@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.1](https://github.com/skyra-project/discord-components/compare/v3.6.0...v3.6.1) (2023-08-18)
+
+### Bug Fixes
+
+-   **core:** add types to export mapping ([b2e72d4](https://github.com/skyra-project/discord-components/commit/b2e72d4281f0b471ef8ffed0cc037dbb66522e18))
+-   **deps:** update all non-major dependencies ([#318](https://github.com/skyra-project/discord-components/issues/318)) ([2c2f2f4](https://github.com/skyra-project/discord-components/commit/2c2f2f4a9e82949c20b34950ae1854752c6a709b))
+-   **deps:** update all non-major dependencies ([#346](https://github.com/skyra-project/discord-components/issues/346)) ([9890111](https://github.com/skyra-project/discord-components/commit/989011165ff39e44bff44915cabc5622974b1b31))
+-   **deps:** update all non-major dependencies ([#350](https://github.com/skyra-project/discord-components/issues/350)) ([2c3d827](https://github.com/skyra-project/discord-components/commit/2c3d827a9e39bf6419b0c074573a0923aa5c5eb4))
+-   **deps:** update all non-major dependencies ([#352](https://github.com/skyra-project/discord-components/issues/352)) ([1674e2a](https://github.com/skyra-project/discord-components/commit/1674e2ad9275f4bea45cc4b3d60c8e9f3512ea95))
+-   **deps:** update dependency @stencil/core to v3 ([#319](https://github.com/skyra-project/discord-components/issues/319)) ([2ed3e53](https://github.com/skyra-project/discord-components/commit/2ed3e53766b7827a9bdb75491a33392df283b381))
+
 # [3.6.0](https://github.com/skyra-project/discord-components/compare/v3.5.0...v3.6.0) (2023-01-23)
 
 ### Bug Fixes

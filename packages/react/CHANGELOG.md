@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.1](https://github.com/skyra-project/discord-components/compare/v3.6.0...v3.6.1) (2023-08-18)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([#318](https://github.com/skyra-project/discord-components/issues/318)) ([2c2f2f4](https://github.com/skyra-project/discord-components/commit/2c2f2f4a9e82949c20b34950ae1854752c6a709b))
+-   **deps:** update all non-major dependencies ([#352](https://github.com/skyra-project/discord-components/issues/352)) ([1674e2a](https://github.com/skyra-project/discord-components/commit/1674e2ad9275f4bea45cc4b3d60c8e9f3512ea95))
+-   **react:** add types to export mapping ([bba1772](https://github.com/skyra-project/discord-components/commit/bba17727447104fcb01757afd1912c2ad630ac8b))
+-   update generated react code ([1d3161b](https://github.com/skyra-project/discord-components/commit/1d3161bf6a436ed9a6c63c953189a208d29c5717))
+
 # [3.6.0](https://github.com/skyra-project/discord-components/compare/v3.5.0...v3.6.0) (2023-01-23)
 
 ### Bug Fixes
