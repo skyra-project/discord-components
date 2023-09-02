@@ -6,7 +6,10 @@ import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ChannelForum from '../svgs/ChannelForum.js';
 import ChannelIcon from '../svgs/ChannelIcon.js';
 import ChannelThread from '../svgs/ChannelThread.js';
+import ChannelsAndRoles from '../svgs/ChannelsAndRoles.js';
+import CustomizeCommunity from '../svgs/CustomizeCommunity.js';
 import LockedVoiceChannel from '../svgs/LockedVoiceChannel.js';
+import ServerGuide from '../svgs/ServerGuide.js';
 import VoiceChannel from '../svgs/VoiceChannel.js';
 import type { LightTheme } from '../../util.js';
 
@@ -85,10 +88,32 @@ export class DiscordMention extends LitElement implements LightTheme {
 
 	/**
 	 * The type of mention this should be. This will prepend the proper prefix character.
-	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, `forum`, and `slash`.
+	 * Valid values:
+	 * - `'user'`
+	 * - `'channel'`
+	 * - `'role'`
+	 * - `'voice'`
+	 * - `'locked'`
+	 * - `'thread'`
+	 * - `'forum'`
+	 * - `'slash'`
+	 * - `'server-guide'`
+	 * - `'channels-and-roles'`
+	 * - `'customize-community'`
 	 */
 	@property({ reflect: true, attribute: 'type' })
-	public type: 'user' | 'channel' | 'role' | 'voice' | 'locked' | 'thread' | 'forum' | 'slash' = 'user';
+	public type:
+		| 'user'
+		| 'channel'
+		| 'role'
+		| 'voice'
+		| 'locked'
+		| 'thread'
+		| 'forum'
+		| 'slash'
+		| 'server-guide'
+		| 'channels-and-roles'
+		| 'customize-community' = 'user';
 
 	@property({ reflect: true })
 	public color?: string;
@@ -153,6 +178,15 @@ export class DiscordMention extends LitElement implements LightTheme {
 				break;
 			case 'forum':
 				mentionPrepend = html`${ChannelForum()}`;
+				break;
+			case 'server-guide':
+				mentionPrepend = html`${ServerGuide()}`;
+				break;
+			case 'channels-and-roles':
+				mentionPrepend = html`${ChannelsAndRoles()}`;
+				break;
+			case 'customize-community':
+				mentionPrepend = html`${CustomizeCommunity()}`;
 				break;
 			case 'slash':
 				mentionPrepend = html`/`;
