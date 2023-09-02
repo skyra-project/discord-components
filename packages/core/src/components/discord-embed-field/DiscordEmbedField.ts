@@ -2,7 +2,7 @@ import { consume } from '@lit-labs/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { getGlobalEmojiUrl, LightTheme } from '../../util.js';
+import { getGlobalEmojiUrl, type LightTheme } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { Emoji } from '../../options.js';
 

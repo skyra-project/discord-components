@@ -1,4 +1,4 @@
-import type { DiscordMessageOptions } from './options';
+import type { DiscordMessageOptions } from './options.js';
 
 /* EXPORTS START */
 

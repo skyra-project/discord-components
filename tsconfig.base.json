@@ -1,10 +1,7 @@
 {
-	"extends": "@sapphire/ts-config/extra-strict",
+	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict", "@sapphire/ts-config/decorators", "@sapphire/ts-config/verbatim"],
 	"compilerOptions": {
 		"lib": ["ESNext", "DOM"],
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"target": "ES2019",
 		"incremental": false,
 		"emitDecoratorMetadata": false,
 		"useDefineForClassFields": false

@@ -3,7 +3,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
-import { handleTimestamp, LightTheme, type DiscordTimestamp } from '../../util.js';
+import { handleTimestamp, type LightTheme, type DiscordTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
 import { messagesCompactMode, messagesLightTheme, messagesNoBackground } from '../discord-messages/DiscordMessages.js';
 import Ephemeral from '../svgs/Ephemeral.js';

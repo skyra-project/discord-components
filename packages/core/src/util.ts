@@ -1,4 +1,4 @@
-import type { Emoji } from './options';
+import type { Emoji } from './options.js';
 
 export type DiscordTimestamp = Date | string | null;
 

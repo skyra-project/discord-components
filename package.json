@@ -8,7 +8,7 @@
 		"clean": "node scripts/clean.mjs",
 		"lint": "eslint packages/ --fix --ext ts,tsx",
 		"prettier": "prettier --ignore-path=.prettierignore",
-		"format": "prettier --loglevel=warn --write .",
+		"format": "prettier --log-level=warn --write .",
 		"inject-readme-markdown": "node scripts/inject-readme-markdown.mjs",
 		"inject-package-exports": "node scripts/update-exports-and-side-effects.mjs",
 		"inject-core-index-re-exports": "node scripts/update-core-index-exports.mjs",
@@ -20,35 +20,35 @@
 		"postinstall": "husky install .github/husky"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.6.7",
-		"@commitlint/config-conventional": "^17.6.7",
+		"@commitlint/cli": "^17.7.1",
+		"@commitlint/config-conventional": "^17.7.0",
 		"@favware/skip-dependency": "^1.2.1",
 		"@lerna-lite/cli": "^2.5.0",
-		"@sapphire/eslint-config": "^5.0.0",
+		"@sapphire/eslint-config": "^5.0.2",
 		"@sapphire/prettier-config": "^2.0.0",
-		"@sapphire/ts-config": "^3.3.4",
-		"@types/node": "^18.17.0",
-		"@typescript-eslint/eslint-plugin": "^6.1.0",
-		"@typescript-eslint/parser": "^6.1.0",
+		"@sapphire/ts-config": "^5.0.0",
+		"@types/node": "^20.5.8",
+		"@typescript-eslint/eslint-plugin": "^6.5.0",
+		"@typescript-eslint/parser": "^6.5.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.45.0",
+		"eslint": "^8.48.0",
 		"eslint-config-airbnb-base": "^15.0.0",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-import": "^2.27.5",
-		"eslint-plugin-lit": "^1.8.3",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-import": "^2.28.1",
+		"eslint-plugin-lit": "^1.9.1",
 		"eslint-plugin-prettier": "^5.0.0",
 		"husky": "^8.0.3",
-		"lint-staged": "^13.2.3",
+		"lint-staged": "^14.0.1",
 		"markdown-toc": "^1.2.0",
-		"prettier": "^3.0.0",
+		"prettier": "^3.0.3",
 		"react": "^18.2.0",
-		"tslib": "^2.6.0",
-		"typescript": "^4.9.5"
+		"tslib": "^2.6.2",
+		"typescript": "^5.2.2"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
-		"typescript": "^4.9.5"
+		"@open-wc/lit-helpers@^0.6.0": "patch:@open-wc/lit-helpers@npm%3A0.6.0#./.yarn/patches/@open-wc-lit-helpers-npm-0.6.0-e1a0ad9b21.patch"
 	},
 	"commitlint": {
 		"extends": [
@@ -64,5 +64,5 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"packageManager": "yarn@3.6.1"
+	"packageManager": "yarn@3.6.3"
 }
