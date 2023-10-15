@@ -16,8 +16,7 @@
 		"start": "yarn workspace @skyra/discord-components-core start",
 		"build": "yarn clean && yarn build:core && yarn build:react && yarn lint && yarn format",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
-		"build:react": "yarn workspace @skyra/discord-components-react build",
-		"postinstall": "husky install .github/husky"
+		"build:react": "yarn workspace @skyra/discord-components-react build"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.7.1",
@@ -36,7 +35,6 @@
 		"eslint-plugin-import": "^2.28.1",
 		"eslint-plugin-lit": "^1.9.1",
 		"eslint-plugin-prettier": "^5.0.0",
-		"husky": "^8.0.3",
 		"lint-staged": "^14.0.1",
 		"markdown-toc": "^1.2.0",
 		"prettier": "^3.0.3",
