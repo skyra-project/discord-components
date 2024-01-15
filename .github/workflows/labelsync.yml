@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          repository: 'sapphiredev/readme'
+          sparse-checkout: .github/labels.yml
+          sparse-checkout-cone-mode: false
+          repository: 'sapphiredev/.github'
       - name: Run Label Sync
-        uses: crazy-max/ghaction-github-labeler@v4
+        uses: crazy-max/ghaction-github-labeler@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           yaml-file: .github/labels.yml
