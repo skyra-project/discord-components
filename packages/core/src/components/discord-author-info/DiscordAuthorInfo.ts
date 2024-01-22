@@ -18,7 +18,7 @@ export class DiscordAuthorInfo extends LitElement {
 		}
 
 		:host([compact-mode]) {
-			margin-right: 0;
+			margin-right: 0.25rem;
 			display: inline;
 		}
 
@@ -84,6 +84,7 @@ export class DiscordAuthorInfo extends LitElement {
 		:host([compact-mode]) .discord-application-tag {
 			padding-left: 10px;
 			padding-right: 4px;
+			margin-right: 0.25rem;
 		}
 
 		:host([compact-mode]) .discord-application-tag-verified {

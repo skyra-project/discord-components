@@ -106,6 +106,10 @@ export class DiscordReply extends LitElement implements LightTheme {
 			border-radius: 0.1875rem;
 		}
 
+		:host([compact-mode]) .discord-application-tag {
+			margin-right: 0.25rem;
+		}
+
 		.discord-application-tag .discord-application-tag-verified {
 			width: 0.9375rem;
 			height: 0.9375rem;
