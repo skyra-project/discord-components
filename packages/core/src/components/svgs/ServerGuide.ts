@@ -3,12 +3,9 @@ import { html, svg } from 'lit';
 
 const svgContent = svg`
 	<path
-		fill-rule="evenodd"
-		clip-rule="evenodd"
-		d="M7 15H9V8H12.5L15 5.5L12.5 3H9V1H7V3H1L3.5 5.5L1 8H7V15Z"
+		d="M11 3a1 1 0 1 1 2 0v2h5.75c.16 0 .3.07.4.2l2.63 3.5a.5.5 0 0 1 0 .6l-2.63 3.5a.5.5 0 0 1-.4.2H13v5h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-1c0-1.1.9-2 2-2h2v-5H2.8a.5.5 0 0 1-.44-.72L3.9 9.22a.5.5 0 0 0 0-.44L2.36 5.72A.5.5 0 0 1 2.81 5H11V3Z"
 		fill="currentColor"
 	/>
-	<path d="M5 14C5 12.8954 5.89543 12 7 12H9C10.1046 12 11 12.8954 11 14V15H5V14Z" fill="currentColor" />
 `;
 
 export default function ServerGuide(props: Record<string, unknown> = {}) {
@@ -20,7 +17,7 @@ export default function ServerGuide(props: Record<string, unknown> = {}) {
 		role="img"
 		width="24"
 		height="24"
-		viewBox="0 0 16 16"
+		viewBox="0 0 24 24"
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		${svgContent}
