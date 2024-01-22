@@ -38,7 +38,6 @@ export class DiscordMention extends LitElement implements LightTheme {
 		}
 
 		:host([type='channel']) {
-			padding-left: 1.2rem !important;
 			position: relative;
 		}
 
@@ -46,7 +45,6 @@ export class DiscordMention extends LitElement implements LightTheme {
 		:host([type='locked']),
 		:host([type='thread']),
 		:host([type='forum']) {
-			padding-left: 1.25rem !important;
 			position: relative;
 		}
 
@@ -73,10 +71,13 @@ export class DiscordMention extends LitElement implements LightTheme {
 		.discord-mention-icon {
 			width: 1rem;
 			height: 1rem;
-			object-fit: contain;
-			position: absolute;
-			left: 0.125rem;
-			top: 0.125rem;
+			margin-right: 4px;
+			vertical-align: middle;
+			margin-bottom: 0.2rem;
+		}
+
+		.no-wrap {
+			white-space: nowrap;
 		}
 	`;
 
@@ -193,7 +194,7 @@ export class DiscordMention extends LitElement implements LightTheme {
 				break;
 		}
 
-		return html`${mentionPrepend}<slot></slot>`;
+		return html`<span class="no-wrap">${mentionPrepend}</span><slot></slot>`;
 	}
 }
 
