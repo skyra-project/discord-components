@@ -85,7 +85,7 @@
 		"analyze": "cem analyze --litelement",
 		"start": "yarn build:ts && concurrently -k -r \"tsc -b src --watch --preserveWatchOutput\" \"wds\"",
 		"build": "yarn build:ts && yarn analyze --exclude dist",
-		"prepack": "yarn build:ts && yarn analyze --exclude dist",
+		"prepack": "yarn build",
 		"lint": "eslint src test --ext .ts",
 		"format": "prettier . --write --ignore-path ../../.prettierignore",
 		"test": "wtr",

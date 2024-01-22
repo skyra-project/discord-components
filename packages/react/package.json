@@ -17,7 +17,7 @@
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
-		"clean": "node scripts/clean.mjs",
+		"clean": "rimraf dist coverage",
 		"build": "yarn clean && tsc -b src"
 	},
 	"dependencies": {
@@ -28,6 +28,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.48",
+		"rimraf": "^5.0.5",
 		"typescript": "^5.3.3"
 	},
 	"peerDependencies": {

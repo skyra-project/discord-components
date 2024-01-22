@@ -6,7 +6,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"clean": "node scripts/clean.mjs",
+		"clean": "rimraf packages/core/dist package/core/coverage packages/react/dist",
 		"lint": "eslint packages/ --fix --ext ts,tsx",
 		"prettier": "prettier --ignore-path=.prettierignore",
 		"format": "prettier --log-level=warn --write .",
@@ -40,6 +40,7 @@
 		"markdown-toc": "^1.2.0",
 		"prettier": "^3.2.4",
 		"react": "^18.2.0",
+		"rimraf": "^5.0.5",
 		"tslib": "^2.6.2",
 		"typescript": "^5.3.3"
 	},
