@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -197,66 +197,66 @@ export class DiscordInvite extends LitElement implements LightTheme {
 	 * The server icon to display for the invite.
 	 */
 	@property()
-	public icon = defaultDiscordAvatars.blue;
+	public accessor icon = defaultDiscordAvatars.blue;
 
 	/**
 	 * The server's name.
 	 * @default 'Discord Server'
 	 */
 	@property()
-	public name = 'Discord Server';
+	public accessor name = 'Discord Server';
 
 	/**
 	 * The URL to open when you click on the join button.
 	 */
 	@property()
-	public url: string;
+	public accessor url: string;
 
 	/**
 	 * The number of members online on the server.
 	 * @default 0
 	 */
 	@property({ type: Number })
-	public online = 0;
+	public accessor online = 0;
 
 	/**
 	 * The number of members on the server.
 	 * @default 0
 	 */
 	@property({ type: Number })
-	public members = 0;
+	public accessor members = 0;
 
 	/**
 	 * Whether the server is verified.
 	 * Only works if `partnered` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public verified = false;
+	public accessor verified = false;
 
 	/**
 	 * Whether the server is partnered.
 	 * Only works if `verified` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public partnered = false;
+	public accessor partnered = false;
 
 	/**
 	 * Invitation embed title.
 	 * @default "You've been invited to join a server"
 	 */
 	@property({ attribute: 'invite-title' })
-	public inviteTitle = "You've been invited to join a server";
+	public accessor inviteTitle = "You've been invited to join a server";
 
 	/**
 	 * The join button.
 	 * @default 'Join'
 	 */
 	@property({ attribute: 'join-btn' })
-	public joinBtn = 'Join';
+	public accessor joinBtn = 'Join';
 
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	protected override render() {
 		return html`<div class="discord-invite-header">${this.inviteTitle}</div>
@@ -273,7 +273,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 									<div class="discord-invite-badge-container">
 										${this.partnered ? PartnerBadgeOverlay() : VerifiedBadgeOverlay()}
 									</div>
-							  </div>`
+								</div>`
 							: null}
 						<span class="discord-invite-name">${this.name}</span>
 					</div>

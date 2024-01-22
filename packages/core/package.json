@@ -86,30 +86,30 @@
 		"start": "yarn build:ts && concurrently -k -r \"tsc -b src --watch --preserveWatchOutput\" \"wds\"",
 		"build": "yarn build:ts && yarn analyze --exclude dist",
 		"prepack": "yarn build:ts && yarn analyze --exclude dist",
-		"lint": "eslint src test --ext .ts --fix",
+		"lint": "eslint src test --ext .ts",
 		"format": "prettier . --write --ignore-path ../../.prettierignore",
 		"test": "wtr",
 		"test:coverage": "wtr --coverage",
 		"test:watch": "wtr --watch"
 	},
 	"dependencies": {
-		"@lit-labs/context": "^0.4.0",
-		"lit": "^2.8.0",
+		"@lit/context": "^1.1.0",
+		"lit": "^3.1.1",
 		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
-		"@custom-elements-manifest/analyzer": "^0.8.4",
+		"@custom-elements-manifest/analyzer": "^0.9.0",
 		"@open-wc/dev-server-hmr": "^0.2.0",
-		"@open-wc/eslint-config": "^12.0.0",
+		"@open-wc/eslint-config": "^12.0.3",
 		"@open-wc/lit-helpers": "^0.6.0",
-		"@open-wc/testing": "^3.2.0",
-		"@remcovaes/web-test-runner-vite-plugin": "^1.2.0",
-		"@web/dev-server": "^0.3.1",
-		"@web/test-runner": "^0.17.1",
-		"@web/test-runner-playwright": "^0.10.1",
-		"concurrently": "^8.2.1",
-		"typescript": "^5.2.2",
-		"vite": "^4.4.9"
+		"@open-wc/testing": "^4.0.0",
+		"@web/dev-server": "^0.4.1",
+		"@web/test-runner": "^0.18.0",
+		"@web/test-runner-playwright": "^0.11.0",
+		"concurrently": "^8.2.2",
+		"ts-lit-plugin": "^2.0.2",
+		"typescript": "^5.3.3",
+		"vite": "^5.0.12"
 	},
 	"files": [
 		"dist/",

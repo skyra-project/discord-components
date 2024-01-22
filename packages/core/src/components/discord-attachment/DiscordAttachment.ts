@@ -32,26 +32,26 @@ export class DiscordAttachment extends LitElement {
 	 * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
 	 */
 	@property({ reflect: true, attribute: 'url' })
-	public url: string;
+	public accessor url: string;
 
 	/**
 	 * The height of the image in pixels
 	 */
 	@property({ type: Number, reflect: true, attribute: 'height' })
-	public height: number;
+	public accessor height: number;
 
 	/**
 	 * The width of the image in pixels
 	 */
 	@property({ type: Number, reflect: true, attribute: 'width' })
-	public width: number;
+	public accessor width: number;
 
 	/**
 	 * The alt text to show in case the image was unable to load
 	 * @default 'discord attachment'
 	 */
 	@property({ reflect: true, attribute: 'alt' })
-	public alt = 'discord attachment';
+	public accessor alt = 'discord attachment';
 
 	public componentWillRender() {
 		validateImageExtension(this.url);

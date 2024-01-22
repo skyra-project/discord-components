@@ -1,4 +1,4 @@
-import { createComponent } from '@lit-labs/react';
+import { createComponent } from '@lit/react';
 import React from 'react';
 import type { LitElement } from 'lit';
 

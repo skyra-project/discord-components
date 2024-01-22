@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -78,17 +78,17 @@ export class DiscordThread extends LitElement implements LightTheme {
 	 * The name of the thread.
 	 */
 	@property()
-	public name = 'Thread';
+	public accessor name = 'Thread';
 
 	/**
 	 * The the text within the call to action text. (i.e. 'See Thread' or 'x Messages')
 	 */
 	@property()
-	public cta = 'See Thread';
+	public accessor cta = 'See Thread';
 
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	protected override render() {
 		return html`

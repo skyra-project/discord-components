@@ -1,4 +1,4 @@
-import { createContext, provide } from '@lit-labs/context';
+import { createContext, provide } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
@@ -54,21 +54,21 @@ export class DiscordMessages extends LitElement implements LightTheme {
 	 */
 	@provide({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	/**
 	 * Whether to exclude the background or not.
 	 */
 	@provide({ context: messagesNoBackground })
 	@property({ type: Boolean, reflect: true, attribute: 'no-background' })
-	public noBackground = false;
+	public accessor noBackground = false;
 
 	/**
 	 * Whether to use compact mode or not.
 	 */
 	@provide({ context: messagesCompactMode })
 	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
-	public compactMode = false;
+	public accessor compactMode = false;
 
 	public override connectedCallback(): void {
 		super.connectedCallback();

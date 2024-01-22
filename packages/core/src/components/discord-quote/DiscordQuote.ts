@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -37,7 +37,7 @@ export class DiscordQuote extends LitElement implements LightTheme {
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	public override willUpdate() {
 		if (this.parentElement && 'lightTheme' in this.parentElement) {

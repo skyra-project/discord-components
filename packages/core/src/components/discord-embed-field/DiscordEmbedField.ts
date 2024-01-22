@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -39,13 +39,13 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	`;
 
 	@property({ reflect: true, attribute: 'field-title' })
-	public fieldTitle!: string;
+	public accessor fieldTitle!: string;
 
 	/**
 	 * Whether this field should be displayed inline or not.
 	 */
 	@property({ type: Boolean, reflect: true, attribute: 'inline' })
-	public inline = false;
+	public accessor inline = false;
 
 	/**
 	 * The index of this inline field
@@ -54,11 +54,11 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	 * @default 1
 	 */
 	@property({ type: Number, reflect: true, attribute: 'inline-index' })
-	public inlineIndex = 1;
+	public accessor inlineIndex = 1;
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	private validInlineIndices = new Set([1, 2, 3]);
 

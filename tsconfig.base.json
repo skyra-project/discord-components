@@ -1,9 +1,8 @@
 {
-	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict", "@sapphire/ts-config/decorators", "@sapphire/ts-config/verbatim"],
+	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict", "@sapphire/ts-config/verbatim"],
 	"compilerOptions": {
+		"target": "ES2022",
 		"lib": ["ESNext", "DOM"],
-		"incremental": false,
-		"emitDecoratorMetadata": false,
-		"useDefineForClassFields": false
+		"incremental": false
 	}
 }

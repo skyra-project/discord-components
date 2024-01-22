@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { type DiscordTimestamp, handleTimestamp, type LightTheme } from '../../util.js';
@@ -141,28 +141,28 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 	/**
 	 * The timestamp to use for the message date.
 	 */
-	@property({ type: Date })
-	public timestamp: DiscordTimestamp = new Date();
+	@property({ type: String })
+	public accessor timestamp: DiscordTimestamp = new Date();
 
 	/**
 	 * The type of system message this is, this will change the icon shown.
 	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `pin`, `alert`, and `error`.
 	 */
 	@property()
-	public type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'pin' | 'alert' | 'error' = 'join';
+	public accessor type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'pin' | 'alert' | 'error' = 'join';
 
 	/**
 	 * Whether this message is to show channel name changes, used to match Discord's style.
 	 */
 	@property({ type: Boolean, attribute: 'channel-name' })
-	public channelName = false;
+	public accessor channelName = false;
 
 	@property({ type: Boolean, reflect: true, attribute: 'has-thread' })
-	public hasThread = false;
+	public accessor hasThread = false;
 
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	public checkType(value: string) {
 		if (typeof value !== 'string') {

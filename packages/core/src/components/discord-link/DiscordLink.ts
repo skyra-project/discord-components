@@ -23,19 +23,19 @@ export class DiscordLink extends LitElement implements LightTheme {
 	`;
 
 	@state()
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	@property()
-	public href?: string;
+	public accessor href: string;
 
 	@property()
-	public rel?: string;
+	public accessor rel: string;
 
 	@property()
-	public target?: '_self' | '_blank' | '_parent' | '_top';
+	public accessor target: '_self' | '_blank' | '_parent' | '_top';
 
 	@property()
-	public type?: string;
+	public accessor type: string;
 
 	protected override render() {
 		if (this.parentElement && 'lightTheme' in this.parentElement) this.lightTheme = (this.parentElement as LightTheme).lightTheme;

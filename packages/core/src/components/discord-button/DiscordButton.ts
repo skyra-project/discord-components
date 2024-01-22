@@ -95,32 +95,32 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 	 * The emoji URL to use in the button.
 	 */
 	@property({ reflect: true, attribute: 'emoji' })
-	public emoji: string;
+	public accessor emoji: string;
 
 	/**
 	 * The name of the emoji used in the button.
 	 */
 	@property({ reflect: true, attribute: 'emoji-name' })
-	public emojiName = 'emoji';
+	public accessor emojiName = 'emoji';
 
 	/**
 	 * The URL for the button. Setting this will force the button type to be `secondary`.
 	 */
 	@property({ reflect: true, attribute: 'url' })
-	public url: string;
+	public accessor url: string;
 
 	/**
 	 * Whether to show the button as disabled.
 	 */
 	@property({ type: Boolean, reflect: true, attribute: 'disabled' })
-	public disabled = false;
+	public accessor disabled = false;
 
 	/**
 	 * The type of button this is, this will change the color of the button.
 	 * Valid values: `primary`, `secondary`, `success`, `destructive`.
 	 */
 	@property({ reflect: true, attribute: 'type' })
-	public type: 'primary' | 'secondary' | 'success' | 'destructive' = 'secondary';
+	public accessor type: 'primary' | 'secondary' | 'success' | 'destructive' = 'secondary';
 
 	public handleType(value: string) {
 		if (typeof value !== 'string') {

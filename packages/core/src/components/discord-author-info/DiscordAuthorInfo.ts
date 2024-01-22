@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -96,60 +96,60 @@ export class DiscordAuthorInfo extends LitElement {
 	 * The name of the author
 	 */
 	@property()
-	public author: string | undefined = undefined;
+	public accessor author: string | undefined = undefined;
 
 	/**
 	 * Whether this author is a bot. Only works if `server` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public bot = false;
+	public accessor bot = false;
 
 	/**
 	 * Whether this author is a `server` crosspost webhook. Only works if `bot` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public server = false;
+	public accessor server = false;
 
 	/**
 	 * Whether this author is the original poster.
 	 */
 	@property({ type: Boolean })
-	public op = false;
+	public accessor op = false;
 
 	/**
 	 * The colour of the author, which comes from their highest role
 	 */
 	@property()
-	public roleColor: string | undefined = undefined;
+	public accessor roleColor: string | undefined = undefined;
 
 	/**
 	 * The role icon of the author, which comes from their highest role
 	 */
 	@property()
-	public roleIcon: string | undefined = undefined;
+	public accessor roleIcon: string | undefined = undefined;
 
 	/**
 	 * The role name of the author, which comes from their highest role
 	 */
 	@property()
-	public roleName: string | undefined = undefined;
+	public accessor roleName: string | undefined = undefined;
 
 	/**
 	 * Whether this bot is verified by Discord. Only works if `bot` is `true`
 	 */
 	@property({ type: Boolean })
-	public verified = false;
+	public accessor verified = false;
 
 	/**
 	 * Whether to reverse the order of the author info for compact mode.
 	 */
 	@consume({ context: messagesCompactMode })
 	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
-	public compactMode = false;
+	public accessor compactMode = false;
 
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	protected override render() {
 		return html`${this.compactMode
@@ -163,7 +163,7 @@ export class DiscordAuthorInfo extends LitElement {
 					width="20"
 					alt=${ifDefined(this.roleName)}
 					draggable="false"
-			  />`
+				/>`
 			: null}
 		${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified ? VerifiedTick() : null} Bot</span>` : null}
 		${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : null}

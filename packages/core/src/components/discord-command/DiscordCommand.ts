@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -34,44 +34,44 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	 * The id of the profile data to use.
 	 */
 	@property({ attribute: 'profile' })
-	public profile: string;
+	public accessor profile: string;
 
 	/**
 	 * The message author's username.
 	 * @default 'User'
 	 */
 	@property({ attribute: 'author' })
-	public author = 'User';
+	public accessor author = 'User';
 
 	/**
 	 * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
 	 */
 	@property({ attribute: 'avatar' })
-	public avatar: string;
+	public accessor avatar: string;
 
 	/**
 	 * The message author's primary role color.
 	 * Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
 	@property({ attribute: 'role-color' })
-	public roleColor: string;
+	public accessor roleColor: string;
 
 	/**
 	 * The name of the command invoked.
 	 */
 	@property({ attribute: 'command' })
-	public command: string;
+	public accessor command: string;
 
 	/**
 	 * Whether to use compact mode or not.
 	 */
 	@consume({ context: messagesCompactMode })
 	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
-	public compactMode = false;
+	public accessor compactMode = false;
 
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	protected override render() {
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;

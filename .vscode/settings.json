@@ -3,6 +3,6 @@
 	"javascript.preferences.importModuleSpecifierEnding": "js",
 	"path-intellisense.extensionOnImport": true,
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": false
+		"source.organizeImports": "never"
 	}
 }

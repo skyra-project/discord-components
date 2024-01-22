@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -235,49 +235,49 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	 * Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
 	@property()
-	public color: string;
+	public accessor color: string;
 
 	/**
 	 * The author's name.
 	 */
 	@property({ attribute: 'author-name' })
-	public authorName: string;
+	public accessor authorName: string;
 
 	/**
 	 * The author's avatar URL.
 	 */
 	@property({ attribute: 'author-image' })
-	public authorImage: string;
+	public accessor authorImage: string;
 
 	/**
 	 * The URL to open when you click on the author's name.
 	 */
 	@property({ attribute: 'author-url' })
-	public authorUrl: string;
+	public accessor authorUrl: string;
 
 	/**
 	 * The embed title.
 	 */
 	@property({ attribute: 'embed-title' })
-	public embedTitle: string;
+	public accessor embedTitle: string;
 
 	/**
 	 * The URL to open when you click on the embed title.
 	 */
 	@property()
-	public url: string;
+	public accessor url: string;
 
 	/**
 	 * The thumbnail image to use.
 	 */
 	@property()
-	public thumbnail: string;
+	public accessor thumbnail: string;
 
 	/**
 	 * The embed image to use (displayed at the bottom).
 	 */
 	@property()
-	public image: string;
+	public accessor image: string;
 
 	/**
 	 * The embed video to use (displayed at the bottom, same slot as the image).
@@ -290,23 +290,23 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	 * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
 	 */
 	@property()
-	public video: string;
+	public accessor video: string;
 
 	/**
 	 * The provider to show above the embed, for example for YouTube videos it will show "YouTube" at the top of the embed (above the author)
 	 * @example YouTube
 	 */
 	@property()
-	public provider: string;
+	public accessor provider: string;
 
 	// TODO: private hasPerformedRerenderChecks: 'dirty' | 'pristine' = 'pristine';
 
 	@state()
-	private hasProvidedDescriptionSlot = true;
+	private accessor hasProvidedDescriptionSlot = true;
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	protected override render() {
 		const emojiParsedAuthorName = this.parseTitle(this.authorName);
@@ -323,21 +323,21 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 									${this.authorUrl
 										? html`<a href="${this.authorUrl}" target="_blank" rel="noopener noreferrer"> ${emojiParsedAuthorName} </a> `
 										: html`${emojiParsedAuthorName}`}
-							  </div>`
+								</div>`
 							: null}
 						${emojiParsedEmbedTitle
 							? html`<div class="discord-embed-title">
 									${this.url
 										? html`<a href="${this.url}" target="_blank" rel="noopener noreferrer"> ${emojiParsedEmbedTitle} </a>`
 										: html`${emojiParsedEmbedTitle}`}
-							  </div>`
+								</div>`
 							: null}
 						${this.hasProvidedDescriptionSlot ? html`<slot name="description"></slot>` : null}
 						<slot name="fields"></slot>
 						${this.image || this.video
 							? html`<div class=${classMap({ 'discord-embed-media': true, 'discord-embed-media-video': Boolean(this.video) })}>
 									${this.renderMedia()}
-							  </div>`
+								</div>`
 							: null}
 						${this.thumbnail ? html`<img src=${this.thumbnail} alt="" class="discord-embed-thumbnail" />` : null}
 						<slot name="footer"></slot>

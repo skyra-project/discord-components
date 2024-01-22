@@ -32,20 +32,20 @@ export class DiscordCustomEmoji extends LitElement {
 	 * The name of the emoji
 	 */
 	@property()
-	public name: string;
+	public accessor name: string;
 
 	/**
 	 * The emoji URL to use in the message.
 	 */
 	@property()
-	public url: string;
+	public accessor url: string;
 
 	/**
 	 * Determines whether or not the emoji is used in an embed, or a message.
 	 * If it is used in an embed, the sizing is adjusted accordingly.
 	 */
 	@property({ type: Boolean, attribute: 'embed-emoji' })
-	public embedEmoji: boolean;
+	public accessor embedEmoji: boolean;
 
 	public override willUpdate() {
 		if (!this.url && Boolean(this.name)) {

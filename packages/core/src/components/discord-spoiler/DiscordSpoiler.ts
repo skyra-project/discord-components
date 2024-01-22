@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -41,10 +41,10 @@ export class DiscordSpoiler extends LitElement implements LightTheme {
 	 */
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	@property({ type: Boolean, reflect: true })
-	public activated = false;
+	public accessor activated = false;
 
 	protected override render() {
 		return html`<slot

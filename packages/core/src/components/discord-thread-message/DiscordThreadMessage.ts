@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -98,63 +98,63 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 	 * The id of the profile data to use.
 	 */
 	@property()
-	public profile: string;
+	public accessor profile: string;
 
 	/**
 	 * The message author's username.
 	 * @default 'User'
 	 */
 	@property()
-	public author = 'User';
+	public accessor author = 'User';
 
 	/**
 	 * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
 	 */
 	@property()
-	public avatar: string;
+	public accessor avatar: string;
 
 	/**
 	 * Whether the message author is a bot or not.
 	 * Only works if `server` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public bot = false;
+	public accessor bot = false;
 
 	/**
 	 * Whether the message author is a server crosspost webhook or not.
 	 * Only works if `bot` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public server = false;
+	public accessor server = false;
 
 	/**
 	 * Whether the bot is verified or not.
 	 * Only works if `bot` is `true`
 	 */
 	@property({ type: Boolean })
-	public verified = false;
+	public accessor verified = false;
 
 	/**
 	 * Whether the message has been edited or not.
 	 */
 	@property({ type: Boolean })
-	public edited = false;
+	public accessor edited = false;
 
 	/**
 	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
 	@property({ attribute: 'role-color' })
-	public roleColor: string;
+	public accessor roleColor: string;
 
 	/**
 	 * The relative timestamp of the message.
 	 */
 	@property({ attribute: 'relative-timestamp' })
-	public relativeTimestamp = '1m ago';
+	public accessor relativeTimestamp = '1m ago';
 
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	protected override render() {
 		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;

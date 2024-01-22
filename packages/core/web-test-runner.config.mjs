@@ -1,4 +1,3 @@
-import { vitePlugin } from '@remcovaes/web-test-runner-vite-plugin';
 import { playwrightLauncher } from '@web/test-runner-playwright';
 
 const filteredLogs = [
@@ -32,7 +31,7 @@ export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
 		reporters: ['text', 'lcov', 'clover']
 	},
 	manual,
-	plugins: [vitePlugin()],
+	plugins: [],
 	concurrentBrowsers: 3,
 	concurrency: 1,
 	browsers: [

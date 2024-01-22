@@ -1,4 +1,4 @@
-import { consume } from '@lit-labs/context';
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -256,83 +256,83 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	 * The id of the profile data to use.
 	 */
 	@property()
-	public profile: string | undefined = undefined;
+	public accessor profile: string | undefined = undefined;
 
 	/**
 	 * The message author's username.
 	 * @default 'User'
 	 */
 	@property()
-	public author: string | undefined = 'User';
+	public accessor author: string | undefined = 'User';
 
 	/**
 	 * The message author's avatar. Can be an avatar shortcut, relative path, or external link.
 	 */
 	@property()
-	public avatar: string | undefined = undefined;
+	public accessor avatar: string | undefined = undefined;
 
 	/**
 	 * Whether the message author is a bot or not.
 	 * Only works if `server` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public bot = false;
+	public accessor bot = false;
 
 	/**
 	 * Whether the message author is a server crosspost webhook or not.
 	 * Only works if `bot` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
-	public server = false;
+	public accessor server = false;
 
 	/**
 	 * Whether the bot is verified or not.
 	 * Only works if `bot` is `true`
 	 */
 	@property({ type: Boolean })
-	public verified = false;
+	public accessor verified = false;
 
 	/**
 	 * Whether the author is the original poster.
 	 */
 	@property({ type: Boolean })
-	public op = false;
+	public accessor op = false;
 
 	/**
 	 * Whether the message has been edited or not.
 	 */
 	@property({ type: Boolean })
-	public edited = false;
+	public accessor edited = false;
 
 	/**
 	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
 	@property({ attribute: 'role-color' })
-	public roleColor: string | undefined = undefined;
+	public accessor roleColor: string | undefined = undefined;
 
 	/**
 	 * The message author's role icon URL.
 	 */
 	@property({ attribute: 'role-icon' })
-	public roleIcon: string | undefined = undefined;
+	public accessor roleIcon: string | undefined = undefined;
 
 	/**
 	 * The name of the role to use as alternative image text.
 	 */
 	@property({ attribute: 'role-name' })
-	public roleName: string | undefined = undefined;
+	public accessor roleName: string | undefined = undefined;
 
 	/**
 	 * Whether to highlight this message.
 	 */
 	@property({ type: Boolean, reflect: true })
-	public highlight = false;
+	public accessor highlight = false;
 
 	/**
 	 * Whether to make this message ephemeral.
 	 */
 	@property({ type: Boolean })
-	public ephemeral = false;
+	public accessor ephemeral = false;
 
 	/**
 	 * The timestamp to use for the message date.
@@ -342,28 +342,28 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		converter: (value) => handleTimestamp(value, false, false),
 		attribute: true
 	})
-	public timestamp: DiscordTimestamp = new Date();
+	public accessor timestamp: DiscordTimestamp = new Date();
 
 	/**
 	 * Whether to use 24-hour format for the timestamp.
 	 */
 	@property({ type: Boolean, attribute: 'twenty-four' })
-	public twentyFour = false;
+	public accessor twentyFour = false;
 
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
-	public lightTheme = false;
+	public accessor lightTheme = false;
 
 	@consume({ context: messagesCompactMode })
 	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
-	public compactMode = false;
+	public accessor compactMode = false;
 
 	@consume({ context: messagesNoBackground })
 	@property({ type: Boolean, reflect: true, attribute: 'no-background' })
-	public noBackground = false;
+	public accessor noBackground = false;
 
 	@property({ type: Boolean, reflect: true, attribute: 'has-Thread' })
-	public hasThread = false;
+	public accessor hasThread = false;
 
 	protected override willUpdate(): void {
 		this.hasThread = Array.from(this.children).some((child): boolean => child.tagName.toLowerCase() === 'discord-thread');
@@ -405,7 +405,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 					? null
 					: html`<div class="discord-author-avatar">
 							<img src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />
-					  </div>`}
+						</div>`}
 
 				<div class="discord-message-content">
 					${this.compactMode
@@ -423,7 +423,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 									?compact=${false}
 								></discord-author-info
 								><span class="discord-message-timestamp">${computedTimestamp}</span>
-						  `}
+							`}
 					<div class="discord-message-body">
 						${this.compactMode
 							? html`<discord-author-info
@@ -436,7 +436,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 									roleIcon=${profile.roleIcon ?? ''}
 									roleName=${profile.roleName ?? ''}
 									?compact=${true}
-							  ></discord-author-info>`
+								></discord-author-info>`
 							: null}<span class="discord-message-markup"><slot></slot></span>
 						${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
 					</div>
@@ -452,7 +452,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 										${Ephemeral()} Only you can see this •
 										<span class="discord-message-ephemeral-link">Dismiss message</span>
 									</div>
-							  `
+								`
 							: null}
 					</div>
 				</div>
