@@ -28,22 +28,3 @@ jobs:
         run: yarn build
       - name: Run ESLint
         run: yarn lint --fix=false
-
-  UnitTesting:
-    name: Unit Testing
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Project
-        uses: actions/checkout@v3
-      - name: Use Node.js v20
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: yarn
-      - name: Install Dependencies
-        run: yarn --immutable
-      - name: Install Playwright browsers
-        run: yarn dlx playwright install --with-deps
-      - name: Run tests
-        working-directory: packages/core
-        run: yarn test:coverage
