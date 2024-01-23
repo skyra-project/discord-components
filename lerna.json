@@ -17,7 +17,9 @@
 			"createRelease": "github",
 			"generateReleaseNotes": true,
 			"signGitCommit": true,
-			"signGitTag": true
+			"signGitTag": true,
+			"signoffGitCommit": true,
+			"syncWorkspaceLock": true
 		}
 	}
 }
