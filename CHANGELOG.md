@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.1](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.0...v4.0.0-alpha.1) (2024-01-23)
+
+**Note:** Version bump only for package root
+
 # [4.0.0-alpha.0](https://github.com/skyra-project/discord-components/compare/v3.6.1...v4.0.0-alpha.0) (2024-01-23)
 
 ### Bug Fixes
