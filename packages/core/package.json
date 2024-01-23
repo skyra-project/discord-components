@@ -4,60 +4,111 @@
 	"description": "Web components to easily build and display fake Discord messages on your webpages.",
 	"author": "@skyra",
 	"license": "MIT",
-	"main": "dist/index.cjs.js",
+	"main": "dist/index.js",
 	"module": "dist/index.js",
-	"es2015": "dist/esm/index.js",
-	"es2017": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
-	"unpkg": "dist/skyra-discord-components-core/skyra-discord-components-core.esm.js",
-	"collection:main": "dist/collection/index.js",
-	"collection": "dist/collection/collection-manifest.json",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"customElements": "custom-elements.json",
 	"exports": {
-		".": [
-			{
-				"types": "./dist/types/index.d.ts",
-				"require": "./dist/index.cjs.js",
-				"import": "./dist/index.js"
-			},
-			"./dist/index.cjs.js"
-		],
-		"./loader": [
-			{
-				"types": "./loader/index.d.ts",
-				"require": "./loader/index.cjs.js",
-				"import": "./loader/index.js"
-			},
-			"./loader/index.cjs.js"
-		]
+		".": "./dist/index.js",
+		"./discord-action-row.js": "./dist/components/discord-action-row/DiscordActionRow.js",
+		"./discord-attachment.js": "./dist/components/discord-attachment/DiscordAttachment.js",
+		"./discord-attachments.js": "./dist/components/discord-attachments/DiscordAttachments.js",
+		"./discord-author-info.js": "./dist/components/discord-author-info/DiscordAuthorInfo.js",
+		"./discord-bold.js": "./dist/components/discord-bold/DiscordBold.js",
+		"./discord-button.js": "./dist/components/discord-button/DiscordButton.js",
+		"./discord-code.js": "./dist/components/discord-code/DiscordCode.js",
+		"./discord-command.js": "./dist/components/discord-command/DiscordCommand.js",
+		"./discord-custom-emoji.js": "./dist/components/discord-custom-emoji/DiscordCustomEmoji.js",
+		"./discord-embed.js": "./dist/components/discord-embed/DiscordEmbed.js",
+		"./discord-embed-description.js": "./dist/components/discord-embed-description/DiscordEmbedDescription.js",
+		"./discord-embed-field.js": "./dist/components/discord-embed-field/DiscordEmbedField.js",
+		"./discord-embed-fields.js": "./dist/components/discord-embed-fields/DiscordEmbedFields.js",
+		"./discord-embed-footer.js": "./dist/components/discord-embed-footer/DiscordEmbedFooter.js",
+		"./discord-invite.js": "./dist/components/discord-invite/DiscordInvite.js",
+		"./discord-italic.js": "./dist/components/discord-italic/DiscordItalic.js",
+		"./discord-link.js": "./dist/components/discord-link/DiscordLink.js",
+		"./discord-mention.js": "./dist/components/discord-mention/DiscordMention.js",
+		"./discord-message.js": "./dist/components/discord-message/DiscordMessage.js",
+		"./discord-messages.js": "./dist/components/discord-messages/DiscordMessages.js",
+		"./discord-pre.js": "./dist/components/discord-pre/DiscordPre.js",
+		"./discord-quote.js": "./dist/components/discord-quote/DiscordQuote.js",
+		"./discord-reaction.js": "./dist/components/discord-reaction/DiscordReaction.js",
+		"./discord-reactions.js": "./dist/components/discord-reactions/DiscordReactions.js",
+		"./discord-reply.js": "./dist/components/discord-reply/DiscordReply.js",
+		"./discord-spoiler.js": "./dist/components/discord-spoiler/DiscordSpoiler.js",
+		"./discord-system-message.js": "./dist/components/discord-system-message/DiscordSystemMessage.js",
+		"./discord-tenor-video.js": "./dist/components/discord-tenor-video/DiscordTenorVideo.js",
+		"./discord-thread.js": "./dist/components/discord-thread/DiscordThread.js",
+		"./discord-thread-message.js": "./dist/components/discord-thread-message/DiscordThreadMessage.js",
+		"./discord-time.js": "./dist/components/discord-time/DiscordTime.js",
+		"./discord-underlined.js": "./dist/components/discord-underlined/DiscordUnderlined.js"
 	},
 	"sideEffects": [
-		"./loader/index.js",
-		"./loader/index.cjs.js",
-		"./dist/skyra-discord-components-core/p-*",
-		"**/*skyra-discord-components-core*.js",
-		"./dist/esm/loader.js",
-		"./dist/esm/polyfills/*"
+		"./dist/index.js",
+		"./dist/components/discord-action-row/DiscordActionRow.js",
+		"./dist/components/discord-attachment/DiscordAttachment.js",
+		"./dist/components/discord-attachments/DiscordAttachments.js",
+		"./dist/components/discord-author-info/DiscordAuthorInfo.js",
+		"./dist/components/discord-bold/DiscordBold.js",
+		"./dist/components/discord-button/DiscordButton.js",
+		"./dist/components/discord-code/DiscordCode.js",
+		"./dist/components/discord-command/DiscordCommand.js",
+		"./dist/components/discord-custom-emoji/DiscordCustomEmoji.js",
+		"./dist/components/discord-embed/DiscordEmbed.js",
+		"./dist/components/discord-embed-description/DiscordEmbedDescription.js",
+		"./dist/components/discord-embed-field/DiscordEmbedField.js",
+		"./dist/components/discord-embed-fields/DiscordEmbedFields.js",
+		"./dist/components/discord-embed-footer/DiscordEmbedFooter.js",
+		"./dist/components/discord-invite/DiscordInvite.js",
+		"./dist/components/discord-italic/DiscordItalic.js",
+		"./dist/components/discord-link/DiscordLink.js",
+		"./dist/components/discord-mention/DiscordMention.js",
+		"./dist/components/discord-message/DiscordMessage.js",
+		"./dist/components/discord-messages/DiscordMessages.js",
+		"./dist/components/discord-pre/DiscordPre.js",
+		"./dist/components/discord-quote/DiscordQuote.js",
+		"./dist/components/discord-reaction/DiscordReaction.js",
+		"./dist/components/discord-reactions/DiscordReactions.js",
+		"./dist/components/discord-reply/DiscordReply.js",
+		"./dist/components/discord-spoiler/DiscordSpoiler.js",
+		"./dist/components/discord-system-message/DiscordSystemMessage.js",
+		"./dist/components/discord-tenor-video/DiscordTenorVideo.js",
+		"./dist/components/discord-thread/DiscordThread.js",
+		"./dist/components/discord-thread-message/DiscordThreadMessage.js",
+		"./dist/components/discord-time/DiscordTime.js",
+		"./dist/components/discord-underlined/DiscordUnderlined.js"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
 	"scripts": {
-		"build": "stencil build --docs && replace-in-file --configFile=scripts/replaceImportInPolyfills.cjs",
-		"start": "stencil build --dev --watch --serve",
-		"generate": "stencil generate"
+		"build:ts": "tsc -b src",
+		"analyze": "cem analyze --litelement",
+		"start": "yarn build:ts && concurrently -k -r \"tsc -b src --watch --preserveWatchOutput\" \"wds\"",
+		"build": "yarn build:ts && yarn analyze --exclude dist",
+		"prepack": "yarn build",
+		"lint": "eslint src test --ext .ts",
+		"format": "prettier . --write --ignore-path ../../.prettierignore"
 	},
 	"dependencies": {
-		"@stencil/core": "^3.4.1",
-		"clsx": "^1.2.1",
-		"hex-to-rgba": "^2.0.1"
+		"@lit/context": "^1.1.0",
+		"lit": "^3.1.1",
+		"tslib": "^2.6.2"
 	},
-	"directories": {
-		"lib": "src"
+	"devDependencies": {
+		"@custom-elements-manifest/analyzer": "^0.9.0",
+		"@open-wc/lit-helpers": "^0.6.0",
+		"@web/dev-server": "^0.4.1",
+		"concurrently": "^8.2.2",
+		"ts-lit-plugin": "^2.0.2",
+		"typescript": "^5.3.3"
 	},
 	"files": [
 		"dist/",
-		"loader/"
+		"custom-elements.json",
+		"UPGRADING-TO-V4.md"
 	],
 	"engines": {
-		"node": ">=v14.0.0"
+		"node": ">=v18"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -78,6 +129,6 @@
 		"bot",
 		"components",
 		"webcomponents",
-		"stencil"
+		"lit"
 	]
 }

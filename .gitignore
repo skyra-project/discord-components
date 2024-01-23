@@ -6,39 +6,21 @@ package-lock.json
 
 # IDE config
 .idea/
-.vscode/
 
 # Yarn files
 .yarn/install-state.gz
 .yarn/build-state.yml
 
-# Output
-dist/
-docs/
-build-scripts/
-build/
-www/
-loader/
-*.tsbuildinfo
-*.js
-*.jsx
-*.js.map
-*.jsx.map
-*.tgz
-!rollup.config.js
-
 # Misc
-*~
-*.sw[mnpcod]
 *.log
 *.tmp
 *.tmp.*
-log.txt
-.sass-cache/
-.versions/
-.stencil/
-$RECYCLE.BIN/
 .DS_Store
 Thumbs.db
-UserInterfaceState.xcuserstate
 .env
+
+# build
+dist/
+coverage/
+
+custom-elements.json

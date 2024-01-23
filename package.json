@@ -4,54 +4,51 @@
 		"packages/*"
 	],
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"clean": "node scripts/clean.mjs",
+		"clean": "rimraf packages/core/dist package/core/coverage packages/react/dist",
 		"lint": "eslint packages/ --fix --ext ts,tsx",
-		"format": "prettier --write --loglevel=warn \"packages/**/src/**\"",
+		"prettier": "prettier --ignore-path=.prettierignore",
+		"format": "prettier --log-level=warn --write .",
+		"inject-readme-markdown": "node scripts/inject-readme-markdown.mjs",
+		"inject-package-exports": "node scripts/update-exports-and-side-effects.mjs",
+		"inject-core-index-re-exports": "node scripts/update-core-index-exports.mjs",
+		"inject-react-index-exports": "node scripts/update-react-index-exports.mjs",
 		"start": "yarn workspace @skyra/discord-components-core start",
 		"build": "yarn clean && yarn build:core && yarn build:react && yarn lint && yarn format",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
-		"build:react": "yarn workspace @skyra/discord-components-react build",
-		"postinstall": "husky install .github/husky"
+		"build:react": "yarn workspace @skyra/discord-components-react build"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^17.6.6",
-		"@commitlint/config-conventional": "^17.6.6",
-		"@lerna-lite/cli": "^2.5.0",
-		"@lerna-lite/publish": "^2.5.0",
-		"@sapphire/eslint-config": "^4.4.3",
-		"@sapphire/prettier-config": "^1.4.5",
-		"@sapphire/ts-config": "^4.0.0",
-		"@stencil/react-output-target": "^0.5.3",
-		"@types/node": "^18.16.19",
-		"@types/react": "^18.2.15",
-		"@types/react-dom": "^18.2.7",
-		"@typescript-eslint/eslint-plugin": "^5.62.0",
-		"@typescript-eslint/parser": "^5.62.0",
+		"@commitlint/cli": "^18.5.0",
+		"@commitlint/config-conventional": "^18.5.0",
+		"@lerna-lite/cli": "^3.2.1",
+		"@open-wc/eslint-config": "^12.0.3",
+		"@sapphire/eslint-config": "^5.0.3",
+		"@sapphire/prettier-config": "^2.0.0",
+		"@sapphire/ts-config": "^5.0.0",
+		"@types/node": "^20.11.5",
+		"@typescript-eslint/eslint-plugin": "^6.19.1",
+		"@typescript-eslint/parser": "^6.19.1",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.45.0",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-import": "^2.27.5",
-		"eslint-plugin-jsx-a11y": "^6.7.1",
-		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-react": "^7.32.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"gen-esm-wrapper": "^1.1.3",
-		"husky": "^8.0.3",
-		"lint-staged": "^13.2.3",
-		"prettier": "^2.8.8",
-		"pretty-quick": "^3.1.3",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-lit": "^1.11.0",
+		"eslint-plugin-lit-a11y": "^4.1.1",
+		"eslint-plugin-prettier": "^5.1.3",
+		"lint-staged": "^15.2.0",
+		"markdown-toc": "^1.2.0",
+		"prettier": "^3.2.4",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"replace-in-file": "^6.3.5",
-		"typescript": "^5.1.6"
+		"rimraf": "^5.0.5",
+		"tslib": "^2.6.2",
+		"typescript": "^5.3.3"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
-		"@types/react": "^18.2.15",
-		"@types/react-dom": "^18.2.7",
-		"@sapphire/ts-config@^4.0.0": "patch:@sapphire/ts-config@npm%3A4.0.0#./.yarn/patches/@sapphire-ts-config-npm-4.0.0-cfd20d4fc5.patch"
+		"@open-wc/lit-helpers@^0.6.0": "patch:@open-wc/lit-helpers@npm%3A0.6.0#./.yarn/patches/@open-wc-lit-helpers-npm-0.6.0-e1a0ad9b21.patch"
 	},
 	"commitlint": {
 		"extends": [
@@ -59,6 +56,7 @@
 		]
 	},
 	"lint-staged": {
+		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix --ext mjs,js,ts,tsx"
 	},
 	"config": {
@@ -66,6 +64,5 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@3.6.1"
+	"packageManager": "yarn@4.0.2"
 }

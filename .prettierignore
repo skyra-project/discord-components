@@ -1,6 +1,7 @@
+CHANGELOG.md
 dist/
-loader/
+coverage/
 node_modules/
-www/
+.yarn/
 *.png
-packages/core/src/components.d.ts
+custom-elements.json

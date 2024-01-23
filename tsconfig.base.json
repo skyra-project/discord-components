@@ -1,13 +1,8 @@
 {
-	"extends": "@sapphire/ts-config",
+	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict", "@sapphire/ts-config/verbatim"],
 	"compilerOptions": {
+		"target": "ES2022",
 		"lib": ["ESNext", "DOM"],
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"target": "ES2017",
-		"jsx": "react",
-		"strictPropertyInitialization": false,
-		"useDefineForClassFields": false,
-		"declarationMap": false
+		"incremental": false
 	}
 }

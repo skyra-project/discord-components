@@ -1,0 +1,14 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"compilerOptions": {
+		"rootDir": ".",
+		"outDir": "../dist",
+		"strictPropertyInitialization": false,
+		"plugins": [
+			{
+				"name": "ts-lit-plugin"
+			}
+		]
+	},
+	"include": ["."]
+}

@@ -5,25 +5,31 @@
 	"author": "@skyra",
 	"license": "MIT",
 	"main": "dist/index.js",
-	"module": "dist/index.mjs",
+	"module": "dist/index.js",
 	"typings": "dist/index.d.ts",
+	"type": "module",
 	"exports": {
 		"types": "./dist/index.d.ts",
-		"import": "./dist/index.mjs",
-		"require": "./dist/index.js"
+		"import": "./dist/index.js"
 	},
 	"sideEffects": [
-		"./dist/index.mjs",
 		"./dist/index.js"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
-		"clean": "node scripts/clean.mjs",
-		"build": "yarn clean && tsc && gen-esm-wrapper dist/index.js dist/index.mjs && replace-in-file --configFile=scripts/replaceDefaultMod.cjs"
+		"clean": "rimraf dist coverage",
+		"build": "yarn clean && tsc -b src"
 	},
 	"dependencies": {
+		"@lit/react": "^1.0.2",
 		"@skyra/discord-components-core": "^3.6.1",
-		"tslib": "^2.6.0"
+		"react": "^18.2.0",
+		"tslib": "^2.6.2"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.48",
+		"rimraf": "^5.0.5",
+		"typescript": "^5.3.3"
 	},
 	"peerDependencies": {
 		"react": "16.8.x || 17.x || 18.x",
@@ -37,7 +43,7 @@
 		"!dist/*.tsbuildinfo"
 	],
 	"engines": {
-		"node": ">=v14.0.0"
+		"node": ">=v18"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -58,7 +64,7 @@
 		"bot",
 		"components",
 		"webcomponents",
-		"stencil",
+		"lit",
 		"react"
 	]
 }

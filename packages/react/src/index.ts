@@ -1,45 +1,39 @@
-/* eslint-disable */
-/* tslint:disable */
-/* auto-generated react proxies */
-import { createReactComponent } from './react-component-lib';
+import * as ReactComponents from '@skyra/discord-components-core';
+import { createReactComponent } from './react-components/createComponent.js';
 
-import type { JSX } from '@skyra/discord-components-core';
+/* IMPORTS START */
 
-import { defineCustomElements } from '@skyra/discord-components-core/loader';
+export const DiscordActionRow = createReactComponent('discord-action-row', ReactComponents.DiscordActionRow);
+export const DiscordAttachment = createReactComponent('discord-attachment', ReactComponents.DiscordAttachment);
+export const DiscordAttachments = createReactComponent('discord-attachments', ReactComponents.DiscordAttachments);
+export const DiscordAuthorInfo = createReactComponent('discord-author-info', ReactComponents.DiscordAuthorInfo);
+export const DiscordBold = createReactComponent('discord-bold', ReactComponents.DiscordBold);
+export const DiscordButton = createReactComponent('discord-button', ReactComponents.DiscordButton);
+export const DiscordCode = createReactComponent('discord-code', ReactComponents.DiscordCode);
+export const DiscordCommand = createReactComponent('discord-command', ReactComponents.DiscordCommand);
+export const DiscordCustomEmoji = createReactComponent('discord-custom-emoji', ReactComponents.DiscordCustomEmoji);
+export const DiscordEmbed = createReactComponent('discord-embed', ReactComponents.DiscordEmbed);
+export const DiscordEmbedDescription = createReactComponent('discord-embed-description', ReactComponents.DiscordEmbedDescription);
+export const DiscordEmbedField = createReactComponent('discord-embed-field', ReactComponents.DiscordEmbedField);
+export const DiscordEmbedFields = createReactComponent('discord-embed-fields', ReactComponents.DiscordEmbedFields);
+export const DiscordEmbedFooter = createReactComponent('discord-embed-footer', ReactComponents.DiscordEmbedFooter);
+export const DiscordInvite = createReactComponent('discord-invite', ReactComponents.DiscordInvite);
+export const DiscordItalic = createReactComponent('discord-italic', ReactComponents.DiscordItalic);
+export const DiscordLink = createReactComponent('discord-link', ReactComponents.DiscordLink);
+export const DiscordMention = createReactComponent('discord-mention', ReactComponents.DiscordMention);
+export const DiscordMessage = createReactComponent('discord-message', ReactComponents.DiscordMessage);
+export const DiscordMessages = createReactComponent('discord-messages', ReactComponents.DiscordMessages);
+export const DiscordPre = createReactComponent('discord-pre', ReactComponents.DiscordPre);
+export const DiscordQuote = createReactComponent('discord-quote', ReactComponents.DiscordQuote);
+export const DiscordReaction = createReactComponent('discord-reaction', ReactComponents.DiscordReaction);
+export const DiscordReactions = createReactComponent('discord-reactions', ReactComponents.DiscordReactions);
+export const DiscordReply = createReactComponent('discord-reply', ReactComponents.DiscordReply);
+export const DiscordSpoiler = createReactComponent('discord-spoiler', ReactComponents.DiscordSpoiler);
+export const DiscordSystemMessage = createReactComponent('discord-system-message', ReactComponents.DiscordSystemMessage);
+export const DiscordTenorVideo = createReactComponent('discord-tenor-video', ReactComponents.DiscordTenorVideo);
+export const DiscordThread = createReactComponent('discord-thread', ReactComponents.DiscordThread);
+export const DiscordThreadMessage = createReactComponent('discord-thread-message', ReactComponents.DiscordThreadMessage);
+export const DiscordTime = createReactComponent('discord-time', ReactComponents.DiscordTime);
+export const DiscordUnderlined = createReactComponent('discord-underlined', ReactComponents.DiscordUnderlined);
 
-defineCustomElements();
-export const DiscordActionRow = /*@__PURE__*/ createReactComponent<JSX.DiscordActionRow, HTMLDiscordActionRowElement>('discord-action-row');
-export const DiscordAttachment = /*@__PURE__*/ createReactComponent<JSX.DiscordAttachment, HTMLDiscordAttachmentElement>('discord-attachment');
-export const DiscordAttachments = /*@__PURE__*/ createReactComponent<JSX.DiscordAttachments, HTMLDiscordAttachmentsElement>('discord-attachments');
-export const DiscordBold = /*@__PURE__*/ createReactComponent<JSX.DiscordBold, HTMLDiscordBoldElement>('discord-bold');
-export const DiscordButton = /*@__PURE__*/ createReactComponent<JSX.DiscordButton, HTMLDiscordButtonElement>('discord-button');
-export const DiscordCommand = /*@__PURE__*/ createReactComponent<JSX.DiscordCommand, HTMLDiscordCommandElement>('discord-command');
-export const DiscordCustomEmoji = /*@__PURE__*/ createReactComponent<JSX.DiscordCustomEmoji, HTMLDiscordCustomEmojiElement>('discord-custom-emoji');
-export const DiscordEmbed = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbed, HTMLDiscordEmbedElement>('discord-embed');
-export const DiscordEmbedDescription = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedDescription, HTMLDiscordEmbedDescriptionElement>(
-	'discord-embed-description'
-);
-export const DiscordEmbedField = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedField, HTMLDiscordEmbedFieldElement>('discord-embed-field');
-export const DiscordEmbedFields = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedFields, HTMLDiscordEmbedFieldsElement>('discord-embed-fields');
-export const DiscordEmbedFooter = /*@__PURE__*/ createReactComponent<JSX.DiscordEmbedFooter, HTMLDiscordEmbedFooterElement>('discord-embed-footer');
-export const DiscordInlineCode = /*@__PURE__*/ createReactComponent<JSX.DiscordInlineCode, HTMLDiscordInlineCodeElement>('discord-inline-code');
-export const DiscordInvite = /*@__PURE__*/ createReactComponent<JSX.DiscordInvite, HTMLDiscordInviteElement>('discord-invite');
-export const DiscordItalic = /*@__PURE__*/ createReactComponent<JSX.DiscordItalic, HTMLDiscordItalicElement>('discord-italic');
-export const DiscordMention = /*@__PURE__*/ createReactComponent<JSX.DiscordMention, HTMLDiscordMentionElement>('discord-mention');
-export const DiscordMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordMessage, HTMLDiscordMessageElement>('discord-message');
-export const DiscordMessages = /*@__PURE__*/ createReactComponent<JSX.DiscordMessages, HTMLDiscordMessagesElement>('discord-messages');
-export const DiscordQuote = /*@__PURE__*/ createReactComponent<JSX.DiscordQuote, HTMLDiscordQuoteElement>('discord-quote');
-export const DiscordReaction = /*@__PURE__*/ createReactComponent<JSX.DiscordReaction, HTMLDiscordReactionElement>('discord-reaction');
-export const DiscordReactions = /*@__PURE__*/ createReactComponent<JSX.DiscordReactions, HTMLDiscordReactionsElement>('discord-reactions');
-export const DiscordReply = /*@__PURE__*/ createReactComponent<JSX.DiscordReply, HTMLDiscordReplyElement>('discord-reply');
-export const DiscordSpoiler = /*@__PURE__*/ createReactComponent<JSX.DiscordSpoiler, HTMLDiscordSpoilerElement>('discord-spoiler');
-export const DiscordSystemMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordSystemMessage, HTMLDiscordSystemMessageElement>(
-	'discord-system-message'
-);
-export const DiscordTenorVideo = /*@__PURE__*/ createReactComponent<JSX.DiscordTenorVideo, HTMLDiscordTenorVideoElement>('discord-tenor-video');
-export const DiscordThread = /*@__PURE__*/ createReactComponent<JSX.DiscordThread, HTMLDiscordThreadElement>('discord-thread');
-export const DiscordThreadMessage = /*@__PURE__*/ createReactComponent<JSX.DiscordThreadMessage, HTMLDiscordThreadMessageElement>(
-	'discord-thread-message'
-);
-export const DiscordTime = /*@__PURE__*/ createReactComponent<JSX.DiscordTime, HTMLDiscordTimeElement>('discord-time');
-export const DiscordUnderlined = /*@__PURE__*/ createReactComponent<JSX.DiscordUnderlined, HTMLDiscordUnderlinedElement>('discord-underlined');
+/* IMPORTS END */
