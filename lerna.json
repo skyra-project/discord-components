@@ -8,7 +8,7 @@
 		"publish": {
 			"conventionalCommits": true,
 			"push": true,
-			"removePackageFields": ["devDependencies", "scripts"]
+			"removePackageFields": ["devDependencies"]
 		},
 		"version": {
 			"allowBranch": "main",
