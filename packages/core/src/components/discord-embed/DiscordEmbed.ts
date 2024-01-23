@@ -4,22 +4,10 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { getGlobalEmojiUrl, type LightTheme } from '../../util.js';
+import { getGlobalEmojiUrl } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { Emoji } from '../../options.js';
-
-export interface DiscordEmbedProps {
-	color: string;
-	authorName: string;
-	authorImage: string;
-	authorUrl: string;
-	embedTitle: string;
-	url: string;
-	thumbnail: string;
-	image: string;
-	video: string;
-	provider: string;
-}
+import type { DiscordEmbedProps, LightTheme } from '../../types.js';
 
 @customElement('discord-embed')
 export class DiscordEmbed extends LitElement implements DiscordEmbedProps, LightTheme {

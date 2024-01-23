@@ -9,7 +9,7 @@ import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
-import type { LightTheme } from '../../util.js';
+import type { LightTheme } from '../../types.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {

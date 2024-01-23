@@ -11,7 +11,7 @@ import CustomizeCommunity from '../svgs/CustomizeCommunity.js';
 import LockedVoiceChannel from '../svgs/LockedVoiceChannel.js';
 import ServerGuide from '../svgs/ServerGuide.js';
 import VoiceChannel from '../svgs/VoiceChannel.js';
-import type { LightTheme } from '../../util.js';
+import type { LightTheme } from '../../types.js';
 
 @customElement('discord-mention')
 export class DiscordMention extends LitElement implements LightTheme {

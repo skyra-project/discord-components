@@ -6,7 +6,7 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { avatars, type Profile, profiles } from '../../options.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
-import type { LightTheme } from '../../util.js';
+import type { LightTheme } from '../../types.js';
 
 @customElement('discord-thread-message')
 export class DiscordThreadMessage extends LitElement implements LightTheme {

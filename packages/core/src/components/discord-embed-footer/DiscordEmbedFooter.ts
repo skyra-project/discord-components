@@ -1,8 +1,9 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { type DiscordTimestamp, handleTimestamp, type LightTheme } from '../../util.js';
+import { handleTimestamp } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import type { DiscordTimestamp, LightTheme } from '../../types.js';
 
 @customElement('discord-embed-footer')
 export class DiscordEmbedFooter extends LitElement implements LightTheme {

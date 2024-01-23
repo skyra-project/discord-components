@@ -37,6 +37,7 @@ export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderl
 
 /* EXPORTS END */
 export type { Avatars, DiscordMessageOptions, Emoji, Profile } from './options.js';
+export type * from './types.js';
 
 declare global {
 	// eslint-disable-next-line no-var

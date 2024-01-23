@@ -3,31 +3,12 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { avatars, profiles, type Profile } from '../../options.js';
-import { handleTimestamp, type LightTheme, type DiscordTimestamp } from '../../util.js';
+import { handleTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
 import { messagesCompactMode, messagesLightTheme, messagesNoBackground } from '../discord-messages/DiscordMessages.js';
 import Ephemeral from '../svgs/Ephemeral.js';
+import type { DiscordMessageProps, LightTheme, DiscordTimestamp } from '../../types.js';
 import type { DiscordMention } from '../discord-mention/DiscordMention.js';
-
-interface DiscordMessageProps {
-	profile: string | undefined;
-	author: string | undefined;
-	avatar: string | undefined;
-	bot: boolean;
-	server: boolean;
-	verified: boolean;
-	op: boolean;
-	edited: boolean;
-	roleColor: string | undefined;
-	roleIcon: string | undefined;
-	roleName: string | undefined;
-	highlight: boolean;
-	ephemeral: boolean;
-	timestamp: DiscordTimestamp;
-	twentyFour: boolean;
-	lightTheme: boolean;
-	compactMode: boolean;
-}
 
 @customElement('discord-message')
 export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {

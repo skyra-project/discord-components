@@ -7,7 +7,7 @@ import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
 import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
-import type { LightTheme } from '../../util.js';
+import type { LightTheme } from '../../types.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement implements LightTheme {

@@ -1,14 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import LaunchIcon from '../svgs/LaunchIcon.js';
-
-interface DiscordButtonProps {
-	emoji?: string;
-	emojiName?: string;
-	url?: string;
-	disabled?: boolean;
-	type?: 'primary' | 'secondary' | 'success' | 'destructive';
-}
+import type { DiscordButtonProps } from '../../types.js';
 
 @customElement('discord-button')
 export class DiscordButton extends LitElement implements DiscordButtonProps {

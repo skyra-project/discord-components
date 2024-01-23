@@ -7,7 +7,7 @@ import { avatars, type Profile, profiles } from '../../options.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
-import type { LightTheme } from '../../util.js';
+import type { LightTheme } from '../../types.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {

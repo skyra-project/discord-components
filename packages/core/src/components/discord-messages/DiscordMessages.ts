@@ -2,7 +2,7 @@ import { createContext, provide } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { defaultBackground, defaultMode, defaultTheme } from '../../options.js';
-import type { LightTheme } from '../../util.js';
+import type { LightTheme } from '../../types.js';
 
 export const messagesLightTheme = createContext<boolean>('light-theme');
 export const messagesCompactMode = createContext<boolean>('compact-mode');

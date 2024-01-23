@@ -1,7 +1,7 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { type DiscordTimestamp, handleTimestamp, type LightTheme } from '../../util.js';
+import { handleTimestamp } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import Boost from '../svgs/Boost.js';
 import DMCall from '../svgs/DMCall.js';
@@ -13,6 +13,7 @@ import SystemError from '../svgs/SystemError.js';
 import Thread from '../svgs/Thread.js';
 import UserJoin from '../svgs/UserJoin.js';
 import UserLeave from '../svgs/UserLeave.js';
+import type { DiscordTimestamp, LightTheme } from '../../types.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement implements LightTheme {
