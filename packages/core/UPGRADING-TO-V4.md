@@ -44,6 +44,17 @@ After this you will be able to use the custom elements:
 </discord-messages>
 ```
 
+Furthermore, individual components can be imported with subpath imports. For
+example:
+
+```ts
+import '@skyra/discord-components-core/discord-messages';
+import '@skyra/discord-components-core/discord-message';
+```
+
+This will _only_ load the `discord-messages`, `discord-message`, and
+`discord-author-info` components
+
 If you use TypeScript and a framework such a Vue which uses regular HTML syntax
 for its templating then you should also automatically get type hints as the
 custom elements are registered with the global interface for possible HTML
