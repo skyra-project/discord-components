@@ -104,7 +104,8 @@
 	},
 	"files": [
 		"dist/",
-		"custom-elements.json"
+		"custom-elements.json",
+		"UPGRADING-TO-V4.md"
 	],
 	"engines": {
 		"node": ">=v18"
