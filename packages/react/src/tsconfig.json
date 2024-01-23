@@ -2,8 +2,7 @@
 	"extends": "../../../tsconfig.base.json",
 	"compilerOptions": {
 		"rootDir": ".",
-		"outDir": "../dist",
-		"strictPropertyInitialization": false
+		"outDir": "../dist"
 	},
 	"include": ["."]
 }

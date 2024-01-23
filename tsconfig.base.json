@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"target": "ES2022",
 		"lib": ["ESNext", "DOM"],
-		"incremental": false
+		"incremental": false,
+		"strictPropertyInitialization": false
 	}
 }
