@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.0](https://github.com/skyra-project/discord-components/compare/v3.6.1...v4.0.0-alpha.0) (2024-01-23)
+
+* feat!: rewrite to lit (#367) ([8b31f45](https://github.com/skyra-project/discord-components/commit/8b31f455be0aba1f93e6ed2188a704448b624020)), closes [#367](https://github.com/skyra-project/discord-components/issues/367)
+
+### BREAKING CHANGES
+
+* This project has been rewritten from [StencilJS](https://stenciljs.com) to [Lit](https://lit.dev). See the [Upgrading to v4 document](https://github.com/skyra-project/discord-components/blob/main/packages/core/UPGRADING-TO-V4.md) for more details.
+
+Co-authored-by: TheBv <bv939@web.de>
+
 ## [3.6.1](https://github.com/skyra-project/discord-components/compare/v3.6.0...v3.6.1) (2023-08-18)
 
 ### Bug Fixes
