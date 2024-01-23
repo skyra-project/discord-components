@@ -19,7 +19,8 @@
 			"signGitCommit": true,
 			"signGitTag": true,
 			"signoffGitCommit": true,
-			"syncWorkspaceLock": true
+			"syncWorkspaceLock": true,
+			"forcePublish": true
 		}
 	}
 }
