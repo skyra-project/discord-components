@@ -1275,7 +1275,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@skyra/discord-components-core@npm:^4.0.0-alpha.0, @skyra/discord-components-core@workspace:packages/core":
+"@skyra/discord-components-core@workspace:^, @skyra/discord-components-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-core@workspace:packages/core"
   dependencies:
@@ -1296,7 +1296,7 @@ __metadata:
   resolution: "@skyra/discord-components-react@workspace:packages/react"
   dependencies:
     "@lit/react": "npm:^1.0.2"
-    "@skyra/discord-components-core": "npm:^4.0.0-alpha.0"
+    "@skyra/discord-components-core": "workspace:^"
     "@types/react": "npm:^18.2.48"
     react: "npm:^18.2.0"
     rimraf: "npm:^5.0.5"

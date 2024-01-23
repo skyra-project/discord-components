@@ -24,7 +24,7 @@
 	},
 	"dependencies": {
 		"@lit/react": "^1.0.2",
-		"@skyra/discord-components-core": "^4.0.0-alpha.0",
+		"@skyra/discord-components-core": "workspace:^",
 		"react": "^18.2.0",
 		"tslib": "^2.6.2"
 	},
