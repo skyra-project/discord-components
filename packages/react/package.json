@@ -39,8 +39,8 @@
 		"lib": "src"
 	},
 	"files": [
-		"dist",
-		"!dist/*.tsbuildinfo"
+		"dist/",
+		"CHANGELOG.md"
 	],
 	"engines": {
 		"node": ">=v18"

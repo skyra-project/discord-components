@@ -105,6 +105,7 @@
 	"files": [
 		"dist/",
 		"custom-elements.json",
+		"CHANGELOG.md",
 		"UPGRADING-TO-V4.md"
 	],
 	"engines": {
