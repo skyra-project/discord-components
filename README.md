@@ -220,27 +220,30 @@ export class AppComponent {}
 
 ###### Live Demo
 
-<!-- TODO: Insert React Vite live demo -->
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/discord-components-vite-react-ts-cfqlyp)
+
+##### Sample code
+
+See [@skyra/discord-components-react](packages/react/README.md#sample-code)
 
 ##### Create React App
 
-###### Live Demo
+###### Important Notes
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-create-react-app-64k90)
+Create React App is no longer the recommended way to start with a React app as
+per React's own documentation. We very strongly recommend using Vite instead.
 
 ##### NextJS
 
 ###### Important Notes
 
-When using this library with NextJS you _have_ to install the
-[@lit-labs/nextjs ](https://www.npmjs.com/package/@lit-labs/nextjs) package.
-Without this package your SSR rendering will fail! A stackblitz (provided by the
-Lit team) showing how to use this package can be found
-[here](https://stackblitz.com/edit/nextjs-lit-ssr?file=next.config.js)
-
-##### Live Demo
-
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-nextjs-ovqfu)
+Support for NextJS can currently not be guaranteed. The package
+[@lit-labs/nextjs](https://www.npmjs.com/package/@lit-labs/nextjs) currently
+does [not support the app directory](https://github.com/lit/lit/issues/3657) and
+with the pages directory there are JSX rendering issues. We recommend following
+the GitHub issue linked above as well as Lit in general for progress with NextJS
+support. We will update this library if needed, but for now we cannot offer
+anything to add proper NextJS support.
 
 ##### Sample code
 
@@ -291,20 +294,16 @@ export default defineConfig({
 
 #### No Framework
 
+##### Important Notes
+
+Note that while it is entirely possible to use this library without a framework,
+you will still need a bundler such as [vite](https://vitejs.dev/). This is
+because this library exposes ES modules which need to be bundled into a format
+that the browser can support. The live demo below uses Vite.
+
 ##### Live Demo
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/discord-components-static-nhwkl)
-
-##### Sample Code
-
-If you're want to use the browser build, you can pull it in via unpkg.
-
-```html
-<script
-  type="module"
-  src="https://unpkg.com/@skyra/discord-components-core"
-></script>
-```
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/discord-components-no-framework-xnhqs8)
 
 <!-- # CORE_USAGE END # -->
 

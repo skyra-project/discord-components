@@ -70,4 +70,49 @@ import {
 } from '@skyra/discord-components-react';
 ```
 
+### Support for NextJS
+
+Support for NextJS can currently not be guaranteed. The package
+[@lit-labs/nextjs](https://www.npmjs.com/package/@lit-labs/nextjs) currently
+does [not support the app directory](https://github.com/lit/lit/issues/3657) and
+with the pages directory there are JSX rendering issues. We recommend following
+the GitHub issue linked above as well as Lit in general for progress with NextJS
+support. We will update this library if needed, but for now we cannot offer
+anything to add proper NextJS support.
+
+### Default font
+
+A while ago Discord changes their default font from "Whitney" to "gg sans". This
+library will load this font first if a `font-family` with name `gg sans` is
+found. You will need to provide this font yourself as it's a licensed font and
+we cannot distribute it.
+
+### Whitney font
+
+In version 3 this library would automatically load the Whitney font from our
+CDN. Starting version 4 this will no longer happen automatically as we had
+reports of our CDN causing slow downs for users in distant regions compared to
+where our CDN was hosted. If you want to use the Whitney font you will need to
+provide it yourself. An example for this can be found in the
+[README](./README.md#using-the-discord-font).
+
+### Frameworkless usage
+
+It is no longer possible to use this library simply by importing the unpkg URL.
+You have to use a bundler such as [Vite](https://vitejs.dev) or
+[Webpack](https://webpack.js.org) to use this library.
+
+### Component changes
+
+#### `discord-inline-code`
+
+The `discord-inline-code` component has been removed in favour of a property on
+`discord-code`. To get inline code you now simply use `discord-code` which will
+default to inline.
+
+#### `discord-code`
+
+As mentioned above, `discord-code` will default to inline. To get multiline code
+blocks set `multiline="true"` as property.
+
 [Lit]: https://lit.dev
