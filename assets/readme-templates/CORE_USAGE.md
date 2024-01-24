@@ -110,15 +110,15 @@ export class AppComponent {}
 
 #### React
 
+##### Sample code
+
+See [@skyra/discord-components-react](packages/react/README.md#sample-code)
+
 ##### Vite
 
 ###### Live Demo
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/discord-components-vite-react-ts-cfqlyp)
-
-##### Sample code
-
-See [@skyra/discord-components-react](packages/react/README.md#sample-code)
 
 ##### Create React App
 
@@ -138,10 +138,6 @@ with the pages directory there are JSX rendering issues. We recommend following
 the GitHub issue linked above as well as Lit in general for progress with NextJS
 support. We will update this library if needed, but for now we cannot offer
 anything to add proper NextJS support.
-
-##### Sample code
-
-See [@skyra/discord-components-react](packages/react/README.md#sample-code)
 
 #### Vue
 

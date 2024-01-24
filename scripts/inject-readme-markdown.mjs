@@ -1,6 +1,6 @@
-import toc from 'markdown-toc';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { parse } from 'node:path';
+import toc from 'markdown-toc';
 
 const readmePath = new URL('../README.md', import.meta.url);
 const readme = await readFile(readmePath, 'utf-8');
@@ -75,7 +75,15 @@ for (let [file, filePath] of [
 
 			if (templateFileName === null) {
 				const generatedToc = toc(file).content;
-				file = file.replace(replaceableContent, generatedToc);
+				const tocWithStartEndComments = [
+					//
+					tocStartMarker,
+					'',
+					generatedToc,
+					'',
+					tocEndMarker
+				].join('\n');
+				file = file.replace(replaceableContent, tocWithStartEndComments);
 			} else {
 				file = file.replace(replaceableContent, readmeTemplates.get(templateFileName));
 			}

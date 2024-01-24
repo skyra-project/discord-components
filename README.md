@@ -32,6 +32,8 @@ _React Bindings_
 
 **_Table of Contents_**
 
+<!-- # TOC START # -->
+
 - [Discord Components](#discord-components)
   - [Description](#description)
   - [Features](#features)
@@ -43,24 +45,23 @@ _React Bindings_
         - [Including the Custom Element Schema](#including-the-custom-element-schema)
         - [Including the web-components](#including-the-web-components)
       - [React](#react)
+        - [Sample code](#sample-code)
         - [Vite](#vite)
           - [Live Demo](#live-demo-1)
         - [Create React App](#create-react-app)
-          - [Live Demo](#live-demo-2)
-        - [NextJS](#nextjs)
           - [Important Notes](#important-notes)
-        - [Live Demo](#live-demo-3)
-        - [Sample code](#sample-code)
+        - [NextJS](#nextjs)
+          - [Important Notes](#important-notes-1)
       - [Vue](#vue)
         - [Vite](#vite-1)
-          - [Live Demo](#live-demo-4)
+          - [Live Demo](#live-demo-2)
           - [Configuration](#configuration)
         - [Nuxt](#nuxt)
-          - [Live Demo](#live-demo-5)
+          - [Live Demo](#live-demo-3)
           - [Sample Code](#sample-code)
       - [No Framework](#no-framework)
-        - [Live Demo](#live-demo-6)
-        - [Sample Code](#sample-code-1)
+        - [Important Notes](#important-notes-2)
+        - [Live Demo](#live-demo-4)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -76,6 +77,8 @@ _React Bindings_
     - [Dark Mode](#dark-mode)
     - [Light Mode](#light-mode)
   - [Contributors](#contributors)
+
+<!-- # TOC END # -->
 
 <!-- # DESCRIPTION START # -->
 
@@ -216,15 +219,15 @@ export class AppComponent {}
 
 #### React
 
+##### Sample code
+
+See [@skyra/discord-components-react](packages/react/README.md#sample-code)
+
 ##### Vite
 
 ###### Live Demo
 
 [![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/discord-components-vite-react-ts-cfqlyp)
-
-##### Sample code
-
-See [@skyra/discord-components-react](packages/react/README.md#sample-code)
 
 ##### Create React App
 
@@ -244,10 +247,6 @@ with the pages directory there are JSX rendering issues. We recommend following
 the GitHub issue linked above as well as Lit in general for progress with NextJS
 support. We will update this library if needed, but for now we cannot offer
 anything to add proper NextJS support.
-
-##### Sample code
-
-See [@skyra/discord-components-react](packages/react/README.md#sample-code)
 
 #### Vue
 
