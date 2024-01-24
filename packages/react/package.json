@@ -4,23 +4,28 @@
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"typings": "dist/index.d.ts",
+	"main": "dist/cjs/index.cjs",
+	"module": "dist/esm/index.mjs",
+	"typings": "dist/cjs/index.d.cts",
 	"type": "module",
 	"exports": {
 		"import": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
+			"types": "./dist/esm/index.d.mts",
+			"default": "./dist/esm/index.mjs"
+		},
+		"require": {
+			"types": "./dist/cjs/index.d.cts",
+			"default": "./dist/cjs/index.cjs"
 		}
 	},
 	"sideEffects": [
-		"./dist/index.js"
+		"./dist/cjs/index.cjs",
+		"./dist/esm/index.mjs"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
-		"clean": "rimraf dist coverage",
-		"build": "yarn clean && tsc -b src"
+		"build": "tsup && yarn build:rename-esm-index",
+		"build:rename-esm-index": "node scripts/rename-esm-index.mjs"
 	},
 	"dependencies": {
 		"@lit/react": "^1.0.2",
@@ -30,15 +35,14 @@
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.48",
+		"colorette": "^2.0.20",
 		"rimraf": "^5.0.5",
+		"tsup": "^8.0.1",
 		"typescript": "^5.3.3"
 	},
 	"peerDependencies": {
 		"react": "16.8.x || 17.x || 18.x",
 		"react-dom": "16.8.x || 17.x || 18.x"
-	},
-	"directories": {
-		"lib": "src"
 	},
 	"files": [
 		"dist/",
