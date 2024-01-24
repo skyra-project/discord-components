@@ -30,8 +30,7 @@
 	"dependencies": {
 		"@lit/react": "^1.0.2",
 		"@skyra/discord-components-core": "workspace:^",
-		"react": "^18.2.0",
-		"tslib": "^2.6.2"
+		"react": "^18.2.0"
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.48",
