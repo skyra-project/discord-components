@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.2](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.1...v4.0.0-alpha.2) (2024-01-24)
+
+### Bug Fixes
+
+* added cjs exports to react package for NextJS projects ([2278a56](https://github.com/skyra-project/discord-components/commit/2278a563d919e05f9bd21bad90a8eb39d67d5567))
+
 # [4.0.0-alpha.1](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.0...v4.0.0-alpha.1) (2024-01-23)
 
 **Note:** Version bump only for package root
