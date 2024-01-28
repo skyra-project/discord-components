@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.4](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.3...v4.0.0-alpha.4) (2024-01-28)
+
+### Bug Fixes
+
+* fix reflection and attribute binding of properties for the React bundle ([8512909](https://github.com/skyra-project/discord-components/commit/8512909868f00b5cbda06bd451102a4169e159b2))
+
 # [4.0.0-alpha.3](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.2...v4.0.0-alpha.3) (2024-01-24)
 
 ### Bug Fixes
