@@ -42,6 +42,7 @@ _React Bindings_
   - [Features](#features)
   - [Installation](#installation)
   - [Usage](#usage)
+    - [Important](#important)
     - [Using the Discord font](#using-the-discord-font)
     - [Vite](#vite)
       - [Live Demo](#live-demo)
@@ -106,6 +107,24 @@ yarn add @skyra/discord-components-core @skyra/discord-components-react
 
 ## Usage
 
+### Important
+
+React is currently the only library among the "big" libraries for frontend
+development that does not fully support custom elements / webcomponents yet (see
+[this React documentation page for more info](https://react.dev/reference/react-dom/components#custom-html-elements)).
+For this reason we ship the package @skyra/discord-components-react. However
+this subsequently also means that webcomponents in general will not work ideally
+in a React application. As you will see below we currently do not support the
+NextJS framework and not through our choice. You can use this library fine when
+using Webpack (i.e. with a Docusaurus project) or Vite as these setups will have
+you use client-side rendering rather than server-side rendering. We sincerely
+hope that this situation will improve in the future and that React will start
+focussing more on modernizing their library instead of focussing on server
+components, but no one knows what their plans are.\*
+
+\* Although for all we know Mark Zuckerberg decides that React gets shafted in
+favour of goofy ahh metaverse stuff.
+
 ### Using the Discord font
 
 This library can use the Discord font if you load it into your project. You can
@@ -141,7 +160,7 @@ do so by including the CSS below:
 
 #### Live Demo
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/discord-components-vite-react-ts-cfqlyp)
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/react-vite-ts)
 
 ### Create React App
 
