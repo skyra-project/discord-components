@@ -104,7 +104,7 @@ export class DiscordReaction extends LitElement implements LightTheme {
 	 * Whether the reaction should show as reacted by the user.
 	 * @default false
 	 */
-	@property({ type: Boolean })
+	@property({ type: Boolean, reflect: true })
 	public accessor reacted = false;
 
 	/**

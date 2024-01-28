@@ -23,7 +23,7 @@ export class DiscordPre extends LitElement {
 		}
 	`;
 
-	@property({ type: Boolean })
+	@property({ type: Boolean, reflect: true })
 	public accessor embed = false;
 
 	protected override render() {

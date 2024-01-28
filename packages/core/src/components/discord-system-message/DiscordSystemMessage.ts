@@ -149,13 +149,13 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 	 * The type of system message this is, this will change the icon shown.
 	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `pin`, `alert`, and `error`.
 	 */
-	@property()
+	@property({ reflect: true, attribute: 'type' })
 	public accessor type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'pin' | 'alert' | 'error' = 'join';
 
 	/**
 	 * Whether this message is to show channel name changes, used to match Discord's style.
 	 */
-	@property({ type: Boolean, attribute: 'channel-name' })
+	@property({ type: Boolean, reflect: true, attribute: 'channel-name' })
 	public accessor channelName = false;
 
 	@property({ type: Boolean, reflect: true, attribute: 'has-thread' })

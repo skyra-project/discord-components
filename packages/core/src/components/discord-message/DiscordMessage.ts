@@ -190,7 +190,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			background-color: hsl(40 calc(1 * 86.4%) 56.9%/0.08);
 		}
 
-		:host([has-Thread]):after {
+		:host([has-thread]):after {
 			width: 2rem;
 			left: 2.2rem;
 			top: 1.75rem;
@@ -312,7 +312,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	/**
 	 * Whether to make this message ephemeral.
 	 */
-	@property({ type: Boolean })
+	@property({ type: Boolean, reflect: true })
 	public accessor ephemeral = false;
 
 	/**
@@ -343,7 +343,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	@property({ type: Boolean, reflect: true, attribute: 'no-background' })
 	public accessor noBackground = false;
 
-	@property({ type: Boolean, reflect: true, attribute: 'has-Thread' })
+	@property({ type: Boolean, reflect: true, attribute: 'has-thread' })
 	public accessor hasThread = false;
 
 	protected override willUpdate(): void {

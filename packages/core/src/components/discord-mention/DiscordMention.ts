@@ -84,7 +84,7 @@ export class DiscordMention extends LitElement implements LightTheme {
 	/**
 	 * Whether this entire message block should be highlighted (to emulate the "logged in user" being pinged).
 	 */
-	@property({ type: Boolean, reflect: true, attribute: 'highlight' })
+	@property({ type: Boolean, reflect: true })
 	public accessor highlight = false;
 
 	/**
@@ -102,7 +102,7 @@ export class DiscordMention extends LitElement implements LightTheme {
 	 * - `'channels-and-roles'`
 	 * - `'customize-community'`
 	 */
-	@property({ reflect: true, attribute: 'type' })
+	@property({ reflect: true })
 	public accessor type:
 		| 'user'
 		| 'channel'
