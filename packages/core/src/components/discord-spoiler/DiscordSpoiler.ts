@@ -36,15 +36,15 @@ export class DiscordSpoiler extends LitElement implements LightTheme {
 		}
 	`;
 
+	@property({ type: Boolean, reflect: true })
+	public accessor activated = false;
+
 	/**
 	 * Whether to use light theme or not.
 	 */
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
-
-	@property({ type: Boolean, reflect: true })
-	public accessor activated = false;
 
 	protected override render() {
 		return html`<slot
