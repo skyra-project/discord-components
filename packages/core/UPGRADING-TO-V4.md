@@ -72,13 +72,19 @@ import {
 
 ### Support for NextJS
 
-Support for NextJS can currently not be guaranteed. The package
-[@lit-labs/nextjs](https://www.npmjs.com/package/@lit-labs/nextjs) currently
-does [not support the app directory](https://github.com/lit/lit/issues/3657) and
-with the pages directory there are JSX rendering issues. We recommend following
-the GitHub issue linked above as well as Lit in general for progress with NextJS
-support. We will update this library if needed, but for now we cannot offer
-anything to add proper NextJS support.
+For NextJS there are some known limitations:
+
+1. All the React components will only render on the client, they are bundled
+   with the `'use client';` header that NextJS expects for CSR only components.
+   This is because there is currently no good way to render webcomponents on the
+   server. When
+   [@lit-labs/nextjs](https://www.npmjs.com/package/@lit-labs/nextjs) adds
+   [support for the app directory](https://github.com/lit/lit/issues/3657) we
+   can revisit this limitation.
+
+2. When using the app directory we are not able to get profiles working. We are
+   open to suggestions on how to fix this, ideally through a pull request to
+   [https://github.com/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts].
 
 ### Default font
 
