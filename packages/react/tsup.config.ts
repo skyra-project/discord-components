@@ -11,7 +11,9 @@ const baseOptions: Options = {
 	target: 'es2022',
 	tsconfig: 'src/tsconfig.json',
 	keepNames: true,
-	treeshake: true
+	banner: {
+		js: '"use client";'
+	}
 };
 
 export default [
