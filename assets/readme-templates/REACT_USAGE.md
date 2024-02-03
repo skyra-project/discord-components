@@ -80,28 +80,4 @@ per React's own documentation. We very strongly recommend using Vite instead.
    open to suggestions on how to fix this, ideally through a pull request to
    [https://github.com/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts].
 
-## Sample code
-
-The syntax is kept fairly simple. Here's a basic example of a regular
-conversation:
-
-```tsx
-<DiscordMessages>
-  <DiscordMessage>
-    Hey guys, I'm new here! Glad to be able to join you all!
-  </DiscordMessage>
-  <DiscordMessage author="Dawn" avatar="red">
-    Hi, I'm new here too!
-  </DiscordMessage>
-  <DiscordMessage
-    author="Sanctuary"
-    avatar="https://i.imgur.com/0TeacfY.png"
-    roleColor="#0099ff"
-  >
-    Hey, <DiscordMention>User</DiscordMention> and{' '}
-    <DiscordMention>Dawn</DiscordMention>. Welcome to our server!
-  </DiscordMessage>
-</DiscordMessages>
-```
-
 <!-- # REACT_USAGE END # -->

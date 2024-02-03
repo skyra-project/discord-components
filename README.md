@@ -46,7 +46,6 @@ _React Bindings_
         - [Including the web-components](#including-the-web-components)
       - [React](#react)
         - [Important](#important)
-        - [Sample code](#sample-code)
         - [Vite](#vite)
           - [Live Demo](#live-demo-1)
         - [Create React App](#create-react-app)
@@ -61,7 +60,6 @@ _React Bindings_
           - [Configuration](#configuration)
         - [Nuxt](#nuxt)
           - [Live Demo](#live-demo-3)
-          - [Sample Code](#sample-code)
       - [No Framework](#no-framework)
         - [Important Notes](#important-notes-1)
         - [Live Demo](#live-demo-4)
@@ -232,10 +230,6 @@ For this reason we ship the package `@skyra/discord-components-react`.
 We sincerely hope that this situation will improve in the future, but no one
 knows what their plans are.
 
-##### Sample code
-
-See [@skyra/discord-components-react](packages/react/README.md#sample-code)
-
 ##### Vite
 
 ###### Live Demo
@@ -311,10 +305,6 @@ export default defineConfig({
 ###### Live Demo
 
 <!-- TODO: Insert Nuxt live demo -->
-
-###### Sample Code
-
-<!-- TODO: Insert Nuxt sample code -->
 
 #### No Framework
 
