@@ -49,7 +49,9 @@ _React Bindings_
     - [Create React App](#create-react-app)
       - [Important Notes](#important-notes)
     - [NextJS](#nextjs)
-      - [Important Notes](#important-notes-1)
+      - [Live Demo Pages Directory](#live-demo-pages-directory)
+      - [Live Demo App Directory](#live-demo-app-directory)
+      - [Known limitations](#known-limitations)
   - [Sample code](#sample-code)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
@@ -112,18 +114,10 @@ yarn add @skyra/discord-components-core @skyra/discord-components-react
 React is currently the only library among the "big" libraries for frontend
 development that does not fully support custom elements / webcomponents yet (see
 [this React documentation page for more info](https://react.dev/reference/react-dom/components#custom-html-elements)).
-For this reason we ship the package @skyra/discord-components-react. However
-this subsequently also means that webcomponents in general will not work ideally
-in a React application. As you will see below we currently do not support the
-NextJS framework and not through our choice. You can use this library fine when
-using Webpack (i.e. with a Docusaurus project) or Vite as these setups will have
-you use client-side rendering rather than server-side rendering. We sincerely
-hope that this situation will improve in the future and that React will start
-focussing more on modernizing their library instead of focussing on server
-components, but no one knows what their plans are.\*
+For this reason we ship the package `@skyra/discord-components-react`.
 
-\* Although for all we know Mark Zuckerberg decides that React gets shafted in
-favour of goofy ahh metaverse stuff.
+We sincerely hope that this situation will improve in the future, but no one
+knows what their plans are.
 
 ### Using the Discord font
 
@@ -171,15 +165,27 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 ### NextJS
 
-#### Important Notes
+#### Live Demo Pages Directory
 
-Support for NextJS can currently not be guaranteed. The package
-[@lit-labs/nextjs](https://www.npmjs.com/package/@lit-labs/nextjs) currently
-does [not support the app directory](https://github.com/lit/lit/issues/3657) and
-with the pages directory there are JSX rendering issues. We recommend following
-the GitHub issue linked above as well as Lit in general for progress with NextJS
-support. We will update this library if needed, but for now we cannot offer
-anything to add proper NextJS support.
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/nextjs-ts)
+
+#### Live Demo App Directory
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/nextjs-app-directory-ts)
+
+#### Known limitations
+
+1. All the React components will only render on the client, they are bundled
+   with the `'use client';` header that NextJS expects for CSR only components.
+   This is because there is currently no good way to render webcomponents on the
+   server. When
+   [@lit-labs/nextjs](https://www.npmjs.com/package/@lit-labs/nextjs) adds
+   [support for the app directory](https://github.com/lit/lit/issues/3657) we
+   can revisit this limitation.
+
+2. When using the app directory we are not able to get profiles working. We are
+   open to suggestions on how to fix this, ideally through a pull request to
+   [https://github.com/skyra-project/discord-components-implementations/tree/main/nextjs-ts].
 
 ## Sample code
 
