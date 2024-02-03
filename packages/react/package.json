@@ -45,7 +45,8 @@
 	},
 	"files": [
 		"dist/",
-		"CHANGELOG.md"
+		"CHANGELOG.md",
+		"UPGRADING-TO-V4.md"
 	],
 	"engines": {
 		"node": ">=v18"
