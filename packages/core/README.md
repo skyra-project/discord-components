@@ -181,7 +181,7 @@ do so by including the CSS below:
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/angular)
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/angular)
 
 ##### Including the Custom Element Schema
 
@@ -248,7 +248,7 @@ See [@skyra/discord-components-react](packages/react/README.md#sample-code)
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/react-vite-ts)
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/react-vite-ts)
 
 ##### Create React App
 
@@ -261,11 +261,11 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 #### Live Demo Pages Directory
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/nextjs-ts)
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts)
 
 #### Live Demo App Directory
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/nextjs-app-directory-ts)
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-app-directory-ts)
 
 #### Known limitations
 
@@ -279,7 +279,7 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 2. When using the app directory we are not able to get profiles working. We are
    open to suggestions on how to fix this, ideally through a pull request to
-   [https://github.com/skyra-project/discord-components-implementations/tree/main/nextjs-ts].
+   [https://github.com/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts].
 
 #### Vue
 
@@ -287,7 +287,7 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/vue-vite-ts)
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/vue-vite-ts)
 
 ###### Configuration
 
@@ -335,7 +335,7 @@ that the browser can support. The live demo below uses Vite.
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/no-framework-vite)
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/no-framework-vite)
 
 <!-- # CORE_USAGE END # -->
 
