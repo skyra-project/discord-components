@@ -403,7 +403,7 @@ window.$discordMessage = {
 };
 ```
 
-And then in your React code:
+And then in your code:
 
 ```tsx
 <discord-messages>
