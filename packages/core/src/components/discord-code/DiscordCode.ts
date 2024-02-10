@@ -1,6 +1,7 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { LightTheme } from '../../types.js';
 
@@ -79,6 +80,9 @@ export class DiscordCode extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true })
 	public accessor embed = false;
 
+	@property()
+	public accessor language: string | undefined = undefined;
+
 	protected override willUpdate() {
 		if (this.parentElement && 'lightTheme' in this.parentElement) {
 			const parent = this.parentElement as { lightTheme: boolean };
@@ -89,7 +93,7 @@ export class DiscordCode extends LitElement implements LightTheme {
 	protected override render() {
 		if (this.multiline) {
 			return html`<discord-pre embed
-				><code><slot></slot></code
+				><code class="${ifDefined(this.language ? `language-${this.language}` : undefined)}"><slot></slot></code
 			></discord-pre>`;
 		}
 
