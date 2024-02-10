@@ -4,30 +4,30 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('discord-header')
 export class DiscordHeader extends LitElement {
 	public static override styles = css`
-		:host {
+		:host > * {
 			margin: 16px 0 8px;
 			font-weight: 700;
 			line-height: 1.375em;
 		}
 
-		:host([level='1']) {
+		:host([level='1']) > h1 {
 			font-size: 1.5rem;
 		}
 
-		:host([level='2']) {
+		:host([level='2']) > h2 {
 			font-size: 1.25rem;
 		}
 
-		:host([level='3']) {
+		:host([level='3']) > h3 {
 			font-size: 1rem;
 		}
 
-		:host([level='1']):first-child(),
-		:host([level='2']):first-child() {
+		:host([level='1']):first-child() > h1,
+		:host([level='2']):first-child() > h2 {
 			margin-top: 8px;
 		}
 
-		:host([level='3']):first-child() {
+		:host([level='3']):first-child() > h3 {
 			margin-top: 4px;
 		}
 	`;
@@ -57,6 +57,9 @@ export class DiscordHeader extends LitElement {
 			}
 			case 3: {
 				return html`<h3><slot></slot></h3>`;
+			}
+			default: {
+				return html`<slot></slot>`;
 			}
 		}
 	}
