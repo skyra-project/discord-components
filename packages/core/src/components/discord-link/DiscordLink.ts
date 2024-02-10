@@ -9,7 +9,6 @@ export class DiscordLink extends LitElement implements LightTheme {
 	public static override styles = css`
 		a {
 			color: #00aff4;
-			font-weight: normal;
 			text-decoration: none;
 		}
 
