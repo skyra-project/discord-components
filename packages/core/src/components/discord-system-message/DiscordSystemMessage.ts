@@ -165,10 +165,10 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	public checkType(value: string) {
-		if (typeof value !== 'string') {
+	public checkType() {
+		if (typeof this.type !== 'string') {
 			throw new TypeError('DiscordSystemMessage `type` prop must be a string.');
-		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'].includes(value)) {
+		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'].includes(this.type)) {
 			throw new RangeError(
 				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'"
 			);
@@ -183,7 +183,7 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 
 	protected override render() {
 		this.timestamp = handleTimestamp(this.timestamp);
-		this.checkType(this.type);
+		this.checkType();
 
 		let icon: TemplateResult<1>;
 
