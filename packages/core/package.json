@@ -84,6 +84,7 @@
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
 	"scripts": {
 		"build:ts": "tsc -b src",
+		"watch": "tsc -b src --watch",
 		"analyze": "cem analyze --litelement",
 		"start": "yarn build:ts && concurrently -k -r \"tsc -b src --watch --preserveWatchOutput\" \"wds\"",
 		"build": "yarn build:ts && yarn analyze --exclude dist",
