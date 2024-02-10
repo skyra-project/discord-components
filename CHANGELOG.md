@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.8](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.7...v4.0.0-alpha.8) (2024-02-10)
+
+### Bug Fixes
+
+* proper header styling ([d2ccc26](https://github.com/skyra-project/discord-components/commit/d2ccc268fd9c1110f5309bb5d13905ef4df217ee))
+
 # [4.0.0-alpha.7](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.6...v4.0.0-alpha.7) (2024-02-10)
 
 ### Bug Fixes
