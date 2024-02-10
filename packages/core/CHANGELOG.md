@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.10](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.9...v4.0.0-alpha.10) (2024-02-10)
+
+### Features
+
+* **code:** add `language` property for multiline and add a PrismJS language class when set ([c72c9b8](https://github.com/skyra-project/discord-components/commit/c72c9b85c22519f2e1864ff3ea99f59b87141c3d))
+
 # [4.0.0-alpha.9](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.8...v4.0.0-alpha.9) (2024-02-10)
 
 ### Bug Fixes
