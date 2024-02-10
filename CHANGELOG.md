@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.12](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.11...v4.0.0-alpha.12) (2024-02-10)
+
+### Bug Fixes
+
+* **code:** remove language class, it aint working chief ([325d188](https://github.com/skyra-project/discord-components/commit/325d1883e028d75482ff2e03341fc0013db53538))
+
 # [4.0.0-alpha.11](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.10...v4.0.0-alpha.11) (2024-02-10)
 
 ### Bug Fixes
