@@ -1,5 +1,16 @@
 # Upgrading to v4
 
+- [Upgrading to v4](#upgrading-to-v4)
+  - [Breaking changes](#breaking-changes)
+    - [Support for NextJS](#support-for-nextjs)
+    - [Default font](#default-font)
+    - [Whitney font](#whitney-font)
+    - [Frameworkless usage](#frameworkless-usage)
+    - [Component changes](#component-changes)
+      - [`discord-inline-code`](#discord-inline-code)
+      - [`discord-code`](#discord-code)
+      - [`discord-header`](#discord-header)
+
 In version 4.x of @skyra/discord-components-core, the library has been rewritten
 from from [StencilJS](https://stenciljs.com) to [Lit]. This means that this
 library now offers proper
@@ -120,5 +131,12 @@ default to inline.
 
 As mentioned above, `discord-code` will default to inline. To get multiline code
 blocks set `multiline="true"` as property.
+
+#### `discord-header`
+
+A new component called `discord-header` has been added. This is the component
+that represents Discord markdown headers (lines starting with one of `#`, `##`,
+or `###`). The maximum level is 3, just like it is for Discord. An error is
+thrown if a level lower than 1 or higher than 3 is used.
 
 [Lit]: https://lit.dev

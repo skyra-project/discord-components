@@ -16,6 +16,7 @@ export { DiscordEmbedDescription } from './components/discord-embed-description/
 export { DiscordEmbedField } from './components/discord-embed-field/DiscordEmbedField.js';
 export { DiscordEmbedFields } from './components/discord-embed-fields/DiscordEmbedFields.js';
 export { DiscordEmbedFooter } from './components/discord-embed-footer/DiscordEmbedFooter.js';
+export { DiscordHeader } from './components/discord-header/DiscordHeader.js';
 export { DiscordInvite } from './components/discord-invite/DiscordInvite.js';
 export { DiscordItalic } from './components/discord-italic/DiscordItalic.js';
 export { DiscordLink } from './components/discord-link/DiscordLink.js';
