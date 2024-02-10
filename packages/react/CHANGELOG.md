@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.7](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.6...v4.0.0-alpha.7) (2024-02-10)
+
+### Features
+
+* add discord-header component ([5552c6a](https://github.com/skyra-project/discord-components/commit/5552c6ad443c8250e43245d14537d0752864e609))
+
 # [4.0.0-alpha.6](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.5...v4.0.0-alpha.6) (2024-02-03)
 
 **Note:** Version bump only for package @skyra/discord-components-react
