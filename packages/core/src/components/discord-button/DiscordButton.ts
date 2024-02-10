@@ -115,18 +115,23 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 	@property({ reflect: true, attribute: 'type' })
 	public accessor type: 'primary' | 'secondary' | 'success' | 'destructive' = 'secondary';
 
-	public handleType(value: string) {
-		if (typeof value !== 'string') {
+	public checkType() {
+		if (typeof this.type !== 'string') {
 			throw new TypeError('DiscordButton `type` prop must be a string.');
-		} else if (!['primary', 'secondary', 'success', 'destructive'].includes(value)) {
+		} else if (!['primary', 'secondary', 'success', 'destructive'].includes(this.type)) {
 			throw new RangeError("DiscordButton `type` prop must be one of: 'primary', 'secondary', 'success', 'destructive'");
 		}
 	}
 
-	protected override render() {
+	public checkParentElement() {
 		if (this.parentElement?.tagName.toLowerCase() !== 'discord-action-row') {
 			throw new Error('All <discord-button> components must be direct children of <discord-action-row>.');
 		}
+	}
+
+	protected override render() {
+		this.checkType();
+		this.checkParentElement();
 
 		const isActive = this.url && !this.disabled;
 
