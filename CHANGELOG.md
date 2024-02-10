@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.9](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.8...v4.0.0-alpha.9) (2024-02-10)
+
+### Bug Fixes
+
+* **link:** remove `font-weight: normal` which prevents weight styled when nested ([caca673](https://github.com/skyra-project/discord-components/commit/caca67322b89ea6f8c23e2573797879da2f43dbd))
+
 # [4.0.0-alpha.8](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.7...v4.0.0-alpha.8) (2024-02-10)
 
 ### Bug Fixes
