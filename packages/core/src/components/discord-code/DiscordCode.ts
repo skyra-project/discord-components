@@ -70,6 +70,9 @@ export class DiscordCode extends LitElement implements LightTheme {
 		}
 	`;
 
+	/**
+	 * Whether this code block is a multi-line code block
+	 */
 	@property({ type: Boolean, reflect: true })
 	public accessor multiline = false;
 
@@ -77,9 +80,18 @@ export class DiscordCode extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
+	/**
+	 * Whether this code block exists within a `discord-embed` component.
+	 */
 	@property({ type: Boolean, reflect: true })
 	public accessor embed = false;
 
+	/**
+	 * The language of the code snippet.
+	 *
+	 * Setting this property will add a class "language-<language>" to the `code` element
+	 * which can get styled by a library such as [Prism](https://prismjs.com/).
+	 */
 	@property()
 	public accessor language: string | undefined = undefined;
 
@@ -92,7 +104,7 @@ export class DiscordCode extends LitElement implements LightTheme {
 
 	protected override render() {
 		if (this.multiline) {
-			return html`<discord-pre embed
+			return html`<discord-pre ?embed=${this.embed}
 				><code class="${ifDefined(this.language ? `language-${this.language}` : undefined)}"><slot></slot></code
 			></discord-pre>`;
 		}
