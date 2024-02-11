@@ -133,17 +133,17 @@ knows what their plans are.
 Create React App is no longer the recommended way to start with a React app as
 per React's own documentation. We very strongly recommend using Vite instead.
 
-### NextJS
+##### NextJS
 
-#### Live Demo Pages Directory
+###### Live Demo Pages Directory
 
 [![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts)
 
-#### Live Demo App Directory
+###### Live Demo App Directory
 
 [![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-app-directory-ts)
 
-#### Known limitations
+###### Known limitations
 
 1. All the React components will only render on the client, they are bundled
    with the `'use client';` header that NextJS expects for CSR only components.
@@ -174,15 +174,12 @@ components. You can do that with the following code in your `vite.config.ts`:
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
 
-const regex = /^discord-/;
-
 export default defineConfig({
   plugins: [
     vue({
       template: {
         compilerOptions: {
-          // Tell Vite to ignore all components defined in the @skyra/discord-components-core package.
-          isCustomElement: (tag) => regex.test(tag)
+          isCustomElement: (tag) => tag.startsWith('discord-')
         }
       }
     })
@@ -194,7 +191,29 @@ export default defineConfig({
 
 ###### Live Demo
 
-<!-- TODO: Insert Nuxt live demo -->
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nuxt3-ts)
+
+###### Configuration
+
+When using Nuxt 3 you need to setup Vite to recognise the custom components. You
+can do that with the following code in your `nuxt.config.ts`:
+
+```ts
+export default defineNuxtConfig({
+  devtools: { enabled: true },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith('discord-')
+    }
+  }
+});
+```
+
+#### Solid
+
+##### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/solid-vite-ts)
 
 #### No Framework
 
