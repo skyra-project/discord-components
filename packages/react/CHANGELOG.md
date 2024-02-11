@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.14](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.13...v4.0.0-alpha.14) (2024-02-11)
+
+### Bug Fixes
+
+* properly code config functions ([b537f97](https://github.com/skyra-project/discord-components/commit/b537f979c4399558fc81946f00870c08b4894b94))
+
 # [4.0.0-alpha.13](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.12...v4.0.0-alpha.13) (2024-02-11)
 
 **Note:** Version bump only for package @skyra/discord-components-react

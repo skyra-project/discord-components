@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.14](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.13...v4.0.0-alpha.14) (2024-02-11)
+
+### Bug Fixes
+
+* fixed import for util ([a4d3be7](https://github.com/skyra-project/discord-components/commit/a4d3be72c7a04720338afc2add04b6bc76eb6112))
+* properly code config functions ([b537f97](https://github.com/skyra-project/discord-components/commit/b537f979c4399558fc81946f00870c08b4894b94))
+
 # [4.0.0-alpha.13](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.12...v4.0.0-alpha.13) (2024-02-11)
 
 ### Features
