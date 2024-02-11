@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.13](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.12...v4.0.0-alpha.13) (2024-02-11)
+
+### Features
+
+* add `getConfig` and `setConfig` methods ([5a26c41](https://github.com/skyra-project/discord-components/commit/5a26c41de03fdc4c2e3434220fd9b2c69b131beb))
+
 # [4.0.0-alpha.12](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.11...v4.0.0-alpha.12) (2024-02-10)
 
 ### Bug Fixes
