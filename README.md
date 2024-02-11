@@ -67,6 +67,7 @@ _React Bindings_
         - [Important Notes](#important-notes-1)
         - [Live Demo](#live-demo-5)
   - [Notes](#notes)
+    - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
     - [Profile shortcuts](#profile-shortcuts)
     - [Theming](#theming)
@@ -345,6 +346,23 @@ that the browser can support. The live demo below uses Vite.
 <!-- # CORE_NOTES START # -->
 
 ## Notes
+
+### TypeScript module augments
+
+This library uses a custom object on the browser `window` for configuration.
+Under normal circumstances by simply importing the package (with
+`import @skyra/discord-components-core`) the module augmentations should also be
+loaded. If for whatever reason this does not happen, then you can define them
+manually yourself. You can do so with the following code snippet:
+
+```ts
+import type { DiscordMessageOptions } from '@skyra/discord-components-core';
+
+declare global {
+  // eslint-disable-next-line no-var
+  var $discordMessage: DiscordMessageOptions | undefined;
+}
+```
 
 ### Avatar shortcuts
 

@@ -53,6 +53,7 @@ _React Bindings_
       - [Live Demo App Directory](#live-demo-app-directory)
       - [Known limitations](#known-limitations)
   - [Notes](#notes)
+    - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
     - [Profile shortcuts](#profile-shortcuts)
     - [Theming](#theming)
@@ -191,6 +192,23 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 ## Notes
 
+### TypeScript module augments
+
+This library uses a custom object on the browser `window` for configuration.
+Under normal circumstances by simply importing the package (with
+`import @skyra/discord-components-react`) the module augmentations should also
+be loaded. If for whatever reason this does not happen, then you can define them
+manually yourself. You can do so with the following code snippet:
+
+```ts
+import type { DiscordMessageOptions } from '@skyra/discord-components-react';
+
+declare global {
+  // eslint-disable-next-line no-var
+  var $discordMessage: DiscordMessageOptions | undefined;
+}
+```
+
 ### Avatar shortcuts
 
 The current avatar shortcut strings available are "blue" (default), "gray",
@@ -208,7 +226,7 @@ The current avatar shortcut strings available are "blue" (default), "gray",
 
 If you want to add to or override the shortcuts, you can set them via
 `window.$discordMessage.avatars` or by using the `setConfig` function
-(`import { setConfig } from '@skyra/discord-components-core'`).
+(`import { setConfig } from '@skyra/discord-components-react'`).
 
 ```ts
 window.$discordMessage = {
@@ -221,7 +239,7 @@ window.$discordMessage = {
 ```
 
 ```ts
-import { setConfig } from '@skyra/discord-components-core';
+import { setConfig } from '@skyra/discord-components-react';
 
 setConfig({
   avatars: {
@@ -237,7 +255,7 @@ setConfig({
 Sometimes you'll want to use the same message data across multiple messages. You
 can do so by providing an object of profiles in
 `window.$discordMessage.profiles` or by using the `setConfig` function
-(`import { setConfig } from '@skyra/discord-components-core'`).
+(`import { setConfig } from '@skyra/discord-components-react'`).
 
 ```ts
 window.$discordMessage = {
@@ -259,7 +277,7 @@ window.$discordMessage = {
 ```
 
 ```ts
-import { setConfig } from '@skyra/discord-components-core';
+import { setConfig } from '@skyra/discord-components-react';
 
 setConfig({
   profiles: {
