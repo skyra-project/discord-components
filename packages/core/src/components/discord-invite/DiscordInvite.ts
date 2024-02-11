@@ -2,7 +2,7 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { defaultDiscordAvatars } from '../../options.js';
+import { defaultDiscordAvatars } from '../../config.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';

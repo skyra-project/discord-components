@@ -3,13 +3,13 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { avatars, type Profile, profiles } from '../../options.js';
+import { avatars, profiles } from '../../config.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
-import type { LightTheme } from '../../types.js';
+import type { LightTheme, Profile } from '../../types.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {

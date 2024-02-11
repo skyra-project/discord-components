@@ -3,11 +3,11 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { avatars, type Profile, profiles } from '../../options.js';
+import { avatars, profiles } from '../../config.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
-import type { LightTheme } from '../../types.js';
+import type { LightTheme, Profile } from '../../types.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {

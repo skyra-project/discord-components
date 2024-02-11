@@ -4,8 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { getGlobalEmojiUrl } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import type { Emoji } from '../../options.js';
-import type { LightTheme } from '../../types.js';
+import type { Emoji, LightTheme } from '../../types.js';
 
 @customElement('discord-embed-field')
 export class DiscordEmbedField extends LitElement implements LightTheme {

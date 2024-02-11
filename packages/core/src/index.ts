@@ -1,4 +1,4 @@
-import type { DiscordMessageOptions } from './options.js';
+import type { DiscordMessageOptions } from './types.js';
 
 /* EXPORTS START */
 
@@ -37,7 +37,6 @@ export { DiscordTime } from './components/discord-time/DiscordTime.js';
 export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderlined.js';
 
 /* EXPORTS END */
-export type { Avatars, DiscordMessageOptions, Emoji, Profile } from './options.js';
 export type * from './types.js';
 
 declare global {

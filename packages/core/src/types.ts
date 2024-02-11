@@ -44,3 +44,40 @@ export interface DiscordMessageProps {
 	lightTheme: boolean;
 	compactMode: boolean;
 }
+
+export interface Avatars {
+	default: 'blue' | 'gray' | 'green' | 'orange' | 'red';
+	blue?: string;
+	gray?: string;
+	green?: string;
+	orange?: string;
+	red?: string;
+	[key: string]: string | undefined;
+}
+
+export interface Profile {
+	author?: string;
+	avatar?: string;
+	bot?: boolean;
+	verified?: boolean;
+	server?: boolean;
+	op?: boolean;
+	roleColor?: string;
+	roleIcon?: string;
+	roleName?: string;
+}
+
+export interface DiscordMessageOptions {
+	avatars?: Avatars;
+	profiles?: { [key: string]: Profile };
+	emojis?: { [key: string]: Emoji };
+	defaultTheme?: string;
+	defaultMode?: string;
+	defaultBackground?: 'discord' | 'none';
+}
+
+export interface Emoji {
+	name?: string;
+	url?: string;
+	embedEmoji?: boolean;
+}
