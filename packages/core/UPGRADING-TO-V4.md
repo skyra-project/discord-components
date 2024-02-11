@@ -119,6 +119,15 @@ It is no longer possible to use this library simply by importing the unpkg URL.
 You have to use a bundler such as [Vite](https://vitejs.dev) or
 [Webpack](https://webpack.js.org) to use this library.
 
+### Configuration
+
+Previously configuration of this library was only possible through configuring
+`$discordMessage` on the `window` object. This library now also exposes 2
+functions `getConfig` and `setConfig` to set the config. This is primarily
+because when using this library with server-side rendering the `window` object
+is not always available and it may not be possible to use
+`window.$discordMessage` to set the configuration.
+
 ### Component changes
 
 #### `discord-inline-code`

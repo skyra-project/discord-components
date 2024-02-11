@@ -1,4 +1,14 @@
-import type { Avatars, Profile } from './types.js';
+import type { Avatars, DiscordMessageOptions, Profile } from './types.js';
+
+let config: DiscordMessageOptions = globalThis.$discordMessage ?? {};
+
+export function getConfig(): DiscordMessageOptions {
+	return config;
+}
+
+export function setConfig(partialConfig: Partial<DiscordMessageOptions>): void {
+	config = Object.assign(config, partialConfig);
+}
 
 export const defaultDiscordAvatars: Omit<Avatars, 'default'> = {
 	blue: 'https://cdn.discordapp.com/embed/avatars/0.png',

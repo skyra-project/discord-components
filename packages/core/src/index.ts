@@ -37,6 +37,7 @@ export { DiscordTime } from './components/discord-time/DiscordTime.js';
 export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderlined.js';
 
 /* EXPORTS END */
+export { getConfig, setConfig } from './config.js';
 export type * from './types.js';
 
 declare global {
