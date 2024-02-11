@@ -1,3 +1,4 @@
+import { getConfig } from './config.js';
 import type { Emoji, DiscordTimestamp } from './types.js';
 
 const intlDateFormat = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' });
@@ -29,4 +30,4 @@ export const validateImageExtension = (url: string) => {
 	if (!IMAGE_EXTENSION.test(url)) throw new Error(`The url of an image for discord-attachment should match the regex ${IMAGE_EXTENSION}`);
 };
 
-export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => window.$discordMessage?.emojis?.[emojiName];
+export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => getConfig().emojis?.[emojiName];

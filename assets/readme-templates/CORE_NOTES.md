@@ -4,7 +4,7 @@
 
 ### TypeScript module augments
 
-This module uses a custom object on the browser `window` for configuration.
+This library uses a custom object on the browser `window` for configuration.
 Under normal circumstances by simply importing the package (with
 `import @skyra/discord-components-core`) the module augmentations should also be
 loaded. If for whatever reason this does not happen, then you can define them
@@ -35,7 +35,8 @@ The current avatar shortcut strings available are "blue" (default), "gray",
 ```
 
 If you want to add to or override the shortcuts, you can set them via
-`window.$discordMessage.avatars`.
+`window.$discordMessage.avatars` or by using the `setConfig` function
+(`import { setConfig } from '@skyra/discord-components-core'`).
 
 ```ts
 window.$discordMessage = {
@@ -47,11 +48,24 @@ window.$discordMessage = {
 };
 ```
 
+```ts
+import { setConfig } from '@skyra/discord-components-core';
+
+setConfig({
+  avatars: {
+    default: 'blue',
+    skyra: 'https://github.com/NM-EEA-Y.png',
+    djs: require('./assets/discord-avatar-djs.png') // You can use require syntax as well
+  }
+});
+```
+
 ### Profile shortcuts
 
 Sometimes you'll want to use the same message data across multiple messages. You
 can do so by providing an object of profiles in
-`window.$discordMessage.profiles`.
+`window.$discordMessage.profiles` or by using the `setConfig` function
+(`import { setConfig } from '@skyra/discord-components-core'`).
 
 ```ts
 window.$discordMessage = {
@@ -70,6 +84,27 @@ window.$discordMessage = {
     }
   }
 };
+```
+
+```ts
+import { setConfig } from '@skyra/discord-components-core';
+
+setConfig({
+  profiles: {
+    skyra: {
+      author: 'Skyra',
+      avatar: 'https://github.com/NM-EEA-Y.png',
+      bot: true,
+      verified: true,
+      roleColor: '#1e88e5'
+    },
+    favna: {
+      author: 'Favna',
+      avatar: 'https://github.com/favna.png',
+      roleColor: '#ff0000'
+    }
+  }
+});
 ```
 
 And then in your code:

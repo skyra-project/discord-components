@@ -38,3 +38,21 @@ export const DiscordTime = createReactComponent('discord-time', ReactComponents.
 export const DiscordUnderlined = createReactComponent('discord-underlined', ReactComponents.DiscordUnderlined);
 
 /* IMPORTS END */
+
+export type {
+	Avatars,
+	DiscordButtonProps,
+	DiscordEmbedProps,
+	DiscordMessageOptions,
+	DiscordMessageProps,
+	DiscordTimestamp,
+	Emoji,
+	LightTheme,
+	Profile
+} from '@skyra/discord-components-core';
+export { getConfig, setConfig } from '@skyra/discord-components-core';
+
+declare global {
+	// eslint-disable-next-line no-var
+	var $discordMessage: ReactComponents.DiscordMessageOptions | undefined;
+}
