@@ -54,18 +54,20 @@ _React Bindings_
           - [Live Demo Pages Directory](#live-demo-pages-directory)
           - [Live Demo App Directory](#live-demo-app-directory)
           - [Known limitations](#known-limitations)
+        - [Docusaurus](#docusaurus)
+          - [Live Demo](#live-demo-2)
       - [Vue](#vue)
         - [Vite](#vite-1)
-          - [Live Demo](#live-demo-2)
+          - [Live Demo](#live-demo-3)
           - [Configuration](#configuration)
         - [Nuxt](#nuxt)
-          - [Live Demo](#live-demo-3)
+          - [Live Demo](#live-demo-4)
           - [Configuration](#configuration-1)
       - [Solid](#solid)
-        - [Live Demo](#live-demo-4)
+        - [Live Demo](#live-demo-5)
       - [No Framework](#no-framework)
         - [Important Notes](#important-notes-1)
-        - [Live Demo](#live-demo-5)
+        - [Live Demo](#live-demo-6)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -269,6 +271,12 @@ per React's own documentation. We very strongly recommend using Vite instead.
 2. When using the app directory we are not able to get profiles working. We are
    open to suggestions on how to fix this, ideally through a pull request to
    [https://github.com/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts].
+
+##### Docusaurus
+
+###### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/react-docusaurus-ts)
 
 #### Vue
 

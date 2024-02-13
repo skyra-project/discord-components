@@ -80,4 +80,10 @@ per React's own documentation. We very strongly recommend using Vite instead.
    open to suggestions on how to fix this, ideally through a pull request to
    [https://github.com/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts].
 
+### Docusaurus
+
+#### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/react-docusaurus-ts)
+
 <!-- # REACT_USAGE END # -->
