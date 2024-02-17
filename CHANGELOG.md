@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.15](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.14...v4.0.0-alpha.15) (2024-02-17)
+
+### Bug Fixes
+
+* **DiscordHeader:** ensure that the level property is a number ([a97a969](https://github.com/skyra-project/discord-components/commit/a97a969ab12aa3470a8d9d48c29493512813422a))
+
 # [4.0.0-alpha.14](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.13...v4.0.0-alpha.14) (2024-02-11)
 
 ### Bug Fixes
