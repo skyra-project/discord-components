@@ -66,9 +66,14 @@ _React Bindings_
           - [Configuration](#configuration-1)
       - [Solid](#solid)
         - [Live Demo](#live-demo-5)
+      - [Svelte](#svelte)
+        - [Vite](#vite-2)
+          - [Live Demo](#live-demo-6)
+        - [Sveltekit](#sveltekit)
+          - [Live Demo](#live-demo-7)
       - [No Framework](#no-framework)
         - [Important Notes](#important-notes-1)
-        - [Live Demo](#live-demo-6)
+        - [Live Demo](#live-demo-8)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -343,6 +348,20 @@ export default defineNuxtConfig({
 ##### Live Demo
 
 [![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/solid-vite-ts)
+
+#### Svelte
+
+##### Vite
+
+###### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/svelte-vite-ts)
+
+##### Sveltekit
+
+###### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/sveltekit-ts)
 
 #### No Framework
 
