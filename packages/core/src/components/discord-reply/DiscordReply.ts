@@ -3,6 +3,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
+import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
@@ -34,7 +35,8 @@ export class DiscordReply extends LitElement implements LightTheme {
 			color: #4f5660;
 		}
 
-		:host([compact-mode]) {
+		:host([compact-mode]),
+		:host([deleted]) {
 			margin-left: 62px;
 			margin-bottom: 0;
 		}
@@ -147,6 +149,14 @@ export class DiscordReply extends LitElement implements LightTheme {
 			cursor: pointer;
 		}
 
+		.discord-replied-deleted-message-content {
+			color: inherit;
+			font-size: inherit;
+			line-height: inherit;
+			white-space: pre;
+			text-overflow: ellipsis;
+		}
+
 		.discord-message-edited {
 			color: #72767d;
 			font-size: 10px;
@@ -254,6 +264,28 @@ export class DiscordReply extends LitElement implements LightTheme {
 	@property({ type: Boolean })
 	public accessor mentions = false;
 
+	/**
+	 * Whether this reply is a deleted message.
+	 * When set to true, any content inside the tags is ignored as no `slot` is rendered.
+	 * The message will always be `"Original message was deleted"`.
+	 * Furthermore, the following properties are ignored:
+	 *
+	 * - {@link DiscordReply.profile profile}
+	 * - {@link DiscordReply.author author}
+	 * - {@link DiscordReply.avatar avatar}
+	 * - {@link DiscordReply.bot bot}
+	 * - {@link DiscordReply.server server}
+	 * - {@link DiscordReply.op op}
+	 * - {@link DiscordReply.verified verified}
+	 * - {@link DiscordReply.edited edited}
+	 * - {@link DiscordReply.roleColor roleColor}
+	 * - {@link DiscordReply.command command}
+	 * - {@link DiscordReply.attachment attachment}
+	 * - {@link DiscordReply.mentions mentions}
+	 */
+	@property({ type: Boolean, reflect: true })
+	public accessor deleted = false;
+
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
@@ -279,26 +311,33 @@ export class DiscordReply extends LitElement implements LightTheme {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
-		return html`${this.compactMode
-				? html`<div class="discord-reply-badge">${ReplyIcon()}</div>`
-				: html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`}
-			${html`
-				${profile.bot && !profile.server
-					? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
-					: null}
-				${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
-				${profile.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
-			`}
-			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
-				>${this.mentions ? '@' : ''}${profile.author}</span
-			>
-			<!-- display: inline -->
-			<div class="discord-replied-message-content"
-				><slot></slot>${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}</div
-			>
-			${this.command
-				? CommandReply({ class: 'discord-replied-message-content-icon' })
-				: html`${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''}`}`;
+		return html`${when(
+			this.compactMode || this.deleted,
+			() => html`<div class="discord-reply-badge">${ReplyIcon()}</div>`,
+			() => html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`
+		)}
+		${when(
+			this.deleted,
+			() => html`<div class="discord-replied-deleted-message-content"><em>Original message was deleted</em></div>`,
+			() =>
+				html`${html`
+						${profile.bot && !profile.server
+							? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
+							: null}
+						${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
+						${profile.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
+					`}
+					<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
+						>${this.mentions ? '@' : ''}${profile.author}</span
+					>
+					<!-- display: inline -->
+					<div class="discord-replied-message-content"
+						><slot></slot>${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}</div
+					>
+					${this.command
+						? CommandReply({ class: 'discord-replied-message-content-icon' })
+						: html`${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''}`}`
+		)} `;
 	}
 }
 
