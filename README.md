@@ -41,15 +41,14 @@ _React Bindings_
     - [Using the Discord font](#using-the-discord-font)
     - [Integrations](#integrations)
       - [Angular](#angular)
+        - [Important Notes](#important-notes)
         - [Live Demo](#live-demo)
-        - [Including the Custom Element Schema](#including-the-custom-element-schema)
-        - [Including the web-components](#including-the-web-components)
       - [React](#react)
-        - [Important](#important)
+        - [Important Notes](#important-notes-1)
         - [Vite](#vite)
           - [Live Demo](#live-demo-1)
         - [Create React App](#create-react-app)
-          - [Important Notes](#important-notes)
+          - [Important Notes](#important-notes-2)
         - [NextJS](#nextjs)
           - [Live Demo Pages Directory](#live-demo-pages-directory)
           - [Live Demo App Directory](#live-demo-app-directory)
@@ -71,7 +70,7 @@ _React Bindings_
         - [Sveltekit](#sveltekit)
           - [Live Demo](#live-demo-7)
       - [No Framework](#no-framework)
-        - [Important Notes](#important-notes-1)
+        - [Important Notes](#important-notes-3)
         - [Live Demo](#live-demo-8)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
@@ -179,58 +178,29 @@ do so by including the CSS below:
 
 #### Angular
 
-##### Live Demo
+##### Important Notes
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/angular)
-
-##### Including the Custom Element Schema
-
-Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of the web
-components in the HTML markup without the compiler producing errors. This code
-should be added into the `AppModule` and in every other modules that use your
-custom elements. Here is an example of adding it to `AppModule`:
+You need to import the `CUSTOM_ELEMENTS_SCHEMA` from `@angular/core` and add it
+to the `schemas` array of your module or component decorator for the module or
+component using custom elements. This is to ensure that Angular knows custom
+elements are used in this module or component.
 
 ```ts
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule],
-  providers: [],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
-export class AppModule {}
-```
-
-The `CUSTOM_ELEMENTS_SCHEMA` needs to be included in any module that uses custom
-elements.
-
-##### Including the web-components
-
-Once you have defined the `CUSTOM_ELEMENTS_SCHEMA` you can include the
-webcomponents in your components. Here is a simple example:
-
-```ts
-import { Component } from '@angular/core';
-
-// Import the webcomponents that will be used in this file
-import '@skyra/discord-components-core/discord-messages';
-import '@skyra/discord-components-core/discord-message';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 @Component({
-  selector: 'app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {}
 ```
 
+##### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/angular)
+
 #### React
 
-##### Important
+##### Important Notes
 
 React is currently the only library among the "big" libraries for frontend
 development that does not fully support custom elements / webcomponents yet (see
