@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.16](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.15...v4.0.0-alpha.16) (2024-02-17)
+
+### Features
+
+* add `deleted` property to `discord-reply` ([d5d4159](https://github.com/skyra-project/discord-components/commit/d5d4159fb088590f7d7bb4c0dead6e1d415aec23)), closes [#371](https://github.com/skyra-project/discord-components/issues/371)
+
 # [4.0.0-alpha.15](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.14...v4.0.0-alpha.15) (2024-02-17)
 
 ### Bug Fixes
