@@ -70,9 +70,11 @@ _React Bindings_
           - [Live Demo](#live-demo-6)
         - [Sveltekit](#sveltekit)
           - [Live Demo](#live-demo-7)
+      - [Qwik](#qwik)
+        - [Live Demo](#live-demo-8)
       - [No Framework](#no-framework)
         - [Important Notes](#important-notes-3)
-        - [Live Demo](#live-demo-8)
+        - [Live Demo](#live-demo-9)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -332,6 +334,12 @@ export default defineNuxtConfig({
 ###### Live Demo
 
 [![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/sveltekit-ts)
+
+#### Qwik
+
+##### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/qwik-vite-ts)
 
 #### No Framework
 

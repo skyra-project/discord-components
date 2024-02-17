@@ -206,6 +206,12 @@ export default defineNuxtConfig({
 
 [![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/sveltekit-ts)
 
+#### Qwik
+
+##### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/qwik-vite-ts)
+
 #### No Framework
 
 ##### Important Notes
