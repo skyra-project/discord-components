@@ -39,6 +39,12 @@ export class DiscordHeader extends LitElement {
 	@property({ type: Number, reflect: true })
 	public accessor level: 1 | 2 | 3 = 1;
 
+	public ensureLevelIsNumber(): void {
+		if (this.level && !isNaN(this.level)) {
+			this.level = Number(this.level) as typeof this.level;
+		}
+	}
+
 	public checkLevel() {
 		if (this.level < 1 || this.level > 3) {
 			throw new RangeError('The level property must be a number between 1 and 3 (inclusive)');
@@ -46,6 +52,7 @@ export class DiscordHeader extends LitElement {
 	}
 
 	protected override render() {
+		this.ensureLevelIsNumber();
 		this.checkLevel();
 
 		switch (this.level) {
