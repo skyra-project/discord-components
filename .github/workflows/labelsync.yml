@@ -10,14 +10,24 @@ jobs:
     name: Automatic Label Synchronization
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Project
+      - name: Checkout Core Labels
         uses: actions/checkout@v4
         with:
+          path: core-labels
           sparse-checkout: .github/labels.yml
           sparse-checkout-cone-mode: false
           repository: 'sapphiredev/.github'
+      - name: Checkout Overwrite Labels
+        uses: actions/checkout@v4
+        with:
+          path: overwrite-labels
+          sparse-checkout: .github/labels.yml
+          sparse-checkout-cone-mode: false
+      - name: Merge labels
+        run: |
+          yq '. *+ load("core-labels/.github/labels.yml")' overwrite-labels/.github/labels.yml > labels.yml
       - name: Run Label Sync
         uses: crazy-max/ghaction-github-labeler@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          yaml-file: .github/labels.yml
+          yaml-file: labels.yml
