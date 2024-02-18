@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.17](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.16...v4.0.0-alpha.17) (2024-02-18)
+
+### Bug Fixes
+
+* add list-style-image initial to discord-unordered-list ([0c9cd70](https://github.com/skyra-project/discord-components/commit/0c9cd7048fd9891dc9057b719bdd4fa6dfca5877))
+
+### Features
+
+* add `DiscordComponentsError` to signify errors ([b072bea](https://github.com/skyra-project/discord-components/commit/b072beabe04895b7a778724d94b60c7adce7de74))
+* add discord-ordered-list ([42f8b49](https://github.com/skyra-project/discord-components/commit/42f8b4901a969a5c988db43974ffa0766a175577))
+* add discord-unordered-list and discord-list-item ([71d483d](https://github.com/skyra-project/discord-components/commit/71d483d4bd4a1865c2c9b296a97a70797b3a4b27))
+
 # [4.0.0-alpha.16](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.15...v4.0.0-alpha.16) (2024-02-17)
 
 ### Features
