@@ -6,6 +6,7 @@ import { DiscordComponentsError } from '../../util.js';
 export class DiscordUnorderedList extends LitElement {
 	public static override styles = css`
 		:host > ul {
+			list-style-image: initial;
 			list-style: disc;
 			list-style-position: outside;
 			margin: 4px 0 0 16px;
