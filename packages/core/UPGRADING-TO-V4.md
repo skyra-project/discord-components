@@ -148,4 +148,25 @@ that represents Discord markdown headers (lines starting with one of `#`, `##`,
 or `###`). The maximum level is 3, just like it is for Discord. An error is
 thrown if a level lower than 1 or higher than 3 is used.
 
+#### `discord-unordered-list`
+
+A new component called `discord-unordered-list` has been added. This is the
+component that represents Discord unordered list items (messages starting with
+`-`). The maximum depth level on Discord is 11 but we do not force such a
+maximum, because we are not limited by the same MD to HTML parsing. Every item
+within a `discord-unordered-list` should be a `discord-list-item`.
+
+#### `discord-ordered-list`
+
+A new component called `discord-ordered-list` has been added. This is the
+component that represents Discord ordered list items (messages starting with
+`1.`). Every item within a `discord-unordered-list` should be a
+`discord-list-item`.
+
+#### `discord-list-item`
+
+A new component called `discord-list-item` has been added. This is the component
+that represents a list item within a `discord-unordered-list` or
+`discord-ordered-list`. It should be used within one of these components.
+
 [Lit]: https://lit.dev
