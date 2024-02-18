@@ -38,6 +38,7 @@ export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderl
 
 /* EXPORTS END */
 export { getConfig, setConfig } from './config.js';
+export { DiscordComponentsError } from './util.js';
 export type * from './types.js';
 
 declare global {

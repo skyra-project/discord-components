@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { DiscordComponentsError } from '../../util.js';
 import LaunchIcon from '../svgs/LaunchIcon.js';
 import type { DiscordButtonProps } from '../../types.js';
 
@@ -125,7 +126,7 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 
 	public checkParentElement() {
 		if (this.parentElement?.tagName.toLowerCase() !== 'discord-action-row') {
-			throw new Error('All <discord-button> components must be direct children of <discord-action-row>.');
+			throw new DiscordComponentsError('All <discord-button> components must be direct children of <discord-action-row>.');
 		}
 	}
 
