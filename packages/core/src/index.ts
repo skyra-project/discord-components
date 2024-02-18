@@ -20,6 +20,7 @@ export { DiscordHeader } from './components/discord-header/DiscordHeader.js';
 export { DiscordInvite } from './components/discord-invite/DiscordInvite.js';
 export { DiscordItalic } from './components/discord-italic/DiscordItalic.js';
 export { DiscordLink } from './components/discord-link/DiscordLink.js';
+export { DiscordListItem } from './components/discord-list-item/DiscordListItem.js';
 export { DiscordMention } from './components/discord-mention/DiscordMention.js';
 export { DiscordMessage } from './components/discord-message/DiscordMessage.js';
 export { DiscordMessages } from './components/discord-messages/DiscordMessages.js';
@@ -35,6 +36,7 @@ export { DiscordThread } from './components/discord-thread/DiscordThread.js';
 export { DiscordThreadMessage } from './components/discord-thread-message/DiscordThreadMessage.js';
 export { DiscordTime } from './components/discord-time/DiscordTime.js';
 export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderlined.js';
+export { DiscordUnorderedList } from './components/discord-unordered-list/DiscordUnorderedList.js';
 
 /* EXPORTS END */
 export { getConfig, setConfig } from './config.js';

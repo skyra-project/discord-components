@@ -21,6 +21,7 @@ export const DiscordHeader = createReactComponent('discord-header', ReactCompone
 export const DiscordInvite = createReactComponent('discord-invite', ReactComponents.DiscordInvite);
 export const DiscordItalic = createReactComponent('discord-italic', ReactComponents.DiscordItalic);
 export const DiscordLink = createReactComponent('discord-link', ReactComponents.DiscordLink);
+export const DiscordListItem = createReactComponent('discord-list-item', ReactComponents.DiscordListItem);
 export const DiscordMention = createReactComponent('discord-mention', ReactComponents.DiscordMention);
 export const DiscordMessage = createReactComponent('discord-message', ReactComponents.DiscordMessage);
 export const DiscordMessages = createReactComponent('discord-messages', ReactComponents.DiscordMessages);
@@ -36,6 +37,7 @@ export const DiscordThread = createReactComponent('discord-thread', ReactCompone
 export const DiscordThreadMessage = createReactComponent('discord-thread-message', ReactComponents.DiscordThreadMessage);
 export const DiscordTime = createReactComponent('discord-time', ReactComponents.DiscordTime);
 export const DiscordUnderlined = createReactComponent('discord-underlined', ReactComponents.DiscordUnderlined);
+export const DiscordUnorderedList = createReactComponent('discord-unordered-list', ReactComponents.DiscordUnorderedList);
 
 /* IMPORTS END */
 
