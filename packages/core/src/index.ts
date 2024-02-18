@@ -24,6 +24,7 @@ export { DiscordListItem } from './components/discord-list-item/DiscordListItem.
 export { DiscordMention } from './components/discord-mention/DiscordMention.js';
 export { DiscordMessage } from './components/discord-message/DiscordMessage.js';
 export { DiscordMessages } from './components/discord-messages/DiscordMessages.js';
+export { DiscordOrderedList } from './components/discord-ordered-list/DiscordOrderedList.js';
 export { DiscordPre } from './components/discord-pre/DiscordPre.js';
 export { DiscordQuote } from './components/discord-quote/DiscordQuote.js';
 export { DiscordReaction } from './components/discord-reaction/DiscordReaction.js';
