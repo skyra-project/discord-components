@@ -30,11 +30,11 @@
 		"@sapphire/eslint-config": "^5.0.3",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.0",
-		"@types/node": "^20.11.19",
-		"@typescript-eslint/eslint-plugin": "^7.0.1",
-		"@typescript-eslint/parser": "^7.0.1",
+		"@types/node": "^20.11.20",
+		"@typescript-eslint/eslint-plugin": "^7.0.2",
+		"@typescript-eslint/parser": "^7.0.2",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.56.0",
+		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-import": "^2.29.1",
 		"eslint-plugin-lit": "^1.11.0",
@@ -53,7 +53,7 @@
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8",
-		"@open-wc/lit-helpers@^0.6.0": "patch:@open-wc/lit-helpers@npm%3A0.6.0#./.yarn/patches/@open-wc-lit-helpers-npm-0.6.0-e1a0ad9b21.patch"
+		"@open-wc/lit-helpers@^0.7.0": "patch:@open-wc/lit-helpers@npm%3A0.7.0#~/.yarn/patches/@open-wc-lit-helpers-npm-0.7.0-1922d4c01f.patch"
 	},
 	"commitlint": {
 		"extends": [
