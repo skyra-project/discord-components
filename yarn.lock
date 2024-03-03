@@ -285,9 +285,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@custom-elements-manifest/analyzer@npm:^0.9.2":
-  version: 0.9.2
-  resolution: "@custom-elements-manifest/analyzer@npm:0.9.2"
+"@custom-elements-manifest/analyzer@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@custom-elements-manifest/analyzer@npm:0.9.3"
   dependencies:
     "@custom-elements-manifest/find-dependencies": "npm:^0.0.5"
     "@github/catalyst": "npm:^1.6.0"
@@ -302,7 +302,7 @@ __metadata:
   bin:
     cem: cem.js
     custom-elements-manifest: cem.js
-  checksum: 10/f7c5f73d376ba70e5c686feae03cb572cf567db9e96769cb45cd1318c7d291f5c68f2081d6fbc75196771a8762eb88a1f3673a20d150c45bd42d25b42ee8bb67
+  checksum: 10/2545f0958eadbe86e448f81adefae6fd5e77387a22e19b0d5794660dba7d69ea658e5feffc91351afd16a29136ceceaab9ac497546426c3313e39d04c70bc1f2
   languageName: node
   linkType: hard
 
@@ -1483,7 +1483,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-core@workspace:packages/core"
   dependencies:
-    "@custom-elements-manifest/analyzer": "npm:^0.9.2"
+    "@custom-elements-manifest/analyzer": "npm:^0.9.3"
     "@lit/context": "npm:^1.1.0"
     "@open-wc/lit-helpers": "npm:^0.7.0"
     "@web/dev-server": "npm:^0.4.3"
@@ -1500,7 +1500,7 @@ __metadata:
   dependencies:
     "@lit/react": "npm:^1.0.3"
     "@skyra/discord-components-core": "workspace:^"
-    "@types/react": "npm:^18.2.60"
+    "@types/react": "npm:^18.2.61"
     colorette: "npm:^2.0.20"
     react: "npm:^18.2.0"
     rimraf: "npm:^5.0.5"
@@ -1695,12 +1695,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.11.21":
-  version: 20.11.21
-  resolution: "@types/node@npm:20.11.21"
+"@types/node@npm:*, @types/node@npm:^20.11.24":
+  version: 20.11.24
+  resolution: "@types/node@npm:20.11.24"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/a31ecc6a3c615bca310ffe7dea23613153ff9e1e175c09d14198402b2cef9b1bb1bf3912aff6ffc6cb01b99a025ec6dd6474c797bfb0aaf83daf4edaea063760
+  checksum: 10/7f34bfae5f9b98b9910230af4b4c52dc7fb2d1e96fdebfbc3d7576f8ab3d100076f193f9469add9e7418b455294155e7e6a028498cc5e98f9d49349875a459cf
   languageName: node
   linkType: hard
 
@@ -1748,14 +1748,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.60":
-  version: 18.2.60
-  resolution: "@types/react@npm:18.2.60"
+"@types/react@npm:^18.2.61":
+  version: 18.2.61
+  resolution: "@types/react@npm:18.2.61"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/5f2f6091623f13375a5bbc7e5c222cd212b5d6366ead737b76c853f6f52b314db24af5ae3f688d2d49814c668c216858a75433f145311839d8989d46bb3cbecf
+  checksum: 10/74c2920ccca83fc51190ed4eda1066fa6a644197839dd37765fcce93cbd50b7a52b75815ce0083bb95195f886c80b57745314dd49ecbf235fa93d753ae2260bc
   languageName: node
   linkType: hard
 
@@ -8481,7 +8481,7 @@ __metadata:
     "@sapphire/eslint-config": "npm:^5.0.3"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.0"
-    "@types/node": "npm:^20.11.21"
+    "@types/node": "npm:^20.11.24"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
     "@typescript-eslint/parser": "npm:^7.1.0"
     cz-conventional-changelog: "npm:^3.3.0"
