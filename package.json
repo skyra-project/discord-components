@@ -30,9 +30,9 @@
 		"@sapphire/eslint-config": "^5.0.4",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.12.5",
-		"@typescript-eslint/eslint-plugin": "^7.5.0",
-		"@typescript-eslint/parser": "^7.5.0",
+		"@types/node": "^20.12.7",
+		"@typescript-eslint/eslint-plugin": "^7.6.0",
+		"@typescript-eslint/parser": "^7.6.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -48,7 +48,7 @@
 		"rimraf": "^5.0.5",
 		"tslib": "^2.6.2",
 		"tsup": "^8.0.2",
-		"typescript": "^5.4.4"
+		"typescript": "^5.4.5"
 	},
 	"resolutions": {
 		"ansi-regex": "^5.0.1",
