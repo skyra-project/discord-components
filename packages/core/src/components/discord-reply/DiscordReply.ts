@@ -322,7 +322,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 			() =>
 				html`${html`
 						${profile.bot && !profile.server
-							? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}Bot</span>`
+							? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}App</span>`
 							: null}
 						${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
 						${profile.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
