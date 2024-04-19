@@ -3,7 +3,6 @@ import type { DiscordMessageOptions } from './types.js';
 /* EXPORTS START */
 
 export { DiscordActionRow } from './components/discord-action-row/DiscordActionRow.js';
-export { DiscordAttachment } from './components/discord-attachment/DiscordAttachment.js';
 export { DiscordAttachments } from './components/discord-attachments/DiscordAttachments.js';
 export { DiscordAuthorInfo } from './components/discord-author-info/DiscordAuthorInfo.js';
 export { DiscordBold } from './components/discord-bold/DiscordBold.js';
@@ -17,6 +16,7 @@ export { DiscordEmbedField } from './components/discord-embed-field/DiscordEmbed
 export { DiscordEmbedFields } from './components/discord-embed-fields/DiscordEmbedFields.js';
 export { DiscordEmbedFooter } from './components/discord-embed-footer/DiscordEmbedFooter.js';
 export { DiscordHeader } from './components/discord-header/DiscordHeader.js';
+export { DiscordImageAttachment } from './components/discord-image-attachment/DiscordImageAttachment.js';
 export { DiscordInvite } from './components/discord-invite/DiscordInvite.js';
 export { DiscordItalic } from './components/discord-italic/DiscordItalic.js';
 export { DiscordLink } from './components/discord-link/DiscordLink.js';
