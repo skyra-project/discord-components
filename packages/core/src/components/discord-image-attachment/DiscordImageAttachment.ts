@@ -1,10 +1,11 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
+import { when } from 'lit/directives/when.js';
 import { validateImageExtension } from '../../util.js';
 
-@customElement('discord-attachment')
-export class DiscordAttachment extends LitElement {
+@customElement('discord-image-attachment')
+export class DiscordImageAttachment extends LitElement {
 	public static override styles = css`
 		:host {
 			display: block;
@@ -17,7 +18,7 @@ export class DiscordAttachment extends LitElement {
 			border-radius: 3px;
 		}
 
-		.discord-attachment {
+		.discord-image-attachment {
 			color: #dcddde;
 			display: flex;
 			font-size: 13px;
@@ -51,17 +52,32 @@ export class DiscordAttachment extends LitElement {
 	 * @default 'discord attachment'
 	 */
 	@property({ reflect: true, attribute: 'alt' })
-	public accessor alt = 'discord attachment';
+	public accessor alt = 'discord image attachment';
+
+	/**
+	 * A custom image element, useful if you want to use something like
+	 * {@link https://nextjs.org/docs/pages/api-reference/components/image `next/image`}
+	 *
+	 * Note that all other properties will be ignored if this is set
+	 */
+	@property({ attribute: false })
+	public accessor customImageElement: HTMLElement;
 
 	public componentWillRender() {
-		validateImageExtension(this.url);
+		if (!this.customImageElement) {
+			validateImageExtension(this.url);
+		}
 	}
 
 	protected override render() {
 		return html`
-			<div class="discord-attachment">
+			<div class="discord-image-attachment">
 				<div class="discord-image-wrapper" style="${styleMap({ height: `${this.height}px`, width: `${this.width}px` })}">
-					<img alt="${this.alt}" src="${this.url}" height="${this.height}" width="${this.width}" />
+					${when(
+						Boolean(this.customImageElement),
+						() => this.customImageElement,
+						() => html`<img alt="${this.alt}" src="${this.url}" height="${this.height}" width="${this.width}" />`
+					)}
 				</div>
 			</div>
 		`;
@@ -70,6 +86,6 @@ export class DiscordAttachment extends LitElement {
 
 declare global {
 	interface HTMLElementTagNameMap {
-		'discord-attachment': DiscordAttachment;
+		'discord-attachment': DiscordImageAttachment;
 	}
 }

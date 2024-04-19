@@ -130,6 +130,22 @@ is not always available and it may not be possible to use
 
 ### Component changes
 
+#### `discord-attachment
+
+1. The `discord-attachment` component has been renamed to
+   `discord-image-attachment` to better reflect its purpose, and set it apart
+   from `discord-file-attachment`.
+
+2. The `discord-image-attachment` has a new property `custom-image-element`
+   which allows you to pass a custom `HTMLElement` to be used as the image
+   element. This is useful if you want to use something like
+   [`next/image`](https://nextjs.org/docs/pages/api-reference/components/image).
+
+#### `discord-file-attachment`
+
+The `discord-file-attachment` has been added to allow showing an attachment of a
+random other file whose file extension is not recognised, for example `.zip`
+
 #### `discord-inline-code`
 
 The `discord-inline-code` component has been removed in favour of a property on

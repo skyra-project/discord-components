@@ -4,7 +4,6 @@ import { createReactComponent } from './react-components/createComponent.js';
 /* IMPORTS START */
 
 export const DiscordActionRow = createReactComponent('discord-action-row', ReactComponents.DiscordActionRow);
-export const DiscordAttachment = createReactComponent('discord-attachment', ReactComponents.DiscordAttachment);
 export const DiscordAttachments = createReactComponent('discord-attachments', ReactComponents.DiscordAttachments);
 export const DiscordAuthorInfo = createReactComponent('discord-author-info', ReactComponents.DiscordAuthorInfo);
 export const DiscordBold = createReactComponent('discord-bold', ReactComponents.DiscordBold);
@@ -18,6 +17,7 @@ export const DiscordEmbedField = createReactComponent('discord-embed-field', Rea
 export const DiscordEmbedFields = createReactComponent('discord-embed-fields', ReactComponents.DiscordEmbedFields);
 export const DiscordEmbedFooter = createReactComponent('discord-embed-footer', ReactComponents.DiscordEmbedFooter);
 export const DiscordHeader = createReactComponent('discord-header', ReactComponents.DiscordHeader);
+export const DiscordImageAttachment = createReactComponent('discord-image-attachment', ReactComponents.DiscordImageAttachment);
 export const DiscordInvite = createReactComponent('discord-invite', ReactComponents.DiscordInvite);
 export const DiscordItalic = createReactComponent('discord-italic', ReactComponents.DiscordItalic);
 export const DiscordLink = createReactComponent('discord-link', ReactComponents.DiscordLink);

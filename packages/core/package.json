@@ -12,7 +12,6 @@
 	"exports": {
 		".": "./dist/index.js",
 		"./discord-action-row.js": "./dist/components/discord-action-row/DiscordActionRow.js",
-		"./discord-attachment.js": "./dist/components/discord-attachment/DiscordAttachment.js",
 		"./discord-attachments.js": "./dist/components/discord-attachments/DiscordAttachments.js",
 		"./discord-author-info.js": "./dist/components/discord-author-info/DiscordAuthorInfo.js",
 		"./discord-bold.js": "./dist/components/discord-bold/DiscordBold.js",
@@ -26,6 +25,7 @@
 		"./discord-embed-fields.js": "./dist/components/discord-embed-fields/DiscordEmbedFields.js",
 		"./discord-embed-footer.js": "./dist/components/discord-embed-footer/DiscordEmbedFooter.js",
 		"./discord-header.js": "./dist/components/discord-header/DiscordHeader.js",
+		"./discord-image-attachment.js": "./dist/components/discord-image-attachment/DiscordImageAttachment.js",
 		"./discord-invite.js": "./dist/components/discord-invite/DiscordInvite.js",
 		"./discord-italic.js": "./dist/components/discord-italic/DiscordItalic.js",
 		"./discord-link.js": "./dist/components/discord-link/DiscordLink.js",
@@ -51,7 +51,6 @@
 	"sideEffects": [
 		"./dist/index.js",
 		"./dist/components/discord-action-row/DiscordActionRow.js",
-		"./dist/components/discord-attachment/DiscordAttachment.js",
 		"./dist/components/discord-attachments/DiscordAttachments.js",
 		"./dist/components/discord-author-info/DiscordAuthorInfo.js",
 		"./dist/components/discord-bold/DiscordBold.js",
@@ -65,6 +64,7 @@
 		"./dist/components/discord-embed-fields/DiscordEmbedFields.js",
 		"./dist/components/discord-embed-footer/DiscordEmbedFooter.js",
 		"./dist/components/discord-header/DiscordHeader.js",
+		"./dist/components/discord-image-attachment/DiscordImageAttachment.js",
 		"./dist/components/discord-invite/DiscordInvite.js",
 		"./dist/components/discord-italic/DiscordItalic.js",
 		"./dist/components/discord-link/DiscordLink.js",
