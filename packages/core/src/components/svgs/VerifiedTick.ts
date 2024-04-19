@@ -9,7 +9,7 @@ export default function VerifiedTick(props: Record<string, unknown> = {}) {
 	return html`<svg
 		${spread(props)}
 		class="discord-application-tag-verified"
-		aria-label="Verified Bot"
+		aria-label="Verified App"
 		aria-hidden="false"
 		width="16"
 		height="16"
