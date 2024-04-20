@@ -1,6 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { getGlobalEmojiUrl } from '../../util.js';
+import type { Emoji } from '../../types.js';
 
 @customElement('discord-custom-emoji')
 export class DiscordCustomEmoji extends LitElement {
@@ -41,6 +42,19 @@ export class DiscordCustomEmoji extends LitElement {
 	public accessor url: string;
 
 	/**
+	 * A map of emoji names and their data {@link DiscordCustomEmoji.name name}.
+	 *
+	 * This should be keyed as `{ key: { emojiData } }` wherein `key`
+	 * should occur in the {@link DiscordCustomEmoji.name name}.
+	 *
+	 * By default this component will use the global emojis from
+	 * {@link getGlobalEmojiUrl}, however on SSR frameworks like Nuxt 3 global config doesn't
+	 * work so we provide this as an alternative method.
+	 */
+	@property({ attribute: false })
+	public accessor customEmojisMap: { [key: string]: Emoji } = {};
+
+	/**
 	 * Determines whether or not the emoji is used in an embed, or a message.
 	 * If it is used in an embed, the sizing is adjusted accordingly.
 	 */
@@ -49,7 +63,7 @@ export class DiscordCustomEmoji extends LitElement {
 
 	public override willUpdate() {
 		if (!this.url && Boolean(this.name)) {
-			const emojiFromGlobal = getGlobalEmojiUrl(this.name);
+			const emojiFromGlobal = getGlobalEmojiUrl(this.name) ?? this.customEmojisMap[this.name];
 
 			if (emojiFromGlobal) {
 				this.url ??= emojiFromGlobal.url ?? '';
