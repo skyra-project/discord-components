@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.18](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.17...v4.0.0-alpha.18) (2024-04-20)
+
+### Bug Fixes
+
+* change `bot` to `app` following Discord's change of the label ([#394](https://github.com/skyra-project/discord-components/issues/394)) ([ec034d3](https://github.com/skyra-project/discord-components/commit/ec034d3992977a62a2f85865c1e74a4e0dfcd512))
+* **deps:** update all non-major dependencies ([77d3451](https://github.com/skyra-project/discord-components/commit/77d345176e30975c4ebed170f8367185e15797a1))
+* fixed custom emojis mapping support for Nuxt 3 ([f11c074](https://github.com/skyra-project/discord-components/commit/f11c074adec983b6bc12ea7e81f5da44accc9c8d))
+* fixed emojis in embeds and add support for Nuxt 3 ([7965fd3](https://github.com/skyra-project/discord-components/commit/7965fd3c6e7397b4fae4b4e3fe4666823160f1e9))
+
 # [4.0.0-alpha.17](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.16...v4.0.0-alpha.17) (2024-02-18)
 
 ### Bug Fixes
