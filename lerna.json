@@ -13,6 +13,7 @@
 		"version": {
 			"allowBranch": "main",
 			"conventionalCommits": true,
+			"changelogIncludeCommitsClientLogin": true,
 			"push": true,
 			"createRelease": "github",
 			"generateReleaseNotes": true,
