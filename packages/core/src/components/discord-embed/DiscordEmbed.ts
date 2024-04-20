@@ -5,6 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { getGlobalEmojiUrl } from '../../util.js';
+import '../discord-custom-emoji/DiscordCustomEmoji.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { Emoji, DiscordEmbedProps, LightTheme } from '../../types.js';
 
@@ -249,6 +250,19 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	public accessor embedTitle: string;
 
 	/**
+	 * An emoji that is prefixed to {@link DiscordEmbed.embedTitle embedTitle}.
+	 *
+	 * This should be keyed as `{ key: { emojiData } }` wherein `key`
+	 * should occur in the {@link DiscordEmbed.embedTitle embedTitle}.
+	 *
+	 * By default this component will use the global emojis from
+	 * {@link getGlobalEmojiUrl}, however on SSR frameworks like Nuxt 3 global config doesn't
+	 * work so we provide this as an alternative method.
+	 */
+	@property({ attribute: false })
+	public accessor embedEmojisMap: { [key: string]: Emoji } = {};
+
+	/**
 	 * The URL to open when you click on the embed title.
 	 */
 	@property()
@@ -354,14 +368,10 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 		const words = title.split(' ');
 
 		return words.map((word: string, idx: number) => {
-			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
+			const emoji = getGlobalEmojiUrl(word) ?? this.embedEmojisMap[word] ?? ({} as Emoji);
 			let el;
 			if (emoji.name) {
-				el = html`
-					<span class="discord-embed-custom-emoji">
-						<img src="${ifDefined(emoji.url)}" alt="${emoji.name}" class="discord-embed-custom-emoji-image" />
-					</span>
-				`;
+				el = html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`;
 			} else {
 				el = idx < words.length - 1 ? `${word} ` : word;
 			}

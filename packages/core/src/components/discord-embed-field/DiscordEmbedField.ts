@@ -3,6 +3,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { getGlobalEmojiUrl } from '../../util.js';
+import '../discord-custom-emoji/DiscordCustomEmoji.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { Emoji, LightTheme } from '../../types.js';
 
@@ -40,6 +41,19 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 
 	@property({ reflect: true, attribute: 'field-title' })
 	public accessor fieldTitle!: string;
+
+	/**
+	 * An emoji that is prefixed to {@link DiscordEmbedField.fieldTitle fieldTitle}.
+	 *
+	 * This should be keyed as `{ key: { emojiData } }` wherein `key`
+	 * should occur in the {@link DiscordEmbedField.fieldTitle fieldTitle}.
+	 *
+	 * By default this component will use the global emojis from
+	 * {@link getGlobalEmojiUrl}, however on SSR frameworks like Nuxt 3 global config doesn't
+	 * work so we provide this as an alternative method.
+	 */
+	@property({ attribute: false })
+	public accessor embedFieldEmojisMap: { [key: string]: Emoji } = {};
 
 	/**
 	 * Whether this field should be displayed inline or not.
@@ -80,15 +94,11 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 
 		const words = title.split(' ');
 		return words.map((word: string, idx: number) => {
-			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
+			const emoji = getGlobalEmojiUrl(word) ?? this.embedFieldEmojisMap[word] ?? ({} as Emoji);
 			let el: string | ReturnType<typeof html>;
 
 			if (emoji.name) {
-				el = html`
-					<span class="discord-embed-custom-emoji">
-						<img src="${ifDefined(emoji.url)}" alt="${emoji.name}" class="discord-embed-custom-emoji-image" />
-					</span>
-				`;
+				el = html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`;
 			} else {
 				el = idx < words.length - 1 ? `${word} ` : word;
 			}
