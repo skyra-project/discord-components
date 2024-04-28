@@ -28,12 +28,12 @@
 		"build:rename-esm-index": "node scripts/rename-esm-index.mjs"
 	},
 	"dependencies": {
-		"@lit/react": "^1.0.4",
+		"@lit/react": "^1.0.5",
 		"@skyra/discord-components-core": "workspace:^",
-		"react": "^18.2.0"
+		"react": "^18.3.1"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.79",
+		"@types/react": "^18.3.1",
 		"colorette": "^2.0.20",
 		"rimraf": "^5.0.5",
 		"tsup": "^8.0.2",
