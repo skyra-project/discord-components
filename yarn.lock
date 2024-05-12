@@ -284,9 +284,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@custom-elements-manifest/analyzer@npm:^0.9.8":
-  version: 0.9.8
-  resolution: "@custom-elements-manifest/analyzer@npm:0.9.8"
+"@custom-elements-manifest/analyzer@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "@custom-elements-manifest/analyzer@npm:0.10.2"
   dependencies:
     "@custom-elements-manifest/find-dependencies": "npm:^0.0.5"
     "@github/catalyst": "npm:^1.6.0"
@@ -301,7 +301,7 @@ __metadata:
   bin:
     cem: cem.js
     custom-elements-manifest: cem.js
-  checksum: 10/4f9531c2d6ad3ec4cd7ed993387b5f6ec48f4ba5b8374fd756cd9012090fa883c4ff5ddd8e992333cb4e81f18c3a12ad11076b451cccd95ce507aa4e909b4caf
+  checksum: 10/5321a21a7b93e5f8e185c912b1cfbdf0017885489b0408941c74d59e1c962c0ccaa5819d5f5d2084b2ca4bb49cdd7c09df546296a149084b6e11a44165c9653b
   languageName: node
   linkType: hard
 
@@ -1428,7 +1428,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@skyra/discord-components-core@workspace:packages/core"
   dependencies:
-    "@custom-elements-manifest/analyzer": "npm:^0.9.8"
+    "@custom-elements-manifest/analyzer": "npm:^0.10.2"
     "@lit/context": "npm:^1.1.1"
     "@open-wc/lit-helpers": "npm:^0.7.0"
     "@web/dev-server": "npm:^0.4.4"
@@ -1445,10 +1445,10 @@ __metadata:
   dependencies:
     "@lit/react": "npm:^1.0.5"
     "@skyra/discord-components-core": "workspace:^"
-    "@types/react": "npm:^18.3.1"
+    "@types/react": "npm:^18.3.2"
     colorette: "npm:^2.0.20"
     react: "npm:^18.3.1"
-    rimraf: "npm:^5.0.5"
+    rimraf: "npm:^5.0.7"
     tsup: "npm:^8.0.2"
     typescript: "npm:^5.4.5"
   peerDependencies:
@@ -1642,12 +1642,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.12.8":
-  version: 20.12.8
-  resolution: "@types/node@npm:20.12.8"
+"@types/node@npm:*, @types/node@npm:^20.12.11":
+  version: 20.12.11
+  resolution: "@types/node@npm:20.12.11"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/1feab4c8cb08588eea10811ed4d02485a5cde47fdf92e7b3193fc9f8ee39ea556f6e3124dc6d5378354466ed5f7e5fbe5e20f625908de40ea37560368a50f72c
+  checksum: 10/c6afe7c2c4504a4f488814d7b306ebad16bf42cbb43bf9db9fe1aed8c5fb99235593c3be5088979a64526b106cf022256688e2f002811be8273d87dc2e0d484f
   languageName: node
   linkType: hard
 
@@ -1695,13 +1695,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.3.1":
-  version: 18.3.1
-  resolution: "@types/react@npm:18.3.1"
+"@types/react@npm:^18.3.2":
+  version: 18.3.2
+  resolution: "@types/react@npm:18.3.2"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/baa6b8a75c471c89ebf3477b4feab57102ced25f0c1e553dd04ef6a1f0def28d5e0172fa626a631f22e223f840b5aaa2403b2d4bb671c83c5a9d6c7ae39c7a05
+  checksum: 10/a85eed82c1009dc9d979281d9ea1f5322255003de3378390f35d897b4bdaf1d34ea748636c03e9e9b4b7cc97c2f4582993d2d60e40846226ad497d97c7d8565a
   languageName: node
   linkType: hard
 
@@ -3949,16 +3949,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-lit@npm:^1.10.1, eslint-plugin-lit@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "eslint-plugin-lit@npm:1.11.0"
+"eslint-plugin-lit@npm:^1.10.1, eslint-plugin-lit@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "eslint-plugin-lit@npm:1.12.0"
   dependencies:
     parse5: "npm:^6.0.1"
     parse5-htmlparser2-tree-adapter: "npm:^6.0.1"
     requireindex: "npm:^1.2.0"
   peerDependencies:
     eslint: ">= 5"
-  checksum: 10/c6819c4e2054ebb316f2205bb56590c28193e9986fb5dc5627250e5f2db56b2a8058bebafd994ee3d48db322650d5028d48bfd97366e288491f804882d997bb7
+  checksum: 10/1edb7f33e579aed0a4380a70ffaab269e151479143514b3985b0aade93667e456193da1cd03b0047b38025a7ed98a66c06afa9c1af0a4d6ed34a8dab7b4085c4
   languageName: node
   linkType: hard
 
@@ -8037,14 +8037,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5":
-  version: 5.0.5
-  resolution: "rimraf@npm:5.0.5"
+"rimraf@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "rimraf@npm:5.0.7"
   dependencies:
     glob: "npm:^10.3.7"
   bin:
     rimraf: dist/esm/bin.mjs
-  checksum: 10/a612c7184f96258b7d1328c486b12ca7b60aa30e04229a08bbfa7e964486deb1e9a1b52d917809311bdc39a808a4055c0f950c0280fba194ba0a09e6f0d404f6
+  checksum: 10/1e3cecfe59ee2383dfd9ba5373caeed48ed941318a0360119419b7dffc63115661408b9427f67e1f66b5bbb8855a3953db09e55a7362b3df904a44453dfa22fb
   languageName: node
   linkType: hard
 
@@ -8115,14 +8115,14 @@ __metadata:
     "@sapphire/eslint-config": "npm:^5.0.4"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^20.12.8"
+    "@types/node": "npm:^20.12.11"
     "@typescript-eslint/eslint-plugin": "npm:^7.8.0"
     "@typescript-eslint/parser": "npm:^7.8.0"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-import: "npm:^2.29.1"
-    eslint-plugin-lit: "npm:^1.11.0"
+    eslint-plugin-lit: "npm:^1.12.0"
     eslint-plugin-lit-a11y: "npm:^4.1.2"
     eslint-plugin-prettier: "npm:^5.1.3"
     lint-staged: "npm:^15.2.2"
@@ -8130,7 +8130,7 @@ __metadata:
     npm-run-all2: "npm:^6.1.2"
     prettier: "npm:^3.2.5"
     react: "npm:^18.3.1"
-    rimraf: "npm:^5.0.5"
+    rimraf: "npm:^5.0.7"
     tslib: "npm:^2.6.2"
     tsup: "npm:^8.0.2"
     typescript: "npm:^5.4.5"
