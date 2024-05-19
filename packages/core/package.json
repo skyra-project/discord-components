@@ -105,7 +105,7 @@
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.10.2",
-		"@web/dev-server": "^0.4.4",
+		"@web/dev-server": "^0.4.5",
 		"concurrently": "^8.2.2",
 		"ts-lit-plugin": "^2.0.2",
 		"typescript": "^5.4.5"
