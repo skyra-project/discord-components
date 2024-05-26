@@ -33,7 +33,7 @@
 		"react": "^18.3.1"
 	},
 	"devDependencies": {
-		"@types/react": "^18.3.2",
+		"@types/react": "^18.3.3",
 		"colorette": "^2.0.20",
 		"rimraf": "^5.0.7",
 		"tsup": "^8.0.2",
