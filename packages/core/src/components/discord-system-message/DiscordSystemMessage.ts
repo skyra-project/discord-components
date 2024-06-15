@@ -17,7 +17,7 @@ import type { DiscordTimestamp, LightTheme } from '../../types.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			color: #8e9297;
 			display: flex;

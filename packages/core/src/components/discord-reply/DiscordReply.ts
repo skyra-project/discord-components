@@ -14,7 +14,7 @@ import type { LightTheme, Profile } from '../../types.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			color: #b9bbbe;
 			display: flex;

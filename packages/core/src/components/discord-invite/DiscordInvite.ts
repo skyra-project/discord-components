@@ -11,7 +11,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			background-color: #2f3136;
 			border-radius: 4px;

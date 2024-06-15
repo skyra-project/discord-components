@@ -8,7 +8,7 @@ import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-author-info')
 export class DiscordAuthorInfo extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			display: inline-flex;
 			align-items: center;

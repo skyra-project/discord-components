@@ -13,7 +13,7 @@ import type { DiscordMention } from '../discord-mention/DiscordMention.js';
 
 @customElement('discord-message')
 export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			color: #dcddde;
 			display: flex;

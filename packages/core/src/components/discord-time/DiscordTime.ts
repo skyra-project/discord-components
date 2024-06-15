@@ -3,7 +3,7 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-time')
 export class DiscordTime extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			background-color: #ffffff0f;
 			border-radius: 3px;

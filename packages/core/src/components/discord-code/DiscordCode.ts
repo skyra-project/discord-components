@@ -6,7 +6,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-code')
 export class DiscordCode extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			background-color: #2f3136;
 			white-space: break-spaces;

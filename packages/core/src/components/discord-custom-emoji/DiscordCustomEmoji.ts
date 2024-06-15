@@ -5,7 +5,7 @@ import type { Emoji } from '../../types.js';
 
 @customElement('discord-custom-emoji')
 export class DiscordCustomEmoji extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		.discord-custom-emoji {
 			display: inline-block;
 			cursor: pointer;

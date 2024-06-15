@@ -3,7 +3,7 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-embed-fields')
 export class DiscordEmbedFields extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			display: grid;
 			grid-column: 1/1;

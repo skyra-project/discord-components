@@ -8,7 +8,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-link')
 export class DiscordLink extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		a {
 			color: #00aff4;
 			text-decoration: none;

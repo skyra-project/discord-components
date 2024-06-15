@@ -6,7 +6,7 @@ import type { DiscordButtonProps } from '../../types.js';
 
 @customElement('discord-button')
 export class DiscordButton extends LitElement implements DiscordButtonProps {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host > *:first-child {
 			display: flex;
 			justify-content: center;

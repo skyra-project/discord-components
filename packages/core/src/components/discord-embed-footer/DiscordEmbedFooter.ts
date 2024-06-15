@@ -7,7 +7,7 @@ import type { DiscordTimestamp, LightTheme } from '../../types.js';
 
 @customElement('discord-embed-footer')
 export class DiscordEmbedFooter extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			-webkit-box-align: center;
 			align-items: center;

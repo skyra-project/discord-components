@@ -10,7 +10,7 @@ export const messagesNoBackground = createContext<boolean>('no-background');
 
 @customElement('discord-messages')
 export class DiscordMessages extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			color: #fff;
 			background-color: #36393e;

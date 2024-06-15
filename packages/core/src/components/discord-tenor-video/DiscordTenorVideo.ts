@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 @customElement('discord-tenor-video')
 export class DiscordTenorVideo extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			color: #dcddde;
 			display: flex;

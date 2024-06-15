@@ -11,7 +11,7 @@ import type { Emoji, DiscordEmbedProps, LightTheme } from '../../types.js';
 
 @customElement('discord-embed')
 export class DiscordEmbed extends LitElement implements DiscordEmbedProps, LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			color: #dcddde;
 			display: flex;

@@ -6,7 +6,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-thread')
 export class DiscordThread extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			background-color: #2f3136;
 			border-radius: 4px;

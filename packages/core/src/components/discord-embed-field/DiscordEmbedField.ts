@@ -9,7 +9,7 @@ import type { Emoji, LightTheme } from '../../types.js';
 
 @customElement('discord-embed-field')
 export class DiscordEmbedField extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			font-size: 0.875rem;
 			line-height: 1.125rem;

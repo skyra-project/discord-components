@@ -6,7 +6,7 @@ import { validateImageExtension } from '../../util.js';
 
 @customElement('discord-image-attachment')
 export class DiscordImageAttachment extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			display: block;
 			position: relative;

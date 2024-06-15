@@ -6,7 +6,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-spoiler')
 export class DiscordSpoiler extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			background-color: #202225;
 			border-radius: 3px;

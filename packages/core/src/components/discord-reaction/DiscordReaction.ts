@@ -6,7 +6,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-reaction')
 export class DiscordReaction extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host > *:first-child {
 			border-radius: 0.5rem;
 			cursor: pointer;

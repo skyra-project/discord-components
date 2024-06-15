@@ -4,7 +4,7 @@ import { DiscordComponentsError } from '../../util.js';
 
 @customElement('discord-list-item')
 export class DiscordListItem extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host > li {
 			white-space: break-spaces;
 			margin-bottom: 4px;

@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 
 @customElement('discord-header')
 export class DiscordHeader extends LitElement {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host > * {
 			margin: 16px 0 8px;
 			font-weight: 700;

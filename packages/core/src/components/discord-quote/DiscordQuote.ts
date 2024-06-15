@@ -6,7 +6,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-quote')
 export class DiscordQuote extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			display: flex;
 		}

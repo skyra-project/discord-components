@@ -11,7 +11,7 @@ import type { LightTheme, Profile } from '../../types.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {
-	public static override styles = [
+	public static override readonly styles = [
 		DiscordReply.styles,
 		css`
 			:host .discord-command-name {

@@ -15,7 +15,7 @@ import type { LightTheme } from '../../types.js';
 
 @customElement('discord-mention')
 export class DiscordMention extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			color: #e3e7f8;
 			background-color: hsla(235, 85.6%, 64.7%, 0.3);

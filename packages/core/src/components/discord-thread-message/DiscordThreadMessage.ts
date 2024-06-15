@@ -10,7 +10,7 @@ import type { LightTheme, Profile } from '../../types.js';
 
 @customElement('discord-thread-message')
 export class DiscordThreadMessage extends LitElement implements LightTheme {
-	public static override styles = css`
+	public static override readonly styles = css`
 		:host {
 			height: 18px;
 			min-width: 0;
