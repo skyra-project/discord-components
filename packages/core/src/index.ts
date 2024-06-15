@@ -4,6 +4,7 @@ import type { DiscordMessageOptions } from './types.js';
 
 export { DiscordActionRow } from './components/discord-action-row/DiscordActionRow.js';
 export { DiscordAttachments } from './components/discord-attachments/DiscordAttachments.js';
+export { DiscordAudioAttachment } from './components/discord-audio-attachment/DiscordAudioAttachment.js';
 export { DiscordAuthorInfo } from './components/discord-author-info/DiscordAuthorInfo.js';
 export { DiscordBold } from './components/discord-bold/DiscordBold.js';
 export { DiscordButton } from './components/discord-button/DiscordButton.js';
