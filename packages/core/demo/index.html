@@ -290,6 +290,15 @@
 						<discord-image-attachment slot="attachments" url="/demo/static/lit.png" height="100" width="100" alt="lit-logo" />
 					</discord-message>
 				</discord-messages>
+				<h3 class="title">Image Attachments with custom image components (you can see this in the code only)</h3>
+				<discord-messages>
+					<discord-message profile="favna">
+						This has a custom image component!
+						<discord-image-attachment slot="attachments" custom-image-element>
+							<img src="/demo/static/lit.png" height="100" width="100" alt="lit-logo" />
+						</discord-image-attachment>
+					</discord-message>
+				</discord-messages>
 				<h3 class="title">Image Attachments with large images</h3>
 				<discord-messages>
 					<discord-message profile="favna">
