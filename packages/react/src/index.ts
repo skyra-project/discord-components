@@ -16,6 +16,7 @@ export const DiscordEmbedDescription = createReactComponent('discord-embed-descr
 export const DiscordEmbedField = createReactComponent('discord-embed-field', ReactComponents.DiscordEmbedField);
 export const DiscordEmbedFields = createReactComponent('discord-embed-fields', ReactComponents.DiscordEmbedFields);
 export const DiscordEmbedFooter = createReactComponent('discord-embed-footer', ReactComponents.DiscordEmbedFooter);
+export const DiscordFileAttachment = createReactComponent('discord-file-attachment', ReactComponents.DiscordFileAttachment);
 export const DiscordHeader = createReactComponent('discord-header', ReactComponents.DiscordHeader);
 export const DiscordImageAttachment = createReactComponent('discord-image-attachment', ReactComponents.DiscordImageAttachment);
 export const DiscordInvite = createReactComponent('discord-invite', ReactComponents.DiscordInvite);
