@@ -55,13 +55,18 @@ export class DiscordImageAttachment extends LitElement {
 	public accessor alt = 'discord image attachment';
 
 	/**
-	 * A custom image element, useful if you want to use something like
+	 * Indicates that you intend to use a custom image element,
+	 * useful if you want to use something like
 	 * {@link https://nextjs.org/docs/pages/api-reference/components/image `next/image`}
 	 *
-	 * Note that all other properties will be ignored if this is set
+	 * Once this property is set, use the child element (default slot) to insert
+	 * the code for the desired image component
+	 *
+	 * @note Setting this will disable the
+	 * {@link DiscordImageAttachment.url `url`}, and {@link DiscordImageAttachment.alt `alt`} properties.
 	 */
-	@property({ attribute: false })
-	public accessor customImageElement: HTMLElement;
+	@property({ type: Boolean, attribute: 'message-body-only' })
+	public accessor customImageElement = false;
 
 	public componentWillRender() {
 		if (!this.customImageElement) {
@@ -74,8 +79,8 @@ export class DiscordImageAttachment extends LitElement {
 			<div class="discord-image-attachment">
 				<div class="discord-image-wrapper" style="${styleMap({ height: `${this.height}px`, width: `${this.width}px` })}">
 					${when(
-						Boolean(this.customImageElement),
-						() => this.customImageElement,
+						this.customImageElement,
+						() => html`<slot></slot>`,
 						() => html`<img alt="${this.alt}" src="${this.url}" height="${this.height}" width="${this.width}" />`
 					)}
 				</div>
@@ -86,6 +91,6 @@ export class DiscordImageAttachment extends LitElement {
 
 declare global {
 	interface HTMLElementTagNameMap {
-		'discord-attachment': DiscordImageAttachment;
+		'discord-image-attachment': DiscordImageAttachment;
 	}
 }
