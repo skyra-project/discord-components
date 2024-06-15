@@ -2,6 +2,7 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
 import { handleTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
@@ -19,7 +20,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			flex-direction: column;
 			font-size: 0.9em;
 			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-			padding: 0px 1em;
 
 			position: relative;
 			word-wrap: break-word;
@@ -30,9 +30,9 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			-webkit-box-flex: 0;
 			-ms-flex: 0 0 auto;
 			flex: 0 0 auto;
-			padding-right: 0;
 			min-height: 1.375rem;
-			padding-right: 48px !important;
+			padding-left: 1em;
+			padding-right: 48px;
 			margin-top: inherit;
 			margin-bottom: inherit;
 		}
@@ -43,6 +43,12 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			-webkit-box-flex: 0;
 			-ms-flex: 0 0 auto;
 			flex: 0 0 auto;
+		}
+
+		:host([message-body-only]) {
+			margin-top: 0px !important;
+			padding-top: 0.125rem !important;
+			padding-bottom: 0.0625rem !important;
 		}
 
 		:host([highlight]),
@@ -101,6 +107,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			margin-top: 5px;
 			min-width: 40px;
 			z-index: 1;
+			display: flex;
 		}
 
 		.discord-author-avatar img {
@@ -114,6 +121,10 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			color: #72767d;
 			font-size: 12px;
 			margin-left: 3px;
+		}
+
+		.discord-message-body-only-indent {
+			width: 56px;
 		}
 
 		:host([light-theme]) .discord-message-timestamp {
@@ -331,6 +342,9 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	@property({ type: Boolean, attribute: 'twenty-four' })
 	public accessor twentyFour = false;
 
+	@property({ type: Boolean, attribute: 'message-body-only' })
+	public accessor messageBodyOnly = false;
+
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
@@ -381,33 +395,49 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		return html`
 			<slot name="reply"></slot>
 			<div class="discord-message-inner">
-				${this.compactMode ? html`<span class="discord-message-timestamp">${computedTimestamp}</span>` : null}
-				${this.compactMode
-					? null
-					: html`<div class="discord-author-avatar">
+				${when(
+					this.compactMode,
+					() => html`<span class="discord-message-timestamp">${computedTimestamp}</span>`,
+					() => null
+				)}
+				${when(
+					this.messageBodyOnly,
+					() => html`<span class="discord-message-timestamp discord-message-body-only-indent"></span>`,
+					() => null
+				)}
+				${when(
+					this.compactMode || this.messageBodyOnly,
+					() => null,
+					() =>
+						html`<div class="discord-author-avatar">
 							<img src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />
-						</div>`}
+						</div>`
+				)}
 
 				<div class="discord-message-content">
-					${this.compactMode
-						? null
-						: html`
-								<discord-author-info
-									author=${profile.author ?? ''}
-									?bot=${profile.bot ?? false}
-									?server=${profile.server ?? false}
-									?verified=${profile.verified ?? false}
-									?op=${profile.op ?? false}
-									roleColor=${profile.roleColor ?? ''}
-									roleIcon=${profile.roleIcon ?? ''}
-									roleName=${profile.roleName ?? ''}
-									?compact=${false}
-								></discord-author-info
-								><span class="discord-message-timestamp">${computedTimestamp}</span>
-							`}
+					${when(
+						this.compactMode || this.messageBodyOnly,
+						() => null,
+						() => html`
+							<discord-author-info
+								author=${profile.author ?? ''}
+								?bot=${profile.bot ?? false}
+								?server=${profile.server ?? false}
+								?verified=${profile.verified ?? false}
+								?op=${profile.op ?? false}
+								roleColor=${profile.roleColor ?? ''}
+								roleIcon=${profile.roleIcon ?? ''}
+								roleName=${profile.roleName ?? ''}
+								?compact=${false}
+							></discord-author-info
+							><span class="discord-message-timestamp">${computedTimestamp}</span>
+						`
+					)}
 					<div class="discord-message-body">
-						${this.compactMode
-							? html`<discord-author-info
+						${when(
+							this.compactMode,
+							() =>
+								html`<discord-author-info
 									author=${profile.author ?? ''}
 									?bot=${profile.bot ?? false}
 									?server=${profile.server ?? false}
@@ -417,9 +447,14 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 									roleIcon=${profile.roleIcon ?? ''}
 									roleName=${profile.roleName ?? ''}
 									?compact=${true}
-								></discord-author-info>`
-							: null}<span class="discord-message-markup"><slot></slot></span>
-						${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : null}
+								></discord-author-info>`,
+							() => null
+						)}<span class="discord-message-markup"><slot></slot></span>
+						${when(
+							this.edited,
+							() => html`<span class="discord-message-edited">(edited)</span>`,
+							() => null
+						)}
 					</div>
 					<div class="discord-message-compact-indent">
 						<slot name="embeds"></slot>
@@ -427,14 +462,16 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 						<slot name="components"></slot>
 						<slot name="reactions"></slot>
 						<slot name="thread"></slot>
-						${this.ephemeral
-							? html`
-									<div class="discord-message-ephemeral">
-										${Ephemeral()} Only you can see this •
-										<span class="discord-message-ephemeral-link">Dismiss message</span>
-									</div>
-								`
-							: null}
+						${when(
+							this.ephemeral,
+							() => html`
+								<div class="discord-message-ephemeral">
+									${Ephemeral()} Only you can see this •
+									<span class="discord-message-ephemeral-link">Dismiss message</span>
+								</div>
+							`,
+							() => null
+						)}
 					</div>
 				</div>
 			</div>

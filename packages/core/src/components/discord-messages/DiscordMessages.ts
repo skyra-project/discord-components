@@ -31,6 +31,11 @@ export class DiscordMessages extends LitElement implements LightTheme {
 			background-color: unset;
 		}
 
+		::slotted(*) {
+			padding-top: 0.125rem;
+			padding-bottom: 0.125rem;
+		}
+
 		::slotted(*:first-child) {
 			margin-top: 0.5rem;
 		}
