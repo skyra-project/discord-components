@@ -140,7 +140,7 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 	 * 'KB'
 	 * ```
 	 */
-	@property()
+	@property({ attribute: 'bytes-unit' })
 	public accessor bytesUnit: string;
 
 	/**
