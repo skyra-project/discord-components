@@ -6,10 +6,16 @@
     - [Default font](#default-font)
     - [Whitney font](#whitney-font)
     - [Frameworkless usage](#frameworkless-usage)
+    - [Configuration](#configuration)
     - [Component changes](#component-changes)
+      - [`discord-attachment`](#discord-attachment)
+      - [`discord-file-attachment`](#discord-file-attachment)
       - [`discord-inline-code`](#discord-inline-code)
       - [`discord-code`](#discord-code)
       - [`discord-header`](#discord-header)
+      - [`discord-unordered-list`](#discord-unordered-list)
+      - [`discord-ordered-list`](#discord-ordered-list)
+      - [`discord-list-item`](#discord-list-item)
 
 In version 4.x of @skyra/discord-components-core, the library has been rewritten
 from from [StencilJS](https://stenciljs.com) to [Lit]. This means that this
@@ -130,7 +136,7 @@ is not always available and it may not be possible to use
 
 ### Component changes
 
-#### `discord-attachment
+#### `discord-attachment`
 
 1. The `discord-attachment` component has been renamed to
    `discord-image-attachment` to better reflect its purpose, and set it apart
@@ -144,7 +150,12 @@ is not always available and it may not be possible to use
 #### `discord-file-attachment`
 
 The `discord-file-attachment` has been added to allow showing an attachment of a
-random other file whose file extension is not recognised, for example `.zip`
+random other file whose file extension is not recognised, for example `.zip`.
+Note that text based files (like `.txt`) will _not_ render a preview of that
+file like they would on Discord. This would require the library to read the
+file, which is either an async request or reading from a file system, the latter
+is not possible in a web environment, and the former is asking for problems such
+as CORS errors or authentication issues.
 
 #### `discord-inline-code`
 
