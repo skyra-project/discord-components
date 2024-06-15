@@ -1,5 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { when } from 'lit/directives/when.js';
 import { DiscordComponentsError } from '../../util.js';
 import LaunchIcon from '../svgs/LaunchIcon.js';
 import type { DiscordButtonProps } from '../../types.js';
@@ -137,18 +139,18 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 		const isActive = this.url && !this.disabled;
 
 		const content = html`
-			${this.emoji ? html`<img src=${this.emoji} alt=${this.emojiName} draggable="true" class="emoji" />` : null}
+			${when(this.emoji, () => html`<img src=${this.emoji} alt=${this.emojiName} draggable="true" class="emoji" />`)}
 			<span>
 				<slot></slot>
 			</span>
-			${this.url ? html`${LaunchIcon()}` : null}
+			${when(this.url, () => LaunchIcon())}
 		`;
 
 		if (isActive) {
 			return html`<a class="secondary" href=${this.url} target="_blank" rel="noopener noreferrer"> ${content} </a>`;
 		}
 
-		return html`<div class=${`${this.type} ${this.disabled ? 'disabled' : 'hoverable'}`}>${content}</div>`;
+		return html`<div class=${classMap({ [this.type]: true, disabled: this.disabled, hoverable: !this.disabled })}>${content}</div>`;
 	}
 }
 

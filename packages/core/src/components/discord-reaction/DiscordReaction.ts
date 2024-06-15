@@ -1,6 +1,7 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { LightTheme } from '../../types.js';
 
@@ -123,7 +124,7 @@ export class DiscordReaction extends LitElement implements LightTheme {
 
 	protected override render() {
 		return html`<div class="discord-reaction-inner" @click=${this.handleReactionClick} @keydown=${this.handleReactionClick}>
-			<img src="${this.emoji}" alt="${this.name}" draggable="false" />
+			<img src=${ifDefined(this.emoji)} alt=${ifDefined(this.name)} draggable="false" />
 			<span class="discord-reaction-count">${this.count}</span>
 		</div>`;
 	}

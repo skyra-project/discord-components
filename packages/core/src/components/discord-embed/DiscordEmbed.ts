@@ -4,6 +4,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
+import { when } from 'lit/directives/when.js';
 import { getGlobalEmojiUrl } from '../../util.js';
 import '../discord-custom-emoji/DiscordCustomEmoji.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -317,30 +318,44 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			<div class="discord-embed-root">
 				<div class="discord-embed-wrapper">
 					<div class="discord-embed-grid">
-						${this.provider ? html`<div class="discord-embed-provider">${this.provider}</div>` : null}
-						${emojiParsedAuthorName
-							? html`<div class="discord-embed-author">
-									${this.authorImage ? html`<img src="${this.authorImage}" alt="" class="discord-author-image" />` : null}
-									${this.authorUrl
-										? html`<a href="${this.authorUrl}" target="_blank" rel="noopener noreferrer"> ${emojiParsedAuthorName} </a> `
-										: html`${emojiParsedAuthorName}`}
+						${when(this.provider, () => html`<div class="discord-embed-provider">${this.provider}</div>`)}
+						${when(
+							emojiParsedAuthorName,
+							() =>
+								html`<div class="discord-embed-author">
+									${when(
+										this.authorImage,
+										() => html`<img src=${ifDefined(this.authorImage)} alt="" class="discord-author-image" />`
+									)}
+									${when(
+										this.authorUrl,
+										() =>
+											html`<a href=${ifDefined(this.authorUrl)} target="_blank" rel="noopener noreferrer">
+												${emojiParsedAuthorName}
+											</a>`,
+										() => html`${emojiParsedAuthorName}`
+									)}
 								</div>`
-							: null}
-						${emojiParsedEmbedTitle
-							? html`<div class="discord-embed-title">
+						)}
+						${when(
+							emojiParsedEmbedTitle,
+							() =>
+								html`<div class="discord-embed-title">
 									${this.url
 										? html`<a href="${this.url}" target="_blank" rel="noopener noreferrer"> ${emojiParsedEmbedTitle} </a>`
 										: html`${emojiParsedEmbedTitle}`}
 								</div>`
-							: null}
-						${this.hasProvidedDescriptionSlot ? html`<slot name="description"></slot>` : null}
+						)}
+						${when(this.hasProvidedDescriptionSlot, () => html`<slot name="description"></slot>`)}
 						<slot name="fields"></slot>
-						${this.image || this.video
-							? html`<div class=${classMap({ 'discord-embed-media': true, 'discord-embed-media-video': Boolean(this.video) })}>
+						${when(
+							this.image || this.video,
+							() =>
+								html`<div class=${classMap({ 'discord-embed-media': true, 'discord-embed-media-video': Boolean(this.video) })}>
 									${this.renderMedia()}
 								</div>`
-							: null}
-						${this.thumbnail ? html`<img src=${this.thumbnail} alt="" class="discord-embed-thumbnail" />` : null}
+						)}
+						${when(this.thumbnail, () => html`<img src=${ifDefined(this.thumbnail)} alt="" class="discord-embed-thumbnail" />`)}
 						<slot name="footer"></slot>
 					</div>
 				</div>
@@ -350,13 +365,22 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	private renderMedia() {
 		if (this.video) {
 			return html`
-				<video controls muted preload="none" poster="${this.image}" src="${this.video}" height="225" width="400" class="discord-embed-video">
-					<img src="${this.image}" alt="Discord embed media" class="discord-embed-image" />
+				<video
+					controls
+					muted
+					preload="none"
+					poster=${ifDefined(this.image)}
+					src=${ifDefined(this.video)}
+					height="225"
+					width="400"
+					class="discord-embed-video"
+				>
+					<img src=${ifDefined(this.image)} alt="Discord embed media" class="discord-embed-image" />
 				</video>
 			`;
 		}
 		if (this.image) {
-			return html`<img src="${this.image}" alt="Discord embed media" class="discord-embed-image" />`;
+			return html`<img src=${ifDefined(this.image)} alt="Discord embed media" class="discord-embed-image" />`;
 		}
 
 		return null;

@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { getGlobalEmojiUrl } from '../../util.js';
 import type { Emoji } from '../../types.js';
 
@@ -78,7 +79,7 @@ export class DiscordCustomEmoji extends LitElement {
 		const emojiImageClassName = this.embedEmoji ? 'discord-embed-custom-emoji-image' : 'discord-custom-emoji-image';
 
 		return html`<span class="${emojiClassName}"
-			><img aria-label="${name}" src="${this.url}" alt="${name}" draggable="false" class="${emojiImageClassName}"
+			><img aria-label=${name} src=${ifDefined(this.url)} alt=${name} draggable="false" class="${emojiImageClassName}"
 		/></span> `;
 	}
 }

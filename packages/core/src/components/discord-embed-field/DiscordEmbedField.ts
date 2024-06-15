@@ -2,6 +2,7 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { when } from 'lit/directives/when.js';
 import { getGlobalEmojiUrl } from '../../util.js';
 import '../discord-custom-emoji/DiscordCustomEmoji.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -85,8 +86,12 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 
 		const emojiParsedEmbedFieldTitle = this.parseTitle(this.fieldTitle);
 
-		return html`${emojiParsedEmbedFieldTitle ? html`<div class="discord-field-title">${[...emojiParsedEmbedFieldTitle]}</div>` : null}
-			<slot></slot>`;
+		const component = when(
+			emojiParsedEmbedFieldTitle,
+			() => html`<div class="discord-field-title">${[...(emojiParsedEmbedFieldTitle as NonNullable<typeof emojiParsedEmbedFieldTitle>)]}</div>`
+		);
+
+		return html`${component}<slot></slot>`;
 	}
 
 	private parseTitle(title?: string) {

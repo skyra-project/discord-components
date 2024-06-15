@@ -311,6 +311,15 @@ export class DiscordReply extends LitElement implements LightTheme {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
 
+		const profileTag = html`
+			${when(
+				profile.bot && !profile.server,
+				() => html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}App</span>`
+			)}
+			${when(profile.server && !profile.bot, () => html`<span class="discord-application-tag">Server</span>`)}
+			${when(profile.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
+		`;
+
 		return html`${when(
 			this.compactMode || this.deleted,
 			() => html`<div class="discord-reply-badge">${ReplyIcon()}</div>`,
@@ -320,24 +329,20 @@ export class DiscordReply extends LitElement implements LightTheme {
 			this.deleted,
 			() => html`<div class="discord-replied-deleted-message-content"><em>Original message was deleted</em></div>`,
 			() =>
-				html`${html`
-						${profile.bot && !profile.server
-							? html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}App</span>`
-							: null}
-						${profile.server && !profile.bot ? html`<span class="discord-application-tag">Server</span>` : ''}
-						${profile.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : ''}
-					`}
+				html`${profileTag}
 					<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
-						>${this.mentions ? '@' : ''}${profile.author}</span
+						>${when(this.mentions, () => '@')}${profile.author}</span
 					>
 					<!-- display: inline -->
 					<div class="discord-replied-message-content"
-						><slot></slot>${this.edited ? html`<span class="discord-message-edited">(edited)</span>` : ''}</div
+						><slot></slot>${when(this.edited, () => html`<span class="discord-message-edited">(edited)</span>`)}</div
 					>
-					${this.command
-						? CommandReply({ class: 'discord-replied-message-content-icon' })
-						: html`${this.attachment ? AttachmentReply({ class: 'discord-replied-message-content-icon' }) : ''}`}`
-		)} `;
+					${when(
+						this.command,
+						() => CommandReply({ class: 'discord-replied-message-content-icon' }),
+						() => when(this.attachment, () => AttachmentReply({ class: 'discord-replied-message-content-icon' }))
+					)}}`
+		)}`;
 	}
 }
 

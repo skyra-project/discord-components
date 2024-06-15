@@ -1,6 +1,8 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { when } from 'lit/directives/when.js';
 import { handleTimestamp } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { DiscordTimestamp, LightTheme } from '../../types.js';
@@ -78,11 +80,17 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	protected override render() {
 		this.updateTimestamp(this.timestamp);
 
-		return html`${this.footerImage ? html`<img src="${this.footerImage}" alt="${this.footerImageAlt}" class="discord-footer-image" />` : null}
-		${html`
+		return html`${when(
+				this.footerImage,
+				() => html`<img src=${ifDefined(this.footerImage)} alt=${ifDefined(this.footerImageAlt)} class="discord-footer-image" />`
+			)}
 			<slot></slot>
-			${this.timestamp ? html`<span class="discord-footer-separator">&bull;</span>` : null} ${this.timestamp ? html`${this.timestamp}` : null}
-		`}`;
+			${when(this.timestamp, () => html`<span class="discord-footer-separator">&bull;</span>`)}
+			${when(
+				this.timestamp,
+				() => ` ${this.timestamp}`,
+				() => null
+			)}`;
 	}
 }
 

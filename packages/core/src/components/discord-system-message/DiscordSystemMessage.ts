@@ -1,6 +1,7 @@
 import { consume } from '@lit/context';
-import { css, html, LitElement, type TemplateResult } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { choose } from 'lit/directives/choose.js';
 import { handleTimestamp } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import Boost from '../svgs/Boost.js';
@@ -185,42 +186,20 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 		this.timestamp = handleTimestamp(this.timestamp);
 		this.checkType();
 
-		let icon: TemplateResult<1>;
-
-		switch (this.type) {
-			case 'join':
-				icon = UserJoin();
-				break;
-			case 'leave':
-				icon = UserLeave();
-				break;
-			case 'call':
-				icon = DMCall();
-				break;
-			case 'missed-call':
-				icon = DMMissedCall();
-				break;
-			case 'edit':
-				icon = DMEdit();
-				break;
-			case 'boost':
-				icon = Boost();
-				break;
-			case 'thread':
-				icon = Thread();
-				break;
-			case 'pin':
-				icon = Pin();
-				break;
-			case 'alert':
-				icon = SystemAlert();
-				break;
-			case 'error':
-				icon = SystemError();
-				break;
-		}
-
-		return html`<div class="discord-message-icon">${icon}</div>
+		return html`<div class="discord-message-icon">
+				${choose(this.type, [
+					['join', () => UserJoin()],
+					['leave', () => UserLeave()],
+					['call', () => DMCall()],
+					['missed-call', () => DMMissedCall()],
+					['edit', () => DMEdit()],
+					['boost', () => Boost()],
+					['thread', () => Thread()],
+					['pin', () => Pin()],
+					['alert', () => SystemAlert()],
+					['error', () => SystemError()]
+				])}
+			</div>
 			<div class="discord-message-content">
 				<span>
 					<slot></slot>

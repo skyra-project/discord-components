@@ -3,6 +3,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
+import { when } from 'lit/directives/when.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 
@@ -153,25 +154,41 @@ export class DiscordAuthorInfo extends LitElement {
 	public accessor lightTheme = false;
 
 	protected override render() {
-		return html`${this.compactMode
-			? null
-			: html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`}
-		${this.roleIcon && !this.compactMode
-			? html`<img
+		return html`${when(
+			this.compactMode,
+			() => null,
+			() => html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor ?? undefined })}">${this.author}</span>`
+		)}
+		${when(
+			this.roleIcon && !this.compactMode,
+			() =>
+				html`<img
 					class="discord-author-role-icon"
-					src=${this.roleIcon}
+					src=${ifDefined(this.roleIcon)}
 					height="20"
 					width="20"
 					alt=${ifDefined(this.roleName)}
 					draggable="false"
 				/>`
-			: null}
-		${this.bot && !this.server ? html`<span class="discord-application-tag">${this.verified ? VerifiedTick() : null} App</span>` : null}
-		${this.server && !this.bot ? html`<span class="discord-application-tag">Server</span>` : null}
-		${this.op ? html`<span class="discord-application-tag discord-application-tag-op">OP</span>` : null}
-		${this.compactMode
-			? html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor || undefined })}">${this.author}</span>`
-			: null}`;
+		)}
+		${when(
+			this.bot && !this.server,
+			() =>
+				html`<span class="discord-application-tag"
+					>${when(
+						this.verified,
+						() => VerifiedTick(),
+						() => null
+					)}
+					App</span
+				>`
+		)}
+		${when(this.server && !this.bot, () => html`<span class="discord-application-tag">Server</span>`)}
+		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
+		${when(
+			this.compactMode,
+			() => html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor ?? undefined })}">${this.author}</span>`
+		)}`;
 	}
 }
 

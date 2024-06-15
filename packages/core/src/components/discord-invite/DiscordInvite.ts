@@ -2,6 +2,7 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { when } from 'lit/directives/when.js';
 import { defaultDiscordAvatars } from '../../config.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import GuildBadge from '../svgs/GuildBadge.js';
@@ -261,11 +262,13 @@ export class DiscordInvite extends LitElement implements LightTheme {
 	protected override render() {
 		return html`<div class="discord-invite-header">${this.inviteTitle}</div>
 			<div class="discord-invite-root">
-				<img class="discord-invite-icon" src="${ifDefined(this.icon)}" alt="${this.name}" />
+				<img class="discord-invite-icon" src=${ifDefined(this.icon)} alt=${ifDefined(this.name)} />
 				<div class="discord-invite-info">
 					<div class="discord-invite-title">
-						${(this.verified && !this.partnered) || (!this.verified && this.partnered)
-							? html`<div class="discord-invite-badge">
+						${when(
+							(this.verified && !this.partnered) || (!this.verified && this.partnered),
+							() =>
+								html`<div class="discord-invite-badge">
 									${GuildBadge({
 										'aria-label': this.partnered ? 'Discord Partner' : 'Verified',
 										class: `discord-invite-badge-${this.partnered ? 'partnered' : 'verified'}`
@@ -274,7 +277,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 										${this.partnered ? PartnerBadgeOverlay() : VerifiedBadgeOverlay()}
 									</div>
 								</div>`
-							: null}
+						)}
 						<span class="discord-invite-name">${this.name}</span>
 					</div>
 					<div class="discord-invite-counts">
@@ -284,7 +287,7 @@ export class DiscordInvite extends LitElement implements LightTheme {
 						<span class="discord-invite-count">${this.members.toLocaleString()} Members</span>
 					</div>
 				</div>
-				<a class="discord-invite-join" href="${this.url}" target="_blank" rel="noopener noreferrer"> ${this.joinBtn} </a>
+				<a class="discord-invite-join" href=${ifDefined(this.url)} target="_blank" rel="noopener noreferrer">${this.joinBtn}</a>
 			</div>`;
 	}
 }

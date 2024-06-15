@@ -1,6 +1,7 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { choose } from 'lit/directives/choose.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ChannelForum from '../svgs/ChannelForum.js';
@@ -159,42 +160,21 @@ export class DiscordMention extends LitElement implements LightTheme {
 	}
 
 	protected override render() {
-		let mentionPrepend: ReturnType<typeof html>;
-		switch (this.type) {
-			case 'channel':
-				mentionPrepend = html`${ChannelIcon()}`;
-				break;
-			case 'user':
-			case 'role':
-				mentionPrepend = html`@`;
-				break;
-			case 'voice':
-				mentionPrepend = html`${VoiceChannel()}`;
-				break;
-			case 'locked':
-				mentionPrepend = html`${LockedVoiceChannel()}`;
-				break;
-			case 'thread':
-				mentionPrepend = html`${ChannelThread()}`;
-				break;
-			case 'forum':
-				mentionPrepend = html`${ChannelForum()}`;
-				break;
-			case 'server-guide':
-				mentionPrepend = html`${ServerGuide()}`;
-				break;
-			case 'channels-and-roles':
-				mentionPrepend = html`${ChannelsAndRoles()}`;
-				break;
-			case 'customize-community':
-				mentionPrepend = html`${CustomizeCommunity()}`;
-				break;
-			case 'slash':
-				mentionPrepend = html`/`;
-				break;
-		}
-
-		return html`<span class="no-wrap">${mentionPrepend}</span><slot></slot>`;
+		return html`<span class="no-wrap"
+				>${choose(this.type, [
+					['channel', () => ChannelIcon()],
+					['user', () => html`@`],
+					['role', () => html`@`],
+					['voice', () => VoiceChannel()],
+					['locked', () => LockedVoiceChannel()],
+					['thread', () => ChannelThread()],
+					['forum', () => ChannelForum()],
+					['server-guide', () => ServerGuide()],
+					['channels-and-roles', () => ChannelsAndRoles()],
+					['customize-community', () => CustomizeCommunity()],
+					['slash', () => html`/`]
+				])}</span
+			><slot></slot>`;
 	}
 }
 

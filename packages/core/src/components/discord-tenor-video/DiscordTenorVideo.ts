@@ -61,12 +61,8 @@ export class DiscordTenorVideo extends LitElement {
 
 	protected override render() {
 		return html`
-			<div
-				class="discord-tenor-video-wrapper"
-				height=${ifDefined(this.height ? `${this.height}px` : undefined)}
-				width=${ifDefined(this.width ? `${this.width}px` : undefined)}
-			>
-				<video preload="auto" autoplay loop src="${this.url}" height="${ifDefined(this.height)}" width="${ifDefined(this.width)}"></video>
+			<div class="discord-tenor-video-wrapper" height=${ifDefined(this.height)} width=${ifDefined(this.width)}>
+				<video preload="auto" autoplay loop src=${this.url} height=${ifDefined(this.height)} width=${ifDefined(this.width)}></video>
 			</div>
 		`;
 	}

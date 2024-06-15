@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { choose } from 'lit/directives/choose.js';
 
 @customElement('discord-header')
 export class DiscordHeader extends LitElement {
@@ -55,20 +56,15 @@ export class DiscordHeader extends LitElement {
 		this.ensureLevelIsNumber();
 		this.checkLevel();
 
-		switch (this.level) {
-			case 1: {
-				return html`<h1><slot></slot></h1>`;
-			}
-			case 2: {
-				return html`<h2><slot></slot></h2>`;
-			}
-			case 3: {
-				return html`<h3><slot></slot></h3>`;
-			}
-			default: {
-				return html`<slot></slot>`;
-			}
-		}
+		return choose(
+			this.level,
+			[
+				[1, () => html`<h1><slot></slot></h1>`],
+				[2, () => html`<h2><slot></slot></h2>`],
+				[3, () => html`<h3><slot></slot></h3>`]
+			],
+			() => html`<slot></slot>`
+		);
 	}
 }
 
