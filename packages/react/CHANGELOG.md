@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.20](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.19...v4.0.0-alpha.20) (2024-06-15)
+
+### Features
+
+* add file attachment support ([9e4bebd](https://github.com/skyra-project/discord-components/commit/9e4bebd50078ca2b0cc2a1fb1d6c6ae99da4065d)), closes [#258](https://github.com/skyra-project/discord-components/issues/258) (@favna)
+* add support for custom image attachments ([dc95f8b](https://github.com/skyra-project/discord-components/commit/dc95f8b2c5726665d9d26180eb83dd89dedc5c88)), closes [#251](https://github.com/skyra-project/discord-components/issues/251) (@favna)
+
 # [4.0.0-alpha.19](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.18...v4.0.0-alpha.19) (2024-06-15)
 
 **Note:** Version bump only for package @skyra/discord-components-react
