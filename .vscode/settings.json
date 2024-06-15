@@ -1,7 +1,6 @@
 {
 	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"javascript.preferences.importModuleSpecifierEnding": "js",
-	"path-intellisense.extensionOnImport": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "never"
 	}
