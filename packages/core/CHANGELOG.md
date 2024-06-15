@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.19](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.18...v4.0.0-alpha.19) (2024-06-15)
+
+### Features
+
+* **discord-message:** add `message-body-only` to allow for chained messages from same author ([0381bee](https://github.com/skyra-project/discord-components/commit/0381bee2dfa5b83fb8f9dc7e9c30423defe0bd2c)), closes [#407](https://github.com/skyra-project/discord-components/issues/407) (@favna)
+
 # [4.0.0-alpha.18](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.17...v4.0.0-alpha.18) (2024-04-20)
 
 ### Bug Fixes
