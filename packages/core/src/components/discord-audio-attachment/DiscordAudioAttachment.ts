@@ -619,7 +619,6 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 	// #endregion
 
 	// #region refs
-	private audioPlayerContainer: Ref<HTMLDivElement> = createRef();
 	private audioRef: Ref<HTMLAudioElement> = createRef();
 	private seekSliderRef: Ref<HTMLInputElement> = createRef();
 	// #endregion
@@ -645,7 +644,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 	}
 
 	private displayBufferedAmount() {
-		if (this.audioRef.value && this.audioPlayerContainer.value && this.seekSliderRef.value) {
+		if (this.audioRef.value && this.seekSliderRef.value) {
 			this.displayAudioDuration();
 
 			const newBufferedAmount = this.audioRef.value.buffered.length - 1;
@@ -657,7 +656,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 	}
 
 	private whilePlaying = () => {
-		if (this.audioRef.value && this.audioPlayerContainer.value && this.seekSliderRef.value) {
+		if (this.audioRef.value && this.seekSliderRef.value) {
 			this.seekSliderRef.value.value = Math.floor(this.audioRef.value.currentTime).toString();
 			const bufferedAmount = Number(this.seekSliderRef.value.value);
 			this.currentPlaybackPosition = this.calculateTime(bufferedAmount);
@@ -694,9 +693,8 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 
 	private handleSeekSliderInput(event: Event) {
 		const typedEventTarget = event.target as HTMLInputElement;
-		if (this.audioPlayerContainer.value) {
-			this.style.setProperty('--seek-before-width', `${(Number(typedEventTarget.value) / Number(typedEventTarget.max)) * 100}%`);
-		}
+
+		this.style.setProperty('--seek-before-width', `${(Number(typedEventTarget.value) / Number(typedEventTarget.max)) * 100}%`);
 
 		if (this.seekSliderRef.value) {
 			this.currentPlaybackPosition = this.calculateTime(Number(this.seekSliderRef.value.value));
@@ -720,7 +718,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 		const typedEventTarget = event.target as HTMLInputElement;
 		const { value } = typedEventTarget;
 
-		if (this.audioRef.value && this.audioPlayerContainer.value) {
+		if (this.audioRef.value) {
 			const newVolume = Number(value) / 100;
 
 			this.currentVolumne = newVolume;
@@ -788,16 +786,14 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 								</div>
 							</div>
 						</div>
-						<div ${ref(this.audioPlayerContainer)}>
-							<audio
-								${ref(this.audioRef)}
-								class="discord-audio-attachment-audio-element"
-								preload="metadata"
-								@progress=${this.displayBufferedAmount}
-							>
-								<source src=${ifDefined(this.href)} />
-							</audio>
-						</div>
+						<audio
+							${ref(this.audioRef)}
+							class="discord-audio-attachment-audio-element"
+							preload="metadata"
+							@progress=${this.displayBufferedAmount}
+						>
+							<source src=${ifDefined(this.href)} />
+						</audio>
 						<div class="discord-audio-attachment-controls" style="transform: translateY(0%)">
 							${/* eslint-disable lit-a11y/click-events-have-key-events */ html``}
 							<div
