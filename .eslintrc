@@ -24,6 +24,7 @@
 	"plugins": ["import"],
 	"rules": {
 		"@typescript-eslint/member-ordering": "off",
+		"@typescript-eslint/unbound-method": "off",
 		"no-extra-label": "warn",
 		"no-iterator": "warn",
 		"no-label-var": "warn",
