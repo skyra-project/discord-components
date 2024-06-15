@@ -30,6 +30,10 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			padding-top: 0.125rem;
 			padding-bottom: 0.125rem;
 			position: relative;
+
+			--seek-before-width: 0%;
+			--volume-before-width: 100%;
+			--buffered-width: 0%;
 		}
 
 		.discord-audio-attachment-non-visual-media-item-container {
@@ -114,12 +118,6 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
-		}
-
-		.discord-audio-attachment-css-variables-container {
-			--seek-before-width: 0%;
-			--volume-before-width: 100%;
-			--buffered-width: 0%;
 		}
 
 		.discord-audio-attachment-audio-element {
@@ -503,22 +501,24 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			box-sizing: content-box;
 			background-color: hsl(0 calc(1 * 0%) 0% / 1);
 			margin: -5px 0 0 0;
+			z-index: 4;
 		}
 
 		input[type='range']:active::-webkit-slider-thumb {
 			transform: scale(1.2);
-			background: #007db5;
+			filter: brightness(85%);
 		}
 
 		input[type='range']::-moz-range-track {
-			width: 100%;
-			height: 3px;
+			width: 2.47264%;
+			height: 100%;
 			cursor: pointer;
-			background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+			opacity: 1;
+			background: linear-gradient(to right, hsl(199 100% calc(1 * 69%) / 1) var(--buffered-width));
 		}
 
 		input[type='range']::-moz-range-progress {
-			background-color: #007db5;
+			background-color: hsl(199 100% calc(1 * 69%) / 1);
 		}
 
 		input[type='range']::-moz-focus-outer {
@@ -526,50 +526,25 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 		}
 
 		input[type='range']::-moz-range-thumb {
-			box-sizing: content-box;
-			border: 1px solid #007db5;
-			height: 15px;
-			width: 15px;
 			border-radius: 50%;
-			background-color: #fff;
+			position: relative;
 			cursor: pointer;
+			line-height: 18px;
+			text-align: center;
+			font-weight: 600;
+			font-size: 12px;
+			opacity: 1;
+			transition: opacity.2s ease-out;
+			pointer-events: none;
+			-webkit-appearance: none;
+			box-sizing: content-box;
+			background: #007db5;
+			margin: -5px 0 0 0;
 		}
 
 		input[type='range']:active::-moz-range-thumb {
 			transform: scale(1.2);
-			background: #007db5;
-		}
-
-		input[type='range']::-ms-track {
-			width: 100%;
-			height: 3px;
-			cursor: pointer;
-			background: transparent;
-			border: solid transparent;
-			color: transparent;
-		}
-
-		input[type='range']::-ms-fill-lower {
-			background-color: #007db5;
-		}
-
-		input[type='range']::-ms-fill-upper {
-			background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
-		}
-
-		input[type='range']::-ms-thumb {
-			box-sizing: content-box;
-			border: 1px solid #007db5;
-			height: 15px;
-			width: 15px;
-			border-radius: 50%;
-			background-color: #fff;
-			cursor: pointer;
-		}
-
-		input[type='range']:active::-ms-thumb {
-			transform: scale(1.2);
-			background: #007db5;
+			filter: brightness(85%);
 		}
 	`;
 
@@ -676,10 +651,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			const newBufferedAmount = this.audioRef.value.buffered.length - 1;
 			if (newBufferedAmount >= 0) {
 				const bufferedAmount = Math.floor(this.audioRef.value.buffered.end(newBufferedAmount));
-				this.audioPlayerContainer.value.style.setProperty(
-					'--buffered-width',
-					`${(bufferedAmount / Number(this.seekSliderRef.value.max)) * 100}%`
-				);
+				this.style.setProperty('--buffered-width', `${(bufferedAmount / Number(this.seekSliderRef.value.max)) * 100}%`);
 			}
 		}
 	}
@@ -687,11 +659,9 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 	private whilePlaying = () => {
 		if (this.audioRef.value && this.audioPlayerContainer.value && this.seekSliderRef.value) {
 			this.seekSliderRef.value.value = Math.floor(this.audioRef.value.currentTime).toString();
-			this.currentPlaybackPosition = this.calculateTime(Number(this.seekSliderRef.value.value));
-			this.audioPlayerContainer.value.style.setProperty(
-				'--seek-before-width',
-				`${(Number(this.seekSliderRef.value.value) / Number(this.seekSliderRef.value.max)) * 100}%`
-			);
+			const bufferedAmount = Number(this.seekSliderRef.value.value);
+			this.currentPlaybackPosition = this.calculateTime(bufferedAmount);
+			this.style.setProperty('--seek-before-width', `${(bufferedAmount / Number(this.seekSliderRef.value.max)) * 100}%`);
 			this.raf = requestAnimationFrame(this.whilePlaying);
 		}
 	};
@@ -725,10 +695,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 	private handleSeekSliderInput(event: Event) {
 		const typedEventTarget = event.target as HTMLInputElement;
 		if (this.audioPlayerContainer.value) {
-			this.audioPlayerContainer.value.style.setProperty(
-				'--seek-before-width',
-				`${(Number(typedEventTarget.value) / Number(typedEventTarget.max)) * 100}%`
-			);
+			this.style.setProperty('--seek-before-width', `${(Number(typedEventTarget.value) / Number(typedEventTarget.max)) * 100}%`);
 		}
 
 		if (this.seekSliderRef.value) {
@@ -759,10 +726,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			this.currentVolumne = newVolume;
 			this.audioRef.value.volume = newVolume;
 
-			this.audioPlayerContainer.value.style.setProperty(
-				'--volume-before-width',
-				`${(Number(typedEventTarget.value) / Number(typedEventTarget.max)) * 100}%`
-			);
+			this.style.setProperty('--volume-before-width', `${(Number(typedEventTarget.value) / Number(typedEventTarget.max)) * 100}%`);
 		}
 	}
 
@@ -824,7 +788,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 								</div>
 							</div>
 						</div>
-						<div ${ref(this.audioPlayerContainer)} class="discord-audio-attachment-css-variables-container">
+						<div ${ref(this.audioPlayerContainer)}>
 							<audio
 								${ref(this.audioRef)}
 								class="discord-audio-attachment-audio-element"
