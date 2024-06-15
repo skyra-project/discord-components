@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { validateImageExtension } from '../../util.js';
@@ -65,7 +66,7 @@ export class DiscordImageAttachment extends LitElement {
 	 * @note Setting this will disable the
 	 * {@link DiscordImageAttachment.url `url`}, and {@link DiscordImageAttachment.alt `alt`} properties.
 	 */
-	@property({ type: Boolean, attribute: 'message-body-only' })
+	@property({ type: Boolean, attribute: 'custom-image-element' })
 	public accessor customImageElement = false;
 
 	public componentWillRender() {
@@ -81,7 +82,13 @@ export class DiscordImageAttachment extends LitElement {
 					${when(
 						this.customImageElement,
 						() => html`<slot></slot>`,
-						() => html`<img alt="${this.alt}" src="${this.url}" height="${this.height}" width="${this.width}" />`
+						() =>
+							html`<img
+								alt=${ifDefined(this.alt)}
+								src=${ifDefined(this.url)}
+								height=${ifDefined(this.height)}
+								width=${ifDefined(this.width)}
+							/>`
 					)}
 				</div>
 			</div>
