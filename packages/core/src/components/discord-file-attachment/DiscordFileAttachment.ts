@@ -134,7 +134,7 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 	public accessor bytes: number;
 
 	/**
-	 * The size of the file in a human-readable format
+	 * The unit of the file in a human-readable format
 	 * @example
 	 * ```ts
 	 * 'KB'
