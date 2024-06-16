@@ -26,9 +26,9 @@ __metadata:
   linkType: hard
 
 "@angular-eslint/eslint-plugin-template@npm:@favware/skip-dependency@latest, @angular-eslint/eslint-plugin@npm:@favware/skip-dependency@latest, @angular-eslint/template-parser@npm:@favware/skip-dependency@latest, @next/eslint-plugin-next@npm:@favware/skip-dependency@latest, astro-eslint-parser@npm:@favware/skip-dependency@latest, eslint-plugin-astro@npm:@favware/skip-dependency@latest, eslint-plugin-cypress@npm:@favware/skip-dependency@latest, eslint-plugin-jsx-a11y@npm:@favware/skip-dependency@latest, eslint-plugin-mdx@npm:@favware/skip-dependency@latest, eslint-plugin-react-hooks@npm:@favware/skip-dependency@latest, eslint-plugin-react@npm:@favware/skip-dependency@latest, eslint-plugin-rxjs-angular@npm:@favware/skip-dependency@latest, eslint-plugin-rxjs@npm:@favware/skip-dependency@latest, eslint-plugin-svelte3@npm:@favware/skip-dependency@latest, eslint-plugin-vue@npm:@favware/skip-dependency@latest":
-  version: 1.2.1
-  resolution: "@favware/skip-dependency@npm:1.2.1"
-  checksum: 10/c8acf67d9c9e3ac5026741a58a49981af033bafeda9cf5105174fa5240b47d7cc9b15e4b99d71738f517dfa825f1237d2cdfe0035780ecb832e3af80d70d81cd
+  version: 1.2.2
+  resolution: "@favware/skip-dependency@npm:1.2.2"
+  checksum: 10/1318b83ab874729ffc4b0b74756b2f691d43081172fb895605edda6ff474a748e1dcd59213275860854cca4bead9f2bef118d1dac832647abd5dfdb9f54b7d46
   languageName: node
   linkType: hard
 
