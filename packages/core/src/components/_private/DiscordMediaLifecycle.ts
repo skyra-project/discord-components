@@ -83,6 +83,15 @@ export class DiscordMediaLifecycle extends LitElement {
 		}
 	};
 
+	protected handleSpaceToPlayPause = (event: KeyboardEvent) => {
+		if (event.code === 'Space') {
+			event.preventDefault();
+			event.stopPropagation();
+
+			this.handleClickPlayPauseIcon();
+		}
+	};
+
 	protected handleClickMuteIcon() {
 		if (this.mediaComponentRef.value) {
 			if (this.isMuted) {
@@ -154,9 +163,9 @@ export class DiscordMediaLifecycle extends LitElement {
 
 	protected handleVolumeControlKeyboard(event: KeyboardEvent) {
 		let volumeChange = 0;
-		if (event.key === 'ArrowDown') {
+		if (event.code === 'ArrowDown') {
 			volumeChange = -0.1;
-		} else if (event.key === 'ArrowUp') {
+		} else if (event.code === 'ArrowUp') {
 			volumeChange = 0.1;
 		}
 
@@ -199,8 +208,6 @@ export class DiscordMediaLifecycle extends LitElement {
 	}
 
 	public override firstUpdated(changedProperties: Map<PropertyKey, unknown>): void {
-		super.firstUpdated(changedProperties);
-
 		if (!this.hasRunUpdate) {
 			if (this.mediaComponentRef.value) {
 				if (this.mediaComponentRef.value.readyState > 0) {
@@ -213,6 +220,7 @@ export class DiscordMediaLifecycle extends LitElement {
 			}
 
 			this.hasRunUpdate = true;
+			super.firstUpdated(changedProperties);
 		}
 	}
 

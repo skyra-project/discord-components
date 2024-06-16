@@ -283,15 +283,14 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 								</video>
 								<div class="discord-video-attachment-video-controls">
 									<div class="discord-media-attachment-controls" style="transform: translateY(0%)">
-										${/* eslint-disable lit-a11y/click-events-have-key-events */ html``}
 										<div
 											class="discord-media-attachment-video-button"
 											tabindex="0"
 											aria-label="${this.isPlaying ? 'Pause' : 'Play'}"
 											role="button"
 											@click=${this.handleClickPlayPauseIcon}
+											@keydown=${this.handleSpaceToPlayPause}
 										>
-											${/* eslint-enable lit-a11y/click-events-have-key-events */ html``}
 											${when(
 												this.isPlaying,
 												() => AudioVideoPauseIcon({ class: 'discord-media-attachment-control-icon' }),
