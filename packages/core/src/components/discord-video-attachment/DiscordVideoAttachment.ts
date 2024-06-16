@@ -16,6 +16,7 @@ import AudioVideoPlayIcon from '../svgs/AudioVideoPlayIcon.js';
 import AudioVideoVolumeAbove50PercentIcon from '../svgs/AudioVideoVolumeAbove50PercentIcon.js';
 import AudioVideoVolumeBelow50PercentIcon from '../svgs/AudioVideoVolumeBelow50PercentIcon.js';
 import AudioVideoVolumeMutedIcon from '../svgs/AudioVideoVolumeMutedIcon.js';
+import VideoFullScreenIcon from '../svgs/VideoFullScreenIcon.js';
 import VideoPlayPausePopIcon from '../svgs/VideoPlayPausePopIcon.js';
 import type { LightTheme } from '../../types.js';
 
@@ -185,24 +186,6 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 				user-select: none;
 			}
 
-			.discord-video-attachment-full-screen-button-content {
-				--custom-button-link-underline-offset: 1px;
-				--button--underline-color: transparent;
-				--custom-button-link-underline-width: 1px;
-				--custom-button-link-underline-stop: calc(var(--custom-button-link-underline-width) + var(--custom-button-link-underline-offset));
-
-				background-image: linear-gradient(
-					to top,
-					transparent,
-					transparent var(--custom-button-link-underline-offset),
-					var(--button--underline-color) var(--custom-button-link-underline-offset),
-					var(--button--underline-color) var(--custom-button-link-underline-stop),
-					transparent var(--custom-button-link-underline-stop)
-				);
-
-				line-height: 0px;
-			}
-
 			.discord-video-attachment-play-pause-pop {
 				opacity: 0;
 				transform: scale(2.5) translateZ(0px);
@@ -268,6 +251,12 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
+	private async handleFullScreenClicked() {
+		if (this.mediaComponentRef.value) {
+			await this.mediaComponentRef.value.requestFullscreen();
+		}
+	}
+
 	protected override render() {
 		return html`<div class="discord-media-attachment-non-visual-media-item-container">
 			<div class="discord-video-attachment-one-by-one-grid">
@@ -332,7 +321,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 										</div>
 										<div class="discord-media-attachment-flex">
 											<div class="discord-media-attachment-flex-container">
-												<div ${ref(this.volumeControlRef)} class="discord-media-attachment-volume-button-slider">
+												<div ${ref(this.volumeControlRef)} class="discord-media-attachment-button-slider">
 													<div
 														class="discord-media-attachment-volume-vertical"
 														@mouseenter=${this.handleVolumeVerticalEnter}
@@ -351,37 +340,48 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 												<button
 													aria-label="Control volume"
 													type="button"
-													class="discord-media-attachment-volume-button"
+													class="discord-media-attachment-button"
 													@focus=${this.handleVolumeVerticalFocus}
 													@blur=${this.handleVolumeVerticalBlur}
 													@mouseover=${this.handleVolumeVerticalEnter}
 													@mouseout=${this.handleVolumeVerticalLeave}
+													@click=${this.handleClickMuteIcon}
 												>
-													${/* eslint-disable lit-a11y/click-events-have-key-events */ html``}
-													<div class="discord-media-attachment-volume-button-content" @click=${this.handleClickMuteIcon}>
-														${/* eslint-enable lit-a11y/click-events-have-key-events */ html``}
+													<div class="discord-media-attachment-button-content">
 														${when(
 															this.currentVolume === 0 || this.isMuted,
 															() =>
 																AudioVideoVolumeMutedIcon({
-																	class: 'discord-media-attachment-volume-button-control-icon'
+																	class: 'discord-media-attachment-button-control-icon'
 																}),
 															() =>
 																when(
 																	this.currentVolume <= 0.5,
 																	() =>
 																		AudioVideoVolumeBelow50PercentIcon({
-																			class: 'discord-media-attachment-volume-button-control-icon'
+																			class: 'discord-media-attachment-button-control-icon'
 																		}),
 																	() =>
 																		AudioVideoVolumeAbove50PercentIcon({
-																			class: 'discord-media-attachment-volume-button-control-icon'
+																			class: 'discord-media-attachment-button-control-icon'
 																		})
 																)
 														)}
 													</div>
 												</button>
 											</div>
+										</div>
+										<div>
+											<button
+												aria-label="Full screen"
+												type="button"
+												class="discord-media-attachment-button"
+												@click=${this.handleFullScreenClicked}
+											>
+												<div class="discord-media-attachment-button-content">
+													${VideoFullScreenIcon({ class: 'discord-media-attachment-button-control-icon' })}
+												</div>
+											</button>
 										</div>
 									</div>
 								</div>

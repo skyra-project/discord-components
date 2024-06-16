@@ -13,7 +13,7 @@ export const DiscordVolumeControlStyles = css`
 		position: relative;
 	}
 
-	.discord-media-attachment-volume-button-slider {
+	.discord-media-attachment-button-slider {
 		margin-bottom: 4px;
 		margin-left: -4px;
 		position: absolute;
@@ -34,7 +34,7 @@ export const DiscordVolumeControlStyles = css`
 		width: 140px;
 	}
 
-	.discord-media-attachment-volume-button {
+	.discord-media-attachment-button {
 		cursor: pointer;
 		line-height: 0;
 		width: auto;
@@ -56,7 +56,7 @@ export const DiscordVolumeControlStyles = css`
 		user-select: none;
 	}
 
-	.discord-media-attachment-volume-button-content {
+	.discord-media-attachment-button-content {
 		--custom-button-link-underline-offset: 1px;
 		--button--underline-color: transparent;
 		--custom-button-link-underline-width: 1px;
@@ -72,7 +72,7 @@ export const DiscordVolumeControlStyles = css`
 		);
 	}
 
-	.discord-media-attachment-volume-button-control-icon {
+	.discord-media-attachment-button-control-icon {
 		display: block;
 		width: 24px;
 		height: 24px;

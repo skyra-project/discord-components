@@ -239,7 +239,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 							</div>
 							<div class="discord-media-attachment-flex">
 								<div class="discord-media-attachment-flex-container">
-									<div ${ref(this.volumeControlRef)} class="discord-media-attachment-volume-button-slider">
+									<div ${ref(this.volumeControlRef)} class="discord-media-attachment-button-slider">
 										<div
 											class="discord-media-attachment-volume-vertical"
 											@mouseenter=${this.handleVolumeVerticalEnter}
@@ -258,28 +258,27 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 									<button
 										aria-label="Control volume"
 										type="button"
-										class="discord-media-attachment-volume-button"
+										class="discord-media-attachment-button"
 										@focus=${this.handleVolumeVerticalFocus}
 										@blur=${this.handleVolumeVerticalBlur}
 										@mouseover=${this.handleVolumeVerticalEnter}
 										@mouseout=${this.handleVolumeVerticalLeave}
+										@click=${this.handleClickMuteIcon}
 									>
-										${/* eslint-disable lit-a11y/click-events-have-key-events */ html``}
-										<div class="discord-media-attachment-volume-button-content" @click=${this.handleClickMuteIcon}>
-											${/* eslint-enable lit-a11y/click-events-have-key-events */ html``}
+										<div class="discord-media-attachment-button-content">
 											${when(
 												this.currentVolume === 0 || this.isMuted,
-												() => AudioVideoVolumeMutedIcon({ class: 'discord-media-attachment-volume-button-control-icon' }),
+												() => AudioVideoVolumeMutedIcon({ class: 'discord-media-attachment-button-control-icon' }),
 												() =>
 													when(
 														this.currentVolume <= 0.5,
 														() =>
 															AudioVideoVolumeBelow50PercentIcon({
-																class: 'discord-media-attachment-volume-button-control-icon'
+																class: 'discord-media-attachment-button-control-icon'
 															}),
 														() =>
 															AudioVideoVolumeAbove50PercentIcon({
-																class: 'discord-media-attachment-volume-button-control-icon'
+																class: 'discord-media-attachment-button-control-icon'
 															})
 													)
 											)}
