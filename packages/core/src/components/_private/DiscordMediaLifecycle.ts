@@ -28,6 +28,9 @@ export class DiscordMediaLifecycle extends LitElement {
 	protected accessor currentVolume = 1;
 
 	@state()
+	protected accessor hasEnded = false;
+
+	@state()
 	private accessor hasRunUpdate = false;
 
 	protected calculateTime(secs: number) {
@@ -69,8 +72,19 @@ export class DiscordMediaLifecycle extends LitElement {
 		}
 	};
 
+	protected handleEnded() {
+		if (this.mediaComponentRef.value) {
+			this.mediaComponentRef.value.pause();
+			if (this.raf !== null) cancelAnimationFrame(this.raf);
+			this.isPlaying = false;
+			this.hasEnded = true;
+		}
+	}
+
 	protected handleClickPlayPauseIcon = () => {
 		if (this.mediaComponentRef.value) {
+			if (this.hasEnded) this.hasEnded = false;
+
 			if (this.isPlaying) {
 				this.mediaComponentRef.value.pause();
 				if (this.raf !== null) cancelAnimationFrame(this.raf);

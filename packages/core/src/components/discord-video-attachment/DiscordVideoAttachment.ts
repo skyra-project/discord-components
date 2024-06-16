@@ -11,11 +11,12 @@ import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControl
 import { DiscordVolumeControlStyles } from '../_private/DiscordVolumeControlStyles.js';
 import '../discord-link/DiscordLink.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import AudioVideoPauseIcon from '../svgs/AudioVideoPauseIcon.js';
-import AudioVideoPlayIcon from '../svgs/AudioVideoPlayIcon.js';
-import AudioVideoVolumeAbove50PercentIcon from '../svgs/AudioVideoVolumeAbove50PercentIcon.js';
-import AudioVideoVolumeBelow50PercentIcon from '../svgs/AudioVideoVolumeBelow50PercentIcon.js';
-import AudioVideoVolumeMutedIcon from '../svgs/AudioVideoVolumeMutedIcon.js';
+import MediaPauseIcon from '../svgs/MediaPauseIcon.js';
+import MediaPlayIcon from '../svgs/MediaPlayIcon.js';
+import MediaRestartIcon from '../svgs/MediaRestartIcon.js';
+import MediaVolumeAbove50PercentIcon from '../svgs/MediaVolumeAbove50PercentIcon.js';
+import MediaVolumeBelow50PercentIcon from '../svgs/MediaVolumeBelow50PercentIcon.js';
+import AudioVideoVolumeMutedIcon from '../svgs/MediaVolumeMutedIcon.js';
 import VideoFullScreenIcon from '../svgs/VideoFullScreenIcon.js';
 import VideoPausePopIcon from '../svgs/VideoPausePopIcon.js';
 import type { LightTheme } from '../../types.js';
@@ -308,6 +309,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 									@pause=${this.handleHasStartedPlayingOrHasPaused}
 									@progress=${this.displayBufferedAmount}
 									@click=${this.handleClickPlayPauseIcon}
+									@ended=${this.handleEnded}
 								>
 									<source src=${ifDefined(this.href)} />
 								</video>
@@ -322,9 +324,14 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 											@keydown=${this.handleSpaceToPlayPause}
 										>
 											${when(
-												this.isPlaying,
-												() => AudioVideoPauseIcon({ class: 'discord-media-attachment-control-icon' }),
-												() => AudioVideoPlayIcon({ class: 'discord-media-attachment-control-icon' })
+												this.hasEnded,
+												() => MediaRestartIcon({ class: 'discord-media-attachment-control-icon' }),
+												() =>
+													when(
+														this.isPlaying,
+														() => MediaPauseIcon({ class: 'discord-media-attachment-control-icon' }),
+														() => MediaPlayIcon({ class: 'discord-media-attachment-control-icon' })
+													)
 											)}
 										</div>
 										<div class="discord-media-attachment-duration-time-wrapper">
@@ -387,11 +394,11 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 																when(
 																	this.currentVolume <= 0.5,
 																	() =>
-																		AudioVideoVolumeBelow50PercentIcon({
+																		MediaVolumeBelow50PercentIcon({
 																			class: 'discord-media-attachment-button-control-icon'
 																		}),
 																	() =>
-																		AudioVideoVolumeAbove50PercentIcon({
+																		MediaVolumeAbove50PercentIcon({
 																			class: 'discord-media-attachment-button-control-icon'
 																		})
 																)
