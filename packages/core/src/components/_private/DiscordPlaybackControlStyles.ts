@@ -1,13 +1,13 @@
 import { css } from 'lit';
 
 export const DiscordPlaybackControlStyles = css`
-	.discord-audio-attachment-horizontal {
+	.discord-media-attachment-horizontal {
 		width: 100%;
 		display: flex;
 		align-self: stretch;
 	}
 
-	.discord-audio-attachment-media-bar-interaction {
+	.discord-media-attachment-media-bar-interaction {
 		position: relative;
 		flex: 1 1 auto;
 		align-self: stretch;
@@ -17,18 +17,18 @@ export const DiscordPlaybackControlStyles = css`
 		margin: 0 7px;
 	}
 
-	.discord-audio-attachment-playback-control {
+	.discord-media-attachment-playback-control {
 		position: relative;
 		flex: 1 1 auto;
 		height: 6px;
 		background-color: hsl(210 calc(1 * 9.3%) 78.8% / 0.3);
 	}
 
-	.discord-audio-attachment-playback-control:hover {
+	.discord-media-attachment-playback-control:hover {
 		box-shadow: 0 1px 1px hsl(0 calc(1 * 0%) 0% / 0.3);
 	}
 
-	.discord-audio-attachment-playback-control::before {
+	.discord-media-attachment-playback-control::before {
 		background-color: hsl(210 calc(1 * 9.3%) 78.8% / 0.3);
 		left: -3px;
 		border-radius: 3px 0 0 3px;
@@ -40,7 +40,7 @@ export const DiscordPlaybackControlStyles = css`
 		z-index: 1;
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control::-webkit-slider-runnable-track {
+	input[type='range'].discord-media-attachment-playback-control::-webkit-slider-runnable-track {
 		width: 2.47264%;
 		height: 100%;
 		cursor: pointer;
@@ -48,7 +48,7 @@ export const DiscordPlaybackControlStyles = css`
 		background: linear-gradient(to right, hsl(199 100% calc(1 * 69%) / 1) var(--buffered-width));
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control::before {
+	input[type='range'].discord-media-attachment-playback-control::before {
 		position: absolute;
 		content: '';
 		top: 0;
@@ -59,7 +59,7 @@ export const DiscordPlaybackControlStyles = css`
 		cursor: pointer;
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control::-webkit-slider-thumb {
+	input[type='range'].discord-media-attachment-playback-control::-webkit-slider-thumb {
 		position: relative;
 		cursor: pointer;
 		border-radius: 3px;
@@ -80,12 +80,12 @@ export const DiscordPlaybackControlStyles = css`
 		z-index: 4;
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control:active::-webkit-slider-thumb {
+	input[type='range'].discord-media-attachment-playback-control:active::-webkit-slider-thumb {
 		transform: scale(1.2);
 		filter: brightness(85%);
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control::-moz-range-track {
+	input[type='range'].discord-media-attachment-playback-control::-moz-range-track {
 		width: 2.47264%;
 		height: 100%;
 		cursor: pointer;
@@ -93,15 +93,15 @@ export const DiscordPlaybackControlStyles = css`
 		background: linear-gradient(to right, hsl(199 100% calc(1 * 69%) / 1) var(--buffered-width));
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control::-moz-range-progress {
+	input[type='range'].discord-media-attachment-playback-control::-moz-range-progress {
 		background-color: hsl(199 100% calc(1 * 69%) / 1);
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control::-moz-focus-outer {
+	input[type='range'].discord-media-attachment-playback-control::-moz-focus-outer {
 		border: 0;
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control::-moz-range-thumb {
+	input[type='range'].discord-media-attachment-playback-control::-moz-range-thumb {
 		border-radius: 50%;
 		position: relative;
 		cursor: pointer;
@@ -118,7 +118,7 @@ export const DiscordPlaybackControlStyles = css`
 		margin: -5px 0 0 0;
 	}
 
-	input[type='range'].discord-audio-attachment-playback-control:active::-moz-range-thumb {
+	input[type='range'].discord-media-attachment-playback-control:active::-moz-range-thumb {
 		transform: scale(1.2);
 		filter: brightness(85%);
 	}

@@ -113,6 +113,17 @@
 			</div>
 
 			<main id="demo">
+				<h3 class="title">Video attachments</h3>
+				<discord-messages>
+					<discord-message profile="favna">
+						Look at this video!
+						<discord-video-attachment
+							slot="attachments"
+							href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+							poster="https://favna.s-ul.eu/On2pqpAq.png"
+						/>
+					</discord-message>
+				</discord-messages>
 				<h3 class="title">A normal conversation</h3>
 				<discord-messages>
 					<discord-message author="Alyx Vargas"> Hey guys, I'm new here! Glad to be able to join you all! </discord-message>
@@ -323,7 +334,7 @@
 				<h3 class="title">Audio attachments</h3>
 				<discord-messages>
 					<discord-message profile="favna">
-						testing audio upload
+						Listen to this amazing song from Baldur's Gate 3!
 						<discord-audio-attachment
 							slot="attachments"
 							href="https://favna.s-ul.eu/ZJuz23c7.mp3"
