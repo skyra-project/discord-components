@@ -46,13 +46,10 @@
 		"prettier": "^3.3.2",
 		"react": "^18.3.1",
 		"rimraf": "^5.0.7",
-		"tslib": "^2.6.3",
 		"tsup": "^8.1.0",
 		"typescript": "^5.4.5"
 	},
 	"resolutions": {
-		"ansi-regex": "^5.0.1",
-		"minimist": "^1.2.8",
 		"@open-wc/lit-helpers@^0.7.0": "patch:@open-wc/lit-helpers@npm%3A0.7.0#~/.yarn/patches/@open-wc-lit-helpers-npm-0.7.0-1922d4c01f.patch"
 	},
 	"commitlint": {
