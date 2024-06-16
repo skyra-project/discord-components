@@ -473,7 +473,7 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 
 	// #region state
 	@state()
-	private accessor currentPlaybackPosition = '';
+	private accessor currentPlaybackPosition = '0:00';
 
 	@state()
 	private accessor totalAudioDuration = '';
