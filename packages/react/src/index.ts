@@ -5,6 +5,7 @@ import { createReactComponent } from './react-components/createComponent.js';
 
 export const DiscordActionRow = createReactComponent('discord-action-row', ReactComponents.DiscordActionRow);
 export const DiscordAttachments = createReactComponent('discord-attachments', ReactComponents.DiscordAttachments);
+export const DiscordAudioAttachment = createReactComponent('discord-audio-attachment', ReactComponents.DiscordAudioAttachment);
 export const DiscordAuthorInfo = createReactComponent('discord-author-info', ReactComponents.DiscordAuthorInfo);
 export const DiscordBold = createReactComponent('discord-bold', ReactComponents.DiscordBold);
 export const DiscordButton = createReactComponent('discord-button', ReactComponents.DiscordButton);
