@@ -814,3 +814,9 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 		</div>`;
 	}
 }
+
+declare global {
+	interface HTMLElementTagNameMap {
+		'discord-audio-attachment': DiscordAudioAttachment;
+	}
+}
