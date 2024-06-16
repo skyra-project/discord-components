@@ -304,6 +304,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 									height="315"
 									preload="metadata"
 									width="550"
+									role="button"
 									poster=${ifDefined(this.poster)}
 									@play=${this.handleHasStartedPlayingOrHasPaused}
 									@pause=${this.handleHasStartedPlayingOrHasPaused}
@@ -335,8 +336,11 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 											)}
 										</div>
 										<div class="discord-media-attachment-duration-time-wrapper">
-											<span class="discord-media-attachment-duration-time-display">${this.currentPlaybackPosition}</span>
+											<span role="status" class="discord-media-attachment-duration-time-display"
+												>${this.currentPlaybackPosition}</span
+											>
 											<span
+												role="separator"
 												class="discord-media-attachment-duration-time-display discord-media-attachment-duration-time-separator"
 												>/</span
 											>

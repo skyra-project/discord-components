@@ -226,8 +226,12 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 								)}
 							</div>
 							<div class="discord-media-attachment-duration-time-wrapper">
-								<span class="discord-media-attachment-duration-time-display">${this.currentPlaybackPosition}</span>
-								<span class="discord-media-attachment-duration-time-display discord-media-attachment-duration-time-separator">/</span>
+								<span role="status" class="discord-media-attachment-duration-time-display">${this.currentPlaybackPosition}</span>
+								<span
+									role="separator"
+									class="discord-media-attachment-duration-time-display discord-media-attachment-duration-time-separator"
+									>/</span
+								>
 								<span class="discord-media-attachment-duration-time-display">${this.totalMediaDuration}</span>
 							</div>
 							<div class="discord-media-attachment-horizontal">
