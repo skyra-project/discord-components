@@ -3,7 +3,7 @@ import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { ref } from 'lit/directives/ref.js';
+import { createRef, ref, type Ref } from 'lit/directives/ref.js';
 import { when } from 'lit/directives/when.js';
 import { DiscordMediaAttachmentStyles } from '../_private/DiscordMediaAttachmentStyles.js';
 import { DiscordMediaLifecycle } from '../_private/DiscordMediaLifecycle.js';
@@ -17,7 +17,7 @@ import AudioVideoVolumeAbove50PercentIcon from '../svgs/AudioVideoVolumeAbove50P
 import AudioVideoVolumeBelow50PercentIcon from '../svgs/AudioVideoVolumeBelow50PercentIcon.js';
 import AudioVideoVolumeMutedIcon from '../svgs/AudioVideoVolumeMutedIcon.js';
 import VideoFullScreenIcon from '../svgs/VideoFullScreenIcon.js';
-import VideoPlayPausePopIcon from '../svgs/VideoPlayPausePopIcon.js';
+import VideoPausePopIcon from '../svgs/VideoPausePopIcon.js';
 import type { LightTheme } from '../../types.js';
 
 @customElement('discord-video-attachment')
@@ -224,6 +224,19 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 				cursor: pointer;
 				margin: 0 7px;
 			}
+
+			@keyframes playPausePopIconKeyframes {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+
+			.discord-video-attachment-overlay-content-hidden {
+				animation: playPausePopIconKeyframes 0.2s ease-in-out infinite;
+			}
 		`
 	];
 
@@ -251,10 +264,24 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
+	private playPausePopAnimationContainerRef: Ref<HTMLDivElement> = createRef();
+
 	private async handleFullScreenClicked() {
 		if (this.mediaComponentRef.value) {
 			await this.mediaComponentRef.value.requestFullscreen();
 		}
+	}
+
+	private handleHasStartedPlayingOrHasPaused() {
+		if (this.playPausePopAnimationContainerRef.value) {
+			this.playPausePopAnimationContainerRef.value.classList.add('discord-video-attachment-overlay-content-hidden');
+		}
+
+		setTimeout(() => {
+			if (this.playPausePopAnimationContainerRef.value) {
+				this.playPausePopAnimationContainerRef.value.classList.remove('discord-video-attachment-overlay-content-hidden');
+			}
+		}, 200);
 	}
 
 	protected override render() {
@@ -277,7 +304,10 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 									preload="metadata"
 									width="550"
 									poster=${ifDefined(this.poster)}
+									@play=${this.handleHasStartedPlayingOrHasPaused}
+									@pause=${this.handleHasStartedPlayingOrHasPaused}
 									@progress=${this.displayBufferedAmount}
+									@click=${this.handleClickPlayPauseIcon}
 								>
 									<source src=${ifDefined(this.href)} />
 								</video>
@@ -385,8 +415,9 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 									</div>
 								</div>
 								<div class="discord-video-attachment-play-pause-pop">
-									${VideoPlayPausePopIcon({ class: 'discord-video-attachment-play-pause-pop-icon' })}
+									${VideoPausePopIcon({ class: 'discord-video-attachment-play-pause-pop-icon' })}
 								</div>
+								<div ${ref(this.playPausePopAnimationContainerRef)}></div>
 							</div>
 						</div>
 					</div>
