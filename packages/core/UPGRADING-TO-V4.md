@@ -10,6 +10,7 @@
     - [Component changes](#component-changes)
       - [`discord-attachment`](#discord-attachment)
       - [`discord-file-attachment`](#discord-file-attachment)
+      - [`discord-audio-attachment`](#discord-audio-attachment)
       - [`discord-inline-code`](#discord-inline-code)
       - [`discord-code`](#discord-code)
       - [`discord-header`](#discord-header)
@@ -156,6 +157,14 @@ file like they would on Discord. This would require the library to read the
 file, which is either an async request or reading from a file system, the latter
 is not possible in a web environment, and the former is asking for problems such
 as CORS errors or authentication issues.
+
+#### `discord-audio-attachment`
+
+The `discord-audio-attachment` has been added to allow showing and playing an
+audio file. Please note that this component is not an exact 1:1 representation
+of Discord's audio player, but it should be close enough for most use cases. The
+reason for this is that Discord uses a custom audio player that is not
+replicable in a web component.
 
 #### `discord-inline-code`
 

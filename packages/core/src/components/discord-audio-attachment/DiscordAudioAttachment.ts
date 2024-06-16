@@ -32,8 +32,8 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			position: relative;
 
 			--seek-before-width: 0%;
-			--volume-before-width: 100%;
 			--buffered-width: 0%;
+			--volume-slider-opacity: 0;
 		}
 
 		.discord-audio-attachment-non-visual-media-item-container {
@@ -170,6 +170,8 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			margin: 0 2px;
 		}
 
+		/* #region styling playback control  */
+
 		.discord-audio-attachment-horizontal {
 			width: 100%;
 			display: flex;
@@ -207,280 +209,6 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			height: 100%;
 			width: 3px;
 			z-index: 1;
-		}
-
-		.discord-audio-attachment-playback-control::after {
-			background-color: hsl(210 calc(1 * 9.3%) 78.8% / 0.3);
-			right: -3px;
-			border-radius: 0 3px 3px 0;
-			content: '';
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 3px;
-			z-index: 1;
-		}
-
-		/* .discord-audio-attachment-buffer {
-			width: 2.47264%;
-			left: 0%;
-			position: absolute;
-			top: 0;
-			height: 100%;
-			opacity: 0.3;
-			background-color: hsl(0 calc(1 * 0%) 100% / 1);
-		} */
-
-		/* .discord-audio-attachment-media-bar-preview {
-			z-index: 0;
-			opacity: 0;
-			background-color: hsl(0 calc(1 * 0%) 100% / 1);
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-		}
-
-		.discord-audio-attachment-media-bar-preview:hover {
-			opacity: 0.3;
-		} */
-
-		/* .discord-audio-attachment-media-bar-progress {
-			z-index: 3;
-			background-color: hsl(199 100% calc(1 * 69%) / 1);
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-		} */
-
-		/* .discord-audio-attachment-bubble {
-			position: absolute;
-			top: -28px;
-			padding: 0 8px;
-			transform: translatex(-50%);
-
-			border-radius: 3px;
-			width: auto;
-			height: 18px;
-			line-height: 18px;
-			text-align: center;
-			font-weight: 600;
-			font-size: 12px;
-			color: hsl(0 calc(1 * 0%) 97.6% / 1);
-			opacity: 0;
-			transition: opacity.2s ease-out;
-			pointer-events: none;
-			background-color: hsl(0 calc(1 * 0%) 0% / 1);
-		} */
-
-		/* .discord-audio-attachment-bubble:hover {
-			opacity: 1;
-		} */
-
-		.discord-audio-attachment-flex {
-			display: flex;
-		}
-
-		.discord-audio-attachment-flex-container {
-			justify-content: flex-end;
-			align-items: center;
-			flex-direction: column;
-			display: flex;
-			position: relative;
-		}
-
-		.discord-audio-attachment-volume-button-slider {
-			margin-bottom: 4px;
-			margin-left: -4px;
-			position: absolute;
-			bottom: calc(100% + 16px);
-			left: -78px;
-			right: 0;
-			height: 50px;
-			/* display: none; */
-			-webkit-app-region: no-drag;
-		}
-
-		.discord-audio-attachment-flex:hover .discord-audio-attachment-volume-button-slider,
-		.discord-audio-attachment-volume-button-slider:hover {
-			/* display: inline;
-			display: initial; */
-		}
-
-		input[type='range'].discord-audio-attachment-volume-slider {
-			transform: rotate(270deg);
-			height: 14px;
-			width: 54px;
-			position: absolute;
-			right: -12px;
-			bottom: 0px;
-		}
-
-		input[type='range'].discord-audio-attachment-volume-slider::-webkit-slider-runnable-track {
-			background-color: hsl(210 calc(1 * 9.3%) 78.8%/0.3);
-			height: 0px;
-			cursor: grab;
-			/* height: 6px; */
-			/* flex: none; */
-			/* align-self: center; */
-			border-radius: 8px;
-			/* padding: 4px 8px; */
-			/* width: 72px; */
-			/* margin: 0 4px 0 0; */
-			/* position: relative; */
-			/* display: flex; */
-			/* align-items: center; */
-			/* width: 100%; */
-			/* cursor: pointer; */
-			/* opacity: 1; */
-			/* flex: none; */
-			/* align-self: center; */
-			/* border-radius: 8px; */
-			/* padding: 4px 8px; */
-			/* width: 72px; */
-			/* margin: 0 4px 0 0; */
-			/* position: relative; */
-			/* display: flex; */
-			/* align-items: center; */
-			/* cursor: pointer; */
-		}
-
-		input[type='range'].discord-audio-attachment-volume-slider::-webkit-slider-thumb {
-			position: relative;
-			bottom: 8px;
-		}
-
-		input[type='range'].discord-audio-attachment-volume-slider:active::-webkit-slider-thumb {
-			transform: scale(1.2);
-			filter: brightness(85%);
-		}
-
-		/*
-
-		/* .discord-audio-attachment-volume-button-slider:hover .discord-audio-attachment-media-bar-wrapper-volume::before {
-			background-color: hsl(210 calc(1 * 9.3%) 78.8% / 0.3);
-			left: -3px;
-			border-radius: 3px 0 0 3px;
-			content: '';
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 3px;
-			z-index: 1;
-		}
-
-		.discord-audio-attachment-volume-button-slider:hover .discord-audio-attachment-media-bar-wrapper-volume::after {
-			background-color: hsl(210 calc(1 * 9.3%) 78.8% / 0.3);
-			right: -3px;
-			border-radius: 0 3px 3px 0;
-			content: '';
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 3px;
-			z-index: 1;
-		} */
-
-		/* .discord-audio-attachment-media-bar-progress-volume {
-			z-index: 3;
-			background-color: hsl(199 100% calc(1 * 69%) / 1);
-		}
-
-		.discord-audio-attachment-volume-button-slider:hover.discord-audio-attachment-media-bar-progress-volume::before {
-			background-color: hsl(199 100% calc(1 * 69%) / 1);
-			left: -3px;
-			border-radius: 3px 0 0 3px;
-			content: '';
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 3px;
-			z-index: 1;
-		}
-
-		.discord-audio-attachment-volume-button-slider:hover.discord-audio-attachment-media-bar-progress-volume::after {
-			background-color: hsl(199 100% calc(1 * 69%) / 1);
-			right: -3px;
-			border-radius: 0 3px 3px 0;
-			content: '';
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 3px;
-			z-index: 1;
-		} */
-
-		/* .discord-audio-attachment-volume-slider {
-			transition:
-				transform.25s ease-in-out,
-				background-color.25s linear;
-			position: absolute;
-			top: 50%;
-			right: 0;
-			z-index: 2;
-			width: 10px;
-			height: 10px;
-			border-radius: 5px;
-			margin-top: -5px;
-			margin-right: -5px;
-			background-color: hsl(199 100% calc(1 * 69%) / 1);
-			transform: scale(0);
-			transform-origin: 50%50%;
-			cursor: grab;
-		} */
-
-		/* .discord-audio-attachment-flex:hover .discord-audio-attachment-volume-slider {
-			transform: scale(1);
-			background-color: hsl(199 calc(0.6 * 100%) calc(0.91 * 69%) / 1);
-		}
-
-		.discord-audio-attachment-volume-slider:hover {
-			transform: scale(1);
-			background-color: hsl(199 calc(0.6 * 100%) calc(0.91 * 69%) / 1);
-		} */
-
-		.discord-audio-attachment-volume-button {
-			cursor: pointer;
-			line-height: 0;
-			width: auto;
-			background: transparent;
-			color: currentColor;
-			border: 0;
-			padding: 0;
-			margin: 0;
-			position: relative;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			box-sizing: border-box;
-			border-radius: 3px;
-			font-size: 14px;
-			font-weight: 500;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-		}
-
-		.discord-audio-attachment-volume-button-content {
-			background-image: linear-gradient(
-				to top,
-				transparent,
-				transparent 1px,
-				transparant 1px,
-				transparant calc(1px + 1px),
-				transparent calc(1px + 1px)
-			);
-		}
-
-		.discord-audio-attachment-volume-button-control-icon {
-			display: block;
-			width: 24px;
-			height: 24px;
-			padding: 4px;
-			cursor: pointer;
-			flex: 0 0 auto;
-			opacity: 0.6;
 		}
 
 		input[type='range'].discord-audio-attachment-playback-control::-webkit-slider-runnable-track {
@@ -565,6 +293,134 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 			transform: scale(1.2);
 			filter: brightness(85%);
 		}
+
+		/* #endregion */
+
+		/* #region styling volume control  */
+
+		.discord-audio-attachment-flex {
+			display: flex;
+		}
+
+		.discord-audio-attachment-flex-container {
+			justify-content: flex-end;
+			align-items: center;
+			flex-direction: column;
+			display: flex;
+			position: relative;
+		}
+
+		.discord-audio-attachment-volume-button-slider {
+			margin-bottom: 4px;
+			margin-left: -4px;
+			position: absolute;
+			bottom: calc(100% + 16px);
+			left: -78px;
+			right: 0;
+			height: 50px;
+			opacity: var(--volume-slider-opacity);
+			-webkit-app-region: no-drag;
+		}
+
+		.discord-audio-attachment-volume-vertical {
+			display: flex;
+			align-items: center;
+			transform-origin: top;
+			transform: rotate(270deg);
+			height: 54px;
+			width: 140px;
+		}
+
+		.discord-audio-attachment-volume-button {
+			cursor: pointer;
+			line-height: 0;
+			width: auto;
+			background: transparent;
+			color: currentColor;
+			border: 0;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-sizing: border-box;
+			border-radius: 3px;
+			font-size: 14px;
+			font-weight: 500;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		.discord-audio-attachment-volume-button-content {
+			--custom-button-link-underline-offset: 1px;
+			--button--underline-color: transparent;
+			--custom-button-link-underline-width: 1px;
+			--custom-button-link-underline-stop: calc(var(--custom-button-link-underline-width) + var(--custom-button-link-underline-offset));
+
+			background-image: linear-gradient(
+				to top,
+				transparent,
+				transparent var(--custom-button-link-underline-offset),
+				var(--button--underline-color) var(--custom-button-link-underline-offset),
+				var(--button--underline-color) var(--custom-button-link-underline-stop),
+				transparent var(--custom-button-link-underline-stop)
+			);
+		}
+
+		.discord-audio-attachment-volume-button-control-icon {
+			display: block;
+			width: 24px;
+			height: 24px;
+			padding: 4px;
+			cursor: pointer;
+			flex: 0 0 auto;
+			opacity: 0.6;
+		}
+
+		.discord-audio-attachment-volume-slider {
+			position: relative;
+			height: 6px;
+			background-color: hsl(210 calc(1 * 9.3%) 78.8% / 0.3);
+			width: 88px;
+		}
+
+		.discord-audio-attachment-volume-slider:hover {
+			box-shadow: 0 1px 1px hsl(0 calc(1 * 0%) 0% / 0.3);
+		}
+
+		.discord-audio-attachment-volume-slider::before {
+			background-color: hsl(210 calc(1 * 9.3%) 78.8%/0.3);
+			left: 0px;
+			border-radius: 3px 0 0 3px;
+			content: '';
+			position: absolute;
+			top: 0;
+			height: 6px;
+			width: 100%;
+			z-index: 3;
+		}
+
+		input[type='range'].discord-audio-attachment-volume-slider::-webkit-slider-runnable-track {
+			background-color: hsl(210 calc(1 * 9.3%) 78.8%/0.3);
+			height: 2.47264%;
+			width: 100%;
+			cursor: grab;
+			border-radius: 8px;
+		}
+
+		input[type='range'].discord-audio-attachment-volume-slider::-webkit-slider-thumb {
+			position: relative;
+			bottom: 8px;
+			z-index: 4;
+		}
+
+		input[type='range'].discord-audio-attachment-volume-slider:active::-webkit-slider-thumb {
+			transform: scale(1.2);
+			filter: brightness(85%);
+		}
+		/* #endregion */
 	`;
 
 	// #region properties
@@ -633,13 +489,15 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 
 	/** Volume is a fractional value between 0 and 1 */
 	@state()
-	private accessor currentVolumne = 1;
+	private accessor currentVolume = 1;
 
 	// #endregion
 
 	// #region refs
 	private audioRef: Ref<HTMLAudioElement> = createRef();
 	private seekSliderRef: Ref<HTMLInputElement> = createRef();
+	private volumeControlRef: Ref<HTMLDivElement> = createRef();
+	private volumeControlInputRef: Ref<HTMLInputElement> = createRef();
 	// #endregion
 
 	// #region lifecycle
@@ -740,10 +598,62 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 		if (this.audioRef.value) {
 			const newVolume = Number(value) / 100;
 
-			this.currentVolumne = newVolume;
+			this.currentVolume = newVolume;
 			this.audioRef.value.volume = newVolume;
+		}
+	}
 
-			this.style.setProperty('--volume-before-width', `${(Number(typedEventTarget.value) / Number(typedEventTarget.max)) * 100}%`);
+	private handleVolumeVerticalEnter() {
+		if (this.volumeControlRef.value) {
+			this.style.setProperty('--volume-slider-opacity', '1');
+		}
+	}
+
+	private handleVolumeVerticalLeave() {
+		if (this.volumeControlRef.value) {
+			this.style.setProperty('--volume-slider-opacity', '0');
+		}
+	}
+
+	private handleVolumeVerticalFocus() {
+		this.handleVolumeVerticalEnter();
+		this.addEventListener('keydown', this.handleVolumeControlKeyboard);
+	}
+
+	private handleVolumeVerticalBlur() {
+		this.handleVolumeVerticalLeave();
+		this.removeEventListener('keydown', this.handleVolumeControlKeyboard);
+	}
+
+	private handleVolumeControlKeyboard(event: KeyboardEvent) {
+		let volumeChange = 0;
+		if (event.key === 'ArrowDown') {
+			volumeChange = -0.1;
+		} else if (event.key === 'ArrowUp') {
+			volumeChange = 0.1;
+		}
+
+		if (volumeChange !== 0) {
+			this.adjustVolume(volumeChange, event);
+		}
+	}
+
+	private adjustVolume(change: number, event: KeyboardEvent) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		let newValue = this.currentVolume + change;
+
+		if (newValue < 0.1) {
+			newValue = 0;
+		} else if (newValue > 1) {
+			newValue = 1;
+		}
+
+		if (this.audioRef.value && this.volumeControlInputRef.value) {
+			this.currentVolume = newValue;
+			this.audioRef.value.volume = newValue;
+			this.volumeControlInputRef.value.value = (newValue * 100).toString();
 		}
 	}
 
@@ -845,34 +755,44 @@ export class DiscordAudioAttachment extends LitElement implements LightTheme {
 										max="100"
 										value="0"
 									/>
-									<!-- <div class="discord-audio-attachment-buffer"></div>
-										<div class="discord-audio-attachment-media-bar-preview"></div>
-										<div class="discord-audio-attachment-media-bar-progress"></div>
-										<div class="discord-audio-attachment-bubble"></div> -->
-									<!-- </input> -->
 								</div>
 							</div>
 							<div class="discord-audio-attachment-flex">
 								<div class="discord-audio-attachment-flex-container">
-									<div class="discord-audio-attachment-volume-button-slider">
-										<input
-											type="range"
-											class="discord-audio-attachment-volume-slider"
-											@input=${this.handleVolumeSliderInput}
-											max="100"
-											value="100"
-										/>
+									<div ${ref(this.volumeControlRef)} class="discord-audio-attachment-volume-button-slider">
+										<div
+											class="discord-audio-attachment-volume-vertical"
+											@mouseenter=${this.handleVolumeVerticalEnter}
+											@mouseleave=${this.handleVolumeVerticalLeave}
+										>
+											<input
+												${ref(this.volumeControlInputRef)}
+												type="range"
+												class="discord-audio-attachment-volume-slider"
+												@input=${this.handleVolumeSliderInput}
+												max="100"
+												value="100"
+											/>
+										</div>
 									</div>
-									<button aria-label="Control volume" type="button" class="discord-audio-attachment-volume-button">
+									<button
+										aria-label="Control volume"
+										type="button"
+										class="discord-audio-attachment-volume-button"
+										@focus=${this.handleVolumeVerticalFocus}
+										@blur=${this.handleVolumeVerticalBlur}
+										@mouseover=${this.handleVolumeVerticalEnter}
+										@mouseout=${this.handleVolumeVerticalLeave}
+									>
 										${/* eslint-disable lit-a11y/click-events-have-key-events */ html``}
 										<div class="discord-audio-attachment-volume-button-content" @click=${this.handleClickMuteIcon}>
 											${/* eslint-enable lit-a11y/click-events-have-key-events */ html``}
 											${when(
-												this.currentVolumne === 0 || this.isMuted,
+												this.currentVolume === 0 || this.isMuted,
 												() => AudioVideoVolumeMutedIcon({ class: 'discord-audio-attachment-volume-button-control-icon' }),
 												() =>
 													when(
-														this.currentVolumne <= 0.5,
+														this.currentVolume <= 0.5,
 														() =>
 															AudioVideoVolumeBelow50PercentIcon({
 																class: 'discord-audio-attachment-volume-button-control-icon'
