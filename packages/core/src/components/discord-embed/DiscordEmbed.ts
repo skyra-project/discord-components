@@ -1,6 +1,6 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
@@ -301,11 +301,6 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	@property()
 	public accessor provider: string;
 
-	// TODO: private hasPerformedRerenderChecks: 'dirty' | 'pristine' = 'pristine';
-
-	@state()
-	private accessor hasProvidedDescriptionSlot = true;
-
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
@@ -346,7 +341,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 										: html`${emojiParsedEmbedTitle}`}
 								</div>`
 						)}
-						${when(this.hasProvidedDescriptionSlot, () => html`<slot name="description"></slot>`)}
+						<slot name="description"></slot>
 						<slot name="fields"></slot>
 						${when(
 							this.image || this.video,
