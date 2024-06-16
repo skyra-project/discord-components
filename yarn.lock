@@ -25,24 +25,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/eslint-plugin-template@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
+"@angular-eslint/eslint-plugin-template@npm:@favware/skip-dependency@latest, @angular-eslint/eslint-plugin@npm:@favware/skip-dependency@latest, @angular-eslint/template-parser@npm:@favware/skip-dependency@latest, @next/eslint-plugin-next@npm:@favware/skip-dependency@latest, astro-eslint-parser@npm:@favware/skip-dependency@latest, eslint-plugin-astro@npm:@favware/skip-dependency@latest, eslint-plugin-cypress@npm:@favware/skip-dependency@latest, eslint-plugin-jsx-a11y@npm:@favware/skip-dependency@latest, eslint-plugin-mdx@npm:@favware/skip-dependency@latest, eslint-plugin-react-hooks@npm:@favware/skip-dependency@latest, eslint-plugin-react@npm:@favware/skip-dependency@latest, eslint-plugin-rxjs-angular@npm:@favware/skip-dependency@latest, eslint-plugin-rxjs@npm:@favware/skip-dependency@latest, eslint-plugin-svelte3@npm:@favware/skip-dependency@latest, eslint-plugin-vue@npm:@favware/skip-dependency@latest":
   version: 1.2.1
-  resolution: "@angular-eslint/eslint-plugin-template@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/3c62e0d27371103006733f9df5314abc049d57819fd2139b78ad8e37f4dfd75211dbb5f4cfc3aa81ac41598c14c88671ee8d37065431a773626a9c3fece32532
-  languageName: node
-  linkType: hard
-
-"@angular-eslint/eslint-plugin@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "@angular-eslint/eslint-plugin@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/16317c92f99f6c902b0230f9d251b88a849daeea8102c676824569d36a901d3b77be5f297d98c6255ef18e128dd7995544f17579744524012b2598c4f76bd355
-  languageName: node
-  linkType: hard
-
-"@angular-eslint/template-parser@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "@angular-eslint/template-parser@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/1bf605dbdb7ab3dfe45730ec001b30a12048083c17e4a15c84ba84243f3c3049e3b07dc480dfe468a2eca87a445c197f8a8200507b54bd979d0e7311814a0f04
+  resolution: "@favware/skip-dependency@npm:1.2.1"
+  checksum: 10/c8acf67d9c9e3ac5026741a58a49981af033bafeda9cf5105174fa5240b47d7cc9b15e4b99d71738f517dfa825f1237d2cdfe0035780ecb832e3af80d70d81cd
   languageName: node
   linkType: hard
 
@@ -1074,13 +1060,6 @@ __metadata:
   version: 0.14.2
   resolution: "@microsoft/tsdoc@npm:0.14.2"
   checksum: 10/00c3d4fc184e8e09e17aef57e4a990402bd9752607a5d50bd62a9e85bc4b8791c985a51e238affa6b9a2d23110f24d373becbfc84e1e6e9a84cf977822e3b00a
-  languageName: node
-  linkType: hard
-
-"@next/eslint-plugin-next@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "@next/eslint-plugin-next@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/976e6c887baeb4f013a1c138722cc3f71211431bf0bba9d3d89dee4fc47caf4a33455fe1f2cb9cea33bde527a04af4e7bceb3994bec2e592759c433802eb8c27
   languageName: node
   linkType: hard
 
@@ -2641,13 +2620,6 @@ __metadata:
   version: 3.0.1
   resolution: "array-union@npm:3.0.1"
   checksum: 10/47b29f88258e8f37ffb93ddaa327d4308edd950b52943c172b73558afdd3fa74cfd68816ba5aa4b894242cf281fa3c6d0362ae057e4a18bddbaedbe46ebe7112
-  languageName: node
-  linkType: hard
-
-"astro-eslint-parser@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "astro-eslint-parser@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/34f9df0be29e68ae395a6fc38c003df3f61b721b30542a7a5bfc4f99a48cfec499dcaeabaf7a521852fa72078b4247dd22db98eab1fd92dff785d6b74f22835a
   languageName: node
   linkType: hard
 
@@ -4307,20 +4279,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-astro@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-astro@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/ea4ef6a3b63bc96e2e6de18914df10d6bb476ba0dbe5ff70f967329139f8347987f206273c0e664a1e6a6117d7cf82323c654e434dc540d4c0876bd662f92a0b
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-cypress@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-cypress@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/3f3ca070ab17a15179a59da9fdf38cc89f754fd9599d232aa0bdf2997e56b94a97232338379eb70e3d970a3bf3677cd2de084a531ad80da3db642d00e438d148
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-es-x@npm:^7.5.0":
   version: 7.7.0
   resolution: "eslint-plugin-es-x@npm:7.7.0"
@@ -4379,13 +4337,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-jsx-a11y@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/3ba5f8e581ac93634e866735899f47a340bf901380cdf479f727357b4faf69e3d82fbb3a2c261d384e7ebba226e683079c1110744ddaba6887f9ff2933cfeeaf
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-lit-a11y@npm:^4.1.2":
   version: 4.1.2
   resolution: "eslint-plugin-lit-a11y@npm:4.1.2"
@@ -4417,13 +4368,6 @@ __metadata:
   peerDependencies:
     eslint: ">= 5"
   checksum: 10/25daccae8b38970b881044ee72d4e4da82de5ed5cc466ce31209925903326d74a5bf50cb8c6c9d268a16eac178e377a83201f9ca777bc79355a49c1ea9d91364
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-mdx@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-mdx@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/cd323446878ace879d15bbda3eca60618f94b0eb15459a7f2b22808d7deb4adfcd91ca2b7410cbb7900aaaa192932042a1fa3bbede42d68f8069ce4c31cb62e1
   languageName: node
   linkType: hard
 
@@ -4477,47 +4421,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-react-hooks@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/d04cd54ad3372de050aeb4fcf94092d6f9d4060bf488680eca4fd2f2efc1c66580ddbe19cc8eecd37db5fce0600fd09093c7adb12e1e4a71233dd36a6b68aa48
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-react@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-react@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/68030a0318afb796c1485bae3aacd19af6e011858de481cc27fdb14288b91e618076d1c027c61c3118885e2656e062dafa722b2c20dab5a91ea66862719d219d
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-rxjs-angular@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-rxjs-angular@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/cc244db332592f0fc679bb38974ebfebd3492442a37fb645a6a0f630e9d65013f396a169d9c7d6af7b31280d5d8433c2809dc14bede01a1f3173c662c041b70d
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-rxjs@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-rxjs@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/b17d81c8d919fdd158b05d9912ba27906259b7d235c2329c4d16630d174a7b27a6d8f28cfc2742eb30dfd194bc726f1658f1fa18a53e38275722caacecd20e11
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-sonarjs@npm:^0.25.1":
   version: 0.25.1
   resolution: "eslint-plugin-sonarjs@npm:0.25.1"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
   checksum: 10/ea94da85493dd005b39c8d55fb4e198d433874e75653136ae7d6042f31f4396ab25665fb264972ac17b891efa84ec0c6cf9fdde315a312b2a87d7e06bcb2148e
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-svelte3@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-svelte3@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/06feed7593650a1868f39704e59318cf0df162cc2cc1a27ff493713c5769f68ec5b9a561f786ac980f44ab0545cccd2dc1e62fffb3b9c7ce3fa092802590f467
   languageName: node
   linkType: hard
 
@@ -4569,13 +4478,6 @@ __metadata:
   peerDependencies:
     eslint: ">=8.56.0"
   checksum: 10/69b8aeee04806b808a534fe5484ad75ee9feec6078aad90651d7ce7216e2bd14980fec5a2e05fd800b874406a54240af66f04ab83023a7f1fe67397b6dc4c032
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-vue@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz":
-  version: 1.2.1
-  resolution: "eslint-plugin-vue@https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
-  checksum: 10/ec17d863df309e8fa0b3662c315a847829bd8d0f92fa1dc69f026dc2d0c828a57dd940f54d2a2b049d8327eb3440f9e2b178d89b9ec5c0454cf1ea65c0b3ba5b
   languageName: node
   linkType: hard
 
