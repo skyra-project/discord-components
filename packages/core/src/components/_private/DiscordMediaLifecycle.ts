@@ -1,4 +1,4 @@
-import { LitElement } from 'lit';
+import { LitElement, type PropertyValueMap } from 'lit';
 import { state } from 'lit/decorators.js';
 import { createRef, type Ref } from 'lit/directives/ref.js';
 
@@ -27,6 +27,9 @@ export class DiscordMediaLifecycle extends LitElement {
 	@state()
 	protected accessor currentVolume = 1;
 
+	@state()
+	private accessor hasRunUpdate = false;
+
 	protected calculateTime(secs: number) {
 		const minutes = Math.floor(secs / 60);
 		const seconds = Math.floor(secs % 60);
@@ -48,8 +51,6 @@ export class DiscordMediaLifecycle extends LitElement {
 
 	protected displayBufferedAmount() {
 		if (this.mediaComponentRef.value && this.seekSliderRef.value) {
-			this.displayMediaDuration();
-
 			const newBufferedAmount = this.mediaComponentRef.value.buffered.length - 1;
 			if (newBufferedAmount >= 0) {
 				const bufferedAmount = Math.floor(this.mediaComponentRef.value.buffered.end(newBufferedAmount));
@@ -191,17 +192,27 @@ export class DiscordMediaLifecycle extends LitElement {
 		}
 	};
 
-	public override connectedCallback(): void {
-		super.connectedCallback();
+	public override shouldUpdate(changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): boolean {
+		if (changedProperties.has('hasRunUpdate') && changedProperties.size === 1) return false;
 
-		if (this.mediaComponentRef.value) {
-			if (this.mediaComponentRef.value.readyState > 0) {
-				this.displayMediaDuration();
-				this.setSliderMax();
-				this.displayBufferedAmount();
-			} else {
-				this.mediaComponentRef.value.addEventListener('loadedmetadata', this.mediaMetadataLoaded);
+		return super.shouldUpdate(changedProperties);
+	}
+
+	public override firstUpdated(changedProperties: Map<PropertyKey, unknown>): void {
+		super.firstUpdated(changedProperties);
+
+		if (!this.hasRunUpdate) {
+			if (this.mediaComponentRef.value) {
+				if (this.mediaComponentRef.value.readyState > 0) {
+					this.displayMediaDuration();
+					this.setSliderMax();
+					this.displayBufferedAmount();
+				} else {
+					this.mediaComponentRef.value.addEventListener('loadedmetadata', this.mediaMetadataLoaded);
+				}
 			}
+
+			this.hasRunUpdate = true;
 		}
 	}
 
