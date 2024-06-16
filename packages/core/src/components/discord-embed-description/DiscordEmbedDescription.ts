@@ -11,7 +11,6 @@ export class DiscordEmbedDescription extends LitElement {
 			line-height: 1.125rem;
 			margin-top: 8px;
 			min-width: 0;
-			white-space: pre-line;
 		}
 	`;
 
