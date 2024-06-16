@@ -1,11 +1,11 @@
 import { css } from 'lit';
 
 export const DiscordVolumeControlStyles = css`
-	.discord-audio-attachment-flex {
+	.discord-media-attachment-flex {
 		display: flex;
 	}
 
-	.discord-audio-attachment-flex-container {
+	.discord-media-attachment-flex-container {
 		justify-content: flex-end;
 		align-items: center;
 		flex-direction: column;
@@ -13,7 +13,7 @@ export const DiscordVolumeControlStyles = css`
 		position: relative;
 	}
 
-	.discord-audio-attachment-volume-button-slider {
+	.discord-media-attachment-button-slider {
 		margin-bottom: 4px;
 		margin-left: -4px;
 		position: absolute;
@@ -25,7 +25,7 @@ export const DiscordVolumeControlStyles = css`
 		-webkit-app-region: no-drag;
 	}
 
-	.discord-audio-attachment-volume-vertical {
+	.discord-media-attachment-volume-vertical {
 		display: flex;
 		align-items: center;
 		transform-origin: top;
@@ -34,7 +34,7 @@ export const DiscordVolumeControlStyles = css`
 		width: 140px;
 	}
 
-	.discord-audio-attachment-volume-button {
+	.discord-media-attachment-button {
 		cursor: pointer;
 		line-height: 0;
 		width: auto;
@@ -56,7 +56,7 @@ export const DiscordVolumeControlStyles = css`
 		user-select: none;
 	}
 
-	.discord-audio-attachment-volume-button-content {
+	.discord-media-attachment-button-content {
 		--custom-button-link-underline-offset: 1px;
 		--button--underline-color: transparent;
 		--custom-button-link-underline-width: 1px;
@@ -72,7 +72,7 @@ export const DiscordVolumeControlStyles = css`
 		);
 	}
 
-	.discord-audio-attachment-volume-button-control-icon {
+	.discord-media-attachment-button-control-icon {
 		display: block;
 		width: 24px;
 		height: 24px;
@@ -82,18 +82,18 @@ export const DiscordVolumeControlStyles = css`
 		opacity: 0.6;
 	}
 
-	.discord-audio-attachment-volume-slider {
+	.discord-media-attachment-volume-slider {
 		position: relative;
 		height: 6px;
 		background-color: hsl(210 calc(1 * 9.3%) 78.8% / 0.3);
 		width: 88px;
 	}
 
-	.discord-audio-attachment-volume-slider:hover {
+	.discord-media-attachment-volume-slider:hover {
 		box-shadow: 0 1px 1px hsl(0 calc(1 * 0%) 0% / 0.3);
 	}
 
-	.discord-audio-attachment-volume-slider::before {
+	.discord-media-attachment-volume-slider::before {
 		background-color: hsl(210 calc(1 * 9.3%) 78.8%/0.3);
 		left: 0px;
 		border-radius: 3px 0 0 3px;
@@ -105,7 +105,7 @@ export const DiscordVolumeControlStyles = css`
 		z-index: 3;
 	}
 
-	input[type='range'].discord-audio-attachment-volume-slider::-webkit-slider-runnable-track {
+	input[type='range'].discord-media-attachment-volume-slider::-webkit-slider-runnable-track {
 		background-color: hsl(210 calc(1 * 9.3%) 78.8%/0.3);
 		height: 2.47264%;
 		width: 100%;
@@ -113,13 +113,13 @@ export const DiscordVolumeControlStyles = css`
 		border-radius: 8px;
 	}
 
-	input[type='range'].discord-audio-attachment-volume-slider::-webkit-slider-thumb {
+	input[type='range'].discord-media-attachment-volume-slider::-webkit-slider-thumb {
 		position: relative;
 		bottom: 8px;
 		z-index: 4;
 	}
 
-	input[type='range'].discord-audio-attachment-volume-slider:active::-webkit-slider-thumb {
+	input[type='range'].discord-media-attachment-volume-slider:active::-webkit-slider-thumb {
 		transform: scale(1.2);
 		filter: brightness(85%);
 	}

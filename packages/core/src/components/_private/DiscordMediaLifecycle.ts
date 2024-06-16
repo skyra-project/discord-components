@@ -1,18 +1,18 @@
-import { LitElement } from 'lit';
+import { LitElement, type PropertyValueMap } from 'lit';
 import { state } from 'lit/decorators.js';
-import type { Ref } from 'lit/directives/ref.js';
+import { createRef, type Ref } from 'lit/directives/ref.js';
 
 export class DiscordMediaLifecycle extends LitElement {
-	protected mediaComponentRef: Ref<HTMLAudioElement | HTMLVideoElement>;
-	protected seekSliderRef: Ref<HTMLInputElement>;
-	protected volumeControlRef: Ref<HTMLDivElement>;
-	protected volumeControlInputRef: Ref<HTMLInputElement>;
+	protected mediaComponentRef: Ref<HTMLAudioElement | HTMLVideoElement> = createRef();
+	protected seekSliderRef: Ref<HTMLInputElement> = createRef();
+	protected volumeControlRef: Ref<HTMLDivElement> = createRef();
+	protected volumeControlInputRef: Ref<HTMLInputElement> = createRef();
 
 	@state()
 	protected accessor currentPlaybackPosition = '0:00';
 
 	@state()
-	protected accessor totalAudioDuration = '';
+	protected accessor totalMediaDuration = '';
 
 	@state()
 	protected accessor isPlaying = false;
@@ -27,31 +27,8 @@ export class DiscordMediaLifecycle extends LitElement {
 	@state()
 	protected accessor currentVolume = 1;
 
-	public constructor(
-		audioRef: Ref<HTMLAudioElement>,
-		seekSliderRef: Ref<HTMLInputElement>,
-		volumeControlRef: Ref<HTMLDivElement>,
-		volumeControlInputRef: Ref<HTMLInputElement>,
-		totalAudioDuration: string,
-		currentPlaybackPosition: string,
-		raf: number | null,
-		isPlaying: boolean,
-		isMuted: boolean,
-		currentVolume: number
-	) {
-		super();
-
-		this.mediaComponentRef = audioRef;
-		this.seekSliderRef = seekSliderRef;
-		this.volumeControlRef = volumeControlRef;
-		this.volumeControlInputRef = volumeControlInputRef;
-		this.totalAudioDuration = totalAudioDuration;
-		this.currentPlaybackPosition = currentPlaybackPosition;
-		this.raf = raf;
-		this.isPlaying = isPlaying;
-		this.isMuted = isMuted;
-		this.currentVolume = currentVolume;
-	}
+	@state()
+	private accessor hasRunUpdate = false;
 
 	protected calculateTime(secs: number) {
 		const minutes = Math.floor(secs / 60);
@@ -60,9 +37,9 @@ export class DiscordMediaLifecycle extends LitElement {
 		return `${minutes}:${returnedSeconds}`;
 	}
 
-	protected displayAudioDuration() {
+	protected displayMediaDuration() {
 		if (this.mediaComponentRef.value) {
-			this.totalAudioDuration = this.calculateTime(this.mediaComponentRef.value.duration);
+			this.totalMediaDuration = this.calculateTime(this.mediaComponentRef.value.duration);
 		}
 	}
 
@@ -74,8 +51,6 @@ export class DiscordMediaLifecycle extends LitElement {
 
 	protected displayBufferedAmount() {
 		if (this.mediaComponentRef.value && this.seekSliderRef.value) {
-			this.displayAudioDuration();
-
 			const newBufferedAmount = this.mediaComponentRef.value.buffered.length - 1;
 			if (newBufferedAmount >= 0) {
 				const bufferedAmount = Math.floor(this.mediaComponentRef.value.buffered.end(newBufferedAmount));
@@ -105,6 +80,15 @@ export class DiscordMediaLifecycle extends LitElement {
 				requestAnimationFrame(this.whilePlaying);
 				this.isPlaying = true;
 			}
+		}
+	};
+
+	protected handleSpaceToPlayPause = (event: KeyboardEvent) => {
+		if (event.code === 'Space') {
+			event.preventDefault();
+			event.stopPropagation();
+
+			this.handleClickPlayPauseIcon();
 		}
 	};
 
@@ -179,9 +163,9 @@ export class DiscordMediaLifecycle extends LitElement {
 
 	protected handleVolumeControlKeyboard(event: KeyboardEvent) {
 		let volumeChange = 0;
-		if (event.key === 'ArrowDown') {
+		if (event.code === 'ArrowDown') {
 			volumeChange = -0.1;
-		} else if (event.key === 'ArrowUp') {
+		} else if (event.code === 'ArrowUp') {
 			volumeChange = 0.1;
 		}
 
@@ -209,11 +193,40 @@ export class DiscordMediaLifecycle extends LitElement {
 		}
 	}
 
-	protected audioMetadataLoaded = () => {
+	protected mediaMetadataLoaded = () => {
 		if (this.mediaComponentRef.value) {
-			this.displayAudioDuration();
+			this.displayMediaDuration();
 			this.setSliderMax();
 			this.displayBufferedAmount();
 		}
 	};
+
+	public override shouldUpdate(changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): boolean {
+		if (changedProperties.has('hasRunUpdate') && changedProperties.size === 1) return false;
+
+		return super.shouldUpdate(changedProperties);
+	}
+
+	public override firstUpdated(changedProperties: Map<PropertyKey, unknown>): void {
+		if (!this.hasRunUpdate) {
+			if (this.mediaComponentRef.value) {
+				if (this.mediaComponentRef.value.readyState > 0) {
+					this.displayMediaDuration();
+					this.setSliderMax();
+					this.displayBufferedAmount();
+				} else {
+					this.mediaComponentRef.value.addEventListener('loadedmetadata', this.mediaMetadataLoaded);
+				}
+			}
+
+			this.hasRunUpdate = true;
+			super.firstUpdated(changedProperties);
+		}
+	}
+
+	public override disconnectedCallback(): void {
+		super.disconnectedCallback();
+
+		this.mediaComponentRef.value?.removeEventListener('loadedmetadata', this.mediaMetadataLoaded);
+	}
 }

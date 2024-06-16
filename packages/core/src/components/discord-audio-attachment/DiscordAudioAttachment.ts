@@ -3,8 +3,9 @@ import { css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { createRef, ref } from 'lit/directives/ref.js';
+import { ref } from 'lit/directives/ref.js';
 import { when } from 'lit/directives/when.js';
+import { DiscordMediaAttachmentStyles } from '../_private/DiscordMediaAttachmentStyles.js';
 import { DiscordMediaLifecycle } from '../_private/DiscordMediaLifecycle.js';
 import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControlStyles.js';
 import { DiscordVolumeControlStyles } from '../_private/DiscordVolumeControlStyles.js';
@@ -22,6 +23,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	public static override readonly styles = [
 		DiscordVolumeControlStyles,
 		DiscordPlaybackControlStyles,
+		DiscordMediaAttachmentStyles,
 		css`
 			:host {
 				display: grid;
@@ -42,31 +44,14 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 				--volume-slider-opacity: 0;
 			}
 
-			.discord-audio-attachment-non-visual-media-item-container {
-				justify-self: start;
-				align-self: start;
-				margin-top: 8px;
-				max-width: 100%;
-				display: flex;
-				flex-direction: column;
-			}
-
 			.discord-audio-attachment-non-visual-media-item {
 				width: -moz-fit-content;
 				width: fit-content;
 				max-width: 100%;
 			}
 
-			.discord-audio-attachment-mosaic-item-media {
-				position: relative;
-				max-height: inherit;
-				border-radius: 2px;
+			.discord-media-attachment-mosaic-item-media {
 				width: 100%;
-				align-items: center;
-				display: flex;
-				flex-flow: row nowrap;
-				max-width: 100%;
-				height: 100%;
 			}
 
 			.discord-audio-attachment-wrapper-audio {
@@ -132,53 +117,9 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 				width: 0;
 				height: 0;
 			}
-
-			.discord-audio-attachment-controls {
-				width: 100%;
-				display: flex;
-				align-items: center;
-				margin-top: 4px;
-				background-color: hsl(0 calc(1 * 0%) 0% / 0.6);
-				border-radius: 3px;
-			}
-
-			.discord-audio-attachment-video-button {
-				margin-right: 8px;
-			}
-
-			.discord-audio-attachment-control-icon {
-				display: block;
-				width: 24px;
-				height: 24px;
-				padding: 4px;
-				cursor: pointer;
-				flex: 0 0 auto;
-				opacity: 0.6;
-			}
-
-			.discord-audio-attachment-duration-time-wrapper {
-				flex: 0 0 auto;
-				margin: 4px;
-				height: 12px;
-			}
-
-			.discord-audio-attachment-duration-time-display {
-				font-weight: 500;
-				display: inline-block;
-				font-family: 'gg mono', 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter',
-					'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
-				font-size: 12px;
-				line-height: 12px;
-				vertical-align: text-top;
-			}
-
-			.discord-audio-attachment-duration-time-separator {
-				margin: 0 2px;
-			}
 		`
 	];
 
-	// #region properties
 	/**
 	 * The URL to audio file
 	 * @example
@@ -224,41 +165,13 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
-	// #endregion
-
-	// #region lifecycle
-
-	public override connectedCallback(): void {
-		super.connectedCallback();
-
-		if (this.mediaComponentRef.value) {
-			if (this.mediaComponentRef.value.readyState > 0) {
-				this.displayAudioDuration();
-				this.setSliderMax();
-				this.displayBufferedAmount();
-			} else {
-				this.mediaComponentRef.value.addEventListener('loadedmetadata', this.audioMetadataLoaded);
-			}
-		}
-	}
-
-	public override disconnectedCallback(): void {
-		super.disconnectedCallback();
-
-		this.mediaComponentRef.value?.removeEventListener('loadedmetadata', this.audioMetadataLoaded);
-	}
-	// #endregion
-
-	public constructor() {
-		super(createRef(), createRef(), createRef(), createRef(), '', '0:00', null, false, false, 1);
-	}
 
 	protected override render() {
 		const parsedName = this.name.replace(/\s/g, '_').replace(/[^a-zA-Z0-9_-]/g, '');
 
-		return html`<div class="discord-audio-attachment-non-visual-media-item-container">
+		return html`<div class="discord-media-attachment-non-visual-media-item-container">
 			<div class="discord-audio-attachment-non-visual-media-item">
-				<div class="discord-audio-attachment-mosaic-item-media">
+				<div class="discord-media-attachment-mosaic-item-media">
 					<div
 						class=${classMap({ 'discord-audio-attachment-wrapper-audio': true, 'discord-audio-attachment-light-theme': this.lightTheme })}
 					>
@@ -290,33 +203,32 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 						>
 							<source src=${ifDefined(this.href)} />
 						</audio>
-						<div class="discord-audio-attachment-controls" style="transform: translateY(0%)">
-							${/* eslint-disable lit-a11y/click-events-have-key-events */ html``}
+						<div class="discord-media-attachment-controls" style="transform: translateY(0%)">
 							<div
-								class="discord-audio-attachment-video-button"
+								class="discord-media-attachment-video-button"
 								tabindex="0"
 								aria-label="${this.isPlaying ? 'Pause' : 'Play'}"
 								role="button"
 								@click=${this.handleClickPlayPauseIcon}
+								@keydown=${this.handleSpaceToPlayPause}
 							>
-								${/* eslint-enable lit-a11y/click-events-have-key-events */ html``}
 								${when(
 									this.isPlaying,
-									() => AudioVideoPauseIcon({ class: 'discord-audio-attachment-control-icon' }),
-									() => AudioVideoPlayIcon({ class: 'discord-audio-attachment-control-icon' })
+									() => AudioVideoPauseIcon({ class: 'discord-media-attachment-control-icon' }),
+									() => AudioVideoPlayIcon({ class: 'discord-media-attachment-control-icon' })
 								)}
 							</div>
-							<div class="discord-audio-attachment-duration-time-wrapper">
-								<span class="discord-audio-attachment-duration-time-display">${this.currentPlaybackPosition}</span>
-								<span class="discord-audio-attachment-duration-time-display discord-audio-attachment-duration-time-separator">/</span>
-								<span class="discord-audio-attachment-duration-time-display">${this.totalAudioDuration}</span>
+							<div class="discord-media-attachment-duration-time-wrapper">
+								<span class="discord-media-attachment-duration-time-display">${this.currentPlaybackPosition}</span>
+								<span class="discord-media-attachment-duration-time-display discord-media-attachment-duration-time-separator">/</span>
+								<span class="discord-media-attachment-duration-time-display">${this.totalMediaDuration}</span>
 							</div>
-							<div class="discord-audio-attachment-horizontal">
-								<div class="discord-audio-attachment-media-bar-interaction">
+							<div class="discord-media-attachment-horizontal">
+								<div class="discord-media-attachment-media-bar-interaction">
 									<input
 										type="range"
 										${ref(this.seekSliderRef)}
-										class="discord-audio-attachment-playback-control"
+										class="discord-media-attachment-playback-control"
 										@input=${this.handleSeekSliderInput}
 										@change=${this.handleSeekSliderChange}
 										max="100"
@@ -324,18 +236,18 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 									/>
 								</div>
 							</div>
-							<div class="discord-audio-attachment-flex">
-								<div class="discord-audio-attachment-flex-container">
-									<div ${ref(this.volumeControlRef)} class="discord-audio-attachment-volume-button-slider">
+							<div class="discord-media-attachment-flex">
+								<div class="discord-media-attachment-flex-container">
+									<div ${ref(this.volumeControlRef)} class="discord-media-attachment-button-slider">
 										<div
-											class="discord-audio-attachment-volume-vertical"
+											class="discord-media-attachment-volume-vertical"
 											@mouseenter=${this.handleVolumeVerticalEnter}
 											@mouseleave=${this.handleVolumeVerticalLeave}
 										>
 											<input
 												${ref(this.volumeControlInputRef)}
 												type="range"
-												class="discord-audio-attachment-volume-slider"
+												class="discord-media-attachment-volume-slider"
 												@input=${this.handleVolumeSliderInput}
 												max="100"
 												value="100"
@@ -345,28 +257,27 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 									<button
 										aria-label="Control volume"
 										type="button"
-										class="discord-audio-attachment-volume-button"
+										class="discord-media-attachment-button"
 										@focus=${this.handleVolumeVerticalFocus}
 										@blur=${this.handleVolumeVerticalBlur}
 										@mouseover=${this.handleVolumeVerticalEnter}
 										@mouseout=${this.handleVolumeVerticalLeave}
+										@click=${this.handleClickMuteIcon}
 									>
-										${/* eslint-disable lit-a11y/click-events-have-key-events */ html``}
-										<div class="discord-audio-attachment-volume-button-content" @click=${this.handleClickMuteIcon}>
-											${/* eslint-enable lit-a11y/click-events-have-key-events */ html``}
+										<div class="discord-media-attachment-button-content">
 											${when(
 												this.currentVolume === 0 || this.isMuted,
-												() => AudioVideoVolumeMutedIcon({ class: 'discord-audio-attachment-volume-button-control-icon' }),
+												() => AudioVideoVolumeMutedIcon({ class: 'discord-media-attachment-button-control-icon' }),
 												() =>
 													when(
 														this.currentVolume <= 0.5,
 														() =>
 															AudioVideoVolumeBelow50PercentIcon({
-																class: 'discord-audio-attachment-volume-button-control-icon'
+																class: 'discord-media-attachment-button-control-icon'
 															}),
 														() =>
 															AudioVideoVolumeAbove50PercentIcon({
-																class: 'discord-audio-attachment-volume-button-control-icon'
+																class: 'discord-media-attachment-button-control-icon'
 															})
 													)
 											)}

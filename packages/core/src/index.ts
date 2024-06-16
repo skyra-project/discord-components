@@ -40,6 +40,7 @@ export { DiscordThreadMessage } from './components/discord-thread-message/Discor
 export { DiscordTime } from './components/discord-time/DiscordTime.js';
 export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderlined.js';
 export { DiscordUnorderedList } from './components/discord-unordered-list/DiscordUnorderedList.js';
+export { DiscordVideoAttachment } from './components/discord-video-attachment/DiscordVideoAttachment.js';
 
 /* EXPORTS END */
 export { getConfig, setConfig } from './config.js';

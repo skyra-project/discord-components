@@ -48,7 +48,8 @@
 		"./discord-thread-message.js": "./dist/components/discord-thread-message/DiscordThreadMessage.js",
 		"./discord-time.js": "./dist/components/discord-time/DiscordTime.js",
 		"./discord-underlined.js": "./dist/components/discord-underlined/DiscordUnderlined.js",
-		"./discord-unordered-list.js": "./dist/components/discord-unordered-list/DiscordUnorderedList.js"
+		"./discord-unordered-list.js": "./dist/components/discord-unordered-list/DiscordUnorderedList.js",
+		"./discord-video-attachment.js": "./dist/components/discord-video-attachment/DiscordVideoAttachment.js"
 	},
 	"sideEffects": [
 		"./dist/index.js",
@@ -89,7 +90,8 @@
 		"./dist/components/discord-thread-message/DiscordThreadMessage.js",
 		"./dist/components/discord-time/DiscordTime.js",
 		"./dist/components/discord-underlined/DiscordUnderlined.js",
-		"./dist/components/discord-unordered-list/DiscordUnorderedList.js"
+		"./dist/components/discord-unordered-list/DiscordUnorderedList.js",
+		"./dist/components/discord-video-attachment/DiscordVideoAttachment.js"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
 	"scripts": {
