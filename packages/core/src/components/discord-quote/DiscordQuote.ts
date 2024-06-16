@@ -39,13 +39,6 @@ export class DiscordQuote extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	public override willUpdate() {
-		if (this.parentElement && 'lightTheme' in this.parentElement) {
-			const parent = this.parentElement as { lightTheme: boolean };
-			this.lightTheme = parent.lightTheme;
-		}
-	}
-
 	protected override render() {
 		return html`
 			<div class="discord-quote-divider"></div>

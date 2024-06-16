@@ -85,13 +85,6 @@ export class DiscordCode extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true })
 	public accessor embed = false;
 
-	protected override willUpdate() {
-		if (this.parentElement && 'lightTheme' in this.parentElement) {
-			const parent = this.parentElement as { lightTheme: boolean };
-			this.lightTheme = parent.lightTheme;
-		}
-	}
-
 	protected override render() {
 		if (this.multiline) {
 			return html`<discord-pre ?embed=${this.embed}
