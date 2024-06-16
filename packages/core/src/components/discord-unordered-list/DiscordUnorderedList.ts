@@ -24,7 +24,7 @@ export class DiscordUnorderedList extends LitElement {
 	 * The library will try to guess this automatically based on the component tree, but
 	 * you can also set this manually.
 	 *
-	 * @default false
+	 * @defaultValue false
 	 */
 	@property({ type: Boolean, reflect: true })
 	public accessor nested = false;
@@ -47,7 +47,7 @@ export class DiscordUnorderedList extends LitElement {
 	}
 
 	/**
-	 * Sets {@link DiscordUnorderedList.nested nested} to true if the parent is either
+	 * Sets {@link DiscordUnorderedList.nested | nested} to true if the parent is either
 	 * `<discord-unordered-list>` or `<discord-ordered-list>`.
 	 */
 	protected override willUpdate(): void {

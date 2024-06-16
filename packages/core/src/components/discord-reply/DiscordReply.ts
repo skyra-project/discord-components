@@ -5,12 +5,12 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
+import type { LightTheme, Profile } from '../../types.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
 import ReplyIcon from '../svgs/ReplyIcon.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
-import type { LightTheme, Profile } from '../../types.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {
@@ -196,7 +196,8 @@ export class DiscordReply extends LitElement implements LightTheme {
 
 	/**
 	 * The message author's username.
-	 * @default 'User'
+	 *
+	 * @defaultValue 'User'
 	 */
 	@property()
 	public accessor author = 'User';
@@ -259,7 +260,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 	public accessor attachment = false;
 
 	/**
-	 * Whether this reply pings the original message sender, prepending an "@" on the author's username.
+	 * Whether this reply pings the original message sender, prepending an "\@" on the author's username.
 	 */
 	@property({ type: Boolean })
 	public accessor mentions = false;
@@ -270,18 +271,18 @@ export class DiscordReply extends LitElement implements LightTheme {
 	 * The message will always be `"Original message was deleted"`.
 	 * Furthermore, the following properties are ignored:
 	 *
-	 * - {@link DiscordReply.profile profile}
-	 * - {@link DiscordReply.author author}
-	 * - {@link DiscordReply.avatar avatar}
-	 * - {@link DiscordReply.bot bot}
-	 * - {@link DiscordReply.server server}
-	 * - {@link DiscordReply.op op}
-	 * - {@link DiscordReply.verified verified}
-	 * - {@link DiscordReply.edited edited}
-	 * - {@link DiscordReply.roleColor roleColor}
-	 * - {@link DiscordReply.command command}
-	 * - {@link DiscordReply.attachment attachment}
-	 * - {@link DiscordReply.mentions mentions}
+	 * - {@link DiscordReply.profile | profile}
+	 * - {@link DiscordReply.author | author}
+	 * - {@link DiscordReply.avatar | avatar}
+	 * - {@link DiscordReply.bot | bot}
+	 * - {@link DiscordReply.server | server}
+	 * - {@link DiscordReply.op | op}
+	 * - {@link DiscordReply.verified | verified}
+	 * - {@link DiscordReply.edited | edited}
+	 * - {@link DiscordReply.roleColor | roleColor}
+	 * - {@link DiscordReply.command | command}
+	 * - {@link DiscordReply.attachment | attachment}
+	 * - {@link DiscordReply.mentions | mentions}
 	 */
 	@property({ type: Boolean, reflect: true })
 	public accessor deleted = false;
@@ -297,9 +298,11 @@ export class DiscordReply extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'compact-mode' })
 	public accessor compactMode = false;
 
-	protected override render() {
-		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
+	private resolveAvatar(avatar: string): string {
+		return avatars[avatar] ?? avatar ?? avatars.default;
+	}
 
+	protected override render() {
 		const defaultData: Profile = {
 			author: this.author,
 			bot: this.bot,
@@ -309,7 +312,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 			roleColor: this.roleColor
 		};
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
-		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
+		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
 
 		const profileTag = html`
 			${when(

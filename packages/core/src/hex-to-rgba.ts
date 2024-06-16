@@ -1,3 +1,5 @@
+/* eslint-disable id-length */
+
 const removeHash = (color: string) => (color.startsWith('#') ? color.slice(1) : color);
 
 const parseHex = (nakedHex: string): HexObject => {
@@ -16,7 +18,7 @@ const parseHex = (nakedHex: string): HexObject => {
 	};
 };
 
-const hexToDecimal = (hex: string) => parseInt(hex, 16);
+const hexToDecimal = (hex: string) => Number.parseInt(hex, 16);
 
 const hexesToDecimals = ({ r, g, b, a }: HexObject) => ({
 	r: hexToDecimal(r),
@@ -25,9 +27,9 @@ const hexesToDecimals = ({ r, g, b, a }: HexObject) => ({
 	a: Number((hexToDecimal(a) / 255).toFixed(2))
 });
 
-const isNumeric = (n: string | number | undefined) => typeof n === 'number' || (typeof n === 'string' && Number.isFinite(Number(n)));
+const isNumeric = (n: number | string | undefined) => typeof n === 'number' || (typeof n === 'string' && Number.isFinite(Number(n)));
 
-const formatRgb = (decimalObject: DecimalObject, parameterA?: string | number) => {
+const formatRgb = (decimalObject: DecimalObject, parameterA?: number | string) => {
 	const { r, g, b, a: parsedA } = decimalObject;
 	const a = isNumeric(parameterA) ? parameterA : parsedA;
 
@@ -39,11 +41,11 @@ const formatRgb = (decimalObject: DecimalObject, parameterA?: string | number) =
  *
  * If you specify an alpha value, you'll get a rgba() value instead.
  *
- * @param color The hex value to convert. ('123456'. '#123456', ''123', '#123')
- * @param alpha An alpha value to apply. (optional) ('0.5', '0.25')
- * @return An rgb or rgba value. ('rgb(11, 22, 33)'. 'rgba(11, 22, 33, 0.5)')
+ * @param color - The hex value to convert. ('123456'. '#123456', ''123', '#123')
+ * @param alpha - An alpha value to apply. (optional) ('0.5', '0.25')
+ * @returns An rgb or rgba value. ('rgb(11, 22, 33)'. 'rgba(11, 22, 33, 0.5)')
  */
-export const hexToRgba = (color: string, alpha?: string | number) => {
+export const hexToRgba = (color: string, alpha?: number | string) => {
 	const hashlessHex = removeHash(color);
 	const hexObject = parseHex(hashlessHex);
 	const decimalObject = hexesToDecimals(hexObject);
@@ -52,15 +54,15 @@ export const hexToRgba = (color: string, alpha?: string | number) => {
 };
 
 interface HexObject {
-	r: string;
-	g: string;
-	b: string;
 	a: string;
+	b: string;
+	g: string;
+	r: string;
 }
 
 interface DecimalObject {
-	r: number;
-	g: number;
-	b: number;
 	a: number;
+	b: number;
+	g: number;
+	r: number;
 }

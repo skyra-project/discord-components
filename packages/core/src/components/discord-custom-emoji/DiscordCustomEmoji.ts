@@ -1,8 +1,8 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { getGlobalEmojiUrl } from '../../util.js';
 import type { Emoji } from '../../types.js';
+import { getGlobalEmojiUrl } from '../../util.js';
 
 @customElement('discord-custom-emoji')
 export class DiscordCustomEmoji extends LitElement {
@@ -43,10 +43,10 @@ export class DiscordCustomEmoji extends LitElement {
 	public accessor url: string;
 
 	/**
-	 * A map of emoji names and their data {@link DiscordCustomEmoji.name name}.
+	 * A map of emoji names and their data {@link DiscordCustomEmoji.name | name}.
 	 *
 	 * This should be keyed as `{ key: { emojiData } }` wherein `key`
-	 * should occur in the {@link DiscordCustomEmoji.name name}.
+	 * should occur in the {@link DiscordCustomEmoji.name | name}.
 	 *
 	 * By default this component will use the global emojis from
 	 * {@link getGlobalEmojiUrl}, however on SSR frameworks like Nuxt 3 global config doesn't

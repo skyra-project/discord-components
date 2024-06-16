@@ -5,10 +5,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
+import type { LightTheme, Profile } from '../../types.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
-import type { LightTheme, Profile } from '../../types.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {
@@ -39,7 +39,8 @@ export class DiscordCommand extends LitElement implements LightTheme {
 
 	/**
 	 * The message author's username.
-	 * @default 'User'
+	 *
+	 * @defaultValue 'User'
 	 */
 	@property({ attribute: 'author' })
 	public accessor author = 'User';
@@ -74,12 +75,14 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	protected override render() {
-		const resolveAvatar = (avatar: string): string => avatars[avatar] ?? avatar ?? avatars.default;
+	private resolveAvatar(avatar: string): string {
+		return avatars[avatar] ?? avatar ?? avatars.default;
+	}
 
+	protected override render() {
 		const defaultData: Profile = { author: this.author, bot: false, verified: false, server: false, roleColor: this.roleColor };
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
-		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
+		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
 
 		return html`
 			${when(

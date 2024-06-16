@@ -5,10 +5,10 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
+import type { Emoji, DiscordEmbedProps, LightTheme } from '../../types.js';
 import { getGlobalEmojiUrl } from '../../util.js';
 import '../discord-custom-emoji/DiscordCustomEmoji.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import type { Emoji, DiscordEmbedProps, LightTheme } from '../../types.js';
 
 @customElement('discord-embed')
 export class DiscordEmbed extends LitElement implements DiscordEmbedProps, LightTheme {
@@ -251,10 +251,10 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	public accessor embedTitle: string;
 
 	/**
-	 * An emoji that is prefixed to {@link DiscordEmbed.embedTitle embedTitle}.
+	 * An emoji that is prefixed to {@link DiscordEmbed.embedTitle | embedTitle}.
 	 *
 	 * This should be keyed as `{ key: { emojiData } }` wherein `key`
-	 * should occur in the {@link DiscordEmbed.embedTitle embedTitle}.
+	 * should occur in the {@link DiscordEmbed.embedTitle | embedTitle}.
 	 *
 	 * By default this component will use the global emojis from
 	 * {@link getGlobalEmojiUrl}, however on SSR frameworks like Nuxt 3 global config doesn't
@@ -283,11 +283,13 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 
 	/**
 	 * The embed video to use (displayed at the bottom, same slot as the image).
-	 * @important YouTube videos will not be playable on your projects, this is due to YouTube using DASH to play their videos rather
+	 *
+	 * @remarks
+	 * - YouTube videos will not be playable on your projects, this is due to YouTube using DASH to play their videos rather
 	 * than providing the raw media stream (in a container such as mp4 or ogg). Links to regular MP4 files (such as on a CDN) however
 	 * will autoplay!
-	 * @note Video takes priority over image.
-	 * @remark Providing both a video and an image will ensure the image is shown to users with browsers
+	 * - Video takes priority over image.
+	 * - Providing both a video and an image will ensure the image is shown to users with browsers
 	 * that do not support HTML5 video playback.
 	 * @example https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg
 	 */
@@ -296,6 +298,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 
 	/**
 	 * The provider to show above the embed, for example for YouTube videos it will show "YouTube" at the top of the embed (above the author)
+	 *
 	 * @example YouTube
 	 */
 	@property()
@@ -374,6 +377,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 				</video>
 			`;
 		}
+
 		if (this.image) {
 			return html`<img src=${ifDefined(this.image)} alt="Discord embed media" class="discord-embed-image" />`;
 		}
@@ -394,6 +398,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			} else {
 				el = idx < words.length - 1 ? `${word} ` : word;
 			}
+
 			return el;
 		});
 	}

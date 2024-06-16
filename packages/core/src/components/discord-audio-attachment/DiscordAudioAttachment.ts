@@ -5,6 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { ref } from 'lit/directives/ref.js';
 import { when } from 'lit/directives/when.js';
+import type { LightTheme } from '../../types.js';
 import { DiscordMediaAttachmentStyles } from '../_private/DiscordMediaAttachmentStyles.js';
 import { DiscordMediaLifecycle } from '../_private/DiscordMediaLifecycle.js';
 import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControlStyles.js';
@@ -17,7 +18,6 @@ import MediaRestartIcon from '../svgs/MediaRestartIcon.js';
 import MediaVolumeAbove50PercentIcon from '../svgs/MediaVolumeAbove50PercentIcon.js';
 import MediaVolumeBelow50PercentIcon from '../svgs/MediaVolumeBelow50PercentIcon.js';
 import MediaVolumeMutedIcon from '../svgs/MediaVolumeMutedIcon.js';
-import type { LightTheme } from '../../types.js';
 
 @customElement('discord-audio-attachment')
 export class DiscordAudioAttachment extends DiscordMediaLifecycle implements LightTheme {
@@ -123,6 +123,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 
 	/**
 	 * The URL to audio file
+	 *
 	 * @example
 	 * ```ts
 	 * 'https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3'
@@ -134,7 +135,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	/**
 	 * The name of the audio file
 	 *
-	 * @note Spaces will be replaced with underscores and any non-alphanumeric characters will be removed
+	 * @remarks Spaces will be replaced with underscores and any non-alphanumeric characters will be removed
 	 */
 	@property()
 	public accessor name: string;
@@ -142,9 +143,8 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	/**
 	 * The size of the audio file in bytes
 	 *
-	 * @note The unit is not automatically calculated,
-	 * you should provide it manually through {@link DiscordAudioAttachment.bytesUnit `bytesUnit`}
-	 *
+	 * @remarks The unit is not automatically calculated,
+	 * you should provide it manually through {@link DiscordAudioAttachment.bytesUnit | `bytesUnit`}
 	 * @example
 	 * ```ts
 	 * 1024
@@ -155,6 +155,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 
 	/**
 	 * The unit of the audio file in a human-readable format
+	 *
 	 * @example
 	 * ```ts
 	 * 'KB'
@@ -168,7 +169,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	public accessor lightTheme = false;
 
 	protected override render() {
-		const parsedName = this.name.replace(/\s/g, '_').replace(/[^a-zA-Z0-9_-]/g, '');
+		const parsedName = this.name.replaceAll(/\s/g, '_').replaceAll(/[^\w-]/g, '');
 
 		return html`<div class="discord-media-attachment-non-visual-media-item-container">
 			<div class="discord-audio-attachment-non-visual-media-item">

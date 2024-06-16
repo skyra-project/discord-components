@@ -41,7 +41,7 @@ export class DiscordHeader extends LitElement {
 	public accessor level: 1 | 2 | 3 = 1;
 
 	public ensureLevelIsNumber(): void {
-		if (this.level && !isNaN(this.level)) {
+		if (this.level && !Number.isNaN(this.level)) {
 			this.level = Number(this.level) as typeof this.level;
 		}
 	}

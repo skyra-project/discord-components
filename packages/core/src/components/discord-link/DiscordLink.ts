@@ -3,8 +3,8 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import type { LightTheme } from '../../types.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-link')
 export class DiscordLink extends LitElement implements LightTheme {
@@ -29,6 +29,7 @@ export class DiscordLink extends LitElement implements LightTheme {
 
 	/**
 	 * The URL to link
+	 *
 	 * @example
 	 * ```ts
 	 * 'https://example.com/example.txt'
@@ -38,19 +39,19 @@ export class DiscordLink extends LitElement implements LightTheme {
 	public accessor href: string;
 
 	/**
-	 * The `<a>` tag {@linkplain https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel `rel`}
+	 * The `<a>` tag {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel | `rel`}
 	 */
 	@property()
 	public accessor rel: string;
 
 	/**
-	 * The `<a>` tag {@linkplain https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target `target`}
+	 * The `<a>` tag {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target | `target`}
 	 */
 	@property()
-	public accessor target: '_self' | '_blank' | '_parent' | '_top';
+	public accessor target: '_blank' | '_parent' | '_self' | '_top';
 
 	/**
-	 * The `<a>` tag {@linkplain https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#type `type`}
+	 * The `<a>` tag {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#type | `type`}
 	 */
 	@property()
 	public accessor type: string;

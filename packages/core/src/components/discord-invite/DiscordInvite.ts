@@ -4,11 +4,11 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
 import { defaultDiscordAvatars } from '../../config.js';
+import type { LightTheme } from '../../types.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import GuildBadge from '../svgs/GuildBadge.js';
 import PartnerBadgeOverlay from '../svgs/PartnerBadgeOverlay.js';
 import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
-import type { LightTheme } from '../../types.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement implements LightTheme {
@@ -202,7 +202,8 @@ export class DiscordInvite extends LitElement implements LightTheme {
 
 	/**
 	 * The server's name.
-	 * @default 'Discord Server'
+	 *
+	 * @defaultValue 'Discord Server'
 	 */
 	@property()
 	public accessor name = 'Discord Server';
@@ -215,14 +216,16 @@ export class DiscordInvite extends LitElement implements LightTheme {
 
 	/**
 	 * The number of members online on the server.
-	 * @default 0
+	 *
+	 * @defaultValue 0
 	 */
 	@property({ type: Number })
 	public accessor online = 0;
 
 	/**
 	 * The number of members on the server.
-	 * @default 0
+	 *
+	 * @defaultValue 0
 	 */
 	@property({ type: Number })
 	public accessor members = 0;
@@ -243,14 +246,16 @@ export class DiscordInvite extends LitElement implements LightTheme {
 
 	/**
 	 * Invitation embed title.
-	 * @default "You've been invited to join a server"
+	 *
+	 * @defaultValue "You've been invited to join a server"
 	 */
 	@property({ attribute: 'invite-title' })
 	public accessor inviteTitle = "You've been invited to join a server";
 
 	/**
 	 * The join button.
-	 * @default 'Join'
+	 *
+	 * @defaultValue 'Join'
 	 */
 	@property({ attribute: 'join-btn' })
 	public accessor joinBtn = 'Join';

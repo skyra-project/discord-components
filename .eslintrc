@@ -1,30 +1,23 @@
 {
 	"root": true,
-	"extends": ["@open-wc", "plugin:lit/recommended", "@sapphire", "plugin:import/typescript", "plugin:lit-a11y/recommended"],
+	"extends": [
+		"neon/common",
+		"neon/browser",
+		"neon/module",
+		"neon/no-deprecated",
+		"neon/node",
+		"neon/typescript",
+		"neon/prettier",
+		"plugin:wc/best-practice",
+		"plugin:lit/recommended",
+		"plugin:lit-a11y/recommended",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["lit", "html"],
 	"parserOptions": {
-		"ecmaVersion": 2020,
-		"sourceType": "module"
+		"project": "./tsconfig.eslint.json"
 	},
-	"settings": {
-		"import/extensions": [".js", ".mjs", ".cjs", ".jsx", ".ts", ".mts", ".cts", ".tsx"],
-		"import/parsers": {
-			"@typescript-eslint/parser": [".ts", ".tsx", ".js", ".jsx", ".json", ".node"]
-		},
-		"import/resolvers": {
-			"typescript": {
-				"alwaysTryTypes": true,
-				"project": ["tsconfig.eslint.json"],
-				"extensions": [".js", ".jsx", ".ts", ".tsx"]
-			},
-			"node": {
-				"extensions": [".js", ".jsx", ".ts", ".tsx"]
-			}
-		}
-	},
-	"plugins": ["import"],
 	"rules": {
-		"@typescript-eslint/member-ordering": "off",
-		"@typescript-eslint/unbound-method": "off",
 		"no-extra-label": "warn",
 		"no-iterator": "warn",
 		"no-label-var": "warn",
@@ -65,71 +58,63 @@
 			}
 		],
 		"getter-return": "warn",
-		"import/first": "error",
-		"import/no-amd": "error",
-		"import/default": "off",
-		"import/dynamic-import-chunkname": "off",
-		"import/export": "error",
-		"import/exports-last": "off",
-		"import/extensions": ["error", "always", { "ignorePackages": true }],
-		"import/group-exports": "off",
-		"import/max-dependencies": "off",
-		"import/named": "off",
-		"import/namespace": "off",
-		"import/newline-after-import": "error",
-		"import/no-absolute-path": "error",
-		"import/no-anonymous-default-export": "off",
-		"import/no-commonjs": "off",
-		"import/no-cycle": ["error", { "maxDepth": 4, "ignoreExternal": true, "allowUnsafeDynamicCyclicDependency": true }],
-		"import/no-default-export": "off",
-		"import/no-deprecated": "off",
-		"import/no-duplicates": "error",
-		"import/no-dynamic-require": "error",
-		"import/no-extraneous-dependencies": [
+		"no-underscore-dangle": "off",
+		"no-restricted-syntax": [
 			"error",
 			{
-				"devDependencies": true,
-				"optionalDependencies": true,
-				"peerDependencies": true
-			}
-		],
-		"import/no-import-module-exports": "off",
-		"import/no-internal-modules": "off",
-		"import/no-mutable-exports": "error",
-		"import/no-named-as-default": "off",
-		"import/no-named-as-default-member": "off",
-		"import/no-named-default": "off",
-		"import/no-named-export": "off",
-		"import/no-namespace": "off",
-		"import/no-nodejs-modules": "off",
-		"import/no-relative-packages": "off",
-		"import/no-relative-parent-imports": "off",
-		"import/no-restricted-paths": "off",
-		"import/no-self-import": "error",
-		"import/no-unassigned-import": "off",
-		"import/no-unresolved": "off",
-		"import/no-unused-modules": "off",
-		"import/no-useless-path-segments": "error",
-		"import/no-webpack-loader-syntax": "error",
-		"import/order": [
-			"error",
+				"selector": "ForInStatement",
+				"message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array."
+			},
 			{
-				"alphabetize": {
-					"caseInsensitive": false,
-					"order": "asc"
-				},
-				"groups": ["builtin", "external", "internal", "parent", "sibling", "index", "type"],
-				"newlines-between": "never",
-				"warnOnUnassignedImports": true
+				"selector": "LabeledStatement",
+				"message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+			},
+			{
+				"selector": "WithStatement",
+				"message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
 			}
 		],
-		"wc/guard-super-call": "off"
+		"class-methods-use-this": "off",
+
+		// @typescript-eslint/plugin-eslint
+		"@typescript-eslint/member-ordering": "off",
+		"@typescript-eslint/unbound-method": "off",
+		"@typescript-eslint/consistent-type-definitions": "off",
+		"@typescript-eslint/prefer-function-type": "off",
+
+		// eslint-plugin-wc
+		"wc/guard-super-call": "off",
+
+		// eslint-plugin-lit
+		"lit/no-template-bind": "error",
+		"lit/no-duplicate-template-bindings": "error",
+		"lit/no-useless-template-literals": "error",
+		"lit/attribute-value-entities": "error",
+		"lit/binding-positions": "error",
+		"lit/no-invalid-html": "error",
+		"lit/no-value-attribute": "error",
+		"lit/no-invalid-escape-sequences": "error",
+		"lit/no-legacy-template-syntax": "error",
+		"lit/no-private-properties": "error",
+		"lit/no-native-attributes": "error",
+		"lit/no-classfield-shadowing": "error",
+		"lit/lifecycle-super": "error"
 	},
 	"overrides": [
 		{
-			"files": ["**/test/**/*"],
+			"files": ["**/test/**/*.{html,js,mjs,ts}", "**/demo/**/*.{html,js,mjs,ts}", "**/stories/**/*.{html,js,mjs,ts}"],
 			"rules": {
-				"@typescript-eslint/no-floating-promises": "off"
+				"no-console": "off",
+				"no-unused-expressions": "off",
+				"class-methods-use-this": "off",
+
+				// loosen templating restrictions in tests and demos
+				"lit/no-template-bind": "off",
+				"lit/no-duplicate-template-bindings": "off",
+				"lit/no-useless-template-literals": "off",
+				"lit/binding-positions": "off",
+				"lit/no-invalid-html": "off",
+				"lit/no-private-properties": "off"
 			}
 		}
 	]

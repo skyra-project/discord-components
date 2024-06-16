@@ -3,9 +3,9 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
+import type { DiscordTimestamp, LightTheme } from '../../types.js';
 import { handleTimestamp } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import type { DiscordTimestamp, LightTheme } from '../../types.js';
 
 @customElement('discord-embed-footer')
 export class DiscordEmbedFooter extends LitElement implements LightTheme {
@@ -51,7 +51,7 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	public accessor footerImage: string;
 
 	/**
-	 * The alt attribute to use for the {@link footerImage}
+	 * The alt attribute to use for the {@link DiscordEmbedFooter.footerImage}
 	 */
 	@property({ attribute: 'footer-image-alt' })
 	public accessor footerImageAlt: string;
@@ -72,7 +72,7 @@ export class DiscordEmbedFooter extends LitElement implements LightTheme {
 	public accessor lightTheme = false;
 
 	public updateTimestamp(value?: DiscordTimestamp): void {
-		if (value && !isNaN(new Date(value).getTime())) {
+		if (value && !Number.isNaN(new Date(value).getTime())) {
 			this.timestamp = handleTimestamp(value);
 		}
 	}

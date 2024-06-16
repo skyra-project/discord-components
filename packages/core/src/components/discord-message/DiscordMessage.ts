@@ -4,12 +4,12 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
+import type { DiscordMessageProps, Profile, LightTheme, DiscordTimestamp } from '../../types.js';
 import { handleTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
+import type { DiscordMention } from '../discord-mention/DiscordMention.js';
 import { messagesCompactMode, messagesLightTheme, messagesNoBackground } from '../discord-messages/DiscordMessages.js';
 import Ephemeral from '../svgs/Ephemeral.js';
-import type { DiscordMessageProps, Profile, LightTheme, DiscordTimestamp } from '../../types.js';
-import type { DiscordMention } from '../discord-mention/DiscordMention.js';
 
 @customElement('discord-message')
 export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {
@@ -252,7 +252,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 	/**
 	 * The message author's username.
-	 * @default 'User'
+	 *
+	 * @defaultValue 'User'
 	 */
 	@property()
 	public accessor author: string | undefined = 'User';
@@ -372,10 +373,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			);
 	}
 
-	protected override render() {
-		const resolveAvatar = (avatar: string | undefined): string =>
-			avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
+	private resolveAvatar(avatar: string | undefined): string {
+		return avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
+	}
 
+	protected override render() {
 		const defaultData: Profile = {
 			author: this.author,
 			bot: this.bot,
@@ -388,7 +390,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		};
 
 		const profileData: Profile = ((this.profile !== undefined && Reflect.get(profiles, this.profile)) as Profile) || {};
-		const profile: Profile = { ...defaultData, ...profileData, ...{ avatar: resolveAvatar(profileData.avatar ?? this.avatar) } };
+		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
 
 		const computedTimestamp = handleTimestamp(this.timestamp, this.compactMode, this.twentyFour);
 

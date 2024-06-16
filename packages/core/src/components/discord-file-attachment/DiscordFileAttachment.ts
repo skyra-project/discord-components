@@ -5,9 +5,9 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
 import '../discord-link/DiscordLink.js';
+import type { LightTheme } from '../../types.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import FileAttachment from '../svgs/FileAttachment.js';
-import type { LightTheme } from '../../types.js';
 
 @customElement('discord-file-attachment')
 export class DiscordFileAttachment extends LitElement implements LightTheme {
@@ -111,6 +111,7 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 
 	/**
 	 * The name of the file
+	 *
 	 * @example
 	 * ```ts
 	 * 'example.txt'
@@ -122,9 +123,8 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 	/**
 	 * The size of the file in bytes
 	 *
-	 * @note The unit is not automatically calculated,
-	 * you should provide it manually through {@link DiscordFileAttachment.bytesUnit `bytesUnit`}
-	 *
+	 * @remarks The unit is not automatically calculated,
+	 * you should provide it manually through {@link DiscordFileAttachment.bytesUnit | `bytesUnit`}
 	 * @example
 	 * ```ts
 	 * 1024
@@ -135,6 +135,7 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 
 	/**
 	 * The unit of the file in a human-readable format
+	 *
 	 * @example
 	 * ```ts
 	 * 'KB'
@@ -144,7 +145,8 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 	public accessor bytesUnit: string;
 
 	/**
-	 * The URL to the file, this is passed to {@link DiscordLink}
+	 * The URL to the file, this is passed to `<discord-link>`
+	 *
 	 * @example
 	 * ```ts
 	 * 'https://example.com/example.txt'
@@ -154,22 +156,22 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 	public accessor href: string;
 
 	/**
-	 * The `<a>` tag {@linkplain https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel `rel`},
-	 * this is passed to {@link DiscordLink}
+	 * The `<a>` tag {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel | `rel`},
+	 * this is passed to `<discord-link>`
 	 */
 	@property()
 	public accessor rel: string;
 
 	/**
-	 * The `<a>` tag {@linkplain https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target `target`},
-	 * this is passed to {@link DiscordLink}
+	 * The `<a>` tag {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target | `target`},
+	 * this is passed to `<discord-link>`
 	 */
 	@property()
-	public accessor target: '_self' | '_blank' | '_parent' | '_top';
+	public accessor target: '_blank' | '_parent' | '_self' | '_top';
 
 	/**
-	 * The `<a>` tag {@linkplain https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#type `type`},
-	 * this is passed to {@link DiscordLink}
+	 * The `<a>` tag {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#type | `type`},
+	 * this is passed to `<discord-link>`
 	 */
 	@property()
 	public accessor type: string;

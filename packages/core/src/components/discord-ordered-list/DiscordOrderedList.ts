@@ -22,7 +22,7 @@ export class DiscordOrderedList extends LitElement {
 	 *
 	 * You can set this to start the list at a specific number
 	 *
-	 * @default 1
+	 * @defaultValue 1
 	 */
 	@property({ type: Number, reflect: true })
 	public accessor start = 1;
@@ -49,7 +49,7 @@ export class DiscordOrderedList extends LitElement {
 
 	/**
 	 * Checks how many children of `<discord-list-item>` this component has and updates
-	 * the {@link DiscordOrderedList.startLength startLength} state.
+	 * the {@link DiscordOrderedList.startLength | startLength} state.
 	 */
 	protected override willUpdate(): void {
 		const amountOfListItems = Array.from(this.children).filter((child) => {

@@ -1,6 +1,13 @@
 import { getConfig } from './config.js';
 import type { Emoji, DiscordTimestamp } from './types.js';
 
+export class DiscordComponentsError extends Error {
+	public constructor(message: string) {
+		super(message);
+		this.name = 'DiscordComponentsError';
+	}
+}
+
 const intlDateFormat = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' });
 const intlTwelveHourFormat = new Intl.DateTimeFormat('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
 const intlTwentyFourHourFormat = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
@@ -24,7 +31,7 @@ export const handleTimestamp = (value: DiscordTimestamp, useTime = false, hour24
 	return useTime ? formatTime(value, hour24) : formatDate(value);
 };
 
-export const IMAGE_EXTENSION = /\.(bmp|jpe?g|png|gif|webp|tiff)$/i;
+export const IMAGE_EXTENSION = /\.(?<ext>bmp|jpe?g|png|gif|webp|tiff)$/i;
 
 export const validateImageExtension = (url: string) => {
 	if (!IMAGE_EXTENSION.test(url))
@@ -32,10 +39,3 @@ export const validateImageExtension = (url: string) => {
 };
 
 export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => getConfig().emojis?.[emojiName];
-
-export class DiscordComponentsError extends Error {
-	public constructor(message: string) {
-		super(message);
-		this.name = 'DiscordComponentsError';
-	}
-}

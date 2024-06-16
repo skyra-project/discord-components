@@ -59,6 +59,6 @@ export type {
 export { getConfig, setConfig } from '@skyra/discord-components-core';
 
 declare global {
-	// eslint-disable-next-line no-var
+	// eslint-disable-next-line no-var, vars-on-top
 	var $discordMessage: ReactComponents.DiscordMessageOptions | undefined;
 }

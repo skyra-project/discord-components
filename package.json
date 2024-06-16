@@ -21,25 +21,24 @@
 		"build:react": "yarn workspace @skyra/discord-components-react build"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.24.7",
 		"@commitlint/cli": "^19.3.0",
 		"@commitlint/config-conventional": "^19.2.2",
 		"@lerna-lite/cli": "^3.5.1",
 		"@lerna-lite/publish": "^3.5.2",
 		"@lerna-lite/run": "^3.5.1",
-		"@open-wc/eslint-config": "^12.0.3",
-		"@sapphire/eslint-config": "^5.0.5",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
 		"@types/node": "^20.14.2",
-		"@typescript-eslint/eslint-plugin": "^7.13.0",
-		"@typescript-eslint/parser": "^7.13.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.57.0",
+		"eslint-config-neon": "^0.1.62",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-html": "^8.1.1",
 		"eslint-plugin-lit": "^1.14.0",
 		"eslint-plugin-lit-a11y": "^4.1.2",
 		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-wc": "^2.1.0",
 		"lint-staged": "^15.2.7",
 		"markdown-toc": "^1.2.0",
 		"npm-run-all2": "^6.2.0",
@@ -50,7 +49,22 @@
 		"typescript": "^5.4.5"
 	},
 	"resolutions": {
-		"@open-wc/lit-helpers@^0.7.0": "patch:@open-wc/lit-helpers@npm%3A0.7.0#~/.yarn/patches/@open-wc-lit-helpers-npm-0.7.0-1922d4c01f.patch"
+		"@open-wc/lit-helpers@^0.7.0": "patch:@open-wc/lit-helpers@npm%3A0.7.0#~/.yarn/patches/@open-wc-lit-helpers-npm-0.7.0-1922d4c01f.patch",
+		"@next/eslint-plugin-next": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-mdx": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-cypress": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-rxjs-angular": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-react-hooks": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-rxjs": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-svelte3": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-jsx-a11y": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"@angular-eslint/eslint-plugin": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"@angular-eslint/eslint-plugin-template": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"@angular-eslint/template-parser": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"astro-eslint-parser": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-astro": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-react": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz",
+		"eslint-plugin-vue": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz"
 	},
 	"commitlint": {
 		"extends": [

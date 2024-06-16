@@ -2,6 +2,7 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { choose } from 'lit/directives/choose.js';
+import type { DiscordTimestamp, LightTheme } from '../../types.js';
 import { handleTimestamp } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import Boost from '../svgs/Boost.js';
@@ -14,7 +15,6 @@ import SystemError from '../svgs/SystemError.js';
 import Thread from '../svgs/Thread.js';
 import UserJoin from '../svgs/UserJoin.js';
 import UserLeave from '../svgs/UserLeave.js';
-import type { DiscordTimestamp, LightTheme } from '../../types.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement implements LightTheme {
@@ -151,7 +151,7 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `pin`, `alert`, and `error`.
 	 */
 	@property({ reflect: true, attribute: 'type' })
-	public accessor type: 'join' | 'leave' | 'call' | 'missed-call' | 'boost' | 'edit' | 'thread' | 'pin' | 'alert' | 'error' = 'join';
+	public accessor type: 'alert' | 'boost' | 'call' | 'edit' | 'error' | 'join' | 'leave' | 'missed-call' | 'pin' | 'thread' = 'join';
 
 	/**
 	 * Whether this message is to show channel name changes, used to match Discord's style.

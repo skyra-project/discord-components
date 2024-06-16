@@ -5,6 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createRef, ref, type Ref } from 'lit/directives/ref.js';
 import { when } from 'lit/directives/when.js';
+import type { LightTheme } from '../../types.js';
 import { DiscordMediaAttachmentStyles } from '../_private/DiscordMediaAttachmentStyles.js';
 import { DiscordMediaLifecycle } from '../_private/DiscordMediaLifecycle.js';
 import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControlStyles.js';
@@ -19,7 +20,6 @@ import MediaVolumeBelow50PercentIcon from '../svgs/MediaVolumeBelow50PercentIcon
 import AudioVideoVolumeMutedIcon from '../svgs/MediaVolumeMutedIcon.js';
 import VideoFullScreenIcon from '../svgs/VideoFullScreenIcon.js';
 import VideoPausePopIcon from '../svgs/VideoPausePopIcon.js';
-import type { LightTheme } from '../../types.js';
 
 @customElement('discord-video-attachment')
 export class DiscordVideoAttachment extends DiscordMediaLifecycle implements LightTheme {
@@ -243,6 +243,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 
 	/**
 	 * The URL to vidoe file
+	 *
 	 * @example
 	 * ```ts
 	 * 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
@@ -253,6 +254,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 
 	/**
 	 * A poster of the video, this is a static image of the video that is used as thumbnail when not yet having played the video
+	 *
 	 * @example
 	 * ```ts
 	 * 'https://favna.s-ul.eu/On2pqpAq.png'
@@ -278,7 +280,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 			this.playPausePopAnimationContainerRef.value.classList.add('discord-video-attachment-overlay-content-hidden');
 		}
 
-		setTimeout(() => {
+		window.setTimeout(() => {
 			if (this.playPausePopAnimationContainerRef.value) {
 				this.playPausePopAnimationContainerRef.value.classList.remove('discord-video-attachment-overlay-content-hidden');
 			}

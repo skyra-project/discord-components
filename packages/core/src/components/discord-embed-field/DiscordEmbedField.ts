@@ -3,10 +3,10 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
+import type { Emoji, LightTheme } from '../../types.js';
 import { getGlobalEmojiUrl } from '../../util.js';
 import '../discord-custom-emoji/DiscordCustomEmoji.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import type { Emoji, LightTheme } from '../../types.js';
 
 @customElement('discord-embed-field')
 export class DiscordEmbedField extends LitElement implements LightTheme {
@@ -44,10 +44,10 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	public accessor fieldTitle!: string;
 
 	/**
-	 * An emoji that is prefixed to {@link DiscordEmbedField.fieldTitle fieldTitle}.
+	 * An emoji that is prefixed to {@link DiscordEmbedField.fieldTitle | fieldTitle}.
 	 *
 	 * This should be keyed as `{ key: { emojiData } }` wherein `key`
-	 * should occur in the {@link DiscordEmbedField.fieldTitle fieldTitle}.
+	 * should occur in the {@link DiscordEmbedField.fieldTitle | fieldTitle}.
 	 *
 	 * By default this component will use the global emojis from
 	 * {@link getGlobalEmojiUrl}, however on SSR frameworks like Nuxt 3 global config doesn't
@@ -64,9 +64,11 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 
 	/**
 	 * The index of this inline field
-	 * @remark This defines the position of this inline field. 1 is left, 2 is middle and 3 is right.
-	 * @oneof [1, 2, 3]
-	 * @default 1
+	 *
+	 * @remarks
+	 * - This defines the position of this inline field. 1 is left, 2 is middle and 3 is right.
+	 * - one of `[1, 2, 3]`
+	 * @defaultValue 1
 	 */
 	@property({ type: Number, reflect: true, attribute: 'inline-index' })
 	public accessor inlineIndex = 1;
@@ -100,7 +102,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 		const words = title.split(' ');
 		return words.map((word: string, idx: number) => {
 			const emoji = getGlobalEmojiUrl(word) ?? this.embedFieldEmojisMap[word] ?? ({} as Emoji);
-			let el: string | ReturnType<typeof html>;
+			let el: ReturnType<typeof html> | string;
 
 			if (emoji.name) {
 				el = html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`;

@@ -3,6 +3,7 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { choose } from 'lit/directives/choose.js';
 import { hexToRgba } from '../../hex-to-rgba.js';
+import type { LightTheme } from '../../types.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ChannelForum from '../svgs/ChannelForum.js';
 import ChannelIcon from '../svgs/ChannelIcon.js';
@@ -12,7 +13,6 @@ import CustomizeCommunity from '../svgs/CustomizeCommunity.js';
 import LockedVoiceChannel from '../svgs/LockedVoiceChannel.js';
 import ServerGuide from '../svgs/ServerGuide.js';
 import VoiceChannel from '../svgs/VoiceChannel.js';
-import type { LightTheme } from '../../types.js';
 
 @customElement('discord-mention')
 export class DiscordMention extends LitElement implements LightTheme {
@@ -105,17 +105,17 @@ export class DiscordMention extends LitElement implements LightTheme {
 	 */
 	@property({ reflect: true })
 	public accessor type:
-		| 'user'
 		| 'channel'
-		| 'role'
-		| 'voice'
-		| 'locked'
-		| 'thread'
-		| 'forum'
-		| 'slash'
-		| 'server-guide'
 		| 'channels-and-roles'
-		| 'customize-community' = 'user';
+		| 'customize-community'
+		| 'forum'
+		| 'locked'
+		| 'role'
+		| 'server-guide'
+		| 'slash'
+		| 'thread'
+		| 'user'
+		| 'voice' = 'user';
 
 	@property({ reflect: true })
 	public accessor color: string;

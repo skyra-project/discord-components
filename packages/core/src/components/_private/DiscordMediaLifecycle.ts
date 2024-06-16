@@ -4,8 +4,11 @@ import { createRef, type Ref } from 'lit/directives/ref.js';
 
 export class DiscordMediaLifecycle extends LitElement {
 	protected mediaComponentRef: Ref<HTMLAudioElement | HTMLVideoElement> = createRef();
+
 	protected seekSliderRef: Ref<HTMLInputElement> = createRef();
+
 	protected volumeControlRef: Ref<HTMLDivElement> = createRef();
+
 	protected volumeControlInputRef: Ref<HTMLInputElement> = createRef();
 
 	@state()
@@ -23,7 +26,9 @@ export class DiscordMediaLifecycle extends LitElement {
 	@state()
 	protected accessor isMuted = false;
 
-	/** Volume is a fractional value between 0 and 1 */
+	/**
+	 * Volume is a fractional value between 0 and 1
+	 */
 	@state()
 	protected accessor currentVolume = 1;
 
@@ -127,9 +132,7 @@ export class DiscordMediaLifecycle extends LitElement {
 			this.currentPlaybackPosition = this.calculateTime(Number(this.seekSliderRef.value.value));
 		}
 
-		if (this.mediaComponentRef.value && !this.mediaComponentRef.value.paused) {
-			if (this.raf !== null) cancelAnimationFrame(this.raf);
-		}
+		if (this.mediaComponentRef.value && !this.mediaComponentRef.value.paused && this.raf !== null) cancelAnimationFrame(this.raf);
 	}
 
 	protected handleSeekSliderChange = () => {
@@ -215,7 +218,7 @@ export class DiscordMediaLifecycle extends LitElement {
 		}
 	};
 
-	public override shouldUpdate(changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): boolean {
+	public override shouldUpdate(changedProperties: Map<PropertyKey, unknown> | PropertyValueMap<any>): boolean {
 		if (changedProperties.has('hasRunUpdate') && changedProperties.size === 1) return false;
 
 		return super.shouldUpdate(changedProperties);

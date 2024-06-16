@@ -1,11 +1,11 @@
 export type DiscordTimestamp = Date | string | null;
 
 export interface DiscordButtonProps {
+	disabled?: boolean;
 	emoji?: string;
 	emojiName?: string;
+	type?: 'destructive' | 'primary' | 'secondary' | 'success';
 	url?: string;
-	disabled?: boolean;
-	type?: 'primary' | 'secondary' | 'success' | 'destructive';
 }
 
 export interface LightTheme {
@@ -13,71 +13,71 @@ export interface LightTheme {
 }
 
 export interface DiscordEmbedProps {
-	color: string;
-	authorName: string;
 	authorImage: string;
+	authorName: string;
 	authorUrl: string;
+	color: string;
 	embedTitle: string;
-	url: string;
-	thumbnail: string;
 	image: string;
-	video: string;
 	provider: string;
+	thumbnail: string;
+	url: string;
+	video: string;
 }
 
 export interface DiscordMessageProps {
-	profile: string | undefined;
 	author: string | undefined;
 	avatar: string | undefined;
 	bot: boolean;
-	server: boolean;
-	verified: boolean;
-	op: boolean;
+	compactMode: boolean;
 	edited: boolean;
+	ephemeral: boolean;
+	highlight: boolean;
+	lightTheme: boolean;
+	op: boolean;
+	profile: string | undefined;
 	roleColor: string | undefined;
 	roleIcon: string | undefined;
 	roleName: string | undefined;
-	highlight: boolean;
-	ephemeral: boolean;
+	server: boolean;
 	timestamp: DiscordTimestamp;
 	twentyFour: boolean;
-	lightTheme: boolean;
-	compactMode: boolean;
+	verified: boolean;
 }
 
 export interface Avatars {
-	default: 'blue' | 'gray' | 'green' | 'orange' | 'red';
+	[key: string]: string | undefined;
 	blue?: string;
+	default: 'blue' | 'gray' | 'green' | 'orange' | 'red';
 	gray?: string;
 	green?: string;
 	orange?: string;
 	red?: string;
-	[key: string]: string | undefined;
 }
 
 export interface Profile {
 	author?: string;
 	avatar?: string;
 	bot?: boolean;
-	verified?: boolean;
-	server?: boolean;
 	op?: boolean;
 	roleColor?: string;
 	roleIcon?: string;
 	roleName?: string;
+	server?: boolean;
+	verified?: boolean;
 }
 
 export interface DiscordMessageOptions {
 	avatars?: Avatars;
-	profiles?: { [key: string]: Profile };
-	emojis?: { [key: string]: Emoji };
-	defaultTheme?: string;
-	defaultMode?: string;
 	defaultBackground?: 'discord' | 'none';
+	defaultMode?: string;
+	defaultTheme?: string;
+	emojis?: { [key: string]: Emoji };
+	profiles?: { [key: string]: Profile };
 }
 
 export interface Emoji {
+	embedEmoji?: boolean;
 	name?: string;
 	url?: string;
-	embedEmoji?: boolean;
 }

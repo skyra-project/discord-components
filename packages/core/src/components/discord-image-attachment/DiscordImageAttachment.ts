@@ -31,7 +31,8 @@ export class DiscordImageAttachment extends LitElement {
 
 	/**
 	 * The URL for the image attachment
-	 * @important Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
+	 *
+	 * @remarks Should be a valid image URL, i.e. matching the regex `/\.(bmp|jpe?g|png|gif|webp|tiff)$/i`
 	 */
 	@property({ reflect: true, attribute: 'url' })
 	public accessor url: string;
@@ -50,7 +51,8 @@ export class DiscordImageAttachment extends LitElement {
 
 	/**
 	 * The alt text to show in case the image was unable to load
-	 * @default 'discord attachment'
+	 *
+	 * @defaultValue 'discord attachment'
 	 */
 	@property({ reflect: true, attribute: 'alt' })
 	public accessor alt = 'discord image attachment';
@@ -58,13 +60,13 @@ export class DiscordImageAttachment extends LitElement {
 	/**
 	 * Indicates that you intend to use a custom image element,
 	 * useful if you want to use something like
-	 * {@link https://nextjs.org/docs/pages/api-reference/components/image `next/image`}
+	 * {@link https://nextjs.org/docs/pages/api-reference/components/image | `next/image`}
 	 *
 	 * Once this property is set, use the child element (default slot) to insert
 	 * the code for the desired image component
 	 *
-	 * @note Setting this will disable the
-	 * {@link DiscordImageAttachment.url `url`}, and {@link DiscordImageAttachment.alt `alt`} properties.
+	 * @remarks Setting this will disable the
+	 * {@link DiscordImageAttachment.url | `url`}, and {@link DiscordImageAttachment.alt | `alt`} properties.
 	 */
 	@property({ type: Boolean, attribute: 'custom-image-element' })
 	public accessor customImageElement = false;

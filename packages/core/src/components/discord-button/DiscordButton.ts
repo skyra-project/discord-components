@@ -2,9 +2,9 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { when } from 'lit/directives/when.js';
+import type { DiscordButtonProps } from '../../types.js';
 import { DiscordComponentsError } from '../../util.js';
 import LaunchIcon from '../svgs/LaunchIcon.js';
-import type { DiscordButtonProps } from '../../types.js';
 
 @customElement('discord-button')
 export class DiscordButton extends LitElement implements DiscordButtonProps {
@@ -116,7 +116,7 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 	 * Valid values: `primary`, `secondary`, `success`, `destructive`.
 	 */
 	@property({ reflect: true, attribute: 'type' })
-	public accessor type: 'primary' | 'secondary' | 'success' | 'destructive' = 'secondary';
+	public accessor type: 'destructive' | 'primary' | 'secondary' | 'success' = 'secondary';
 
 	public checkType() {
 		if (typeof this.type !== 'string') {
