@@ -29,7 +29,7 @@
 		"@lerna-lite/run": "^3.5.1",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.14.2",
+		"@types/node": "^20.14.8",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.57.0",
 		"eslint-config-neon": "^0.1.62",
@@ -46,7 +46,7 @@
 		"react": "^18.3.1",
 		"rimraf": "^5.0.7",
 		"tsup": "^8.1.0",
-		"typescript": "^5.4.5"
+		"typescript": "^5.5.2"
 	},
 	"resolutions": {
 		"@open-wc/lit-helpers@^0.7.0": "patch:@open-wc/lit-helpers@npm%3A0.7.0#~/.yarn/patches/@open-wc-lit-helpers-npm-0.7.0-1922d4c01f.patch",
@@ -80,5 +80,5 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"packageManager": "yarn@4.3.0"
+	"packageManager": "yarn@4.3.1"
 }

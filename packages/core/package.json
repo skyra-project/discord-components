@@ -114,7 +114,7 @@
 		"@web/dev-server": "^0.4.5",
 		"concurrently": "^8.2.2",
 		"ts-lit-plugin": "^2.0.2",
-		"typescript": "^5.4.5"
+		"typescript": "^5.5.2"
 	},
 	"files": [
 		"dist/",
