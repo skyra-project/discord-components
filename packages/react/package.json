@@ -35,7 +35,7 @@
 	"devDependencies": {
 		"@types/react": "^18.3.3",
 		"colorette": "^2.0.20",
-		"rimraf": "^5.0.7",
+		"rimraf": "^5.0.8",
 		"tsup": "^8.1.0",
 		"typescript": "^5.5.2"
 	},
