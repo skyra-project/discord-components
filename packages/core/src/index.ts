@@ -33,6 +33,7 @@ export { DiscordReaction } from './components/discord-reaction/DiscordReaction.j
 export { DiscordReactions } from './components/discord-reactions/DiscordReactions.js';
 export { DiscordReply } from './components/discord-reply/DiscordReply.js';
 export { DiscordSpoiler } from './components/discord-spoiler/DiscordSpoiler.js';
+export { DiscordSubscript } from './components/discord-subscript/DiscordSubscript.js';
 export { DiscordSystemMessage } from './components/discord-system-message/DiscordSystemMessage.js';
 export { DiscordTenorVideo } from './components/discord-tenor-video/DiscordTenorVideo.js';
 export { DiscordThread } from './components/discord-thread/DiscordThread.js';
