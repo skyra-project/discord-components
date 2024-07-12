@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.21](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.20...v4.0.0-alpha.21) (2024-07-12)
+
+### Features
+
+* add `discord-subscript` component ([e1b7db6](https://github.com/skyra-project/discord-components/commit/e1b7db6146685a82437018d815b868b5b59eeac3)) (@favna)
+* add audio attachment component ([#411](https://github.com/skyra-project/discord-components/issues/411)) ([d970765](https://github.com/skyra-project/discord-components/commit/d970765b4929c8836c3af191f435b474794ad593)) (@favna)
+* add video attachment component ([#413](https://github.com/skyra-project/discord-components/issues/413)) ([b308580](https://github.com/skyra-project/discord-components/commit/b3085802bc7407403bdec707266ea2a239eacfbc)) (@favna)
+
 # [4.0.0-alpha.20](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.19...v4.0.0-alpha.20) (2024-06-15)
 
 ### Features

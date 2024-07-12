@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.21](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.20...v4.0.0-alpha.21) (2024-07-12)
+
+### Bug Fixes
+
+* **embed-description:** remove `white-space: pre-line` to make sure text stays on the same line ([1e9ea73](https://github.com/skyra-project/discord-components/commit/1e9ea73c1ce293d5952fc44b9780354e7797e187)) (@favna)
+* **embed:** resolve the remaining todo, lit covers this functionality automatically yay ([12ed6b4](https://github.com/skyra-project/discord-components/commit/12ed6b4150672fb8195e94f5df129007c72bff8c)) (@favna)
+* **file-attachment:** add attribute for bytesUnit ([c23f7d1](https://github.com/skyra-project/discord-components/commit/c23f7d1edeb6f7fd35d2c33e8e280a8cbe9f2b0c)) (@favna)
+* **media:** add missing ARIA roles ([75a57db](https://github.com/skyra-project/discord-components/commit/75a57db29af32acfbb79ed5b6ed90c6b76a0493f)) (@favna)
+* **tenor-video:** properly match discord gifs and restore autoplay on chromium browsers ([558b851](https://github.com/skyra-project/discord-components/commit/558b851b240613b334dd3186f7fc08cc6ca52533)) (@favna)
+
+### Features
+
+* add `discord-subscript` component ([e1b7db6](https://github.com/skyra-project/discord-components/commit/e1b7db6146685a82437018d815b868b5b59eeac3)) (@favna)
+* add audio attachment component ([#411](https://github.com/skyra-project/discord-components/issues/411)) ([d970765](https://github.com/skyra-project/discord-components/commit/d970765b4929c8836c3af191f435b474794ad593)) (@favna)
+* add video attachment component ([#413](https://github.com/skyra-project/discord-components/issues/413)) ([b308580](https://github.com/skyra-project/discord-components/commit/b3085802bc7407403bdec707266ea2a239eacfbc)) (@favna)
+* **media:** add restart icon and functionality ([584a438](https://github.com/skyra-project/discord-components/commit/584a4383ac5a44a639a09e28bbd34cb1503d80ba)) (@favna)
+
 # [4.0.0-alpha.20](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.19...v4.0.0-alpha.20) (2024-06-15)
 
 ### Bug Fixes
