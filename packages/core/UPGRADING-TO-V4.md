@@ -17,6 +17,7 @@
       - [`discord-unordered-list`](#discord-unordered-list)
       - [`discord-ordered-list`](#discord-ordered-list)
       - [`discord-list-item`](#discord-list-item)
+      - [`discord-subscript`](#discord-subscript)
 
 In version 4.x of @skyra/discord-components-core, the library has been rewritten
 from from [StencilJS](https://stenciljs.com) to [Lit]. This means that this
@@ -204,5 +205,10 @@ component that represents Discord ordered list items (messages starting with
 A new component called `discord-list-item` has been added. This is the component
 that represents a list item within a `discord-unordered-list` or
 `discord-ordered-list`. It should be used within one of these components.
+
+#### `discord-subscript`
+
+A new component called `discord-subscript` has been added. This is the component
+that represents a text with susbcript styling (smaller font size and lowered).
 
 [Lit]: https://lit.dev
