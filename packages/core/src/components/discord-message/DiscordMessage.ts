@@ -335,6 +335,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 	/**
 	 * The timestamp to use for the message date.
+	 *
+	 * if {@link DiscordMessage.messageBodyOnly} is `true`, this will be shown in the gutter before the message on hover.
 	 */
 	@property({
 		type: String,
@@ -342,12 +344,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		attribute: true
 	})
 	public accessor timestamp: DiscordTimestamp = new Date();
-
-	/**
-	 * The timestamp to use for the message time if {@link DiscordMessage.messageBodyOnly} is `true`.
-	 */
-	@property({ type: String, attribute: 'message-body-only-time' })
-	public accessor messageBodyOnlyTime: DiscordTimestamp | null = null;
 
 	/**
 	 * Whether to use 24-hour format for the timestamp.
@@ -386,8 +382,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	}
 
 	protected handleMessageEnter() {
-		if (this.messageBodyOnly && this.messageBodyOnlyTimeRef.value && this.messageBodyOnlyTime) {
-			const computedTimestamp = handleTimestamp(this.messageBodyOnlyTime, true, this.twentyFour);
+		if (this.messageBodyOnly && this.messageBodyOnlyTimeRef.value) {
+			const computedTimestamp = handleTimestamp(this.timestamp, true, this.twentyFour);
 			this.messageBodyOnlyTimeRef.value.textContent = computedTimestamp ?? '';
 		}
 	}
@@ -419,7 +415,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			<slot name="reply"></slot>
 			<div class="discord-message-inner" @mouseenter=${this.handleMessageEnter} @mouseleave=${this.handleMessageLeave}>
 				${when(
-					this.compactMode,
+					this.compactMode && !this.messageBodyOnly,
 					() => html`<time datetime="${ifDefined(computedTimestamp)}" class="discord-message-timestamp">${computedTimestamp}</time>`,
 					() => null
 				)}
@@ -430,6 +426,16 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 							${ref(this.messageBodyOnlyTimeRef)}
 							datetime="${ifDefined(computedTimestamp)}"
 							class="discord-message-timestamp discord-message-body-only-indent"
+						></time>`,
+					() => null
+				)}
+				${when(
+					this.compactMode && this.messageBodyOnly,
+					() =>
+						html`<time
+							${ref(this.messageBodyOnlyTimeRef)}
+							datetime="${ifDefined(computedTimestamp)}"
+							class="discord-message-timestamp"
 						></time>`,
 					() => null
 				)}
