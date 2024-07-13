@@ -132,7 +132,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 		:host(:hover) .discord-message-timestamp-hover::before {
 			content: attr(datetime);
-			min-height: 24px !important;
 		}
 
 		:host([light-theme]) .discord-message-timestamp {
