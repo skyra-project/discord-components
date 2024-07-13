@@ -150,7 +150,15 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 			return html`<a class="secondary" href=${this.url} target="_blank" rel="noopener noreferrer">${content}</a>`;
 		}
 
-		return html`<div class=${classMap({ [this.type]: true, disabled: this.disabled, hoverable: !this.disabled })}>${content}</div>`;
+		return html`<div
+			class=${classMap({
+				[this.type]: true,
+				disabled: this.disabled,
+				hoverable: !this.disabled
+			})}
+		>
+			${content}
+		</div>`;
 	}
 }
 
