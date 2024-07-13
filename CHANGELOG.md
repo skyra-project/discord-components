@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.22](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.21...v4.0.0-alpha.22) (2024-07-13)
+
+### Bug Fixes
+
+* **regression:** ensure compact-mode and message-body-only work well together ([f7ac627](https://github.com/skyra-project/discord-components/commit/f7ac6272eda324ca7fb4d8a1bc2211eaa0401a5a)) (@favna)
+
+### Features
+
+* add on-hover timestamps for message-body-only messages ([db9df40](https://github.com/skyra-project/discord-components/commit/db9df40cc2c0ecf519521861abac171cd93183dc)), closes [#418](https://github.com/skyra-project/discord-components/issues/418) (@favna)
+
 # [4.0.0-alpha.21](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.20...v4.0.0-alpha.21) (2024-07-12)
 
 ### Bug Fixes
