@@ -70,7 +70,7 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 		}
 
 		.disabled {
-			cursor: not-allowed;
+			cursor: not-allowed !important;
 			opacity: 0.5;
 		}
 
