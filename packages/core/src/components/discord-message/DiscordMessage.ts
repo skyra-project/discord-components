@@ -1,8 +1,8 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { createRef, ref, type Ref } from 'lit/directives/ref.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
 import type { DiscordMessageProps, Profile, LightTheme, DiscordTimestamp } from '../../types.js';
@@ -49,7 +49,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		}
 
 		:host([message-body-only]) {
-			min-height: 24px !important;
 			margin-top: 0px !important;
 			padding-top: 0.125rem !important;
 			padding-bottom: 0.0625rem !important;
@@ -129,6 +128,11 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 		.discord-message-body-only-indent {
 			width: 56px;
+		}
+
+		:host(:hover) .discord-message-timestamp-hover::before {
+			content: attr(datetime);
+			min-height: 24px !important;
 		}
 
 		:host([light-theme]) .discord-message-timestamp {
@@ -247,8 +251,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			vertical-align: text-bottom;
 		}
 	`;
-
-	protected messageBodyOnlyTimeRef: Ref<HTMLTimeElement> = createRef();
 
 	/**
 	 * The id of the profile data to use.
@@ -381,19 +383,6 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			);
 	}
 
-	protected handleMessageEnter() {
-		if (this.messageBodyOnly && this.messageBodyOnlyTimeRef.value) {
-			const computedTimestamp = handleTimestamp(this.timestamp, true, this.twentyFour);
-			this.messageBodyOnlyTimeRef.value.textContent = computedTimestamp ?? '';
-		}
-	}
-
-	protected handleMessageLeave() {
-		if (this.messageBodyOnlyTimeRef.value) {
-			this.messageBodyOnlyTimeRef.value.textContent = '';
-		}
-	}
-
 	protected override render() {
 		const defaultData: Profile = {
 			author: this.author,
@@ -413,29 +402,22 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 		return html`
 			<slot name="reply"></slot>
-			<div class="discord-message-inner" @mouseenter=${this.handleMessageEnter} @mouseleave=${this.handleMessageLeave}>
+			<div class="discord-message-inner">
 				${when(
 					this.compactMode && !this.messageBodyOnly,
 					() => html`<time datetime="${ifDefined(computedTimestamp)}" class="discord-message-timestamp">${computedTimestamp}</time>`,
 					() => null
 				)}
 				${when(
-					this.messageBodyOnly && !this.compactMode,
+					this.messageBodyOnly,
 					() =>
 						html`<time
-							${ref(this.messageBodyOnlyTimeRef)}
 							datetime="${ifDefined(computedTimestamp)}"
-							class="discord-message-timestamp discord-message-body-only-indent"
-						></time>`,
-					() => null
-				)}
-				${when(
-					this.compactMode && this.messageBodyOnly,
-					() =>
-						html`<time
-							${ref(this.messageBodyOnlyTimeRef)}
-							datetime="${ifDefined(computedTimestamp)}"
-							class="discord-message-timestamp"
+							class=${classMap({
+								'discord-message-timestamp': true,
+								'discord-message-timestamp-hover': true,
+								'discord-message-body-only-indent': !this.compactMode
+							})}
 						></time>`,
 					() => null
 				)}
