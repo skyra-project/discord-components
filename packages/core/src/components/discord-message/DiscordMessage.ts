@@ -2,6 +2,7 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { createRef, ref, type Ref } from 'lit/directives/ref.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
 import type { DiscordMessageProps, Profile, LightTheme, DiscordTimestamp } from '../../types.js';
@@ -35,10 +36,12 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			padding-right: 48px;
 			margin-top: inherit;
 			margin-bottom: inherit;
+			line-height: 16px;
 		}
 
 		.discord-message-inner {
 			display: flex;
+			align-items: center;
 			position: relative;
 			-webkit-box-flex: 0;
 			-ms-flex: 0 0 auto;
@@ -46,6 +49,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		}
 
 		:host([message-body-only]) {
+			min-height: 24px !important;
 			margin-top: 0px !important;
 			padding-top: 0.125rem !important;
 			padding-bottom: 0.0625rem !important;
@@ -244,6 +248,8 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		}
 	`;
 
+	protected messageBodyOnlyTimeRef: Ref<HTMLTimeElement> = createRef();
+
 	/**
 	 * The id of the profile data to use.
 	 */
@@ -338,6 +344,12 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	public accessor timestamp: DiscordTimestamp = new Date();
 
 	/**
+	 * The timestamp to use for the message time if {@link DiscordMessage.messageBodyOnly} is `true`.
+	 */
+	@property({ type: String, attribute: 'message-body-only-time' })
+	public accessor messageBodyOnlyTime: DiscordTimestamp | null = null;
+
+	/**
 	 * Whether to use 24-hour format for the timestamp.
 	 */
 	@property({ type: Boolean, attribute: 'twenty-four' })
@@ -373,8 +385,17 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 			);
 	}
 
-	private resolveAvatar(avatar: string | undefined): string {
-		return avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
+	protected handleMessageEnter() {
+		if (this.messageBodyOnly && this.messageBodyOnlyTimeRef.value && this.messageBodyOnlyTime) {
+			const computedTimestamp = handleTimestamp(this.messageBodyOnlyTime, true, this.twentyFour);
+			this.messageBodyOnlyTimeRef.value.textContent = computedTimestamp ?? '';
+		}
+	}
+
+	protected handleMessageLeave() {
+		if (this.messageBodyOnlyTimeRef.value) {
+			this.messageBodyOnlyTimeRef.value.textContent = '';
+		}
 	}
 
 	protected override render() {
@@ -392,19 +413,24 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 		const profileData: Profile = ((this.profile !== undefined && Reflect.get(profiles, this.profile)) as Profile) || {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
 
-		const computedTimestamp = handleTimestamp(this.timestamp, this.compactMode, this.twentyFour);
+		const computedTimestamp = handleTimestamp(this.timestamp, this.compactMode, this.twentyFour) ?? undefined;
 
 		return html`
 			<slot name="reply"></slot>
-			<div class="discord-message-inner">
+			<div class="discord-message-inner" @mouseenter=${this.handleMessageEnter} @mouseleave=${this.handleMessageLeave}>
 				${when(
 					this.compactMode,
-					() => html`<span class="discord-message-timestamp">${computedTimestamp}</span>`,
+					() => html`<time datetime="${ifDefined(computedTimestamp)}" class="discord-message-timestamp">${computedTimestamp}</time>`,
 					() => null
 				)}
 				${when(
-					this.messageBodyOnly,
-					() => html`<span class="discord-message-timestamp discord-message-body-only-indent"></span>`,
+					this.messageBodyOnly && !this.compactMode,
+					() =>
+						html`<time
+							${ref(this.messageBodyOnlyTimeRef)}
+							datetime="${ifDefined(computedTimestamp)}"
+							class="discord-message-timestamp discord-message-body-only-indent"
+						></time>`,
 					() => null
 				)}
 				${when(
@@ -432,7 +458,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 								roleName=${profile.roleName ?? ''}
 								?compact=${false}
 							></discord-author-info
-							><span class="discord-message-timestamp">${computedTimestamp}</span>
+							><time datetime="${ifDefined(computedTimestamp)}" class="discord-message-timestamp">${computedTimestamp}</time>
 						`
 					)}
 					<div class="discord-message-body">
@@ -478,6 +504,10 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 				</div>
 			</div>
 		`;
+	}
+
+	private resolveAvatar(avatar: string | undefined): string {
+		return avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
 	}
 }
 

@@ -170,7 +170,7 @@
 				<h3 class="title">With subsequent messages</h3>
 				<discord-messages>
 					<discord-message profile="favna">I can send multiple messages with my avatar showing only once</discord-message>
-					<discord-message profile="favna" message-body-only
+					<discord-message profile="favna" message-body-only message-body-only-time="12:39"
 						>That's how Discord handles multiple messages from the same author as well</discord-message
 					>
 					<discord-message profile="favna" message-body-only
@@ -178,6 +178,19 @@
 						change what is displayed!</discord-message
 					>
 				</discord-messages>
+
+				<h3 class="title">With subsequent messages in compact mode</h3>
+				<discord-messages compact-mode>
+					<discord-message profile="favna">I can send multiple messages with my avatar showing only once</discord-message>
+					<discord-message profile="favna" message-body-only message-body-only-time="12:39"
+						>That's how Discord handles multiple messages from the same author as well</discord-message
+					>
+					<discord-message profile="favna" message-body-only
+						>Just keep in mind that Discord does some funky stuff like with time between messages, this library doesn't automatically
+						change what is displayed!</discord-message
+					>
+				</discord-messages>
+
 				<h3 class="title">Markdown Styling</h3>
 				<discord-messages>
 					<discord-message profile="favna">
