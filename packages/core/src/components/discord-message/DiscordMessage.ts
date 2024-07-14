@@ -494,7 +494,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	}
 
 	private resolveAvatar(avatar: string | undefined): string {
-		return avatar === undefined ? avatars.default : avatars[avatar] ?? avatar ?? avatars.default;
+		return avatar === undefined ? avatars.default : (avatars[avatar] ?? avatar ?? avatars.default);
 	}
 }
 
