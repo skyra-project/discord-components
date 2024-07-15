@@ -41,7 +41,7 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 		.discord-message-inner {
 			display: flex;
-			align-items: center;
+			align-items: start;
 			position: relative;
 			-webkit-box-flex: 0;
 			-ms-flex: 0 0 auto;
