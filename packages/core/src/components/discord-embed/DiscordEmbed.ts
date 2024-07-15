@@ -95,6 +95,8 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			grid-column: 1 / 1;
 			margin-top: 8px;
 			min-width: 0;
+   			max-width: 100%;
+	  		display: block;
 		}
 
 		:host([light-theme]) .discord-embed-author {
