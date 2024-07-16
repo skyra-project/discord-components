@@ -326,20 +326,21 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 							() =>
 								html`<div class="discord-embed-author">
 									
-										${when(
-											this.authorImage,
-											() =>
-											html`<img src=${ifDefined(this.authorImage)} alt="" class="discord-author-image" />`
-										)}
-										${when(
-											this.authorUrl,
-											() =>
-												html`<a href=${ifDefined(this.authorUrl)} target="_blank" rel="noopener noreferrer" style="max-width:95%">
-													${emojiParsedAuthorName}
-												</a>`,
-											() =>
-											html`${emojiParsedAuthorName}`
-										)}
+									${when(
+										this.authorImage,
+										() =>
+										html`<img src=${ifDefined(this.authorImage)} alt="" class="discord-author-image" />`
+									)}
+									${when(
+										this.authorUrl,
+										() =>
+											html`<a href=${ifDefined(this.authorUrl)} target="_blank" rel="noopener noreferrer">
+												${emojiParsedAuthorName}
+											</a>`,
+										() =>
+										
+										html`<div style="max-width: 95%;">${emojiParsedAuthorName}</div>`
+									)}
 									
 								</div>`
 						)}
