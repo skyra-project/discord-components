@@ -334,7 +334,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 									${when(
 										this.authorUrl,
 										() =>
-											html`<a href=${ifDefined(this.authorUrl)} target="_blank" rel="noopener noreferrer">
+											html`<a href=${ifDefined(this.authorUrl)} target="_blank" rel="noopener noreferrer" style="max-width: 95%;">
 												${emojiParsedAuthorName}
 											</a>`,
 										() =>
