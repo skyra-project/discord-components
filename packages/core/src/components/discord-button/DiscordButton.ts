@@ -118,11 +118,15 @@ export class DiscordButton extends LitElement implements DiscordButtonProps {
 	@property({ reflect: true, attribute: 'type' })
 	public accessor type: 'destructive' | 'primary' | 'secondary' | 'success' = 'secondary';
 
+	private readonly validButtonTypes = new Set(['primary', 'secondary', 'success', 'destructive']);
+
 	public checkType() {
-		if (typeof this.type !== 'string') {
-			throw new TypeError('DiscordButton `type` prop must be a string.');
-		} else if (!['primary', 'secondary', 'success', 'destructive'].includes(this.type)) {
-			throw new RangeError("DiscordButton `type` prop must be one of: 'primary', 'secondary', 'success', 'destructive'");
+		if (this.type) {
+			if (typeof this.type !== 'string') {
+				throw new TypeError('DiscordButton `type` prop must be a string.');
+			} else if (!this.validButtonTypes.has(this.type)) {
+				throw new RangeError("DiscordButton `type` prop must be one of: 'primary', 'secondary', 'success', 'destructive'");
+			}
 		}
 	}
 
