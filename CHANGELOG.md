@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.23](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.22...v4.0.0-alpha.23) (2024-07-18)
+
+### Bug Fixes
+
+* **button:** ensure disabled buttons have proper cursor ([5f28110](https://github.com/skyra-project/discord-components/commit/5f28110a2ac8e3549b73021add7dc97675fc7252)) (@favna)
+* **message:** fixed misaligned author info ([8480702](https://github.com/skyra-project/discord-components/commit/848070259daecc8072f1e8ebbb2f4f4f8fcbf92e)) (@favna)
+
 # [4.0.0-alpha.22](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.21...v4.0.0-alpha.22) (2024-07-13)
 
 ### Bug Fixes
