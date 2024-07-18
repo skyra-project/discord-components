@@ -62,18 +62,21 @@ _React Bindings_
         - [Nuxt](#nuxt)
           - [Live Demo](#live-demo-4)
           - [Configuration](#configuration-1)
-      - [Solid](#solid)
+      - [Astro](#astro)
+        - [Important Notes](#important-notes-3)
         - [Live Demo](#live-demo-5)
+      - [Solid](#solid)
+        - [Live Demo](#live-demo-6)
       - [Svelte](#svelte)
         - [Vite](#vite-2)
-          - [Live Demo](#live-demo-6)
-        - [Sveltekit](#sveltekit)
           - [Live Demo](#live-demo-7)
+        - [Sveltekit](#sveltekit)
+          - [Live Demo](#live-demo-8)
       - [Qwik](#qwik)
-        - [Live Demo](#live-demo-8)
-      - [No Framework](#no-framework)
-        - [Important Notes](#important-notes-3)
         - [Live Demo](#live-demo-9)
+      - [No Framework](#no-framework)
+        - [Important Notes](#important-notes-4)
+        - [Live Demo](#live-demo-10)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -306,6 +309,20 @@ export default defineNuxtConfig({
   }
 });
 ```
+
+#### Astro
+
+##### Important Notes
+
+Because it is possible to use different integrations in an Astro project you can
+also reference the other examples here. The live demo linked below uses the
+[Lit integration for Astro](https://docs.astro.build/en/guides/integrations-guide/lit/)
+as well as the
+[React integration for Astro](https://docs.astro.build/en/guides/integrations-guide/react/).
+
+##### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/astro)
 
 #### Solid
 

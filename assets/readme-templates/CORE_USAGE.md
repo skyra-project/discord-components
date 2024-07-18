@@ -186,6 +186,20 @@ export default defineNuxtConfig({
 });
 ```
 
+#### Astro
+
+##### Important Notes
+
+Because it is possible to use different integrations in an Astro project you can
+also reference the other examples here. The live demo linked below uses the
+[Lit integration for Astro](https://docs.astro.build/en/guides/integrations-guide/lit/)
+as well as the
+[React integration for Astro](https://docs.astro.build/en/guides/integrations-guide/react/).
+
+##### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/astro)
+
 #### Solid
 
 ##### Live Demo
