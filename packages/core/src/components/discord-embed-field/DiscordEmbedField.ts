@@ -77,14 +77,19 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	private validInlineIndices = new Set([1, 2, 3]);
+	private readonly validInlineIndices = new Set([1, 2, 3]);
 
-	public checkInlineIndex(value: DiscordEmbedField['inlineIndex']) {
-		if (!this.validInlineIndices.has(Number(value))) throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
+	public checkInlineIndex() {
+		if (this.inlineIndex) {
+			const inlineIndexAsNumber = Number(this.inlineIndex);
+			if (!Number.isNaN(inlineIndexAsNumber) && !this.validInlineIndices.has(inlineIndexAsNumber)) {
+				throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
+			}
+		}
 	}
 
 	protected override render() {
-		this.checkInlineIndex(this.inlineIndex);
+		this.checkInlineIndex();
 
 		const emojiParsedEmbedFieldTitle = this.parseTitle(this.fieldTitle);
 
