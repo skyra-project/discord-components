@@ -41,11 +41,14 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 		.discord-message-inner {
 			display: flex;
-			align-items: center;
 			position: relative;
 			-webkit-box-flex: 0;
 			-ms-flex: 0 0 auto;
 			flex: 0 0 auto;
+		}
+
+		.discord-message-inner-center {
+			align-items: center;
 		}
 
 		:host([message-body-only]) {
@@ -401,7 +404,12 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 
 		return html`
 			<slot name="reply"></slot>
-			<div class="discord-message-inner">
+			<div
+				class=${classMap({
+					'discord-message-inner': true,
+					'discord-message-inner-center': this.messageBodyOnly
+				})}
+			>
 				${when(
 					this.compactMode && !this.messageBodyOnly,
 					() => html`<time datetime="${ifDefined(computedTimestamp)}" class="discord-message-timestamp">${computedTimestamp}</time>`,
