@@ -429,7 +429,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 		}
 
 		return el.map((word: string, _index) => {
-			return html`<div style="white-space: pre;">${word}</div>`
+			return html`<div">${word}</div>`
 		})
 
 	}
