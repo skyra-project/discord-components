@@ -1,5 +1,5 @@
 import { consume } from '@lit/context';
-import { css, html, LitElement } from 'lit';
+import { css, html, LitElement, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -120,6 +120,11 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			height: 24px;
 			margin-right: 8px;
 			width: 24px;
+		}
+
+		:host .discord-embed-author-block,
+		:host .discord-embed-author-block > span {
+			max-width: 95%;
 		}
 
 		:host .discord-embed-provider {
@@ -328,10 +333,15 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 									${when(
 										this.authorUrl,
 										() =>
-											html`<a href=${ifDefined(this.authorUrl)} target="_blank" rel="noopener noreferrer">
-												${emojiParsedAuthorName}
+											html`<a
+												href=${ifDefined(this.authorUrl)}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="discord-embed-author-block"
+											>
+												<span class="discord-embed-author-block">${emojiParsedAuthorName}</span>
 											</a>`,
-										() => html`${emojiParsedAuthorName}`
+										() => html`<span class="discord-embed-author-block">${emojiParsedAuthorName}</span>`
 									)}
 								</div>`
 						)}
@@ -388,18 +398,35 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	private parseTitle(title?: string) {
 		if (!title) return null;
 
-		const words = title.split(' ');
+		const el: (TemplateResult<1> | string)[] = [];
+		let complete = '';
 
-		return words.map((word: string, idx: number) => {
-			const emoji = getGlobalEmojiUrl(word) ?? this.embedEmojisMap[word] ?? ({} as Emoji);
-			let el;
-			if (emoji.name) {
-				el = html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`;
-			} else {
-				el = idx < words.length - 1 ? `${word} ` : word;
+		for (const words of title.split('\n')) {
+			for (const word of words.split(' ')) {
+				const emoji = getGlobalEmojiUrl(word) ?? this.embedEmojisMap[word] ?? ({} as Emoji);
+
+				if (emoji.name) {
+					el.push(html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`);
+				} else {
+					complete += `${word} `;
+				}
+
+				if (complete === ' ') {
+					el.push(html`<br />`);
+				}
 			}
 
-			return el;
+			el.push(complete);
+
+			complete = '';
+		}
+
+		return el.map((wordOrHtmlTemplate) => {
+			if (typeof wordOrHtmlTemplate === 'string') {
+				return html`<span>${wordOrHtmlTemplate}</span>`;
+			}
+
+			return wordOrHtmlTemplate;
 		});
 	}
 }
