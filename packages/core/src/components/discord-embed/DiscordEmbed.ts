@@ -1,5 +1,5 @@
 import { consume } from '@lit/context';
-import { css, html, LitElement } from 'lit';
+import { css, html, LitElement, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -393,7 +393,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	private parseTitle(title?: string) {
 		if (!title) return null;
 
-		const el: any[] = [];
+		const el: (TemplateResult<1> | string)[] = [];
 		let complete = '';
 
 		for (const words of title.split('\n')) {
@@ -416,8 +416,12 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			complete = '';
 		}
 
-		return el.map((word: string, _index) => {
-			return html`<div">${word}</div>`;
+		return el.map((wordOrHtmlTemplate) => {
+			if (typeof wordOrHtmlTemplate === 'string') {
+				return html`<span>${wordOrHtmlTemplate}</span>`;
+			}
+
+			return wordOrHtmlTemplate;
 		});
 	}
 }
