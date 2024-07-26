@@ -122,6 +122,11 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			width: 24px;
 		}
 
+		:host .discord-embed-author-block,
+		:host .discord-embed-author-block > span {
+			max-width: 95%;
+		}
+
 		:host .discord-embed-provider {
 			font-size: 0.75rem;
 			line-height: 1rem;
@@ -332,11 +337,11 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 												href=${ifDefined(this.authorUrl)}
 												target="_blank"
 												rel="noopener noreferrer"
-												style="max-width: 95%;"
+												class="discord-embed-author-block"
 											>
-												${emojiParsedAuthorName}
+												<span class="discord-embed-author-block">${emojiParsedAuthorName}</span>
 											</a>`,
-										() => html`<div style="max-width: 95%;">${emojiParsedAuthorName}</div>`
+										() => html`<span class="discord-embed-author-block">${emojiParsedAuthorName}</span>`
 									)}
 								</div>`
 						)}
