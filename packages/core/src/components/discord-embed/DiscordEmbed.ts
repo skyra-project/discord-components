@@ -397,15 +397,16 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 		let complete = '';
 
 		for (const words of title.split('\n')) {
-			for (const w of words.split(' ')) {
-				const emoji = getGlobalEmojiUrl(w) ?? this.embedEmojisMap[w] ?? ({} as Emoji);
+			for (const word of words.split(' ')) {
+				const emoji = getGlobalEmojiUrl(word) ?? this.embedEmojisMap[word] ?? ({} as Emoji);
 
 				if (emoji.name) {
 					el.push(html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`);
 				} else {
-					complete += `${w} `;
+					complete += `${word} `;
 				}
-				if (complete == ' ') {
+
+				if (complete === ' ') {
 					el.push(html`<br />`);
 				}
 			}
