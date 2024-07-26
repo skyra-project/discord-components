@@ -316,43 +316,37 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 			<div class="discord-embed-root">
 				<div class="discord-embed-wrapper">
 					<div class="discord-embed-grid">
-						${when(
-							this.provider,
-							() =>
-								html`<div class="discord-embed-provider">${this.provider}</div>`
-						)}
+						${when(this.provider, () => html`<div class="discord-embed-provider">${this.provider}</div>`)}
 						${when(
 							emojiParsedAuthorName,
 							() =>
 								html`<div class="discord-embed-author">
-									
 									${when(
 										this.authorImage,
-										() =>
-										html`<img src=${ifDefined(this.authorImage)} alt="" class="discord-author-image" />`
+										() => html`<img src=${ifDefined(this.authorImage)} alt="" class="discord-author-image" />`
 									)}
 									${when(
 										this.authorUrl,
 										() =>
-											html`<a href=${ifDefined(this.authorUrl)} target="_blank" rel="noopener noreferrer" style="max-width: 95%;">
+											html`<a
+												href=${ifDefined(this.authorUrl)}
+												target="_blank"
+												rel="noopener noreferrer"
+												style="max-width: 95%;"
+											>
 												${emojiParsedAuthorName}
 											</a>`,
-										() =>
-										
-										html`<div style="max-width: 95%;">${emojiParsedAuthorName}</div>`
+										() => html`<div style="max-width: 95%;">${emojiParsedAuthorName}</div>`
 									)}
-									
 								</div>`
 						)}
 						${when(
 							emojiParsedEmbedTitle,
 							() =>
 								html`<div class="discord-embed-title">
-									${
-										this.url
+									${this.url
 										? html`<a href="${this.url}" target="_blank" rel="noopener noreferrer"> ${emojiParsedEmbedTitle} </a>`
-										: html`${emojiParsedEmbedTitle}`
-									}
+										: html`${emojiParsedEmbedTitle}`}
 								</div>`
 						)}
 						<slot name="description"></slot>
@@ -364,12 +358,9 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 									${this.renderMedia()}
 								</div>`
 						)}
-						${when(
-							this.thumbnail,
-							() => html`<img src=${ifDefined(this.thumbnail)} alt="" class="discord-embed-thumbnail" />`
-						)}
+						${when(this.thumbnail, () => html`<img src=${ifDefined(this.thumbnail)} alt="" class="discord-embed-thumbnail" />`)}
 						<slot name="footer"></slot>
-					</ div>
+					</div>
 				</div>
 			</div>`;
 	}
@@ -400,38 +391,33 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 	}
 
 	private parseTitle(title?: string) {
-
 		if (!title) return null;
 
 		const el: any[] = [];
-		let complete = ""
+		let complete = '';
 
-		for (const words of title.split("\n")) {
-
-			for (const w of words.split(" ")) {
-
+		for (const words of title.split('\n')) {
+			for (const w of words.split(' ')) {
 				const emoji = getGlobalEmojiUrl(w) ?? this.embedEmojisMap[w] ?? ({} as Emoji);
 
 				if (emoji.name) {
 					el.push(html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`);
 				} else {
 					complete += `${w} `;
-				} if (complete == " "){
-					el.push(html`<br />`)
 				}
-
+				if (complete == ' ') {
+					el.push(html`<br />`);
+				}
 			}
 
-			el.push(complete)
+			el.push(complete);
 
-			complete = ""
-
+			complete = '';
 		}
 
 		return el.map((word: string, _index) => {
-			return html`<div">${word}</div>`
-		})
-
+			return html`<div">${word}</div>`;
+		});
 	}
 }
 
