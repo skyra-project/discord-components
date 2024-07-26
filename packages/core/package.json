@@ -117,7 +117,7 @@
 		"@web/dev-server-esbuild": "^1.0.2",
 		"concurrently": "^8.2.2",
 		"ts-lit-plugin": "^2.0.2",
-		"typescript": "^5.5.2"
+		"typescript": "^5.5.4"
 	},
 	"files": [
 		"dist/",

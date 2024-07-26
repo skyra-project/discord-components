@@ -28,7 +28,7 @@
 		"@lerna-lite/run": "^3.7.1",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.14.11",
+		"@types/node": "^20.14.12",
 		"eslint": "^8.57.0",
 		"eslint-config-neon": "^0.1.62",
 		"eslint-config-prettier": "^9.1.0",
@@ -43,8 +43,8 @@
 		"prettier": "^3.3.3",
 		"react": "^18.3.1",
 		"rimraf": "^6.0.1",
-		"tsup": "^8.2.1",
-		"typescript": "^5.5.2"
+		"tsup": "^8.2.3",
+		"typescript": "^5.5.4"
 	},
 	"resolutions": {
 		"@open-wc/lit-helpers@^0.7.0": "patch:@open-wc/lit-helpers@npm%3A0.7.0#~/.yarn/patches/@open-wc-lit-helpers-npm-0.7.0-1922d4c01f.patch",
