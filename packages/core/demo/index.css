@@ -1,0 +1,41 @@
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Whitney';
+	src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
+	font-weight: 700;
+}
+
+body {
+	color: #eee;
+	background-color: #2a2a2a;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 2em;
+	margin: 0;
+}
+
+.title {
+	border-bottom: 1px solid #4a4a4a;
+	padding-bottom: 0.25em;
+}

@@ -3,100 +3,10 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-		<title>Discord Components Core</title>
-		<style>
-			@font-face {
-				font-family: 'Whitney';
-				src: url('https://cdn.skyra.pw/whitney-font/v2/Book.woff') format('woff');
-				font-weight: 400;
-			}
-
-			@font-face {
-				font-family: 'Whitney';
-				src: url('https://cdn.skyra.pw/whitney-font/v2/Medium.woff') format('woff');
-				font-weight: 500;
-			}
-
-			@font-face {
-				font-family: 'Whitney';
-				src: url('https://cdn.skyra.pw/whitney-font/v2/Semibold.woff') format('woff');
-				font-weight: 600;
-			}
-
-			@font-face {
-				font-family: 'Whitney';
-				src: url('https://cdn.skyra.pw/whitney-font/v2/Bold.woff') format('woff');
-				font-weight: 700;
-			}
-
-			body {
-				color: #eee;
-				background-color: #2a2a2a;
-				font-family: Arial, Helvetica, sans-serif;
-			}
-
-			.logo {
-				display: inline-block;
-				font-weight: bold;
-				font-size: 2em;
-				margin: 0;
-			}
-
-			.title {
-				border-bottom: 1px solid #4a4a4a;
-				padding-bottom: 0.25em;
-			}
-		</style>
-		<script>
-			window.$discordMessage = {
-				profiles: {
-					maximillian: {
-						author: 'Maximillian Osborn',
-						avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/avaone.png',
-						roleColor: '#f9d61b'
-					},
-					willard: {
-						author: 'Willard Walton',
-						avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/avatwo.png',
-						roleColor: '#ffb12f'
-					},
-					skyra: {
-						author: 'Skyra',
-						avatar: 'https://github.com/NM-EEA-Y.png',
-						roleColor: '#1e88e5',
-						bot: true,
-						verified: true
-					},
-					favna: {
-						author: 'Favna',
-						avatar: 'https://github.com/favna.png',
-						roleColor: '#a155ab',
-						roleIcon: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/booster.png',
-						roleName: 'Booster'
-					},
-					discordjs: {
-						author: 'Discord.js Official #announcements',
-						avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/discordjs.png',
-						roleColor: '#ffffff',
-						server: true
-					}
-				},
-				emojis: {
-					diamond: {
-						name: 'diamond',
-						url: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/diamond.png'
-					},
-					dragonite: {
-						name: 'dragonite',
-						url: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/dragonite.png'
-					},
-					sapphire: {
-						name: 'sapphire',
-						url: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/sapphire.png'
-					}
-				}
-			};
-		</script>
+		<meta name="description" content="Sample for Discord Components using no particular framework" />
+		<title>No Framework Sample</title>
+		<link rel="stylesheet" href="./index.css" />
+		<script src="./index.js"></script>
 		<script async type="module">
 			import '../src/index.ts';
 		</script>
@@ -265,10 +175,7 @@
 							name="blobparty"
 							url="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/blobparty.gif"
 						></discord-custom-emoji>
-						<discord-custom-emoji
-							name="skyra"
-							url="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/skyra.png"
-						></discord-custom-emoji>
+						<discord-custom-emoji name="skyra" url="https://github.com/NM-EEA-Y.png"></discord-custom-emoji>
 						<discord-embed slot="embeds" color="#0F52BA" embed-title="diamond Emojis in the embed title">
 							<discord-embed-description slot="description">
 								Custom emojis in the embed description:
@@ -299,7 +206,7 @@
 								url="https://discord.gg/djs"
 								online="16417"
 								members="87147"
-								verified="true"
+								verified
 							></discord-invite>
 							<discord-invite
 								name="The Coding Den"
@@ -307,7 +214,7 @@
 								url="https://discord.gg/code"
 								online="18456"
 								members="73548"
-								partnered="true"
+								partnered
 							></discord-invite>
 							<discord-invite
 								name="Skyra Lounge"
@@ -321,7 +228,7 @@
 				</discord-messages>
 				<h3 class="title">Image Attachments with small images</h3>
 				<discord-messages>
-					<discord-message profile="Alyx Vargas">
+					<discord-message>
 						That's a very small logo image!
 						<discord-image-attachment
 							slot="attachments"
@@ -462,7 +369,7 @@
 								reacted
 							></discord-reaction>
 							<discord-reaction
-								interactive="true"
+								interactive
 								name="dragonite"
 								emoji="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/dragonite.png"
 								count="10"
@@ -583,7 +490,7 @@
 							</discord-embed-description>
 							<discord-embed-fields slot="fields">
 								<discord-embed-field field-title="Created"><discord-time>1 year ago</discord-time></discord-embed-field>
-								<discord-embed-field field-title="Installation"> yarn add @sapphire/framework </discord-embed-field>
+								<discord-embed-field field-title="Installation"> yarn add &#64;sapphire/framework </discord-embed-field>
 								<discord-embed-field field-title="Key Features">
 									<ul style="padding-inline-start: 20px; margin-block-start: 0.5em">
 										<li>
@@ -656,13 +563,13 @@
 					<discord-message profile="skyra">
 						<discord-embed
 							slot="embeds"
-							provider="Blender"
-							author-name="Blender"
-							author-url="https://peach.blender.org/download/"
+							provider="MDN"
+							author-name="MDN"
+							author-url="https://developer.mozilla.org/en-US/"
 							color="#019DD8"
-							embed-title="Big Buck Bunny"
-							video="https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg"
-							url="https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_1080p_stereo.ogg"
+							embed-title="Flower blooming"
+							video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+							url="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
 						>
 						</discord-embed>
 					</discord-message>
