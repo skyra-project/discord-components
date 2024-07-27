@@ -1,5 +1,5 @@
 import { consume } from '@lit/context';
-import { css, html, LitElement } from 'lit';
+import { css, html, LitElement, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
@@ -104,18 +104,35 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	private parseTitle(title?: string) {
 		if (!title) return null;
 
-		const words = title.split(' ');
-		return words.map((word: string, idx: number) => {
-			const emoji = getGlobalEmojiUrl(word) ?? this.embedFieldEmojisMap[word] ?? ({} as Emoji);
-			let el: ReturnType<typeof html> | string;
+		const el: (TemplateResult<1> | string)[] = [];
+		let complete = '';
 
-			if (emoji.name) {
-				el = html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`;
-			} else {
-				el = idx < words.length - 1 ? `${word} ` : word;
+		for (const words of title.split('\n')) {
+			for (const word of words.split(' ')) {
+				const emoji = getGlobalEmojiUrl(word) ?? this.embedFieldEmojisMap[word] ?? ({} as Emoji);
+
+				if (emoji.name) {
+					el.push(html`<discord-custom-emoji name=${emoji.name} url=${ifDefined(emoji.url)} embed-emoji></discord-custom-emoji>`);
+				} else {
+					complete += `${word} `;
+				}
+
+				if (complete === ' ') {
+					el.push(html`<br />`);
+				}
 			}
 
-			return el;
+			el.push(complete);
+
+			complete = '';
+		}
+
+		return el.map((wordOrHtmlTemplate) => {
+			if (typeof wordOrHtmlTemplate === 'string') {
+				return html`<div>${wordOrHtmlTemplate}</div>`;
+			}
+
+			return wordOrHtmlTemplate;
 		});
 	}
 }
