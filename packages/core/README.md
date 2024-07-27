@@ -75,9 +75,11 @@ _React Bindings_
           - [Live Demo](#live-demo-8)
       - [Qwik](#qwik)
         - [Live Demo](#live-demo-9)
+      - [Preact](#preact)
+        - [Live Demo](#live-demo-10)
       - [No Framework](#no-framework)
         - [Important Notes](#important-notes-4)
-        - [Live Demo](#live-demo-10)
+        - [Live Demo](#live-demo-11)
   - [Notes](#notes)
     - [TypeScript module augments](#typescript-module-augments)
     - [Avatar shortcuts](#avatar-shortcuts)
@@ -357,6 +359,12 @@ as well as the
 ##### Live Demo
 
 [![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/qwik-vite-ts)
+
+#### Preact
+
+##### Live Demo
+
+[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/preact-vite-ts)
 
 #### No Framework
 
