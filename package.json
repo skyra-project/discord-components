@@ -1,7 +1,8 @@
 {
 	"name": "root",
 	"workspaces": [
-		"packages/*"
+		"packages/*",
+		"docs/"
 	],
 	"private": true,
 	"type": "module",

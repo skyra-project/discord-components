@@ -1,0 +1,9 @@
+{
+	"extends": ["../tsconfig.base.json", "@sapphire/ts-config/bundler"],
+	"compilerOptions": {
+		"isolatedModules": true,
+		"noEmit": true,
+		"types": ["vite/client"]
+	},
+	"include": ["src"]
+}

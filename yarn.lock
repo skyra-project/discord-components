@@ -1679,7 +1679,7 @@ __metadata:
     concurrently: "npm:^8.2.2"
     lit: "npm:^3.1.4"
     ts-lit-plugin: "npm:^2.0.2"
-    typescript: "npm:^5.5.2"
+    typescript: "npm:^5.5.4"
   languageName: unknown
   linkType: soft
 
@@ -1693,8 +1693,8 @@ __metadata:
     colorette: "npm:^2.0.20"
     react: "npm:^18.3.1"
     rimraf: "npm:^6.0.1"
-    tsup: "npm:^8.2.1"
-    typescript: "npm:^5.5.2"
+    tsup: "npm:^8.2.3"
+    typescript: "npm:^5.5.4"
   peerDependencies:
     react: 16.8.x || 17.x || 18.x
     react-dom: 16.8.x || 17.x || 18.x
@@ -1968,12 +1968,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.0.0, @types/node@npm:^20.14.11, @types/node@npm:^20.14.9":
+"@types/node@npm:*, @types/node@npm:^20.0.0, @types/node@npm:^20.14.9":
   version: 20.14.11
   resolution: "@types/node@npm:20.14.11"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10/344e1ce1ed16c86ed1c4209ab4d1de67db83dd6b694a6fabe295c47144dde2c58dabddae9f39a0a2bdd246e95f8d141ccfe848e464884b48b8918df4f7788025
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.14.12":
+  version: 20.14.12
+  resolution: "@types/node@npm:20.14.12"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10/9205bf46ef6a99d99cdde9efeb8218cd15803cc407249c2336557cd630b006380dad68c03ee574934414639f8e450044f45530c92788a8e82078bae45ee40f93
   languageName: node
   linkType: hard
 
@@ -3775,6 +3784,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"docs@workspace:docs":
+  version: 0.0.0-use.local
+  resolution: "docs@workspace:docs"
+  dependencies:
+    "@skyra/discord-components-core": "workspace:^"
+    typescript: "npm:^5.5.4"
+    vite: "npm:^5.3.5"
+  languageName: unknown
+  linkType: soft
+
 "doctrine@npm:^3.0.0":
   version: 3.0.0
   resolution: "doctrine@npm:3.0.0"
@@ -4727,18 +4746,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fdir@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "fdir@npm:6.1.1"
-  peerDependencies:
-    picomatch: 3.x
-  peerDependenciesMeta:
-    picomatch:
-      optional: true
-  checksum: 10/fabde9004433983ba22fac2578c0b2835a498e66518df9d7994b1564a5f3f015ac974efaff02975b56966e01a684f600fe4cce0bb2f146aedec4dcf35d6c5906
-  languageName: node
-  linkType: hard
-
 "fetch-blob@npm:^3.1.2, fetch-blob@npm:^3.1.4":
   version: 3.2.0
   resolution: "fetch-blob@npm:3.2.0"
@@ -4917,7 +4924,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:~2.3.2":
+"fsevents@npm:~2.3.2, fsevents@npm:~2.3.3":
   version: 2.3.3
   resolution: "fsevents@npm:2.3.3"
   dependencies:
@@ -4927,7 +4934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@npm%3A~2.3.2#optional!builtin<compat/fsevents>":
+"fsevents@patch:fsevents@npm%3A~2.3.2#optional!builtin<compat/fsevents>, fsevents@patch:fsevents@npm%3A~2.3.3#optional!builtin<compat/fsevents>":
   version: 2.3.3
   resolution: "fsevents@patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"
   dependencies:
@@ -7464,6 +7471,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoid@npm:^3.3.7":
+  version: 3.3.7
+  resolution: "nanoid@npm:3.3.7"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 10/ac1eb60f615b272bccb0e2b9cd933720dad30bf9708424f691b8113826bb91aca7e9d14ef5d9415a6ba15c266b37817256f58d8ce980c82b0ba3185352565679
+  languageName: node
+  linkType: hard
+
 "natural-compare-lite@npm:^1.4.0":
   version: 1.4.0
   resolution: "natural-compare-lite@npm:1.4.0"
@@ -8193,13 +8209,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "picomatch@npm:4.0.2"
-  checksum: 10/ce617b8da36797d09c0baacb96ca8a44460452c89362d7cb8f70ca46b4158ba8bc3606912de7c818eb4a939f7f9015cef3c766ec8a0c6bfc725fdc078e39c717
-  languageName: node
-  linkType: hard
-
 "pidtree@npm:^0.6.0, pidtree@npm:~0.6.0":
   version: 0.6.0
   resolution: "pidtree@npm:0.6.0"
@@ -8280,6 +8289,17 @@ __metadata:
     cssesc: "npm:^3.0.0"
     util-deprecate: "npm:^1.0.2"
   checksum: 10/2f9e5045b8bbe674fed3b79dbcd3daf21f5188cd7baf179beac513710ec3d75a8fc8184a262c3aec1c628ad3fd8bdb29c5d8530f1c9c5a61a18e1980bb000945
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.39":
+  version: 8.4.40
+  resolution: "postcss@npm:8.4.40"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.0.1"
+    source-map-js: "npm:^1.2.0"
+  checksum: 10/bdd01b55152e4be7b4a82b03dd22876e33ff6a038680d1b80a50405a5eccc10aff0f466a0e5e574bc476943b0ba120fbd5de7cde9f219bbf8efc011898f5f631
   languageName: node
   linkType: hard
 
@@ -8773,7 +8793,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^4.18.1, rollup@npm:^4.4.0":
+"rollup@npm:^4.13.0, rollup@npm:^4.19.0, rollup@npm:^4.4.0":
   version: 4.19.0
   resolution: "rollup@npm:4.19.0"
   dependencies:
@@ -8847,7 +8867,7 @@ __metadata:
     "@lerna-lite/run": "npm:^3.7.1"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^20.14.11"
+    "@types/node": "npm:^20.14.12"
     eslint: "npm:^8.57.0"
     eslint-config-neon: "npm:^0.1.62"
     eslint-config-prettier: "npm:^9.1.0"
@@ -8862,8 +8882,8 @@ __metadata:
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"
     rimraf: "npm:^6.0.1"
-    tsup: "npm:^8.2.1"
-    typescript: "npm:^5.5.2"
+    tsup: "npm:^8.2.3"
+    typescript: "npm:^5.5.4"
   languageName: unknown
   linkType: soft
 
@@ -9098,6 +9118,13 @@ __metadata:
   dependencies:
     is-plain-obj: "npm:^4.0.0"
   checksum: 10/9c0b7a468312075be03770b260b2cc0e5d55149025e564edaed41c9ff619199698aad6712a6fe4bbc75c541efb081276ac6bbd4cf2723d742f272f7a8fe354f5
+  languageName: node
+  linkType: hard
+
+"source-map-js@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "source-map-js@npm:1.2.0"
+  checksum: 10/74f331cfd2d121c50790c8dd6d3c9de6be21926de80583b23b37029b0f37aefc3e019fa91f9a10a5e120c08135297e1ecf312d561459c45908cb1e0e365f49e5
   languageName: node
   linkType: hard
 
@@ -9658,9 +9685,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^8.2.1":
-  version: 8.2.1
-  resolution: "tsup@npm:8.2.1"
+"tsup@npm:^8.2.3":
+  version: 8.2.3
+  resolution: "tsup@npm:8.2.3"
   dependencies:
     bundle-require: "npm:^5.0.0"
     cac: "npm:^6.7.14"
@@ -9669,13 +9696,12 @@ __metadata:
     debug: "npm:^4.3.5"
     esbuild: "npm:^0.23.0"
     execa: "npm:^5.1.1"
-    fdir: "npm:^6.1.1"
+    globby: "npm:^11.1.0"
     joycon: "npm:^3.1.1"
     picocolors: "npm:^1.0.1"
-    picomatch: "npm:^4.0.2"
     postcss-load-config: "npm:^6.0.1"
     resolve-from: "npm:^5.0.0"
-    rollup: "npm:^4.18.1"
+    rollup: "npm:^4.19.0"
     source-map: "npm:0.8.0-beta.0"
     sucrase: "npm:^3.35.0"
     tree-kill: "npm:^1.2.2"
@@ -9696,7 +9722,7 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 10/0c87200e7962ab069d4f5c18d5509fee77286ff9a65c132d4da9730f2b1030e108b06ce3968d810991563ec0b1bb577e73cb6f15de35d217fe5fdc7895a12d72
+  checksum: 10/2523611f5879fe408e8cb6d1fbae18d9e7617d2ef47258f6be8c11323c6d5d6aad296f6004d3fa6dc94e5f5b4c70b3eae677ac3d5ce0e9e1e4925715ee8b69b9
   languageName: node
   linkType: hard
 
@@ -9822,13 +9848,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.4.2, typescript@npm:^5.5.2":
+"typescript@npm:^5.4.2":
   version: 5.5.2
   resolution: "typescript@npm:5.5.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10/9118b20f248e76b0dbff8737fef65dfa89d02668d4e633d2c5ceac99033a0ca5e8a1c1a53bc94da68e8f67677a88f318663dde859c9e9a09c1e116415daec2ba
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^5.5.4":
+  version: 5.5.4
+  resolution: "typescript@npm:5.5.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10/1689ccafef894825481fc3d856b4834ba3cc185a9c2878f3c76a9a1ef81af04194849840f3c69e7961e2312771471bb3b460ca92561e1d87599b26c37d0ffb6f
   languageName: node
   linkType: hard
 
@@ -9852,13 +9888,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.5.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
   version: 5.5.2
   resolution: "typescript@patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10/ac3145f65cf9e72ab29f2196e05d5816b355dc1a9195b9f010d285182a12457cfacd068be2dd22c877f88ebc966ac6e0e83f51c8586412b16499a27e3670ff4b
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>":
+  version: 5.5.4
+  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10/746fdd0865c5ce4f15e494c57ede03a9e12ede59cfdb40da3a281807853fe63b00ef1c912d7222143499aa82f18b8b472baa1830df8804746d09b55f6cf5b1cc
   languageName: node
   linkType: hard
 
@@ -10207,6 +10253,46 @@ __metadata:
     unist-util-stringify-position: "npm:^4.0.0"
     vfile-message: "npm:^4.0.0"
   checksum: 10/7f8412f9ce7709d3be4041fd68a159e2cf96f9c9a4f095bcb18d1561009757b8efb37b71d0ae087e5202fe0e3b3162aae0adf92e30e2448a45645912c23c4ab2
+  languageName: node
+  linkType: hard
+
+"vite@npm:^5.3.5":
+  version: 5.3.5
+  resolution: "vite@npm:5.3.5"
+  dependencies:
+    esbuild: "npm:^0.21.3"
+    fsevents: "npm:~2.3.3"
+    postcss: "npm:^8.4.39"
+    rollup: "npm:^4.13.0"
+  peerDependencies:
+    "@types/node": ^18.0.0 || >=20.0.0
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/5672dde4a969349d9cf90a9e43029c8489dfff60fb04d6a10717d6224553cf12283a8cace633fa80b006df6037f72d08a459a38bf8ea66cb19075d60fe159482
   languageName: node
   linkType: hard
 
