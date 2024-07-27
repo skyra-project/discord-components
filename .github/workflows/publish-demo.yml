@@ -40,8 +40,6 @@ jobs:
         run: cp packages/core/demo/* docs/
       - name: Replace path of entrypoint file
         run: sed -i 's/..\/src\/index.ts/\/src\/main.ts/' docs/index.html
-        # TODO: get .js.org domain
-        # printf "discord-components.js.org" >> docs/public/CNAME
       - name: Copy LICENSE and README
         run: |
           cp LICENSE.md docs/public/
