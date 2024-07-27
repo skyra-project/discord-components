@@ -423,7 +423,7 @@ export class DiscordEmbed extends LitElement implements DiscordEmbedProps, Light
 
 		return el.map((wordOrHtmlTemplate) => {
 			if (typeof wordOrHtmlTemplate === 'string') {
-				return html`<span>${wordOrHtmlTemplate}</span>`;
+				return html`<div><span>${wordOrHtmlTemplate}</span></div>`;
 			}
 
 			return wordOrHtmlTemplate;
