@@ -645,6 +645,7 @@ Thank you to all the people who already contributed to Discord Components!
 
 <!-- # CONTRIBUTING END # -->
 
+[lit]: https://lit.dev/
 [contributing]: .github/CONTRIBUTING.md
 [wc-discord-message]: https://github.com/Danktuary/wc-discord-message
 [danktuary]: https://github.com/Danktuary
