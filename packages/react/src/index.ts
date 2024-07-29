@@ -34,6 +34,8 @@ export const DiscordReaction = createReactComponent('discord-reaction', ReactCom
 export const DiscordReactions = createReactComponent('discord-reactions', ReactComponents.DiscordReactions);
 export const DiscordReply = createReactComponent('discord-reply', ReactComponents.DiscordReply);
 export const DiscordSpoiler = createReactComponent('discord-spoiler', ReactComponents.DiscordSpoiler);
+export const DiscordStringSelectMenu = createReactComponent('discord-stringselectmenu', ReactComponents.DiscordStringSelectMenu);
+export const DiscordStringSelectMenuOption = createReactComponent('discord-stringselectmenu-option', ReactComponents.DiscordStringSelectMenuOption);
 export const DiscordSubscript = createReactComponent('discord-subscript', ReactComponents.DiscordSubscript);
 export const DiscordSystemMessage = createReactComponent('discord-system-message', ReactComponents.DiscordSystemMessage);
 export const DiscordTenorVideo = createReactComponent('discord-tenor-video', ReactComponents.DiscordTenorVideo);
@@ -48,6 +50,8 @@ export const DiscordVideoAttachment = createReactComponent('discord-video-attach
 
 export type {
 	Avatars,
+	DiscordSelectMenuProps,
+	DicordSelectMenuOptionProps,
 	DiscordButtonProps,
 	DiscordEmbedProps,
 	DiscordMessageOptions,
