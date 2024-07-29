@@ -74,7 +74,7 @@ export class DiscordStringSelectMenuOption extends LitElement implements DicordS
 					<div>
 						<strong class="maxsize">${this.label}</strong>
 					</div>
-					${when(this.description, () => html`<strong class="maxsize">${this.description}</strong>`)}
+					${when(this.description, () => html`<span class="maxsize">${this.description}</span>`)}
 				</div>
 			</div>
 		`;
