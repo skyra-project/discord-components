@@ -13,41 +13,86 @@ hero:
           variant: primary
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, Code } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2yarn2pnpm';
 
 <CardGrid stagger>
-  <Card title="Installation Core package" icon="seti:javascript">
+  <Card title="Installation Core package" icon="seti:html">
     <Tabs>
       <TabItem label="npm" icon="seti:npm">
-        <pre>npm install @skyra/discord-components-core</pre>
+        <Code code="npm install @skyra/discord-components-core" lang="sh"></Code>
       </TabItem>
       <TabItem label="yarn" icon="seti:yarn">
-        <pre>{npmToYarn("npm install @skyra/discord-components-core")}</pre>
+        <Code code={npmToYarn("npm install @skyra/discord-components-core")} lang="sh"></Code>
       </TabItem>
       <TabItem label="pnpm" icon="pnpm">
-        <pre>{npmToPnpm("npm install @skyra/discord-components-core")}</pre>
+        <Code code={npmToPnpm("npm install @skyra/discord-components-core")} lang="sh"></Code>
       </TabItem>
       <TabItem label="bun" icon="bun">
-        <pre>{npmToBun("npm install @skyra/discord-components-core")}</pre>
+        <Code code={npmToBun("npm install @skyra/discord-components-core")} lang="sh"></Code>
       </TabItem>
     </Tabs>
   </Card>
 
-  <Card title="Installation React bindings" icon="seti:javascript">
+<Card title="View framework samples" icon="seti:folder">
+	<Tabs>
+		<TabItem label="React" icon="seti:react">
+			<a
+				class="sl-flex action primary astro-button"
+				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/react-vite-ts"
+			>
+				React with Vite
+			</a>
+		</TabItem>
+		<TabItem label="Vue" icon="seti:vue">
+			<a
+				class="sl-flex action primary astro-button"
+				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/vue-vite-ts"
+			>
+				Vue with Vite
+			</a>
+		</TabItem>
+		<TabItem label="Angular" icon="seti:javascript">
+			<a
+				class="sl-flex action primary astro-button"
+				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/angular"
+			>
+				Angular
+			</a>
+		</TabItem>
+		<TabItem label="Astro" icon="astro">
+			<a
+				class="sl-flex action primary astro-button"
+				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/astro"
+			>
+				Astro
+			</a>
+		</TabItem>
+		<TabItem label="Svelte" icon="svelte">
+			<a
+				class="sl-flex action primary astro-button"
+				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/svelte"
+			>
+				Svelte
+			</a>
+		</TabItem>
+	</Tabs>
+</Card>
+
+  <Card title="Installation React bindings" icon="seti:html">
     <Tabs>
       <TabItem label="npm" icon="seti:npm">
-        <pre>npm install @skyra/discord-components-react</pre>
+        <Code code="npm install @skyra/discord-components-react" lang="sh"></Code>
       </TabItem>
       <TabItem label="yarn" icon="seti:yarn">
-        <pre>{npmToYarn("npm install @skyra/discord-components-react")}</pre>
+        <Code code={npmToYarn("npm install @skyra/discord-components-react")} lang="sh"></Code>
       </TabItem>
       <TabItem label="pnpm" icon="pnpm">
-        <pre>{npmToPnpm("npm install @skyra/discord-components-react")}</pre>
+        <Code code={npmToPnpm("npm install @skyra/discord-components-react")} lang="sh"></Code>
       </TabItem>
       <TabItem label="bun" icon="bun">
-        <pre>{npmToBun("npm install @skyra/discord-components-react")}</pre>
+        <Code code={npmToBun("npm install @skyra/discord-components-react")} lang="sh"></Code>
       </TabItem>
     </Tabs>
   </Card>

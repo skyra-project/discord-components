@@ -1,0 +1,23 @@
+.action:where(.astro-button).primary {
+	height: 3rem;
+	background: var(--sl-color-text-accent);
+	color: var(--sl-color-black);
+}
+
+@media (min-width: 50rem) {
+	.action:where(.astro-button) {
+		font-size: var(--sl-text-base);
+		padding: 1rem 1.25rem;
+	}
+}
+
+.action:where(.astro-button) {
+	gap: 0.5em;
+	align-items: center;
+	border-radius: 999rem;
+	padding: 0.5rem 1.125rem;
+	color: var(--sl-color-white);
+	line-height: 1.1875;
+	text-decoration: none;
+	font-size: var(--sl-text-sm);
+}

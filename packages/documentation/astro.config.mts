@@ -10,6 +10,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			favicon: '/favicons/favicon.ico',
+			customCss: ['./src/assets/styles.css'],
 			head: [
 				{
 					tag: 'meta',
