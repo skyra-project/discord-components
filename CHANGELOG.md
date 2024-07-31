@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.24](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.23...v4.0.0-alpha.24) (2024-07-31)
+
+### Bug Fixes
+
+* add skiping one line ([#427](https://github.com/skyra-project/discord-components/issues/427)) ([0de39d7](https://github.com/skyra-project/discord-components/commit/0de39d7437e088f8c227359ec2a0c102cb9ef4bd)) (@eumarciel404)
+* added the possibility of skipping lines for discord-embed titles ([#426](https://github.com/skyra-project/discord-components/issues/426)) ([bc62ed5](https://github.com/skyra-project/discord-components/commit/bc62ed58b21b06270aff7c633f461bb01103c94b)) (@favna)
+* added the possibility of skipping lines for discord-embed-field titles ([#428](https://github.com/skyra-project/discord-components/issues/428)) ([67b0ab9](https://github.com/skyra-project/discord-components/commit/67b0ab9229307c6423b91c7b8f28479d36aba0ba)) (@eumarciel404)
+* **discord-button:** fixed button type checking to be null safe ([7d99d99](https://github.com/skyra-project/discord-components/commit/7d99d99cb6ff9f3d2ad060b49305da4049958e19)) (@favna)
+* **discord-embed-field:** fixed inline-index checking to be null safe ([84e5bc4](https://github.com/skyra-project/discord-components/commit/84e5bc46305abb880fd6243c028c8dfa23295390)) (@favna)
+
+### Features
+
+* add `dismissMessageClicked` to `discord-message` ([c7f6b51](https://github.com/skyra-project/discord-components/commit/c7f6b51dc5d3079ae9e9e31417cdb8068b6e9d60)) (@favna)
+
 # [4.0.0-alpha.23](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.22...v4.0.0-alpha.23) (2024-07-18)
 
 ### Bug Fixes
