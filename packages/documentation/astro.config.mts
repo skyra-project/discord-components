@@ -100,7 +100,7 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						name: 'author',
-						content: `favna, $attrs: {Email}`
+						content: `favna, ${seoConfig.email}`
 					}
 				},
 				{
@@ -121,7 +121,7 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						name: 'designer',
-						content: `favna, $attrs: {Email}`
+						content: `favna, ${seoConfig.email}`
 					}
 				},
 				{
@@ -184,7 +184,7 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						name: 'owner',
-						content: `favna, $attrs: {Email}`
+						content: `favna, ${seoConfig.email}`
 					}
 				},
 				{
@@ -254,21 +254,28 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						name: 'twitter:card',
-						content: 'summary'
+						content: seoConfig.twitter.card
 					}
 				},
 				{
 					tag: 'meta',
 					attrs: {
 						name: 'twitter:creator',
-						content: '@favna_'
+						content: seoConfig.twitter.handle
 					}
 				},
 				{
 					tag: 'meta',
 					attrs: {
 						name: 'twitter:site',
-						content: '@favna_'
+						content: seoConfig.twitter.handle
+					}
+				},
+				{
+					tag: 'meta',
+					attrs: {
+						name: 'twitter:image',
+						content: seoConfig.image.url
 					}
 				},
 				{
@@ -303,21 +310,28 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						property: 'og:image:alt',
-						content: 'OpenGraphImage'
+						content: seoConfig.image.url
+					}
+				},
+				{
+					tag: 'meta',
+					attrs: {
+						property: 'og:image:alt',
+						content: seoConfig.image.alt
 					}
 				},
 				{
 					tag: 'meta',
 					attrs: {
 						property: 'og:image:height',
-						content: '512'
+						content: seoConfig.image.width.toString()
 					}
 				},
 				{
 					tag: 'meta',
 					attrs: {
 						property: 'og:image:width',
-						content: '1024'
+						content: seoConfig.image.height.toString()
 					}
 				},
 				{
@@ -345,7 +359,7 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						property: 'og:type',
-						content: 'website'
+						content: seoConfig.type
 					}
 				},
 				{

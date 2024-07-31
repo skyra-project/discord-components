@@ -18,6 +18,6 @@ export const seoConfig = {
 	siteName: title,
 	twitter: {
 		card: 'summary_large_image',
-		handle: '@Favna_'
+		handle: '@favna_'
 	}
 };
