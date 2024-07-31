@@ -446,8 +446,10 @@ export default defineConfig({
 						label: 'Documenation'
 					},
 					typeDoc: {
-						readme: '../../README.md',
-						excludeExternals: true
+						readme: './src/assets/README.md',
+						excludeExternals: true,
+						githubPages: true,
+						disableSources: true
 					}
 				})
 			]
