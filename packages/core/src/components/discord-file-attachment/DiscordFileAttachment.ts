@@ -11,6 +11,9 @@ import FileAttachment from '../svgs/FileAttachment.js';
 
 @customElement('discord-file-attachment')
 export class DiscordFileAttachment extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			display: grid;

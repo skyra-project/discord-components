@@ -1,7 +1,0 @@
-# Files copied from ../packages/core/demo during GitHub Actions
-index.html
-index.js
-index.css
-
-# Output
-build/

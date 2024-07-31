@@ -14,6 +14,9 @@ import Ephemeral from '../svgs/Ephemeral.js';
 
 @customElement('discord-message')
 export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			color: #dcddde;

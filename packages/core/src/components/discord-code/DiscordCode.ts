@@ -6,6 +6,9 @@ import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-code')
 export class DiscordCode extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			background-color: #2f3136;

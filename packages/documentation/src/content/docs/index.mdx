@@ -1,0 +1,54 @@
+---
+title: Discord Components
+description: Discord message components to easily build and display fake Discord messages on your webpage.
+template: splash
+hero:
+    tagline: Discord message components to easily build and display fake Discord messages on your webpage.
+    image:
+        file: ../../assets/discord-components-logo.png
+    actions:
+        - text: Documentation
+          link: /api/readme
+          icon: right-arrow
+          variant: primary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2yarn2pnpm';
+
+<CardGrid stagger>
+  <Card title="Installation Core package" icon="seti:javascript">
+    <Tabs>
+      <TabItem label="npm" icon="seti:npm">
+        <pre>npm install @skyra/discord-components-core</pre>
+      </TabItem>
+      <TabItem label="yarn" icon="seti:yarn">
+        <pre>{npmToYarn("npm install @skyra/discord-components-core")}</pre>
+      </TabItem>
+      <TabItem label="pnpm" icon="pnpm">
+        <pre>{npmToPnpm("npm install @skyra/discord-components-core")}</pre>
+      </TabItem>
+      <TabItem label="bun" icon="bun">
+        <pre>{npmToBun("npm install @skyra/discord-components-core")}</pre>
+      </TabItem>
+    </Tabs>
+  </Card>
+
+  <Card title="Installation React bindings" icon="seti:javascript">
+    <Tabs>
+      <TabItem label="npm" icon="seti:npm">
+        <pre>npm install @skyra/discord-components-react</pre>
+      </TabItem>
+      <TabItem label="yarn" icon="seti:yarn">
+        <pre>{npmToYarn("npm install @skyra/discord-components-react")}</pre>
+      </TabItem>
+      <TabItem label="pnpm" icon="pnpm">
+        <pre>{npmToPnpm("npm install @skyra/discord-components-react")}</pre>
+      </TabItem>
+      <TabItem label="bun" icon="bun">
+        <pre>{npmToBun("npm install @skyra/discord-components-react")}</pre>
+      </TabItem>
+    </Tabs>
+  </Card>
+</CardGrid>

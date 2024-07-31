@@ -6,6 +6,9 @@ import { getGlobalEmojiUrl } from '../../util.js';
 
 @customElement('discord-custom-emoji')
 export class DiscordCustomEmoji extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		.discord-custom-emoji {
 			display: inline-block;

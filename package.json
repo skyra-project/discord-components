@@ -19,7 +19,8 @@
 		"start": "yarn workspace @skyra/discord-components-core start",
 		"build": "yarn clean && yarn build:core && yarn build:react && yarn lint && yarn format",
 		"build:core": "yarn workspace @skyra/discord-components-core build",
-		"build:react": "yarn workspace @skyra/discord-components-react build"
+		"build:react": "yarn workspace @skyra/discord-components-react build",
+		"build:documentation": "yarn workspace documentation build"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.3.0",
@@ -29,7 +30,7 @@
 		"@lerna-lite/run": "^3.7.1",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.14.12",
+		"@types/node": "^20.14.13",
 		"eslint": "^8.57.0",
 		"eslint-config-neon": "^0.1.62",
 		"eslint-config-prettier": "^9.1.0",
