@@ -173,7 +173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/sitemap@npm:3.1.6, @astrojs/sitemap@npm:^3.1.5":
+"@astrojs/sitemap@npm:^3.1.5":
   version: 3.1.6
   resolution: "@astrojs/sitemap@npm:3.1.6"
   dependencies:
@@ -5170,7 +5170,6 @@ __metadata:
   dependencies:
     "@astrojs/check": "npm:0.9.1"
     "@astrojs/lit": "npm:^4.3.0"
-    "@astrojs/sitemap": "npm:3.1.6"
     "@astrojs/starlight": "npm:0.25.3"
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:2.0.2"
     "@skyra/discord-components-core": "workspace:^"

@@ -1,4 +1,3 @@
-import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
 import { defineConfig, passthroughImageService } from 'astro/config';
 import starlightTypeDoc, { typeDocSidebarGroup } from 'starlight-typedoc';
@@ -488,7 +487,11 @@ export default defineConfig({
 				github: 'https://github.com/skyra-project/discord-components',
 				twitter: 'https://twitter.com/favna_'
 			},
-			sidebar: [typeDocSidebarGroup],
+			sidebar: [
+				{ items: [], slug: 'api/readme', label: 'README' },
+				{ items: [], slug: 'samples' }, //
+				typeDocSidebarGroup
+			],
 			plugins: [
 				// Generate the documentation.
 				starlightTypeDoc({
@@ -507,8 +510,7 @@ export default defineConfig({
 				})
 			]
 		}),
-		lit(),
-		sitemap()
+		lit()
 	],
 	image: { service: passthroughImageService() }
 });

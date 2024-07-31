@@ -12,7 +12,6 @@
 	"dependencies": {
 		"@astrojs/check": "0.9.1",
 		"@astrojs/lit": "^4.3.0",
-		"@astrojs/sitemap": "3.1.6",
 		"@astrojs/starlight": "0.25.3",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
