@@ -309,7 +309,7 @@ export default defineConfig({
 				{
 					tag: 'meta',
 					attrs: {
-						property: 'og:image:alt',
+						property: 'og:image',
 						content: seoConfig.image.url
 					}
 				},
