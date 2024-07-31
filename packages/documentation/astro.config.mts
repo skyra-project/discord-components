@@ -9,7 +9,7 @@ export default defineConfig({
 	site: seoConfig.baseURL,
 	integrations: [
 		starlight({
-			favicon: '/favicons/favicon.ico',
+			favicon: 'https://discord-components.js.org/favicons/favicon.ico',
 			customCss: ['./src/assets/styles.css'],
 			head: [
 				{
@@ -177,7 +177,7 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {
 						name: 'msapplication-TileImage',
-						content: '/favicons/mstile-144x144.png'
+						content: 'https://discord-components.js.org/favicons/mstile-144x144.png'
 					}
 				},
 				{
@@ -368,7 +368,7 @@ export default defineConfig({
 						rel: 'apple-touch-icon',
 						type: 'image/png',
 						sizes: '180x180',
-						href: '/favicons/apple-touch-icon.png'
+						href: 'https://discord-components.js.org/favicons/apple-touch-icon.png'
 					}
 				},
 				{
@@ -377,7 +377,7 @@ export default defineConfig({
 						rel: 'icon',
 						type: 'image/png',
 						sizes: '16x16',
-						href: '/favicons/favicon-16x16.png'
+						href: 'https://discord-components.js.org/favicons/favicon-16x16.png'
 					}
 				},
 				{
@@ -386,7 +386,7 @@ export default defineConfig({
 						rel: 'icon',
 						type: 'image/png',
 						sizes: '32x32',
-						href: '/favicons/favicon-32x32.png'
+						href: 'https://discord-components.js.org/favicons/favicon-32x32.png'
 					}
 				},
 				{
@@ -395,7 +395,7 @@ export default defineConfig({
 						rel: 'icon',
 						type: 'image/png',
 						sizes: '192x192',
-						href: '/favicons/android-chrome-192x192.png'
+						href: 'https://discord-components.js.org/favicons/android-chrome-192x192.png'
 					}
 				},
 				{
@@ -403,7 +403,7 @@ export default defineConfig({
 					attrs: {
 						rel: 'mask-icon',
 						type: 'image/svg',
-						href: '/favicons/safari-pinned-tab.svg',
+						href: 'https://discord-components.js.org/favicons/safari-pinned-tab.svg',
 						color: '#5865F2'
 					}
 				},
@@ -412,7 +412,7 @@ export default defineConfig({
 					attrs: {
 						rel: 'shortcut icon',
 						type: 'image/ico',
-						href: '/favicons/favicon.ico'
+						href: 'https://discord-components.js.org/favicons/favicon.ico'
 					}
 				},
 				{
@@ -420,7 +420,7 @@ export default defineConfig({
 					attrs: {
 						rel: 'apple-touch-startup-image',
 						type: 'image/png',
-						href: '/favicons/apple-startup.png'
+						href: 'https://discord-components.js.org/favicons/apple-startup.png'
 					}
 				},
 				{

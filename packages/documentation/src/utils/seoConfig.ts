@@ -10,7 +10,7 @@ export const seoConfig = {
 	email,
 	type: 'website',
 	image: {
-		url: '/favicons/opengraph.png',
+		url: 'https://discord-components.js.org/favicons/opengraph.png',
 		alt: 'OpenGraph image',
 		width: 1_024,
 		height: 512
