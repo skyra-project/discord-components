@@ -16,8 +16,26 @@
 	align-items: center;
 	border-radius: 999rem;
 	padding: 0.5rem 1.125rem;
-	color: var(--sl-color-white);
+	color: var(--sl-color-black) !important;
 	line-height: 1.1875;
 	text-decoration: none;
 	font-size: var(--sl-text-sm);
+}
+
+.example-button {
+	width: 100%;
+	height: 100%;
+}
+
+.example-button > p {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.example-button > p > svg {
+	--sl-icon-size: 1.5rem !important;
+	margin-left: auto;
 }

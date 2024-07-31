@@ -13,7 +13,7 @@ hero:
           variant: primary
 ---
 
-import { Card, CardGrid, Code } from '@astrojs/starlight/components';
+import { Card, CardGrid, Code, Icon } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2yarn2pnpm';
 
@@ -59,7 +59,9 @@ import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2
 				class="sl-flex action primary astro-button"
 				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/react-vite-ts"
 			>
-				React with Vite
+      <span className='example-button'>
+				React with Vite <Icon className="example-button-icon" name="right-arrow" />
+      </span>
 			</a>
 		</TabItem>
 		<TabItem label="Vue" icon="seti:vue">
@@ -67,7 +69,9 @@ import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2
 				class="sl-flex action primary astro-button"
 				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/vue-vite-ts"
 			>
-				Vue with Vite
+      <span className='example-button'>
+				Vue with Vite <Icon name="right-arrow" />
+      </span>
 			</a>
 		</TabItem>
 		<TabItem label="Angular" icon="seti:javascript">
@@ -75,7 +79,9 @@ import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2
 				class="sl-flex action primary astro-button"
 				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/angular"
 			>
-				Angular
+      <span className='example-button'>
+				Angular <Icon name="right-arrow" />
+      </span>
 			</a>
 		</TabItem>
 		<TabItem label="Astro" icon="astro">
@@ -83,7 +89,9 @@ import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2
 				class="sl-flex action primary astro-button"
 				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/astro"
 			>
-				Astro
+      <span className='example-button'>
+				Astro <Icon name="right-arrow" />
+      </span>
 			</a>
 		</TabItem>
 		<TabItem label="Svelte" icon="svelte">
@@ -91,7 +99,9 @@ import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2
 				class="sl-flex action primary astro-button"
 				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/svelte"
 			>
-				Svelte
+      <span className='example-button'>
+				Svelte <Icon name="right-arrow" />
+      </span>
 			</a>
 		</TabItem>
 	</Tabs>
