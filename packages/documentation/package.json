@@ -10,14 +10,17 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.5.10",
-		"@astrojs/sitemap": "3.1.4",
-		"@astrojs/starlight": "0.21.5",
+		"@astrojs/check": "0.9.1",
+		"@astrojs/lit": "^4.3.0",
+		"@astrojs/sitemap": "3.1.6",
+		"@astrojs/starlight": "0.25.3",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
-		"astro": "4.7.0",
-		"starlight-typedoc": "0.12.0",
-		"typedoc": "0.25.13",
-		"typedoc-plugin-markdown": "4.0.0-next.59"
+		"@webcomponents/template-shadowroot": "^0.2.1",
+		"astro": "4.12.3",
+		"lit": "^3.1.4",
+		"starlight-typedoc": "0.13.1",
+		"typedoc": "0.26.5",
+		"typedoc-plugin-markdown": "4.2.3"
 	},
 	"devDependencies": {
 		"@skyra/discord-components-core": "workspace:^",
