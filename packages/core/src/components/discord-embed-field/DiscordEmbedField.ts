@@ -10,6 +10,9 @@ import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-embed-field')
 export class DiscordEmbedField extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			font-size: 0.875rem;

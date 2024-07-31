@@ -1,5 +1,8 @@
 import { css } from 'lit';
 
+/**
+ * @internal
+ */
 export const DiscordMediaAttachmentStyles = css`
 	.discord-media-attachment-non-visual-media-item-container {
 		justify-self: start;

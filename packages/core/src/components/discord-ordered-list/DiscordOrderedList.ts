@@ -4,6 +4,9 @@ import { DiscordComponentsError } from '../../util.js';
 
 @customElement('discord-ordered-list')
 export class DiscordOrderedList extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host > ol {
 			list-style-image: initial;

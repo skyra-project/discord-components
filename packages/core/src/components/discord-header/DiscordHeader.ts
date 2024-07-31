@@ -4,6 +4,9 @@ import { choose } from 'lit/directives/choose.js';
 
 @customElement('discord-header')
 export class DiscordHeader extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host > * {
 			margin: 16px 0 8px;

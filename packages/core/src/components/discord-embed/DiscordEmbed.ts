@@ -12,6 +12,9 @@ import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-embed')
 export class DiscordEmbed extends LitElement implements DiscordEmbedProps, LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			color: #dcddde;

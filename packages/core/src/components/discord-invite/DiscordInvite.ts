@@ -12,6 +12,9 @@ import VerifiedBadgeOverlay from '../svgs/VerifiedBadgeOverlay.js';
 
 @customElement('discord-invite')
 export class DiscordInvite extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			background-color: #2f3136;

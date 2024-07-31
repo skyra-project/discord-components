@@ -11,6 +11,9 @@ import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-thread-message')
 export class DiscordThreadMessage extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			height: 18px;

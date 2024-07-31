@@ -3,6 +3,9 @@ import { customElement, property } from 'lit/decorators.js';
 
 @customElement('discord-pre')
 export class DiscordPre extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host pre {
 			border-radius: 4px;

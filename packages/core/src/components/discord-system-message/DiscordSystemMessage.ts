@@ -18,6 +18,9 @@ import UserLeave from '../svgs/UserLeave.js';
 
 @customElement('discord-system-message')
 export class DiscordSystemMessage extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			color: #8e9297;

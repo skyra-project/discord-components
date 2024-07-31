@@ -102,19 +102,9 @@
 	},
 	"overrides": [
 		{
-			"files": ["**/test/**/*.{html,js,mjs,ts}", "**/demo/**/*.{html,js,mjs,ts}", "**/stories/**/*.{html,js,mjs,ts}"],
+			"files": ["packages/documentation/src/env.d.ts"],
 			"rules": {
-				"no-console": "off",
-				"no-unused-expressions": "off",
-				"class-methods-use-this": "off",
-
-				// loosen templating restrictions in tests and demos
-				"lit/no-template-bind": "off",
-				"lit/no-duplicate-template-bindings": "off",
-				"lit/no-useless-template-literals": "off",
-				"lit/binding-positions": "off",
-				"lit/no-invalid-html": "off",
-				"lit/no-private-properties": "off"
+				"@typescript-eslint/triple-slash-reference": "off"
 			}
 		}
 	]

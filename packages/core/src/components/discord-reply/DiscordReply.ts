@@ -14,6 +14,9 @@ import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-reply')
 export class DiscordReply extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			color: #b9bbbe;
