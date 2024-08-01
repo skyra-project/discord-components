@@ -16,6 +16,9 @@ import VoiceChannel from '../svgs/VoiceChannel.js';
 
 @customElement('discord-mention')
 export class DiscordMention extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			color: #e3e7f8;

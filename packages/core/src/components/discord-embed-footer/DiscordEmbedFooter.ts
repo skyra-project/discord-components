@@ -9,6 +9,9 @@ import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-embed-footer')
 export class DiscordEmbedFooter extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			-webkit-box-align: center;

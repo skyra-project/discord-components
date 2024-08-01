@@ -3,6 +3,9 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-time')
 export class DiscordTime extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			background-color: #ffffff0f;

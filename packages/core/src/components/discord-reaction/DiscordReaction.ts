@@ -7,6 +7,9 @@ import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-reaction')
 export class DiscordReaction extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host > *:first-child {
 			border-radius: 0.5rem;

@@ -8,6 +8,9 @@ import LaunchIcon from '../svgs/LaunchIcon.js';
 
 @customElement('discord-button')
 export class DiscordButton extends LitElement implements DiscordButtonProps {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host > *:first-child {
 			display: flex;

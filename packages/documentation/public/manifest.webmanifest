@@ -1,0 +1,87 @@
+{
+	"name": "Discord Components",
+	"short_name": "Discord Components",
+	"description": "Web components to easily build and display fake Discord messages on your webpages",
+	"theme_color": "#5865F2",
+	"background_color": "#131516",
+	"display": "minimal-ui",
+	"categories": ["discord", "library", "webcomponents", "lit", "components", "html", "documentation"],
+	"dir": "ltr",
+	"lang": "en",
+	"orientation": "portrait-primary",
+	"scope": "/",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-36x36.png",
+			"sizes": "36x36",
+			"type": "image/png"
+		},
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-48x48.png",
+			"sizes": "48x48",
+			"type": "image/png"
+		},
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-72x72.png",
+			"sizes": "72x72",
+			"type": "image/png"
+		},
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-96x96.png",
+			"sizes": "96x96",
+			"type": "image/png"
+		},
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-256x256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		},
+		{
+			"src": "https://discord-components.js.org/favicons/android-chrome-384x384.png",
+			"sizes": "384x384",
+			"type": "image/png"
+		}
+	],
+	"shortcuts": [
+		{
+			"name": "Discord Components",
+			"short_name": "Discord Components",
+			"description": "Web components to easily build and display fake Discord messages on your webpages",
+			"url": "/",
+			"icons": [
+				{
+					"src": "https://discord-components.js.org/favicons/android-chrome-96x96.png",
+					"sizes": "96x96",
+					"type": "image/png"
+				}
+			]
+		}
+	],
+	"screenshots": [
+		{
+			"src": "/screenshots/pwa-desktop.png",
+			"sizes": "1200x710",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Discord Components"
+		},
+		{
+			"src": "/screenshots/pwa-mobile.png",
+			"sizes": "480x640",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "Discord Components"
+		}
+	]
+}

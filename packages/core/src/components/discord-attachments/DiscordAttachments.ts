@@ -3,6 +3,9 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-attachments')
 export class DiscordAttachments extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			display: grid;

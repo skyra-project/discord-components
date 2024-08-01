@@ -1,4 +1,4 @@
-name: Deploy demo content to Pages
+name: Deploy documentation
 
 on:
   push:
@@ -36,20 +36,12 @@ jobs:
         run: yarn --immutable
       - name: Build code
         run: yarn build
-      - name: Copy demo files
-        run: cp packages/core/demo/* docs/
-      - name: Replace path of entrypoint file
-        run: sed -i 's/..\/src\/index.ts/\/src\/main.ts/' docs/index.html
-      - name: Copy LICENSE and README
-        run: |
-          cp LICENSE.md docs/public/
-          cp README.md docs/public/
-      - name: Bundle with vite
-        run: yarn workspace docs run build
+      - name: Build docs
+        run: yarn build:documentation
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/dist/
+          path: packages/documentation/dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

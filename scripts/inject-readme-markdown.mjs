@@ -1,22 +1,26 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { parse } from 'node:path';
+import { URL } from 'node:url';
 import toc from 'markdown-toc';
 
 const readmePath = new URL('../README.md', import.meta.url);
-const readme = await readFile(readmePath, 'utf-8');
+const readme = await readFile(readmePath, 'utf8');
 
 const coreReadmePath = new URL('../packages/core/README.md', import.meta.url);
-const coreReadme = await readFile(coreReadmePath, 'utf-8');
+const coreReadme = await readFile(coreReadmePath, 'utf8');
 
 const reactReadmePath = new URL('../packages/react/README.md', import.meta.url);
-const reactReadme = await readFile(reactReadmePath, 'utf-8');
+const reactReadme = await readFile(reactReadmePath, 'utf8');
+
+const docsReadmePath = new URL('../packages/documentation/src/assets/README.md', import.meta.url);
+const docsReadme = await readFile(docsReadmePath, 'utf8');
 
 const readmeTemplatesPath = new URL('../assets/readme-templates/', import.meta.url);
 const readmeTemplatesDirectory = await readdir(readmeTemplatesPath);
 
 const readmeTemplates = new Map();
 for await (const file of readmeTemplatesDirectory) {
-	const fileContent = await readFile(new URL(file, readmeTemplatesPath), 'utf-8');
+	const fileContent = await readFile(new URL(file, readmeTemplatesPath), 'utf8');
 	readmeTemplates.set(parse(file).name, fileContent);
 }
 
@@ -50,10 +54,12 @@ const screenshotsEndMarker = '<!-- # SCREENSHOTS END # -->';
 const contributingStartMarker = '<!-- # CONTRIBUTING START # -->';
 const contributingEndMarker = '<!-- # CONTRIBUTING END # -->';
 
+// eslint-disable-next-line prefer-const
 for (let [file, filePath] of [
 	[readme, readmePath],
 	[coreReadme, coreReadmePath],
-	[reactReadme, reactReadmePath]
+	[reactReadme, reactReadmePath],
+	[docsReadme, docsReadmePath]
 ]) {
 	for (const [startMarker, endMarker, templateFileName] of [
 		[headerStartMarker, headerEndMarker, 'HEADER'],
@@ -71,6 +77,7 @@ for (let [file, filePath] of [
 		const endIndex = file.indexOf(endMarker);
 
 		if (startIndex !== -1 && endIndex !== -1) {
+			// eslint-disable-next-line unicorn/prefer-string-slice
 			const replaceableContent = file.substring(startIndex, endIndex + endMarker.length);
 
 			if (templateFileName === null) {
@@ -90,5 +97,5 @@ for (let [file, filePath] of [
 		}
 	}
 
-	await writeFile(filePath, file, 'utf-8');
+	await writeFile(filePath, file, 'utf8');
 }

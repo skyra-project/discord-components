@@ -14,6 +14,9 @@ import Ephemeral from '../svgs/Ephemeral.js';
 
 @customElement('discord-message')
 export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			color: #dcddde;
@@ -373,6 +376,9 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 	@property({ type: Boolean, reflect: true, attribute: 'has-thread' })
 	public accessor hasThread = false;
 
+	@property({ reflect: false, attribute: 'dismiss-message-clicked' })
+	public accessor dismissMessageClicked: () => void = () => {};
+
 	protected override willUpdate(): void {
 		this.hasThread = Array.from(this.children).some((child): boolean => child.tagName.toLowerCase() === 'discord-thread');
 		this.highlight =
@@ -383,6 +389,15 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 					child.hasAttribute('highlight') &&
 					((child as DiscordMention).type === 'user' || (child as DiscordMention).type === 'role')
 			);
+	}
+
+	private handleSpaceToDismissMessage(event: KeyboardEvent) {
+		if (event.code === 'Space') {
+			event.preventDefault();
+			event.stopPropagation();
+
+			this.dismissMessageClicked?.();
+		}
 	}
 
 	protected override render() {
@@ -490,7 +505,13 @@ export class DiscordMessage extends LitElement implements DiscordMessageProps, L
 							() => html`
 								<div class="discord-message-ephemeral">
 									${Ephemeral()} Only you can see this •
-									<span class="discord-message-ephemeral-link">Dismiss message</span>
+									<span
+										role="button"
+										class="discord-message-ephemeral-link"
+										@click=${this.dismissMessageClicked}
+										@keydown=${this.handleSpaceToDismissMessage}
+										>Dismiss message</span
+									>
 								</div>
 							`,
 							() => null

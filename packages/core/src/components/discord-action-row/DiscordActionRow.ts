@@ -3,6 +3,9 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('discord-action-row')
 export class DiscordActionRow extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			display: flex;

@@ -9,6 +9,9 @@ import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-author-info')
 export class DiscordAuthorInfo extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			display: inline-flex;
