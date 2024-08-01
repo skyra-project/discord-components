@@ -111,9 +111,9 @@ export class DiscordStringSelectMenu extends LitElement implements DiscordSelect
 		const optionsMenu = this.shadowRoot?.querySelectorAll('div.selectMenuOptionSlot').item(0);
 		const stringSelectMenu = this.shadowRoot?.querySelectorAll('div.selectMenu').item(0);
 
-		if (stringSelectMenu?.className === 'selectMenu  disabled ') return;
+		if (stringSelectMenu?.className.includes('disabled')) return;
 
-		if (optionsMenu?.className === 'selectMenuOptionSlot hidden') {
+		if (optionsMenu?.className.includes('hidden')) {
 			optionsMenu?.setAttribute('class', 'selectMenuOptionSlot');
 			iconSpandMore?.setAttribute('class', 'discord-expand-more-icon revert');
 		} else {
