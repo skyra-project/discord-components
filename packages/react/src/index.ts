@@ -50,8 +50,6 @@ export const DiscordVideoAttachment = createReactComponent('discord-video-attach
 
 export type {
 	Avatars,
-	DiscordSelectMenuProps,
-	DicordSelectMenuOptionProps,
 	DiscordButtonProps,
 	DiscordEmbedProps,
 	DiscordMessageOptions,
