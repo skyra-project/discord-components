@@ -5,7 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
-import type { DiscordMessageProps, Profile, LightTheme, DiscordTimestamp } from '../../types.js';
+import type { Profile, LightTheme, DiscordTimestamp } from '../../types.js';
 import { handleTimestamp } from '../../util.js';
 import '../discord-author-info/DiscordAuthorInfo.js';
 import type { DiscordMention } from '../discord-mention/DiscordMention.js';
@@ -13,7 +13,7 @@ import { messagesCompactMode, messagesLightTheme, messagesNoBackground } from '.
 import Ephemeral from '../svgs/Ephemeral.js';
 
 @customElement('discord-message')
-export class DiscordMessage extends LitElement implements DiscordMessageProps, LightTheme {
+export class DiscordMessage extends LitElement implements LightTheme {
 	/**
 	 * @internal
 	 */

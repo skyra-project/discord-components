@@ -2,12 +2,11 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { when } from 'lit/directives/when.js';
-import type { DiscordButtonProps } from '../../types.js';
 import { DiscordComponentsError } from '../../util.js';
 import LaunchIcon from '../svgs/LaunchIcon.js';
 
 @customElement('discord-button')
-export class DiscordButton extends LitElement implements DiscordButtonProps {
+export class DiscordButton extends LitElement {
 	/**
 	 * @internal
 	 */

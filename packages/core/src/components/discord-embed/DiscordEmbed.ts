@@ -5,13 +5,13 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
-import type { Emoji, DiscordEmbedProps, LightTheme } from '../../types.js';
+import type { Emoji, LightTheme } from '../../types.js';
 import { getGlobalEmojiUrl } from '../../util.js';
 import '../discord-custom-emoji/DiscordCustomEmoji.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-embed')
-export class DiscordEmbed extends LitElement implements DiscordEmbedProps, LightTheme {
+export class DiscordEmbed extends LitElement implements LightTheme {
 	/**
 	 * @internal
 	 */

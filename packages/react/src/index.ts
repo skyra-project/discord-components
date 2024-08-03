@@ -48,17 +48,7 @@ export const DiscordVideoAttachment = createReactComponent('discord-video-attach
 
 /* IMPORTS END */
 
-export type {
-	Avatars,
-	DiscordButtonProps,
-	DiscordEmbedProps,
-	DiscordMessageOptions,
-	DiscordMessageProps,
-	DiscordTimestamp,
-	Emoji,
-	LightTheme,
-	Profile
-} from '@skyra/discord-components-core';
+export type { Avatars, DiscordMessageOptions, DiscordTimestamp, Emoji, LightTheme, Profile } from '@skyra/discord-components-core';
 export { getConfig, setConfig } from '@skyra/discord-components-core';
 
 declare global {
