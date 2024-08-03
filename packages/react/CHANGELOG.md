@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.25](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.24...v4.0.0-alpha.25) (2024-08-03)
+
+### Features
+
+* add string select menu ([#436](https://github.com/skyra-project/discord-components/issues/436)) ([9f3744a](https://github.com/skyra-project/discord-components/commit/9f3744a9505653470fc3efd47d37b791944baebc)), closes [#185](https://github.com/skyra-project/discord-components/issues/185) (@eumarciel404)
+
 # [4.0.0-alpha.24](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.23...v4.0.0-alpha.24) (2024-07-31)
 
 **Note:** Version bump only for package @skyra/discord-components-react
