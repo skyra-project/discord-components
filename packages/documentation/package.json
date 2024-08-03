@@ -15,17 +15,18 @@
 		"@astrojs/starlight": "0.25.3",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "4.12.3",
+		"astro": "4.13.1",
 		"lit": "^3.1.4",
-		"starlight-typedoc": "0.13.1",
+		"starlight-typedoc": "0.14.0",
 		"typedoc": "0.26.5",
+		"typedoc-plugin-frontmatter": "^1.0.0",
 		"typedoc-plugin-markdown": "4.2.3"
 	},
 	"devDependencies": {
 		"@skyra/discord-components-core": "workspace:^",
 		"@skyra/discord-components-react": "workspace:^",
 		"@types/react": "18.3.3",
-		"@types/react-dom": "^18",
+		"@types/react-dom": "^18.3.0",
 		"react-dom": "^18.3.1",
 		"typescript": "^5.5.4"
 	}

@@ -520,7 +520,8 @@ export default defineConfig({
 						readme: './src/assets/README.md',
 						excludeExternals: true,
 						githubPages: true,
-						disableSources: true
+						disableSources: true,
+						plugin: ['typedoc-plugin-frontmatter', './src/plugins/frontmatter.js']
 					}
 				})
 			]
