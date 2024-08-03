@@ -347,7 +347,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 						this.command,
 						() => CommandReply({ class: 'discord-replied-message-content-icon' }),
 						() => when(this.attachment, () => AttachmentReply({ class: 'discord-replied-message-content-icon' }))
-					)}}`
+					)}`
 		)}`;
 	}
 }
