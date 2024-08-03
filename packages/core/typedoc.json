@@ -1,0 +1,11 @@
+{
+	"readme": "../documentation/src/assets/README.md",
+	"excludeExternals": true,
+	"githubPages": true,
+	"disableSources": true,
+	"entryPoints": ["./src/index.ts"],
+	"tsconfig": "./src/tsconfig.json",
+	"basePath": "/",
+	"out": "./docs",
+	"cleanOutputDir": true
+}
