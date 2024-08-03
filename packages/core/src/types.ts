@@ -1,17 +1,5 @@
 export type DiscordTimestamp = Date | string | null;
 
-export interface DiscordSelectMenuProps {
-	disabled?: boolean;
-	placeholder?: string;
-}
-
-export interface DiscordSelectMenuOptionProps {
-	description?: string;
-	emoji?: string;
-	emojiName?: string;
-	label?: string;
-}
-
 export interface DiscordButtonProps {
 	disabled?: boolean;
 	emoji?: string;

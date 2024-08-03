@@ -2,11 +2,10 @@ import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
-import type { DiscordSelectMenuOptionProps } from '../../types.js';
 import { DiscordComponentsError } from '../../util.js';
 
 @customElement('discord-string-select-menu-option')
-export class DiscordStringSelectMenuOption extends LitElement implements DiscordSelectMenuOptionProps {
+export class DiscordStringSelectMenuOption extends LitElement {
 	public static override readonly styles = css`
 		:host {
 			display: flex;

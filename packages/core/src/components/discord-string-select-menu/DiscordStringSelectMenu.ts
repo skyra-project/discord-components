@@ -1,11 +1,10 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, eventOptions, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import type { DiscordSelectMenuProps } from '../../types.js';
 import ExpandMore from '../svgs/ExpandMore.js';
 
 @customElement('discord-string-select-menu')
-export class DiscordStringSelectMenu extends LitElement implements DiscordSelectMenuProps {
+export class DiscordStringSelectMenu extends LitElement {
 	public static override readonly styles = css`
 		.discord-string-select-menu {
 			height: 36px;
