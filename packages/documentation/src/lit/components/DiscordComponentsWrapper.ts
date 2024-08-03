@@ -224,7 +224,7 @@ export class DiscordComponentsWrapper extends LitElement {
 								url="https://discord.gg/djs"
 								online="16417"
 								members="87147"
-								:verified="true"
+								verified
 							></discord-invite>
 							<discord-invite
 								name="The Coding Den"
@@ -232,7 +232,7 @@ export class DiscordComponentsWrapper extends LitElement {
 								url="https://discord.gg/code"
 								online="18456"
 								members="73548"
-								:partnered="true"
+								partnered
 							></discord-invite>
 							<discord-invite
 								name="Skyra Lounge"
@@ -254,8 +254,7 @@ export class DiscordComponentsWrapper extends LitElement {
 							height="100"
 							width="100"
 							alt="lit-logo"
-						>
-						</discord-image-attachment>
+						></discord-image-attachment>
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Image Attachments with custom image components (you can see this in the code only)</h3>
@@ -282,8 +281,7 @@ export class DiscordComponentsWrapper extends LitElement {
 							height="512"
 							width="512"
 							alt="dragonite"
-						>
-						</discord-image-attachment>
+						></discord-image-attachment>
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">File Attachments</h3>
@@ -297,8 +295,7 @@ export class DiscordComponentsWrapper extends LitElement {
 							href="https://favna.s-ul.eu/pZqminUa.pk9"
 							target="_blank"
 							type="application/octet-stream"
-						>
-						</discord-file-attachment>
+						></discord-file-attachment>
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Audio attachments</h3>
@@ -390,7 +387,7 @@ export class DiscordComponentsWrapper extends LitElement {
 								reacted
 							></discord-reaction>
 							<discord-reaction
-								:interactive="true"
+								interactive
 								name="dragonite"
 								emoji="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/dragonite.png"
 								count="10"
@@ -480,6 +477,57 @@ export class DiscordComponentsWrapper extends LitElement {
 									>Link</discord-button
 								>
 							</discord-action-row>
+							<dicord-action-row>
+								<discord-string-select-menu>
+									<discord-string-select-menu-option
+										label="Label"
+										description="Description"
+										emoji="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/eyes.svg"
+									></discord-string-select-menu-option>
+									<discord-string-select-menu-option
+										label="Label no Emoji"
+										description="Description no Emoji"
+									></discord-string-select-menu-option>
+								</discord-string-select-menu>
+							</dicord-action-row>
+							<dicord-action-row>
+								<discord-string-select-menu disabled placeholder="Disabled Select Menu">
+									<discord-string-select-menu-option
+										label="Test"
+										description="Test"
+										emoji="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/eyes.svg"
+									></discord-string-select-menu-option>
+									<discord-string-select-menu-option label="Teste2"> </discord-string-select-menu-option>
+								</discord-string-select-menu>
+							</dicord-action-row>
+							<dicord-action-row>
+								<discord-string-select-menu placeholder="overflow">
+									<discord-string-select-menu-option
+										label="Favna"
+										description="I am a developer hailing from The Netherlands"
+									></discord-string-select-menu-option>
+									<discord-string-select-menu-option
+										label="Kira"
+										description="I am an enthusiast videogame development"
+									></discord-string-select-menu-option>
+									<discord-string-select-menu-option
+										label="Marciel404"
+										description="I am a back-end developer and front-end"
+									></discord-string-select-menu-option>
+									<discord-string-select-menu-option
+										label="Skyra"
+										description="Skyra 6.3.0 [Sapphire Edition] is a multi-purpose Discord Bot designed to run the majority of tasks in your server with great performance and uptime. I use the Sapphire Framework for the Discord.js library. "
+									></discord-string-select-menu-option>
+									<discord-string-select-menu-option
+										label="Iriss"
+										description="Iriss is a bot focused on suggestion management. This is an HTTP only bot built on top of Skyra HTTP Framework."
+									></discord-string-select-menu-option>
+									<discord-string-select-menu-option
+										label="Nekokai"
+										description="Nekokai is a bot focused in information and media from anime and manga. This is an HTTP only bot built on top of Skyra HTTP Framework."
+									></discord-string-select-menu-option>
+								</discord-string-select-menu>
+							</dicord-action-row>
 						</discord-attachments>
 					</discord-message>
 				</discord-messages>
