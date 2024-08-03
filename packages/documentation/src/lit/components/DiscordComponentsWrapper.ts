@@ -698,6 +698,36 @@ export class DiscordComponentsWrapper extends LitElement {
 					</discord-message>
 				</discord-messages>
 
+				<h3 class="title">With all slots of a message filled</h3>
+				<discord-messages>
+					<discord-message profile="skyra">
+						This is the text of the message
+						<discord-command slot="reply" profile="favna" command="command"></discord-command>
+						<discord-image-attachment
+							slot="attachments"
+							url="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/lit.png"
+							height="100"
+							width="100"
+							alt="lit-logo"
+						></discord-image-attachment>
+						<discord-embed slot="embeds" color="#0F52BA" embed-title="Embed title">
+							<discord-embed-description slot="description"> Embed description </discord-embed-description>
+							<discord-embed-fields slot="fields">
+								<discord-embed-field field-title="Field title"> Field value </discord-embed-field>
+							</discord-embed-fields>
+						</discord-embed>
+						<discord-reactions slot="reactions">
+							<discord-reaction
+								name="👀"
+								emoji="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/eyes.svg"
+							></discord-reaction>
+						</discord-reactions>
+						<discord-thread slot="thread" name="Thread under the message" cta="2 Messages">
+							<discord-thread-message profile="skyra">Pong!</discord-thread-message>
+						</discord-thread>
+					</discord-message>
+				</discord-messages>
+
 				<h3 class="title">Headers</h3>
 				<discord-messages>
 					<discord-message profile="favna">

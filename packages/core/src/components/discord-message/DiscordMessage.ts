@@ -495,8 +495,8 @@ export class DiscordMessage extends LitElement implements LightTheme {
 						)}
 					</div>
 					<div class="discord-message-compact-indent">
-						<slot name="embeds"></slot>
 						<slot name="attachments"></slot>
+						<slot name="embeds"></slot>
 						<slot name="components"></slot>
 						<slot name="reactions"></slot>
 						<slot name="thread"></slot>
