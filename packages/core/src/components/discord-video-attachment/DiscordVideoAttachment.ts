@@ -23,6 +23,9 @@ import VideoPausePopIcon from '../svgs/VideoPausePopIcon.js';
 
 @customElement('discord-video-attachment')
 export class DiscordVideoAttachment extends DiscordMediaLifecycle implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = [
 		DiscordVolumeControlStyles,
 		DiscordPlaybackControlStyles,

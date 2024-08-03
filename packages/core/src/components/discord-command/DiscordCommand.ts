@@ -12,6 +12,9 @@ import CommandIcon from '../svgs/CommandIcon.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = [
 		DiscordReply.styles,
 		css`

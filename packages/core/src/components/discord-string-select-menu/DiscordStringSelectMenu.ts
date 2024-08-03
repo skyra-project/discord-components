@@ -5,6 +5,9 @@ import ExpandMore from '../svgs/ExpandMore.js';
 
 @customElement('discord-string-select-menu')
 export class DiscordStringSelectMenu extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		.discord-string-select-menu {
 			height: 36px;

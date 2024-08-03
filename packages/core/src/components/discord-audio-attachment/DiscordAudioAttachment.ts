@@ -21,6 +21,9 @@ import MediaVolumeMutedIcon from '../svgs/MediaVolumeMutedIcon.js';
 
 @customElement('discord-audio-attachment')
 export class DiscordAudioAttachment extends DiscordMediaLifecycle implements LightTheme {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = [
 		DiscordVolumeControlStyles,
 		DiscordPlaybackControlStyles,

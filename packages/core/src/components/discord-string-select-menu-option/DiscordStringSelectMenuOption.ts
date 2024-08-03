@@ -6,6 +6,9 @@ import { DiscordComponentsError } from '../../util.js';
 
 @customElement('discord-string-select-menu-option')
 export class DiscordStringSelectMenuOption extends LitElement {
+	/**
+	 * @internal
+	 */
 	public static override readonly styles = css`
 		:host {
 			display: flex;
