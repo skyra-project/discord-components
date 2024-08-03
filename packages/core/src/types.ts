@@ -5,7 +5,7 @@ export interface DiscordSelectMenuProps {
 	placeholder?: string;
 }
 
-export interface DicordSelectMenuOptionProps {
+export interface DiscordSelectMenuOptionProps {
 	description?: string;
 	emoji?: string;
 	emojiName?: string;

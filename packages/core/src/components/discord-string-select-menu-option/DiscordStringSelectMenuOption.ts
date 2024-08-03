@@ -1,13 +1,14 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
-import type { DicordSelectMenuOptionProps } from '../../types.js';
+import type { DiscordSelectMenuOptionProps } from '../../types.js';
 import { DiscordComponentsError } from '../../util.js';
 
-@customElement('discord-stringselectmenu-option')
-export class DiscordStringSelectMenuOption extends LitElement implements DicordSelectMenuOptionProps {
+@customElement('discord-string-select-menu-option')
+export class DiscordStringSelectMenuOption extends LitElement implements DiscordSelectMenuOptionProps {
 	public static override readonly styles = css`
-		.selectMenuOption {
+		:host {
 			display: flex;
 			align-items: center;
 			max-width: 400px;
@@ -17,11 +18,11 @@ export class DiscordStringSelectMenuOption extends LitElement implements DicordS
 			max-width: 95%;
 		}
 
-		.selectMenuOption:hover {
+		:host(:hover) {
 			background-color: rgba(0, 0, 0, 0.1);
 		}
 
-		.emoji {
+		.discord-string-select-menu-option-emoji {
 			margin-right: 4px;
 			object-fit: contain;
 			width: 1.375em;
@@ -29,7 +30,7 @@ export class DiscordStringSelectMenuOption extends LitElement implements DicordS
 			vertical-align: bottom;
 		}
 
-		.maxsize {
+		.discord-string-select-menu-option-max-size {
 			display: block;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -51,31 +52,37 @@ export class DiscordStringSelectMenuOption extends LitElement implements DicordS
 	public accessor emojiName = 'emoji';
 
 	/**
-	 * The label of option.
+	 * The label of the option
 	 */
 	@property({ attribute: 'label' })
 	public accessor label: string;
 
 	/**
-	 * The description of option o.
+	 * The description of the option
 	 */
 	@property({ attribute: 'description' })
 	public accessor description: string;
 
-	protected override render() {
+	public checkLabelIsProvided() {
 		if (!this.label) {
 			throw new DiscordComponentsError('The label of option is required');
 		}
+	}
+
+	protected override render() {
+		this.checkLabelIsProvided();
 
 		return html`
-			<div class="selectMenuOption">
-				${when(this.emoji, () => html`<img src=${this.emoji} alt=${this.emojiName} draggable="true" class="emoji" />`)}
+			${when(
+				this.emoji,
+				() =>
+					html`<img src=${this.emoji} alt=${ifDefined(this.emojiName)} draggable="true" class="discord-string-select-menu-option-emoji" />`
+			)}
+			<div>
 				<div>
-					<div>
-						<strong class="maxsize">${this.label}</strong>
-					</div>
-					${when(this.description, () => html`<span class="maxsize">${this.description}</span>`)}
+					<strong class="discord-string-select-menu-option-max-size">${this.label}</strong>
 				</div>
+				${when(this.description, () => html`<span class="discord-string-select-menu-option-max-size">${this.description}</span>`)}
 			</div>
 		`;
 	}
@@ -83,6 +90,6 @@ export class DiscordStringSelectMenuOption extends LitElement implements DicordS
 
 declare global {
 	interface HTMLElementTagNameMap {
-		'discord-selectmenu-option': DiscordStringSelectMenuOption;
+		'discord-string-select-menu-option': DiscordStringSelectMenuOption;
 	}
 }
