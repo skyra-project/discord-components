@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.26](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.25...v4.0.0-alpha.26) (2024-08-03)
+
+### Bug Fixes
+
+* fixes order of message slots ([827ef64](https://github.com/skyra-project/discord-components/commit/827ef6409f3d0c34d1a51eb78b319f8eeb994c8d)), closes [#435](https://github.com/skyra-project/discord-components/issues/435) (@favna)
+
 # [4.0.0-alpha.25](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.24...v4.0.0-alpha.25) (2024-08-03)
 
 ### Bug Fixes
