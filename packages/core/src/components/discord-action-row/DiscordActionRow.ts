@@ -9,7 +9,7 @@ export class DiscordActionRow extends LitElement {
 	public static override readonly styles = css`
 		:host {
 			display: flex;
-			flex-wrap: nowrap;
+			flex-wrap: wrap;
 		}
 	`;
 
