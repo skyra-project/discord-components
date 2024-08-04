@@ -1,9 +1,9 @@
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, eventOptions, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ExpandMore from '../svgs/ExpandMore.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import { consume } from '@lit/context';
+import ExpandMore from '../svgs/ExpandMore.js';
 
 @customElement('discord-string-select-menu')
 export class DiscordStringSelectMenu extends LitElement {
@@ -33,14 +33,14 @@ export class DiscordStringSelectMenu extends LitElement {
 		}
 
 		:host([light-theme]) .discord-string-select-menu {
-			background-color: #EBEBEB !important;
-			border-color: #D9D9D9 !important;
+			background-color: #ebebeb !important;
+			border-color: #d9d9d9 !important;
 			color: #2e3338;
 		}
 
 		:host([light-theme]) .discord-string-select-menu-option-slot {
-			background-color: #EBEBEB !important;
-			border-color: #D9D9D9 !important;
+			background-color: #ebebeb !important;
+			border-color: #d9d9d9 !important;
 			color: #2e3338;
 		}
 

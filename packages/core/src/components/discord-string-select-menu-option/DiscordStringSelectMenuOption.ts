@@ -1,9 +1,9 @@
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
 import { DiscordComponentsError } from '../../util.js';
-import { consume } from '@lit/context';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-string-select-menu-option')
@@ -26,8 +26,8 @@ export class DiscordStringSelectMenuOption extends LitElement {
 		}
 
 		:host([light-theme]) {
-			background-color: #F2F3F5 !important;
-			border-color: #D9D9D9 !important;
+			background-color: #f2f3f5 !important;
+			border-color: #d9d9d9 !important;
 			color: #2e3338;
 		}
 
