@@ -34,13 +34,15 @@ export class DiscordStringSelectMenu extends LitElement {
 
 		:host([light-theme]) .discord-string-select-menu {
 			background-color: #ebebeb !important;
-			border-color: #d9d9d9 !important;
+			border-color: #b5b5b5 !important;
+			border: 1px solid;
 			color: #2e3338;
 		}
 
 		:host([light-theme]) .discord-string-select-menu-option-slot {
 			background-color: #ebebeb !important;
-			border-color: #d9d9d9 !important;
+			border-color: #b5b5b5 !important;
+			border: 1px solid;
 			color: #2e3338;
 		}
 
