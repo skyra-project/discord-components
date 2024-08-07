@@ -25,7 +25,8 @@
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/react#readme",
 	"scripts": {
 		"build": "tsup && yarn build:rename-esm-index",
-		"build:rename-esm-index": "node scripts/rename-esm-index.mjs"
+		"build:rename-esm-index": "node scripts/rename-esm-index.mjs",
+		"prepack": "yarn build"
 	},
 	"dependencies": {
 		"@lit/react": "^1.0.5",
