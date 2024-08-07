@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.27](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.26...v4.0.0-alpha.27) (2024-08-07)
+
+### Bug Fixes
+
+* Adding Light Theme in string select menu and correcting the text size ([#439](https://github.com/skyra-project/discord-components/issues/439)) ([c40f6c0](https://github.com/skyra-project/discord-components/commit/c40f6c0efe5e2efa51fc3129c2dffb57592b7098)) (@eumarciel404)
+* **discord-action-row:** wrap using "flex-wrap" ([#440](https://github.com/skyra-project/discord-components/issues/440)) ([24163fc](https://github.com/skyra-project/discord-components/commit/24163fce52d7932d8f428ecc56976127af675760)) (@eumarciel404)
+* **discord-invite:** improve styling ([#441](https://github.com/skyra-project/discord-components/issues/441)) ([9b910d1](https://github.com/skyra-project/discord-components/commit/9b910d107ef623c31f28de0be04b80046fd4bbf5)) (@eumarciel404)
+
 # [4.0.0-alpha.26](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.25...v4.0.0-alpha.26) (2024-08-03)
 
 ### Bug Fixes
