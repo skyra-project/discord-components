@@ -1,11 +1,14 @@
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
+import type { LightTheme } from '../../types.js';
 import { DiscordComponentsError } from '../../util.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
 @customElement('discord-string-select-menu-option')
-export class DiscordStringSelectMenuOption extends LitElement {
+export class DiscordStringSelectMenuOption extends LitElement implements LightTheme {
 	/**
 	 * @internal
 	 */
@@ -17,11 +20,20 @@ export class DiscordStringSelectMenuOption extends LitElement {
 			padding: 8px 8px 8px 12px;
 			gap: 10px;
 			font-size: small;
-			max-width: 95%;
 		}
 
 		:host(:hover) {
-			background-color: rgba(0, 0, 0, 0.1);
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		:host([light-theme]) {
+			background-color: #f2f3f5 !important;
+			border-color: #d9d9d9 !important;
+			color: #2e3338;
+		}
+
+		:host([light-theme]:hover) {
+			background-color: rgba(204, 204, 204, 2) !important;
 		}
 
 		.discord-string-select-menu-option-emoji {
@@ -32,12 +44,10 @@ export class DiscordStringSelectMenuOption extends LitElement {
 			vertical-align: bottom;
 		}
 
-		.discord-string-select-menu-option-max-size {
-			display: block;
+		.discord-string-select-menu-option-ellipsis-text {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
-			max-width: 390px;
 		}
 	`;
 
@@ -71,6 +81,10 @@ export class DiscordStringSelectMenuOption extends LitElement {
 		}
 	}
 
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
+	public accessor lightTheme = false;
+
 	protected override render() {
 		this.checkLabelIsProvided();
 
@@ -80,11 +94,11 @@ export class DiscordStringSelectMenuOption extends LitElement {
 				() =>
 					html`<img src=${this.emoji} alt=${ifDefined(this.emojiName)} draggable="true" class="discord-string-select-menu-option-emoji" />`
 			)}
-			<div>
-				<div>
-					<strong class="discord-string-select-menu-option-max-size">${this.label}</strong>
+			<div class="discord-string-select-menu-option-ellipsis-text">
+				<div class="discord-string-select-menu-option-ellipsis-text">
+					<strong>${this.label}</strong>
 				</div>
-				${when(this.description, () => html`<span class="discord-string-select-menu-option-max-size">${this.description}</span>`)}
+				${when(this.description, () => html`<span>${this.description}</span>`)}
 			</div>
 		`;
 	}

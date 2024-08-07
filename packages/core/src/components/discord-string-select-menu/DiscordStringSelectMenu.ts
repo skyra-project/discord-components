@@ -1,10 +1,13 @@
+import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, eventOptions, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import type { LightTheme } from '../../types.js';
+import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ExpandMore from '../svgs/ExpandMore.js';
 
 @customElement('discord-string-select-menu')
-export class DiscordStringSelectMenu extends LitElement {
+export class DiscordStringSelectMenu extends LitElement implements LightTheme {
 	/**
 	 * @internal
 	 */
@@ -30,8 +33,22 @@ export class DiscordStringSelectMenu extends LitElement {
 			font-weight: 500;
 		}
 
+		:host([light-theme]) .discord-string-select-menu {
+			background-color: #ebebeb !important;
+			border-color: #b5b5b5 !important;
+			border: 1px solid;
+			color: #2e3338;
+		}
+
+		:host([light-theme]) .discord-string-select-menu-option-slot {
+			background-color: #ebebeb !important;
+			border-color: #b5b5b5 !important;
+			border: 1px solid;
+			color: #2e3338;
+		}
+
 		.discord-string-select-menu-option-slot {
-			overflow-y: scroll;
+			overflow-y: auto;
 			overflow-x: hidden;
 			color: currentColor;
 			border: none;
@@ -59,7 +76,7 @@ export class DiscordStringSelectMenu extends LitElement {
 		}
 
 		.discord-string-select-menu-option-slot::-webkit-scrollbar-track {
-			background-color: none;
+			background-color: transparent;
 		}
 
 		.discord-string-select-menu-option-slot::-webkit-scrollbar-thumb {
@@ -112,6 +129,10 @@ export class DiscordStringSelectMenu extends LitElement {
 	 */
 	@property({ attribute: 'placeholder' })
 	public accessor placeholder: string = 'Make a selection';
+
+	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
+	public accessor lightTheme = false;
 
 	protected override render() {
 		return html`
