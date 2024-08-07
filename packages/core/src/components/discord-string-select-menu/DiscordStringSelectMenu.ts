@@ -2,11 +2,12 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, eventOptions, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import type { LightTheme } from '../../types.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ExpandMore from '../svgs/ExpandMore.js';
 
 @customElement('discord-string-select-menu')
-export class DiscordStringSelectMenu extends LitElement {
+export class DiscordStringSelectMenu extends LitElement implements LightTheme {
 	/**
 	 * @internal
 	 */
