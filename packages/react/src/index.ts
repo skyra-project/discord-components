@@ -27,6 +27,7 @@ export const DiscordListItem = createReactComponent('discord-list-item', ReactCo
 export const DiscordMention = createReactComponent('discord-mention', ReactComponents.DiscordMention);
 export const DiscordMessage = createReactComponent('discord-message', ReactComponents.DiscordMessage);
 export const DiscordMessages = createReactComponent('discord-messages', ReactComponents.DiscordMessages);
+export const DiscordModal = createReactComponent('discord-modal', ReactComponents.DiscordModal);
 export const DiscordOrderedList = createReactComponent('discord-ordered-list', ReactComponents.DiscordOrderedList);
 export const DiscordPre = createReactComponent('discord-pre', ReactComponents.DiscordPre);
 export const DiscordQuote = createReactComponent('discord-quote', ReactComponents.DiscordQuote);
