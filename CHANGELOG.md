@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.28](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.27...v4.0.0-alpha.28) (2024-08-07)
+
+### Bug Fixes
+
+* add prepack scripts ([acadd12](https://github.com/skyra-project/discord-components/commit/acadd12fc6bf71c1a3042ff636006d04007f0b5f)) (@favna)
+
 # [4.0.0-alpha.27](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.26...v4.0.0-alpha.27) (2024-08-07)
 
 ### Bug Fixes
