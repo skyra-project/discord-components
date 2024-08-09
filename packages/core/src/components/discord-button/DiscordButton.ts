@@ -33,6 +33,13 @@ export class DiscordButton extends LitElement {
 			font-weight: 500;
 			line-height: 16px;
 			text-decoration: none !important;
+			/* CSS Reset to unset button styling */
+			border-width: unset;
+			border-style: unset;
+			border-color: unset;
+			border-image: unset;
+			box-sizing: unset;
+			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 		}
 
 		.success {
@@ -120,6 +127,17 @@ export class DiscordButton extends LitElement {
 	@property({ reflect: true, attribute: 'type' })
 	public accessor type: 'destructive' | 'primary' | 'secondary' | 'success' = 'secondary';
 
+	/**
+	 * An `id` of a modal that should be opened when this button is clicked. This should match the `modal-id` of a `discord-modal` element.
+	 *
+	 * @remarks
+	 * - `discord-modal`s use the HTML [dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element. and are opened through `<ref>.showModal()`
+	 * - If {@link DiscordButton.url} is set this will be ignored.
+	 * - If {@link DiscordButton.disabled} is set this will be ignored.
+	 */
+	@property({ reflect: true, attribute: 'modal-id' })
+	public accessor modalId: string;
+
 	private readonly validButtonTypes = new Set(['primary', 'secondary', 'success', 'destructive']);
 
 	public checkType() {
@@ -135,6 +153,22 @@ export class DiscordButton extends LitElement {
 	public checkParentElement() {
 		if (this.parentElement?.tagName.toLowerCase() !== 'discord-action-row') {
 			throw new DiscordComponentsError('All <discord-button> components must be direct children of <discord-action-row>.');
+		}
+	}
+
+	protected handleButtonClick() {
+		if (this.modalId) {
+			const rootDiscordMessagesElement = this.parentElement?.parentElement?.parentElement?.parentElement;
+			if (rootDiscordMessagesElement?.tagName?.toLowerCase() === 'discord-messages') {
+				const discordModalWebcomponent = rootDiscordMessagesElement?.querySelector(`discord-modal`);
+				const dialogElement = discordModalWebcomponent?.shadowRoot?.querySelector(`dialog#${this.modalId}`);
+				const divRootModal: any = dialogElement?.querySelector(`div.discord-modal-box`);
+				if (dialogElement instanceof HTMLDialogElement) {
+					dialogElement.showModal();
+					divRootModal.style.display = 'flex';
+					document.documentElement.style.overflowY = 'hidden';
+				}
+			}
 		}
 	}
 
@@ -156,15 +190,16 @@ export class DiscordButton extends LitElement {
 			return html`<a class="secondary" href=${this.url} target="_blank" rel="noopener noreferrer">${content}</a>`;
 		}
 
-		return html`<div
+		return html`<button
 			class=${classMap({
 				[this.type]: true,
 				disabled: this.disabled,
 				hoverable: !this.disabled
 			})}
+			@click=${this.handleButtonClick}
 		>
 			${content}
-		</div>`;
+		</button>`;
 	}
 }
 
