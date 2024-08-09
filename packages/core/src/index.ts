@@ -19,6 +19,7 @@ export { DiscordEmbedFooter } from './components/discord-embed-footer/DiscordEmb
 export { DiscordFileAttachment } from './components/discord-file-attachment/DiscordFileAttachment.js';
 export { DiscordHeader } from './components/discord-header/DiscordHeader.js';
 export { DiscordImageAttachment } from './components/discord-image-attachment/DiscordImageAttachment.js';
+export { DiscordInputText } from './components/discord-input-text/DiscordInputText.js';
 export { DiscordInvite } from './components/discord-invite/DiscordInvite.js';
 export { DiscordItalic } from './components/discord-italic/DiscordItalic.js';
 export { DiscordLink } from './components/discord-link/DiscordLink.js';
@@ -26,6 +27,7 @@ export { DiscordListItem } from './components/discord-list-item/DiscordListItem.
 export { DiscordMention } from './components/discord-mention/DiscordMention.js';
 export { DiscordMessage } from './components/discord-message/DiscordMessage.js';
 export { DiscordMessages } from './components/discord-messages/DiscordMessages.js';
+export { DiscordModal } from './components/discord-modal/DiscordModal.js';
 export { DiscordOrderedList } from './components/discord-ordered-list/DiscordOrderedList.js';
 export { DiscordPre } from './components/discord-pre/DiscordPre.js';
 export { DiscordQuote } from './components/discord-quote/DiscordQuote.js';
