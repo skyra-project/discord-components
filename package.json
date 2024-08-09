@@ -24,14 +24,14 @@
 		"build:documentation": "yarn workspace documentation build"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.3.0",
+		"@commitlint/cli": "^19.4.0",
 		"@commitlint/config-conventional": "^19.2.2",
-		"@lerna-lite/cli": "^3.7.1",
-		"@lerna-lite/publish": "^3.7.1",
-		"@lerna-lite/run": "^3.7.1",
+		"@lerna-lite/cli": "^3.8.0",
+		"@lerna-lite/publish": "^3.8.0",
+		"@lerna-lite/run": "^3.8.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.14.14",
+		"@types/node": "^20.14.15",
 		"chalk-cli": "^5.0.1",
 		"eslint": "^8.57.0",
 		"eslint-config-neon": "^0.1.62",
@@ -51,7 +51,6 @@
 		"typescript": "^5.5.4"
 	},
 	"resolutions": {
-		"@open-wc/lit-helpers@^0.7.0": "patch:@open-wc/lit-helpers@npm%3A0.7.0#~/.yarn/patches/@open-wc-lit-helpers-npm-0.7.0-1922d4c01f.patch",
 		"esbuild": "~0.23.0",
 		"@next/eslint-plugin-next": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-mdx": "npm:@favware/skip-dependency@latest",

@@ -1,5 +1,5 @@
-import { spread } from '@open-wc/lit-helpers';
 import { html, svg } from 'lit';
+import { spread } from '../../spread.js';
 
 const svgContent = svg`
 	<path

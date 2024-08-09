@@ -112,8 +112,7 @@
 	},
 	"dependencies": {
 		"@lit/context": "^1.1.2",
-		"@open-wc/lit-helpers": "^0.7.0",
-		"lit": "^3.1.4"
+		"lit": "^3.2.0"
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.10.3",

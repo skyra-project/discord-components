@@ -1,5 +1,5 @@
-import { spread } from '@open-wc/lit-helpers';
 import { html, svg } from 'lit';
+import { spread } from '../../spread.js';
 
 const svgContent = svg`
 	<path d="M4.61241 0L6 0.845294L1.38759 10L0 9.15471L4.61241 0Z" fill="currentColor" />
