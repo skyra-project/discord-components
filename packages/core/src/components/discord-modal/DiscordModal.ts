@@ -1,4 +1,3 @@
-// import { setTimeout } from 'node:timers'; Node times not work
 import { consume } from '@lit/context';
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
@@ -460,11 +459,11 @@ export class DiscordModal extends LitElement implements LightTheme {
 				if (textarea.attributes.getNamedItem('required') && !textarea.value) {
 					const messageNeeded: any = shadowRootSlot?.querySelectorAll('div.discord-message-needed-input').item(0);
 					messageNeeded.style.display = 'flex';
-					setTimeout(() => {
+					window.setTimeout(() => {
 						messageNeeded.style.opacity = 1;
-						setTimeout(() => {
+						window.setTimeout(() => {
 							messageNeeded.style.opacity = 0;
-							setTimeout(() => {
+							window.setTimeout(() => {
 								messageNeeded.style.display = 'none';
 							}, 1_000);
 						}, 1_000);
@@ -477,11 +476,11 @@ export class DiscordModal extends LitElement implements LightTheme {
 				if (input.attributes.getNamedItem('required') && !input.value) {
 					const messageNeeded: any = shadowRootSlot?.querySelectorAll('div.discord-message-needed-input').item(0);
 					messageNeeded.style.display = 'flex';
-					setTimeout(() => {
+					window.setTimeout(() => {
 						messageNeeded.style.opacity = 1;
-						setTimeout(() => {
+						window.setTimeout(() => {
 							messageNeeded.style.opacity = 0;
-							setTimeout(() => {
+							window.setTimeout(() => {
 								messageNeeded.style.display = 'none';
 							}, 1_000);
 						}, 1_000);
