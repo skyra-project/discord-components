@@ -836,6 +836,17 @@ export class DiscordComponentsWrapper extends LitElement {
 																		<discord-list-item>deeper</discord-list-item>
 																		<discord-unordered-list>
 																			<discord-list-item>ain't that cool</discord-list-item>
+																			<discord-list-item>
+																				<discord-bold>we can also be bold</discord-bold>
+																			</discord-list-item>
+																			<discord-list-item>
+																				<discord-italic>or italic</discord-italic>
+																			</discord-list-item>
+																			<discord-list-item>
+																				<discord-bold>
+																					<discord-italic>or both</discord-italic>
+																				</discord-bold>
+																			</discord-list-item>
 																		</discord-unordered-list>
 																	</discord-unordered-list>
 																</discord-unordered-list>

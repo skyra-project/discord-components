@@ -9,7 +9,6 @@ export class DiscordListItem extends LitElement {
 	 */
 	public static override readonly styles = css`
 		:host > li {
-			white-space: break-spaces;
 			margin-bottom: 4px;
 		}
 	`;
@@ -27,12 +26,7 @@ export class DiscordListItem extends LitElement {
 
 	protected override render() {
 		this.checkParentElement();
-
-		return html`<!-- display: inline -->
-			<li
-				><span
-					><span><slot></slot></span></span
-			></li>`;
+		return html`<li><slot></slot></li>`;
 	}
 }
 
