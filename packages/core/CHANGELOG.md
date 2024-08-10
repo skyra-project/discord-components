@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.29](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.28...v4.0.0-alpha.29) (2024-08-10)
+
+### Bug Fixes
+
+* bold and italic in list items proper indenting ([#445](https://github.com/skyra-project/discord-components/issues/445)) ([629bbea](https://github.com/skyra-project/discord-components/commit/629bbea0b8b416e9f3366623adeb616905e50fb9)), closes [#444](https://github.com/skyra-project/discord-components/issues/444) (@favna)
+
 # [4.0.0-alpha.28](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.27...v4.0.0-alpha.28) (2024-08-07)
 
 **Note:** Version bump only for package @skyra/discord-components-core
