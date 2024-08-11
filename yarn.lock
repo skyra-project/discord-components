@@ -49,14 +49,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler@npm:^2.10.1":
-  version: 2.10.1
-  resolution: "@astrojs/compiler@npm:2.10.1"
-  checksum: 10/ccb75305b0e1b8b77f4e152905de6b8c3d038f07fb5a84caf3c4d37a4e716952ef319803f6e6b483391b4b3fc0624dad0520f9eeeb2f9775080aa7fb93ef8321
-  languageName: node
-  linkType: hard
-
-"@astrojs/compiler@npm:^2.10.2":
+"@astrojs/compiler@npm:^2.10.1, @astrojs/compiler@npm:^2.10.2":
   version: 2.10.2
   resolution: "@astrojs/compiler@npm:2.10.2"
   checksum: 10/050a58423f1489d73202994b77fdfd43757fd9754da72cd2a650a9f725eebafdfeeb1d7cef78d28648b2fdd3e57595d3f038628e9e51bf2bc8b3108a375258eb
@@ -2783,12 +2776,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.0.0":
-  version: 20.14.14
-  resolution: "@types/node@npm:20.14.14"
+"@types/node@npm:*, @types/node@npm:^22.1.0":
+  version: 22.2.0
+  resolution: "@types/node@npm:22.2.0"
   dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10/035bc347e3de04888d537801e23eb4b4f99522975ca002dbfef978edd853710031b7cd43bf022670d6aba4ed5d4ac75ea1b5ff77ff8f80998bffd943b7bcef48
+    undici-types: "npm:~6.13.0"
+  checksum: 10/2957c5c81f1a07a1210f28382adae65c11070c301e395fa819448516f1a2a710054b29e0ec7d8e28624afbcd90dae810403a497109545dea835b554fc76edf6c
   languageName: node
   linkType: hard
 
@@ -2806,21 +2799,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.14.15":
+"@types/node@npm:^20.0.0, @types/node@npm:^20.14.15":
   version: 20.14.15
   resolution: "@types/node@npm:20.14.15"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10/87a4a4313e886c1db1c8042004956095477e040f67df993fd16a2d50488c750bda81e85bf702c2e629e964605034e8dfe0cb91b65ce22b6b8eec37ece61c6b6c
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^22.1.0":
-  version: 22.2.0
-  resolution: "@types/node@npm:22.2.0"
-  dependencies:
-    undici-types: "npm:~6.13.0"
-  checksum: 10/2957c5c81f1a07a1210f28382adae65c11070c301e395fa819448516f1a2a710054b29e0ec7d8e28624afbcd90dae810403a497109545dea835b554fc76edf6c
   languageName: node
   linkType: hard
 
@@ -3713,9 +3697,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.13.2":
-  version: 4.13.2
-  resolution: "astro@npm:4.13.2"
+"astro@npm:4.13.3":
+  version: 4.13.3
+  resolution: "astro@npm:4.13.3"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.1"
     "@astrojs/internal-helpers": "npm:0.4.1"
@@ -3784,7 +3768,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/359e83a978818340bce7df72b9a19aedb45944335be3462568be64ff70a1da32da842eb1e6bbfd99ae55d7cac6914bc6ccfa469277bdad170fe62e5c88f5ae49
+  checksum: 10/c551847f231f0b344e510ea89a902364b3375631cfcf56414c2829f3ac016484d25d2381b711e76ab71b2e8788c5b887c1891be1198b31cc27871def9e3e9913
   languageName: node
   linkType: hard
 
@@ -5121,7 +5105,7 @@ __metadata:
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:^18.3.0"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:4.13.2"
+    astro: "npm:4.13.3"
     lit: "npm:^3.2.0"
     react-dom: "npm:^18.3.1"
     starlight-typedoc: "npm:0.15.0"
@@ -8288,18 +8272,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-element@npm:^4.0.4":
-  version: 4.0.6
-  resolution: "lit-element@npm:4.0.6"
-  dependencies:
-    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
-    "@lit/reactive-element": "npm:^2.0.4"
-    lit-html: "npm:^3.1.2"
-  checksum: 10/31b4400fbfdc5cfa1e4193434f4ed4fc28282dd13e2802c11a1533ad1135acf5c06ea1804e3720011873aefde927bdf02663d5290aa4e4dd6f96c90ee44109df
-  languageName: node
-  linkType: hard
-
-"lit-element@npm:^4.1.0":
+"lit-element@npm:^4.0.4, lit-element@npm:^4.1.0":
   version: 4.1.0
   resolution: "lit-element@npm:4.1.0"
   dependencies:
@@ -8310,16 +8283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-html@npm:^3.1.2":
-  version: 3.1.4
-  resolution: "lit-html@npm:3.1.4"
-  dependencies:
-    "@types/trusted-types": "npm:^2.0.2"
-  checksum: 10/0f95b7e6fdd032a800ddaf1eebfdcb6c7482f9e455269506fe13f925db823798e8c73fc36980b89c546391138cd5025187529c7a0e813b07578f4e16012099f2
-  languageName: node
-  linkType: hard
-
-"lit-html@npm:^3.2.0":
+"lit-html@npm:^3.1.2, lit-html@npm:^3.2.0":
   version: 3.2.0
   resolution: "lit-html@npm:3.2.0"
   dependencies:
@@ -8328,18 +8292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^3.1.2":
-  version: 3.1.4
-  resolution: "lit@npm:3.1.4"
-  dependencies:
-    "@lit/reactive-element": "npm:^2.0.4"
-    lit-element: "npm:^4.0.4"
-    lit-html: "npm:^3.1.2"
-  checksum: 10/54799818821b66f121ab7f27909e1fd0937b2f9a36b32534804056920cb12d43f2e0bc7085021910c69d0a386cb68df4d04c2dae5b7a544395288b403f381a0e
-  languageName: node
-  linkType: hard
-
-"lit@npm:^3.2.0":
+"lit@npm:^3.1.2, lit@npm:^3.2.0":
   version: 3.2.0
   resolution: "lit@npm:3.2.0"
   dependencies:
@@ -9960,19 +9913,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-package-arg@npm:^11.0.0, npm-package-arg@npm:^11.0.2":
-  version: 11.0.2
-  resolution: "npm-package-arg@npm:11.0.2"
-  dependencies:
-    hosted-git-info: "npm:^7.0.0"
-    proc-log: "npm:^4.0.0"
-    semver: "npm:^7.3.5"
-    validate-npm-package-name: "npm:^5.0.0"
-  checksum: 10/ce4c51900a73aadb408c9830c38a61b1930e1ab08509ec5ebbcf625ad14326ee33b014df289c942039bd28071ab17e813368f68d26a4ccad0eb6e9928f8ad03c
-  languageName: node
-  linkType: hard
-
-"npm-package-arg@npm:^11.0.3":
+"npm-package-arg@npm:^11.0.0, npm-package-arg@npm:^11.0.2, npm-package-arg@npm:^11.0.3":
   version: 11.0.3
   resolution: "npm-package-arg@npm:11.0.3"
   dependencies:
@@ -12797,14 +12738,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^4.2.0, type-fest@npm:^4.6.0, type-fest@npm:^4.7.1":
-  version: 4.20.1
-  resolution: "type-fest@npm:4.20.1"
-  checksum: 10/52dc64fae094949008afb79f21b02eca0289c8dc41ed1cfff88f343230edb476fca4815e1b5d58acf5e07fdc7a1b098504473b5931ef418e6f38a3edb70fc1df
-  languageName: node
-  linkType: hard
-
-"type-fest@npm:^4.23.0":
+"type-fest@npm:^4.2.0, type-fest@npm:^4.23.0, type-fest@npm:^4.6.0, type-fest@npm:^4.7.1":
   version: 4.24.0
   resolution: "type-fest@npm:4.24.0"
   checksum: 10/60efd6ec71f5113ef0a0fcabe61fc722bb2520ea082bc23e4b4dfb44204234dc691560a5e837f939160d7c18b410ed8fae32ddb752d57bed009248e0f61dce6b
