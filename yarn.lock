@@ -49,7 +49,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler@npm:^2.10.1, @astrojs/compiler@npm:^2.10.2":
+"@astrojs/compiler@npm:^2.10.2":
   version: 2.10.2
   resolution: "@astrojs/compiler@npm:2.10.2"
   checksum: 10/050a58423f1489d73202994b77fdfd43757fd9754da72cd2a650a9f725eebafdfeeb1d7cef78d28648b2fdd3e57595d3f038628e9e51bf2bc8b3108a375258eb
@@ -184,9 +184,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/starlight@npm:0.25.4":
-  version: 0.25.4
-  resolution: "@astrojs/starlight@npm:0.25.4"
+"@astrojs/starlight@npm:0.25.5":
+  version: 0.25.5
+  resolution: "@astrojs/starlight@npm:0.25.5"
   dependencies:
     "@astrojs/mdx": "npm:^3.1.3"
     "@astrojs/sitemap": "npm:^3.1.6"
@@ -211,7 +211,7 @@ __metadata:
     vfile: "npm:^6.0.2"
   peerDependencies:
     astro: ^4.8.6
-  checksum: 10/d85c21e6bd2dd20ee3d4de9d747d78645d0d07e817a607631bfe715709fca3eab7d4464921de05263a1557c9b58435c5eddae3f72e56519a3a8412d0212c1ab1
+  checksum: 10/f2ea9736f0630e809302eeae4d8670de51088dc1b4f8b4fe70fe976defd8fb40b7cc3ca72d918057e0ddb98be3ae7f9d93a3c6aeb340c5d71ccd969d16bbf0b3
   languageName: node
   linkType: hard
 
@@ -2075,6 +2075,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@oslojs/encoding@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@oslojs/encoding@npm:0.4.1"
+  checksum: 10/7cba443edb4ed217bd584313e272ddadfb350963611b90b5ae6fa5358b7ce47cd59921f8bc15d859347db5a953210bdf746b8ff3829ac74dd8cfcb8bbdbe308d
+  languageName: node
+  linkType: hard
+
 "@pagefind/darwin-arm64@npm:1.1.0":
   version: 1.1.0
   resolution: "@pagefind/darwin-arm64@npm:1.1.0"
@@ -2159,7 +2166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^5.0.1":
+"@rollup/pluginutils@npm:^5.0.1, @rollup/pluginutils@npm:^5.1.0":
   version: 5.1.0
   resolution: "@rollup/pluginutils@npm:5.1.0"
   dependencies:
@@ -3697,11 +3704,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.13.3":
-  version: 4.13.3
-  resolution: "astro@npm:4.13.3"
+"astro@npm:4.14.2":
+  version: 4.14.2
+  resolution: "astro@npm:4.14.2"
   dependencies:
-    "@astrojs/compiler": "npm:^2.10.1"
+    "@astrojs/compiler": "npm:^2.10.2"
     "@astrojs/internal-helpers": "npm:0.4.1"
     "@astrojs/markdown-remark": "npm:5.2.0"
     "@astrojs/telemetry": "npm:3.1.0"
@@ -3711,6 +3718,8 @@ __metadata:
     "@babel/plugin-transform-react-jsx": "npm:^7.25.2"
     "@babel/traverse": "npm:^7.25.3"
     "@babel/types": "npm:^7.25.2"
+    "@oslojs/encoding": "npm:^0.4.1"
+    "@rollup/pluginutils": "npm:^5.1.0"
     "@types/babel__core": "npm:^7.20.5"
     "@types/cookie": "npm:^0.6.0"
     acorn: "npm:^8.12.1"
@@ -3741,7 +3750,9 @@ __metadata:
     js-yaml: "npm:^4.1.0"
     kleur: "npm:^4.1.5"
     magic-string: "npm:^0.30.11"
+    micromatch: "npm:^4.0.7"
     mrmime: "npm:^2.0.0"
+    neotraverse: "npm:^0.6.9"
     ora: "npm:^8.0.1"
     p-limit: "npm:^6.1.0"
     p-queue: "npm:^8.0.1"
@@ -3757,18 +3768,20 @@ __metadata:
     tsconfck: "npm:^3.1.1"
     unist-util-visit: "npm:^5.0.0"
     vfile: "npm:^6.0.2"
-    vite: "npm:^5.3.5"
+    vite: "npm:^5.4.0"
     vitefu: "npm:^0.2.5"
     which-pm: "npm:^3.0.0"
+    xxhash-wasm: "npm:^1.0.2"
     yargs-parser: "npm:^21.1.1"
     zod: "npm:^3.23.8"
     zod-to-json-schema: "npm:^3.23.2"
+    zod-to-ts: "npm:^1.2.0"
   dependenciesMeta:
     sharp:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/c551847f231f0b344e510ea89a902364b3375631cfcf56414c2829f3ac016484d25d2381b711e76ab71b2e8788c5b887c1891be1198b31cc27871def9e3e9913
+  checksum: 10/6aef3a6bd24c93a5825066ea0c99541d6fcb0d4537277a5ae87f25da969a4d443aa9e9cf846291c229f54439d9985be77ec5b1cc59b5c691fc45362991e62262
   languageName: node
   linkType: hard
 
@@ -5098,20 +5111,20 @@ __metadata:
   dependencies:
     "@astrojs/check": "npm:0.9.2"
     "@astrojs/lit": "npm:^4.3.0"
-    "@astrojs/starlight": "npm:0.25.4"
+    "@astrojs/starlight": "npm:0.25.5"
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:2.0.2"
     "@skyra/discord-components-core": "workspace:^"
     "@skyra/discord-components-react": "workspace:^"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:^18.3.0"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:4.13.3"
+    astro: "npm:4.14.2"
     lit: "npm:^3.2.0"
     react-dom: "npm:^18.3.1"
     starlight-typedoc: "npm:0.15.0"
     typedoc: "npm:0.26.5"
     typedoc-plugin-frontmatter: "npm:^1.0.0"
-    typedoc-plugin-markdown: "npm:4.2.3"
+    typedoc-plugin-markdown: "npm:4.2.5"
     typescript: "npm:^5.5.4"
   languageName: unknown
   linkType: soft
@@ -8207,9 +8220,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^15.2.8":
-  version: 15.2.8
-  resolution: "lint-staged@npm:15.2.8"
+"lint-staged@npm:^15.2.9":
+  version: 15.2.9
+  resolution: "lint-staged@npm:15.2.9"
   dependencies:
     chalk: "npm:~5.3.0"
     commander: "npm:~12.1.0"
@@ -8223,7 +8236,7 @@ __metadata:
     yaml: "npm:~2.5.0"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/cabeb0540775cafa71d8d55be74b6854f65f083efa43886a5b47bfad36d23bc302c70c67dc952303ffa646e5563cfb92005a5d5ea3944c71f7ee3ff5b7bdcd71
+  checksum: 10/2f7342ca3fc7e2a8a0cc3db79ca8d2ad0269b98b13220f3a6745a514aacf1f83487a23a550569081ea962f9a576af7df8d687a8330a9c3c2c27348d5a4d5440e
   languageName: node
   linkType: hard
 
@@ -9443,7 +9456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromatch@npm:^4.0.2, micromatch@npm:^4.0.4, micromatch@npm:~4.0.7":
+"micromatch@npm:^4.0.2, micromatch@npm:^4.0.4, micromatch@npm:^4.0.7, micromatch@npm:~4.0.7":
   version: 4.0.7
   resolution: "micromatch@npm:4.0.7"
   dependencies:
@@ -9761,6 +9774,13 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: 10/1a7948fea86f2b33ec766bc899c88796a51ba76a4afc9026764aedc6e7cde692a09067031e4a1bf6db4f978ccd99e7f5b6c03fe47ad9865c3d4f99050d67e002
+  languageName: node
+  linkType: hard
+
+"neotraverse@npm:^0.6.9":
+  version: 0.6.18
+  resolution: "neotraverse@npm:0.6.18"
+  checksum: 10/a19649cdadb9a3ce3c54c2d6093a2eb1e12364ace384301a7515d40c752bfbac45d12c6eb9c4b004beba7bd4d1871323ebd46ad1446e0de5bc5143b0367647cb
   languageName: node
   linkType: hard
 
@@ -10687,14 +10707,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.38, postcss@npm:^8.4.39":
-  version: 8.4.40
-  resolution: "postcss@npm:8.4.40"
+"postcss@npm:^8.4.38, postcss@npm:^8.4.41":
+  version: 8.4.41
+  resolution: "postcss@npm:8.4.41"
   dependencies:
     nanoid: "npm:^3.3.7"
     picocolors: "npm:^1.0.1"
     source-map-js: "npm:^1.2.0"
-  checksum: 10/bdd01b55152e4be7b4a82b03dd22876e33ff6a038680d1b80a50405a5eccc10aff0f466a0e5e574bc476943b0ba120fbd5de7cde9f219bbf8efc011898f5f631
+  checksum: 10/6e6176c2407eff60493ca60a706c6b7def20a722c3adda94ea1ece38345eb99964191336fd62b62652279cec6938e79e0b1e1d477142c8d3516e7a725a74ee37
   languageName: node
   linkType: hard
 
@@ -11562,7 +11582,7 @@ __metadata:
     eslint-plugin-lit-a11y: "npm:^4.1.4"
     eslint-plugin-prettier: "npm:^5.2.1"
     eslint-plugin-wc: "npm:^2.1.0"
-    lint-staged: "npm:^15.2.8"
+    lint-staged: "npm:^15.2.9"
     markdown-toc: "npm:^1.2.0"
     npm-run-all2: "npm:^6.2.2"
     prettier: "npm:^3.3.3"
@@ -12773,12 +12793,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-markdown@npm:4.2.3":
-  version: 4.2.3
-  resolution: "typedoc-plugin-markdown@npm:4.2.3"
+"typedoc-plugin-markdown@npm:4.2.5":
+  version: 4.2.5
+  resolution: "typedoc-plugin-markdown@npm:4.2.5"
   peerDependencies:
     typedoc: 0.26.x
-  checksum: 10/799698dee6ebbac8fa21c543ccb6dea1388c6b16dfd74f496d019ba488d6b0101d59776c456fbdd2586451d2369773e369188534521aa8b9a440758f9f12c274
+  checksum: 10/d8fe3dbdd6d5af1e2ba6d8853b5f23907383a664fb94b8dc040b89806e44d7e762288c1f6828f7b02212b8bb1013953f8bd09686f79865117dd2d8e2227f7a27
   languageName: node
   linkType: hard
 
@@ -13281,19 +13301,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.3.5":
-  version: 5.3.5
-  resolution: "vite@npm:5.3.5"
+"vite@npm:^5.4.0":
+  version: 5.4.1
+  resolution: "vite@npm:5.4.1"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
-    postcss: "npm:^8.4.39"
+    postcss: "npm:^8.4.41"
     rollup: "npm:^4.13.0"
   peerDependencies:
     "@types/node": ^18.0.0 || >=20.0.0
     less: "*"
     lightningcss: ^1.21.0
     sass: "*"
+    sass-embedded: "*"
     stylus: "*"
     sugarss: "*"
     terser: ^5.4.0
@@ -13309,6 +13330,8 @@ __metadata:
       optional: true
     sass:
       optional: true
+    sass-embedded:
+      optional: true
     stylus:
       optional: true
     sugarss:
@@ -13317,7 +13340,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/5672dde4a969349d9cf90a9e43029c8489dfff60fb04d6a10717d6224553cf12283a8cace633fa80b006df6037f72d08a459a38bf8ea66cb19075d60fe159482
+  checksum: 10/1cf22e5a8ec782ea9417a77ad4b16e518f69cf23c99a5af5bb92dc4acbfce70109a35a35faea8fc0789f4637b6304618f6b84e4c5dfe3c9c2875dff7d749b02d
   languageName: node
   linkType: hard
 
@@ -13839,6 +13862,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"xxhash-wasm@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "xxhash-wasm@npm:1.0.2"
+  checksum: 10/fb66e00f57c87353688ff31a8456ca71e16b1c13610d94d09f83cbd859a1985de07ccfc6aa912a045c991da0078d4122d78d409123e36557afab7ce5d3b04a98
+  languageName: node
+  linkType: hard
+
 "y18n@npm:^5.0.5":
   version: 5.0.8
   resolution: "y18n@npm:5.0.8"
@@ -13932,6 +13962,16 @@ __metadata:
   peerDependencies:
     zod: ^3.23.3
   checksum: 10/316fc539013fdbfbafa50dd26ad9c25a2375ca9e9ac7c340b3e5d6c041549210dce339d17a293649b8e31c83b1d34e93dd44827740f19799752de3ba0414158d
+  languageName: node
+  linkType: hard
+
+"zod-to-ts@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "zod-to-ts@npm:1.2.0"
+  peerDependencies:
+    typescript: ^4.9.4 || ^5.0.2
+    zod: ^3
+  checksum: 10/5955072e76fb3e2c7c801c4d494ce3a25e93ed47bcaafc55b43e33bb96b5de2f7f2e3886f050561c0115e829eb93479d454c2c94ab83a0d6bd5b1eef71376188
   languageName: node
   linkType: hard
 

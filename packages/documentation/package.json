@@ -12,15 +12,15 @@
 	"dependencies": {
 		"@astrojs/check": "0.9.2",
 		"@astrojs/lit": "^4.3.0",
-		"@astrojs/starlight": "0.25.4",
+		"@astrojs/starlight": "0.25.5",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "4.13.3",
+		"astro": "4.14.2",
 		"lit": "^3.2.0",
 		"starlight-typedoc": "0.15.0",
 		"typedoc": "0.26.5",
 		"typedoc-plugin-frontmatter": "^1.0.0",
-		"typedoc-plugin-markdown": "4.2.3"
+		"typedoc-plugin-markdown": "4.2.5"
 	},
 	"devDependencies": {
 		"@skyra/discord-components-core": "workspace:^",
