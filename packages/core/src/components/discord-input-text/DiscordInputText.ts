@@ -1,6 +1,6 @@
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
@@ -22,10 +22,10 @@ export class DiscordInputText extends LitElement {
 			font-weight: 700;
 			text-transform: uppercase;
 			letter-spacing: 0.02em;
-			color: #b0b5bc;
+			color: color-mix(in oklab, hsl(215 calc(1 * 8.8%) 73.3% / 1) 100%, black 0%);
 		}
 
-		.discord-warn-length {
+		.discord-text-input-warning-length {
 			display: flex;
 			align-items: center;
 			font-size: 12px;
@@ -36,19 +36,19 @@ export class DiscordInputText extends LitElement {
 			color: #b0b5bc;
 		}
 
-		.discord-input-text-required {
+		.discord-text-input-required {
 			padding-left: 4px;
-			color: red !important; /* Here need danger color discord */
+			color: hsl(359 calc(1 * 87.3%) 59.8% / 1);
 		}
 
-		.discord-input-text-container {
+		.discord-text-input-container {
 			width: 100%;
 			display: flex;
-			flex: collmun;
+			flex-direction: column;
 			position: relative;
 		}
 
-		.discord-paragraph-input-text {
+		.discord-text-input-paragraph {
 			width: 100%;
 			resize: none;
 			box-sizing: border-box;
@@ -58,9 +58,10 @@ export class DiscordInputText extends LitElement {
 			border: 1px solid #b0b5bc;
 			background-color: #1e1f22;
 			color: #b0b5bc;
+			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 		}
 
-		.discord-short-input-text {
+		.discord-text-input-short {
 			width: 100%;
 			resize: none;
 			box-sizing: border-box;
@@ -70,6 +71,7 @@ export class DiscordInputText extends LitElement {
 			border: 1px solid #b0b5bc;
 			background-color: #1e1f22;
 			color: #b0b5bc;
+			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 		}
 
 		input,
@@ -81,25 +83,25 @@ export class DiscordInputText extends LitElement {
 			opacity: 0.8;
 		}
 
-		.discord-paragraph-input-text::-webkit-scrollbar {
+		.discord-text-input-paragraph::-webkit-scrollbar {
 			width: 8px;
 			margin-right: 5px;
 			background-color: transparent;
 		}
 
-		.discord-paragraph-input-text::-webkit-scrollbar-track {
+		.discord-text-input-paragraph::-webkit-scrollbar-track {
 			background-color: rgba(255, 255, 255, 0.2);
 			margin-right: 1em auto;
 			border-radius: 10px;
 		}
 
-		.discord-paragraph-input-text::-webkit-scrollbar-thumb {
+		.discord-text-input-paragraph::-webkit-scrollbar-thumb {
 			border-radius: 10px;
 			background-color: rgba(0, 0, 0, 0.5);
 			margin-right: 1em auto;
 		}
 
-		.discord-max-length-textarea {
+		.discord-text-input-textarea-max-length {
 			font-size: small;
 			position: absolute;
 			display: flex;
@@ -109,22 +111,22 @@ export class DiscordInputText extends LitElement {
 			padding-right: 16px;
 		}
 
-		:host .discord-warn-length * {
-			color: #ed9ea0 !important;
+		:host .discord-text-input-warning-length * {
+			color: color-mix(in oklab, hsl(358 calc(1 * 92.9%) 72.4% / 1) 100%, black 0%) !important;
 		}
 
-		:host([light-theme]) .discord-warn-length * {
-			color: #ed9ea0 !important;
+		:host([light-theme]) .discord-text-input-warning-length * {
+			color: color-mix(in oklab, hsl(360 calc(1 * 60.2%) 39.4% / 1) 100%, black 0%) !important;
 		}
 
-		:host([light-theme]) .discord-short-input-text,
+		:host([light-theme]) .discord-text-input-short,
 		:host([light-theme]) .discord-label-input-text {
-			color: #42464b;
+			color: color-mix(in oklab, hsl(228 calc(1 * 6%) 32.5% / 1) 100%, black 0%);
 		}
 
-		:host([light-theme]) .discord-paragraph-input-text,
-		:host([light-theme]) .discord-short-input-text {
-			background-color: rgba(204, 204, 204, 0.5);
+		:host([light-theme]) .discord-text-input-paragraph,
+		:host([light-theme]) .discord-text-input-short {
+			background-color: rgb(253, 253, 253);
 		}
 
 		:host([light-theme]) input,
@@ -132,11 +134,11 @@ export class DiscordInputText extends LitElement {
 		:host([light-theme]) ::placeholder {
 			font-weight: 400;
 			font-size: 16px;
-			color: #42464b;
+			color: color-mix(in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0%);
 			opacity: 0.8;
 		}
 
-		.discord-message-needed-input {
+		.discord-text-input-message-needed-input {
 			background-color: white;
 			position: absolute;
 			align-items: center;
@@ -153,17 +155,19 @@ export class DiscordInputText extends LitElement {
 			font-family: system-ui;
 			pointer-events: none;
 			padding: 10px;
+			width: 50%;
+			border: black solid 1px;
 		}
 
-		.discord-message-needed-input::after {
+		.discord-text-input-message-needed-input::after {
 			content: '';
 			position: absolute;
-			bottom: 100%; /* Posiciona a seta acima da div */
+			bottom: 100%; /* Positions the arrow above the div */
 			left: 0;
 			transform: translateX(50%);
-			border-width: 10px; /* Tamanho da seta */
+			border-width: 10px; /* Arrow size */
 			border-style: solid;
-			border-color: transparent transparent #ffffff transparent; /* Seta apontando para cima */
+			border-color: transparent transparent #ffffff transparent; /* Arrow pointing up */
 		}
 
 		.icon {
@@ -217,14 +221,14 @@ export class DiscordInputText extends LitElement {
 	/**
 	 * The minimal length of input text
 	 */
-	@property({ reflect: true, attribute: 'min_length', type: Number })
-	public accessor min_length: number;
+	@property({ reflect: true, attribute: 'min-length', type: Number })
+	public accessor minLength: number;
 
 	/**
 	 * The maximal length of input text
 	 */
-	@property({ reflect: true, attribute: 'max_length', type: Number })
-	public accessor max_length: number = 4_000;
+	@property({ reflect: true, attribute: 'max-length', type: Number })
+	public accessor maxLength: number = 4_000;
 
 	/**
 	 * The pre-field of input text
@@ -236,11 +240,11 @@ export class DiscordInputText extends LitElement {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	@property({ type: Number })
-	private accessor _maxLengthCalc: number;
+	@state()
+	protected accessor maxLengthCalc: number;
 
-	@property({ type: Boolean })
-	private accessor _warn: boolean = false;
+	@state()
+	protected accessor warn: boolean = false;
 
 	private readonly validInputTextTypes = new Set(['short', 'paragraph']);
 
@@ -266,46 +270,46 @@ export class DiscordInputText extends LitElement {
 
 		return html`
 			<div class="discord-input-text">
-				<div class=${classMap({ 'discord-warn-length': this._warn })}>
+				<div class=${classMap({ 'discord-text-input-warning-length': this.warn })}>
 					<h2 class="discord-label-input-text">
-						${this.label.slice(0, 45)}${when(
-							this.required && !this._warn,
-							() => html`<span class="discord-input-text-required">*</span>`
-						)}
+						${this.label.slice(0, 45)}${when(this.required && !this.warn, () => html`<span class="discord-text-input-required">*</span>`)}
 					</h2>
 					${when(
-						this._warn,
+						this.warn,
 						() =>
-							html`<span class="discord-warn-length">
-								- Must contain between ${this.min_length} and ${this.max_length} characters</span
+							html`<span class="discord-text-input-warning-length">
+								- Must contain between ${this.minLength} and ${this.maxLength} characters</span
 							>`
 					)}
 				</div>
-				<div class="discord-input-text-container">
+				<div class="discord-text-input-container">
 					${when(
 						this.type === 'paragraph' && !this.required,
 						() => html`
-							<div class="discord-input-text-container">
+							<div class="discord-text-input-container">
 								<textarea
 									@input=${(event: InputEvent) => this.changeMaxWords(event)}
-									class="discord-paragraph-input-text"
+									class="discord-text-input-paragraph"
 									type="text"
-									aria-labelledby=":r20:"
-									area-invalid="true"
-									minlength="${this.min_length}"
-									maxlength="${this.max_length}"
+									minlength="${this.minLength}"
+									maxlength="${this.maxLength}"
 									placeholder="${ifDefined(this.placeholder)}"
 									rows="3"
 								>
 ${this.value}</textarea
 								>
-								<div class="discord-max-length-textarea">
+								<div class="discord-text-input-textarea-max-length">
 									<span
-										>${this._maxLengthCalc
-											? this._maxLengthCalc
-											: this.value
-												? this.max_length - this.value.length
-												: this.max_length}</span
+										>${when(
+											this.maxLengthCalc,
+											() => this.maxLengthCalc,
+											() =>
+												when(
+													this.value,
+													() => this.maxLength - this.value.length,
+													() => this.maxLength
+												)
+										)}</span
 									>
 								</div>
 							</div>
@@ -314,28 +318,31 @@ ${this.value}</textarea
 					${when(
 						this.type === 'paragraph' && this.required,
 						() => html`
-							<div class="discord-input-text-container">
+							<div class="discord-text-input-container">
 								<textarea
 									@input=${(event: InputEvent) => this.changeMaxWords(event)}
-									class="discord-paragraph-input-text"
+									.required=${this.required}
+									class="discord-text-input-paragraph"
 									type="text"
-									aria-labelledby=":r20:"
-									area-invalid="true"
-									minlength="${this.min_length}"
-									maxlength="${this.max_length}"
+									minlength="${this.minLength}"
+									maxlength="${this.maxLength}"
 									placeholder="${ifDefined(this.placeholder)}"
 									rows="3"
-									required
 								>
 ${this.value}</textarea
 								>
-								<div class="discord-max-length-textarea">
+								<div class="discord-text-input-textarea-max-length">
 									<span
-										>${this._maxLengthCalc
-											? this._maxLengthCalc
-											: this.value
-												? this.max_length - this.value.length
-												: this.max_length}</span
+										>${when(
+											this.maxLengthCalc,
+											() => this.maxLengthCalc,
+											() =>
+												when(
+													this.value,
+													() => this.maxLength - this.value.length,
+													() => this.maxLength
+												)
+										)}</span
 									>
 								</div>
 							</div>
@@ -346,15 +353,15 @@ ${this.value}</textarea
 						() => html`
                         <input
                         @input=${(event: InputEvent) => this.changeMaxWords(event)}
-                        class="discord-short-input-text"
+						.required=${this.required}
+                        class="discord-text-input-short"
                         type="text"
-                        aria-labelledby=":r20:"
-                        area-invalid="true"
-                        minlength="${this.min_length}"
-                        maxlength="${this.max_length}"
+                        minlength="${this.minLength}"
+                        maxlength="${this.maxLength}"
                         placeholder="${ifDefined(this.placeholder)}"
                         rows="3"
-                        ${this.required ? 'required' : ''}>${this.value}</input>
+						>
+						${this.value}</input>
                         `
 					)}
 					${when(
@@ -362,52 +369,53 @@ ${this.value}</textarea
 						() => html`
                         <input
                         @input=${(event: InputEvent) => this.changeMaxWords(event)}
-                        class="discord-short-input-text"
+                        .required=${this.required}
+                        class="discord-text-input-short"
                         type="text"
-                        aria-labelledby=":r20:"
-                        area-invalid="true"
-                        minlength="${this.min_length}"
-                        maxlength="${this.max_length}"
+                        minlength="${this.minLength}"
+                        maxlength="${this.maxLength}"
                         placeholder="${ifDefined(this.placeholder)}"
                         rows="3"
-                        required
-                        ${this.required ? 'required' : ''}>${this.value}</input>
+						>
+						${this.value}</input>
                         `
 					)}
 				</div>
-				<div class=${classMap({ 'discord-warn-length': this._warn })}>
-					<h2 class="discord-warn-length">
-						${when(this._warn, () => html`<span>Must contain ${this.min_length} characters of length or more</span>`)}
+				<div class=${classMap({ 'discord-text-input-warning-length': this.warn })}>
+					<h2 class="discord-text-input-warning-length">
+						${when(this.warn, () => html`<span>Must contain ${this.minLength} characters of length or more</span>`)}
 					</h2>
 				</div>
-				<div class="discord-message-needed-input">
+				<div class="discord-text-input-message-needed-input">
 					<div class="icon">
 						<div class="exclamation">!</div>
 					</div>
-					<span>Fill in this field.</span>
+					<span>Please fill out this field.</span>
 				</div>
 			</div>
 		`;
 	}
 
 	private changeMaxWords(event: InputEvent) {
-		const inputedText: any = event.target!;
+		const inputedText = event.target;
 
-		if (inputedText.value.length < this.min_length) {
-			this._warn = true;
-		} else {
-			this._warn = false;
-		}
+		if (inputedText instanceof HTMLTextAreaElement) {
+			if (inputedText.value.length < this.minLength) {
+				this.warn = true;
+			} else {
+				this.warn = false;
+			}
 
-		this._maxLengthCalc = this.max_length - inputedText.value.length;
+			this.maxLengthCalc = this.maxLength - inputedText.value.length;
 
-		const messageNeeded: any = this.shadowRoot?.querySelector('div.discord-message-needed-input');
+			const messageNeeded = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-input');
 
-		if (messageNeeded.style.display) {
-			messageNeeded.style.opacity = 0;
-			window.setTimeout(() => {
-				messageNeeded.style.display = '';
-			}, 1_000);
+			if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
+				messageNeeded.style.opacity = '0';
+				globalThis.setTimeout(() => {
+					messageNeeded.style.display = '';
+				}, 1_000);
+			}
 		}
 	}
 }

@@ -283,7 +283,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 			this.playPausePopAnimationContainerRef.value.classList.add('discord-video-attachment-overlay-content-hidden');
 		}
 
-		window.setTimeout(() => {
+		globalThis.setTimeout(() => {
 			if (this.playPausePopAnimationContainerRef.value) {
 				this.playPausePopAnimationContainerRef.value.classList.remove('discord-video-attachment-overlay-content-hidden');
 			}

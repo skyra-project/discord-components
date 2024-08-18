@@ -160,10 +160,10 @@ export class DiscordButton extends LitElement {
 		if (this.modalId) {
 			const rootDiscordMessagesElement = this.parentElement?.parentElement?.parentElement?.parentElement;
 			if (rootDiscordMessagesElement?.tagName?.toLowerCase() === 'discord-messages') {
-				const discordModalWebcomponent = rootDiscordMessagesElement?.querySelector(`discord-modal`);
-				const dialogElement = discordModalWebcomponent?.shadowRoot?.querySelector(`dialog#${this.modalId}`);
-				const divRootModal: any = dialogElement?.querySelector(`div.discord-modal-box`);
-				if (dialogElement instanceof HTMLDialogElement) {
+				const dialogElement = rootDiscordMessagesElement?.querySelector(`discord-modal`)?.shadowRoot?.querySelector(`dialog#${this.modalId}`);
+				const divRootModal = dialogElement?.querySelector(`div.discord-modal-box`);
+
+				if (dialogElement instanceof HTMLDialogElement && divRootModal instanceof HTMLDivElement) {
 					dialogElement.showModal();
 					divRootModal.style.display = 'flex';
 					document.documentElement.style.overflowY = 'hidden';

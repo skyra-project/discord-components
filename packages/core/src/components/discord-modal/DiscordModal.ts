@@ -442,11 +442,12 @@ export class DiscordModal extends LitElement implements LightTheme {
 		if (this.dialogRef.value) {
 			this.dialogRef.value.close();
 
-			const divRootModal: any = this.shadowRoot?.querySelector('div.discord-modal-box');
-
 			document.documentElement.style.overflowY = 'scroll';
 
-			divRootModal.style.display = 'none';
+			const divRootModal = this.shadowRoot?.querySelector('div.discord-modal-box');
+			if (divRootModal instanceof HTMLDivElement) {
+				divRootModal.style.display = 'none';
+			}
 		}
 	}
 
@@ -465,13 +466,13 @@ export class DiscordModal extends LitElement implements LightTheme {
 			const input = shadowRootSlot?.querySelector('input') ?? shadowRootSlot?.querySelector('textarea');
 
 			if (input?.attributes.getNamedItem('required') && !input.value) {
-				const messageNeeded: any = shadowRootSlot?.querySelector('div.discord-message-needed-input');
+				const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
 
-				if (!messageNeeded.style.display) {
+				if (messageNeeded instanceof HTMLDivElement && !messageNeeded.style.display) {
 					messageNeeded.style.display = 'flex';
 
-					window.setTimeout(() => {
-						messageNeeded.style.opacity = 1;
+					globalThis.setTimeout(() => {
+						messageNeeded.style.opacity = '1';
 					}, 1);
 				}
 
