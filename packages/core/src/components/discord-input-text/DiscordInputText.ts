@@ -143,7 +143,6 @@ export class DiscordInputText extends LitElement {
 			position: absolute;
 			align-items: center;
 			gap: 5px;
-			z-index: 10;
 			left: 50%;
 			transform: translateX(-50%);
 			opacity: 0;
@@ -157,6 +156,7 @@ export class DiscordInputText extends LitElement {
 			padding: 10px;
 			width: 50%;
 			border: black solid 1px;
+			z-index: 25;
 		}
 
 		.discord-text-input-message-needed-input::after {
@@ -167,7 +167,7 @@ export class DiscordInputText extends LitElement {
 			transform: translateX(50%);
 			border-width: 10px; /* Arrow size */
 			border-style: solid;
-			border-color: transparent transparent #ffffff transparent; /* Arrow pointing up */
+			border-color: transparent transparent black; /* Arrow pointing up */
 		}
 
 		.icon {
@@ -407,15 +407,15 @@ ${this.value}</textarea
 			}
 
 			this.maxLengthCalc = this.maxLength - inputedText.value.length;
+		}
 
-			const messageNeeded = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-input');
+		const messageNeeded = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-input');
 
-			if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
-				messageNeeded.style.opacity = '0';
-				globalThis.setTimeout(() => {
-					messageNeeded.style.display = '';
-				}, 1_000);
-			}
+		if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
+			messageNeeded.style.opacity = '0';
+			globalThis.setTimeout(() => {
+				messageNeeded.style.display = '';
+			}, 1_000);
 		}
 	}
 }
