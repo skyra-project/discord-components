@@ -272,7 +272,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 		}
 
 		.discord-modal-warning-container {
-			margin-bottom: 16px;
+			margin-bottom: 8px;
 			background: color-mix(in oklab, hsl(40 calc(1 * 86.4%) 56.9% / 0.1) 100%, hsl(0 0% 0% / 0.1) 0%);
 			border: 1px solid color-mix(in oklab, hsl(40 calc(1 * 86.4%) 56.9% / 1) 100%, black 0%);
 			color: color-mix(in oklab, hsl(0 calc(1 * 0%) 100% / 1) 100%, black 0%);
@@ -394,6 +394,13 @@ export class DiscordModal extends LitElement implements LightTheme {
 				var(--button--underline-color) calc(1px + 1px),
 				transparent calc(1px + 1px)
 			);
+		}
+
+		.discord-modal-slot-input-text {
+			padding-right: 8px;
+			padding-left: 20px;
+			position: sticky;
+			z-index: 3;
 		}
 	`;
 
@@ -550,13 +557,13 @@ export class DiscordModal extends LitElement implements LightTheme {
 											not share passwords or other sensitive information.
 										</div>
 									</div>
-									<div class="discord-modal-slot-input-text">
-										<slot></slot>
-									</div>
 									<div
 										aria-hidden="true"
 										style="position: absolute; pointer-events: none; min-height: 0px; min-width: 1px; flex: 0 0 auto; height: 0px;"
 									></div>
+								</div>
+								<div class="discord-modal-slot-input-text">
+									<slot></slot>
 								</div>
 								<div
 									class=${classMap({
