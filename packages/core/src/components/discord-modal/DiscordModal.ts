@@ -466,7 +466,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 				const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
 
 				if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
-					messageNeeded.style.display = 'none';
+					messageNeeded.style.display = '';
 					messageNeeded.style.opacity = '0';
 				}
 			}
