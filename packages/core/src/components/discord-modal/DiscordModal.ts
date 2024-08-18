@@ -448,28 +448,6 @@ export class DiscordModal extends LitElement implements LightTheme {
 	protected handleClickCloseIcon() {
 		if (this.dialogRef.value) {
 			this.dialogRef.value.close();
-
-			document.documentElement.style.overflowY = 'scroll';
-
-			const divRootModal = this.shadowRoot?.querySelector('div.discord-modal-box');
-			if (divRootModal instanceof HTMLDivElement) {
-				divRootModal.style.display = 'none';
-			}
-
-			const expanderT = this.shadowRoot?.querySelector('slot');
-
-			const slotedItems = expanderT?.assignedElements();
-
-			for (const index of slotedItems!) {
-				const shadowRootSlot = index.shadowRoot;
-
-				const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
-
-				if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
-					messageNeeded.style.display = '';
-					messageNeeded.style.opacity = '0';
-				}
-			}
 		}
 	}
 
@@ -521,6 +499,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 				${ref(this.dialogRef)}
 				id="${ifDefined(this.modalId)}"
 				class=${classMap({ 'discord-modal': true, 'discord-modal-light-theme': this.lightTheme })}
+				@close=${this.onCloseDialog}
 			>
 				<div class="discord-modal-box">
 					<form @submit=${this.handleFormSubmit}>
@@ -614,6 +593,30 @@ export class DiscordModal extends LitElement implements LightTheme {
 				</div>
 			</dialog>
 		`;
+	}
+
+	protected onCloseDialog() {
+		document.documentElement.style.overflowY = 'scroll';
+
+		const divRootModal = this.shadowRoot?.querySelector('div.discord-modal-box');
+		if (divRootModal instanceof HTMLDivElement) {
+			divRootModal.style.display = 'none';
+		}
+
+		const expanderT = this.shadowRoot?.querySelector('slot');
+
+		const slotedItems = expanderT?.assignedElements();
+
+		for (const index of slotedItems!) {
+			const shadowRootSlot = index.shadowRoot;
+
+			const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
+
+			if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
+				messageNeeded.style.display = '';
+				messageNeeded.style.opacity = '0';
+			}
+		}
 	}
 
 	private resolveAvatar(avatar: string | undefined): string {
