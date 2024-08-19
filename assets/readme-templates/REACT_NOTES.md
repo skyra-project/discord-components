@@ -35,11 +35,11 @@ The current avatar shortcut strings available are "blue" (default), "gray",
 ```
 
 If you want to add to or override the shortcuts, you can set them via
-`window.$discordMessage.avatars` or by using the `setConfig` function
+`globalThis.$discordMessage.avatars` or by using the `setConfig` function
 (`import { setConfig } from '@skyra/discord-components-react'`).
 
 ```ts
-window.$discordMessage = {
+globalThis.$discordMessage = {
   avatars: {
     default: 'blue',
     skyra: 'https://github.com/NM-EEA-Y.png',
@@ -64,11 +64,11 @@ setConfig({
 
 Sometimes you'll want to use the same message data across multiple messages. You
 can do so by providing an object of profiles in
-`window.$discordMessage.profiles` or by using the `setConfig` function
+`globalThis.$discordMessage.profiles` or by using the `setConfig` function
 (`import { setConfig } from '@skyra/discord-components-react'`).
 
 ```ts
-window.$discordMessage = {
+globalThis.$discordMessage = {
   profiles: {
     skyra: {
       author: 'Skyra',

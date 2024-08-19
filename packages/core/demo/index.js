@@ -1,4 +1,4 @@
-window.$discordMessage = {
+globalThis.$discordMessage = {
 	profiles: {
 		maximillian: {
 			author: 'Maximillian Osborn',
