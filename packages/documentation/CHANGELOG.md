@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.31](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.30...v4.0.0-alpha.31) (2024-08-19)
+
+### Features
+
+* **system-message:** add upgrade type ([#450](https://github.com/skyra-project/discord-components/issues/450)) ([39b5ad0](https://github.com/skyra-project/discord-components/commit/39b5ad094c8866a27688d9a5d637d3bbf88748c3)) (@mezotv)
+
 # [4.0.0-alpha.30](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.29...v4.0.0-alpha.30) (2024-08-19)
 
 ### Bug Fixes
