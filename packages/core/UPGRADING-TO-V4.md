@@ -134,7 +134,7 @@ Previously configuration of this library was only possible through configuring
 functions `getConfig` and `setConfig` to set the config. This is primarily
 because when using this library with server-side rendering the `window` object
 is not always available and it may not be possible to use
-`window.$discordMessage` to set the configuration.
+`globalThis.$discordMessage` to set the configuration.
 
 ### Component changes
 
