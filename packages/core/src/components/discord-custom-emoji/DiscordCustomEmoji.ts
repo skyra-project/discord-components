@@ -1,5 +1,6 @@
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Emoji } from '../../types.js';
 import { getGlobalEmojiUrl } from '../../util.js';
@@ -20,6 +21,12 @@ export class DiscordCustomEmoji extends LitElement {
 			width: 1.375rem;
 			height: 1.375rem;
 			vertical-align: bottom;
+		}
+
+		.discord-custom-emoji .discord-custom-jumbo-emoji-image {
+			width: 3rem;
+			height: 3rem;
+			min-height: 3rem;
 		}
 
 		.discord-embed-custom-emoji {
@@ -65,6 +72,14 @@ export class DiscordCustomEmoji extends LitElement {
 	@property({ type: Boolean, attribute: 'embed-emoji' })
 	public accessor embedEmoji: boolean;
 
+	/**
+	 * Determines whether or not the emoji is of "jumbo size",
+	 * This means it is larger and is what Discord uses when the message exclusively has emojis,
+	 * up to a maximum of 30 emojis.
+	 */
+	@property({ type: Boolean, attribute: 'jumbo' })
+	public accessor jumbo: boolean;
+
 	public override willUpdate() {
 		if (!this.url && Boolean(this.name)) {
 			const emojiFromGlobal = getGlobalEmojiUrl(this.name) ?? this.customEmojisMap[this.name];
@@ -78,11 +93,24 @@ export class DiscordCustomEmoji extends LitElement {
 
 	protected override render() {
 		const name = `:${this.name}:`;
-		const emojiClassName = this.embedEmoji ? 'discord-embed-custom-emoji' : 'discord-custom-emoji';
-		const emojiImageClassName = this.embedEmoji ? 'discord-embed-custom-emoji-image' : 'discord-custom-emoji-image';
 
-		return html`<span class="${emojiClassName}"
-			><img aria-label=${name} src=${ifDefined(this.url)} alt=${name} draggable="false" class="${emojiImageClassName}"
+		console.log(name, this.jumbo);
+
+		return html`<span
+			class=${classMap({
+				'discord-embed-custom-emoji': this.embedEmoji,
+				'discord-custom-emoji': !this.embedEmoji
+			})}
+			><img
+				aria-label=${name}
+				src=${ifDefined(this.url)}
+				alt=${name}
+				draggable="false"
+				class=${classMap({
+					'discord-embed-custom-emoji-image': this.embedEmoji,
+					'discord-custom-emoji-image': !this.embedEmoji,
+					'discord-custom-jumbo-emoji-image': this.jumbo
+				})}
 		/></span> `;
 	}
 }
