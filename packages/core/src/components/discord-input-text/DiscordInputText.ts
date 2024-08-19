@@ -167,11 +167,11 @@ export class DiscordInputText extends LitElement {
 			transform: translateX(50%);
 			border-width: 10px; /* Arrow size */
 			border-style: solid;
-			border-color: transparent transparent white; /* Arrow pointing up */
+			border-color: transparent transparent white transparent; /* Arrow pointing up */
 		}
 
 		:host([light-theme]) .discord-text-input-message-needed-input::after {
-			border-color: transparent transparent black !important; /* Arrow pointing up */
+			border-color: transparent transparent #bfbfbf transparent !important; /* Arrow pointing up */
 		}
 
 		.icon {
