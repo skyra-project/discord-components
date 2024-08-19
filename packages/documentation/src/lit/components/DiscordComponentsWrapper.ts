@@ -210,6 +210,10 @@ export class DiscordComponentsWrapper extends LitElement {
 							</discord-embed-fields>
 						</discord-embed>
 					</discord-message>
+					<discord-message profile="favna"> They can also be jumbo sized to represent if the message only has emojis: </discord-message>
+					<discord-message profile="favna">
+						<discord-custom-emoji jumbo name="skyra" url="https://github.com/NM-EEA-Y.png"></discord-custom-emoji>
+					</discord-message>
 				</discord-messages>
 				<h3 class="title">Server Invites</h3>
 				<discord-messages>
@@ -589,6 +593,66 @@ export class DiscordComponentsWrapper extends LitElement {
 							</discord-string-select-menu>
 						</discord-attachments>
 					</discord-message>
+				</discord-messages>
+
+				<h3 class="title">Modals Default Theme</h3>
+				<discord-messages>
+					<discord-message profile="skyra">
+						You can spawn a modal by clicking a button!
+						<discord-attachments slot="components">
+							<discord-action-row>
+								<discord-button type="primary" modal-id="discord-modal">Click me for a modal</discord-button>
+							</discord-action-row>
+						</discord-attachments>
+					</discord-message>
+					<discord-modal modal-id="discord-modal" modal-title="Solution" profile="skyra">
+						<discord-input-text
+							type="short"
+							required
+							label="required short"
+							placeholder="Give me a value"
+							min-length="1"
+							max-length="100"
+						></discord-input-text>
+						<discord-input-text
+							type="paragraph"
+							required
+							label="required paragraph"
+							placeholder="Give me a value"
+							min-length="3"
+							max-length="100"
+						></discord-input-text>
+					</discord-modal>
+				</discord-messages>
+
+				<h3 class="title">Modals Light Theme</h3>
+				<discord-messages light-theme>
+					<discord-message profile="skyra">
+						You can spawn a modal by clicking a button!
+						<discord-attachments slot="components">
+							<discord-action-row>
+								<discord-button type="primary" modal-id="discord-modal">Click me for a modal</discord-button>
+							</discord-action-row>
+						</discord-attachments>
+					</discord-message>
+					<discord-modal modal-id="discord-modal" modal-title="Solution" profile="skyra">
+						<discord-input-text
+							type="short"
+							required
+							label="required short"
+							placeholder="Give me a value"
+							min-length="1"
+							max-length="100"
+						></discord-input-text>
+						<discord-input-text
+							type="paragraph"
+							required
+							label="required paragraph"
+							placeholder="Give me a value"
+							min-length="3"
+							max-length="100"
+						></discord-input-text>
+					</discord-modal>
 				</discord-messages>
 
 				<h3 class="title">Verified Discord bots</h3>
