@@ -10,6 +10,7 @@ import DMCall from '../svgs/DMCall.js';
 import DMEdit from '../svgs/DMEdit.js';
 import DMMissedCall from '../svgs/DMMissedCall.js';
 import Pin from '../svgs/Pin.js';
+import ServerUpgrade from '../svgs/ServerUpgrade.js';
 import SystemAlert from '../svgs/SystemAlert.js';
 import SystemError from '../svgs/SystemError.js';
 import Thread from '../svgs/Thread.js';
@@ -151,10 +152,10 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 
 	/**
 	 * The type of system message this is, this will change the icon shown.
-	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `pin`, `alert`, and `error`.
+	 * Valid values: `join`, `leave`, `call`, `missed-call`, `boost`, `edit`, `thread`, `pin`, `alert`, `upgrade` and `error`.
 	 */
 	@property({ reflect: true, attribute: 'type' })
-	public accessor type: 'alert' | 'boost' | 'call' | 'edit' | 'error' | 'join' | 'leave' | 'missed-call' | 'pin' | 'thread' = 'join';
+	public accessor type: 'alert' | 'boost' | 'call' | 'edit' | 'error' | 'join' | 'leave' | 'missed-call' | 'pin' | 'thread' | 'upgrade' = 'join';
 
 	/**
 	 * Whether this message is to show channel name changes, used to match Discord's style.
@@ -172,9 +173,9 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 	public checkType() {
 		if (typeof this.type !== 'string') {
 			throw new TypeError('DiscordSystemMessage `type` prop must be a string.');
-		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'].includes(this.type)) {
+		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error', 'upgrade'].includes(this.type)) {
 			throw new RangeError(
-				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error'"
+				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'upgrade', 'error'"
 			);
 		}
 	}
@@ -200,7 +201,8 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 					['thread', () => Thread()],
 					['pin', () => Pin()],
 					['alert', () => SystemAlert()],
-					['error', () => SystemError()]
+					['error', () => SystemError()],
+					['upgrade', () => ServerUpgrade()]
 				])}
 			</div>
 			<div class="discord-message-content">
