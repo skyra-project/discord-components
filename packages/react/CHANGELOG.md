@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.30](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.29...v4.0.0-alpha.30) (2024-08-19)
+
+### Features
+
+* add modals ([#443](https://github.com/skyra-project/discord-components/issues/443)) ([ea87670](https://github.com/skyra-project/discord-components/commit/ea87670fc98601ca68127714c77a4e20b38d5f15)) (@eumarciel404)
+
 # [4.0.0-alpha.29](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.28...v4.0.0-alpha.29) (2024-08-10)
 
 **Note:** Version bump only for package @skyra/discord-components-react
