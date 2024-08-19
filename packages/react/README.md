@@ -114,7 +114,7 @@ yarn add @skyra/discord-components-core @skyra/discord-components-react
 >
 > For further examples on how to use components, please refer to the Stackblitz
 > examples linked below. Choose the framework you are using and click on the
-> "Open on Stackblitz" button to see the code and how it renders in the browser.
+> "Open in Stackblitz" button to see the code and how it renders in the browser.
 
 ### Important
 
