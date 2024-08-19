@@ -94,8 +94,6 @@ export class DiscordCustomEmoji extends LitElement {
 	protected override render() {
 		const name = `:${this.name}:`;
 
-		console.log(name, this.jumbo);
-
 		return html`<span
 			class=${classMap({
 				'discord-embed-custom-emoji': this.embedEmoji,
