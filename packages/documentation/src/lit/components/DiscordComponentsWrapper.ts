@@ -358,6 +358,7 @@ export class DiscordComponentsWrapper extends LitElement {
 					<discord-system-message type="pin"
 						><i>Favna</i> pinned <i>a message</i> to this channel. See all <i>pinned messages</i>.</discord-system-message
 					>
+					<discord-system-message type="upgrade"><i>Dominik</i> upgraded Skyra to premium for this server! 🎉</discord-system-message>
 					<discord-system-message type="alert">Warning! Warning! This library is the coolest of them all!</discord-system-message>
 					<discord-system-message type="error">Error! Cool overload!.</discord-system-message>
 				</discord-messages>
