@@ -253,75 +253,35 @@ export class DiscordInputText extends LitElement {
 	 * The minimal length of input text
 	 */
 	@property({ reflect: true, attribute: 'min-length', type: Number })
-	public accessor minLength: number;
+	public accessor minLength = 0;
 
 	/**
 	 * The maximal length of input text
 	 */
 	@property({ reflect: true, attribute: 'max-length', type: Number })
-	public accessor maxLength: number = 4_000;
-
-	/**
-	 * The pre-field of input text
-	 */
-	@property({ reflect: true, attribute: 'value', type: String })
-	public accessor value: string;
+	public accessor maxLength = 4_000;
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
 	@state()
-	protected accessor calculatedMaxLength = 0;
+	protected accessor value = '';
 
 	@state()
 	protected accessor hasWarning = false;
 
 	@state()
-	protected accessor calculatedCharactersCoubt = 0;
+	protected accessor calculatedMaxLength: number | null = null;
 
-	private readonly validInputTextTypes = new Set(['short', 'paragraph']);
+	@state()
+	protected accessor calculatedCharactersCount = 0;
 
-	private checkNeededArgument() {
-		if (!this.label) {
-			throw new DiscordComponentsError('Label is required to input text');
-		} else if (!this.type) {
-			throw new DiscordComponentsError('Type is required to input text');
-		}
-	}
-
-	private checkType() {
-		if (typeof this.type !== 'string') {
-			throw new TypeError('DiscordInputText `type` prop must be a string.');
-		} else if (!this.validInputTextTypes.has(this.type)) {
-			throw new RangeError("DiscordInputText `type` prop must be one of: 'short', 'paragraph'");
-		}
-	}
-
-	private setWarnFalseOnClose() {
+	public resetState() {
 		this.hasWarning = false;
-	}
-
-	public override connectedCallback(): void {
-		super.connectedCallback();
-
-		const rootDiscordMessagesElement = this.parentElement;
-		const dialogElement = rootDiscordMessagesElement?.shadowRoot?.querySelector('dialog');
-
-		if (dialogElement instanceof HTMLDialogElement) {
-			dialogElement.addEventListener('close', this.setWarnFalseOnClose.bind(this));
-		}
-	}
-
-	public override disconnectedCallback(): void {
-		super.disconnectedCallback();
-
-		const rootDiscordMessagesElement = this.parentElement;
-		const dialogElement = rootDiscordMessagesElement?.shadowRoot?.querySelector('dialog');
-
-		if (dialogElement instanceof HTMLDialogElement) {
-			dialogElement.removeEventListener('close', this.setWarnFalseOnClose);
-		}
+		this.calculatedMaxLength = null;
+		this.calculatedCharactersCount = 0;
+		this.value = '';
 	}
 
 	public override render() {
@@ -351,21 +311,20 @@ export class DiscordInputText extends LitElement {
 						() => html`
 							<div class="discord-text-input-container">
 								<textarea
-									@input=${(event: InputEvent) => this.changeMaxWords(event)}
+									@input=${(event: InputEvent) => this.handleInputChange(event)}
 									.required=${this.required}
+									.value=${this.value}
 									class="discord-text-input-paragraph"
 									type="text"
 									minlength="${this.minLength}"
 									maxlength="${this.maxLength}"
 									placeholder="${ifDefined(this.placeholder)}"
 									rows="3"
-								>
-${this.value}</textarea
-								>
+								></textarea>
 								<div class="discord-text-input-textarea-max-length">
 									<span
 										>${when(
-											this.calculatedMaxLength,
+											this.valueIsNotNullOrUndefined(this.calculatedMaxLength),
 											() => this.calculatedMaxLength,
 											() =>
 												when(
@@ -381,19 +340,18 @@ ${this.value}</textarea
 					)}
 					${when(
 						this.type === 'short',
-						() => html`
-                        <input
-                        @input=${(event: InputEvent) => this.changeMaxWords(event)}
-                        .required=${this.required}
-                        class="discord-text-input-short"
-                        type="text"
-                        minlength="${this.minLength}"
-                        maxlength="${this.maxLength}"
-                        placeholder="${ifDefined(this.placeholder)}"
-                        rows="3"
-						>
-						${this.value}</input>
-                        `
+						() =>
+							html`<input
+								@input=${(event: InputEvent) => this.handleInputChange(event)}
+								.required=${this.required}
+								.value=${this.value}
+								class="discord-text-input-short"
+								type="text"
+								minlength="${this.minLength}"
+								maxlength="${this.maxLength}"
+								placeholder="${ifDefined(this.placeholder)}"
+								rows="3"
+							/>`
 					)}
 				</div>
 				${when(
@@ -408,14 +366,14 @@ ${this.value}</textarea
 					`
 				)}
 				${when(
-					this.minLength > 0,
+					this.valueIsNotNullOrUndefined(this.minLength),
 					() => html`
 						<div class="discord-text-input-message-needed-min-length">
 							<div class="icon">
 								<div class="exclamation">!</div>
 							</div>
 							<span
-								>Increase this text to ${this.minLength} characters or more. You are currently using ${this.calculatedCharactersCoubt}
+								>Increase this text to ${this.minLength} characters or more. You are currently using ${this.calculatedCharactersCount}
 								characters</span
 							>
 						</div>
@@ -424,7 +382,7 @@ ${this.value}</textarea
 				<div class=${classMap({ 'discord-text-input-warning-length': this.hasWarning })}>
 					<h2 class="discord-text-input-warning-length">
 						${when(
-							this.hasWarning && this.minLength,
+							this.hasWarning && this.valueIsNotNullOrUndefined(this.minLength),
 							() =>
 								html`<span class="discord-text-input-warning-bottom-error-text"
 									>Must be ${this.minLength} characters or more in length.</span
@@ -436,19 +394,48 @@ ${this.value}</textarea
 		`;
 	}
 
-	private changeMaxWords(event: InputEvent) {
+	private readonly validInputTextTypes = new Set(['short', 'paragraph']);
+
+	private checkNeededArgument() {
+		if (!this.label) {
+			throw new DiscordComponentsError('Label is required to input text');
+		} else if (!this.type) {
+			throw new DiscordComponentsError('Type is required to input text');
+		}
+	}
+
+	private checkType() {
+		if (typeof this.type !== 'string') {
+			throw new TypeError('DiscordInputText `type` prop must be a string.');
+		} else if (!this.validInputTextTypes.has(this.type)) {
+			throw new RangeError("DiscordInputText `type` prop must be one of: 'short', 'paragraph'");
+		}
+	}
+
+	/**
+	 * Check if the value is not null or undefined
+	 *
+	 * @param value - The value to check if it is not null or undefined
+	 * @returns If the value is not null or undefined
+	 */
+	private valueIsNotNullOrUndefined(value: number | null | undefined): value is number {
+		return value !== undefined && value !== null;
+	}
+
+	private handleInputChange(event: InputEvent) {
 		const inputedText = event.target;
 
-		this.calculatedCharactersCoubt = (inputedText as HTMLTextAreaElement).value.length;
-
 		if (inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement) {
-			if (inputedText.value.length < this.minLength) {
+			const newLengthValue = inputedText.value.length;
+
+			if (newLengthValue === 0 && this.minLength === 0 && this.valueIsNotNullOrUndefined(this.maxLength) && this.required) {
 				this.hasWarning = true;
 			} else {
-				this.hasWarning = false;
+				this.hasWarning = newLengthValue < this.minLength;
 			}
 
-			this.calculatedMaxLength = this.maxLength - inputedText.value.length;
+			this.calculatedMaxLength = this.maxLength - newLengthValue;
+			this.calculatedCharactersCount = newLengthValue;
 		}
 
 		const messageNeeded = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-input');
