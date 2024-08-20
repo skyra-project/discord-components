@@ -37,6 +37,19 @@ export class DiscordInputText extends LitElement {
 			gap: 3px;
 		}
 
+		.discord-text-input-warning-error-text {
+			font-size: 12px;
+			font-weight: 500;
+			font-style: italic;
+			text-transform: none;
+		}
+
+		.discord-text-input-warning-bottom-error-text {
+			font-size: 12px;
+			line-height: 1.3333333333333333;
+			font-weight: 400;
+		}
+
 		.discord-text-input-required {
 			padding-left: 4px;
 			color: hsl(359 calc(1 * 87.3%) 59.8% / 1);
@@ -259,16 +272,13 @@ export class DiscordInputText extends LitElement {
 	public accessor lightTheme = false;
 
 	@state()
-	protected accessor maxLengthCalc: number;
+	protected accessor calculatedMaxLength = 0;
 
 	@state()
-	protected accessor warn: boolean = false;
+	protected accessor hasWarning = false;
 
 	@state()
-	protected accessor caractersCount: number = 0;
-
-	@state()
-	protected accessor closeListener: boolean = false;
+	protected accessor calculatedCharactersCoubt = 0;
 
 	private readonly validInputTextTypes = new Set(['short', 'paragraph']);
 
@@ -288,33 +298,50 @@ export class DiscordInputText extends LitElement {
 		}
 	}
 
-	private onModalClose() {
+	private setWarnFalseOnClose() {
+		this.hasWarning = false;
+	}
+
+	public override connectedCallback(): void {
+		super.connectedCallback();
+
 		const rootDiscordMessagesElement = this.parentElement;
 		const dialogElement = rootDiscordMessagesElement?.shadowRoot?.querySelector('dialog');
-		if (dialogElement && !this.closeListener) {
-			dialogElement.addEventListener('close', () => {
-				this.warn = false;
-			});
-			this.closeListener = true;
+
+		if (dialogElement instanceof HTMLDialogElement) {
+			dialogElement.addEventListener('close', this.setWarnFalseOnClose.bind(this));
+		}
+	}
+
+	public override disconnectedCallback(): void {
+		super.disconnectedCallback();
+
+		const rootDiscordMessagesElement = this.parentElement;
+		const dialogElement = rootDiscordMessagesElement?.shadowRoot?.querySelector('dialog');
+
+		if (dialogElement instanceof HTMLDialogElement) {
+			dialogElement.removeEventListener('close', this.setWarnFalseOnClose);
 		}
 	}
 
 	public override render() {
 		this.checkNeededArgument();
 		this.checkType();
-		this.onModalClose();
 
 		return html`
 			<div class="discord-input-text">
-				<div class=${classMap({ 'discord-text-input-warning-length': this.warn })}>
+				<div class=${classMap({ 'discord-text-input-warning-length': this.hasWarning })}>
 					<h2 class="discord-label-input-text">
-						${this.label.slice(0, 45)}${when(this.required && !this.warn, () => html`<span class="discord-text-input-required">*</span>`)}
+						${this.label.slice(0, 45)}${when(
+							this.required && !this.hasWarning,
+							() => html`<span class="discord-text-input-required">*</span>`
+						)}
 					</h2>
 					${when(
-						this.warn,
+						this.hasWarning,
 						() =>
-							html`<span class="discord-text-input-warning-length">
-								- Must contain between ${this.minLength} and ${this.maxLength} characters</span
+							html`<span class="discord-text-input-warning-length discord-text-input-warning-error-text">
+								- Must be between ${this.minLength} and ${this.maxLength} in length.</span
 							>`
 					)}
 				</div>
@@ -338,8 +365,8 @@ ${this.value}</textarea
 								<div class="discord-text-input-textarea-max-length">
 									<span
 										>${when(
-											this.maxLengthCalc,
-											() => this.maxLengthCalc,
+											this.calculatedMaxLength,
+											() => this.calculatedMaxLength,
 											() =>
 												when(
 													this.value,
@@ -388,15 +415,21 @@ ${this.value}</textarea
 								<div class="exclamation">!</div>
 							</div>
 							<span
-								>Increase this text to ${this.minLength} characters or more. You are currently using ${this.caractersCount}
+								>Increase this text to ${this.minLength} characters or more. You are currently using ${this.calculatedCharactersCoubt}
 								characters</span
 							>
 						</div>
 					`
 				)}
-				<div class=${classMap({ 'discord-text-input-warning-length': this.warn })}>
+				<div class=${classMap({ 'discord-text-input-warning-length': this.hasWarning })}>
 					<h2 class="discord-text-input-warning-length">
-						${when(this.warn, () => html`<span>Must contain ${this.minLength} characters of length or more</span>`)}
+						${when(
+							this.hasWarning && this.minLength,
+							() =>
+								html`<span class="discord-text-input-warning-bottom-error-text"
+									>Must be ${this.minLength} characters or more in length.</span
+								>`
+						)}
 					</h2>
 				</div>
 			</div>
@@ -406,16 +439,16 @@ ${this.value}</textarea
 	private changeMaxWords(event: InputEvent) {
 		const inputedText = event.target;
 
-		this.caractersCount = (inputedText as HTMLTextAreaElement).value.length;
+		this.calculatedCharactersCoubt = (inputedText as HTMLTextAreaElement).value.length;
 
 		if (inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement) {
 			if (inputedText.value.length < this.minLength) {
-				this.warn = true;
+				this.hasWarning = true;
 			} else {
-				this.warn = false;
+				this.hasWarning = false;
 			}
 
-			this.maxLengthCalc = this.maxLength - inputedText.value.length;
+			this.calculatedMaxLength = this.maxLength - inputedText.value.length;
 		}
 
 		const messageNeeded = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-input');
