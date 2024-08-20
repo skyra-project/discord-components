@@ -38,4 +38,22 @@ export const validateImageExtension = (url: string) => {
 		throw new DiscordComponentsError(`The url of an image for discord-image-attachment should match the regex ${IMAGE_EXTENSION}`);
 };
 
-export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => getConfig().emojis?.[emojiName];
+export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => {
+	const globalEmoji = getConfig().emojis?.[emojiName];
+	if (globalEmoji) return globalEmoji;
+
+	const emojiRegex = /<a?:(?<name>\w+):(?<id>\d+)>/;
+	const match = emojiRegex.exec(emojiName);
+
+	if (match?.groups) {
+		const { name, id } = match.groups;
+		const isAnimated = emojiName.startsWith('<a:');
+
+		return {
+			name,
+			url: `https://cdn.discordapp.com/emojis/${id}.${isAnimated ? 'gif' : 'png'}`
+		};
+	}
+
+	return undefined;
+};

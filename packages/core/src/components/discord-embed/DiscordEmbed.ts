@@ -426,7 +426,7 @@ export class DiscordEmbed extends LitElement implements LightTheme {
 
 		return el.map((wordOrHtmlTemplate) => {
 			if (typeof wordOrHtmlTemplate === 'string') {
-				return html`<div>${wordOrHtmlTemplate}</div>`;
+				return html`<span>${wordOrHtmlTemplate}</span>`;
 			}
 
 			return wordOrHtmlTemplate;
