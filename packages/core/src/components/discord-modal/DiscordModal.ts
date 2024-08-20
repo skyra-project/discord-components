@@ -623,10 +623,16 @@ export class DiscordModal extends LitElement implements LightTheme {
 			const shadowRootSlot = index.shadowRoot;
 
 			const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
+			const messageNeededMinLength = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-min-length');
 
 			if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
 				messageNeeded.style.display = '';
 				messageNeeded.style.opacity = '0';
+			}
+
+			if (messageNeededMinLength instanceof HTMLDivElement && messageNeededMinLength.style.display) {
+				messageNeededMinLength.style.display = '';
+				messageNeededMinLength.style.opacity = '0';
 			}
 		}
 	}
