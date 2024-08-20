@@ -267,6 +267,9 @@ export class DiscordInputText extends LitElement {
 	@state()
 	protected accessor caractersCount: number = 0;
 
+	@state()
+	protected accessor closeListener: boolean = false;
+
 	private readonly validInputTextTypes = new Set(['short', 'paragraph']);
 
 	private checkNeededArgument() {
@@ -285,9 +288,21 @@ export class DiscordInputText extends LitElement {
 		}
 	}
 
+	private onModalClose() {
+		const rootDiscordMessagesElement = this.parentElement;
+		const dialogElement = rootDiscordMessagesElement?.shadowRoot?.querySelector('dialog');
+		if (dialogElement && !this.closeListener) {
+			dialogElement.addEventListener('close', () => {
+				this.warn = false;
+			});
+			this.closeListener = true;
+		}
+	}
+
 	public override render() {
 		this.checkNeededArgument();
 		this.checkType();
+		this.onModalClose();
 
 		return html`
 			<div class="discord-input-text">
@@ -393,7 +408,7 @@ ${this.value}</textarea
 
 		this.caractersCount = (inputedText as HTMLTextAreaElement).value.length;
 
-		if (inputedText instanceof HTMLTextAreaElement) {
+		if (inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement) {
 			if (inputedText.value.length < this.minLength) {
 				this.warn = true;
 			} else {
