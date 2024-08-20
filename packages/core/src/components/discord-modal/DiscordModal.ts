@@ -458,9 +458,9 @@ export class DiscordModal extends LitElement implements LightTheme {
 
 		const expanderT = this.shadowRoot?.querySelector('slot');
 
-		const slotedItems = expanderT?.assignedElements();
+		const slotedItems = expanderT!.assignedElements();
 
-		for (const index of slotedItems!) {
+		for (const index of slotedItems) {
 			const shadowRootSlot = index.shadowRoot;
 
 			const input = shadowRootSlot?.querySelector('input') ?? shadowRootSlot?.querySelector('textarea');
@@ -479,7 +479,20 @@ export class DiscordModal extends LitElement implements LightTheme {
 				return;
 			}
 
-			if (input!.value.length < Number(input?.attributes.getNamedItem('minlength')?.value)) return;
+			if (input!.value.length < Number(input?.attributes.getNamedItem('minlength')?.value)) {
+
+				const messageNeededMinLength = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-min-length');
+
+				if (messageNeededMinLength instanceof HTMLDivElement && !messageNeededMinLength.style.display) {
+					messageNeededMinLength.style.display = 'flex';
+
+					globalThis.setTimeout(() => {
+						messageNeededMinLength.style.opacity = '1';
+					}, 1);
+				}
+
+				return;
+			};
 		}
 
 		this.submitForm?.();
