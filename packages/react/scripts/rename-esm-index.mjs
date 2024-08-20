@@ -1,5 +1,6 @@
 import { rename } from 'node:fs/promises';
 import { join } from 'node:path';
+import process from 'node:process';
 import { green } from 'colorette';
 
 const inputPath = 'dist/esm/index.d.ts';

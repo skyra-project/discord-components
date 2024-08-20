@@ -160,6 +160,12 @@ conversation:
 </discord-messages>
 ```
 
+> [!IMPORTANT]
+>
+> For further examples on how to use components, please refer to the Stackblitz
+> examples linked below. Choose the framework you are using and click on the
+> "Open in Stackblitz" button to see the code and how it renders in the browser.
+
 ### Using the Discord font
 
 This library can use the Discord font if you load it into your project. You can
@@ -213,7 +219,7 @@ export class AppComponent {}
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/angular)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/angular)
 
 #### React
 
@@ -231,7 +237,7 @@ knows what their plans are.
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/react-vite-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/react-vite-ts)
 
 ##### Create React App
 
@@ -244,11 +250,11 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 ###### Live Demo Pages Directory
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-ts)
 
 ###### Live Demo App Directory
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-app-directory-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nextjs-app-directory-ts)
 
 ###### Known limitations
 
@@ -268,7 +274,7 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/react-docusaurus-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/react-docusaurus-ts)
 
 #### Vue
 
@@ -276,7 +282,7 @@ per React's own documentation. We very strongly recommend using Vite instead.
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/vue-vite-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/vue-vite-ts)
 
 ###### Configuration
 
@@ -304,7 +310,7 @@ export default defineConfig({
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nuxt3-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/nuxt3-ts)
 
 ###### Configuration
 
@@ -334,13 +340,13 @@ as well as the
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/astro)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/astro)
 
 #### Solid
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/solid-vite-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/solid-vite-ts)
 
 #### Svelte
 
@@ -348,31 +354,31 @@ as well as the
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/svelte-vite-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/svelte-vite-ts)
 
 ##### Sveltekit
 
 ###### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/sveltekit-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/sveltekit-ts)
 
 #### Qwik
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/qwik-vite-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/qwik-vite-ts)
 
 #### Preact
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/preact-vite-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/preact-vite-ts)
 
 #### HTMX
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/htmx-vite-ts)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/htmx-vite-ts)
 
 #### No Framework
 
@@ -385,7 +391,7 @@ that the browser can support. The live demo below uses Vite.
 
 ##### Live Demo
 
-[![Edit on Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/no-framework-vite)
+[![Open in Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/skyra-project/discord-components-implementations/tree/main/templates/no-framework-vite)
 
 <!-- # CORE_USAGE END # -->
 
@@ -426,11 +432,11 @@ The current avatar shortcut strings available are "blue" (default), "gray",
 ```
 
 If you want to add to or override the shortcuts, you can set them via
-`window.$discordMessage.avatars` or by using the `setConfig` function
+`globalThis.$discordMessage.avatars` or by using the `setConfig` function
 (`import { setConfig } from '@skyra/discord-components-core'`).
 
 ```ts
-window.$discordMessage = {
+globalThis.$discordMessage = {
   avatars: {
     default: 'blue',
     skyra: 'https://github.com/NM-EEA-Y.png',
@@ -455,11 +461,11 @@ setConfig({
 
 Sometimes you'll want to use the same message data across multiple messages. You
 can do so by providing an object of profiles in
-`window.$discordMessage.profiles` or by using the `setConfig` function
+`globalThis.$discordMessage.profiles` or by using the `setConfig` function
 (`import { setConfig } from '@skyra/discord-components-core'`).
 
 ```ts
-window.$discordMessage = {
+globalThis.$discordMessage = {
   profiles: {
     skyra: {
       author: 'Skyra',

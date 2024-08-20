@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.31](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.30...v4.0.0-alpha.31) (2024-08-19)
+
+### Features
+
+* **system-message:** add upgrade type ([#450](https://github.com/skyra-project/discord-components/issues/450)) ([39b5ad0](https://github.com/skyra-project/discord-components/commit/39b5ad094c8866a27688d9a5d637d3bbf88748c3)) (@mezotv)
+
+# [4.0.0-alpha.30](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.29...v4.0.0-alpha.30) (2024-08-19)
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#447](https://github.com/skyra-project/discord-components/issues/447)) ([fbd21f1](https://github.com/skyra-project/discord-components/commit/fbd21f1b18f0cfb74d59822be7c724b146c7744d)) (@renovate[bot])
+* **deps:** update dependency astro to v4.13.3 ([2bb50d6](https://github.com/skyra-project/discord-components/commit/2bb50d6e84cfed3b0d25b05481580ee46b42075a)) (@renovate[bot])
+
 # [4.0.0-alpha.29](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.28...v4.0.0-alpha.29) (2024-08-10)
 
 ### Bug Fixes

@@ -440,7 +440,7 @@ export default defineConfig({
 				{
 					tag: 'script',
 					content: `
-						window.$discordMessage = {
+						globalThis.$discordMessage = {
 							profiles: {
 								maximillian: {
 									author: 'Maximillian Osborn',

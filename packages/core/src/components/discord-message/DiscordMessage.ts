@@ -217,7 +217,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 		:host([has-thread]):after {
 			width: 2rem;
 			left: 2.2rem;
-			top: 1.75rem;
+			top: 4.8rem;
 			border-left: 2px solid #4f545c;
 			border-bottom: 2px solid #4f545c;
 			border-bottom-left-radius: 8px;
