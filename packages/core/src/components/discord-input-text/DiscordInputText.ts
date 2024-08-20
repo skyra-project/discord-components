@@ -166,9 +166,9 @@ export class DiscordInputText extends LitElement {
 			bottom: 100%; /* Positions the arrow above the div */
 			left: 0;
 			transform: translateX(50%);
-			border-width: 10px; /* Arrow size */
-			border-style: solid;
-			border-color: transparent transparent white transparent; /* Arrow pointing up */
+			border-width: 10px !important; /* Arrow size */
+			border-style: solid !important;
+			border-color: transparent transparent white transparent !important; /* Arrow pointing up */
 		}
 
 		:host([light-theme]) .discord-text-input-message-needed-input::after {
