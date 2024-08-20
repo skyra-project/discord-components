@@ -265,7 +265,7 @@ export class DiscordInputText extends LitElement {
 	protected accessor warn: boolean = false;
 
 	@state()
-	protected accessor caractersCount: number = 0
+	protected accessor caractersCount: number = 0;
 
 	private readonly validInputTextTypes = new Set(['short', 'paragraph']);
 
@@ -354,22 +354,29 @@ ${this.value}</textarea
                         `
 					)}
 				</div>
-				${when(this.required, () => html`
-					<div class="discord-text-input-message-needed-input">
-						<div class="icon">
-							<div class="exclamation">!</div>
+				${when(
+					this.required,
+					() => html`
+						<div class="discord-text-input-message-needed-input">
+							<div class="icon">
+								<div class="exclamation">!</div>
+							</div>
+							<span>Please fill out this field.</span>
 						</div>
-						<span>Please fill out this field.</span>
-					</div>
 					`
 				)}
-				${when(this.minLength > 0, () => html`
-					<div class="discord-text-input-message-needed-min-length">
-						<div class="icon">
-							<div class="exclamation">!</div>
+				${when(
+					this.minLength > 0,
+					() => html`
+						<div class="discord-text-input-message-needed-min-length">
+							<div class="icon">
+								<div class="exclamation">!</div>
+							</div>
+							<span
+								>Increase this text to ${this.minLength} characters or more. You are currently using ${this.caractersCount}
+								characters</span
+							>
 						</div>
-						<span>Increase this text to ${this.minLength} characters or more. You are currently using ${this.caractersCount} characters</span>
-					</div>
 					`
 				)}
 				<div class=${classMap({ 'discord-text-input-warning-length': this.warn })}>
@@ -384,8 +391,8 @@ ${this.value}</textarea
 	private changeMaxWords(event: InputEvent) {
 		const inputedText = event.target;
 
-		this.caractersCount = (inputedText as HTMLTextAreaElement).value.length
-		
+		this.caractersCount = (inputedText as HTMLTextAreaElement).value.length;
+
 		if (inputedText instanceof HTMLTextAreaElement) {
 			if (inputedText.value.length < this.minLength) {
 				this.warn = true;
@@ -399,7 +406,11 @@ ${this.value}</textarea
 		const messageNeeded = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-input');
 		const messageNeededMinLength = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-min-length');
 
-		if ((inputedText as HTMLTextAreaElement).value.length >= this.minLength && messageNeededMinLength instanceof HTMLDivElement && messageNeededMinLength.style.display){
+		if (
+			(inputedText as HTMLTextAreaElement).value.length >= this.minLength &&
+			messageNeededMinLength instanceof HTMLDivElement &&
+			messageNeededMinLength.style.display
+		) {
 			messageNeededMinLength.style.opacity = '0';
 			globalThis.setTimeout(() => {
 				messageNeededMinLength.style.display = '';
