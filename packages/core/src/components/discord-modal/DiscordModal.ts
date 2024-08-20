@@ -480,7 +480,6 @@ export class DiscordModal extends LitElement implements LightTheme {
 			}
 
 			if (input!.value.length < Number(input?.attributes.getNamedItem('minlength')?.value)) {
-
 				const messageNeededMinLength = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-min-length');
 
 				if (messageNeededMinLength instanceof HTMLDivElement && !messageNeededMinLength.style.display) {
@@ -492,7 +491,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 				}
 
 				return;
-			};
+			}
 		}
 
 		this.submitForm?.();
