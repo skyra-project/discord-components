@@ -466,6 +466,11 @@ export default defineConfig({
 									roleIcon: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/booster.png',
 									roleName: 'Booster'
 								},
+								dominik: {
+									author: 'Dominik',
+									avatar: 'https://github.com/mezotv.png',
+									roleColor: '#26d1a3',
+								},
 								discordjs: {
 									author: 'Discord.js Official #announcements',
 									avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/discordjs.png',

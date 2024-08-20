@@ -160,6 +160,9 @@ export class DiscordComponentsWrapper extends LitElement {
 					<discord-message profile="favna">
 						<discord-quote>I am quoted text!</discord-quote>
 					</discord-message>
+					<discord-message profile="dominik">
+						<discord-subtext>I am subtext!</discord-subtext>
+					</discord-message>
 				</discord-messages>
 				<h3 class="title">No Background mode</h3>
 				<discord-messages no-background>
