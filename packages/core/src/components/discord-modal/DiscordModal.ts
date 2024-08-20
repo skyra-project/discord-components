@@ -458,7 +458,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 
 		const expanderT = this.shadowRoot?.querySelector('slot');
 
-		const slotedItems = expanderT!.assignedElements();
+		const slotedItems = expanderT?.assignedElements();
 
 		for (const index of slotedItems) {
 			const shadowRootSlot = index.shadowRoot;
