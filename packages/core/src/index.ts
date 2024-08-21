@@ -7,7 +7,6 @@ export { DiscordAttachments } from './components/discord-attachments/DiscordAtta
 export { DiscordAudioAttachment } from './components/discord-audio-attachment/DiscordAudioAttachment.js';
 export { DiscordAuthorInfo } from './components/discord-author-info/DiscordAuthorInfo.js';
 export { DiscordBold } from './components/discord-bold/DiscordBold.js';
-export { DiscordSubtext } from './components/discord-subtext/DiscordSubtext.js';
 export { DiscordButton } from './components/discord-button/DiscordButton.js';
 export { DiscordCode } from './components/discord-code/DiscordCode.js';
 export { DiscordCommand } from './components/discord-command/DiscordCommand.js';

@@ -8,7 +8,6 @@ export const DiscordAttachments = createReactComponent('discord-attachments', Re
 export const DiscordAudioAttachment = createReactComponent('discord-audio-attachment', ReactComponents.DiscordAudioAttachment);
 export const DiscordAuthorInfo = createReactComponent('discord-author-info', ReactComponents.DiscordAuthorInfo);
 export const DiscordBold = createReactComponent('discord-bold', ReactComponents.DiscordBold);
-export const DiscordSubtext = createReactComponent('discord-subtext', ReactComponents.DiscordSubtext);
 export const DiscordButton = createReactComponent('discord-button', ReactComponents.DiscordButton);
 export const DiscordCode = createReactComponent('discord-code', ReactComponents.DiscordCode);
 export const DiscordCommand = createReactComponent('discord-command', ReactComponents.DiscordCommand);

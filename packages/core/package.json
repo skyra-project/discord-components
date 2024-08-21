@@ -16,7 +16,6 @@
 		"./discord-audio-attachment.js": "./dist/components/discord-audio-attachment/DiscordAudioAttachment.js",
 		"./discord-author-info.js": "./dist/components/discord-author-info/DiscordAuthorInfo.js",
 		"./discord-bold.js": "./dist/components/discord-bold/DiscordBold.js",
-		"./discord-subtext.js": "./dist/components/discord-subtext/DiscordSubtext.js",
 		"./discord-button.js": "./dist/components/discord-button/DiscordButton.js",
 		"./discord-code.js": "./dist/components/discord-code/DiscordCode.js",
 		"./discord-command.js": "./dist/components/discord-command/DiscordCommand.js",
