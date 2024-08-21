@@ -436,8 +436,6 @@ export class DiscordInputText extends LitElement {
 
 		this.value = inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement ? inputedText.value : '';
 
-		console.log(this.value);
-
 		if (inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement) {
 			const newLengthValue = inputedText.value.length;
 
