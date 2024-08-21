@@ -92,6 +92,38 @@ export class DiscordReply extends LitElement implements LightTheme {
 			background: #e3e5e8;
 		}
 
+		:host .discord-clan-tag {
+			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.54);
+			color: #fff;
+			font-size: 12px;
+			font-weight: 600;
+			margin-left: 0.25rem;
+			border-radius: 4px;
+			line-height: 100%;
+			text-transform: uppercase;
+			justify-content: space-between;
+			display: inline-flex;
+			align-items: center;
+			padding: 0 0.275rem;
+			margin-top: 0.075em;
+			height: 1.2rem;
+		}
+
+		:host .discord-clan-tag img {
+			display: inline-flex;
+			align-items: center;
+			margin-right: 0.25rem;
+			right: 0.25rem;
+		}
+
+		:host .discord-clan-tag span {
+			display: inline-flex;
+			align-items: center;
+			user-select: none;
+			-webkit-user-select: none;
+			line-height: 1rem !important;
+		}
+
 		.discord-application-tag {
 			background-color: hsl(235, 85.6%, 64.7%);
 			color: #fff;
@@ -269,6 +301,18 @@ export class DiscordReply extends LitElement implements LightTheme {
 	public accessor mentions = false;
 
 	/**
+	 * The clan icon of the author, which comes from the enabled clan tag
+	 */
+	@property()
+	public accessor clanIcon: string;
+
+	/**
+	 * The clan name of the author, which comes from the enabled clan tag
+	 */
+	@property()
+	public accessor clanTag: string;
+
+	/**
 	 * Whether this reply is a deleted message.
 	 * When set to true, any content inside the tags is ignored as no `slot` is rendered.
 	 * The message will always be `"Original message was deleted"`.
@@ -286,6 +330,8 @@ export class DiscordReply extends LitElement implements LightTheme {
 	 * - {@link DiscordReply.command | command}
 	 * - {@link DiscordReply.attachment | attachment}
 	 * - {@link DiscordReply.mentions | mentions}
+	 * - {@link DiscordReply.clanIcon | clanIcon}
+	 * - {@link DiscordReply.clanTag | clanTag}
 	 */
 	@property({ type: Boolean, reflect: true })
 	public accessor deleted = false;
@@ -312,7 +358,9 @@ export class DiscordReply extends LitElement implements LightTheme {
 			verified: this.verified,
 			op: this.op,
 			server: this.server,
-			roleColor: this.roleColor
+			roleColor: this.roleColor,
+			clanIcon: this.clanIcon,
+			clanTag: this.clanTag
 		};
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
@@ -324,6 +372,23 @@ export class DiscordReply extends LitElement implements LightTheme {
 			)}
 			${when(profile.server && !profile.bot, () => html`<span class="discord-application-tag">Server</span>`)}
 			${when(profile.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
+			${when(
+				profile.clanIcon && profile.clanTag && profile.clanTag?.length > 0,
+				() => html`
+					<span class="discord-clan-tag">
+						<span>
+							<img
+								src=${ifDefined(profile.clanIcon)}
+								alt=${ifDefined(profile.clanTag?.slice(0, 4))}
+								width="12"
+								height="12"
+								draggable="false"
+							/>
+							<span>${profile.clanTag?.slice(0, 4)}</span>
+						</span>
+					</span>
+				`
+			)}
 		`;
 
 		return html`${when(
