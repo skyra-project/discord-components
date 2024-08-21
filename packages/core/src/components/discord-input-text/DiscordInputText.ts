@@ -286,11 +286,20 @@ export class DiscordInputText extends LitElement {
 	@state()
 	protected accessor calculatedCharactersCount = 0;
 
+	public override connectedCallback() {
+		super.connectedCallback()
+		if (this.defaultValue) this.value = this.defaultValue
+	}
+
 	public resetState() {
 		this.hasWarning = false;
 		this.calculatedMaxLength = null;
 		this.calculatedCharactersCount = 0;
-		this.value = '';
+		if (this.defaultValue){
+			this.value = this.defaultValue
+		} else {
+			this.value = '';
+		}
 	}
 
 	public override render() {
@@ -322,7 +331,7 @@ export class DiscordInputText extends LitElement {
 								<textarea
 									@input=${(event: InputEvent) => this.handleInputChange(event)}
 									.required=${this.required}
-									.value=${this.value || this.defaultValue}
+									.value=${this.value}
 									class="discord-text-input-paragraph"
 									type="text"
 									minlength="${this.minLength}"
@@ -353,7 +362,7 @@ export class DiscordInputText extends LitElement {
 							html`<input
 								@input=${(event: InputEvent) => this.handleInputChange(event)}
 								.required=${this.required}
-								.value=${this.value || this.defaultValue}
+								.value=${this.value}
 								class="discord-text-input-short"
 								type="text"
 								minlength="${this.minLength}"
