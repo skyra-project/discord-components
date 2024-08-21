@@ -55,7 +55,7 @@ export class DiscordInputText extends LitElement {
 			height: 83px;
 			padding: 8px 38.92px 8px 8px;
 			border-radius: 3px;
-			border: 1px solid #b0b5bc;
+			border: medium;
 			background-color: #1e1f22;
 			color: #b0b5bc;
 			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
@@ -68,7 +68,7 @@ export class DiscordInputText extends LitElement {
 			height: 40px;
 			padding: 8px 38.92px 8px 8px;
 			border-radius: 3px;
-			border: 1px solid #b0b5bc;
+			border: medium;
 			background-color: #1e1f22;
 			color: #b0b5bc;
 			font-family: 'gg sans', 'Noto Sans', Whitney, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
@@ -127,6 +127,7 @@ export class DiscordInputText extends LitElement {
 		:host([light-theme]) .discord-text-input-paragraph,
 		:host([light-theme]) .discord-text-input-short {
 			background-color: rgb(253, 253, 253);
+			border: 1px solid #b0b5bc;
 		}
 
 		:host([light-theme]) input,
@@ -165,9 +166,9 @@ export class DiscordInputText extends LitElement {
 			bottom: 100%; /* Positions the arrow above the div */
 			left: 0;
 			transform: translateX(50%);
-			border-width: 10px; /* Arrow size */
-			border-style: solid;
-			border-color: transparent transparent white transparent; /* Arrow pointing up */
+			border-width: 10px !important; /* Arrow size */
+			border-style: solid !important;
+			border-color: transparent transparent white transparent !important; /* Arrow pointing up */
 		}
 
 		:host([light-theme]) .discord-text-input-message-needed-input::after {

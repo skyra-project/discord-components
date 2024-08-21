@@ -131,16 +131,16 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 			width: 2rem;
 			left: 2.2rem;
 			top: 1.75rem;
-			border-left: 2px solid #4f545c;
-			border-bottom: 2px solid #4f545c;
-			border-bottom-left-radius: 8px;
+			border-left: 2px solid #4f545c !important;
+			border-bottom: 2px solid #4f545c !important;
+			border-bottom-left-radius: 8px !important;
 			bottom: 29px;
 			content: '';
 			position: absolute;
 		}
 
 		:host([light-theme][has-thread]):after {
-			border-color: #747f8d;
+			border-color: #747f8d !important;
 		}
 	`;
 
