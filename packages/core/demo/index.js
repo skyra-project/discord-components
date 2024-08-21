@@ -27,7 +27,8 @@ globalThis.$discordMessage = {
 		dominik: {
 			author: 'Dominik',
 			avatar: 'https://github.com/mezotv.png',
-			roleColor: '#26d1a3'
+			clanIcon: 'https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/guilds/14.svg',
+			clanTag: 'UwU'
 		},
 		discordjs: {
 			author: 'Discord.js Official #announcements',

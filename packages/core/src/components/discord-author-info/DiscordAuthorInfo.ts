@@ -41,6 +41,38 @@ export class DiscordAuthorInfo extends LitElement {
 			color: #23262a;
 		}
 
+		:host .discord-clan-tag {
+			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.54);
+			color: #fff;
+			font-size: 12px;
+			font-weight: 600;
+			margin-left: 0.25rem;
+			border-radius: 4px;
+			line-height: 100%;
+			text-transform: uppercase;
+			justify-content: space-between;
+			display: inline-flex;
+			align-items: center;
+			padding: 0 0.275rem;
+			margin-top: 0.075em;
+			height: 1.2rem;
+		}
+
+		:host .discord-clan-tag img {
+			display: inline-flex;
+			align-items: center;
+			margin-right: 0.25rem;
+			right: 0.25rem;
+		}
+
+		:host .discord-clan-tag span {
+			display: inline-flex;
+			align-items: center;
+			user-select: none;
+			-webkit-user-select: none;
+			line-height: 1rem !important;
+		}
+
 		:host .discord-application-tag {
 			background-color: #5865f2;
 			color: #fff;
@@ -140,6 +172,18 @@ export class DiscordAuthorInfo extends LitElement {
 	public accessor roleName: string | undefined = undefined;
 
 	/**
+	 * The clan icon of the author, which comes from the enabled clan tag
+	 */
+	@property()
+	public accessor clanIcon: string | undefined = undefined;
+
+	/**
+	 * The clan name of the author, which comes from the enabled clan tag
+	 */
+	@property()
+	public accessor clanTag: string | undefined = undefined;
+
+	/**
 	 * Whether this bot is verified by Discord. Only works if `bot` is `true`
 	 */
 	@property({ type: Boolean })
@@ -187,6 +231,17 @@ export class DiscordAuthorInfo extends LitElement {
 				>`
 		)}
 		${when(this.server && !this.bot, () => html`<span class="discord-application-tag">Server</span>`)}
+		${when(
+			this.clanIcon && this.clanTag && this.clanTag?.length > 0,
+			() => html`
+				<span class="discord-clan-tag">
+					<span>
+						<img src=${ifDefined(this.clanIcon)} alt=${ifDefined(this.clanTag?.slice(0, 4))} width="12" height="12" draggable="false" />
+						<span>${this.clanTag?.slice(0, 4)}</span>
+					</span>
+				</span>
+			`
+		)}
 		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
 		${when(
 			this.compactMode,
