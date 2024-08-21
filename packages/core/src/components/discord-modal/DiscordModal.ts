@@ -22,7 +22,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 		*,
 		:before,
 		:after {
-			border-width: 0;
+			border-width: 0 !important;
 		}
 
 		/* This does positioning, sizing, and transition */

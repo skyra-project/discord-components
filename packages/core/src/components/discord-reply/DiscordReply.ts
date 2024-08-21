@@ -56,15 +56,15 @@ export class DiscordReply extends LitElement implements LightTheme {
 			margin-top: -1px;
 			margin-left: -1px;
 			margin-bottom: -2px;
-			border-left: 2px solid #4f545c;
-			border-bottom: 0 solid #4f545c;
-			border-right: 0 solid #4f545c;
-			border-top: 2px solid #4f545c;
+			border-left: 2px solid #4f545c !important;
+			border-bottom: 0 solid #4f545c !important;
+			border-right: 0 solid #4f545c !important;
+			border-top: 2px solid #4f545c !important;
 			border-top-left-radius: 6px;
 		}
 
 		:host([light-theme]):before {
-			border-color: #747f8d;
+			border-color: #747f8d !important;
 		}
 
 		.discord-replied-message-avatar,
