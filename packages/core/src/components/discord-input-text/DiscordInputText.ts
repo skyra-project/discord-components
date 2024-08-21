@@ -437,7 +437,7 @@ export class DiscordInputText extends LitElement {
 		this.value = (
 			inputedText instanceof HTMLTextAreaElement || 
 			inputedText instanceof HTMLInputElement
-		) ? inputedText.value as string : ""
+		) ? inputedText.value : ""
 
 		console.log(this.value)
 
