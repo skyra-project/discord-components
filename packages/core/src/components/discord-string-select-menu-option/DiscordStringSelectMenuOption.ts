@@ -13,16 +13,17 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 	 * @internal
 	 */
 	public static override readonly styles = css`
-		:host {
+		label {
 			display: flex;
 			align-items: center;
 			max-width: 400px;
 			padding: 8px 8px 8px 12px;
 			gap: 10px;
 			font-size: small;
+			cursor: pointer;
 		}
 
-		:host(:hover) {
+		label:hover {
 			background-color: rgba(255, 255, 255, 0.1);
 		}
 
@@ -32,7 +33,7 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 			color: #2e3338;
 		}
 
-		:host([light-theme]:hover) {
+		:host([light-theme]) label:hover {
 			background-color: rgba(204, 204, 204, 2) !important;
 		}
 
@@ -48,6 +49,10 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+		}
+
+		.discord-string-select-menu-option-hidden {
+			display: none;
 		}
 	`;
 
@@ -75,6 +80,9 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 	@property({ attribute: 'description' })
 	public accessor description: string;
 
+	@property({ reflect: false, noAccessor: true, attribute: false })
+	public accessor selectOption: (...args: unknown[]) => void;
+
 	public checkLabelIsProvided() {
 		if (!this.label) {
 			throw new DiscordComponentsError('The label of option is required');
@@ -89,17 +97,20 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 		this.checkLabelIsProvided();
 
 		return html`
-			${when(
-				this.emoji,
-				() =>
-					html`<img src=${this.emoji} alt=${ifDefined(this.emojiName)} draggable="true" class="discord-string-select-menu-option-emoji" />`
-			)}
-			<div class="discord-string-select-menu-option-ellipsis-text">
+			<label>
+				${when(
+					this.emoji,
+					() =>
+						html`<img src=${this.emoji} alt=${ifDefined(this.emojiName)} draggable="true" class="discord-string-select-menu-option-emoji" />`
+				)}
 				<div class="discord-string-select-menu-option-ellipsis-text">
-					<strong>${this.label}</strong>
+					<div class="discord-string-select-menu-option-ellipsis-text">
+						<strong>${this.label}</strong>
+					</div>
+					${when(this.description, () => html`<span>${this.description}</span>`)}
 				</div>
-				${when(this.description, () => html`<span>${this.description}</span>`)}
-			</div>
+				<span class="discord-string-select-menu-option-hidden"><input type="checkbox" @click=${() => this.selectOption?.()} /></span>
+			</label>
 		`;
 	}
 }
