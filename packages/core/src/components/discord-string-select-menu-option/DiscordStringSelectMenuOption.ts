@@ -101,7 +101,12 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 				${when(
 					this.emoji,
 					() =>
-						html`<img src=${this.emoji} alt=${ifDefined(this.emojiName)} draggable="true" class="discord-string-select-menu-option-emoji" />`
+						html`<img
+							src=${this.emoji}
+							alt=${ifDefined(this.emojiName)}
+							draggable="true"
+							class="discord-string-select-menu-option-emoji"
+						/>`
 				)}
 				<div class="discord-string-select-menu-option-ellipsis-text">
 					<div class="discord-string-select-menu-option-ellipsis-text">
