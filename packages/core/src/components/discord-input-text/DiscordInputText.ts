@@ -261,12 +261,21 @@ export class DiscordInputText extends LitElement {
 	@property({ reflect: true, attribute: 'max-length', type: Number })
 	public accessor maxLength = 4_000;
 
+	/**
+	 * The theme of modal
+	 */
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
+	/**
+	 * The default value of modal
+	 */
+	@property({ type: String, reflect: true, attribute: 'default-value' })
+	public accessor defaultValue = "";
+
 	@state()
-	protected accessor value = '';
+	protected accessor value = ""
 
 	@state()
 	protected accessor hasWarning = false;
@@ -281,7 +290,7 @@ export class DiscordInputText extends LitElement {
 		this.hasWarning = false;
 		this.calculatedMaxLength = null;
 		this.calculatedCharactersCount = 0;
-		this.value = '';
+		this.value = ""
 	}
 
 	public override render() {
@@ -313,14 +322,14 @@ export class DiscordInputText extends LitElement {
 								<textarea
 									@input=${(event: InputEvent) => this.handleInputChange(event)}
 									.required=${this.required}
-									.value=${this.value}
+									.value=${this.value || this.defaultValue}
 									class="discord-text-input-paragraph"
 									type="text"
 									minlength="${this.minLength}"
 									maxlength="${this.maxLength}"
 									placeholder="${ifDefined(this.placeholder)}"
 									rows="3"
-								></textarea>
+								/>
 								<div class="discord-text-input-textarea-max-length">
 									<span
 										>${when(
@@ -328,8 +337,8 @@ export class DiscordInputText extends LitElement {
 											() => this.calculatedMaxLength,
 											() =>
 												when(
-													this.value,
-													() => this.maxLength - this.value.length,
+													this.defaultValue,
+													() => this.maxLength - this.defaultValue.length,
 													() => this.maxLength
 												)
 										)}</span
@@ -344,7 +353,7 @@ export class DiscordInputText extends LitElement {
 							html`<input
 								@input=${(event: InputEvent) => this.handleInputChange(event)}
 								.required=${this.required}
-								.value=${this.value}
+								.value=${this.value || this.defaultValue}
 								class="discord-text-input-short"
 								type="text"
 								minlength="${this.minLength}"
@@ -423,7 +432,14 @@ export class DiscordInputText extends LitElement {
 	}
 
 	private handleInputChange(event: InputEvent) {
-		const inputedText = event.target;
+		const inputedText = event?.target;
+
+		this.value = (
+			inputedText instanceof HTMLTextAreaElement || 
+			inputedText instanceof HTMLInputElement
+		) ? inputedText.value as string : ""
+
+		console.log(this.value)
 
 		if (inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement) {
 			const newLengthValue = inputedText.value.length;
