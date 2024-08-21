@@ -272,10 +272,10 @@ export class DiscordInputText extends LitElement {
 	 * The default value of modal
 	 */
 	@property({ type: String, reflect: true, attribute: 'default-value' })
-	public accessor defaultValue = "";
+	public accessor defaultValue = '';
 
 	@state()
-	protected accessor value = ""
+	protected accessor value = '';
 
 	@state()
 	protected accessor hasWarning = false;
@@ -290,7 +290,7 @@ export class DiscordInputText extends LitElement {
 		this.hasWarning = false;
 		this.calculatedMaxLength = null;
 		this.calculatedCharactersCount = 0;
-		this.value = ""
+		this.value = '';
 	}
 
 	public override render() {
@@ -329,7 +329,7 @@ export class DiscordInputText extends LitElement {
 									maxlength="${this.maxLength}"
 									placeholder="${ifDefined(this.placeholder)}"
 									rows="3"
-								/>
+								></textarea>
 								<div class="discord-text-input-textarea-max-length">
 									<span
 										>${when(
@@ -434,12 +434,9 @@ export class DiscordInputText extends LitElement {
 	private handleInputChange(event: InputEvent) {
 		const inputedText = event?.target;
 
-		this.value = (
-			inputedText instanceof HTMLTextAreaElement || 
-			inputedText instanceof HTMLInputElement
-		) ? inputedText.value : ""
+		this.value = inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement ? inputedText.value : '';
 
-		console.log(this.value)
+		console.log(this.value);
 
 		if (inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement) {
 			const newLengthValue = inputedText.value.length;
