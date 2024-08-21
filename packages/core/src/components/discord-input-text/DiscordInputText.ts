@@ -287,16 +287,16 @@ export class DiscordInputText extends LitElement {
 	protected accessor calculatedCharactersCount = 0;
 
 	public override connectedCallback() {
-		super.connectedCallback()
-		if (this.defaultValue) this.value = this.defaultValue
+		super.connectedCallback();
+		if (this.defaultValue) this.value = this.defaultValue;
 	}
 
 	public resetState() {
 		this.hasWarning = false;
 		this.calculatedMaxLength = null;
 		this.calculatedCharactersCount = 0;
-		if (this.defaultValue){
-			this.value = this.defaultValue
+		if (this.defaultValue) {
+			this.value = this.defaultValue;
 		} else {
 			this.value = '';
 		}
