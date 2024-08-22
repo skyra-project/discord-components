@@ -21,11 +21,6 @@ export class DiscordAuthorInfo extends LitElement {
 			margin-right: 0.25rem;
 		}
 
-		:host([compact-mode]) {
-			margin-right: 0.25rem;
-			display: inline;
-		}
-
 		:host .discord-author-username {
 			color: #fff;
 			font-size: 1em;
@@ -45,32 +40,46 @@ export class DiscordAuthorInfo extends LitElement {
 			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.54);
 			color: #fff;
 			font-size: 12px;
-			font-weight: 600;
+			font-weight: 500;
 			margin-left: 0.25rem;
 			border-radius: 4px;
 			line-height: 100%;
 			text-transform: uppercase;
-			justify-content: space-between;
 			display: inline-flex;
+			width: max-content;
+			gap: 0.25rem;
+			justify-content: space-between;
 			align-items: center;
 			padding: 0 0.275rem;
 			margin-top: 0.075em;
 			height: 1.2rem;
+			min-width: 45px;
+			line-height: 1rem !important;
+			transition: background-color 100ms ease-in-out;
+			cursor: pointer;
 		}
 
+		:host .discord-clan-tag:hover {
+			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.34);
+		}
+
+		:host([light-theme]) .discord-clan-tag {
+			background-color: hsl(0 calc(1 * 0%) 0.8%/0.09);
+			color: #000;
+		}
+
+		:host([light-theme]) .discord-clan-tag:hover {
+			background-color: hsl(0 calc(1 * 0%) 0.8%/0.03);
+		}
+
+		:host([compact-mode]) .discord-clan-tag {
+			margin-left: 0rem;
+		}
+
+		:host .discord-clan-tag span,
 		:host .discord-clan-tag img {
-			display: inline-flex;
-			align-items: center;
-			margin-right: 0.25rem;
-			right: 0.25rem;
-		}
-
-		:host .discord-clan-tag span {
-			display: inline-flex;
-			align-items: center;
 			user-select: none;
 			-webkit-user-select: none;
-			line-height: 1rem !important;
 		}
 
 		:host .discord-application-tag {
@@ -231,21 +240,19 @@ export class DiscordAuthorInfo extends LitElement {
 				>`
 		)}
 		${when(this.server && !this.bot, () => html`<span class="discord-application-tag">Server</span>`)}
-		${when(
-			this.clanIcon && this.clanTag && this.clanTag?.length > 0,
-			() => html`
-				<span class="discord-clan-tag">
-					<span>
-						<img src=${ifDefined(this.clanIcon)} alt=${ifDefined(this.clanTag?.slice(0, 4))} width="12" height="12" draggable="false" />
-						<span>${this.clanTag?.slice(0, 4)}</span>
-					</span>
-				</span>
-			`
-		)}
 		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
 		${when(
 			this.compactMode,
 			() => html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor ?? undefined })}">${this.author}</span>`
+		)}
+		${when(
+			this.clanIcon && this.clanTag && this.clanTag?.length > 0,
+			() => html`
+				<span class="discord-clan-tag">
+					<img src=${ifDefined(this.clanIcon)} alt=${ifDefined(this.clanTag?.slice(0, 4))} width="12" height="12" draggable="false" />
+					<span style="display: inline-flex">${this.clanTag?.toString()}</span>
+				</span>
+			`
 		)}`;
 	}
 }

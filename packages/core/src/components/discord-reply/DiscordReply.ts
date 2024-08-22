@@ -93,11 +93,11 @@ export class DiscordReply extends LitElement implements LightTheme {
 		}
 
 		:host .discord-clan-tag {
-			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.54);
+			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.8);
 			color: #fff;
 			font-size: 12px;
-			font-weight: 600;
-			margin-left: 0.25rem;
+			font-weight: 500;
+			margin-right: 0.25rem;
 			border-radius: 4px;
 			line-height: 100%;
 			text-transform: uppercase;
@@ -107,6 +107,23 @@ export class DiscordReply extends LitElement implements LightTheme {
 			padding: 0 0.275rem;
 			margin-top: 0.075em;
 			height: 1.2rem;
+			opacity: 0.55;
+			transition: background-color 100ms ease-in-out;
+			cursor: pointer;
+		}
+
+		:host .discord-clan-tag:hover {
+			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.5);
+		}
+
+		:host([light-theme]) .discord-clan-tag {
+			opacity: 0.65;
+			background-color: hsl(0 calc(1 * 0%) 0.8%/0.09);
+			color: #000;
+		}
+
+		:host([light-theme]) .discord-clan-tag:hover {
+			background-color: hsl(0 calc(1 * 0%) 0.8%/0.03);
 		}
 
 		:host .discord-clan-tag img {
@@ -372,23 +389,6 @@ export class DiscordReply extends LitElement implements LightTheme {
 			)}
 			${when(profile.server && !profile.bot, () => html`<span class="discord-application-tag">Server</span>`)}
 			${when(profile.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
-			${when(
-				profile.clanIcon && profile.clanTag && profile.clanTag?.length > 0,
-				() => html`
-					<span class="discord-clan-tag">
-						<span>
-							<img
-								src=${ifDefined(profile.clanIcon)}
-								alt=${ifDefined(profile.clanTag?.slice(0, 4))}
-								width="12"
-								height="12"
-								draggable="false"
-							/>
-							<span>${profile.clanTag?.slice(0, 4)}</span>
-						</span>
-					</span>
-				`
-			)}
 		`;
 
 		return html`${when(
@@ -404,6 +404,23 @@ export class DiscordReply extends LitElement implements LightTheme {
 					<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
 						>${when(this.mentions, () => '@')}${profile.author}</span
 					>
+					${when(
+						profile.clanIcon && profile.clanTag && profile.clanTag?.length > 0,
+						() => html`
+							<span class="discord-clan-tag">
+								<span>
+									<img
+										src=${ifDefined(profile.clanIcon)}
+										alt=${ifDefined(profile.clanTag?.slice(0, 4))}
+										width="12"
+										height="12"
+										draggable="false"
+									/>
+									<span>${profile.clanTag?.slice(0, 4)}</span>
+								</span>
+							</span>
+						`
+					)}
 					<!-- display: inline -->
 					<div class="discord-replied-message-content"
 						><slot></slot>${when(this.edited, () => html`<span class="discord-message-edited">(edited)</span>`)}</div
