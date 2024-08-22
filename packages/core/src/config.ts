@@ -32,3 +32,27 @@ export const defaultTheme: string = getConfig().defaultTheme === 'light' ? 'ligh
 export const defaultMode: string = getConfig().defaultMode === 'compact' ? 'compact' : 'cozy';
 
 export const defaultBackground: string = getConfig().defaultBackground === 'none' ? 'none' : 'discord';
+
+export const icons = new Map<string, string>([
+	['crystal', '../../../assets/guild-icons/crystal.svg'],
+	['diamond', '../../../assets/guild-icons/diamond.svg'],
+	['explosion', '../../../assets/guild-icons/explosion.svg'],
+	['flame', '../../../assets/guild-icons/flame.svg'],
+	['flower', '../../../assets/guild-icons/flower.svg'],
+	['heart', '../../../assets/guild-icons/heart.svg'],
+	['key', '../../../assets/guild-icons/key.svg'],
+	['leaf', '../../../assets/guild-icons/leaf.svg'],
+	['lightning', '../../../assets/guild-icons/lightning.svg'],
+	['moon', '../../../assets/guild-icons/moon.svg'],
+	['mushroom', '../../../assets/guild-icons/mushroom.svg'],
+	['mythical', '../../../assets/guild-icons/mythical.svg'],
+	['ornament', '../../../assets/guild-icons/ornament.svg'],
+	['plasma', '../../../assets/guild-icons/plasma.svg'],
+	['potion', '../../../assets/guild-icons/potion.svg'],
+	['rock', '../../../assets/guild-icons/rock.svg'],
+	['shell', '../../../assets/guild-icons/shell.svg'],
+	['skull', '../../../assets/guild-icons/skull.svg'],
+	['sun', '../../../assets/guild-icons/sun.svg'],
+	['sword', '../../../assets/guild-icons/sword.svg'],
+	['water', '../../../assets/guild-icons/water.svg']
+]);
