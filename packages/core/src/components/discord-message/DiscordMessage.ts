@@ -182,7 +182,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 			text-align: right;
 			font-size: 0.6875rem;
 			line-height: 1.375rem;
-			margin-right: 0.25rem;
+			margin-right: 0.375rem;
 			margin-left: 0;
 			text-indent: 0;
 		}
