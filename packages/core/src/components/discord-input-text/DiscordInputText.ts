@@ -278,7 +278,7 @@ export class DiscordInputText extends LitElement {
 	protected accessor value = '';
 
 	@state()
-	protected accessor hasWarning = false;
+	public accessor hasWarning = false;
 
 	@state()
 	protected accessor calculatedMaxLength: number | null = null;
@@ -288,7 +288,10 @@ export class DiscordInputText extends LitElement {
 
 	public override connectedCallback() {
 		super.connectedCallback();
-		if (this.defaultValue) this.value = this.defaultValue;
+		if (this.defaultValue) {
+			this.value = this.defaultValue;
+			this.calculatedCharactersCount = this.value.length;
+		}
 	}
 
 	public resetState() {
