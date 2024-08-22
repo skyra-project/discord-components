@@ -349,8 +349,8 @@ export class DiscordInputText extends LitElement {
 											() => this.calculatedMaxLength,
 											() =>
 												when(
-													this.defaultValue,
-													() => this.maxLength - this.defaultValue.length,
+													this.value,
+													() => this.maxLength - this.value.length,
 													() => this.maxLength
 												)
 										)}</span
