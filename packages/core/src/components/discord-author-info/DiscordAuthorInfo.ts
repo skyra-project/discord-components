@@ -4,6 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
+import { getClanIcon } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 
@@ -249,7 +250,13 @@ export class DiscordAuthorInfo extends LitElement {
 			this.clanIcon && this.clanTag && this.clanTag?.length > 0,
 			() => html`
 				<span class="discord-clan-tag">
-					<img src=${ifDefined(this.clanIcon)} alt=${ifDefined(this.clanTag?.slice(0, 4))} width="12" height="12" draggable="false" />
+					<img
+						src=${ifDefined(getClanIcon(this.clanIcon))}
+						alt=${ifDefined(this.clanTag?.slice(0, 4))}
+						width="12"
+						height="12"
+						draggable="false"
+					/>
 					<span style="display: inline-flex">${this.clanTag?.toString()}</span>
 				</span>
 			`

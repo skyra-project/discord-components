@@ -6,6 +6,7 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
 import type { LightTheme, Profile } from '../../types.js';
+import { getClanIcon } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
@@ -410,7 +411,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 							<span class="discord-clan-tag">
 								<span>
 									<img
-										src=${ifDefined(profile.clanIcon)}
+										src=${ifDefined(getClanIcon(profile.clanIcon))}
 										alt=${ifDefined(profile.clanTag?.slice(0, 4))}
 										width="12"
 										height="12"

@@ -1,4 +1,4 @@
-import { getConfig } from './config.js';
+import { getConfig, icons } from './config.js';
 import type { Emoji, DiscordTimestamp } from './types.js';
 
 export class DiscordComponentsError extends Error {
@@ -39,3 +39,12 @@ export const validateImageExtension = (url: string) => {
 };
 
 export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => getConfig().emojis?.[emojiName];
+// Function to either use premade clan icons or custom uploads
+export const getClanIcon = (clanIcon: string | undefined): string | undefined => {
+	if (!clanIcon) return undefined;
+
+	console.log(icons.get(clanIcon.toLowerCase()));
+
+	const mappedIcon = icons.get(clanIcon);
+	return mappedIcon ?? clanIcon;
+};
