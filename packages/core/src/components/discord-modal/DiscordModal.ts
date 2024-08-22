@@ -481,11 +481,19 @@ export class DiscordModal extends LitElement implements LightTheme {
 					return;
 				}
 
-				if (input instanceof HTMLTextAreaElement && input.value.length < Number(input.attributes.getNamedItem('minlength')?.value)) {
+				if (
+					(input instanceof HTMLTextAreaElement &&
+						input.value.length < Number(input.attributes.getNamedItem('minlength')?.value) &&
+						input.value.length > 0) ||
+					(input instanceof HTMLTextAreaElement &&
+						input.value.length < Number(input.attributes.getNamedItem('minlength')?.value) &&
+						input?.attributes.getNamedItem('required'))
+				) {
 					const messageNeededMinLength = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-min-length');
 
 					if (messageNeededMinLength instanceof HTMLDivElement && !messageNeededMinLength.style.display) {
 						messageNeededMinLength.style.display = 'flex';
+						slottedItem.hasWarning = true;
 
 						globalThis.setTimeout(() => {
 							messageNeededMinLength.style.opacity = '1';
@@ -508,8 +516,6 @@ export class DiscordModal extends LitElement implements LightTheme {
 		if (divRootModal instanceof HTMLDivElement) {
 			divRootModal.style.display = 'none';
 		}
-
-		// const divRootModal = this.shadowRoot?.querySelector("div.")
 
 		const slottedItems = this.shadowRoot?.querySelector('slot')?.assignedElements() ?? [];
 
