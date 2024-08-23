@@ -43,8 +43,5 @@ export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => getCo
 export const getClanIcon = (clanIcon: string | undefined): object | string | undefined => {
 	if (!clanIcon) return undefined;
 
-	console.log(typeof icons.get(clanIcon.toLowerCase()));
-
-	const mappedIcon = icons.get(clanIcon);
-	return mappedIcon ?? clanIcon;
+	return icons.get(clanIcon) ?? clanIcon;
 };
