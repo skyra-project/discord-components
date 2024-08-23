@@ -410,17 +410,17 @@ export class DiscordReply extends LitElement implements LightTheme {
 						profile.clanIcon && profile.clanTag && profile.clanTag?.length > 0,
 						() => html`
 							<span class="discord-clan-tag">
-								${typeof getClanIcon(this.clanIcon) === 'string'
+								${typeof getClanIcon(profile.clanIcon) === 'string'
 									? html`
 											<img
-												srcset=${ifDefined(getClanIcon(this.clanIcon))}
-												alt=${ifDefined(this.clanTag?.slice(0, 4))}
+												srcset=${ifDefined(getClanIcon(profile.clanIcon))}
+												alt=${ifDefined(profile.clanTag?.slice(0, 4))}
 												width="12"
 												height="12"
 												draggable="false"
 											/>
 										`
-									: getClanIcon(this.clanIcon)}
+									: getClanIcon(profile.clanIcon)}
 								<span>${profile.clanTag?.slice(0, 4)}</span>
 							</span>
 						`
