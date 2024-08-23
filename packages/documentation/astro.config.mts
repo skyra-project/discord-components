@@ -469,8 +469,14 @@ export default defineConfig({
 								dominik: {
 									author: 'Dominik',
 									avatar: 'https://github.com/mezotv.png',
-									clanIcon: 'https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/guilds/14.svg',
-									clanTag: 'Cute'
+									clanIcon: 'Leaf',
+									clanTag: 'Leaf'
+								},
+								paulos: {
+									author: 'Paulos',
+									avatar: 'https://github.com/dpaulos6.png',
+									clanIcon: 'water',
+									clanTag: 'CSS3'
 								},
 								discordjs: {
 									author: 'Discord.js Official #announcements',

@@ -27,8 +27,14 @@ globalThis.$discordMessage = {
 		dominik: {
 			author: 'Dominik',
 			avatar: 'https://github.com/mezotv.png',
-			clanIcon: 'heart',
-			clanTag: 'UwU'
+			clanIcon: 'leaf',
+			clanTag: 'Leaf'
+		},
+		paulos: {
+			author: 'Paulos',
+			avatar: 'https://github.com/dpaulos6.png',
+			clanIcon: 'water',
+			clanTag: 'CSS3'
 		},
 		discordjs: {
 			author: 'Discord.js Official #announcements',
