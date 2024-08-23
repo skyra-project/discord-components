@@ -127,6 +127,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 			background-color: hsl(0 calc(1 * 0%) 0.8%/0.03);
 		}
 
+		:host .discord-clan-tag svg,
 		:host .discord-clan-tag img {
 			display: inline-flex;
 			align-items: center;
@@ -409,16 +410,18 @@ export class DiscordReply extends LitElement implements LightTheme {
 						profile.clanIcon && profile.clanTag && profile.clanTag?.length > 0,
 						() => html`
 							<span class="discord-clan-tag">
-								<span>
-									<img
-										src=${ifDefined(getClanIcon(profile.clanIcon))}
-										alt=${ifDefined(profile.clanTag?.slice(0, 4))}
-										width="12"
-										height="12"
-										draggable="false"
-									/>
-									<span>${profile.clanTag?.slice(0, 4)}</span>
-								</span>
+								${typeof getClanIcon(this.clanIcon) === 'string'
+									? html`
+											<img
+												srcset=${ifDefined(getClanIcon(this.clanIcon))}
+												alt=${ifDefined(this.clanTag?.slice(0, 4))}
+												width="12"
+												height="12"
+												draggable="false"
+											/>
+										`
+									: getClanIcon(this.clanIcon)}
+								<span>${profile.clanTag?.slice(0, 4)}</span>
 							</span>
 						`
 					)}

@@ -78,6 +78,7 @@ export class DiscordAuthorInfo extends LitElement {
 		}
 
 		:host .discord-clan-tag span,
+		:host .discord-clan-tag svg,
 		:host .discord-clan-tag img {
 			user-select: none;
 			-webkit-user-select: none;
@@ -250,17 +251,21 @@ export class DiscordAuthorInfo extends LitElement {
 			this.clanIcon && this.clanTag && this.clanTag?.length > 0,
 			() => html`
 				<span class="discord-clan-tag">
-					<img
-						src=${ifDefined(getClanIcon(this.clanIcon))}
-						alt=${ifDefined(this.clanTag?.slice(0, 4))}
-						width="12"
-						height="12"
-						draggable="false"
-					/>
-					<span style="display: inline-flex">${this.clanTag?.toString()}</span>
+					${typeof getClanIcon(this.clanIcon) === 'string'
+						? html`
+								<img
+									srcset=${ifDefined(getClanIcon(this.clanIcon))}
+									alt=${ifDefined(this.clanTag?.slice(0, 4))}
+									width="12"
+									height="12"
+									draggable="false"
+								/>
+							`
+						: getClanIcon(this.clanIcon)}
+					<span>${this.clanTag?.slice(0, 4)}</span>
 				</span>
 			`
-		)}`;
+		)} `;
 	}
 }
 
