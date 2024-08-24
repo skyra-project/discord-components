@@ -477,12 +477,11 @@ export class DiscordMessage extends LitElement implements LightTheme {
 								?server=${profile.server ?? false}
 								?verified=${profile.verified ?? false}
 								?op=${profile.op ?? false}
-								roleColor=${profile.roleColor ?? ''}
-								roleIcon=${profile.roleIcon ?? ''}
-								roleName=${profile.roleName ?? ''}
-								clanIcon=${profile.clanIcon ?? ''}
-								clanTag=${profile.clanTag ?? ''}
-								?compact=${false}
+								role-color=${profile.roleColor ?? ''}
+								role-icon=${profile.roleIcon ?? ''}
+								role-name=${profile.roleName ?? ''}
+								clan-icon=${profile.clanIcon ?? ''}
+								clan-tag=${profile.clanTag ?? ''}
 							></discord-author-info
 							><time datetime="${ifDefined(computedTimestamp)}" class="discord-message-timestamp">${computedTimestamp}</time>
 						`
@@ -497,12 +496,11 @@ export class DiscordMessage extends LitElement implements LightTheme {
 									?server=${profile.server ?? false}
 									?verified=${profile.verified ?? false}
 									?op=${profile.op ?? false}
-									roleColor=${profile.roleColor ?? ''}
-									roleIcon=${profile.roleIcon ?? ''}
-									roleName=${profile.roleName ?? ''}
-									clanIcon=${profile.clanIcon ?? ''}
-									clanTag=${profile.clanTag ?? ''}
-									?compact=${true}
+									role-color=${profile.roleColor ?? ''}
+									role-icon=${profile.roleIcon ?? ''}
+									role-name=${profile.roleName ?? ''}
+									clan-icon=${profile.clanIcon ?? ''}
+									clan-tag=${profile.clanTag ?? ''}
 								></discord-author-info>`,
 							() => null
 						)}<span class="discord-message-markup"><slot></slot></span>

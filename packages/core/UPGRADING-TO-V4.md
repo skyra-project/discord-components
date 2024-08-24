@@ -211,4 +211,17 @@ that represents a list item within a `discord-unordered-list` or
 A new component called `discord-subscript` has been added. This is the component
 that represents a text with susbcript styling (smaller font size and lowered).
 
+#### `discord-author-info`
+
+The following properties were changed from `camelCase` to `kebab-case`:
+
+- `roleColor` -> `role-color`
+- `roleIcon` -> `role-icon`
+- `roleName` -> `role-name`
+
+The following properties were newly added:
+
+- `clan-icon`
+- `clan-tag`
+
 [Lit]: https://lit.dev

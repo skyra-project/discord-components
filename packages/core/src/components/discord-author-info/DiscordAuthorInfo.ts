@@ -167,19 +167,19 @@ export class DiscordAuthorInfo extends LitElement {
 	/**
 	 * The colour of the author, which comes from their highest role
 	 */
-	@property()
+	@property({ attribute: 'role-color' })
 	public accessor roleColor: string | undefined = undefined;
 
 	/**
 	 * The role icon of the author, which comes from their highest role
 	 */
-	@property()
+	@property({ attribute: 'role-icon' })
 	public accessor roleIcon: string | undefined = undefined;
 
 	/**
 	 * The role name of the author, which comes from their highest role
 	 */
-	@property()
+	@property({ attribute: 'role-name' })
 	public accessor roleName: string | undefined = undefined;
 
 	/**

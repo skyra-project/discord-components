@@ -384,8 +384,8 @@ export class DiscordReply extends LitElement implements LightTheme {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
 
-		const clanIcon = getClanIcon(this.clanIcon);
-		const slicedClanTag = this.clanTag?.slice(0, 4);
+		const clanIcon = getClanIcon(profile.clanIcon);
+		const slicedClanTag = profile.clanTag?.slice(0, 4);
 
 		const profileTag = html`
 			${when(
