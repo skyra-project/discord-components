@@ -14,12 +14,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish-core:
-    name: Publish @skyra/discord-components-core
+  publish:
+    name: Publish
     runs-on: ubuntu-latest
     if: github.repository_owner == 'skyra-project'
-    outputs:
-      new_version: ${{ steps.store-new-version.outputs.new_version }}
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
@@ -42,6 +40,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Update generated readme files
         run: yarn inject
+      - name: Build code
+        run: yarn build
       - name: Bump Versions and make release
         working-directory: packages/core
         run: |
@@ -58,7 +58,13 @@ jobs:
         run: |
           new_version=$(node -e "console.log(require('./package.json').version)")
           echo "new_version=${new_version}" >> "$GITHUB_OUTPUT"
-      - name: Publish to NPM
+      - name: Set version of react package
+        working-directory: packages/react
+        run: yarn version --new-version ${{ steps.store-new-version.outputs.new_version }} --immediate
+      - name: Copy changelog over
+        working-directory: packages/react
+        run: cp ../core/CHANGELOG.md CHANGELOG.md
+      - name: Publish @skyra/discord-components-core
         working-directory: packages/core
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
@@ -66,28 +72,7 @@ jobs:
           # yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
-
-  publish-react:
-    name: Publish @skyra/discord-components-react
-    runs-on: ubuntu-latest
-    needs: publish-core
-    if: github.repository_owner == 'skyra-project'
-    steps:
-      - name: Checkout Project
-        uses: actions/checkout@v4
-        with:
-          ref: main
-      - name: Install dependencies
-        uses: sapphiredev/.github/actions/install-yarn-dependencies@main
-        with:
-          node-version: 20
-      - name: Set version of react package
-        working-directory: packages/react
-        run: yarn version --new-version ${{ needs.publish-core.outputs.new_version }} --immediate
-      - name: Copy changelog over
-        working-directory: packages/react
-        run: cp ../core/CHANGELOG.md CHANGELOG.md
-      - name: Publish to NPM
+      - name: Publish @skyra/discord-components-react
         working-directory: packages/react
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
