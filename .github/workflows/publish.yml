@@ -60,7 +60,7 @@ jobs:
           echo "new_version=${new_version}" >> "$GITHUB_OUTPUT"
       - name: Set version of react package
         working-directory: packages/react
-        run: yarn version --new-version ${{ steps.store-new-version.outputs.new_version }} --immediate
+        run: yarn version ${{ steps.store-new-version.outputs.new_version }} --immediate
       - name: Copy changelog over
         working-directory: packages/react
         run: cp ../core/CHANGELOG.md CHANGELOG.md
