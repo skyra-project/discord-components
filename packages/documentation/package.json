@@ -1,7 +1,7 @@
 {
 	"name": "documentation",
 	"type": "module",
-	"version": "4.0.0-alpha.32",
+	"version": "4.0.0-alpha.33",
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
