@@ -1,0 +1,10 @@
+name: discord-components-core
+org: skyra
+install: true
+packagePath: packages/core
+identifierBase: false
+# pushTag: true
+# githubRelease: true
+# githubReleaseLatest: true
+# githubRepo: skyra-project/discord-components
+# githubReleaseNameTemplate: "v{{version}}"
