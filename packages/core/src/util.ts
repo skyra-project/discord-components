@@ -39,7 +39,9 @@ export const validateImageExtension = (url: string) => {
 };
 
 const emojiRegex = /(?:<(?<animated>a)?:(?<name>\w{2,32}):)?(?<id>\d{17,21})>?/;
+const emojiRegex = /(?:<(?<animated>a)?:(?<name>\w{2,32}):)?(?<id>\d{17,21})>?/;
 export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => {
+	const globalEmoji = {
 	const globalEmoji = getConfig().emojis?.[emojiName];
 	if (globalEmoji) return globalEmoji;
 
@@ -62,4 +64,20 @@ export const getClanIcon = (clanIcon: string | undefined): object | string | und
 	if (!clanIcon) return undefined;
 
 	return icons.get(clanIcon) ?? clanIcon;
+};
+	if (globalEmoji) return globalEmoji;
+
+	const match = emojiRegex.exec(emojiName);
+
+	if (match?.groups) {
+		const { name, id, animated } = match.groups;
+		const extension = animated ? 'gif' : 'png';
+
+		return {
+			name,
+			url: `https://cdn.discordapp.com/emojis/${id}.${extension}`
+		};
+	}
+
+	return undefined;
 };
