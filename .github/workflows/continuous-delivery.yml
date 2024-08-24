@@ -1,0 +1,74 @@
+name: Continuous Delivery
+
+on:
+  workflow_dispatch:
+    inputs:
+      is-alpha:
+        type: boolean
+        required: false
+        default: true
+        description: Whether to publish an alpha version or not
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    name: Publish Alpha
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'skyra-project'
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+      - name: Install dependencies
+        uses: sapphiredev/.github/actions/install-yarn-dependencies@main
+        with:
+          node-version: 20
+      - name: Configure Git
+        run: |
+          git remote set-url origin "https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git"
+          git config --local user.email "${GITHUB_EMAIL}"
+          git config --local user.name "${GITHUB_USER}"
+        env:
+          GITHUB_USER: github-actions[bot]
+          GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update generated readme files
+        run: yarn inject
+      - name: Build code
+        run: yarn build
+      - name: Bump Versions and make release
+        working-directory: packages/core
+        run: |
+          yarn bump --preid "alpha.$(git rev-parse --verify --short HEAD)" --skip-changelog --dry-run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Store new version
+        id: store-new-version
+        working-directory: packages/core
+        run: echo "new_version=$(jq -r '.version' ./package.json)" >> "$GITHUB_OUTPUT"
+      - name: Set version of react package
+        working-directory: packages/react
+        run: yarn version ${{ steps.store-new-version.outputs.new_version }} --immediate
+      - name: Copy changelog over
+        working-directory: packages/react
+        run: cp ../core/CHANGELOG.md CHANGELOG.md
+      - name: Configure yarn
+        working-directory: packages/core
+        run: |
+          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
+          yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+      - name: Publish @skyra/discord-components-core
+        working-directory: packages/core
+        if: false
+        run: yarn npm publish --tag alpha
+      - name: Publish @skyra/discord-components-react
+        working-directory: packages/react
+        if: false
+        run: yarn npm publish --tag alpha
