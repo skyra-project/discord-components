@@ -8,6 +8,7 @@ export class DiscordTime extends LitElement {
 	 */
 	public static override readonly styles = css`
 		:host {
+			white-space: nowrap;
 			background-color: #ffffff0f;
 			border-radius: 3px;
 			padding: 0 2px;
