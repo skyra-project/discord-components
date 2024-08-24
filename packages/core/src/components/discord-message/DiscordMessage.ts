@@ -331,13 +331,13 @@ export class DiscordMessage extends LitElement implements LightTheme {
 	/**
 	 * The clan's tag icon URL.
 	 */
-	@property({ attribute: 'role-icon' })
+	@property({ attribute: 'clan-icon' })
 	public accessor clanIcon: string | undefined = undefined;
 
 	/**
 	 * The name of the clan you are part of
 	 */
-	@property({ attribute: 'role-name' })
+	@property({ attribute: 'clan-tag' })
 	public accessor clanTag: string | undefined = undefined;
 
 	/**

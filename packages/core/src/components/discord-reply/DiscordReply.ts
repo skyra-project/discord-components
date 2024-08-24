@@ -384,6 +384,9 @@ export class DiscordReply extends LitElement implements LightTheme {
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
 
+		const clanIcon = getClanIcon(this.clanIcon);
+		const slicedClanTag = this.clanTag?.slice(0, 4);
+
 		const profileTag = html`
 			${when(
 				profile.bot && !profile.server,
@@ -408,22 +411,19 @@ export class DiscordReply extends LitElement implements LightTheme {
 					>
 					${when(
 						profile.clanIcon && profile.clanTag && profile.clanTag?.length > 0,
-						() => html`
-							<span class="discord-clan-tag">
-								${typeof getClanIcon(profile.clanIcon) === 'string'
-									? html`
-											<img
-												srcset=${ifDefined(getClanIcon(profile.clanIcon))}
-												alt=${ifDefined(profile.clanTag?.slice(0, 4))}
-												width="12"
-												height="12"
-												draggable="false"
-											/>
-										`
-									: getClanIcon(profile.clanIcon)}
-								<span>${profile.clanTag?.slice(0, 4)}</span>
-							</span>
-						`
+						() =>
+							html`<span class="discord-clan-tag">
+								${clanIcon === 'string'
+									? html`<img
+											srcset=${ifDefined(clanIcon)}
+											alt=${ifDefined(slicedClanTag)}
+											width="12"
+											height="12"
+											draggable="false"
+										/>`
+									: clanIcon}
+								<span>${slicedClanTag}</span>
+							</span>`
 					)}
 					<!-- display: inline -->
 					<div class="discord-replied-message-content"

@@ -64,8 +64,8 @@ export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => {
  * @param clanIcon - The clan icon to get the image for
  * @returns The image for the clan icon, or the clan icon itself if it's not found
  */
-export const getClanIcon = (clanIcon: string | undefined): object | string | undefined => {
+export function getClanIcon(clanIcon: string | undefined): object | string | undefined {
 	if (!clanIcon) return undefined;
 
 	return icons.get(clanIcon) ?? clanIcon;
-};
+}

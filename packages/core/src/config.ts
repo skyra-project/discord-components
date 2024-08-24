@@ -1,24 +1,26 @@
-import Crystal from './components/svgs/clan-icons/Crystal.js';
-import Diamond from './components/svgs/clan-icons/Diamond.js';
-import Explosion from './components/svgs/clan-icons/Explosion.js';
-import Flame from './components/svgs/clan-icons/Flame.js';
-import Flower from './components/svgs/clan-icons/Flower.js';
-import Heart from './components/svgs/clan-icons/Heart.js';
-import Key from './components/svgs/clan-icons/Key.js';
-import Leaf from './components/svgs/clan-icons/Leaf.js';
-import Lightning from './components/svgs/clan-icons/Lightning.js';
-import Magic from './components/svgs/clan-icons/Magic.js';
-import Moon from './components/svgs/clan-icons/Moon.js';
-import Mushroom from './components/svgs/clan-icons/Mushroom.js';
-import Mythical from './components/svgs/clan-icons/Mythical.js';
-import Ornament from './components/svgs/clan-icons/Ornament.js';
-import Plasma from './components/svgs/clan-icons/Plasma.js';
-import Rock from './components/svgs/clan-icons/Rock.js';
-import Shell from './components/svgs/clan-icons/Shell.js';
-import Skull from './components/svgs/clan-icons/Skull.js';
-import Sun from './components/svgs/clan-icons/Sun.js';
-import Sword from './components/svgs/clan-icons/Sword.js';
-import Water from './components/svgs/clan-icons/Water.js';
+import {
+	Crystal,
+	Diamond,
+	Explosion,
+	Flame,
+	Flower,
+	Heart,
+	Key,
+	Leaf,
+	Lightning,
+	Magic,
+	Moon,
+	Mushroom,
+	Mythical,
+	Ornament,
+	Plasma,
+	Rock,
+	Shell,
+	Skull,
+	Sun,
+	Sword,
+	Water
+} from './components/svgs/clan-icons/index.js';
 import type { Avatars, DiscordMessageOptions, Profile } from './types.js';
 
 let config: DiscordMessageOptions = globalThis.$discordMessage ?? {};

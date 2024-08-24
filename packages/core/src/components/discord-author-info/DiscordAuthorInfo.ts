@@ -185,13 +185,13 @@ export class DiscordAuthorInfo extends LitElement {
 	/**
 	 * The clan icon of the author, which comes from the enabled clan tag
 	 */
-	@property()
+	@property({ attribute: 'clan-icon' })
 	public accessor clanIcon: string | undefined = undefined;
 
 	/**
 	 * The clan name of the author, which comes from the enabled clan tag
 	 */
-	@property()
+	@property({ attribute: 'clan-tag' })
 	public accessor clanTag: string | undefined = undefined;
 
 	/**
@@ -212,6 +212,9 @@ export class DiscordAuthorInfo extends LitElement {
 	public accessor lightTheme = false;
 
 	protected override render() {
+		const clanIcon = getClanIcon(this.clanIcon);
+		const slicedClanTag = this.clanTag?.slice(0, 4);
+
 		return html`${when(
 			this.compactMode,
 			() => null,
@@ -251,18 +254,10 @@ export class DiscordAuthorInfo extends LitElement {
 			this.clanIcon && this.clanTag && this.clanTag?.length > 0,
 			() => html`
 				<span class="discord-clan-tag">
-					${typeof getClanIcon(this.clanIcon) === 'string'
-						? html`
-								<img
-									srcset=${ifDefined(getClanIcon(this.clanIcon))}
-									alt=${ifDefined(this.clanTag?.slice(0, 4))}
-									width="12"
-									height="12"
-									draggable="false"
-								/>
-							`
-						: getClanIcon(this.clanIcon)}
-					<span>${this.clanTag?.slice(0, 4)}</span>
+					${clanIcon === 'string'
+						? html`<img srcset=${ifDefined(clanIcon)} alt=${ifDefined(slicedClanTag)} width="12" height="12" draggable="false" />`
+						: clanIcon}
+					<span>${slicedClanTag}</span>
 				</span>
 			`
 		)} `;
