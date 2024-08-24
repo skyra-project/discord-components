@@ -1,6 +1,6 @@
 import { consume } from '@lit/context';
 import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createRef, ref, type Ref } from 'lit/directives/ref.js';
@@ -447,6 +447,9 @@ export class DiscordModal extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
+	@state()
+	public accessor originalBodyOverflow: string;
+
 	protected dialogRef: Ref<HTMLDialogElement> = createRef();
 
 	protected handleClickCloseIcon() {
@@ -510,7 +513,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 	}
 
 	protected onCloseDialog() {
-		document.documentElement.style.overflowY = 'scroll';
+		globalThis.document.body.style.overflow = this.originalBodyOverflow ?? 'scroll';
 
 		const divRootModal = this.shadowRoot?.querySelector('div.discord-modal-box');
 		if (divRootModal instanceof HTMLDivElement) {
