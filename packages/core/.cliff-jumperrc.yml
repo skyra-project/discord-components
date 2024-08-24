@@ -3,8 +3,9 @@ org: skyra
 install: true
 packagePath: packages/core
 identifierBase: false
+tagTemplate: 'v{{new-version}}'
 # pushTag: true
 # githubRelease: true
 # githubReleaseLatest: true
 # githubRepo: skyra-project/discord-components
-# githubReleaseNameTemplate: "v{{version}}"
+# githubReleaseNameTemplate: "v{{new-version}}"
