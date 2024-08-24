@@ -23,23 +23,23 @@ const formatTime = (value: Exclude<DiscordTimestamp, null>, hour24 = false): str
 	return intlTwelveHourFormat.format(value);
 };
 
-export const handleTimestamp = (value: DiscordTimestamp, useTime = false, hour24 = false): string | null => {
+export function handleTimestamp(value: DiscordTimestamp, useTime = false, hour24 = false): string | null {
 	if (!(value instanceof Date) && typeof value !== 'string') {
 		throw new TypeError('Timestamp prop must be a Date object or a string.');
 	}
 
 	return useTime ? formatTime(value, hour24) : formatDate(value);
-};
+}
 
 export const IMAGE_EXTENSION = /\.(?<ext>bmp|jpe?g|png|gif|webp|tiff)$/i;
 
-export const validateImageExtension = (url: string) => {
+export function validateImageExtension(url: string) {
 	if (!IMAGE_EXTENSION.test(url))
 		throw new DiscordComponentsError(`The url of an image for discord-image-attachment should match the regex ${IMAGE_EXTENSION}`);
-};
+}
 
 const emojiRegex = /(?:<(?<animated>a)?:(?<name>\w{2,32}):)?(?<id>\d{17,21})>?/;
-export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => {
+export function getGlobalEmojiUrl(emojiName: string): Emoji | undefined {
 	const globalEmoji = getConfig().emojis?.[emojiName];
 	if (globalEmoji) return globalEmoji;
 
@@ -56,7 +56,7 @@ export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => {
 	}
 
 	return undefined;
-};
+}
 
 /**
  * Get the image for a clan icon
