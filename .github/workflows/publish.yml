@@ -55,28 +55,25 @@ jobs:
       - name: Store new version
         id: store-new-version
         working-directory: packages/core
-        run: |
-          new_version=$(node -e "console.log(require('./package.json').version)")
-          echo "new_version=${new_version}" >> "$GITHUB_OUTPUT"
+        run: echo "new_version=$(jq -r '.version' ./package.json)" >> "$GITHUB_OUTPUT"
       - name: Set version of react package
         working-directory: packages/react
         run: yarn version ${{ steps.store-new-version.outputs.new_version }} --immediate
       - name: Copy changelog over
         working-directory: packages/react
         run: cp ../core/CHANGELOG.md CHANGELOG.md
-      - name: Publish @skyra/discord-components-core
+      - name: Configure yarn
         working-directory: packages/core
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
           yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
-          # yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+      - name: Publish @skyra/discord-components-core
+        working-directory: packages/core
+        if: false
+        run: yarn npm publish
       - name: Publish @skyra/discord-components-react
         working-directory: packages/react
-        run: |
-          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
-          yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
-          # yarn npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        if: false
+        run: yarn npm publish
