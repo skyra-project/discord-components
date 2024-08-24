@@ -1,0 +1,223 @@
+---
+import { templates } from './templates.ts';
+import { Image } from 'astro:assets';
+---
+
+<style>
+	.section-heading {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		margin: 12px 0 72px;
+	}
+
+	.section-heading h2 {
+		margin-bottom: 32px;
+		text-align: center;
+		font-size: 56px;
+		letter-spacing: -1px;
+		line-height: 64px;
+		font-weight: 800;
+	}
+
+	.section-heading p {
+		line-height: 1.6;
+		max-width: 600px;
+		text-align: center;
+		font-size: 16px;
+		font-weight: 400;
+	}
+
+	.projects {
+		margin-top: 40px !important;
+	}
+
+	ul,
+	li {
+		list-style: none;
+	}
+
+	ul {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		gap: 40px;
+		justify-content: center;
+		max-width: 600px;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		position: relative;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 2;
+		display: grid;
+		place-content: center;
+	}
+
+	.background {
+		background-color: #ababab11;
+		border-radius: 15px;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		outline: 1.5px solid #aaa;
+		position: absolute;
+		top: 0;
+		-webkit-transform: scale(1.35);
+		transform: scale(1.35);
+		-webkit-transition: opacity 0.1s;
+		transition: opacity 0.1s;
+		width: 100%;
+		z-index: -1;
+	}
+
+	a {
+		text-underline-offset: 4px;
+		touch-action: manipulation;
+		color: inherit;
+		text-decoration: inherit;
+	}
+
+	img {
+		border-radius: 5px;
+		height: 75px !important;
+		-o-object-fit: contain;
+		object-fit: contain;
+		-webkit-transition: opacity 0.1s;
+		transition: opacity 0.1s;
+		width: 75px;
+		max-width: 100% !important;
+		display: block !important;
+		vertical-align: middle;
+	}
+
+	li:focus-visible {
+		outline-color: #a855f7;
+		outline-style: dotted;
+		outline-width: 2px;
+	}
+
+	li:hover img {
+		filter: none;
+		opacity: 1;
+	}
+
+	li.blue:hover .background {
+		opacity: 1;
+		-webkit-filter: sepia(100%) hue-rotate(160deg) saturate(300%) brightness(110%) drop-shadow(0 0 20px rgba(24, 91, 145, 0.533)) blur(0.5px);
+		filter: sepia(100%) hue-rotate(160deg) saturate(300%) brightness(110%) drop-shadow(0 0 20px rgba(24, 91, 145, 0.5333333333)) blur(0.5px);
+	}
+
+	li.green:hover .background {
+		opacity: 1;
+		-webkit-filter: sepia(100%) hue-rotate(95deg) saturate(250%) brightness(120%) drop-shadow(0 0 20px rgba(24, 145, 34, 0.533)) blur(0.5px);
+		filter: sepia(100%) hue-rotate(95deg) saturate(250%) brightness(120%) drop-shadow(0 0 20px rgba(24, 145, 34, 0.5333333333)) blur(0.5px);
+	}
+
+	li.grey:hover .background {
+		opacity: 1;
+		-webkit-filter: sepia(100%) hue-rotate(0deg) saturate(0%) brightness(120%) drop-shadow(0 0 20px rgba(57, 57, 57, 0.533)) blur(0.5px);
+		filter: sepia(0%) hue-rotate(0deg) saturate(0%) brightness(120%) drop-shadow(0 0 20px rgba(57, 57, 57, 0.5333333333)) blur(0.5px);
+	}
+
+	li.purple:hover .background {
+		opacity: 1;
+		-webkit-filter: sepia(100%) hue-rotate(225deg) saturate(300%) brightness(110%) drop-shadow(0 0 20px rgba(117, 24, 145, 0.533)) blur(0.5px);
+		filter: sepia(100%) hue-rotate(225deg) saturate(300%) brightness(110%) drop-shadow(0 0 20px rgba(117, 24, 145, 0.5333333333)) blur(0.5px);
+	}
+
+	li.red:hover .background {
+		opacity: 1;
+		-webkit-filter: sepia(100%) hue-rotate(300deg) saturate(300%) brightness(110%) drop-shadow(0 0 20px rgba(24, 91, 145, 0.533)) blur(0.5px);
+		filter: sepia(100%) hue-rotate(300deg) saturate(300%) brightness(110%) drop-shadow(0 0 20px rgba(24, 91, 145, 0.5333333333)) blur(0.5px);
+	}
+
+	li.yellow:hover .background {
+		opacity: 1;
+		-webkit-filter: sepia(100%) hue-rotate(-15deg) saturate(200%) brightness(130%) drop-shadow(0 0 20px rgba(145, 123, 24, 0.533)) blur(0.5px);
+		filter: sepia(100%) hue-rotate(-15deg) saturate(200%) brightness(130%) drop-shadow(0 0 20px rgba(145, 123, 24, 0.5333333333)) blur(0.5px);
+	}
+
+	.tooltip {
+		position: relative;
+		display: inline-block;
+		text-align: center;
+	}
+
+	.tooltip:before {
+		content: attr(data-tip);
+		position: absolute;
+		background-color: oklch(31.3815% 0.021108 254.139175);
+		border-radius: 0.25rem;
+		color: oklch(74.6477% 0.0216 264.435964);
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		max-width: 20rem;
+		opacity: 0;
+		padding: 0.25rem 0.5rem;
+		pointer-events: none;
+		transition-duration: 0.2s;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		white-space: normal;
+		width: max-content;
+		z-index: 1000;
+	}
+
+	.tooltip:hover:before {
+		opacity: 1;
+		transition-delay: 50ms;
+	}
+
+	.tooltip,
+	.tooltip-top {
+		&:before {
+			transform: translateX(-50%);
+			top: auto;
+			left: 50%;
+			right: auto;
+			bottom: calc(100% + 1px + 1.1875rem);
+		}
+	}
+</style>
+
+<div class="section-heading">
+	<h2>Templates</h2>
+	<p>
+		In addition to the documentation available on this website, we offer templates for various frameworks. Click the icon of your preferred
+		framework below to access the corresponding template code on GitHub.
+	</p>
+
+	<div class="projects">
+		<ul>
+			{
+				templates.map((template) => (
+					<li class={`${template.color} tooltip`} data-tip={template.tooltipText}>
+						<div class="background" />
+						<a
+							href={`https://github.com/skyra-project/discord-components-implementations/tree/main/templates/${template.templateName}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							title={template.title}
+						>
+							<Image src={template.image} alt={template.title} />
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>

@@ -16,94 +16,43 @@ hero:
 import { Card, CardGrid, Code, Icon } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { npmToBun, npmToYarn, npmToPnpm } from '@sapphire/docusaurus-plugin-npm2yarn2pnpm';
+import Templates from '../../components/astro/framework-grid.astro';
 
 <CardGrid stagger>
-  <Card title="Installation Core package" icon="seti:html">
-    <Tabs>
-      <TabItem label="npm" icon="seti:npm">
-        <Code code="npm install @skyra/discord-components-core" lang="sh"></Code>
-      </TabItem>
-      <TabItem label="yarn" icon="seti:yarn">
-        <Code code={npmToYarn("npm install @skyra/discord-components-core")} lang="sh"></Code>
-      </TabItem>
-      <TabItem label="pnpm" icon="pnpm">
-        <Code code={npmToPnpm("npm install @skyra/discord-components-core")} lang="sh"></Code>
-      </TabItem>
-      <TabItem label="bun" icon="bun">
-        <Code code={npmToBun("npm install @skyra/discord-components-core")} lang="sh"></Code>
-      </TabItem>
-    </Tabs>
-  </Card>
-
-<Card title="Installation React bindings" icon="seti:html">
-	<Tabs>
+	<Card title="Installation Core package" icon="seti:html">
+		<Tabs>
 		<TabItem label="npm" icon="seti:npm">
-			<Code code="npm install @skyra/discord-components-react" lang="sh"></Code>
+			<Code code="npm install @skyra/discord-components-core" lang="sh"></Code>
 		</TabItem>
 		<TabItem label="yarn" icon="seti:yarn">
-			<Code code={npmToYarn('npm install @skyra/discord-components-react')} lang="sh"></Code>
+			<Code code={npmToYarn("npm install @skyra/discord-components-core")} lang="sh"></Code>
 		</TabItem>
 		<TabItem label="pnpm" icon="pnpm">
-			<Code code={npmToPnpm('npm install @skyra/discord-components-react')} lang="sh"></Code>
+			<Code code={npmToPnpm("npm install @skyra/discord-components-core")} lang="sh"></Code>
 		</TabItem>
 		<TabItem label="bun" icon="bun">
-			<Code code={npmToBun('npm install @skyra/discord-components-react')} lang="sh"></Code>
+			<Code code={npmToBun("npm install @skyra/discord-components-core")} lang="sh"></Code>
 		</TabItem>
-	</Tabs>
-</Card>
+		</Tabs>
+	</Card>
 
-<Card title="View framework examples" icon="seti:folder">
-	<Tabs>
-		<TabItem label="React" icon="seti:react">
-			<a
-				class="sl-flex action primary astro-button"
-				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/react-vite-ts"
-				target="_blank"
-				rel='noreferrer'
-			>
-				<span className='example-button'>React with Vite <Icon className="example-button-icon" name="right-arrow" /></span>
-			</a>
-		</TabItem>
-		<TabItem label="Vue" icon="seti:vue">
-			<a
-				class="sl-flex action primary astro-button"
-				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/vue-vite-ts"
-				target="_blank"
-				rel='noreferrer'
-			>
-				<span className='example-button'>Vue with Vite <Icon name="right-arrow" /></span>
-			</a>
-		</TabItem>
-		<TabItem label="Angular" icon="seti:javascript">
-			<a
-				class="sl-flex action primary astro-button"
-				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/angular"
-				target="_blank"
-				rel='noreferrer'
-			>
-				<span className='example-button'>Angular <Icon name="right-arrow" /></span>
-			</a>
-		</TabItem>
-		<TabItem label="Astro" icon="astro">
-			<a
-				class="sl-flex action primary astro-button"
-				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/astro"
-				target="_blank"
-				rel='noreferrer'
-			>
-				<span className='example-button'>Astro <Icon name="right-arrow" /></span>
-			</a>
-		</TabItem>
-		<TabItem label="Svelte" icon="svelte">
-			<a
-				class="sl-flex action primary astro-button"
-				href="https://github.com/skyra-project/discord-components-implementations/tree/main/templates/svelte-vite-ts"
-				target="_blank"
-				rel='noreferrer'
-			>
-				<span className='example-button'>Svelte <Icon name="right-arrow" /></span>
-			</a>
-		</TabItem>
-	</Tabs>
-</Card>
+    <Card title="Installation React bindings" icon="seti:html">
+    	<Tabs>
+    		<TabItem label="npm" icon="seti:npm">
+    			<Code code="npm install @skyra/discord-components-react" lang="sh"></Code>
+    		</TabItem>
+    		<TabItem label="yarn" icon="seti:yarn">
+    			<Code code={npmToYarn('npm install @skyra/discord-components-react')} lang="sh"></Code>
+    		</TabItem>
+    		<TabItem label="pnpm" icon="pnpm">
+    			<Code code={npmToPnpm('npm install @skyra/discord-components-react')} lang="sh"></Code>
+    		</TabItem>
+    		<TabItem label="bun" icon="bun">
+    			<Code code={npmToBun('npm install @skyra/discord-components-react')} lang="sh"></Code>
+    		</TabItem>
+    	</Tabs>
+    </Card>
+
 </CardGrid>
+
+<Templates />
