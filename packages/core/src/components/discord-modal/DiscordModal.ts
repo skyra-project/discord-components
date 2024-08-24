@@ -1,11 +1,12 @@
 import { consume } from '@lit/context';
 import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createRef, ref, type Ref } from 'lit/directives/ref.js';
 import { avatars, profiles } from '../../config.js';
 import type { LightTheme, Profile } from '../../types.js';
+import { DiscordInputText } from '../discord-input-text/DiscordInputText.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import ModalClose from '../svgs/ModalClose.js';
 import ModalWarning from '../svgs/ModalWarning.js';
@@ -439,9 +440,15 @@ export class DiscordModal extends LitElement implements LightTheme {
 	@property({ reflect: false, noAccessor: true, attribute: false })
 	public accessor submitForm: (...args: unknown[]) => void;
 
+	@property({ reflect: false, noAccessor: true, attribute: false })
+	public accessor closeForm: (...args: unknown[]) => void;
+
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
+
+	@state()
+	public accessor originalBodyOverflow: string;
 
 	protected dialogRef: Ref<HTMLDialogElement> = createRef();
 
@@ -453,37 +460,90 @@ export class DiscordModal extends LitElement implements LightTheme {
 
 	protected handleFormSubmit(event: SubmitEvent) {
 		event.preventDefault();
-
 		event.stopPropagation();
 
-		const expanderT = this.shadowRoot?.querySelector('slot');
+		const slottedItems = this.shadowRoot?.querySelector('slot')?.assignedElements() ?? [];
 
-		const slotedItems = expanderT?.assignedElements();
+		for (const slottedItem of slottedItems) {
+			if (slottedItem instanceof DiscordInputText) {
+				const shadowRootSlot = slottedItem.shadowRoot;
 
-		for (const index of slotedItems!) {
-			const shadowRootSlot = index.shadowRoot;
+				const input = shadowRootSlot?.querySelector('input') ?? shadowRootSlot?.querySelector('textarea');
 
-			const input = shadowRootSlot?.querySelector('input') ?? shadowRootSlot?.querySelector('textarea');
+				if (input?.attributes.getNamedItem('required') && !input.value) {
+					const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
 
-			if (input?.attributes.getNamedItem('required') && !input.value) {
-				const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
+					if (messageNeeded instanceof HTMLDivElement && !messageNeeded.style.display) {
+						messageNeeded.style.display = 'flex';
 
-				if (messageNeeded instanceof HTMLDivElement && !messageNeeded.style.display) {
-					messageNeeded.style.display = 'flex';
+						globalThis.setTimeout(() => {
+							messageNeeded.style.opacity = '1';
+						}, 1);
+					}
 
-					globalThis.setTimeout(() => {
-						messageNeeded.style.opacity = '1';
-					}, 1);
+					return;
 				}
 
-				return;
-			}
+				if (
+					(input instanceof HTMLTextAreaElement &&
+						input.value.length < Number(input.attributes.getNamedItem('minlength')?.value) &&
+						input.value.length > 0) ||
+					(input instanceof HTMLTextAreaElement &&
+						input.value.length < Number(input.attributes.getNamedItem('minlength')?.value) &&
+						input?.attributes.getNamedItem('required'))
+				) {
+					const messageNeededMinLength = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-min-length');
 
-			if (input!.value.length < Number(input?.attributes.getNamedItem('minlength')?.value)) return;
+					if (messageNeededMinLength instanceof HTMLDivElement && !messageNeededMinLength.style.display) {
+						messageNeededMinLength.style.display = 'flex';
+						slottedItem.hasWarning = true;
+
+						globalThis.setTimeout(() => {
+							messageNeededMinLength.style.opacity = '1';
+						}, 1);
+					}
+
+					return;
+				}
+			}
 		}
 
 		this.submitForm?.();
 		this.handleClickCloseIcon();
+	}
+
+	protected onCloseDialog() {
+		globalThis.document.body.style.overflow = this.originalBodyOverflow ?? 'scroll';
+
+		const divRootModal = this.shadowRoot?.querySelector('div.discord-modal-box');
+		if (divRootModal instanceof HTMLDivElement) {
+			divRootModal.style.display = 'none';
+		}
+
+		const slottedItems = this.shadowRoot?.querySelector('slot')?.assignedElements() ?? [];
+
+		for (const slottedItem of slottedItems) {
+			if (slottedItem instanceof DiscordInputText) {
+				slottedItem.resetState();
+
+				const shadowRootSlot = slottedItem.shadowRoot;
+
+				const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
+				const messageNeededMinLength = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-min-length');
+
+				if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
+					messageNeeded.style.display = '';
+					messageNeeded.style.opacity = '0';
+				}
+
+				if (messageNeededMinLength instanceof HTMLDivElement && messageNeededMinLength.style.display) {
+					messageNeededMinLength.style.display = '';
+					messageNeededMinLength.style.opacity = '0';
+				}
+			}
+		}
+
+		this.closeForm?.();
 	}
 
 	protected override render() {
@@ -593,30 +653,6 @@ export class DiscordModal extends LitElement implements LightTheme {
 				</div>
 			</dialog>
 		`;
-	}
-
-	protected onCloseDialog() {
-		document.documentElement.style.overflowY = 'scroll';
-
-		const divRootModal = this.shadowRoot?.querySelector('div.discord-modal-box');
-		if (divRootModal instanceof HTMLDivElement) {
-			divRootModal.style.display = 'none';
-		}
-
-		const expanderT = this.shadowRoot?.querySelector('slot');
-
-		const slotedItems = expanderT?.assignedElements();
-
-		for (const index of slotedItems!) {
-			const shadowRootSlot = index.shadowRoot;
-
-			const messageNeeded = shadowRootSlot?.querySelector('div.discord-text-input-message-needed-input');
-
-			if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
-				messageNeeded.style.display = '';
-				messageNeeded.style.opacity = '0';
-			}
-		}
 	}
 
 	private resolveAvatar(avatar: string | undefined): string {

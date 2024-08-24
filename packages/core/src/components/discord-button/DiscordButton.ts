@@ -160,13 +160,20 @@ export class DiscordButton extends LitElement {
 		if (this.modalId) {
 			const rootDiscordMessagesElement = this.parentElement?.parentElement?.parentElement?.parentElement;
 			if (rootDiscordMessagesElement?.tagName?.toLowerCase() === 'discord-messages') {
-				const dialogElement = rootDiscordMessagesElement?.querySelector(`discord-modal`)?.shadowRoot?.querySelector(`dialog#${this.modalId}`);
+				const discordModalComponent = rootDiscordMessagesElement?.querySelector(`discord-modal`);
+				const dialogElement = discordModalComponent?.shadowRoot?.querySelector(`dialog#${this.modalId}`);
 				const divRootModal = dialogElement?.querySelector(`div.discord-modal-box`);
 
 				if (dialogElement instanceof HTMLDialogElement && divRootModal instanceof HTMLDivElement) {
 					dialogElement.showModal();
 					divRootModal.style.display = 'flex';
-					document.documentElement.style.overflowY = 'hidden';
+
+					if (discordModalComponent) {
+						const originalDocumentOverflowStyle = globalThis.getComputedStyle(globalThis.document.body).overflow;
+						discordModalComponent.originalBodyOverflow = originalDocumentOverflowStyle;
+
+						globalThis.document.body.style.overflow = 'hidden';
+					}
 				}
 			}
 		}
