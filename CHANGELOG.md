@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.32](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.31...v4.0.0-alpha.32) (2024-08-24)
+
+### Bug Fixes
+
+* correct the line style that indicates the thread ([#457](https://github.com/skyra-project/discord-components/issues/457)) ([5fe063a](https://github.com/skyra-project/discord-components/commit/5fe063aa50b560b21d6a9beb0805b827c6874057)) (@eumarciel404)
+* fixed borders in :before and :after for tailwindcss users ([#454](https://github.com/skyra-project/discord-components/issues/454)) ([f857ec4](https://github.com/skyra-project/discord-components/commit/f857ec425a3f55ffea22ec66c7b50bfb70945d23)) (@favna)
+* prevent timestamp wrapping ([#462](https://github.com/skyra-project/discord-components/issues/462)) ([7ce20a7](https://github.com/skyra-project/discord-components/commit/7ce20a75312aae6b85b825caaeea120358cdd7b5)) (@dpaulos6)
+* remove border on modal input ([#455](https://github.com/skyra-project/discord-components/issues/455)) ([900afa4](https://github.com/skyra-project/discord-components/commit/900afa4f126f8cdd237e02d84d0d3f9bbf4c5765)) (@mezotv)
+* update the ephemeral eye icon ([#460](https://github.com/skyra-project/discord-components/issues/460)) ([62b1294](https://github.com/skyra-project/discord-components/commit/62b1294fa09d46b0e0db831fc6aae82543dfc695)) (@mezotv)
+
+### Features
+
+* add clan tags ([#463](https://github.com/skyra-project/discord-components/issues/463)) ([afe7ee9](https://github.com/skyra-project/discord-components/commit/afe7ee9e66cb4e68fad22ffe866a27a9ff884d4f)), closes [#453](https://github.com/skyra-project/discord-components/issues/453) (@favna)
+* adding function if you click an option ([#461](https://github.com/skyra-project/discord-components/issues/461)) ([930a691](https://github.com/skyra-project/discord-components/commit/930a691eae60db82ea5fbd25abd7d51b439e3d50)) (@eumarciel404)
+
 # [4.0.0-alpha.31](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.30...v4.0.0-alpha.31) (2024-08-19)
 
 ### Bug Fixes

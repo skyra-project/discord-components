@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.32](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.31...v4.0.0-alpha.32) (2024-08-24)
+
+### Features
+
+* add clan tags ([#463](https://github.com/skyra-project/discord-components/issues/463)) ([afe7ee9](https://github.com/skyra-project/discord-components/commit/afe7ee9e66cb4e68fad22ffe866a27a9ff884d4f)), closes [#453](https://github.com/skyra-project/discord-components/issues/453) (@favna)
+
 # [4.0.0-alpha.31](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.30...v4.0.0-alpha.31) (2024-08-19)
 
 ### Features
