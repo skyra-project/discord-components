@@ -182,7 +182,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 			text-align: right;
 			font-size: 0.6875rem;
 			line-height: 1.375rem;
-			margin-right: 0.25rem;
+			margin-right: 0.375rem;
 			margin-left: 0;
 			text-indent: 0;
 		}
@@ -329,6 +329,18 @@ export class DiscordMessage extends LitElement implements LightTheme {
 	public accessor roleName: string | undefined = undefined;
 
 	/**
+	 * The clan's tag icon URL.
+	 */
+	@property({ attribute: 'clan-icon' })
+	public accessor clanIcon: string | undefined = undefined;
+
+	/**
+	 * The name of the clan you are part of
+	 */
+	@property({ attribute: 'clan-tag' })
+	public accessor clanTag: string | undefined = undefined;
+
+	/**
 	 * Whether to highlight this message.
 	 */
 	@property({ type: Boolean, reflect: true })
@@ -409,6 +421,8 @@ export class DiscordMessage extends LitElement implements LightTheme {
 			op: this.op,
 			roleColor: this.roleColor,
 			roleIcon: this.roleIcon,
+			clanIcon: this.clanIcon,
+			clanTag: this.clanTag,
 			roleName: this.roleName
 		};
 
@@ -466,6 +480,8 @@ export class DiscordMessage extends LitElement implements LightTheme {
 								roleColor=${profile.roleColor ?? ''}
 								roleIcon=${profile.roleIcon ?? ''}
 								roleName=${profile.roleName ?? ''}
+								clanIcon=${profile.clanIcon ?? ''}
+								clanTag=${profile.clanTag ?? ''}
 								?compact=${false}
 							></discord-author-info
 							><time datetime="${ifDefined(computedTimestamp)}" class="discord-message-timestamp">${computedTimestamp}</time>
@@ -484,6 +500,8 @@ export class DiscordMessage extends LitElement implements LightTheme {
 									roleColor=${profile.roleColor ?? ''}
 									roleIcon=${profile.roleIcon ?? ''}
 									roleName=${profile.roleName ?? ''}
+									clanIcon=${profile.clanIcon ?? ''}
+									clanTag=${profile.clanTag ?? ''}
 									?compact=${true}
 								></discord-author-info>`,
 							() => null

@@ -1,3 +1,26 @@
+import {
+	Crystal,
+	Diamond,
+	Explosion,
+	Flame,
+	Flower,
+	Heart,
+	Key,
+	Leaf,
+	Lightning,
+	Magic,
+	Moon,
+	Mushroom,
+	Mythical,
+	Ornament,
+	Plasma,
+	Rock,
+	Shell,
+	Skull,
+	Sun,
+	Sword,
+	Water
+} from './components/svgs/clan-icons/index.js';
 import type { Avatars, DiscordMessageOptions, Profile } from './types.js';
 
 let config: DiscordMessageOptions = globalThis.$discordMessage ?? {};
@@ -32,3 +55,27 @@ export const defaultTheme: string = getConfig().defaultTheme === 'light' ? 'ligh
 export const defaultMode: string = getConfig().defaultMode === 'compact' ? 'compact' : 'cozy';
 
 export const defaultBackground: string = getConfig().defaultBackground === 'none' ? 'none' : 'discord';
+
+export const icons = new Map<string, object>([
+	['heart', Heart()],
+	['crystal', Crystal()],
+	['diamond', Diamond()],
+	['explosion', Explosion()],
+	['flame', Flame()],
+	['flower', Flower()],
+	['key', Key()],
+	['leaf', Leaf()],
+	['lightning', Lightning()],
+	['magic', Magic()],
+	['moon', Moon()],
+	['mushroom', Mushroom()],
+	['mythical', Mythical()],
+	['ornament', Ornament()],
+	['plasma', Plasma()],
+	['rock', Rock()],
+	['shell', Shell()],
+	['skull', Skull()],
+	['sun', Sun()],
+	['sword', Sword()],
+	['water', Water()]
+]);

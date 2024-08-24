@@ -466,6 +466,18 @@ export default defineConfig({
 									roleIcon: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/booster.png',
 									roleName: 'Booster'
 								},
+								dominik: {
+									author: 'Dominik',
+									avatar: 'https://github.com/mezotv.png',
+									clanIcon: 'Leaf',
+									clanTag: 'Leaf'
+								},
+								paulos: {
+									author: 'Paulos',
+									avatar: 'https://github.com/dpaulos6.png',
+									clanIcon: 'water',
+									clanTag: 'CSS3'
+								},
 								discordjs: {
 									author: 'Discord.js Official #announcements',
 									avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/discordjs.png',

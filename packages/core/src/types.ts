@@ -18,6 +18,8 @@ export interface Profile {
 	author?: string;
 	avatar?: string;
 	bot?: boolean;
+	clanIcon?: string;
+	clanTag?: string;
 	op?: boolean;
 	roleColor?: string;
 	roleIcon?: string;

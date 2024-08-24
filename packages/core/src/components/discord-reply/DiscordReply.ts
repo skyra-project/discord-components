@@ -6,6 +6,7 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
 import type { LightTheme, Profile } from '../../types.js';
+import { getClanIcon } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import AttachmentReply from '../svgs/AttachmentReply.js';
 import CommandReply from '../svgs/CommandReply.js';
@@ -90,6 +91,56 @@ export class DiscordReply extends LitElement implements LightTheme {
 		:host([light-theme]) .discord-reply-badge {
 			color: #4f5660;
 			background: #e3e5e8;
+		}
+
+		:host .discord-clan-tag {
+			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.8);
+			color: #fff;
+			font-size: 12px;
+			font-weight: 500;
+			margin-right: 0.25rem;
+			border-radius: 4px;
+			line-height: 100%;
+			text-transform: uppercase;
+			justify-content: space-between;
+			display: inline-flex;
+			align-items: center;
+			padding: 0 0.275rem;
+			margin-top: 0.075em;
+			height: 1.2rem;
+			opacity: 0.55;
+			transition: background-color 100ms ease-in-out;
+			cursor: pointer;
+		}
+
+		:host .discord-clan-tag:hover {
+			background-color: oklab(0.431937 0.00109309 -0.0132537 / 0.5);
+		}
+
+		:host([light-theme]) .discord-clan-tag {
+			opacity: 0.65;
+			background-color: hsl(0 calc(1 * 0%) 0.8%/0.09);
+			color: #000;
+		}
+
+		:host([light-theme]) .discord-clan-tag:hover {
+			background-color: hsl(0 calc(1 * 0%) 0.8%/0.03);
+		}
+
+		:host .discord-clan-tag svg,
+		:host .discord-clan-tag img {
+			display: inline-flex;
+			align-items: center;
+			margin-right: 0.25rem;
+			right: 0.25rem;
+		}
+
+		:host .discord-clan-tag span {
+			display: inline-flex;
+			align-items: center;
+			user-select: none;
+			-webkit-user-select: none;
+			line-height: 1rem !important;
 		}
 
 		.discord-application-tag {
@@ -269,6 +320,18 @@ export class DiscordReply extends LitElement implements LightTheme {
 	public accessor mentions = false;
 
 	/**
+	 * The clan icon of the author, which comes from the enabled clan tag
+	 */
+	@property()
+	public accessor clanIcon: string;
+
+	/**
+	 * The clan name of the author, which comes from the enabled clan tag
+	 */
+	@property()
+	public accessor clanTag: string;
+
+	/**
 	 * Whether this reply is a deleted message.
 	 * When set to true, any content inside the tags is ignored as no `slot` is rendered.
 	 * The message will always be `"Original message was deleted"`.
@@ -286,6 +349,8 @@ export class DiscordReply extends LitElement implements LightTheme {
 	 * - {@link DiscordReply.command | command}
 	 * - {@link DiscordReply.attachment | attachment}
 	 * - {@link DiscordReply.mentions | mentions}
+	 * - {@link DiscordReply.clanIcon | clanIcon}
+	 * - {@link DiscordReply.clanTag | clanTag}
 	 */
 	@property({ type: Boolean, reflect: true })
 	public accessor deleted = false;
@@ -312,10 +377,15 @@ export class DiscordReply extends LitElement implements LightTheme {
 			verified: this.verified,
 			op: this.op,
 			server: this.server,
-			roleColor: this.roleColor
+			roleColor: this.roleColor,
+			clanIcon: this.clanIcon,
+			clanTag: this.clanTag
 		};
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
+
+		const clanIcon = getClanIcon(this.clanIcon);
+		const slicedClanTag = this.clanTag?.slice(0, 4);
 
 		const profileTag = html`
 			${when(
@@ -339,6 +409,22 @@ export class DiscordReply extends LitElement implements LightTheme {
 					<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
 						>${when(this.mentions, () => '@')}${profile.author}</span
 					>
+					${when(
+						profile.clanIcon && profile.clanTag && profile.clanTag?.length > 0,
+						() =>
+							html`<span class="discord-clan-tag">
+								${clanIcon === 'string'
+									? html`<img
+											srcset=${ifDefined(clanIcon)}
+											alt=${ifDefined(slicedClanTag)}
+											width="12"
+											height="12"
+											draggable="false"
+										/>`
+									: clanIcon}
+								<span>${slicedClanTag}</span>
+							</span>`
+					)}
 					<!-- display: inline -->
 					<div class="discord-replied-message-content"
 						><slot></slot>${when(this.edited, () => html`<span class="discord-message-edited">(edited)</span>`)}</div

@@ -411,6 +411,10 @@ export class DiscordComponentsWrapper extends LitElement {
 						<discord-reply slot="reply" profile="favna" mentions>Looks nice!</discord-reply>
 						I agree!
 					</discord-message>
+					<discord-message profile="paulos">
+						<discord-reply slot="reply" profile="dominik" edited attachment>Butterflies look beautiful!</discord-reply>
+						They do!
+					</discord-message>
 				</discord-messages>
 				<h3 class="title">Replies in Compact Mode</h3>
 				<discord-messages compact-mode>
@@ -421,6 +425,10 @@ export class DiscordComponentsWrapper extends LitElement {
 					<discord-message profile="maximillian" highlight>
 						<discord-reply slot="reply" profile="favna" mentions>Looks nice!</discord-reply>
 						I agree!
+					</discord-message>
+					<discord-message profile="paulos">
+						<discord-reply slot="reply" profile="dominik" edited attachment>Butterflies look beautiful!</discord-reply>
+						They do!
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Commands</h3>

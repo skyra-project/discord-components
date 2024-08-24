@@ -1,4 +1,4 @@
-import { getConfig } from './config.js';
+import { getConfig, icons } from './config.js';
 import type { Emoji, DiscordTimestamp } from './types.js';
 
 export class DiscordComponentsError extends Error {
@@ -57,3 +57,15 @@ export const getGlobalEmojiUrl = (emojiName: string): Emoji | undefined => {
 
 	return undefined;
 };
+
+/**
+ * Get the image for a clan icon
+ *
+ * @param clanIcon - The clan icon to get the image for
+ * @returns The image for the clan icon, or the clan icon itself if it's not found
+ */
+export function getClanIcon(clanIcon: string | undefined): object | string | undefined {
+	if (!clanIcon) return undefined;
+
+	return icons.get(clanIcon) ?? clanIcon;
+}
