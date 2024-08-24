@@ -515,8 +515,9 @@ export default defineConfig({
 				twitter: 'https://twitter.com/favna_'
 			},
 			sidebar: [
-				{ items: [], slug: 'api/readme', label: 'README' },
-				{ items: [], slug: 'samples' }, //
+				{ slug: 'api/readme', label: 'README', items: [] },
+				{ slug: 'samples', items: [] }, //
+				{ label: 'Upgrading guides', collapsed: true, autogenerate: { collapsed: true, directory: 'upgrading/' } },
 				typeDocSidebarGroup
 			],
 			plugins: [
