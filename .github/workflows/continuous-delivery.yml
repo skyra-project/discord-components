@@ -1,13 +1,9 @@
 name: Continuous Delivery
 
 on:
-  workflow_dispatch:
-    inputs:
-      is-alpha:
-        type: boolean
-        required: false
-        default: true
-        description: Whether to publish an alpha version or not
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
