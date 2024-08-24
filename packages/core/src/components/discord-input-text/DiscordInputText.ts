@@ -34,6 +34,20 @@ export class DiscordInputText extends LitElement {
 			text-transform: normal !important;
 			letter-spacing: 0.02em;
 			color: #b0b5bc;
+			gap: 3px;
+		}
+
+		.discord-text-input-warning-error-text {
+			font-size: 12px;
+			font-weight: 500;
+			font-style: italic;
+			text-transform: none;
+		}
+
+		.discord-text-input-warning-bottom-error-text {
+			font-size: 12px;
+			line-height: 1.3333333333333333;
+			font-weight: 400;
 		}
 
 		.discord-text-input-required {
@@ -139,7 +153,8 @@ export class DiscordInputText extends LitElement {
 			opacity: 0.8;
 		}
 
-		.discord-text-input-message-needed-input {
+		.discord-text-input-message-needed-input,
+		.discord-text-input-message-needed-min-length {
 			background-color: white;
 			position: absolute;
 			align-items: center;
@@ -155,12 +170,13 @@ export class DiscordInputText extends LitElement {
 			font-family: system-ui;
 			pointer-events: none;
 			padding: 10px;
-			width: 50%;
+			min-width: 50%;
 			border: black solid 1px;
 			z-index: 25;
 		}
 
-		.discord-text-input-message-needed-input::after {
+		.discord-text-input-message-needed-input::after,
+		.discord-text-input-message-needed-min-length::after {
 			content: '';
 			position: absolute;
 			bottom: 100%; /* Positions the arrow above the div */
@@ -171,8 +187,18 @@ export class DiscordInputText extends LitElement {
 			border-color: transparent transparent white transparent !important; /* Arrow pointing up */
 		}
 
-		:host([light-theme]) .discord-text-input-message-needed-input::after {
+		:host([light-theme]) .discord-text-input-message-needed-input::after,
+		:host([light-theme]) .discord-text-input-message-needed-min-length::after {
 			border-color: transparent transparent #bfbfbf transparent !important; /* Arrow pointing up */
+		}
+
+		.discord-text-input-message-needed-min-length::after {
+			transform: translate(500%);
+		}
+
+		.discord-text-input-message-needed-min-length {
+			left: 50% !important;
+			width: max-content;
 		}
 
 		.icon {
@@ -227,29 +253,167 @@ export class DiscordInputText extends LitElement {
 	 * The minimal length of input text
 	 */
 	@property({ reflect: true, attribute: 'min-length', type: Number })
-	public accessor minLength: number;
+	public accessor minLength = 0;
 
 	/**
 	 * The maximal length of input text
 	 */
 	@property({ reflect: true, attribute: 'max-length', type: Number })
-	public accessor maxLength: number = 4_000;
+	public accessor maxLength = 4_000;
 
 	/**
-	 * The pre-field of input text
+	 * The theme of modal
 	 */
-	@property({ reflect: true, attribute: 'value', type: String })
-	public accessor value: string;
-
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	@state()
-	protected accessor maxLengthCalc: number;
+	/**
+	 * The default value of modal
+	 */
+	@property({ type: String, reflect: true, attribute: 'default-value' })
+	public accessor defaultValue = '';
 
 	@state()
-	protected accessor warn: boolean = false;
+	protected accessor value = '';
+
+	@state()
+	public accessor hasWarning = false;
+
+	@state()
+	protected accessor calculatedMaxLength: number | null = null;
+
+	@state()
+	protected accessor calculatedCharactersCount = 0;
+
+	public override connectedCallback() {
+		super.connectedCallback();
+		if (this.defaultValue) {
+			this.value = this.defaultValue;
+			this.calculatedCharactersCount = this.value.length;
+		}
+	}
+
+	public resetState() {
+		this.hasWarning = false;
+		this.calculatedMaxLength = null;
+		this.calculatedCharactersCount = 0;
+		if (this.defaultValue) {
+			this.value = this.defaultValue;
+		} else {
+			this.value = '';
+		}
+	}
+
+	public override render() {
+		this.checkNeededArgument();
+		this.checkType();
+
+		return html`
+			<div class="discord-input-text">
+				<div class=${classMap({ 'discord-text-input-warning-length': this.hasWarning })}>
+					<h2 class="discord-label-input-text">
+						${this.label.slice(0, 45)}${when(
+							this.required && !this.hasWarning,
+							() => html`<span class="discord-text-input-required">*</span>`
+						)}
+					</h2>
+					${when(
+						this.hasWarning,
+						() =>
+							html`<span class="discord-text-input-warning-length discord-text-input-warning-error-text">
+								- Must be between ${this.minLength} and ${this.maxLength} in length.</span
+							>`
+					)}
+				</div>
+				<div class="discord-text-input-container">
+					${when(
+						this.type === 'paragraph',
+						() => html`
+							<div class="discord-text-input-container">
+								<textarea
+									@input=${(event: InputEvent) => this.handleInputChange(event)}
+									.required=${this.required}
+									.value=${this.value}
+									class="discord-text-input-paragraph"
+									type="text"
+									minlength="${this.minLength}"
+									maxlength="${this.maxLength}"
+									placeholder="${ifDefined(this.placeholder)}"
+									rows="3"
+								></textarea>
+								<div class="discord-text-input-textarea-max-length">
+									<span
+										>${when(
+											this.valueIsNotNullOrUndefined(this.calculatedMaxLength),
+											() => this.calculatedMaxLength,
+											() =>
+												when(
+													this.value,
+													() => this.maxLength - this.value.length,
+													() => this.maxLength
+												)
+										)}</span
+									>
+								</div>
+							</div>
+						`
+					)}
+					${when(
+						this.type === 'short',
+						() =>
+							html`<input
+								@input=${(event: InputEvent) => this.handleInputChange(event)}
+								.required=${this.required}
+								.value=${this.value}
+								class="discord-text-input-short"
+								type="text"
+								minlength="${this.minLength}"
+								maxlength="${this.maxLength}"
+								placeholder="${ifDefined(this.placeholder)}"
+								rows="3"
+							/>`
+					)}
+				</div>
+				${when(
+					this.required,
+					() => html`
+						<div class="discord-text-input-message-needed-input">
+							<div class="icon">
+								<div class="exclamation">!</div>
+							</div>
+							<span>Please fill out this field.</span>
+						</div>
+					`
+				)}
+				${when(
+					this.valueIsNotNullOrUndefined(this.minLength),
+					() => html`
+						<div class="discord-text-input-message-needed-min-length">
+							<div class="icon">
+								<div class="exclamation">!</div>
+							</div>
+							<span
+								>Increase this text to ${this.minLength} characters or more. You are currently using ${this.calculatedCharactersCount}
+								characters</span
+							>
+						</div>
+					`
+				)}
+				<div class=${classMap({ 'discord-text-input-warning-length': this.hasWarning })}>
+					<h2 class="discord-text-input-warning-length">
+						${when(
+							this.hasWarning && this.valueIsNotNullOrUndefined(this.minLength),
+							() =>
+								html`<span class="discord-text-input-warning-bottom-error-text"
+									>Must be ${this.minLength} characters or more in length.</span
+								>`
+						)}
+					</h2>
+				</div>
+			</div>
+		`;
+	}
 
 	private readonly validInputTextTypes = new Set(['short', 'paragraph']);
 
@@ -269,152 +433,47 @@ export class DiscordInputText extends LitElement {
 		}
 	}
 
-	public override render() {
-		this.checkNeededArgument();
-		this.checkType();
-
-		return html`
-			<div class="discord-input-text">
-				<div class=${classMap({ 'discord-text-input-warning-length': this.warn })}>
-					<h2 class="discord-label-input-text">
-						${this.label.slice(0, 45)}${when(this.required && !this.warn, () => html`<span class="discord-text-input-required">*</span>`)}
-					</h2>
-					${when(
-						this.warn,
-						() =>
-							html`<span class="discord-text-input-warning-length">
-								- Must contain between ${this.minLength} and ${this.maxLength} characters</span
-							>`
-					)}
-				</div>
-				<div class="discord-text-input-container">
-					${when(
-						this.type === 'paragraph' && !this.required,
-						() => html`
-							<div class="discord-text-input-container">
-								<textarea
-									@input=${(event: InputEvent) => this.changeMaxWords(event)}
-									class="discord-text-input-paragraph"
-									type="text"
-									minlength="${this.minLength}"
-									maxlength="${this.maxLength}"
-									placeholder="${ifDefined(this.placeholder)}"
-									rows="3"
-								>
-${this.value}</textarea
-								>
-								<div class="discord-text-input-textarea-max-length">
-									<span
-										>${when(
-											this.maxLengthCalc,
-											() => this.maxLengthCalc,
-											() =>
-												when(
-													this.value,
-													() => this.maxLength - this.value.length,
-													() => this.maxLength
-												)
-										)}</span
-									>
-								</div>
-							</div>
-						`
-					)}
-					${when(
-						this.type === 'paragraph' && this.required,
-						() => html`
-							<div class="discord-text-input-container">
-								<textarea
-									@input=${(event: InputEvent) => this.changeMaxWords(event)}
-									.required=${this.required}
-									class="discord-text-input-paragraph"
-									type="text"
-									minlength="${this.minLength}"
-									maxlength="${this.maxLength}"
-									placeholder="${ifDefined(this.placeholder)}"
-									rows="3"
-								>
-${this.value}</textarea
-								>
-								<div class="discord-text-input-textarea-max-length">
-									<span
-										>${when(
-											this.maxLengthCalc,
-											() => this.maxLengthCalc,
-											() =>
-												when(
-													this.value,
-													() => this.maxLength - this.value.length,
-													() => this.maxLength
-												)
-										)}</span
-									>
-								</div>
-							</div>
-						`
-					)}
-					${when(
-						this.type === 'short' && !this.required,
-						() => html`
-                        <input
-                        @input=${(event: InputEvent) => this.changeMaxWords(event)}
-						.required=${this.required}
-                        class="discord-text-input-short"
-                        type="text"
-                        minlength="${this.minLength}"
-                        maxlength="${this.maxLength}"
-                        placeholder="${ifDefined(this.placeholder)}"
-                        rows="3"
-						>
-						${this.value}</input>
-                        `
-					)}
-					${when(
-						this.type === 'short' && this.required,
-						() => html`
-                        <input
-                        @input=${(event: InputEvent) => this.changeMaxWords(event)}
-                        .required=${this.required}
-                        class="discord-text-input-short"
-                        type="text"
-                        minlength="${this.minLength}"
-                        maxlength="${this.maxLength}"
-                        placeholder="${ifDefined(this.placeholder)}"
-                        rows="3"
-						>
-						${this.value}</input>
-                        `
-					)}
-				</div>
-				<div class=${classMap({ 'discord-text-input-warning-length': this.warn })}>
-					<h2 class="discord-text-input-warning-length">
-						${when(this.warn, () => html`<span>Must contain ${this.minLength} characters of length or more</span>`)}
-					</h2>
-				</div>
-				<div class="discord-text-input-message-needed-input">
-					<div class="icon">
-						<div class="exclamation">!</div>
-					</div>
-					<span>Please fill out this field.</span>
-				</div>
-			</div>
-		`;
+	/**
+	 * Check if the value is not null or undefined
+	 *
+	 * @param value - The value to check if it is not null or undefined
+	 * @returns If the value is not null or undefined
+	 */
+	private valueIsNotNullOrUndefined(value: number | null | undefined): value is number {
+		return value !== undefined && value !== null;
 	}
 
-	private changeMaxWords(event: InputEvent) {
-		const inputedText = event.target;
+	private handleInputChange(event: InputEvent) {
+		const inputedText = event?.target;
 
-		if (inputedText instanceof HTMLTextAreaElement) {
-			if (inputedText.value.length < this.minLength) {
-				this.warn = true;
+		this.value = inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement ? inputedText.value : '';
+
+		if (inputedText instanceof HTMLTextAreaElement || inputedText instanceof HTMLInputElement) {
+			const newLengthValue = inputedText.value.length;
+
+			if (newLengthValue === 0 && this.minLength === 0 && this.valueIsNotNullOrUndefined(this.maxLength) && this.required) {
+				this.hasWarning = true;
 			} else {
-				this.warn = false;
+				this.hasWarning = newLengthValue < this.minLength;
 			}
 
-			this.maxLengthCalc = this.maxLength - inputedText.value.length;
+			this.calculatedMaxLength = this.maxLength - newLengthValue;
+			this.calculatedCharactersCount = newLengthValue;
 		}
 
 		const messageNeeded = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-input');
+		const messageNeededMinLength = this.shadowRoot?.querySelector('div.discord-text-input-message-needed-min-length');
+
+		if (
+			(inputedText as HTMLTextAreaElement).value.length >= this.minLength &&
+			messageNeededMinLength instanceof HTMLDivElement &&
+			messageNeededMinLength.style.display
+		) {
+			messageNeededMinLength.style.opacity = '0';
+			globalThis.setTimeout(() => {
+				messageNeededMinLength.style.display = '';
+			}, 1_000);
+		}
 
 		if (messageNeeded instanceof HTMLDivElement && messageNeeded.style.display) {
 			messageNeeded.style.opacity = '0';
