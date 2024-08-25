@@ -201,6 +201,7 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 					['thread', () => Thread()],
 					['pin', () => Pin()],
 					['alert', () => SystemAlert()],
+					// eslint-disable-next-line unicorn/throw-new-error
 					['error', () => SystemError()],
 					['upgrade', () => ServerUpgrade()]
 				])}

@@ -3,5 +3,6 @@
 	"javascript.preferences.importModuleSpecifierEnding": "js",
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "never"
-	}
+	},
+	"eslint.useFlatConfig": true
 }
