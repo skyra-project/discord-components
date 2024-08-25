@@ -1,7 +1,0 @@
-*.js
-*.jsx
-*.test.js
-*.test.jsx
-node_modules/
-packages/core/demo/index.html
-packages/**/dist/
