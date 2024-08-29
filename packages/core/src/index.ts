@@ -45,6 +45,7 @@ export { DiscordThreadMessage } from './components/discord-thread-message/Discor
 export { DiscordTime } from './components/discord-time/DiscordTime.js';
 export { DiscordUnderlined } from './components/discord-underlined/DiscordUnderlined.js';
 export { DiscordUnorderedList } from './components/discord-unordered-list/DiscordUnorderedList.js';
+export { DiscordVerifiedAuthorTag } from './components/discord-verified-author-tag/DiscordVerifiedAuthorTag.js';
 export { DiscordVideoAttachment } from './components/discord-video-attachment/DiscordVideoAttachment.js';
 
 /* EXPORTS END */

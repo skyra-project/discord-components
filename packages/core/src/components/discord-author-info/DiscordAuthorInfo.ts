@@ -1,3 +1,5 @@
+import '../discord-verified-author-tag/DiscordVerifiedAuthorTag.js';
+
 import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
@@ -6,7 +8,6 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { getClanIcon } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-author-info')
 export class DiscordAuthorInfo extends LitElement {
@@ -110,13 +111,6 @@ export class DiscordAuthorInfo extends LitElement {
 			border-radius: 0.4rem;
 		}
 
-		:host .discord-application-tag-verified {
-			display: inline-block;
-			width: 0.9375rem;
-			height: 0.9375rem;
-			margin-left: -0.25rem;
-		}
-
 		:host .discord-author-role-icon {
 			margin-left: 0.25rem;
 			vertical-align: top;
@@ -132,11 +126,6 @@ export class DiscordAuthorInfo extends LitElement {
 			padding-left: 10px;
 			padding-right: 4px;
 			margin-right: 0.25rem;
-		}
-
-		:host([compact-mode]) .discord-application-tag-verified {
-			margin-right: 0.7em;
-			margin-left: -0.7em;
 		}
 	`;
 
@@ -232,18 +221,7 @@ export class DiscordAuthorInfo extends LitElement {
 					draggable="false"
 				/>`
 		)}
-		${when(
-			this.bot && !this.server,
-			() =>
-				html`<span class="discord-application-tag"
-					>${when(
-						this.verified,
-						() => VerifiedTick(),
-						() => null
-					)}
-					App</span
-				>`
-		)}
+		${when(this.bot && !this.server, () => html`<discord-verified-author-tag .verified=${this.verified}></discord-verified-author-tag>`)}
 		${when(this.server && !this.bot, () => html`<span class="discord-application-tag">Server</span>`)}
 		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
 		${when(

@@ -46,6 +46,7 @@ export const DiscordThreadMessage = createReactComponent('discord-thread-message
 export const DiscordTime = createReactComponent('discord-time', ReactComponents.DiscordTime);
 export const DiscordUnderlined = createReactComponent('discord-underlined', ReactComponents.DiscordUnderlined);
 export const DiscordUnorderedList = createReactComponent('discord-unordered-list', ReactComponents.DiscordUnorderedList);
+export const DiscordVerifiedAuthorTag = createReactComponent('discord-verified-author-tag', ReactComponents.DiscordVerifiedAuthorTag);
 export const DiscordVideoAttachment = createReactComponent('discord-video-attachment', ReactComponents.DiscordVideoAttachment);
 
 /* IMPORTS END */
