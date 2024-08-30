@@ -62,7 +62,7 @@ export class DiscordStringSelectMenu extends LitElement implements LightTheme {
 			border-radius: 4px;
 			gap: 10px;
 			display: block;
-			max-height: 282px;
+			max-height: 192px;
 			position: absolute;
 
 			width: 90%;
