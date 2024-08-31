@@ -4,5 +4,12 @@
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "never"
 	},
-	"eslint.useFlatConfig": true
+	"eslint.useFlatConfig": true,
+	"i18n-ally.sourceLanguage": "en-US",
+	"i18n-ally.displayLanguage": "en-US",
+	"i18n-ally.localesPaths": "packages/core/src/locales",
+	"i18n-ally.sortKeys": true,
+	"i18n-ally.namespace": true,
+	"i18n-ally.enabledFrameworks": ["custom"],
+	"i18n-ally.keystyle": "nested"
 }

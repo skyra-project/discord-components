@@ -5,6 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { createRef, ref, type Ref } from 'lit/directives/ref.js';
 import { avatars, profiles } from '../../config.js';
+import { translate as t } from '../../i18n/lit-integration.js';
 import type { LightTheme, Profile } from '../../types.js';
 import { DiscordInputText } from '../discord-input-text/DiscordInputText.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -626,7 +627,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 									})}
 								>
 									<button type="submit" class="discord-modal-button discord-modal-button-submit">
-										<div class="discord-modal-button-content">Submit</div>
+										<div class="discord-modal-button-content">${t('discord-modal.submit')}</div>
 									</button>
 									<button
 										type="button"
@@ -643,7 +644,7 @@ export class DiscordModal extends LitElement implements LightTheme {
 												'discord-modal-button-content-light-theme': this.lightTheme
 											})}
 										>
-											Cancel
+											${t('discord-modal.cancel')}
 										</div>
 									</button>
 								</div>

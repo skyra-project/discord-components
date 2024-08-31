@@ -11,6 +11,8 @@
 	"customElements": "custom-elements.json",
 	"exports": {
 		".": "./dist/index.js",
+		"./i18n": "./dist/i18n/init.js",
+		"./i18n/utils": "./dist/i18n/utils.js",
 		"./discord-action-row.js": "./dist/components/discord-action-row/DiscordActionRow.js",
 		"./discord-attachments.js": "./dist/components/discord-attachments/DiscordAttachments.js",
 		"./discord-audio-attachment.js": "./dist/components/discord-audio-attachment/DiscordAudioAttachment.js",
@@ -59,6 +61,8 @@
 	},
 	"sideEffects": [
 		"./dist/index.js",
+		"./dist/i18n/init.js",
+		"./dist/i18n/utils.js",
 		"./dist/components/discord-action-row/DiscordActionRow.js",
 		"./dist/components/discord-attachments/DiscordAttachments.js",
 		"./dist/components/discord-audio-attachment/DiscordAudioAttachment.js",
@@ -120,6 +124,8 @@
 	},
 	"dependencies": {
 		"@lit/context": "^1.1.2",
+		"i18next": "^23.14.0",
+		"i18next-browser-languagedetector": "^8.0.0",
 		"lit": "^3.2.0"
 	},
 	"devDependencies": {
