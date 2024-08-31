@@ -25,7 +25,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 				background-color: #3c4270;
 				border-radius: 3px;
 				display: flex;
-				padding: 0 5px 0 0;
+				padding: 0 5px;
 				align-items: center;
 				gap: 2px;
 			}
