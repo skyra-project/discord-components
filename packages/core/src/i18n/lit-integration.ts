@@ -139,7 +139,7 @@ class Translate extends AsyncDirective {
 	 * @param options - i18next translation options
 	 * @returns translated string
 	 */
-	public async render(keys: string[] | string, options?: any): Promise<string | symbol> {
+	public async render(keys: string[] | string, options?: TOptions): Promise<string | symbol> {
 		await i18Provider?.then(() => {
 			this.setValue(this.translate(keys, options));
 		});

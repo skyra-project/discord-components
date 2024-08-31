@@ -1,0 +1,6 @@
+{
+	"errors": {
+		"type-error": "DiscordSystemMessage `type` prop must be a string.",
+		"range-error": "DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'upgrade', 'error'"
+	}
+}

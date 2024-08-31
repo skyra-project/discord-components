@@ -1,9 +1,11 @@
 import { consume } from '@lit/context';
+import i18next from 'i18next';
 import { css, html, LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { when } from 'lit/directives/when.js';
+import { translate } from '../../i18n/lit-integration.js';
 import { DiscordComponentsError } from '../../util.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
@@ -321,8 +323,11 @@ export class DiscordInputText extends LitElement {
 					${when(
 						this.hasWarning,
 						() =>
-							html`<span class="discord-text-input-warning-length discord-text-input-warning-error-text">
-								- Must be between ${this.minLength} and ${this.maxLength} in length.</span
+							html`<span class="discord-text-input-warning-length discord-text-input-warning-error-text"
+								>${translate('discord-input-text.must-be-between-length', {
+									minLength: this.minLength,
+									maxLength: this.maxLength
+								})}</span
 							>`
 					)}
 				</div>
@@ -382,7 +387,7 @@ export class DiscordInputText extends LitElement {
 							<div class="icon">
 								<div class="exclamation">!</div>
 							</div>
-							<span>Please fill out this field.</span>
+							<span>${translate('discord-input-text.required-field')}</span>
 						</div>
 					`
 				)}
@@ -394,8 +399,11 @@ export class DiscordInputText extends LitElement {
 								<div class="exclamation">!</div>
 							</div>
 							<span
-								>Increase this text to ${this.minLength} characters or more. You are currently using ${this.calculatedCharactersCount}
-								characters</span
+								>${translate('discord-input-text.increase-length', {
+									minLength: this.minLength,
+									calculatedCharactersCount: this.calculatedCharactersCount,
+									count: this.calculatedCharactersCount
+								})}</span
 							>
 						</div>
 					`
@@ -406,7 +414,7 @@ export class DiscordInputText extends LitElement {
 							this.hasWarning && this.valueIsNotNullOrUndefined(this.minLength),
 							() =>
 								html`<span class="discord-text-input-warning-bottom-error-text"
-									>Must be ${this.minLength} characters or more in length.</span
+									>${translate('discord-input-text.required-minimum-length', { minLength: this.minLength })}</span
 								>`
 						)}
 					</h2>
@@ -419,17 +427,17 @@ export class DiscordInputText extends LitElement {
 
 	private checkNeededArgument() {
 		if (!this.label) {
-			throw new DiscordComponentsError('Label is required to input text');
+			throw new DiscordComponentsError(i18next.t('discord-input-text.errors.label-required'));
 		} else if (!this.type) {
-			throw new DiscordComponentsError('Type is required to input text');
+			throw new DiscordComponentsError(i18next.t('discord-input-text.errors.type-required'));
 		}
 	}
 
 	private checkType() {
 		if (typeof this.type !== 'string') {
-			throw new TypeError('DiscordInputText `type` prop must be a string.');
+			throw new TypeError(i18next.t('discord-input-text.errors.type-must-be-string'));
 		} else if (!this.validInputTextTypes.has(this.type)) {
-			throw new RangeError("DiscordInputText `type` prop must be one of: 'short', 'paragraph'");
+			throw new RangeError(i18next.t('discord-input-text.errors.type-required-variant'));
 		}
 	}
 

@@ -5,6 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
+import { translate } from '../../i18n/lit-integration.js';
 import type { LightTheme, Profile } from '../../types.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
@@ -94,7 +95,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 				() => html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`
 			)}
 			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
-			<span> used </span>
+			<span> ${translate('discord-command.used')} </span>
 			<div class="discord-replied-message-content discord-command-name">${this.command}</div>
 		`;
 	}

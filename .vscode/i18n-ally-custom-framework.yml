@@ -1,6 +1,12 @@
 languageIds:
   - typescript
 usageMatchRegex:
-  - "\\$\\{t\\(['\"`]({key})['\"`]\\)\\}"
+  - "(?:\\$\\{)?translate\\(['\"`]({key})['\"`]"
 scopeRangeRegex: "useTranslation\\(\\s*\\[?\\s*['\"`](.*?)['\"`]"
-monopoly: true
+derivedKeyRules:
+  - '{key}_zero'
+  - '{key}_one'
+  - '{key}_two'
+  - '{key}_few'
+  - '{key}_many'
+  - '{key}_other'

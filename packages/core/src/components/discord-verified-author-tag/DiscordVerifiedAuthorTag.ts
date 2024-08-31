@@ -2,6 +2,7 @@ import { consume } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { when } from 'lit/directives/when.js';
+import { translate } from '../../i18n/lit-integration.js';
 import { messagesCompactMode } from '../discord-messages/DiscordMessages.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 
@@ -57,7 +58,7 @@ export class DiscordVerifiedAuthorTag extends LitElement {
 	public accessor compactMode = false;
 
 	protected override render() {
-		return html`${when(this.verified, () => VerifiedTick())}App`;
+		return html`${when(this.verified, () => VerifiedTick())}${translate('discord-verified-author-tag.app')}`;
 	}
 }
 

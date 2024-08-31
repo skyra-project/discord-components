@@ -109,7 +109,7 @@ export class DiscordCustomEmoji extends LitElement {
 					'discord-custom-emoji-image': !this.embedEmoji,
 					'discord-custom-jumbo-emoji-image': this.jumbo
 				})}
-		/></span> `;
+		/></span>`;
 	}
 }
 

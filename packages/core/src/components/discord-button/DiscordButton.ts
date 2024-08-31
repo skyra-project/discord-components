@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -143,16 +144,16 @@ export class DiscordButton extends LitElement {
 	public checkType() {
 		if (this.type) {
 			if (typeof this.type !== 'string') {
-				throw new TypeError('DiscordButton `type` prop must be a string.');
+				throw new TypeError(i18next.t('discord-button.errors.type-error'));
 			} else if (!this.validButtonTypes.has(this.type)) {
-				throw new RangeError("DiscordButton `type` prop must be one of: 'primary', 'secondary', 'success', 'destructive'");
+				throw new RangeError(i18next.t('discord-button.errors.range-error'));
 			}
 		}
 	}
 
 	public checkParentElement() {
 		if (this.parentElement?.tagName.toLowerCase() !== 'discord-action-row') {
-			throw new DiscordComponentsError('All <discord-button> components must be direct children of <discord-action-row>.');
+			throw new DiscordComponentsError(i18next.t('discord-button.errors.wrong-parent'));
 		}
 	}
 

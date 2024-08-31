@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { css, html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { DiscordComponentsError } from '../../util.js';
@@ -18,9 +19,7 @@ export class DiscordListItem extends LitElement {
 			this.parentElement?.tagName.toLowerCase() !== 'discord-unordered-list' &&
 			this.parentElement?.tagName.toLowerCase() !== 'discord-ordered-list'
 		) {
-			throw new DiscordComponentsError(
-				'All <discord-list-item> components must be direct children of <discord-unordered-list> or <discord-ordered-list>.'
-			);
+			throw new DiscordComponentsError(i18next.t('discord-list-item.errors.wrong-parent'));
 		}
 	}
 

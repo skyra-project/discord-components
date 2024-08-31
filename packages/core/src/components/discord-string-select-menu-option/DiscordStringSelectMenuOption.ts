@@ -1,4 +1,5 @@
 import { consume } from '@lit/context';
+import i18next from 'i18next';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -85,7 +86,7 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 
 	public checkLabelIsProvided() {
 		if (!this.label) {
-			throw new DiscordComponentsError('The label of option is required');
+			throw new DiscordComponentsError(i18next.t('discord-string-select-menu-option.errors.label-required'));
 		}
 	}
 

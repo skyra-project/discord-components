@@ -1,0 +1,5 @@
+{
+	"errors": {
+		"range-error": "DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3"
+	}
+}
