@@ -2195,9 +2195,9 @@ __metadata:
   linkType: hard
 
 "@pagefind/default-ui@npm:^1.0.3":
-  version: 1.1.0
-  resolution: "@pagefind/default-ui@npm:1.1.0"
-  checksum: 10/fb25f944e626dd90954532daac12b4547fa412287adfde02d2199407b6c5780147fac022e6248223a0d79d19fee655298fe7dd1c203038914ef739772ee7ccea
+  version: 1.1.1
+  resolution: "@pagefind/default-ui@npm:1.1.1"
+  checksum: 10/13fc148fe259129d5e196311ba6617983d9d98494ffa82170041ea89225ed4e94e887b7335396df0561b893c11f6d296b943620bf90eab3732309b7a783d0051
   languageName: node
   linkType: hard
 
