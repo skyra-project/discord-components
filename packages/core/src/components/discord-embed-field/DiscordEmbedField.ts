@@ -1,4 +1,5 @@
 import { consume } from '@lit/context';
+import i18next from 'i18next';
 import { css, html, LitElement, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -86,7 +87,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 		if (this.inlineIndex) {
 			const inlineIndexAsNumber = Number(this.inlineIndex);
 			if (!Number.isNaN(inlineIndexAsNumber) && !this.validInlineIndices.has(inlineIndexAsNumber)) {
-				throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
+				throw new RangeError(i18next.t('discord-embed-field.errors.range-error'));
 			}
 		}
 	}

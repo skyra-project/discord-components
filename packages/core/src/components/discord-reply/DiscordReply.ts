@@ -5,6 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
+import { translate } from '../../i18n/lit-integration.js';
 import type { LightTheme, Profile } from '../../types.js';
 import { getClanIcon } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
@@ -390,10 +391,10 @@ export class DiscordReply extends LitElement implements LightTheme {
 		const profileTag = html`
 			${when(
 				profile.bot && !profile.server,
-				() => html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}App</span>`
+				() => html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}${translate('discord-reply.app')}</span>`
 			)}
-			${when(profile.server && !profile.bot, () => html`<span class="discord-application-tag">Server</span>`)}
-			${when(profile.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
+			${when(profile.server && !profile.bot, () => html`<span class="discord-application-tag">${translate('discord-reply.server')}</span>`)}
+			${when(profile.op, () => html`<span class="discord-application-tag discord-application-tag-op">${translate('discord-reply.op')}</span>`)}
 		`;
 
 		return html`${when(
@@ -403,7 +404,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 		)}
 		${when(
 			this.deleted,
-			() => html`<div class="discord-replied-deleted-message-content"><em>Original message was deleted</em></div>`,
+			() => html`<div class="discord-replied-deleted-message-content"><em>${translate('discord-reply.original-message-deleted')}</em></div>`,
 			() =>
 				html`${profileTag}
 					<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor })}
@@ -427,7 +428,10 @@ export class DiscordReply extends LitElement implements LightTheme {
 					)}
 					<!-- display: inline -->
 					<div class="discord-replied-message-content"
-						><slot></slot>${when(this.edited, () => html`<span class="discord-message-edited">(edited)</span>`)}</div
+						><slot></slot>${when(
+							this.edited,
+							() => html`<span class="discord-message-edited">(${translate('discord-reply.edited')})</span>`
+						)}</div
 					>
 					${when(
 						this.command,

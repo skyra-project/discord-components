@@ -1,0 +1,5 @@
+{
+	"errors": {
+		"range-error": "The level property must be a number between 1 and 3 (inclusive)"
+	}
+}

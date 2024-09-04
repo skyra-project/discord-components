@@ -1,0 +1,7 @@
+{
+	"errors": {
+		"type-error": "DiscordButton `type` prop must be a string.",
+		"range-error": "DiscordButton `type` prop must be one of: 'primary', 'secondary', 'success', 'destructive'",
+		"wrong-parent": "All <discord-button> components must be direct children of <discord-action-row>."
+	}
+}

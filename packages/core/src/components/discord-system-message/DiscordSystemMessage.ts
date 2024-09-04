@@ -1,4 +1,5 @@
 import { consume } from '@lit/context';
+import i18next from 'i18next';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { choose } from 'lit/directives/choose.js';
@@ -172,11 +173,9 @@ export class DiscordSystemMessage extends LitElement implements LightTheme {
 
 	public checkType() {
 		if (typeof this.type !== 'string') {
-			throw new TypeError('DiscordSystemMessage `type` prop must be a string.');
+			throw new TypeError(i18next.t('discord-system-message.errors.type-error'));
 		} else if (!['join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'error', 'upgrade'].includes(this.type)) {
-			throw new RangeError(
-				"DiscordSystemMessage `type` prop must be one of: 'join', 'leave', 'call', 'missed-call', 'boost', 'edit', 'thread', 'pin', 'alert', 'upgrade', 'error'"
-			);
+			throw new RangeError(i18next.t('discord-system-message.errors.range-error'));
 		}
 	}
 

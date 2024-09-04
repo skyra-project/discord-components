@@ -49,6 +49,78 @@ do so by including the CSS below:
 }
 ```
 
+### Internationalization
+
+This package uses [i18next](https://www.i18next.com/) for internationalization.
+We load i18next into Lit using [lit-i18n](https://github.com/colscott/lit-i18n)
+and we also add the
+[i18next-browser-languageDetector](https://github.com/i18next/i18next-browser-languageDetector)
+plugin to attempt to detect the user's browser language.
+
+#### Initialization
+
+i18next will be initialized by importing any component internally.
+Alternatively, if you want to initialize it yourself (i.e. in your application
+entrypoint) you can do so with the following code:
+
+```ts
+import '@skyra/discord-components-react';
+```
+
+#### Setting the language manually
+
+We expose the function `setI18nLanguage` which can be used to manually set the
+language of i18next. You can use one of the following:
+
+```ts
+import { setI18nLanguage } from '@skyra/discord-components-react';
+```
+
+#### Integrating with `react-i18next`
+
+If you want to integrate this with
+[`react-i18next`](https://github.com/i18next/react-i18next), you can simply
+initialize i18next as shown above, then import either `useTranslation` or
+`Trans` from `react-i18next` and use them as you would normally.
+
+#### Supported languages
+
+The list of languages supported are matched to the list of languages the Discord
+client supports. The list is as follows:
+
+- `bg`: Bulgarian
+- `cs`: Czech
+- `da`: Danish
+- `de`: German
+- `el`: Greek
+- `en-GB`: English (British)
+- `en-US`: English (American)
+- `es-419`: Spanish (Latin America)
+- `es-ES`: Spanish (Spain)
+- `fi`: Finnish
+- `fr`: French
+- `hi`: Hindi
+- `hr`: Croatian
+- `hu`: Hungarian
+- `id`: Indonesian
+- `it`: Italian
+- `ja`: Japanese
+- `ko`: Korean
+- `lt`: Lithuanian
+- `nl`: Dutch
+- `no`: Norwegian
+- `pl`: Polish
+- `pt-BR`: Portuguese (Brazil)
+- `ro`: Romanian
+- `ru`: Russian
+- `sv-SE`: Swedish
+- `th`: Thai
+- `tr`: Turkish
+- `uk`: Ukrainian
+- `vi`: Vietnamese
+- `zh-CN`: Chinese (Simplified)
+- `zh-TW`: Chinese (Traditional)
+
 ### Vite
 
 #### Live Demo

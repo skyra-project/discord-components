@@ -6,6 +6,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
+import { translate } from '../../i18n/lit-integration.js';
 import { getClanIcon } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 
@@ -222,8 +223,8 @@ export class DiscordAuthorInfo extends LitElement {
 				/>`
 		)}
 		${when(this.bot && !this.server, () => html`<discord-verified-author-tag .verified=${this.verified}></discord-verified-author-tag>`)}
-		${when(this.server && !this.bot, () => html`<span class="discord-application-tag">Server</span>`)}
-		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
+		${when(this.server && !this.bot, () => html`<span class="discord-application-tag">${translate('discord-author-info.server')}</span>`)}
+		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">${translate('discord-author-info.op')}</span>`)}
 		${when(
 			this.compactMode,
 			() => html`<span class="discord-author-username" style="${styleMap({ color: this.roleColor ?? undefined })}">${this.author}</span>`

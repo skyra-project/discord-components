@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { choose } from 'lit/directives/choose.js';
@@ -51,7 +52,7 @@ export class DiscordHeader extends LitElement {
 
 	public checkLevel() {
 		if (this.level < 1 || this.level > 3) {
-			throw new RangeError('The level property must be a number between 1 and 3 (inclusive)');
+			throw new RangeError(i18next.t('discord-header.errors.range-error'));
 		}
 	}
 

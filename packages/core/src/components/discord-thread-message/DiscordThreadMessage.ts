@@ -5,6 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { avatars, profiles } from '../../config.js';
+import { translate } from '../../i18n/lit-integration.js';
 import type { LightTheme, Profile } from '../../types.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
@@ -173,9 +174,15 @@ export class DiscordThreadMessage extends LitElement implements LightTheme {
 		return html`<img src=${ifDefined(profile.avatar)} class="discord-thread-message-avatar" alt=${ifDefined(profile.author)} />
 			${when(
 				profile.bot && !profile.server,
-				() => html`<span class="discord-application-tag"> ${profile.verified ? VerifiedTick() : null} App </span>`
+				() =>
+					html`<span class="discord-application-tag">
+						${profile.verified ? VerifiedTick() : null} ${translate('discord-thread-message.app')}
+					</span>`
 			)}
-			${when(profile.server && !profile.bot, () => html`<span class="discord-application-tag">Server</span>`)}
+			${when(
+				profile.server && !profile.bot,
+				() => html`<span class="discord-application-tag">${translate('discord-thread-message.server')}</span>`
+			)}
 			<span class="discord-thread-message-username" style=${styleMap({ color: profile.roleColor })}> ${profile.author} </span>
 			<div class="discord-thread-message-content">
 				<slot></slot>

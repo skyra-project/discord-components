@@ -1,0 +1,5 @@
+{
+	"errors": {
+		"invalid-children": "All direct children inside of a <discord-unordered-list> components must be one of <discord-unordered-list>, <discord-ordered-list>, or <discord-list-item>."
+	}
+}

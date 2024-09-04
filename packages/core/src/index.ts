@@ -1,3 +1,5 @@
+import './i18n/init.js';
+
 import type { DiscordMessageOptions } from './types.js';
 
 /* EXPORTS START */
@@ -51,6 +53,7 @@ export { DiscordVideoAttachment } from './components/discord-video-attachment/Di
 /* EXPORTS END */
 export { getConfig, setConfig } from './config.js';
 export { DiscordComponentsError } from './util.js';
+export { getI18nLanguage, setI18nLanguage, type SupportedI18nLanguages } from './i18n/utils.js';
 export type * from './types.js';
 
 declare global {

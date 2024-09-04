@@ -40,6 +40,10 @@ _React Bindings_
   - [Features](#features)
   - [Usage](#usage)
     - [Using the Discord font](#using-the-discord-font)
+    - [Internationalization](#internationalization)
+      - [Initialization](#initialization)
+      - [Setting the language manually](#setting-the-language-manually)
+      - [Supported languages](#supported-languages)
     - [Integrations](#integrations)
       - [Angular](#angular)
         - [Important Notes](#important-notes)
@@ -196,6 +200,82 @@ do so by including the CSS below:
   font-weight: 700;
 }
 ```
+
+### Internationalization
+
+This package uses [i18next](https://www.i18next.com/) for internationalization.
+We load
+[i18next-browser-languageDetector](https://github.com/i18next/i18next-browser-languageDetector)
+plugin to attempt to detect the user's browser language, or you can set the
+language yourself as seen at
+[Setting the language manually](#setting-the-language-manually).
+
+#### Initialization
+
+i18next will be initialized by importing any component internally.
+Alternatively, if you want to initialize it yourself (i.e. in your application
+entrypoint) you can do so with the following code:
+
+```ts
+import '@skyra/discord-components';
+```
+
+or if you only want to load i18n and not any of the component side effects:
+
+```ts
+import '@skyra/discord-components/i18n';
+```
+
+#### Setting the language manually
+
+We expose the function `setI18nLanguage` which can be used to manually set the
+language of i18next. You can use one of the following:
+
+```ts
+import { setI18nLanguage } from '@skyra/discord-components';
+```
+
+```ts
+import { setI18nLanguage } from '@skyra/discord-components/i18n/utils';
+```
+
+#### Supported languages
+
+The list of languages supported are matched to the list of languages the Discord
+client supports. The list is as follows:
+
+- `bg`: Bulgarian
+- `cs`: Czech
+- `da`: Danish
+- `de`: German
+- `el`: Greek
+- `en-GB`: English (British)
+- `en-US`: English (American)
+- `es-419`: Spanish (Latin America)
+- `es-ES`: Spanish (Spain)
+- `fi`: Finnish
+- `fr`: French
+- `hi`: Hindi
+- `hr`: Croatian
+- `hu`: Hungarian
+- `id`: Indonesian
+- `it`: Italian
+- `ja`: Japanese
+- `ko`: Korean
+- `lt`: Lithuanian
+- `nl`: Dutch
+- `no`: Norwegian
+- `pl`: Polish
+- `pt-BR`: Portuguese (Brazil)
+- `ro`: Romanian
+- `ru`: Russian
+- `sv-SE`: Swedish
+- `th`: Thai
+- `tr`: Turkish
+- `uk`: Ukrainian
+- `vi`: Vietnamese
+- `zh-CN`: Chinese (Simplified)
+- `zh-TW`: Chinese (Traditional)
 
 ### Integrations
 

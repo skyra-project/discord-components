@@ -1,0 +1,5 @@
+{
+	"errors": {
+		"wrong-parent": "All <discord-list-item> components must be direct children of <discord-unordered-list> or <discord-ordered-list>."
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"errors": {
+		"label-required": "Label is required to input text",
+		"type-required": "Type is required to input text",
+		"type-must-be-string": "DiscordInputText `type` prop must be a string.",
+		"type-required-variant": "DiscordInputText `type` prop must be one of: 'short', 'paragraph'"
+	},
+	"must-be-between-length": "- Must be between {{minLength}} and {{maxLength}} in length.",
+	"required-field": "Please fill out this field.",
+	"increase-length_one": "Please lengthen this text to {{minLength}} characters or more (you are currently using {{calculatedCharactersCount}} character)",
+	"increase-length_other": "Please lengthen this text to {{minLength}} characters or more (you are currently using {{calculatedCharactersCount}} characters)",
+	"required-minimum-length": "Must be {{minLength}} characters or more in length."
+}
