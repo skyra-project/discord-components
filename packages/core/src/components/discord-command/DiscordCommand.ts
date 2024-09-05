@@ -9,6 +9,7 @@ import type { LightTheme, Profile } from '../../types.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
+import CommandIconName from '../svgs/CommandIconName.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {
@@ -19,13 +20,20 @@ export class DiscordCommand extends LitElement implements LightTheme {
 		DiscordReply.styles,
 		css`
 			:host .discord-command-name {
-				color: #00aff4;
+				color: color-mix(in oklab, hsl(200 calc(1 * 100%) 49.4% / 1) 100%, black 0%) !important;
 				font-weight: 500;
+				background-color: #3c4270;
+				border-radius: 3px;
+				display: flex;
+				padding: 0 5px;
+				align-items: center;
+				gap: 2px;
 			}
 
 			:host .discord-command-name:hover {
-				color: #00aff4;
-				text-decoration: underline;
+				color: #fffffd !important;
+				background-color: #5865f2;
+				cursor: default !important;
 			}
 
 			:host .discord-replied-message-username {
@@ -95,7 +103,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			)}
 			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
 			<span> used </span>
-			<div class="discord-replied-message-content discord-command-name">${this.command}</div>
+			<div class="discord-replied-message-content discord-command-name">${CommandIconName()}<span>${this.command}</span></div>
 		`;
 	}
 }
