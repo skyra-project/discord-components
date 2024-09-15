@@ -24,8 +24,8 @@
 		"build:documentation": "yarn workspace documentation build"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.4.1",
-		"@commitlint/config-conventional": "^19.4.1",
+		"@commitlint/cli": "^19.5.0",
+		"@commitlint/config-conventional": "^19.5.0",
 		"@eslint/compat": "^1.1.1",
 		"@lerna-lite/cli": "^3.9.1",
 		"@lerna-lite/publish": "^3.9.1",
@@ -44,7 +44,7 @@
 		"eslint-plugin-wc": "^2.1.1",
 		"lint-staged": "^15.2.10",
 		"markdown-toc": "^1.2.0",
-		"npm-run-all2": "^6.2.2",
+		"npm-run-all2": "^6.2.3",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"react": "^18.3.1",
@@ -79,5 +79,5 @@
 		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix"
 	},
-	"packageManager": "yarn@4.4.1"
+	"packageManager": "yarn@4.5.0"
 }
