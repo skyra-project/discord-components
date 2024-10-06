@@ -26,7 +26,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.5.0",
 		"@commitlint/config-conventional": "^19.5.0",
-		"@eslint/compat": "^1.1.1",
+		"@eslint/compat": "^1.2.0",
 		"@lerna-lite/cli": "^3.9.2",
 		"@lerna-lite/publish": "^3.9.2",
 		"@lerna-lite/run": "^3.9.2",

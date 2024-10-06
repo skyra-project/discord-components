@@ -10,12 +10,12 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.9.3",
+		"@astrojs/check": "0.9.4",
 		"@astrojs/lit": "^4.3.0",
 		"@astrojs/starlight": "0.28.2",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "4.15.9",
+		"astro": "4.15.11",
 		"lit": "^3.2.0",
 		"starlight-typedoc": "0.15.0",
 		"typedoc": "0.26.5",
@@ -25,7 +25,7 @@
 	"devDependencies": {
 		"@skyra/discord-components-core": "workspace:^",
 		"@skyra/discord-components-react": "workspace:^",
-		"@types/react": "18.3.10",
+		"@types/react": "18.3.11",
 		"@types/react-dom": "^18.3.0",
 		"react-dom": "^18.3.1",
 		"typescript": "^5.5.4"
