@@ -30,7 +30,7 @@ export class DiscordStringSelectMenu extends LitElement implements LightTheme {
 			max-width: 400px;
 			margin-right: 16px;
 			transition: border 0.2s ease;
-			font-height: 500;
+			font-weight: 500;
 		}
 
 		:host([light-theme]) .discord-string-select-menu {
