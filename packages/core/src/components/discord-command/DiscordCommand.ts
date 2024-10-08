@@ -10,6 +10,7 @@ import { messagesCompactMode, messagesLightTheme } from '../discord-messages/Dis
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
 import CommandIconName from '../svgs/CommandIconName.js';
+import ExpandMore from '../svgs/ExpandMore.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {
@@ -45,6 +46,22 @@ export class DiscordCommand extends LitElement implements LightTheme {
 				opacity: 0.64;
 				cursor: default;
 				font-weight: 500;
+			}
+
+			.discord-arrow-right-icon {
+				transform: rotate(267deg);
+				width: 12px;
+				height: 12px;
+				fill: none;
+				margin-right: 2px;
+				margin-left: 2px;
+				margin-top: 3px;
+			}
+
+			.discord-context-user {
+				display: flex;
+				align-items: center;
+				margin-top: 3px;
 			}
 		`
 	];
@@ -82,8 +99,29 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	@property({ attribute: 'command' })
 	public accessor command: string;
 
+	/**
+	 * The type of command
+	 */
 	@property({ attribute: 'type' })
 	public accessor type: 'context_menu' | 'slash_command' = 'slash_command';
+
+	/**
+	 * The name of user mentioned in context menu
+	 */
+	@property({ attribute: 'context-user-name' })
+	public accessor context_user_name: string;
+
+	/**
+	 * The image of user mentioned in context menu
+	 */
+	@property({ attribute: 'context-user-image' })
+	public accessor context_user_image: string;
+
+	/**
+	 * The role color of user mentioned in context menu
+	 */
+	@property({ attribute: 'context-user-role-color' })
+	public accessor context_user_role_color: string;
 
 	/**
 	 * Whether to use compact mode or not.
@@ -135,7 +173,22 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			)}
 			${when(
 				this.type === 'context_menu',
-				() => html`<div class="discord-replied-message-content discord-context-command-name"><span>${this.command}</span></div>`
+				() =>
+					html`<div class="discord-replied-message-content discord-context-command-name"><span>${this.command}</span></div>
+						${ExpandMore({ class: 'discord-arrow-right-icon' })}
+						<div class="discord-context-user">
+							${when(
+								!this.compactMode,
+								() =>
+									html`<img
+										class="discord-replied-message-avatar"
+										src="${ifDefined(this.context_user_image)}"
+										alt="${ifDefined(this.context_user_name)}"
+									/>`
+							)}<span class="discord-replied-message-username" style=${styleMap({ color: this.context_user_role_color ?? '' })}
+								>${this.context_user_name}</span
+							>
+						</div>`
 			)}
 		`;
 	}
