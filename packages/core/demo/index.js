@@ -1,5 +1,10 @@
 globalThis.$discordMessage = {
 	profiles: {
+		marciel404:{
+			author: 'marciel404',
+			avatar: 'https://github.com/eumarciel404.png',
+			roleColor: '#00ffff'
+		},
 		maximillian: {
 			author: 'Maximillian Osborn',
 			avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/avaone.png',
@@ -23,18 +28,6 @@ globalThis.$discordMessage = {
 			roleColor: '#a155ab',
 			roleIcon: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/booster.png',
 			roleName: 'Booster'
-		},
-		dominik: {
-			author: 'Dominik',
-			avatar: 'https://github.com/mezotv.png',
-			clanIcon: 'leaf',
-			clanTag: 'Leaf'
-		},
-		paulos: {
-			author: 'Paulos',
-			avatar: 'https://github.com/dpaulos6.png',
-			clanIcon: 'water',
-			clanTag: 'CSS3'
 		},
 		discordjs: {
 			author: 'Discord.js Official #announcements',
