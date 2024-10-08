@@ -426,10 +426,6 @@
 						<discord-reply slot="reply" profile="favna" mentions>Looks nice!</discord-reply>
 						I agree!
 					</discord-message>
-					<discord-message profile="paulos">
-						<discord-reply slot="reply" profile="dominik" edited attachment>Butterflies look beautiful!</discord-reply>
-						They do!
-					</discord-message>
 				</discord-messages>
 				<h3 class="title">Replies in Compact Mode</h3>
 				<discord-messages compact-mode>
@@ -441,15 +437,15 @@
 						<discord-reply slot="reply" profile="favna" mentions>Looks nice!</discord-reply>
 						I agree!
 					</discord-message>
-					<discord-message profile="paulos">
-						<discord-reply slot="reply" profile="dominik" edited attachment>Butterflies look beautiful!</discord-reply>
-						They do!
-					</discord-message>
 				</discord-messages>
 				<h3 class="title">Commands</h3>
 				<discord-messages>
 					<discord-message profile="skyra">
-						<discord-command slot="reply" profile="favna" command="ping"></discord-command>
+						<discord-command type="slash_command" slot="reply" profile="favna" command="ping"></discord-command>
+						Pong!
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command type="context_menu" slot="reply" profile="favna" command="ping"></discord-command>
 						Pong!
 					</discord-message>
 					<discord-message profile="skyra" ephemeral>
@@ -468,6 +464,10 @@
 				<discord-messages compact-mode>
 					<discord-message profile="skyra">
 						<discord-command slot="reply" profile="favna" command="ping"></discord-command>
+						Pong!
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command type="context_menu" slot="reply" profile="favna" command="ping"></discord-command>
 						Pong!
 					</discord-message>
 					<discord-message profile="skyra" ephemeral>
@@ -671,6 +671,7 @@
 						<discord-input-text
 							type="paragraph"
 							required
+							default-value="12"
 							label="required paragraph"
 							placeholder="Give me a value"
 							min-length="3"
@@ -857,7 +858,7 @@
 				<discord-messages>
 					<discord-message profile="skyra">
 						This is the text of the message
-						<discord-command slot="reply" profile="favna" command="command"></discord-command>
+						<discord-command type="context" slot="reply" profile="favna" command="command"></discord-command>
 						<discord-image-attachment
 							slot="attachments"
 							url="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/lit.png"
