@@ -61,7 +61,6 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			.discord-context-user {
 				display: flex;
 				align-items: center;
-				margin-top: 3px;
 			}
 		`
 	];
