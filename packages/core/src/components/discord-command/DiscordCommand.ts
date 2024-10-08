@@ -61,6 +61,13 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			.discord-context-user {
 				display: flex;
 				align-items: center;
+				margin-top: 3px;
+			}
+
+			:host([compact-mode]) .discord-context-user {
+				display: flex;
+				align-items: center;
+				margin: 0 !important;
 			}
 		`
 	];
@@ -108,7 +115,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	 * The name of user mentioned in context menu
 	 */
 	@property({ attribute: 'context-user-name' })
-	public accessor context_user_name: string;
+	public accessor context_user_name: string = 'User';
 
 	/**
 	 * The image of user mentioned in context menu
