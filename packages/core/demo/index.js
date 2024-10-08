@@ -1,6 +1,6 @@
 globalThis.$discordMessage = {
 	profiles: {
-		marciel404:{
+		marciel404: {
 			author: 'marciel404',
 			avatar: 'https://github.com/eumarciel404.png',
 			roleColor: '#00ffff'
