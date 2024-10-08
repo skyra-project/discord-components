@@ -19,7 +19,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public static override readonly styles = [
 		DiscordReply.styles,
 		css`
-			:host .discord-command-name {
+			:host .discord-slash-command-name {
 				color: color-mix(in oklab, hsl(200 calc(1 * 100%) 49.4% / 1) 100%, black 0%) !important;
 				font-weight: 500;
 				background-color: #3c4270;
@@ -28,16 +28,23 @@ export class DiscordCommand extends LitElement implements LightTheme {
 				padding: 0 5px;
 				align-items: center;
 				gap: 2px;
+				cursor: default;
 			}
 
-			:host .discord-command-name:hover {
+			:host .discord-slash-command-name:hover {
 				color: #fffffd !important;
 				background-color: #5865f2;
-				cursor: default !important;
 			}
 
 			:host .discord-replied-message-username {
 				margin-right: 0;
+			}
+
+			.discord-context-command-name {
+				color: color-mix(in oklab, hsl(200 calc(1 * 100%) 49.4% / 1) 100%, black 0%) !important;
+				opacity: 0.64;
+				cursor: default;
+				font-weight: 500;
 			}
 		`
 	];
@@ -75,6 +82,9 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	@property({ attribute: 'command' })
 	public accessor command: string;
 
+	@property({ attribute: 'type' })
+	public accessor type: 'context_menu' | 'slash_command' = 'slash_command';
+
 	/**
 	 * Whether to use compact mode or not.
 	 */
@@ -103,7 +113,17 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			)}
 			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
 			<span> used </span>
-			<div class="discord-replied-message-content discord-command-name">${CommandIconName()}<span>${this.command}</span></div>
+			${when(
+				this.type === 'slash_command',
+				() =>
+					html`<div class="discord-replied-message-content discord-slash-command-name">
+						${CommandIconName()}<span>${this.command}</span>
+					</div>`
+			)}
+			${when(
+				this.type === 'context_menu',
+				() => html`<div class="discord-replied-message-content discord-context-command-name"><span>${this.command}</span></div>`
+			)}
 		`;
 	}
 }
