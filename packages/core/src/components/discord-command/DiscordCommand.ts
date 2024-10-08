@@ -10,6 +10,7 @@ import { messagesCompactMode, messagesLightTheme } from '../discord-messages/Dis
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
 import CommandIcon from '../svgs/CommandIcon.js';
 import CommandIconName from '../svgs/CommandIconName.js';
+import ExpandMore from '../svgs/ExpandMore.js';
 
 @customElement('discord-command')
 export class DiscordCommand extends LitElement implements LightTheme {
@@ -19,7 +20,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public static override readonly styles = [
 		DiscordReply.styles,
 		css`
-			:host .discord-command-name {
+			:host .discord-slash-command-name {
 				color: color-mix(in oklab, hsl(200 calc(1 * 100%) 49.4% / 1) 100%, black 0%) !important;
 				font-weight: 500;
 				background-color: #3c4270;
@@ -28,16 +29,45 @@ export class DiscordCommand extends LitElement implements LightTheme {
 				padding: 0 5px;
 				align-items: center;
 				gap: 2px;
+				cursor: default;
 			}
 
-			:host .discord-command-name:hover {
+			:host .discord-slash-command-name:hover {
 				color: #fffffd !important;
 				background-color: #5865f2;
-				cursor: default !important;
 			}
 
 			:host .discord-replied-message-username {
 				margin-right: 0;
+			}
+
+			.discord-context-command-name {
+				color: color-mix(in oklab, hsl(200 calc(1 * 100%) 49.4% / 1) 100%, black 0%) !important;
+				opacity: 0.64;
+				cursor: default;
+				font-weight: 500;
+			}
+
+			.discord-arrow-right-icon {
+				transform: rotate(267deg);
+				width: 12px;
+				height: 12px;
+				fill: none;
+				margin-right: 2px;
+				margin-left: 2px;
+				margin-top: 3px;
+			}
+
+			.discord-context-user {
+				display: flex;
+				align-items: center;
+				margin-top: 3px;
+			}
+
+			:host([compact-mode]) .discord-context-user {
+				display: flex;
+				align-items: center;
+				margin: 0 !important;
 			}
 		`
 	];
@@ -76,6 +106,36 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public accessor command: string;
 
 	/**
+	 * The type of command
+	 */
+	@property({ attribute: 'type' })
+	public accessor type: 'context_menu' | 'slash_command' = 'slash_command';
+
+	/**
+	 * The id of the profile data to use.
+	 */
+	@property({ attribute: 'context-user-profile' })
+	public accessor contextUserProfile: string = 'User';
+
+	/**
+	 * The name of user mentioned in context menu
+	 */
+	@property({ attribute: 'context-user-name' })
+	public accessor contextUserName: string = 'User';
+
+	/**
+	 * The image of user mentioned in context menu
+	 */
+	@property({ attribute: 'context-user-image' })
+	public accessor contextUserAvatar: string;
+
+	/**
+	 * The role color of user mentioned in context menu
+	 */
+	@property({ attribute: 'context-user-role-color' })
+	public accessor contextUserRoleColor: string;
+
+	/**
 	 * Whether to use compact mode or not.
 	 */
 	@consume({ context: messagesCompactMode })
@@ -86,14 +146,40 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
+	private readonly validButtonTypes = new Set(['context_menu', 'slash_command']);
+
+	public checkType() {
+		if (this.type) {
+			if (typeof this.type !== 'string') {
+				throw new TypeError('DiscordCommand `type` prop must be a string.');
+			} else if (!this.validButtonTypes.has(this.type)) {
+				throw new RangeError("DiscordCommand `type` prop must be one of: 'context_menu', 'slash_command'");
+			}
+		}
+	}
+
 	private resolveAvatar(avatar: string): string {
 		return avatars[avatar] ?? avatar ?? avatars.default;
 	}
 
 	protected override render() {
+		this.checkType();
 		const defaultData: Profile = { author: this.author, bot: false, verified: false, server: false, roleColor: this.roleColor };
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
+		const defaultDataContext: Profile = {
+			author: this.contextUserName,
+			bot: false,
+			verified: false,
+			server: false,
+			roleColor: this.contextUserRoleColor
+		};
+		const profileDataContext: Profile = Reflect.get(profiles, this.contextUserProfile) ?? {};
+		const profileContext: Profile = {
+			...defaultDataContext,
+			...profileDataContext,
+			avatar: this.resolveAvatar(profileDataContext.avatar ?? this.contextUserAvatar)
+		};
 
 		return html`
 			${when(
@@ -103,7 +189,32 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			)}
 			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
 			<span> used </span>
-			<div class="discord-replied-message-content discord-command-name">${CommandIconName()}<span>${this.command}</span></div>
+			${when(
+				this.type === 'slash_command',
+				() =>
+					html`<div class="discord-replied-message-content discord-slash-command-name">
+						${CommandIconName()}<span>${this.command}</span>
+					</div>`
+			)}
+			${when(
+				this.type === 'context_menu',
+				() =>
+					html`<div class="discord-replied-message-content discord-context-command-name"><span>${this.command}</span></div>
+						${ExpandMore({ class: 'discord-arrow-right-icon' })}
+						<div class="discord-context-user">
+							${when(
+								!this.compactMode,
+								() =>
+									html`<img
+										class="discord-replied-message-avatar"
+										src="${ifDefined(profileContext.avatar)}"
+										alt="${ifDefined(profileContext.author)}"
+									/>`
+							)}<span class="discord-replied-message-username" style=${styleMap({ color: profileContext.roleColor ?? '' })}
+								>${profileContext.author}</span
+							>
+						</div>`
+			)}
 		`;
 	}
 }

@@ -449,8 +449,18 @@
 				<h3 class="title">Commands</h3>
 				<discord-messages>
 					<discord-message profile="skyra">
-						<discord-command slot="reply" profile="favna" command="ping"></discord-command>
+						<discord-command type="slash_command" slot="reply" profile="favna" command="ping"></discord-command>
 						Pong!
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command
+							type="context_menu"
+							context-user-profile="marciel404"
+							slot="reply"
+							profile="favna"
+							command="user"
+						></discord-command>
+						The user is marciel404!
 					</discord-message>
 					<discord-message profile="skyra" ephemeral>
 						<discord-reply slot="reply" profile="skyra" command>Pong!</discord-reply>
@@ -469,6 +479,16 @@
 					<discord-message profile="skyra">
 						<discord-command slot="reply" profile="favna" command="ping"></discord-command>
 						Pong!
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command
+							type="context_menu"
+							context-user-profile="marciel404"
+							slot="reply"
+							profile="favna"
+							command="user"
+						></discord-command>
+						The user is marciel404!
 					</discord-message>
 					<discord-message profile="skyra" ephemeral>
 						<discord-reply slot="reply" profile="skyra" command>Pong!</discord-reply>
