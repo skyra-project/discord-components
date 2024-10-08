@@ -112,22 +112,28 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public accessor type: 'context_menu' | 'slash_command' = 'slash_command';
 
 	/**
+	 * The id of the profile data to use.
+	 */
+	@property({ attribute: 'context-user-profile' })
+	public accessor contextUserProfile: string = 'User';
+
+	/**
 	 * The name of user mentioned in context menu
 	 */
 	@property({ attribute: 'context-user-name' })
-	public accessor context_user_name: string = 'User';
+	public accessor contextUserName: string = 'User';
 
 	/**
 	 * The image of user mentioned in context menu
 	 */
 	@property({ attribute: 'context-user-image' })
-	public accessor context_user_image: string;
+	public accessor contextUserAvatar: string;
 
 	/**
 	 * The role color of user mentioned in context menu
 	 */
 	@property({ attribute: 'context-user-role-color' })
-	public accessor context_user_role_color: string;
+	public accessor contextUserRoleColor: string;
 
 	/**
 	 * Whether to use compact mode or not.
@@ -161,6 +167,19 @@ export class DiscordCommand extends LitElement implements LightTheme {
 		const defaultData: Profile = { author: this.author, bot: false, verified: false, server: false, roleColor: this.roleColor };
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
+		const defaultDataContext: Profile = {
+			author: this.contextUserName,
+			bot: false,
+			verified: false,
+			server: false,
+			roleColor: this.contextUserRoleColor
+		};
+		const profileDataContext: Profile = Reflect.get(profiles, this.contextUserProfile) ?? {};
+		const profileContext: Profile = {
+			...defaultDataContext,
+			...profileDataContext,
+			avatar: this.resolveAvatar(profileDataContext.avatar ?? this.contextUserAvatar)
+		};
 
 		return html`
 			${when(
@@ -188,11 +207,11 @@ export class DiscordCommand extends LitElement implements LightTheme {
 								() =>
 									html`<img
 										class="discord-replied-message-avatar"
-										src="${ifDefined(this.context_user_image)}"
-										alt="${ifDefined(this.context_user_name)}"
+										src="${ifDefined(profileContext.avatar)}"
+										alt="${ifDefined(profileContext.author)}"
 									/>`
-							)}<span class="discord-replied-message-username" style=${styleMap({ color: this.context_user_role_color ?? '' })}
-								>${this.context_user_name}</span
+							)}<span class="discord-replied-message-username" style=${styleMap({ color: profileContext.roleColor ?? '' })}
+								>${profileContext.author}</span
 							>
 						</div>`
 			)}
