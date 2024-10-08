@@ -96,11 +96,24 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
+	private readonly validButtonTypes = new Set(['context_menu', 'slash_command']);
+
+	public checkType() {
+		if (this.type) {
+			if (typeof this.type !== 'string') {
+				throw new TypeError('DiscordCommand `type` prop must be a string.');
+			} else if (!this.validButtonTypes.has(this.type)) {
+				throw new RangeError("DiscordCommand `type` prop must be one of: 'context_menu', 'slash_command'");
+			}
+		}
+	}
+
 	private resolveAvatar(avatar: string): string {
 		return avatars[avatar] ?? avatar ?? avatars.default;
 	}
 
 	protected override render() {
+		this.checkType();
 		const defaultData: Profile = { author: this.author, bot: false, verified: false, server: false, roleColor: this.roleColor };
 		const profileData: Profile = Reflect.get(profiles, this.profile) ?? {};
 		const profile: Profile = { ...defaultData, ...profileData, avatar: this.resolveAvatar(profileData.avatar ?? this.avatar) };
