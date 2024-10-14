@@ -454,17 +454,36 @@
 					</discord-message>
 					<discord-message profile="skyra">
 						<discord-command
-							type="context_menu"
-							context-user-profile="marciel404"
+							type="user_command"
+							context-user-profile="favna"
 							slot="reply"
-							profile="favna"
+							profile="marciel404"
 							command="user"
 						></discord-command>
-						The user is marciel404!
+						The user is Favna!
 					</discord-message>
-					<discord-message profile="skyra" ephemeral>
-						<discord-reply slot="reply" profile="skyra" command>Pong!</discord-reply>
-						Took 100ms.
+					<discord-message profile="skyra">
+						<discord-command
+							type="message_command"
+							context-user-profile="skyra"
+							context-message-reply="The user is Favna!"
+							context-command-reply
+							slot="reply"
+							profile="marciel404"
+							command="content message"
+						></discord-command>
+						The content is "The user is Favna!"
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command
+							type="message_command"
+							context-user-profile="favna"
+							context-message-reply="This is nice message!"
+							slot="reply"
+							profile="marciel404"
+							command="content message"
+						></discord-command>
+						The content is "This is nice message!"
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Commands with deleted message</h3>
@@ -473,6 +492,16 @@
 						<discord-reply slot="reply" deleted></discord-reply>
 						Took 100ms.
 					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command
+							type="message_command"
+							context-message-deleted
+							slot="reply"
+							profile="marciel404"
+							command="content message"
+						></discord-command>
+						The content is "The user is Favna!"
+					</discord-message>
 				</discord-messages>
 				<h3 class="title">Commands in Compact Mode</h3>
 				<discord-messages compact-mode>
@@ -480,19 +509,42 @@
 						<discord-command slot="reply" profile="favna" command="ping"></discord-command>
 						Pong!
 					</discord-message>
-					<discord-message profile="skyra">
-						<discord-command
-							type="context_menu"
-							context-user-profile="marciel404"
-							slot="reply"
-							profile="favna"
-							command="user"
-						></discord-command>
-						The user is marciel404!
-					</discord-message>
 					<discord-message profile="skyra" ephemeral>
 						<discord-reply slot="reply" profile="skyra" command>Pong!</discord-reply>
 						Took 100ms.
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command
+							type="user_command"
+							context-user-profile="favna"
+							slot="reply"
+							profile="marciel404"
+							command="user"
+						></discord-command>
+						The user is Favna!
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command
+							type="message_command"
+							context-user-profile="skyra"
+							context-message-reply="The user is Favna!"
+							context-command-reply
+							slot="reply"
+							profile="marciel404"
+							command="content message"
+						></discord-command>
+						The content is "The user is Favna!"
+					</discord-message>
+					<discord-message profile="skyra">
+						<discord-command
+							type="message_command"
+							context-user-profile="favna"
+							context-message-reply="This is nice message!"
+							slot="reply"
+							profile="marciel404"
+							command="content message"
+						></discord-command>
+						The content is "This is nice message!"
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Components</h3>
