@@ -1,5 +1,10 @@
 globalThis.$discordMessage = {
 	profiles: {
+		marciel404: {
+			author: 'marciel404',
+			avatar: 'https://github.com/eumarciel404.png',
+			roleColor: '#00ffff'
+		},
 		maximillian: {
 			author: 'Maximillian Osborn',
 			avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/avaone.png',
