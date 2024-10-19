@@ -78,7 +78,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			}
 
 			:host([light-theme]) .discord-replied-message-username {
-				color: rgb(46, 51, 56) !important;
+				color: rgb(46, 51, 56);
 			}
 
 			:host([compact-mode]) .discord-context-user {
