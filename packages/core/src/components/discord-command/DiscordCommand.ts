@@ -77,6 +77,10 @@ export class DiscordCommand extends LitElement implements LightTheme {
 				margin-right: 0;
 			}
 
+			:host([light-theme]) .discord-replied-message-username {
+				color: rgb(46, 51, 56);
+			}
+
 			:host([compact-mode]) .discord-context-user {
 				display: flex;
 				align-items: center;
