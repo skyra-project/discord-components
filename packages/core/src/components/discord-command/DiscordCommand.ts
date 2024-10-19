@@ -218,7 +218,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			if (typeof this.type !== 'string') {
 				throw new TypeError('DiscordCommand `type` prop must be a string.');
 			} else if (!this.validCommandTypes.has(this.type)) {
-				throw new RangeError("DiscordCommand `type` prop must be one of: 'uer_command', 'context_menu' or 'slash_command'");
+				throw new RangeError("DiscordCommand `type` prop must be one of: 'uer_command', 'message_command' or 'slash_command'");
 			}
 		}
 	}
