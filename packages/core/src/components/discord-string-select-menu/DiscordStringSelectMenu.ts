@@ -134,14 +134,16 @@ export class DiscordStringSelectMenu extends LitElement implements LightTheme {
 
 	protected override render() {
 		return html`
-			<div class="${classMap({ 'discord-string-select-menu': true, 'discord-string-select-menu-disabled': this.disabled })}">
-				<label class="discord-string-select-menu-label">
-					<div class="${classMap({ 'discord-string-select-inside-menu': true, 'discord-string-select-menu-disabled': this.disabled })}">
-						<span>${this.placeholder}</span> ${ExpandMore({ class: 'discord-expand-more-icon' })}
-						<span class="discord-string-select-menu-hidden"><input type="checkbox" @click=${this._onClick} /></span>
-					</div>
-				</label>
-			</div>
+			<label
+				class="${classMap({
+					'discord-string-select-menu-label': true,
+					'discord-string-select-menu': true,
+					'discord-string-select-menu-disabled': this.disabled
+				})}"
+			>
+				<span>${this.placeholder}</span> ${ExpandMore({ class: 'discord-expand-more-icon' })}
+				<span class="discord-string-select-menu-hidden"><input type="checkbox" @click=${this._onClick} /></span>
+			</label>
 			<div class="discord-string-select-menu-option-slot discord-string-select-menu-hidden"><slot></slot></div>
 		`;
 	}
@@ -150,7 +152,7 @@ export class DiscordStringSelectMenu extends LitElement implements LightTheme {
 	private _onClick() {
 		const expandMoreIcon = this.shadowRoot?.querySelectorAll('svg.discord-expand-more-icon').item(0);
 		const optionsMenu = this.shadowRoot?.querySelectorAll('div.discord-string-select-menu-option-slot').item(0);
-		const stringSelectMenu = this.shadowRoot?.querySelectorAll('div.discord-string-select-menu').item(0);
+		const stringSelectMenu = this.shadowRoot?.querySelectorAll('label.discord-string-select-menu').item(0);
 
 		if (stringSelectMenu?.className.includes('discord-string-select-menu-disabled')) return;
 
