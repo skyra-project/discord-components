@@ -56,15 +56,13 @@ export class DiscordStringSelectMenu extends LitElement implements LightTheme {
 			border-top-right-radius: 0px;
 			border-color: color-mix(in oklab, hsl(225 calc(1 * 6.3%) 12.5% / 1) 100%, black 0%);
 			background-color: color-mix(in oklab, hsl(220 calc(1 * 6.5%) 18% / 1) 100%, black 0%);
-
 			cursor: pointer;
 			box-sizing: border-box;
 			border-radius: 4px;
 			gap: 10px;
 			display: block;
-			max-height: 192px;
+			max-height: 190px;
 			position: absolute;
-
 			width: 90%;
 			max-width: 400px;
 			z-index: 1002;
