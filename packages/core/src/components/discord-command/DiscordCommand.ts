@@ -189,13 +189,13 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public accessor contextMessageDeleted: Boolean = false;
 
 	/**
-	 * If the referenced user is a application official of discord
+	 * If the context user is a application official of discord
 	 */
 	@property({ type: Boolean, attribute: 'context-user-application-official' })
 	public accessor contextUserOfficialApplication: Boolean = false;
 
 	/**
-	 * If the referenced user is a server
+	 * If the context user is a server
 	 */
 	@property({ type: Boolean, attribute: 'context-user-server' })
 	public accessor contextUserServer: Boolean = false;
