@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
-import { avatars, defaultDiscordAvatars, profiles } from '../../config.js';
+import { avatars, profiles } from '../../config.js';
 import type { LightTheme, Profile } from '../../types.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
@@ -189,13 +189,13 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public accessor contextMessageDeleted: Boolean = false;
 
 	/**
-	 * If the context user is a application official
+	 * If the referenced user is a application official of discord
 	 */
 	@property({ type: Boolean, attribute: 'context-user-application-official' })
 	public accessor contextUserOfficialApplication: Boolean = false;
 
 	/**
-	 * If the context user is a server
+	 * If the referenced user is a server
 	 */
 	@property({ type: Boolean, attribute: 'context-user-server' })
 	public accessor contextUserServer: Boolean = false;
@@ -304,12 +304,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 													src="${ifDefined(profileContext.avatar)}"
 													alt="${ifDefined(profileContext.author)}"
 												/>`,
-											() =>
-												html`<img
-													class="discord-replied-message-avatar"
-													src="${defaultDiscordAvatars.blue}"
-													alt="OFFICIALAPPLICATION"
-												/>`
+											() => html`<img class="discord-replied-message-avatar" src="${avatars.blue}" alt="OFFICIALAPPLICATION" />`
 										)
 									)}
 									${when(
