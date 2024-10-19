@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
-import { avatars, profiles } from '../../config.js';
+import { avatars, defaultDiscordAvatars, profiles } from '../../config.js';
 import type { LightTheme, Profile } from '../../types.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
 import { DiscordReply } from '../discord-reply/DiscordReply.js';
@@ -189,6 +189,18 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public accessor contextMessageDeleted: Boolean = false;
 
 	/**
+	 * If the context user is a application official
+	 */
+	@property({ type: Boolean, attribute: 'context-user-application-official' })
+	public accessor contextUserOfficialApplication: Boolean = false;
+
+	/**
+	 * If the context user is a server
+	 */
+	@property({ type: Boolean, attribute: 'context-user-server' })
+	public accessor contextUserServer: Boolean = false;
+
+	/**
 	 * Whether to use compact mode or not.
 	 */
 	@consume({ context: messagesCompactMode })
@@ -199,14 +211,14 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	private readonly validButtonTypes = new Set(['user_command', 'message_command', 'slash_command']);
+	private readonly validCommandTypes = new Set(['user_command', 'message_command', 'slash_command']);
 
 	public checkType() {
 		if (this.type) {
 			if (typeof this.type !== 'string') {
 				throw new TypeError('DiscordCommand `type` prop must be a string.');
-			} else if (!this.validButtonTypes.has(this.type)) {
-				throw new RangeError("DiscordCommand `type` prop must be one of: 'context_menu', 'slash_command'");
+			} else if (!this.validCommandTypes.has(this.type)) {
+				throw new RangeError("DiscordCommand `type` prop must be one of: 'uer_command', 'context_menu' or 'slash_command'");
 			}
 		}
 	}
@@ -283,18 +295,36 @@ export class DiscordCommand extends LitElement implements LightTheme {
 							!this.contextMessageDeleted,
 							() =>
 								html`<div class="discord-context-user">
-									${when(
-										!this.compactMode,
-										() =>
-											html`<img
-												class="discord-replied-message-avatar"
-												src="${ifDefined(profileContext.avatar)}"
-												alt="${ifDefined(profileContext.author)}"
-											/>`
+									${when(!this.compactMode, () =>
+										when(
+											!this.contextUserOfficialApplication,
+											() =>
+												html`<img
+													class="discord-replied-message-avatar"
+													src="${ifDefined(profileContext.avatar)}"
+													alt="${ifDefined(profileContext.author)}"
+												/>`,
+											() =>
+												html`<img
+													class="discord-replied-message-avatar"
+													src="${defaultDiscordAvatars.blue}"
+													alt="OFFICIALAPPLICATION"
+												/>`
+										)
 									)}
 									${when(
 										profileContext.bot,
-										() => html`<span class="discord-application-tag">${profileContext.verified ? VerifiedTick() : ''}App</span>`
+										() => html`<span class="discord-application-tag">${profileContext.verified ? VerifiedTick() : ''}App</span>`,
+										() =>
+											when(
+												this.contextUserServer,
+												() => html`<span class="discord-application-tag">SERVER</span>`,
+												() =>
+													when(
+														this.contextUserOfficialApplication,
+														() => html`<span class="discord-application-tag">${VerifiedTick()}OFFICIAL</span>`
+													)
+											)
 									)}
 									<span class="discord-replied-message-username" style=${styleMap({ color: profileContext.roleColor ?? '' })}
 										>${profileContext.author}</span
