@@ -26,13 +26,13 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.5.0",
 		"@commitlint/config-conventional": "^19.5.0",
-		"@eslint/compat": "^1.2.0",
-		"@lerna-lite/cli": "^3.9.3",
-		"@lerna-lite/publish": "^3.9.3",
-		"@lerna-lite/run": "^3.9.3",
+		"@eslint/compat": "^1.2.1",
+		"@lerna-lite/cli": "^3.10.0",
+		"@lerna-lite/publish": "^3.10.0",
+		"@lerna-lite/run": "^3.10.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.16.11",
+		"@types/node": "^20.16.13",
 		"chalk-cli": "^5.0.1",
 		"eslint": "^8.57.1",
 		"eslint-config-neon": "^0.2.0",
@@ -44,7 +44,7 @@
 		"eslint-plugin-wc": "^2.2.0",
 		"lint-staged": "^15.2.10",
 		"markdown-toc": "^1.2.0",
-		"npm-run-all2": "^6.2.3",
+		"npm-run-all2": "^6.2.4",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"react": "^18.3.1",
@@ -79,5 +79,5 @@
 		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix"
 	},
-	"packageManager": "yarn@4.5.0"
+	"packageManager": "yarn@4.5.1"
 }
