@@ -429,10 +429,9 @@ export class DiscordPollAnswer extends LitElement {
 						buttonVote.className = 'discord-poll-button-vote';
 						return;
 					}
-
 				}
 
-				console.log(buttonVote)
+				console.log(buttonVote);
 
 				buttonVote.className = 'discord-poll-button-vote discord-poll-button-vote-disabled';
 			}
