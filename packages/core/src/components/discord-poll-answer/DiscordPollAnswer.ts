@@ -5,7 +5,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { when } from 'lit/directives/when.js';
 import { DiscordComponentsError } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
-import { multipleAnswersPoll, pollEnded, pollVoted } from '../discord-poll/DiscordPoll.js';
+import { multipleAnswersPoll, pollEnded, pollVoted, showResults } from '../discord-poll/DiscordPoll.js';
 import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-poll-answer')
@@ -201,6 +201,9 @@ export class DiscordPollAnswer extends LitElement {
 	@consume({ context: pollVoted })
 	public accessor pollVoted = false;
 
+	@consume({ context: showResults })
+	public accessor showResult = false;
+
 	/**
 	 * Whether to use ligth theme or not.
 	 */
@@ -266,11 +269,11 @@ export class DiscordPollAnswer extends LitElement {
 
 		return html`
 			<label>
-				<div class="${classMap({ 'discord-answer-container': !this.pollVoted && !this.pollEnded })}">
+				<div class="${classMap({ 'discord-answer-container': !this.pollVoted && !this.pollEnded && !this.showResult })}">
 					<div
 						class="${classMap({
 							'discord-answer': true,
-							'discord-answer-selected': this.selected && !this.pollEnded,
+							'discord-answer-selected': this.selected && !this.pollEnded && !this.showResult,
 							'discord-answer-selected-ended': this.pollEnded && this.winners.includes(this.answer)
 						})}"
 					>
@@ -278,7 +281,11 @@ export class DiscordPollAnswer extends LitElement {
 							class=${classMap({
 								'discord-answer-backdround-color': true,
 								'discord-background-color-selected': !this.pollEnded && this.selected && this.pollVoted,
-								'discord-background-color-winner': this.pollEnded && this.winners.includes(this.answer)
+								'discord-background-color-winner': this.pollEnded && this.winners.includes(this.answer),
+								'discord-background-color-default':
+									(this.pollEnded && !this.winners.includes(this.answer)) ||
+									(!this.pollEnded && !this.selected && this.pollVoted) ||
+									this.showResult
 							})}
 							style="width:${this.percentageVoted}%;"
 						></div>
@@ -288,15 +295,18 @@ export class DiscordPollAnswer extends LitElement {
 						</div>
 						<div class="discord-answer-flex">
 							${when(
-								this.pollVoted || this.pollEnded,
+								this.pollVoted || this.pollEnded || this.showResult,
 								() =>
 									html`<h5 class="discord-answer-no-margin discord-quantity-votes">
 										${this.votes} ${this.votes > 1 || this.votes === 0 ? 'votes' : 'vote'}
 									</h5>`
 							)}
-							${when(this.pollVoted || this.pollEnded, () => html`<h4 class="discord-answer-no-margin">${this.percentageVoted}%</h4>`)}
 							${when(
-								this.selected,
+								this.pollVoted || this.pollEnded || this.showResult,
+								() => html`<h4 class="discord-answer-no-margin">${this.percentageVoted}%</h4>`
+							)}
+							${when(
+								this.selected && !this.showResult,
 								() =>
 									when(
 										this.multipleAnswers,
@@ -352,7 +362,7 @@ export class DiscordPollAnswer extends LitElement {
 									),
 								() =>
 									when(
-										!this.pollEnded && !this.pollVoted,
+										!this.pollEnded && !this.pollVoted && !this.showResult,
 										() =>
 											html`<div
 												class="${classMap({
