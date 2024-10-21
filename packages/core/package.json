@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/discord-components-core",
-	"version": "4.0.0-alpha.34",
+	"version": "4.0.0-alpha.31",
 	"description": "Web components to easily build and display fake Discord messages on your webpages.",
 	"author": "@skyra",
 	"license": "MIT",
@@ -38,6 +38,8 @@
 		"./discord-messages.js": "./dist/components/discord-messages/DiscordMessages.js",
 		"./discord-modal.js": "./dist/components/discord-modal/DiscordModal.js",
 		"./discord-ordered-list.js": "./dist/components/discord-ordered-list/DiscordOrderedList.js",
+		"./discord-poll.js": "./dist/components/discord-poll/DiscordPoll.js",
+		"./discord-poll-answer.js": "./dist/components/discord-poll-answer/DiscordPollAnswer.js",
 		"./discord-pre.js": "./dist/components/discord-pre/DiscordPre.js",
 		"./discord-quote.js": "./dist/components/discord-quote/DiscordQuote.js",
 		"./discord-reaction.js": "./dist/components/discord-reaction/DiscordReaction.js",
@@ -54,7 +56,6 @@
 		"./discord-time.js": "./dist/components/discord-time/DiscordTime.js",
 		"./discord-underlined.js": "./dist/components/discord-underlined/DiscordUnderlined.js",
 		"./discord-unordered-list.js": "./dist/components/discord-unordered-list/DiscordUnorderedList.js",
-		"./discord-verified-author-tag.js": "./dist/components/discord-verified-author-tag/DiscordVerifiedAuthorTag.js",
 		"./discord-video-attachment.js": "./dist/components/discord-video-attachment/DiscordVideoAttachment.js"
 	},
 	"sideEffects": [
@@ -86,6 +87,8 @@
 		"./dist/components/discord-messages/DiscordMessages.js",
 		"./dist/components/discord-modal/DiscordModal.js",
 		"./dist/components/discord-ordered-list/DiscordOrderedList.js",
+		"./dist/components/discord-poll/DiscordPoll.js",
+		"./dist/components/discord-poll-answer/DiscordPollAnswer.js",
 		"./dist/components/discord-pre/DiscordPre.js",
 		"./dist/components/discord-quote/DiscordQuote.js",
 		"./dist/components/discord-reaction/DiscordReaction.js",
@@ -102,7 +105,6 @@
 		"./dist/components/discord-time/DiscordTime.js",
 		"./dist/components/discord-underlined/DiscordUnderlined.js",
 		"./dist/components/discord-unordered-list/DiscordUnorderedList.js",
-		"./dist/components/discord-verified-author-tag/DiscordVerifiedAuthorTag.js",
 		"./dist/components/discord-video-attachment/DiscordVideoAttachment.js"
 	],
 	"homepage": "https://github.com/skyra-project/discord-components/tree/main/packages/core#readme",
@@ -114,27 +116,25 @@
 		"build": "yarn build:ts && yarn analyze --exclude dist",
 		"prepack": "yarn build",
 		"lint": "eslint src test --ext .ts",
-		"format": "prettier . --write --ignore-path ../../.prettierignore",
-		"bump": "cliff-jumper",
-		"check-update": "cliff-jumper --dry-run"
+		"format": "prettier . --write --ignore-path ../../.prettierignore"
 	},
 	"dependencies": {
-		"@lit/context": "^1.1.3",
-		"lit": "^3.2.1"
+		"@lit/context": "^1.1.2",
+		"lit": "^3.2.0"
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.10.3",
-		"@favware/cliff-jumper": "^4.1.0",
 		"@web/dev-server": "^0.4.6",
 		"@web/dev-server-esbuild": "^1.0.2",
-		"concurrently": "^9.0.1",
+		"concurrently": "^8.2.2",
 		"ts-lit-plugin": "^2.0.2",
 		"typescript": "^5.5.4"
 	},
 	"files": [
 		"dist/",
 		"custom-elements.json",
-		"CHANGELOG.md"
+		"CHANGELOG.md",
+		"UPGRADING-TO-V4.md"
 	],
 	"engines": {
 		"node": ">=v18"
