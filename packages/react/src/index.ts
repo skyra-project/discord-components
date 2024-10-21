@@ -30,6 +30,8 @@ export const DiscordMessage = createReactComponent('discord-message', ReactCompo
 export const DiscordMessages = createReactComponent('discord-messages', ReactComponents.DiscordMessages);
 export const DiscordModal = createReactComponent('discord-modal', ReactComponents.DiscordModal);
 export const DiscordOrderedList = createReactComponent('discord-ordered-list', ReactComponents.DiscordOrderedList);
+export const DiscordPoll = createReactComponent('discord-poll', ReactComponents.DiscordPoll);
+export const DiscordPollAnswer = createReactComponent('discord-poll-answer', ReactComponents.DiscordPollAnswer);
 export const DiscordPre = createReactComponent('discord-pre', ReactComponents.DiscordPre);
 export const DiscordQuote = createReactComponent('discord-quote', ReactComponents.DiscordQuote);
 export const DiscordReaction = createReactComponent('discord-reaction', ReactComponents.DiscordReaction);
@@ -46,7 +48,6 @@ export const DiscordThreadMessage = createReactComponent('discord-thread-message
 export const DiscordTime = createReactComponent('discord-time', ReactComponents.DiscordTime);
 export const DiscordUnderlined = createReactComponent('discord-underlined', ReactComponents.DiscordUnderlined);
 export const DiscordUnorderedList = createReactComponent('discord-unordered-list', ReactComponents.DiscordUnorderedList);
-export const DiscordVerifiedAuthorTag = createReactComponent('discord-verified-author-tag', ReactComponents.DiscordVerifiedAuthorTag);
 export const DiscordVideoAttachment = createReactComponent('discord-video-attachment', ReactComponents.DiscordVideoAttachment);
 
 /* IMPORTS END */
