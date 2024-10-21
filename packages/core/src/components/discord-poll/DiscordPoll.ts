@@ -30,6 +30,15 @@ export class DiscordPoll extends LitElement {
 			overflow: hidden;
 		}
 
+		:host([light-theme]) {
+			border: 1px solid color-mix(in oklab, hsl(0 calc(1 * 0%) 0% / 0.08) 100%, hsl(0 0% 0% / 0.08) 0%);
+			background-color: color-mix(in oklab, hsl(0 calc(1 * 0%) 100% / 1) 100%, black 0%) !important;
+		}
+
+		:host([light-theme]) * {
+			color: black;
+		}
+
 		.discord-poll-question {
 			color: color-mix(in oklab, hsl(210 calc(1 * 9.1%) 87.1% / 1) 100%, black 0%);
 			margin: 0;
@@ -86,6 +95,16 @@ export class DiscordPoll extends LitElement {
 			cursor: pointer;
 		}
 
+		:host([light-theme]) .discord-poll-footer-hover:hover {
+			color: black;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		:host([light-theme]) .discord-poll-color-show-results {
+			color: black !important;
+		}
+
 		.discord-poll-color-show-results {
 			color: #fff !important;
 			font-size: 0.875rem;
@@ -116,6 +135,10 @@ export class DiscordPoll extends LitElement {
 			border: none;
 			border-radius: 3px;
 			font-weight: 600;
+		}
+
+		:host([light-theme]) button * {
+			color: white !important;
 		}
 
 		:host .discord-poll-button-vote-disabled {
