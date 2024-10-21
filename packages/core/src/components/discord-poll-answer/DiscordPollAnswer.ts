@@ -61,7 +61,7 @@ export class DiscordPollAnswer extends LitElement {
         }
 
         .discord-checkbox-div-answer-selected-ended-no-winner {
-        width: 24px;
+        	width: 24px;
             height: 24px;
             display: flex;
             align-items: center;
@@ -143,6 +143,30 @@ export class DiscordPollAnswer extends LitElement {
             transition: background-color 170ms ease, outline-color 170ms ease;
         }
 
+		:host([light-theme]) .discord-answer {
+            background-color: color-mix( in oklab, hsl(223 calc(1 * 5.8%) 52.9% / 0.08) 100%, hsl(0 0% 0% / 0.08) 0% ) !important;
+        }
+
+		:host([light-theme]) .discord-background-color-default {
+            background-color: color-mix( in oklab, hsl(223 calc(1 * 5.8%) 52.9% / 0.2) 100%, hsl(0 0% 0% / 0.2) 0% ) !important;
+        }
+
+		:host([light-theme]) .discord-awnswer-title,
+		:host([light-theme]) .discord-quantity-votes,
+		:host([light-theme]) .discord-percentage-votes {
+			color: color-mix( in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0% ) !important;
+		}
+
+		:host([light-theme]) .discord-checkbox-div-answer,
+		:host([light-theme]) .discord-checkbox-div-multiple-answer {
+			border-color: color-mix( in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0% ) !important;
+		}
+
+		:host([light-theme]) .discord-checkbox-div-answer-selected-ended-no-winner {
+			background-color: color-mix( in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0% );
+			color: white !important;
+		}
+
         .discord-answer-no-margin {
             margin: 0;
         }
@@ -208,6 +232,7 @@ export class DiscordPollAnswer extends LitElement {
 	 * Whether to use ligth theme or not.
 	 */
 	@consume({ context: messagesLightTheme })
+	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
 	private accessor totalVotesPoll: any = 0;
@@ -291,7 +316,7 @@ export class DiscordPollAnswer extends LitElement {
 						></div>
 						<div class="discord-answer-flex">
 							${when(this.emoji, () => html`<img class="discord-answer-emoji" src="${this.emoji}" alt="emoji" />`)}
-							<div>${this.answer}</div>
+							<div class="discord-awnswer-title">${this.answer}</div>
 						</div>
 						<div class="discord-answer-flex">
 							${when(
@@ -303,7 +328,7 @@ export class DiscordPollAnswer extends LitElement {
 							)}
 							${when(
 								this.pollVoted || this.pollEnded || this.showResult,
-								() => html`<h4 class="discord-answer-no-margin">${this.percentageVoted}%</h4>`
+								() => html`<h4 class="discord-answer-no-margin discord-percentage-votes">${this.percentageVoted}%</h4>`
 							)}
 							${when(
 								this.selected && !this.showResult,
@@ -322,7 +347,7 @@ export class DiscordPollAnswer extends LitElement {
 															</div>`,
 														() =>
 															html`<div class="discord-checkbox-div-answer-selected-ended-no-winner">
-																${VerifiedTick({ style: 'width:24px;height:24px; color: black;' })}
+																${VerifiedTick({ style: 'width:24px;height:24px;' })}
 															</div>`
 													),
 												() =>
@@ -392,7 +417,7 @@ export class DiscordPollAnswer extends LitElement {
 			this.selected = false;
 
 			if (buttonVote) {
-				if (answer?.getAttribute('multiple-answers') !== '') {
+				if (answer?.getAttribute('multiple-answers') === '') {
 					let selecteds = 0;
 					if (pollAnswers) {
 						for (const pollAnswer of pollAnswers) {
@@ -404,7 +429,10 @@ export class DiscordPollAnswer extends LitElement {
 						buttonVote.className = 'discord-poll-button-vote';
 						return;
 					}
+
 				}
+
+				console.log(buttonVote)
 
 				buttonVote.className = 'discord-poll-button-vote discord-poll-button-vote-disabled';
 			}
