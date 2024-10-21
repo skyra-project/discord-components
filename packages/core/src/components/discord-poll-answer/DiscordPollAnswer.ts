@@ -68,6 +68,7 @@ export class DiscordPollAnswer extends LitElement {
             justify-content: center;
             border-radius: 99px;
             background-color: white;
+			color: black !important;
         }
 
         .discord-checkbox-div-answer-selected-voted {
