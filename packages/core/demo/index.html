@@ -54,6 +54,10 @@
 			<main id="demo">
 				<h3 class="title">A normal conversation</h3>
 				<discord-messages>
+					<discord-message profile="skyra">
+						<discord-command type="slash_command" slot="reply" profile="favna" command="ping"></discord-command>
+						Pong!
+					</discord-message>
 					<discord-message author="Alyx Vargas"> Hey guys, I'm new here! Glad to be able to join you all! </discord-message>
 					<discord-message
 						author="Fenton Smart"
@@ -125,7 +129,6 @@
 						change what is displayed!</discord-message
 					>
 				</discord-messages>
-
 				<h3 class="title">With subsequent messages and compact mode</h3>
 				<discord-messages compact-mode>
 					<discord-message profile="favna" twenty-four timestamp="12:38"
@@ -812,6 +815,238 @@
 						></discord-input-text>
 					</discord-modal>
 				</discord-messages>
+				<h3 class="title">Discord Polls (all cases)</h3>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="You like discord components" time-end="13d">
+							<discord-poll-answer
+								emoji="https://github.com/NM-EEA-Y.png"
+								answer="Yes"
+								votes="5"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								emoji="https://cdn.discordapp.com/embed/avatars/0.png"
+								answer="No"
+								votes="5"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favorite animes?" multiple-answers>
+							<discord-poll-answer
+								answer="Naruto"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Dragon Ball"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Nanatsu no Taizai"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Boruto"
+								emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Other"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="You like discord components" time-end="13d">
+							<discord-poll-answer
+								selected
+								emoji="https://github.com/NM-EEA-Y.png"
+								answer="Yes"
+								votes="5"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								emoji="https://cdn.discordapp.com/embed/avatars/0.png"
+								answer="No"
+								votes="5"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favorite animes?" multiple-answers>
+							<discord-poll-answer
+								selected
+								answer="Naruto"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								selected
+								answer="Dragon Ball"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Nanatsu no Taizai"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Boruto"
+								emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								selected
+								answer="Other"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="You like discord components" time-end="13d" voted>
+							<discord-poll-answer
+								selected
+								emoji="https://github.com/NM-EEA-Y.png"
+								answer="Yes"
+								votes="5"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								emoji="https://cdn.discordapp.com/embed/avatars/0.png"
+								answer="No"
+								votes="5"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favorite animes?" multiple-answers voted>
+							<discord-poll-answer
+								selected
+								votes="3"
+								answer="Naruto"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								selected
+								votes="2"
+								answer="Dragon Ball"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								votes="1"
+								answer="Nanatsu no Taizai"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Boruto"
+								emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								selected
+								votes="10"
+								answer="Other"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="You like discord components" time-end="13d" voted ended>
+							<discord-poll-answer
+								selected
+								emoji="https://github.com/NM-EEA-Y.png"
+								answer="Yes"
+								votes="5"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								emoji="https://cdn.discordapp.com/embed/avatars/0.png"
+								answer="No"
+								votes="5"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favorite animes?" multiple-answers voted ended>
+							<discord-poll-answer
+								selected
+								votes="3"
+								answer="Naruto"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								selected
+								votes="2"
+								answer="Dragon Ball"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								votes="1"
+								answer="Nanatsu no Taizai"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Boruto"
+								emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								selected
+								votes="10"
+								answer="Other"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="You like discord components" time-end="13d" ended>
+							<discord-poll-answer
+								emoji="https://github.com/NM-EEA-Y.png"
+								answer="Yes"
+								votes="5"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								emoji="https://cdn.discordapp.com/embed/avatars/0.png"
+								answer="No"
+								votes="5"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favorite animes?" multiple-answers ended>
+							<discord-poll-answer
+								votes="3"
+								answer="Naruto"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								votes="2"
+								answer="Dragon Ball"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								votes="1"
+								answer="Nanatsu no Taizai"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								answer="Boruto"
+								emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"
+							>
+							</discord-poll-answer>
+							<discord-poll-answer
+								votes="10"
+								answer="Other"
+							>
+							</discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
 				<h3 class="title">Verified Discord bots</h3>
 				<discord-messages>
 					<discord-message profile="skyra"> Wow I just got verified! </discord-message>
@@ -978,7 +1213,6 @@
 						</discord-embed>
 					</discord-message>
 				</discord-messages>
-
 				<h3 class="title">With all slots of a message filled</h3>
 				<discord-messages>
 					<discord-message profile="skyra">
@@ -1008,7 +1242,6 @@
 						</discord-thread>
 					</discord-message>
 				</discord-messages>
-
 				<h3 class="title">Headers</h3>
 				<discord-messages>
 					<discord-message profile="favna">
@@ -1017,7 +1250,6 @@
 						<discord-header level="3">This is a header 3</discord-header>
 					</discord-message>
 				</discord-messages>
-
 				<h3 class="title">Ordered list items</h3>
 				<discord-messages>
 					<discord-message profile="favna">
@@ -1031,7 +1263,6 @@
 						</discord-ordered-list>
 					</discord-message>
 				</discord-messages>
-
 				<h3 class="title">Unordered list items</h3>
 				<discord-messages>
 					<discord-message profile="favna">
