@@ -8,6 +8,7 @@ import { messagesCompactMode, messagesLightTheme } from '../discord-messages/Dis
 export const multipleAnswersPoll = createContext<boolean>('multiple-answers');
 export const pollEnded = createContext<boolean>('ended');
 export const pollVoted = createContext<boolean>('voted');
+export const showResults = createContext<boolean>('show-votes');
 
 @customElement('discord-poll')
 export class DiscordPoll extends LitElement {
@@ -141,6 +142,10 @@ export class DiscordPoll extends LitElement {
 	@property({ type: Boolean, reflect: true, attribute: 'voted' })
 	public accessor pollVoted = false;
 
+	@provide({ context: showResults })
+	@property({ type: Boolean, reflect: true, attribute: 'show-results' })
+	public accessor showResultes = false;
+
 	/**
 	 * Whether to use compact mode or not.
 	 */
@@ -162,15 +167,14 @@ export class DiscordPoll extends LitElement {
 	public override connectedCallback() {
 		super.connectedCallback();
 
-		new MutationObserver(() => {
-			const answer = this.querySelectorAll('discord-poll-answer');
-			for (let index = 0; index < answer?.length; index++) {
-				if (answer[index].attributes.getNamedItem('selected')) this.selected = true;
-				this.totVotes += answer[index].attributes.getNamedItem('votes')?.nodeValue
-					? Number(answer[index].attributes.getNamedItem('votes')?.nodeValue)
+		const answers = this.parentElement?.querySelectorAll('discord-poll-answer');
+		if (answers)
+			for (let index = 0; index < answers?.length; index++) {
+				if (answers[index].attributes.getNamedItem('selected')) this.selected = true;
+				this.totVotes += answers[index].attributes.getNamedItem('votes')?.nodeValue
+					? Number(answers[index].attributes.getNamedItem('votes')?.nodeValue)
 					: 0;
 			}
-		});
 	}
 
 	protected override render() {
@@ -188,7 +192,7 @@ export class DiscordPoll extends LitElement {
 					<div class="discord-poll-footer-time">${this.pollEnded ? 'Poll closed' : `${this.timeEnd} left`}</div>
 				</div>
 				${when(
-					!this.pollEnded && !this.pollVoted,
+					!this.pollEnded && !this.pollVoted && !this.showResultes,
 					() =>
 						html`<div class="discord-poll-result-vote">
 							<div class="discord-poll-footer-hover discord-poll-color-show-results">Show results</div>
@@ -201,10 +205,10 @@ export class DiscordPoll extends LitElement {
 						</div>`
 				)}
 				${when(
-					!this.pollEnded && this.pollVoted,
+					(!this.pollEnded && this.pollVoted) || this.showResultes,
 					() => html`
 						<button type="button" class="discord-poll-button-remove-vote">
-							<div>Remove vote</div>
+							<div>${!this.pollEnded && this.pollVoted ? 'Remove vote' : 'Go back to vote'}</div>
 						</button>
 					`
 				)}
