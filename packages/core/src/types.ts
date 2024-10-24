@@ -18,6 +18,7 @@ export interface Profile {
 	author?: string;
 	avatar?: string;
 	bot?: boolean;
+	officialApp?: boolean;
 	clanIcon?: string;
 	clanTag?: string;
 	op?: boolean;
