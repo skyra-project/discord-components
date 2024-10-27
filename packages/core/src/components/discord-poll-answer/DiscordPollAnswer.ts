@@ -236,7 +236,7 @@ export class DiscordPollAnswer extends LitElement {
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
 	public accessor lightTheme = false;
 
-	private accessor totalVotesPoll: any = 0;
+	private accessor totalVotesPoll = 0;
 
 	private accessor percentageVoted: number;
 
@@ -256,7 +256,7 @@ export class DiscordPollAnswer extends LitElement {
 					? Number(answer[index].attributes.getNamedItem('votes')?.nodeValue)
 					: 0;
 				this.arrayAnswers.push({ answer: answer[index].attributes.getNamedItem('answer')?.nodeValue, value: resolvedNumber });
-				this.arrayAnswers = this.arrayAnswers.sort((a, b) => b.value - a.value);
+				this.arrayAnswers = this.arrayAnswers.toSorted((a, b) => b.value - a.value);
 				this.totalVotesPoll += resolvedNumber;
 			}
 		}
@@ -268,7 +268,9 @@ export class DiscordPollAnswer extends LitElement {
 
 			if (this.arrayAnswers[index + 1]) {
 				if (this.arrayAnswers[index].value === this.arrayAnswers[index + 1].value) {
-					if (!this.winners.includes(this.arrayAnswers[index + 1].answer)) this.winners.push(this.arrayAnswers[index + 1].answer);
+					if (!this.winners.includes(this.arrayAnswers[index + 1].answer)) {
+						this.winners.push(this.arrayAnswers[index + 1].answer);
+					}
 				} else {
 					break;
 				}
@@ -277,11 +279,15 @@ export class DiscordPollAnswer extends LitElement {
 
 		// Chek if is single vote and is has more one selected
 		if (this.parentElement?.getAttribute('multiple-answers') !== '') {
-			let selecteds = 0;
+			let selectedCount = 0;
 
-			if (answer) for (const element of answer) if (element.selected) selecteds++;
+			if (answer) {
+				for (const element of answer) if (element.selected) selectedCount++;
+			}
 
-			if (selecteds > 1) throw new DiscordComponentsError('<discord-poll> single vote was selected more than 1 answer');
+			if (selectedCount > 1) {
+				throw new DiscordComponentsError('<discord-poll> single vote was selected more than 1 answer');
+			}
 		}
 
 		this.percentageVoted = (this.votes / this.totalVotesPoll) * 100;
@@ -412,7 +418,7 @@ export class DiscordPollAnswer extends LitElement {
 
 		const answer = this.parentElement;
 		const buttonVote = answer?.shadowRoot?.querySelector('button.discord-poll-button-vote');
-		const pollAnswers: any = answer?.getElementsByTagName('discord-poll-answer');
+		const pollAnswers = answer?.getElementsByTagName('discord-poll-answer');
 
 		if (this.selected) {
 			this.selected = false;
@@ -431,8 +437,6 @@ export class DiscordPollAnswer extends LitElement {
 						return;
 					}
 				}
-
-				console.log(buttonVote);
 
 				buttonVote.className = 'discord-poll-button-vote discord-poll-button-vote-disabled';
 			}

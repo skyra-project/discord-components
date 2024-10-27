@@ -167,7 +167,7 @@ export class DiscordPoll extends LitElement {
 
 	@provide({ context: showResults })
 	@property({ type: Boolean, reflect: true, attribute: 'show-results' })
-	public accessor showResultes = false;
+	public accessor showResults = false;
 
 	/**
 	 * Whether to use compact mode or not.
@@ -177,7 +177,7 @@ export class DiscordPoll extends LitElement {
 	public accessor compactMode = false;
 
 	/**
-	 * Whether to use ligth theme or not.
+	 * Whether to use light theme or not.
 	 */
 	@consume({ context: messagesLightTheme })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
@@ -191,13 +191,17 @@ export class DiscordPoll extends LitElement {
 		super.connectedCallback();
 
 		const answers = this.parentElement?.querySelectorAll('discord-poll-answer');
-		if (answers)
+		if (answers) {
 			for (let index = 0; index < answers?.length; index++) {
-				if (answers[index].attributes.getNamedItem('selected')) this.selected = true;
+				if (answers[index].attributes.getNamedItem('selected')) {
+					this.selected = true;
+				}
+
 				this.totVotes += answers[index].attributes.getNamedItem('votes')?.nodeValue
 					? Number(answers[index].attributes.getNamedItem('votes')?.nodeValue)
 					: 0;
 			}
+		}
 	}
 
 	protected override render() {
@@ -215,7 +219,7 @@ export class DiscordPoll extends LitElement {
 					<div class="discord-poll-footer-time">${this.pollEnded ? 'Poll closed' : `${this.timeEnd} left`}</div>
 				</div>
 				${when(
-					!this.pollEnded && !this.pollVoted && !this.showResultes,
+					!this.pollEnded && !this.pollVoted && !this.showResults,
 					() =>
 						html`<div class="discord-poll-result-vote">
 							<div class="discord-poll-footer-hover discord-poll-color-show-results">Show results</div>
@@ -228,7 +232,7 @@ export class DiscordPoll extends LitElement {
 						</div>`
 				)}
 				${when(
-					(!this.pollEnded && this.pollVoted) || this.showResultes,
+					(!this.pollEnded && this.pollVoted) || this.showResults,
 					() => html`
 						<button type="button" class="discord-poll-button-remove-vote">
 							<div>${!this.pollEnded && this.pollVoted ? 'Remove vote' : 'Go back to vote'}</div>
