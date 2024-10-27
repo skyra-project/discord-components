@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.35](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.34...v4.0.0-alpha.35) (2024-10-27)
+
+### Bug Fixes
+
+* **audio-attachment:** add optional chaining for `this.name.replaceAll` ([aece350](https://github.com/skyra-project/discord-components/commit/aece3504ba41600af37db0a9f4a90e304efaaf26)) (@favna)
+* **command:** updating style ([#468](https://github.com/skyra-project/discord-components/issues/468)) ([d41e346](https://github.com/skyra-project/discord-components/commit/d41e3469eaa7618a72dbf630d4461aa4d76c239f)) (@eumarciel404)
+* correcting context-user-name-color ([#489](https://github.com/skyra-project/discord-components/issues/489)) ([55531f9](https://github.com/skyra-project/discord-components/commit/55531f9e0de290e77e45661e97c2bbb7c4d96028)) (@eumarciel404)
+* **deps:** update all non-major dependencies ([bd0d80b](https://github.com/skyra-project/discord-components/commit/bd0d80b1a2fa66c7252871eeabfb134d742ab4f1)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([061f9f7](https://github.com/skyra-project/discord-components/commit/061f9f74234c32f3140b10e0a3a4d4b62b6e64d9)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#473](https://github.com/skyra-project/discord-components/issues/473)) ([b217e95](https://github.com/skyra-project/discord-components/commit/b217e95cdbd43291b6e28d86867e7219e3682a65)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#480](https://github.com/skyra-project/discord-components/issues/480)) ([869647b](https://github.com/skyra-project/discord-components/commit/869647ba7662e848acc88ba1c669e64d93a3a38c)) (@renovate[bot])
+* **discord-string-select-menu-option:** Correcting style ([#484](https://github.com/skyra-project/discord-components/issues/484)) ([3750abf](https://github.com/skyra-project/discord-components/commit/3750abf1c5d06e253637216850ffcc904c55da29)) (@eumarciel404)
+* **string-select-menu:** fixing clickable area ([#488](https://github.com/skyra-project/discord-components/issues/488)) ([9f60afc](https://github.com/skyra-project/discord-components/commit/9f60afc26c39844f9ad9340b8df9a55ed9cac389)) (@eumarciel404)
+* **string-select:** set correct slot height ([#467](https://github.com/skyra-project/discord-components/issues/467)) ([303ca37](https://github.com/skyra-project/discord-components/commit/303ca374505f4096cbea3f4f9475d8e3d89d44bf)) (@Marciel404)
+
+### Features
+
+* add context_menu command ([#485](https://github.com/skyra-project/discord-components/issues/485)) ([1f853cc](https://github.com/skyra-project/discord-components/commit/1f853cce30f7a6f6237fc8b2672339ac0ca9b2ec)) (@eumarciel404)
+* add official app ([#493](https://github.com/skyra-project/discord-components/issues/493)) ([c6baff1](https://github.com/skyra-project/discord-components/commit/c6baff164b2aba224fa98434459113b4378e6643)) (@eumarciel404)
+
 # [4.0.0-alpha.34](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.33...v4.0.0-alpha.34) (2024-08-29)
 
 **Note:** Version bump only for package root
