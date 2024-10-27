@@ -201,7 +201,7 @@ export class DiscordPoll extends LitElement {
 	}
 
 	protected override render() {
-		const textPoll = this.multipleAnswers ? 'Select one answer' : 'Select one or more answers';
+		const textPoll = this.multipleAnswers ? 'Select one or more answers' : 'Select one answer';
 
 		return html`<div>
 			<h4 class="discord-poll-question">${this.question}</h4>
