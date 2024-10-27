@@ -18,9 +18,9 @@ export interface Profile {
 	author?: string;
 	avatar?: string;
 	bot?: boolean;
-	officialApp?: boolean;
 	clanIcon?: string;
 	clanTag?: string;
+	officialApp?: boolean;
 	op?: boolean;
 	roleColor?: string;
 	roleIcon?: string;
