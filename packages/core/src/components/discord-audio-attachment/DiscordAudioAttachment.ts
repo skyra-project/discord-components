@@ -141,7 +141,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	 * @remarks Spaces will be replaced with underscores and any non-alphanumeric characters will be removed
 	 */
 	@property()
-	public accessor name: string;
+	public accessor name: string | undefined;
 
 	/**
 	 * The size of the audio file in bytes
@@ -172,7 +172,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	public accessor lightTheme = false;
 
 	protected override render() {
-		const parsedName = this.name.replaceAll(/\s/g, '_').replaceAll(/[^\w-]/g, '');
+		const parsedName = this.name?.replaceAll(/\s/g, '_')?.replaceAll(/[^\w-]/g, '');
 
 		return html`<div class="discord-media-attachment-non-visual-media-item-container">
 			<div class="discord-audio-attachment-non-visual-media-item">
