@@ -10,7 +10,7 @@
 		<script type="module" src="../src/index.ts"></script>
 	</head>
 	<body>
-		<div>
+		<div class="body-wrapper">
 			<div>
 				<h1 class="logo">&#64;skyra/discord-components-core</h1>
 				<span
@@ -814,7 +814,7 @@
 				</discord-messages>
 				<h3 class="title">Discord Polls (all cases)</h3>
 				<discord-messages>
-					<h3 class="title">No selected</h3>
+					<h3 class="title">No choice selected by user</h3>
 					<discord-message profile="marciel404">
 						<discord-poll question="You like discord components" time-end="13d">
 							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes"> </discord-poll-answer>
@@ -830,7 +830,7 @@
 							<discord-poll-answer answer="Other"> </discord-poll-answer>
 						</discord-poll>
 					</discord-message>
-					<h3 class="title">Selected</h3>
+					<h3 class="title">With a choice selected by the user</h3>
 					<discord-message profile="marciel404">
 						<discord-poll question="You like discord components" time-end="13d">
 							<discord-poll-answer selected emoji="https://github.com/NM-EEA-Y.png" answer="Yes"> </discord-poll-answer>
@@ -846,7 +846,7 @@
 							<discord-poll-answer selected answer="Other"> </discord-poll-answer>
 						</discord-poll>
 					</discord-message>
-					<h3 class="title">Voted</h3>
+					<h3 class="title">With a vote cast by the user</h3>
 					<discord-message profile="marciel404">
 						<discord-poll question="You like discord components" time-end="13d" voted>
 							<discord-poll-answer selected emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"> </discord-poll-answer>
@@ -862,7 +862,7 @@
 							<discord-poll-answer selected votes="10" answer="Other"> </discord-poll-answer>
 						</discord-poll>
 					</discord-message>
-					<h3 class="title">Voted Ended</h3>
+					<h3 class="title">With a vote casted by the user and the poll has ended</h3>
 					<discord-message profile="marciel404">
 						<discord-poll question="You like discord components" time-end="13d" voted ended>
 							<discord-poll-answer selected emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"> </discord-poll-answer>
@@ -878,7 +878,7 @@
 							<discord-poll-answer selected votes="10" answer="Other"> </discord-poll-answer>
 						</discord-poll>
 					</discord-message>
-					<h3 class="title">Ended no voted</h3>
+					<h3 class="title">An ended poll without the user having cast a vote</h3>
 					<discord-message profile="marciel404">
 						<discord-poll question="You like discord components" time-end="13d" ended>
 							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"> </discord-poll-answer>
@@ -894,7 +894,7 @@
 							<discord-poll-answer votes="10" answer="Other"> </discord-poll-answer>
 						</discord-poll>
 					</discord-message>
-					<h3 class="title">Show Resultes</h3>
+					<h3 class="title">Showing results without having cast a vote</h3>
 					<discord-message profile="marciel404">
 						<discord-poll question="You like discord components" time-end="13d" show-results>
 							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"> </discord-poll-answer>
@@ -911,7 +911,7 @@
 							<discord-poll-answer votes="5" answer="Other"> </discord-poll-answer>
 						</discord-poll>
 					</discord-message>
-					<h3 class="title">Drawns</h3>
+					<h3 class="title">Results are a tie</h3>
 					<discord-message profile="marciel404">
 						<discord-poll question="You like discord components" time-end="13d" ended>
 							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"> </discord-poll-answer>
