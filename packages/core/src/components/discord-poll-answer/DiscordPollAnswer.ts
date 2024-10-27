@@ -14,190 +14,190 @@ export class DiscordPollAnswer extends LitElement {
 	 * @internal
 	 */
 	public static override readonly styles = css`
+		.discord-answer-container {
+			display: flex;
+			cursor: pointer;
+		}
 
-        .discord-answer-container {
-            display: flex;
-            cursor: pointer;
-        }
+		.discord-answer-emoji {
+			width: 24px;
+			height: 24px;
+			margin-right: 2px;
+			border-radius: 3px;
+		}
 
-        .discord-answer-emoji {
-            width: 24px;
-            height: 24px;
-            margin-right: 2px;
-            border-radius: 3px;
-        }
+		.discord-checkbox-div-multiple-answer {
+			flex-shrink: 0;
+			width: 20px;
+			height: 20px;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 3px;
+			background-color: transparent;
+			border: 2px solid color-mix(in oklab, hsl(210 calc(1 * 9.1%) 87.1% / 1) 100%, black 0%);
+		}
 
-        .discord-checkbox-div-multiple-answer {
-            flex-shrink: 0;
-            width: 20px;
-            height: 20px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 3px;
-            background-color: transparent;
-            border: 2px solid color-mix( in oklab, hsl(210 calc(1 * 9.1%) 87.1% / 1) 100%, black 0% );
-        }
+		.discord-checkbox-div-multiple-answer-selected {
+			width: 20px;
+			height: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 3px;
+			background-color: hsl(235 calc(1 * 85.6%) 64.7% / 1);
+		}
 
-        .discord-checkbox-div-multiple-answer-selected {
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 3px;
-            background-color: hsl(235 calc(1 * 85.6%) 64.7% / 1);
-        }
+		.discord-checkbox-div-answer-selected-ended-winner {
+			width: 24px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 99px;
+			background-color: seagreen;
+		}
 
-        .discord-checkbox-div-answer-selected-ended-winner {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 99px;
-            background-color: seagreen;
-        }
-
-        .discord-checkbox-div-answer-selected-ended-no-winner {
-        	width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 99px;
-            background-color: white;
+		.discord-checkbox-div-answer-selected-ended-no-winner {
+			width: 24px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 99px;
+			background-color: white;
 			color: black !important;
-        }
+		}
 
-        .discord-checkbox-div-answer-selected-voted {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 99px;
-            background-color: hsl(235 calc(1 * 85.6%) 64.7% / 1);
-        }
+		.discord-checkbox-div-answer-selected-voted {
+			width: 24px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 99px;
+			background-color: hsl(235 calc(1 * 85.6%) 64.7% / 1);
+		}
 
-        .discord-checkbox-div-answer {
-            flex-shrink: 0;
-            width: 20px;
-            height: 20px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 99px;
-            background-color: transparent;
-            border: 2px solid color-mix( in oklab, hsl(210 calc(1 * 9.1%) 87.1% / 1) 100%, black 0% );
-        }
+		.discord-checkbox-div-answer {
+			flex-shrink: 0;
+			width: 20px;
+			height: 20px;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 99px;
+			background-color: transparent;
+			border: 2px solid color-mix(in oklab, hsl(210 calc(1 * 9.1%) 87.1% / 1) 100%, black 0%);
+		}
 
-        .discord-checkbox-div-answer-selected {
-            margin 2px;
-            width: 10px;
-            height: 10px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 99px;
-            border: 2px solid transparent;
-            background-color: color-mix( in oklab, hsl(235 calc(1 * 86.1%) 77.5% / 1) 100%, black 0% );
-        }
+		.discord-checkbox-div-answer-selected {
+			margin: 2px;
+			width: 10px;
+			height: 10px;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 99px;
+			border: 2px solid transparent;
+			background-color: color-mix(in oklab, hsl(235 calc(1 * 86.1%) 77.5% / 1) 100%, black 0%);
+		}
 
-        .discord-answer-hidden {
-            display: none;
-        }
+		.discord-answer-hidden {
+			display: none;
+		}
 
-        .discord-answer-flex {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+		.discord-answer-flex {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
 
-        .discord-answer-selected {
-            outline: 1px solid color-mix( in oklab, hsl(235 calc(1 * 86.1%) 77.5% / 1) 100%, black 0% ) !important;
-        }
+		.discord-answer-selected {
+			outline: 1px solid color-mix(in oklab, hsl(235 calc(1 * 86.1%) 77.5% / 1) 100%, black 0%) !important;
+		}
 
-        .discord-answer-selected-ended {
-            outline: 1px solid hsl(145 calc(1 * 65%) 39.2% / 1) !important;
-        }
+		.discord-answer-selected-ended {
+			outline: 1px solid hsl(145 calc(1 * 65%) 39.2% / 1) !important;
+		}
 
-        .discord-answer {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            min-height: 50px;
-            padding: 8px 16px;
-            box-sizing: border-box;
-            background-color: color-mix( in oklab, hsl(228 calc(1 * 6%) 32.5% / 0.3) 100%, hsl(0 0% 0% / 0.3) 0% );
-            border-radius: 8px;
-            color: color-mix( in oklab, hsl(210 calc(1 * 9.1%) 87.1% / 1) 100%, black 0% );
-            word-break: break-word;
-            overflow: hidden;
-            outline: 1px solid transparent;
-            z-index: 1;
-            transition: background-color 170ms ease, outline-color 170ms ease;
-        }
+		.discord-answer {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			min-height: 50px;
+			padding: 8px 16px;
+			box-sizing: border-box;
+			background-color: color-mix(in oklab, hsl(228 calc(1 * 6%) 32.5% / 0.3) 100%, hsl(0 0% 0% / 0.3) 0%);
+			border-radius: 8px;
+			color: color-mix(in oklab, hsl(210 calc(1 * 9.1%) 87.1% / 1) 100%, black 0%);
+			word-break: break-word;
+			overflow: hidden;
+			outline: 1px solid transparent;
+			z-index: 1;
+			transition:
+				background-color 170ms ease,
+				outline-color 170ms ease;
+		}
 
 		:host([light-theme]) .discord-answer {
-            background-color: color-mix( in oklab, hsl(223 calc(1 * 5.8%) 52.9% / 0.08) 100%, hsl(0 0% 0% / 0.08) 0% ) !important;
-        }
+			background-color: color-mix(in oklab, hsl(223 calc(1 * 5.8%) 52.9% / 0.08) 100%, hsl(0 0% 0% / 0.08) 0%) !important;
+		}
 
 		:host([light-theme]) .discord-background-color-default {
-            background-color: color-mix( in oklab, hsl(223 calc(1 * 5.8%) 52.9% / 0.2) 100%, hsl(0 0% 0% / 0.2) 0% ) !important;
-        }
+			background-color: color-mix(in oklab, hsl(223 calc(1 * 5.8%) 52.9% / 0.2) 100%, hsl(0 0% 0% / 0.2) 0%) !important;
+		}
 
 		:host([light-theme]) .discord-awnswer-title,
 		:host([light-theme]) .discord-quantity-votes,
 		:host([light-theme]) .discord-percentage-votes {
-			color: color-mix( in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0% ) !important;
+			color: color-mix(in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0%) !important;
 		}
 
 		:host([light-theme]) .discord-checkbox-div-answer,
 		:host([light-theme]) .discord-checkbox-div-multiple-answer {
-			border-color: color-mix( in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0% ) !important;
+			border-color: color-mix(in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0%) !important;
 		}
 
 		:host([light-theme]) .discord-checkbox-div-answer-selected-ended-no-winner {
-			background-color: color-mix( in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0% );
+			background-color: color-mix(in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0%);
 			color: white !important;
 		}
 
-        .discord-answer-no-margin {
-            margin: 0;
-        }
+		.discord-answer-no-margin {
+			margin: 0;
+		}
 
-        .discord-quantity-votes:hover {
-            cursor: pointer;
-            text-decoration: underline;
-        }
+		.discord-quantity-votes:hover {
+			cursor: pointer;
+			text-decoration: underline;
+		}
 
-        .discord-answer-backdround-color {
-            content: "";
-            position: absolute;
-            height: 100%;
-            left: 0;
-            z-index: -1;
-        }
+		.discord-answer-backdround-color {
+			content: '';
+			position: absolute;
+			height: 100%;
+			left: 0;
+			z-index: -1;
+		}
 
-        .discord-background-color-winner {
-            background-color: color-mix( in oklab, hsl(145 calc(1 * 65%) 39.2% / 0.2) 100%, hsl(0 0% 0% / 0.2) 0% );
-        }
+		.discord-background-color-winner {
+			background-color: color-mix(in oklab, hsl(145 calc(1 * 65%) 39.2% / 0.2) 100%, hsl(0 0% 0% / 0.2) 0%);
+		}
 
-        .discord-background-color-default {
-            background-color: color-mix( in oklab, hsl(228 calc(1 * 6%) 32.5% / 0.48) 100%, hsl(0 0% 0% / 0.48) 0% );
-        }
+		.discord-background-color-default {
+			background-color: color-mix(in oklab, hsl(228 calc(1 * 6%) 32.5% / 0.48) 100%, hsl(0 0% 0% / 0.48) 0%);
+		}
 
-        .discord-background-color-selected {
-            background-color: color-mix( in oklab, hsl(235 calc(1 * 85.6%) 64.7% / 0.2) 100%, hsl(0 0% 0% / 0.2) 0% );
-        }
-
-    `;
+		.discord-background-color-selected {
+			background-color: color-mix(in oklab, hsl(235 calc(1 * 85.6%) 64.7% / 0.2) 100%, hsl(0 0% 0% / 0.2) 0%);
+		}
+	`;
 
 	@property({ type: String, attribute: 'emoji', reflect: true })
 	public accessor emoji: string;
