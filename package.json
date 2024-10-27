@@ -32,7 +32,7 @@
 		"@lerna-lite/run": "^3.10.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.16.13",
+		"@types/node": "^20.17.1",
 		"chalk-cli": "^5.0.1",
 		"eslint": "^8.57.1",
 		"eslint-config-neon": "^0.2.0",
@@ -44,12 +44,12 @@
 		"eslint-plugin-wc": "^2.2.0",
 		"lint-staged": "^15.2.10",
 		"markdown-toc": "^1.2.0",
-		"npm-run-all2": "^6.2.4",
+		"npm-run-all2": "^6.2.6",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"react": "^18.3.1",
 		"rimraf": "^6.0.1",
-		"tsup": "^8.3.0",
+		"tsup": "^8.3.5",
 		"typescript": "^5.5.4"
 	},
 	"resolutions": {
