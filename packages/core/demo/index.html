@@ -54,18 +54,6 @@
 			<main id="demo">
 				<h3 class="title">A normal conversation</h3>
 				<discord-messages>
-					<discord-message official-app author="Community Updates">
-						This channel has been set up to receive official Discord announcements for admins and moderators of Community servers. We'll
-						let you know about important updates, such as new moderation features or changes to your server's eligibility for Server
-						Discovery, here.
-						<br />
-						<br />
-						You can change which channel these messages are sent to at any time inside Server Settings. We recommend choosing your staff
-						channel, as some information may be sensitive to your server.
-						<br />
-						<br />
-						Thanks for choosing Discord as the place to build your community!
-					</discord-message>
 					<discord-message author="Alyx Vargas"> Hey guys, I'm new here! Glad to be able to join you all! </discord-message>
 					<discord-message
 						author="Fenton Smart"
@@ -372,8 +360,6 @@
 					<discord-system-message type="thread">
 						<i style="color: #a155ab">Favna</i> started a thread: <i>Skyra Suggestion Thread</i>. See all <i>threads</i>.
 					</discord-system-message>
-				</discord-messages>
-				<discord-messages>
 					<discord-system-message type="join"> <i>Snazzah</i> added <i>Favna</i> to the group. </discord-system-message>
 					<discord-system-message type="call"> <i>Favna</i> started a call that lasted an hour. </discord-system-message>
 					<discord-system-message type="edit"> <i>Snazzah</i> changed the channel icon. </discord-system-message>
@@ -388,6 +374,27 @@
 					<discord-system-message type="upgrade"><i>Dominik</i> upgraded Skyra to premium for this server! 🎉</discord-system-message>
 					<discord-system-message type="alert">Warning! Warning! This library is the coolest of them all!</discord-system-message>
 					<discord-system-message type="error">Error! Cool overload!.</discord-system-message>
+				</discord-messages>
+				<h3 class="title">Official Discord Community Updates</h3>
+				<p>
+					Note: The URL to the official Discord avatar for Community Updates is
+					<a class="link" href="https://cdn.discordapp.com/avatars/669627189624307712/a0389d52d24fdef878aca87e8d52cc2a.webp"
+						>https://cdn.discordapp.com/avatars/669627189624307712/a0389d52d24fdef878aca87e8d52cc2a.webp</a
+					>, you can use this URL to set up a profile for these messages.
+				</p>
+				<discord-messages>
+					<discord-message profile="communityupdates">
+						This channel has been set up to receive official Discord announcements for admins and moderators of Community servers. We'll
+						let you know about important updates, such as new moderation features or changes to your server's eligibility for Server
+						Discovery, here.
+						<br />
+						<br />
+						You can change which channel these messages are sent to at any time inside Server Settings. We recommend choosing your staff
+						channel, as some information may be sensitive to your server.
+						<br />
+						<br />
+						Thanks for choosing Discord as the place to build your community!
+					</discord-message>
 				</discord-messages>
 				<h3 class="title">Threads</h3>
 				<discord-messages>
@@ -446,7 +453,7 @@
 						<discord-reply slot="reply" author="Community Updates" official-app
 							>This channel has been set up to receive official Discord announcements...</discord-reply
 						>
-						Nice Message Discord
+						Hey that's a community update!
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Replies in Compact Mode</h3>
@@ -467,7 +474,7 @@
 						<discord-reply slot="reply" author="Community Updates" official-app
 							>This channel has been set up to receive official Discord announcements...</discord-reply
 						>
-						Nice Message Discord
+						Hey that's a community update!
 					</discord-message>
 				</discord-messages>
 				<h3 class="title">Commands</h3>
