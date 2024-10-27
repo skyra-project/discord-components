@@ -45,6 +45,10 @@ body {
 	padding-bottom: 0.25em;
 }
 
+.subtitle {
+	padding-bottom: 0.125em;
+}
+
 .link {
 	color: #008080;
 	text-decoration: none;
