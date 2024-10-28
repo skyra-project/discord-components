@@ -24,10 +24,6 @@ export class DiscordAuthorInfo extends LitElement {
 			margin-right: 0.25rem;
 		}
 
-		:host([compact-mode]) {
-			gap: 5px !important;
-		}
-
 		:host .discord-author-username {
 			color: #fff;
 			font-size: 1em;
@@ -132,7 +128,7 @@ export class DiscordAuthorInfo extends LitElement {
 		:host([compact-mode]) .discord-official-application {
 			gap: 5px;
 			margin-right: 5px;
-			margin-left: -6px !important;
+			margin-left: 0px !important;
 		}
 
 		:host .discord-application-tag.discord-application-tag-op {
