@@ -126,7 +126,6 @@ export class DiscordAuthorInfo extends LitElement {
 		}
 
 		:host([compact-mode]) .discord-official-application {
-			gap: 5px;
 			margin-right: 5px;
 			margin-left: 0px !important;
 		}
