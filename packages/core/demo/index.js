@@ -46,6 +46,11 @@ globalThis.$discordMessage = {
 			avatar: 'https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/discordjs.png',
 			roleColor: '#ffffff',
 			server: true
+		},
+		communityupdates: {
+			author: 'Community Updates',
+			avatar: 'https://cdn.discordapp.com/avatars/669627189624307712/a0389d52d24fdef878aca87e8d52cc2a.webp',
+			officialApp: true
 		}
 	},
 	emojis: {

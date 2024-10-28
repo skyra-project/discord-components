@@ -20,6 +20,7 @@ export interface Profile {
 	bot?: boolean;
 	clanIcon?: string;
 	clanTag?: string;
+	officialApp?: boolean;
 	op?: boolean;
 	roleColor?: string;
 	roleIcon?: string;

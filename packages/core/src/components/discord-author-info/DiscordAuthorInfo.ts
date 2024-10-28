@@ -8,6 +8,7 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { when } from 'lit/directives/when.js';
 import { getClanIcon } from '../../util.js';
 import { messagesCompactMode, messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import VerifiedTick from '../svgs/VerifiedTick.js';
 
 @customElement('discord-author-info')
 export class DiscordAuthorInfo extends LitElement {
@@ -136,16 +137,22 @@ export class DiscordAuthorInfo extends LitElement {
 	public accessor author: string | undefined = undefined;
 
 	/**
-	 * Whether this author is a bot. Only works if `server` is `false` or `undefined`.
+	 * Whether this author is a bot. Only works if `server` and `officialApp` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
 	public accessor bot = false;
 
 	/**
-	 * Whether this author is a `server` crosspost webhook. Only works if `bot` is `false` or `undefined`.
+	 * Whether this author is a `server` crosspost webhook. Only works if `bot` and `officialApp` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
 	public accessor server = false;
+
+	/**
+	 * Whether this author is a `official app` crosspost webhook. Only works if `bot` and `server` is `false` or `undefined`.
+	 */
+	@property({ type: Boolean, attribute: 'official-app' })
+	public accessor officialApp = false;
 
 	/**
 	 * Whether this author is the original poster.
@@ -221,8 +228,12 @@ export class DiscordAuthorInfo extends LitElement {
 					draggable="false"
 				/>`
 		)}
-		${when(this.bot && !this.server, () => html`<discord-verified-author-tag .verified=${this.verified}></discord-verified-author-tag>`)}
-		${when(this.server && !this.bot, () => html`<span class="discord-application-tag">Server</span>`)}
+		${when(
+			this.bot && !this.server && !this.officialApp,
+			() => html`<discord-verified-author-tag .verified=${this.verified}></discord-verified-author-tag>`
+		)}
+		${when(this.server && !this.bot && !this.officialApp, () => html`<span class="discord-application-tag">Server</span>`)}
+		${when(this.officialApp && !this.server && !this.bot, () => html`<span class="discord-application-tag">${VerifiedTick()}OFFICIAL</span>`)}
 		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
 		${when(
 			this.compactMode,
