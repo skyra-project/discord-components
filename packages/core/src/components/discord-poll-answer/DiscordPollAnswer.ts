@@ -240,9 +240,9 @@ export class DiscordPollAnswer extends LitElement {
 
 	private accessor percentageVoted: number;
 
-	private accessor arrayAnswers: any[] = [];
+	private accessor arrayAnswers: Array<{answer: string, value: number}> = [];
 
-	private accessor winners: any[] = [];
+	private accessor winners: string[] = [];
 
 	public override connectedCallback() {
 		super.connectedCallback();
@@ -256,13 +256,13 @@ export class DiscordPollAnswer extends LitElement {
 					? Number(answer[index].attributes.getNamedItem('votes')?.nodeValue)
 					: 0;
 				this.arrayAnswers.push({ answer: answer[index].attributes.getNamedItem('answer')?.nodeValue, value: resolvedNumber });
-				this.arrayAnswers = this.arrayAnswers.toSorted((a, b) => b.value - a.value);
+				this.arrayAnswers =  this.arrayAnswers.toSorted((a, b) => b.value - a.value);
 				this.totalVotesPoll += resolvedNumber;
 			}
 		}
 
 		for (let index = 0; index < this.arrayAnswers?.length; index++) {
-			if (!this.winners.includes(this.arrayAnswers[index])) {
+			if (!this.winners.includes(this.arrayAnswers[index].answer)) {
 				this.winners.push(this.arrayAnswers[index].answer);
 			}
 
@@ -291,6 +291,7 @@ export class DiscordPollAnswer extends LitElement {
 		}
 
 		this.percentageVoted = (this.votes / this.totalVotesPoll) * 100;
+
 	}
 
 	protected override render() {
