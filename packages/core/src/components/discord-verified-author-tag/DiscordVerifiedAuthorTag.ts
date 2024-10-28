@@ -35,6 +35,7 @@ export class DiscordVerifiedAuthorTag extends LitElement {
 			padding-left: 10px;
 			padding-right: 4px;
 			margin-right: 0.25rem;
+			margin-left: -6px !important;
 		}
 
 		:host([compact-mode]) .discord-application-tag-verified {
