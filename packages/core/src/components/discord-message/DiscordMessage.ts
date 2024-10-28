@@ -190,7 +190,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 		:host([compact-mode]) .discord-message-body {
 			line-height: 1.375rem;
 			padding-left: 10px;
-			text-indent: -6px;
+			margin-left: -6px;
 		}
 
 		:host([compact-mode]) .discord-message-compact-indent {
