@@ -35,11 +35,35 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 			align-self: start;
 		}
 
+		.discord-file-attachment-non-visual-media-item-container:hover .discord-button-download-attachment {
+			display: block !important;
+		}
+
+		.discord-button-download-attachment {
+			display: none;
+			position: absolute;
+			top: -8px;
+			right: -8px;
+			border-radius: 5px;
+			outline: color-mix(in oklab, hsl(220 calc(1 * 6.5%) 18% / 1) 100%, black 0%);
+			background-color: color-mix(in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0%);
+		}
+
+		.discord-link-download-attachment {
+			color: color-mix(in oklab, hsl(215 calc(1 * 8.8%) 73.3% / 1) 100%, black 0%);
+			display: flex;
+		}
+
+		.discord-icon-download {
+			padding: 6px;
+		}
+
 		.discord-file-attachment-non-visual-media-item-container {
 			margin-top: 8px;
 			max-width: 100%;
 			display: flex;
 			flex-direction: column;
+			position: relative;
 		}
 
 		.discord-file-attachment-non-visual-media-item {
@@ -210,6 +234,34 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="discord-button-download-attachment">
+				<a
+					class="discord-link-download-attachment"
+					aria-label="Download"
+					href="https://cdn.discordapp.com/attachments/1155271800033398905/1301701936923283536/OperaSetup.exe?ex=67256fe6&amp;is=67241e66&amp;hm=3b01a6cf8ebaa2cf932469daafb71a364e20a387f08007e07514908e8d7af95b&amp;"
+					rel="noreferrer noopener"
+					target="_blank"
+					role="button"
+					tabindex="0"
+				>
+					<svg
+						class="discord-icon-download"
+						aria-hidden="true"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						fill="none"
+						viewBox="0 0 24 24"
+					>
+						<path
+							fill="currentColor"
+							d="M12 2a1 1 0 0 1 1 1v10.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V3a1 1 0 0 1 1-1ZM3 20a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
+							class=""
+						></path>
+					</svg>
+				</a>
 			</div>
 		</div>`;
 	}
