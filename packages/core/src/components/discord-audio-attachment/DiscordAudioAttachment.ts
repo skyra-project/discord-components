@@ -304,6 +304,34 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 					</div>
 				</div>
 			</div>
+			<div class="discord-button-download-attachment">
+				<a
+					class="discord-link-download-attachment"
+					aria-label="Download"
+					href="https://cdn.discordapp.com/attachments/1155271800033398905/1301701936923283536/OperaSetup.exe?ex=67256fe6&amp;is=67241e66&amp;hm=3b01a6cf8ebaa2cf932469daafb71a364e20a387f08007e07514908e8d7af95b&amp;"
+					rel="noreferrer noopener"
+					target="_blank"
+					role="button"
+					tabindex="0"
+				>
+					<svg
+						class="discord-icon-download"
+						aria-hidden="true"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						fill="none"
+						viewBox="0 0 24 24"
+					>
+						<path
+							fill="currentColor"
+							d="M12 2a1 1 0 0 1 1 1v10.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V3a1 1 0 0 1 1-1ZM3 20a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
+							class=""
+						></path>
+					</svg>
+				</a>
+			</div>
 		</div>`;
 	}
 }
