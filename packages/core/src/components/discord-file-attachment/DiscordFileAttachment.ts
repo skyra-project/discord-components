@@ -239,7 +239,7 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 				<a
 					class="discord-link-download-attachment"
 					aria-label="Download"
-					href="https://cdn.discordapp.com/attachments/1155271800033398905/1301701936923283536/OperaSetup.exe?ex=67256fe6&amp;is=67241e66&amp;hm=3b01a6cf8ebaa2cf932469daafb71a364e20a387f08007e07514908e8d7af95b&amp;"
+					href="${ifDefined(this.href)}"
 					rel="noreferrer noopener"
 					target="_blank"
 					role="button"
