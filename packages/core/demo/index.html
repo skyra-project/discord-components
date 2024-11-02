@@ -10,7 +10,7 @@
 		<script type="module" src="../src/index.ts"></script>
 	</head>
 	<body>
-		<div>
+		<div class="body-wrapper">
 			<div>
 				<h1 class="logo">&#64;skyra/discord-components-core</h1>
 				<span
@@ -686,7 +686,7 @@
 									description="Test"
 									emoji="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/eyes.svg"
 								></discord-string-select-menu-option>
-								<discord-string-select-menu-option label="Teste2"> </discord-string-select-menu-option>
+								<discord-string-select-menu-option label="Teste2"></discord-string-select-menu-option>
 							</discord-string-select-menu>
 							<discord-string-select-menu placeholder="overflow">
 								<discord-string-select-menu-option
@@ -738,7 +738,7 @@
 									description="Test"
 									emoji="https://raw.githubusercontent.com/skyra-project/discord-components-implementations/main/shared/public/eyes.svg"
 								></discord-string-select-menu-option>
-								<discord-string-select-menu-option label="Teste2"> </discord-string-select-menu-option>
+								<discord-string-select-menu-option label="Teste2"></discord-string-select-menu-option>
 							</discord-string-select-menu>
 							<discord-string-select-menu placeholder="overflow">
 								<discord-string-select-menu-option
@@ -843,6 +843,243 @@
 						></discord-input-text>
 					</discord-modal>
 				</discord-messages>
+				<h3 class="title">Discord Polls (all cases)</h3>
+
+				<h4 class="subtitle">No choice selected by user - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d">
+							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">No choice selected by user - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers>
+							<discord-poll-answer answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"></discord-poll-answer>
+							<discord-poll-answer answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">With a choice selected by the user - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d">
+							<discord-poll-answer selected emoji="https://github.com/NM-EEA-Y.png" answer="Yes"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">With a choice selected by the user - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers>
+							<discord-poll-answer selected answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer selected answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"></discord-poll-answer>
+							<discord-poll-answer selected answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">With a vote cast by the user - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" voted>
+							<discord-poll-answer selected emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="2"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">With a vote cast by the user - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers voted>
+							<discord-poll-answer selected votes="3" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer selected votes="2" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer votes="1" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"></discord-poll-answer>
+							<discord-poll-answer selected votes="10" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">With a vote casted by the user and the poll has ended - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" voted ended>
+							<discord-poll-answer selected emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="2"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">With a vote casted by the user and the poll has ended - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers voted ended>
+							<discord-poll-answer selected votes="3" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer selected votes="2" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer votes="1" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"></discord-poll-answer>
+							<discord-poll-answer selected votes="10" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">An ended poll without the user having cast a vote - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" ended>
+							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="2"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">An ended poll without the user having cast a vote - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers ended>
+							<discord-poll-answer votes="3" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer votes="2" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer votes="1" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png"></discord-poll-answer>
+							<discord-poll-answer votes="10" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Showing results without having cast a vote - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" show-results>
+							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="5"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Showing results without having cast a vote - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers show-results>
+							<discord-poll-answer votes="5" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer votes="1" answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png">
+							</discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" ended>
+							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="5"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers ended>
+							<discord-poll-answer votes="5" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer votes="1" answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png">
+							</discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie without the user having cast a vote - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" show-results>
+							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="5"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie without the user having cast a vote - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers show-results>
+							<discord-poll-answer votes="5" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer votes="1" answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png">
+							</discord-poll-answer>
+							<discord-poll-answer votes="5" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie with user having selected a winning option - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" ended>
+							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" selected answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="5"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie with user having selected a winning option - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers ended>
+							<discord-poll-answer selected votes="5" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer selected votes="5" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer selected votes="5" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer selected votes="1" answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png">
+							</discord-poll-answer>
+							<discord-poll-answer selected votes="5" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie with user having selected a losing option - single choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="Do you like Discord Components?" time-end="13d" voted>
+							<discord-poll-answer emoji="https://github.com/NM-EEA-Y.png" selected answer="Yes" votes="5"></discord-poll-answer>
+							<discord-poll-answer emoji="https://cdn.discordapp.com/embed/avatars/0.png" answer="No" votes="5"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
+				<h4 class="subtitle">Results are a tie with user having selected a losing option - multiple choice</h4>
+				<discord-messages>
+					<discord-message profile="marciel404">
+						<discord-poll question="What are your favourite anime?" multiple-answers voted>
+							<discord-poll-answer selected votes="5" answer="Naruto"></discord-poll-answer>
+							<discord-poll-answer selected votes="5" answer="Dragon Ball Z"></discord-poll-answer>
+							<discord-poll-answer selected votes="5" answer="Pokémon"></discord-poll-answer>
+							<discord-poll-answer votes="1" answer="Digimon" emoji="https://abs.twimg.com/emoji/v2/72x72/1f480.png">
+							</discord-poll-answer>
+							<discord-poll-answer selected votes="5" answer="Other"></discord-poll-answer>
+						</discord-poll>
+					</discord-message>
+				</discord-messages>
+
 				<h3 class="title">Verified Discord bots</h3>
 				<discord-messages>
 					<discord-message profile="skyra"> Wow I just got verified! </discord-message>
