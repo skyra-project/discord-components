@@ -247,15 +247,15 @@ export class DiscordPollAnswer extends LitElement {
 	public override connectedCallback() {
 		super.connectedCallback();
 
-		const answer: any = this.parentElement?.getElementsByTagName('discord-poll-answer');
+		const answer = this.parentElement?.getElementsByTagName('discord-poll-answer');
 
-		// get teh number total of votes
+		// Get the number total of votes
 		if (answer) {
 			for (let index = 0; index < answer?.length; index++) {
 				const resolvedNumber = answer[index].attributes.getNamedItem('votes')
 					? Number(answer[index].attributes.getNamedItem('votes')?.nodeValue)
 					: 0;
-				this.arrayAnswers.push({ answer: answer[index].attributes.getNamedItem('answer')?.nodeValue, value: resolvedNumber });
+				this.arrayAnswers.push({ answer: answer[index].attributes.getNamedItem('answer')?.nodeValue as string, value: resolvedNumber });
 				this.arrayAnswers = this.arrayAnswers.toSorted((a, b) => b.value - a.value);
 				this.totalVotesPoll += resolvedNumber;
 			}
