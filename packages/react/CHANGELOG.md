@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.36](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.35...v4.0.0-alpha.36) (2024-11-02)
+
+### Features
+
+* add polls ([#492](https://github.com/skyra-project/discord-components/issues/492)) ([61a1105](https://github.com/skyra-project/discord-components/commit/61a11055d8eb70795939d29299436af0c07c9f78)) (@eumarciel404)
+
 # [4.0.0-alpha.35](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.34...v4.0.0-alpha.35) (2024-10-27)
 
 ### Bug Fixes
