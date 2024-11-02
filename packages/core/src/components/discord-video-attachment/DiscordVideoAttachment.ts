@@ -12,6 +12,7 @@ import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControl
 import { DiscordVolumeControlStyles } from '../_private/DiscordVolumeControlStyles.js';
 import '../discord-link/DiscordLink.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import AttachmentDownloadButton from '../svgs/AttachmentDownloadButton.js';
 import MediaPauseIcon from '../svgs/MediaPauseIcon.js';
 import MediaPlayIcon from '../svgs/MediaPlayIcon.js';
 import MediaRestartIcon from '../svgs/MediaRestartIcon.js';
@@ -454,22 +455,7 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 					role="button"
 					tabindex="0"
 				>
-					<svg
-						class="discord-icon-download"
-						aria-hidden="true"
-						role="img"
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						fill="none"
-						viewBox="0 0 24 24"
-					>
-						<path
-							fill="currentColor"
-							d="M12 2a1 1 0 0 1 1 1v10.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V3a1 1 0 0 1 1-1ZM3 20a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
-							class=""
-						></path>
-					</svg>
+					${AttachmentDownloadButton()}
 				</a>
 			</div>
 		</div>`;

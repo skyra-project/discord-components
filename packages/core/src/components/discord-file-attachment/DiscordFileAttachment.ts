@@ -7,6 +7,7 @@ import { when } from 'lit/directives/when.js';
 import '../discord-link/DiscordLink.js';
 import type { LightTheme } from '../../types.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import AttachmentDownloadButton from '../svgs/AttachmentDownloadButton.js';
 import FileAttachment from '../svgs/FileAttachment.js';
 
 @customElement('discord-file-attachment')
@@ -245,22 +246,7 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 					role="button"
 					tabindex="0"
 				>
-					<svg
-						class="discord-icon-download"
-						aria-hidden="true"
-						role="img"
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						fill="none"
-						viewBox="0 0 24 24"
-					>
-						<path
-							fill="currentColor"
-							d="M12 2a1 1 0 0 1 1 1v10.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V3a1 1 0 0 1 1-1ZM3 20a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
-							class=""
-						></path>
-					</svg>
+					${AttachmentDownloadButton()}
 				</a>
 			</div>
 		</div>`;
