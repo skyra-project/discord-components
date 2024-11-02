@@ -7,6 +7,7 @@ import { when } from 'lit/directives/when.js';
 import '../discord-link/DiscordLink.js';
 import type { LightTheme } from '../../types.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import AttachmentDownloadButton from '../svgs/AttachmentDownloadButton.js';
 import FileAttachment from '../svgs/FileAttachment.js';
 
 @customElement('discord-file-attachment')
@@ -35,11 +36,35 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 			align-self: start;
 		}
 
+		.discord-file-attachment-non-visual-media-item-container:hover .discord-button-download-attachment {
+			display: block !important;
+		}
+
+		.discord-button-download-attachment {
+			display: none;
+			position: absolute;
+			top: -8px;
+			right: -8px;
+			border-radius: 5px;
+			outline: color-mix(in oklab, hsl(220 calc(1 * 6.5%) 18% / 1) 100%, black 0%);
+			background-color: color-mix(in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0%);
+		}
+
+		.discord-link-download-attachment {
+			color: color-mix(in oklab, hsl(215 calc(1 * 8.8%) 73.3% / 1) 100%, black 0%);
+			display: flex;
+		}
+
+		.discord-icon-download {
+			padding: 6px;
+		}
+
 		.discord-file-attachment-non-visual-media-item-container {
 			margin-top: 8px;
 			max-width: 100%;
 			display: flex;
 			flex-direction: column;
+			position: relative;
 		}
 
 		.discord-file-attachment-non-visual-media-item {
@@ -210,6 +235,19 @@ export class DiscordFileAttachment extends LitElement implements LightTheme {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="discord-button-download-attachment">
+				<a
+					class="discord-link-download-attachment"
+					aria-label="Download"
+					href="${ifDefined(this.href)}"
+					rel="noreferrer noopener"
+					target="_blank"
+					role="button"
+					tabindex="0"
+				>
+					${AttachmentDownloadButton()}
+				</a>
 			</div>
 		</div>`;
 	}

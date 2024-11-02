@@ -12,6 +12,7 @@ import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControl
 import { DiscordVolumeControlStyles } from '../_private/DiscordVolumeControlStyles.js';
 import '../discord-link/DiscordLink.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import AttachmentDownloadButton from '../svgs/AttachmentDownloadButton.js';
 import MediaPauseIcon from '../svgs/MediaPauseIcon.js';
 import MediaPlayIcon from '../svgs/MediaPlayIcon.js';
 import MediaRestartIcon from '../svgs/MediaRestartIcon.js';
@@ -48,6 +49,11 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 				--seek-before-width: 0%;
 				--buffered-width: 0%;
 				--volume-slider-opacity: 0;
+			}
+
+			:host .discord-button-download-attachment {
+				top: 5px !important;
+				right: 8px !important;
 			}
 
 			.discord-video-attachment-one-by-one-grid {
@@ -438,6 +444,19 @@ export class DiscordVideoAttachment extends DiscordMediaLifecycle implements Lig
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="discord-button-download-attachment">
+				<a
+					class="discord-link-download-attachment"
+					aria-label="Download"
+					href="${ifDefined(this.href)}"
+					rel="noreferrer noopener"
+					target="_blank"
+					role="button"
+					tabindex="0"
+				>
+					${AttachmentDownloadButton()}
+				</a>
 			</div>
 		</div>`;
 	}
