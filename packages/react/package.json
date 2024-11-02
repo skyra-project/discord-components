@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/discord-components-react",
-	"version": "4.0.0-alpha.34",
+	"version": "4.0.0-alpha.35",
 	"description": "React bindings for @skyra/discord-components-core",
 	"author": "@skyra",
 	"license": "MIT",
@@ -34,10 +34,10 @@
 		"react": "^18.3.1"
 	},
 	"devDependencies": {
-		"@types/react": "^18.3.11",
+		"@types/react": "^18.3.12",
 		"colorette": "^2.0.20",
 		"rimraf": "^6.0.1",
-		"tsup": "^8.3.0",
+		"tsup": "^8.3.5",
 		"typescript": "^5.5.4"
 	},
 	"peerDependencies": {

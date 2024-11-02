@@ -12,6 +12,7 @@ import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControl
 import { DiscordVolumeControlStyles } from '../_private/DiscordVolumeControlStyles.js';
 import '../discord-link/DiscordLink.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import AttachmentDownloadButton from '../svgs/AttachmentDownloadButton.js';
 import MediaPauseIcon from '../svgs/MediaPauseIcon.js';
 import MediaPlayIcon from '../svgs/MediaPlayIcon.js';
 import MediaRestartIcon from '../svgs/MediaRestartIcon.js';
@@ -141,7 +142,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	 * @remarks Spaces will be replaced with underscores and any non-alphanumeric characters will be removed
 	 */
 	@property()
-	public accessor name: string;
+	public accessor name: string | undefined;
 
 	/**
 	 * The size of the audio file in bytes
@@ -172,7 +173,7 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 	public accessor lightTheme = false;
 
 	protected override render() {
-		const parsedName = this.name.replaceAll(/\s/g, '_').replaceAll(/[^\w-]/g, '');
+		const parsedName = this.name?.replaceAll(/\s/g, '_')?.replaceAll(/[^\w-]/g, '');
 
 		return html`<div class="discord-media-attachment-non-visual-media-item-container">
 			<div class="discord-audio-attachment-non-visual-media-item">
@@ -303,6 +304,19 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="discord-button-download-attachment">
+				<a
+					class="discord-link-download-attachment"
+					aria-label="Download"
+					href="${ifDefined(this.href)}"
+					rel="noreferrer noopener"
+					target="_blank"
+					role="button"
+					tabindex="0"
+				>
+					${AttachmentDownloadButton()}
+				</a>
 			</div>
 		</div>`;
 	}

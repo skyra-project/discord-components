@@ -264,17 +264,24 @@ export class DiscordReply extends LitElement implements LightTheme {
 
 	/**
 	 * Whether the message author is a bot or not.
-	 * Only works if `server` is `false` or `undefined`.
+	 * Only works if `server` and `officialApp` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
 	public accessor bot = false;
 
 	/**
 	 * Whether the message author is a server crosspost webhook or not.
-	 * Only works if `bot` is `false` or `undefined`.
+	 * Only works if `bot` and `officialApp` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
 	public accessor server = false;
+
+	/**
+	 * Whether the message author is a server crosspost webhook or not.
+	 * Only works if `bot` and `server` is `false` or `undefined`.
+	 */
+	@property({ type: Boolean, attribute: 'official-app' })
+	public accessor officialApp = false;
 
 	/**
 	 * Whether the author is the original poster.
@@ -298,7 +305,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 	/**
 	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
-	@property()
+	@property({ attribute: 'role-color' })
 	public accessor roleColor: string;
 
 	/**
@@ -322,13 +329,13 @@ export class DiscordReply extends LitElement implements LightTheme {
 	/**
 	 * The clan icon of the author, which comes from the enabled clan tag
 	 */
-	@property()
+	@property({ attribute: 'clan-icon' })
 	public accessor clanIcon: string;
 
 	/**
 	 * The clan name of the author, which comes from the enabled clan tag
 	 */
-	@property()
+	@property({ attribute: 'clan-tag' })
 	public accessor clanTag: string;
 
 	/**
@@ -375,6 +382,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 			author: this.author,
 			bot: this.bot,
 			verified: this.verified,
+			officialApp: this.officialApp,
 			op: this.op,
 			server: this.server,
 			roleColor: this.roleColor,
@@ -389,11 +397,14 @@ export class DiscordReply extends LitElement implements LightTheme {
 
 		const profileTag = html`
 			${when(
-				profile.bot && !profile.server,
+				profile.bot && !profile.server && !profile.officialApp,
 				() => html`<span class="discord-application-tag">${profile.verified ? VerifiedTick() : ''}App</span>`
 			)}
-			${when(profile.server && !profile.bot, () => html`<span class="discord-application-tag">Server</span>`)}
-			${when(profile.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
+			${when(profile.server && !profile.bot && !profile.officialApp, () => html`<span class="discord-application-tag">Server</span>`)}
+			${when(
+				profile.officialApp && !profile.server && !profile.bot,
+				() => html`<span class="discord-application-tag">${VerifiedTick()}OFFICIAL</span>`
+			)}
 		`;
 
 		return html`${when(

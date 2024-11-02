@@ -11,6 +11,7 @@ export const DiscordMediaAttachmentStyles = css`
 		max-width: 100%;
 		display: flex;
 		flex-direction: column;
+		position: relative;
 	}
 
 	.discord-media-attachment-mosaic-item-media {
@@ -64,5 +65,33 @@ export const DiscordMediaAttachmentStyles = css`
 
 	.discord-media-attachment-duration-time-separator {
 		margin: 0 2px;
+	}
+
+	.discord-media-attachment-non-visual-media-item-container:hover .discord-button-download-attachment {
+		display: block !important;
+	}
+
+	.discord-button-download-attachment {
+		display: none;
+		position: absolute;
+		top: -8px;
+		right: -8px;
+		border-radius: 5px;
+		outline: color-mix(in oklab, hsl(220 calc(1 * 6.5%) 18% / 1) 100%, black 0%);
+		background-color: color-mix(in oklab, hsl(223 calc(1 * 6.7%) 20.6% / 1) 100%, black 0%);
+	}
+
+	.discord-link-download-attachment {
+		color: color-mix(in oklab, hsl(215 calc(1 * 8.8%) 73.3% / 1) 100%, black 0%);
+		display: flex;
+	}
+
+	.discord-icon-download {
+		padding: 6px;
+	}
+
+	.discord-button-download-attachment {
+		top: 5px !important;
+		right: 8px !important;
 	}
 `;

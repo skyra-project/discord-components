@@ -190,7 +190,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 		:host([compact-mode]) .discord-message-body {
 			line-height: 1.375rem;
 			padding-left: 10px;
-			text-indent: -6px;
+			margin-left: -6px;
 		}
 
 		:host([compact-mode]) .discord-message-compact-indent {
@@ -279,17 +279,24 @@ export class DiscordMessage extends LitElement implements LightTheme {
 
 	/**
 	 * Whether the message author is a bot or not.
-	 * Only works if `server` is `false` or `undefined`.
+	 * Only works if `server` and `officialApp` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
 	public accessor bot = false;
 
 	/**
 	 * Whether the message author is a server crosspost webhook or not.
-	 * Only works if `bot` is `false` or `undefined`.
+	 * Only works if `bot` and `officialApp` is `false` or `undefined`.
 	 */
 	@property({ type: Boolean })
 	public accessor server = false;
+
+	/**
+	 * Whether the message author is official app.
+	 * Only works if `bot` and `server` is `falns`
+	 */
+	@property({ type: Boolean, attribute: 'official-app' })
+	public accessor officialApp = false;
 
 	/**
 	 * Whether the bot is verified or not.
@@ -416,6 +423,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 		const defaultData: Profile = {
 			author: this.author,
 			bot: this.bot,
+			officialApp: this.officialApp,
 			verified: this.verified,
 			server: this.server,
 			op: this.op,
@@ -475,6 +483,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 								author=${profile.author ?? ''}
 								?bot=${profile.bot ?? false}
 								?server=${profile.server ?? false}
+								?official-app=${profile.officialApp ?? false}
 								?verified=${profile.verified ?? false}
 								?op=${profile.op ?? false}
 								role-color=${profile.roleColor ?? ''}
@@ -494,6 +503,7 @@ export class DiscordMessage extends LitElement implements LightTheme {
 									author=${profile.author ?? ''}
 									?bot=${profile.bot ?? false}
 									?server=${profile.server ?? false}
+									?official-app=${profile.officialApp ?? false}
 									?verified=${profile.verified ?? false}
 									?op=${profile.op ?? false}
 									role-color=${profile.roleColor ?? ''}

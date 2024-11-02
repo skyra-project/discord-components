@@ -172,13 +172,13 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	 * Whether the referenced context message is from a response of a slash command.
 	 */
 	@property({ type: Boolean, attribute: 'context-command-reply' })
-	public accessor contextCommandReply: Boolean = false;
+	public accessor contextCommandReply: boolean = false;
 
 	/**
 	 * Whether the referenced context message contains attachments.
 	 */
 	@property({ type: Boolean, attribute: 'context-attachment-reply' })
-	public accessor contextAttachmentReply: Boolean = false;
+	public accessor contextAttachmentReply: boolean = false;
 
 	/**
 	 * The referenced message in message command
@@ -190,19 +190,19 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	 * If the referenced messaga has deleted
 	 */
 	@property({ type: Boolean, attribute: 'context-message-deleted' })
-	public accessor contextMessageDeleted: Boolean = false;
+	public accessor contextMessageDeleted: boolean = false;
 
 	/**
 	 * If the context user is a application official of discord
 	 */
 	@property({ type: Boolean, attribute: 'context-user-application-official' })
-	public accessor contextUserOfficialApplication: Boolean = false;
+	public accessor contextUserOfficialApplication: boolean = false;
 
 	/**
 	 * If the context user is a server
 	 */
 	@property({ type: Boolean, attribute: 'context-user-server' })
-	public accessor contextUserServer: Boolean = false;
+	public accessor contextUserServer: boolean = false;
 
 	/**
 	 * Whether to use compact mode or not.
@@ -308,7 +308,12 @@ export class DiscordCommand extends LitElement implements LightTheme {
 													src="${ifDefined(profileContext.avatar)}"
 													alt="${ifDefined(profileContext.author)}"
 												/>`,
-											() => html`<img class="discord-replied-message-avatar" src="${avatars.blue}" alt="OFFICIALAPPLICATION" />`
+											() =>
+												html`<img
+													class="discord-replied-message-avatar"
+													src="${ifDefined(avatars.blue)}"
+													alt="OFFICIALAPPLICATION"
+												/>`
 										)
 									)}
 									${when(
@@ -327,7 +332,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 									)}
 									<span class="discord-replied-message-username" style=${styleMap({ color: profileContext.roleColor ?? '' })}
 										>${profileContext.author}</span
-									><span> </span>
+									><span></span>
 								</div>`,
 							() =>
 								when(this.contextMessageDeleted, () =>
