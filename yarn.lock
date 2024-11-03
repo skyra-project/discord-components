@@ -2944,12 +2944,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.0.0, @types/node@npm:^20.17.5":
-  version: 20.17.5
-  resolution: "@types/node@npm:20.17.5"
+"@types/node@npm:^20.0.0, @types/node@npm:^20.17.6":
+  version: 20.17.6
+  resolution: "@types/node@npm:20.17.6"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/2096b78696bab7d8e410609bbfdf0cad67dd02460bee98f457e0265c97e1587852ee0d17d806a9cfbff7b9183a3e9c2f95d6df0a18c56e708a36790d1d89084b
+  checksum: 10/714b8b54951950cee662ce80492831ebc51f914a9adf88583cea777ea4d55b88827b2505ff2f53d2bb7753691aaab1b06c027a7b5c63eb153ad4acee1239690c
   languageName: node
   linkType: hard
 
@@ -11981,7 +11981,7 @@ __metadata:
     "@lerna-lite/run": "npm:^3.10.0"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^20.17.5"
+    "@types/node": "npm:^20.17.6"
     chalk-cli: "npm:^5.0.1"
     eslint: "npm:^8.57.1"
     eslint-config-neon: "npm:^0.2.0"

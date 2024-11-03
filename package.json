@@ -32,7 +32,7 @@
 		"@lerna-lite/run": "^3.10.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^20.17.5",
+		"@types/node": "^20.17.6",
 		"chalk-cli": "^5.0.1",
 		"eslint": "^8.57.1",
 		"eslint-config-neon": "^0.2.0",
