@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.36](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.35...v4.0.0-alpha.36) (2024-11-02)
+
+### Bug Fixes
+
+* **attachment:** adding button download ([#499](https://github.com/skyra-project/discord-components/issues/499)) ([056368b](https://github.com/skyra-project/discord-components/commit/056368bdaf47f13d18bcca8c7897f257855f7bb9)) (@eumarciel404)
+* **discordcommand:** fixed boolean types and add ifDefined ([4352655](https://github.com/skyra-project/discord-components/commit/4352655b0879de6b43479494f8097c1cf5848212)) (@favna)
+* **DiscordReply:** add missing attributes ([38ee6e8](https://github.com/skyra-project/discord-components/commit/38ee6e86b4c0c43c8d17970176d7a5a396e65e66)), closes [#500](https://github.com/skyra-project/discord-components/issues/500) (@favna)
+* **embed-image:** fix max-width and max-height ([#498](https://github.com/skyra-project/discord-components/issues/498)) ([c7f3584](https://github.com/skyra-project/discord-components/commit/c7f35848424c38c2600d16fb9ac15cf2e7a34508)) (@eumarciel404)
+* style message ([#496](https://github.com/skyra-project/discord-components/issues/496)) ([c796dbc](https://github.com/skyra-project/discord-components/commit/c796dbc4a064a2d2e22adb70f60c97aa31436fdb)) (@eumarciel404)
+
+### Features
+
+* add polls ([#492](https://github.com/skyra-project/discord-components/issues/492)) ([61a1105](https://github.com/skyra-project/discord-components/commit/61a11055d8eb70795939d29299436af0c07c9f78)) (@eumarciel404)
+* adding the possibility to use emoji default of system ([#497](https://github.com/skyra-project/discord-components/issues/497)) ([1b206b1](https://github.com/skyra-project/discord-components/commit/1b206b19cc7f46dc0e7257ba1d4ba14477554e37)) (@eumarciel404)
+
 # [4.0.0-alpha.35](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.34...v4.0.0-alpha.35) (2024-10-27)
 
 ### Bug Fixes

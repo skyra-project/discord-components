@@ -29,6 +29,8 @@ export { DiscordMessage } from './components/discord-message/DiscordMessage.js';
 export { DiscordMessages } from './components/discord-messages/DiscordMessages.js';
 export { DiscordModal } from './components/discord-modal/DiscordModal.js';
 export { DiscordOrderedList } from './components/discord-ordered-list/DiscordOrderedList.js';
+export { DiscordPoll } from './components/discord-poll/DiscordPoll.js';
+export { DiscordPollAnswer } from './components/discord-poll-answer/DiscordPollAnswer.js';
 export { DiscordPre } from './components/discord-pre/DiscordPre.js';
 export { DiscordQuote } from './components/discord-quote/DiscordQuote.js';
 export { DiscordReaction } from './components/discord-reaction/DiscordReaction.js';

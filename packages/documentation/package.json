@@ -1,7 +1,7 @@
 {
 	"name": "documentation",
 	"type": "module",
-	"version": "4.0.0-alpha.35",
+	"version": "4.0.0-alpha.36",
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
@@ -12,10 +12,10 @@
 	"dependencies": {
 		"@astrojs/check": "0.9.4",
 		"@astrojs/lit": "^4.3.0",
-		"@astrojs/starlight": "0.28.3",
+		"@astrojs/starlight": "0.28.5",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "4.16.7",
+		"astro": "4.16.8",
 		"lit": "^3.2.1",
 		"starlight-typedoc": "0.15.0",
 		"typedoc": "0.26.5",

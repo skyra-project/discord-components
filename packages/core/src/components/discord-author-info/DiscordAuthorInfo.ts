@@ -90,7 +90,6 @@ export class DiscordAuthorInfo extends LitElement {
 			background-color: #5865f2;
 			color: #fff;
 			font-size: 0.625em;
-			margin-left: 4px;
 			border-radius: 3px;
 			line-height: 100%;
 			text-transform: uppercase;
@@ -104,6 +103,31 @@ export class DiscordAuthorInfo extends LitElement {
 			padding: 0 0.275rem;
 			margin-top: 0.075em;
 			border-radius: 0.1875rem;
+		}
+
+		:host .discord-official-application {
+			background-color: #5865f2;
+			color: #fff;
+			font-size: 0.625em;
+			margin-left: 4px;
+			border-radius: 3px;
+			line-height: 100%;
+			text-transform: uppercase;
+
+			/* Use flex layout to ensure both verified icon and "BOT" text are aligned to center */
+			display: flex;
+			align-items: center;
+
+			/* Styling taken through Inspect Element on Discord client for Windows */
+			height: 0.9375rem;
+			padding: 0 0.275rem;
+			margin-top: 0.075em;
+			border-radius: 0.1875rem;
+		}
+
+		:host([compact-mode]) .discord-official-application {
+			margin-right: 5px;
+			margin-left: 0px !important;
 		}
 
 		:host .discord-application-tag.discord-application-tag-op {
@@ -233,7 +257,10 @@ export class DiscordAuthorInfo extends LitElement {
 			() => html`<discord-verified-author-tag .verified=${this.verified}></discord-verified-author-tag>`
 		)}
 		${when(this.server && !this.bot && !this.officialApp, () => html`<span class="discord-application-tag">Server</span>`)}
-		${when(this.officialApp && !this.server && !this.bot, () => html`<span class="discord-application-tag">${VerifiedTick()}OFFICIAL</span>`)}
+		${when(
+			this.officialApp && !this.server && !this.bot,
+			() => html`<span class="discord-official-application">${VerifiedTick()}OFFICIAL</span>`
+		)}
 		${when(this.op, () => html`<span class="discord-application-tag discord-application-tag-op">OP</span>`)}
 		${when(
 			this.compactMode,

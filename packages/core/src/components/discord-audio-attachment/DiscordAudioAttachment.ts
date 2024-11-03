@@ -12,6 +12,7 @@ import { DiscordPlaybackControlStyles } from '../_private/DiscordPlaybackControl
 import { DiscordVolumeControlStyles } from '../_private/DiscordVolumeControlStyles.js';
 import '../discord-link/DiscordLink.js';
 import { messagesLightTheme } from '../discord-messages/DiscordMessages.js';
+import AttachmentDownloadButton from '../svgs/AttachmentDownloadButton.js';
 import MediaPauseIcon from '../svgs/MediaPauseIcon.js';
 import MediaPlayIcon from '../svgs/MediaPlayIcon.js';
 import MediaRestartIcon from '../svgs/MediaRestartIcon.js';
@@ -303,6 +304,19 @@ export class DiscordAudioAttachment extends DiscordMediaLifecycle implements Lig
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="discord-button-download-attachment">
+				<a
+					class="discord-link-download-attachment"
+					aria-label="Download"
+					href="${ifDefined(this.href)}"
+					rel="noreferrer noopener"
+					target="_blank"
+					role="button"
+					tabindex="0"
+				>
+					${AttachmentDownloadButton()}
+				</a>
 			</div>
 		</div>`;
 	}

@@ -305,7 +305,7 @@ export class DiscordReply extends LitElement implements LightTheme {
 	/**
 	 * The message author's primary role color. Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
-	@property()
+	@property({ attribute: 'role-color' })
 	public accessor roleColor: string;
 
 	/**
@@ -329,13 +329,13 @@ export class DiscordReply extends LitElement implements LightTheme {
 	/**
 	 * The clan icon of the author, which comes from the enabled clan tag
 	 */
-	@property()
+	@property({ attribute: 'clan-icon' })
 	public accessor clanIcon: string;
 
 	/**
 	 * The clan name of the author, which comes from the enabled clan tag
 	 */
-	@property()
+	@property({ attribute: 'clan-tag' })
 	public accessor clanTag: string;
 
 	/**

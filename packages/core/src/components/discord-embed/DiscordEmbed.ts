@@ -172,7 +172,8 @@ export class DiscordEmbed extends LitElement implements LightTheme {
 
 		:host .discord-embed-image {
 			border-radius: 4px;
-			max-width: 100%;
+			max-width: 300px;
+			max-height: 300px;
 		}
 
 		:host .discord-embed-media {
