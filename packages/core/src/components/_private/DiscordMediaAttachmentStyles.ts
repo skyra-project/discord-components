@@ -90,8 +90,4 @@ export const DiscordMediaAttachmentStyles = css`
 		padding: 6px;
 	}
 
-	.discord-button-download-attachment {
-		top: 5px !important;
-		right: 8px !important;
-	}
 `;
