@@ -89,5 +89,4 @@ export const DiscordMediaAttachmentStyles = css`
 	.discord-icon-download {
 		padding: 6px;
 	}
-
 `;
