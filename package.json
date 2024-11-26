@@ -24,18 +24,18 @@
 		"build:documentation": "yarn workspace documentation build"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.5.0",
-		"@commitlint/config-conventional": "^19.5.0",
+		"@commitlint/cli": "^19.6.0",
+		"@commitlint/config-conventional": "^19.6.0",
 		"@eslint/compat": "^1.2.3",
 		"@lerna-lite/cli": "^3.10.0",
 		"@lerna-lite/publish": "^3.10.0",
 		"@lerna-lite/run": "^3.10.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^22.9.0",
+		"@types/node": "^22.10.0",
 		"chalk-cli": "^5.0.1",
-		"eslint": "^8.57.1",
-		"eslint-config-neon": "^0.2.0",
+		"eslint": "^9.15.0",
+		"eslint-config-neon": "^0.2.3",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-html": "^8.1.2",
 		"eslint-plugin-lit": "^1.15.0",
@@ -45,12 +45,12 @@
 		"lint-staged": "^15.2.10",
 		"markdown-toc": "^1.2.0",
 		"npm-run-all2": "^7.0.1",
-		"prettier": "^3.3.3",
+		"prettier": "^3.4.0",
 		"prettier-plugin-astro": "^0.14.1",
 		"react": "^18.3.1",
 		"rimraf": "^6.0.1",
 		"tsup": "^8.3.5",
-		"typescript": "^5.6.3"
+		"typescript": "^5.7.2"
 	},
 	"resolutions": {
 		"esbuild": "~0.24.0",
@@ -58,16 +58,13 @@
 		"eslint-plugin-mdx": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-cypress": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-rxjs-angular": "npm:@favware/skip-dependency@latest",
-		"eslint-plugin-react-hooks": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-rxjs": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-svelte3": "npm:@favware/skip-dependency@latest",
-		"eslint-plugin-jsx-a11y": "npm:@favware/skip-dependency@latest",
 		"@angular-eslint/eslint-plugin": "npm:@favware/skip-dependency@latest",
 		"@angular-eslint/eslint-plugin-template": "npm:@favware/skip-dependency@latest",
 		"@angular-eslint/template-parser": "npm:@favware/skip-dependency@latest",
 		"astro-eslint-parser": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-astro": "npm:@favware/skip-dependency@latest",
-		"eslint-plugin-react": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-vue": "npm:@favware/skip-dependency@latest"
 	},
 	"commitlint": {
@@ -79,5 +76,5 @@
 		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix"
 	},
-	"packageManager": "yarn@4.5.1"
+	"packageManager": "yarn@4.5.3"
 }

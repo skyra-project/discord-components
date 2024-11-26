@@ -12,10 +12,10 @@
 	"dependencies": {
 		"@astrojs/check": "0.9.4",
 		"@astrojs/lit": "^4.3.0",
-		"@astrojs/starlight": "0.29.0",
+		"@astrojs/starlight": "0.29.2",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "4.16.13",
+		"astro": "4.16.15",
 		"lit": "^3.2.1",
 		"starlight-typedoc": "0.17.0",
 		"typedoc": "0.26.11",
@@ -28,6 +28,6 @@
 		"@types/react": "18.3.12",
 		"@types/react-dom": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"typescript": "^5.6.3"
+		"typescript": "^5.7.2"
 	}
 }

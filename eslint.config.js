@@ -96,7 +96,8 @@ const config = [
 				'@typescript-eslint/member-ordering': 'off',
 				'@typescript-eslint/unbound-method': 'off',
 				'@typescript-eslint/consistent-type-definitions': 'off',
-				'@typescript-eslint/prefer-function-type': 'off'
+				'@typescript-eslint/prefer-function-type': 'off',
+				'@typescript-eslint/no-unsafe-function-type': 'off'
 			}
 		})
 	),
