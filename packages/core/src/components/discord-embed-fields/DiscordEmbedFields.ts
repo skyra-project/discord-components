@@ -25,6 +25,10 @@ export class DiscordEmbedFields extends LitElement {
 		::slotted([inline-index='3']) {
 			grid-column: 9/13 !important;
 		}
+
+		::slotted(:not([inline])) {
+			grid-column: 1/13 !important;
+		}
 	`;
 
 	protected override render() {
