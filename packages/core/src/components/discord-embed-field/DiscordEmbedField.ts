@@ -74,7 +74,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	 * @defaultValue 1
 	 */
 	@property({ type: Number, reflect: true, attribute: 'inline-index' })
-	public accessor inlineIndex = 1;
+	public accessor inlineIndex: number | undefined = undefined;
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
@@ -83,7 +83,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	private readonly validInlineIndices = new Set([1, 2, 3]);
 
 	public checkInlineIndex() {
-		if (this.inline && this.inlineIndex) {
+		if (this.inlineIndex) {
 			const inlineIndexAsNumber = Number(this.inlineIndex);
 			if (!Number.isNaN(inlineIndexAsNumber) && !this.validInlineIndices.has(inlineIndexAsNumber)) {
 				throw new RangeError('DiscordEmbedField `inlineIndex` prop must be one of: 1, 2, or 3');
