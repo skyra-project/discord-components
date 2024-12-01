@@ -74,7 +74,7 @@ export class DiscordEmbedField extends LitElement implements LightTheme {
 	 * @defaultValue 1
 	 */
 	@property({ type: Number, reflect: true, attribute: 'inline-index' })
-	public accessor inlineIndex = 1;
+	public accessor inlineIndex: number | undefined = undefined;
 
 	@consume({ context: messagesLightTheme, subscribe: true })
 	@property({ type: Boolean, reflect: true, attribute: 'light-theme' })
