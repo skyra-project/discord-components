@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.37](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.36...v4.0.0-alpha.37) (2024-12-01)
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#505](https://github.com/skyra-project/discord-components/issues/505)) ([00e646f](https://github.com/skyra-project/discord-components/commit/00e646f61c00ce1a12d872d49c5c92e1a9695bb3)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#510](https://github.com/skyra-project/discord-components/issues/510)) ([f499bb7](https://github.com/skyra-project/discord-components/commit/f499bb714060012c9d7786c089413dc340417fd2)) (@renovate[bot])
+* inline field bug in Discord embed ([#511](https://github.com/skyra-project/discord-components/issues/511)) ([5b40150](https://github.com/skyra-project/discord-components/commit/5b40150c6f29760cc16ef6ab755f81598d512c99)), closes [#509](https://github.com/skyra-project/discord-components/issues/509) (@favna)
+* style discord attachment audio ([#504](https://github.com/skyra-project/discord-components/issues/504)) ([e5296e4](https://github.com/skyra-project/discord-components/commit/e5296e4499a9672ee12158a087e76b8c82a211d4)) (@eumarciel404)
+
 # [4.0.0-alpha.36](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.35...v4.0.0-alpha.36) (2024-11-02)
 
 ### Bug Fixes

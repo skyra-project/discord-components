@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.37](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.36...v4.0.0-alpha.37) (2024-12-01)
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([98cfc1f](https://github.com/skyra-project/discord-components/commit/98cfc1f7c012a18e689bc67ea810e7cafe141ca5)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#505](https://github.com/skyra-project/discord-components/issues/505)) ([00e646f](https://github.com/skyra-project/discord-components/commit/00e646f61c00ce1a12d872d49c5c92e1a9695bb3)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#510](https://github.com/skyra-project/discord-components/issues/510)) ([f499bb7](https://github.com/skyra-project/discord-components/commit/f499bb714060012c9d7786c089413dc340417fd2)) (@renovate[bot])
+
 # [4.0.0-alpha.36](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.35...v4.0.0-alpha.36) (2024-11-02)
 
 **Note:** Version bump only for package documentation
