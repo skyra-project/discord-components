@@ -2231,15 +2231,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/compat@npm:^1.2.3":
-  version: 1.2.3
-  resolution: "@eslint/compat@npm:1.2.3"
+"@eslint/compat@npm:^1.2.3, @eslint/compat@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@eslint/compat@npm:1.2.4"
   peerDependencies:
     eslint: ^9.10.0
   peerDependenciesMeta:
     eslint:
       optional: true
-  checksum: 10/5a8fc6ecb127a1ce757c2b94e4a71fd72939c3e9007eb80c0a819618e1c7cc98ffe3e5229a504c52e6f5b5dc0f6be3b899fa6a3dedb220cb4a02c8d5d0c333df
+  checksum: 10/872ac21e3f430575ba70916d83f5a4e7e9cc7fa953111c99ecef225d1ed05b66fbdb5034761dd9035f00c3f0d7ca7657f8cbfa4ff7ead3967f630c8c783d2beb
   languageName: node
   linkType: hard
 
@@ -3879,7 +3879,7 @@ __metadata:
   dependencies:
     "@lit/react": "npm:^1.0.6"
     "@skyra/discord-components-core": "workspace:^"
-    "@types/react": "npm:^18.3.12"
+    "@types/react": "npm:^18.3.14"
     colorette: "npm:^2.0.20"
     react: "npm:^18.3.1"
     rimraf: "npm:^6.0.1"
@@ -4358,22 +4358,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.3.1":
-  version: 18.3.1
-  resolution: "@types/react-dom@npm:18.3.1"
+"@types/react-dom@npm:^18.3.2":
+  version: 18.3.2
+  resolution: "@types/react-dom@npm:18.3.2"
   dependencies:
-    "@types/react": "npm:*"
-  checksum: 10/33f9ba79b26641ddf00a8699c30066b7e3573ab254e97475bf08f82fab83a6d3ce8d4ebad86afeb49bb8df3374390a9ba93125cece33badc4b3e8f7eac3c84d8
+    "@types/react": "npm:^18"
+  checksum: 10/29337fe650ec49178121a815f0c5b7f6081e63b216a29bd6f90bb5e5b0367d60a95b50a25b1848031c82458de2dfb62f78b18e72d0e6fed6f77951e64e3897d1
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.3.12, @types/react@npm:^18.3.12":
-  version: 18.3.12
-  resolution: "@types/react@npm:18.3.12"
+"@types/react@npm:18.3.14, @types/react@npm:^18, @types/react@npm:^18.3.14":
+  version: 18.3.14
+  resolution: "@types/react@npm:18.3.14"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/c9bbdfeacd5347d2240e0d2cb5336bc57dbc1b9ff557b6c4024b49df83419e4955553518169d3736039f1b62608e15b35762a6c03d49bd86e33add4b43b19033
+  checksum: 10/683927b1e24293276cf62f60f1baa666b7f1053c87ec8d8c79d2d4bc105b99e0492482f801ffce7cdef9d656c11294faa423051807a500c7475f4fbd7661bd8d
   languageName: node
   linkType: hard
 
@@ -5418,9 +5418,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.16.16":
-  version: 4.16.16
-  resolution: "astro@npm:4.16.16"
+"astro@npm:4.16.17":
+  version: 4.16.17
+  resolution: "astro@npm:4.16.17"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.3"
     "@astrojs/internal-helpers": "npm:0.4.1"
@@ -5490,7 +5490,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/b617f589b3fe97081d0b439da5318ec86fe08413506f084a7b7a490007763f6685f7fca53121c0fbd09936316b9fef5e37ff966515d5df4d7e784ce3240edc10
+  checksum: 10/dfeda7385bd551edfd6e43b8ae580113333d858aef1f05616e0d3413a635fa9040437ecb0a8cf2fe353900ef503309535c3e3f38e35e88bcd2667e0100d74b58
   languageName: node
   linkType: hard
 
@@ -6994,10 +6994,10 @@ __metadata:
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:2.0.2"
     "@skyra/discord-components-core": "workspace:^"
     "@skyra/discord-components-react": "workspace:^"
-    "@types/react": "npm:18.3.12"
-    "@types/react-dom": "npm:^18.3.1"
+    "@types/react": "npm:18.3.14"
+    "@types/react-dom": "npm:^18.3.2"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:4.16.16"
+    astro: "npm:4.16.17"
     lit: "npm:^3.2.1"
     react-dom: "npm:^18.3.1"
     starlight-typedoc: "npm:0.17.0"
@@ -13633,12 +13633,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "prettier@npm:3.4.1"
+"prettier@npm:^3.0.0, prettier@npm:^3.4.2":
+  version: 3.4.2
+  resolution: "prettier@npm:3.4.2"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/1ee4d1b1a9b6761cbb847cd81b9d87e51a0f4b2a4d5fe5755627c24828afe057a7ee9b764c3ee777d84abd46218d173d8a204ee9cb3acdd321ff9a6b25f99c1c
+  checksum: 10/a3e806fb0b635818964d472d35d27e21a4e17150c679047f5501e1f23bd4aa806adf660f0c0d35214a210d5d440da6896c2e86156da55f221a57938278dc326e
   languageName: node
   linkType: hard
 
@@ -14619,7 +14619,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:^19.6.0"
     "@commitlint/config-conventional": "npm:^19.6.0"
-    "@eslint/compat": "npm:^1.2.3"
+    "@eslint/compat": "npm:^1.2.4"
     "@lerna-lite/cli": "npm:^3.10.1"
     "@lerna-lite/publish": "npm:^3.10.1"
     "@lerna-lite/run": "npm:^3.10.1"
@@ -14638,7 +14638,7 @@ __metadata:
     lint-staged: "npm:^15.2.10"
     markdown-toc: "npm:^1.2.0"
     npm-run-all2: "npm:^7.0.1"
-    prettier: "npm:^3.4.1"
+    prettier: "npm:^3.4.2"
     prettier-plugin-astro: "npm:^0.14.1"
     react: "npm:^18.3.1"
     rimraf: "npm:^6.0.1"
@@ -17452,16 +17452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.0.0, yaml@npm:^2.3.4, yaml@npm:^2.5.0":
-  version: 2.6.0
-  resolution: "yaml@npm:2.6.0"
-  bin:
-    yaml: bin.mjs
-  checksum: 10/f4369f667c7626c216ea81b5840fe9b530cdae4cff2d84d166ec1239e54bf332dbfac4a71bf60d121f8e85e175364a4e280a520292269b6cf9d074368309adf9
-  languageName: node
-  linkType: hard
-
-"yaml@npm:^2.6.1":
+"yaml@npm:^2.0.0, yaml@npm:^2.3.4, yaml@npm:^2.5.0, yaml@npm:^2.6.1":
   version: 2.6.1
   resolution: "yaml@npm:2.6.1"
   bin:
