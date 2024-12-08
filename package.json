@@ -26,7 +26,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.6.0",
 		"@commitlint/config-conventional": "^19.6.0",
-		"@eslint/compat": "^1.2.3",
+		"@eslint/compat": "^1.2.4",
 		"@lerna-lite/cli": "^3.10.1",
 		"@lerna-lite/publish": "^3.10.1",
 		"@lerna-lite/run": "^3.10.1",
@@ -45,7 +45,7 @@
 		"lint-staged": "^15.2.10",
 		"markdown-toc": "^1.2.0",
 		"npm-run-all2": "^7.0.1",
-		"prettier": "^3.4.1",
+		"prettier": "^3.4.2",
 		"prettier-plugin-astro": "^0.14.1",
 		"react": "^18.3.1",
 		"rimraf": "^6.0.1",
