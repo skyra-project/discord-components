@@ -15,7 +15,7 @@
 		"@astrojs/starlight": "0.29.2",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "4.16.17",
+		"astro": "5.0.5",
 		"lit": "^3.2.1",
 		"starlight-typedoc": "0.17.0",
 		"typedoc": "0.27.2",
