@@ -41,8 +41,8 @@
 		"typescript": "^5.7.2"
 	},
 	"peerDependencies": {
-		"react": "16.8.x || 17.x || 18.x",
-		"react-dom": "16.8.x || 17.x || 18.x"
+		"react": "16.8.x || 17.x || 18.x || 19.x",
+		"react-dom": "16.8.x || 17.x || 18.x || 19.x"
 	},
 	"files": [
 		"dist/",
