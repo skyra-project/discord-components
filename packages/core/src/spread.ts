@@ -86,7 +86,7 @@ class SpreadDirective extends AsyncDirective {
 					if (value === null) {
 						element.removeAttribute(key);
 					} else {
-						element.setAttribute(key, String(value));
+						element.setAttribute(key, String(value as any));
 					}
 
 					break;

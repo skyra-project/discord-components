@@ -12,22 +12,22 @@
 	"dependencies": {
 		"@astrojs/check": "0.9.4",
 		"@astrojs/lit": "^4.3.0",
-		"@astrojs/starlight": "0.29.2",
+		"@astrojs/starlight": "0.30.1",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
 		"astro": "5.0.5",
 		"lit": "^3.2.1",
 		"starlight-typedoc": "0.17.0",
-		"typedoc": "0.27.2",
-		"typedoc-plugin-frontmatter": "^1.1.0",
-		"typedoc-plugin-markdown": "4.3.0"
+		"typedoc": "0.27.4",
+		"typedoc-plugin-frontmatter": "^1.1.2",
+		"typedoc-plugin-markdown": "4.3.2"
 	},
 	"devDependencies": {
 		"@skyra/discord-components-core": "workspace:^",
 		"@skyra/discord-components-react": "workspace:^",
-		"@types/react": "18.3.14",
-		"@types/react-dom": "^18.3.2",
-		"react-dom": "^18.3.1",
+		"@types/react": "19.0.1",
+		"@types/react-dom": "^19.0.2",
+		"react-dom": "^19.0.0",
 		"typescript": "^5.7.2"
 	}
 }

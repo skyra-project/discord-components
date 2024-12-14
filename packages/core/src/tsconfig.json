@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"rootDir": ".",
 		"outDir": "../dist",
+		"skipLibCheck": true,
 		"plugins": [
 			{
 				"name": "ts-lit-plugin"
