@@ -5340,9 +5340,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.0.5":
-  version: 5.0.5
-  resolution: "astro@npm:5.0.5"
+"astro@npm:5.0.8":
+  version: 5.0.8
+  resolution: "astro@npm:5.0.8"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.3"
     "@astrojs/internal-helpers": "npm:0.4.2"
@@ -5408,7 +5408,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/96818779fa185c9b03607348670bcc0e841858dc720338a66e4995198319e47f3baecfd4f4d1e2eed77f71198ab1def52926232479dc46ee73f45c7f78cae72c
+  checksum: 10/068001216de21caf229a21761b0fe2e9f285461332bc0db6db4e19fd2e1e6089248f41d2e305478162d145cfefe4ac9d2a13ae5fac58dff00cf874963267e374
   languageName: node
   linkType: hard
 
@@ -6908,7 +6908,7 @@ __metadata:
     "@types/react": "npm:19.0.1"
     "@types/react-dom": "npm:^19.0.2"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:5.0.5"
+    astro: "npm:5.0.8"
     lit: "npm:^3.2.1"
     react-dom: "npm:^19.0.0"
     starlight-typedoc: "npm:0.17.0"
