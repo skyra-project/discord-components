@@ -131,7 +131,7 @@
 		"@favware/cliff-jumper": "^5.0.0",
 		"@web/dev-server": "^0.4.6",
 		"@web/dev-server-esbuild": "^1.0.3",
-		"concurrently": "^9.1.0",
+		"concurrently": "^9.1.1",
 		"ts-lit-plugin": "^2.0.2",
 		"typescript": "^5.7.2"
 	},
