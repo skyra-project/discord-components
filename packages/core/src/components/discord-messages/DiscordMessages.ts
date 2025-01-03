@@ -113,8 +113,8 @@ export class DiscordMessages extends LitElement implements LightTheme {
 	public accessor compactMode = false;
 
 	/**
-	 * The type of mention this should be. This will prepend the proper prefix character.
-	 * Valid values: `user`, `channel`, `role`, `voice`, `locked`, `thread`, `forum`, and `slash`.
+	 * The type of channel this should be. This will prepend the proper prefix character.
+	 * Valid values: `channel`, `forum`, `locked`, `thread`, and `voice`.
 	 */
 	@property({ reflect: true, attribute: 'type' })
 	public accessor type: 'channel' | 'forum' | 'locked' | 'thread' | 'voice';
@@ -164,7 +164,7 @@ export class DiscordMessages extends LitElement implements LightTheme {
 						<div class="discord-channel-icon">${channelIcon}</div>
 						<div class="discord-channel-name">${this.name}</div>
 					</div>`
-				: ''}
+				: null}
 			<slot></slot>
 		</div>`;
 	}
