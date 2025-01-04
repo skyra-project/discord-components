@@ -137,6 +137,7 @@
 	},
 	"files": [
 		"dist/",
+		"!dist/tsconfig.tsbuildinfo",
 		"custom-elements.json",
 		"CHANGELOG.md"
 	],
