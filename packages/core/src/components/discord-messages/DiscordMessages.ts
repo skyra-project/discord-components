@@ -1,6 +1,7 @@
 import { createContext, provide } from '@lit/context';
 import { css, html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { when } from 'lit/directives/when.js';
 import { defaultBackground, defaultMode, defaultTheme } from '../../config.js';
 import type { LightTheme } from '../../types.js';
 import ChannelForum from '../svgs/ChannelForum.js';
@@ -158,15 +159,17 @@ export class DiscordMessages extends LitElement implements LightTheme {
 				break;
 		}
 
-		return html`<div>
-			${this.type && this.name
-				? html`<div class="discord-channel-header">
+		return html`
+			${when(
+				this.type && this.name,
+				() =>
+					html`<div class="discord-channel-header">
 						<div class="discord-channel-icon">${channelIcon}</div>
 						<div class="discord-channel-name">${this.name}</div>
 					</div>`
-				: null}
+			)}
 			<slot></slot>
-		</div>`;
+		`;
 	}
 }
 
