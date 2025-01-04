@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.38](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.37...v4.0.0-alpha.38) (2025-01-04)
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#519](https://github.com/skyra-project/discord-components/issues/519)) ([32cb659](https://github.com/skyra-project/discord-components/commit/32cb6594cd1275d62ecc0bd0705ac21212a05b28)) (@renovate[bot])
+* **deps:** update dependency astro to v5 ([#515](https://github.com/skyra-project/discord-components/issues/515)) ([966f03a](https://github.com/skyra-project/discord-components/commit/966f03a568fc1ab3ea11bdfbca786f7020c346e4)) (@renovate[bot])
+* **deps:** update dependency astro to v5.0.8 [security] ([#518](https://github.com/skyra-project/discord-components/issues/518)) ([30b9725](https://github.com/skyra-project/discord-components/commit/30b972564fbb2190370609f473046483e638eef0)) (@renovate[bot])
+
 # [4.0.0-alpha.37](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.36...v4.0.0-alpha.37) (2024-12-01)
 
 ### Bug Fixes

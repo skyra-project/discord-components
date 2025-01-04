@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.38](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.37...v4.0.0-alpha.38) (2025-01-04)
+
+### Features
+
+* added option to add the channel name above discord messages ([#520](https://github.com/skyra-project/discord-components/issues/520)) ([716f72e](https://github.com/skyra-project/discord-components/commit/716f72edf0b57269b1b30b2d42b226c7e7385cd2)) (@TheBv)
+
 # [4.0.0-alpha.37](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.36...v4.0.0-alpha.37) (2024-12-01)
 
 ### Bug Fixes
