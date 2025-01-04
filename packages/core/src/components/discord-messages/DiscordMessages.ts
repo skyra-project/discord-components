@@ -114,14 +114,18 @@ export class DiscordMessages extends LitElement implements LightTheme {
 	public accessor compactMode = false;
 
 	/**
-	 * The type of channel this should be. This will prepend the proper prefix character.
-	 * Valid values: `channel`, `forum`, `locked`, `thread`, and `voice`.
+	 * The type of channel this should be, this will be displayed above the message and only applies if {@link DiscordMessages.channelName} is set.
+	 * Valid values are: `text`, `forum`, `locked`, `thread`, and `voice`.
 	 */
-	@property({ reflect: true, attribute: 'type' })
-	public accessor type: 'channel' | 'forum' | 'locked' | 'thread' | 'voice';
+	@property({ reflect: true, attribute: 'channel-type' })
+	public accessor channelType: 'forum' | 'locked' | 'text' | 'thread' | 'voice';
+
+	/**
+	 * The name of the channel, this will be displayed above the message and only applies if {@link DiscordMessages.channelType} is set.
+	 */
 
 	@property({ reflect: true, attribute: 'channel-name' })
-	public accessor name: string;
+	public accessor channelName: string;
 
 	public override connectedCallback(): void {
 		super.connectedCallback();
@@ -141,8 +145,8 @@ export class DiscordMessages extends LitElement implements LightTheme {
 
 	protected override render() {
 		let channelIcon: ReturnType<typeof html>;
-		switch (this.type) {
-			case 'channel':
+		switch (this.channelType) {
+			case 'text':
 				channelIcon = html`${ChannelIcon()}`;
 				break;
 			case 'voice':
@@ -161,11 +165,11 @@ export class DiscordMessages extends LitElement implements LightTheme {
 
 		return html`
 			${when(
-				this.type && this.name,
+				this.channelType && this.channelName,
 				() =>
 					html`<div class="discord-channel-header">
 						<div class="discord-channel-icon">${channelIcon}</div>
-						<div class="discord-channel-name">${this.name}</div>
+						<div class="discord-channel-name">${this.channelName}</div>
 					</div>`
 			)}
 			<slot></slot>
