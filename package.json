@@ -27,12 +27,12 @@
 		"@commitlint/cli": "^19.6.1",
 		"@commitlint/config-conventional": "^19.6.0",
 		"@eslint/compat": "^1.2.4",
-		"@lerna-lite/cli": "^3.10.1",
-		"@lerna-lite/publish": "^3.10.1",
-		"@lerna-lite/run": "^3.10.1",
+		"@lerna-lite/cli": "^3.11.0",
+		"@lerna-lite/publish": "^3.11.0",
+		"@lerna-lite/run": "^3.11.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^22.10.2",
+		"@types/node": "^22.10.5",
 		"chalk-cli": "^5.0.1",
 		"eslint": "^9.17.0",
 		"eslint-config-neon": "^0.2.4",
@@ -76,5 +76,5 @@
 		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix"
 	},
-	"packageManager": "yarn@4.5.3"
+	"packageManager": "yarn@4.6.0"
 }
