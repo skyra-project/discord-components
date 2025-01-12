@@ -128,7 +128,7 @@
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.10.4",
-		"@favware/cliff-jumper": "^5.0.0",
+		"@favware/cliff-jumper": "^6.0.0",
 		"@web/dev-server": "^0.4.6",
 		"@web/dev-server-esbuild": "^1.0.3",
 		"concurrently": "^9.1.2",
