@@ -55,10 +55,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/internal-helpers@npm:0.5.0":
-  version: 0.5.0
-  resolution: "@astrojs/internal-helpers@npm:0.5.0"
-  checksum: 10/3e02fe30d52f34609518e1b07c9587925c2e9d6b5471273baba63c16c237c35140ef7c55469f1f4c7115063d0569f70f6839294f46f3adbc118553e7f64d2929
+"@astrojs/internal-helpers@npm:0.5.1":
+  version: 0.5.1
+  resolution: "@astrojs/internal-helpers@npm:0.5.1"
+  checksum: 10/3e9ad94f6efee2dc01054b87e7f854a024fb85851dd8f7ef86664581364161887d52a6a44101a8572f498f958f18c1f26250e03fc42980f80946e974f32449ab
   languageName: node
   linkType: hard
 
@@ -211,9 +211,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/starlight@npm:0.31.1":
-  version: 0.31.1
-  resolution: "@astrojs/starlight@npm:0.31.1"
+"@astrojs/starlight@npm:0.32.0":
+  version: 0.32.0
+  resolution: "@astrojs/starlight@npm:0.32.0"
   dependencies:
     "@astrojs/mdx": "npm:^4.0.5"
     "@astrojs/sitemap": "npm:^3.2.1"
@@ -229,6 +229,7 @@ __metadata:
     hastscript: "npm:^9.0.0"
     i18next: "npm:^23.11.5"
     js-yaml: "npm:^4.1.0"
+    klona: "npm:^2.0.6"
     mdast-util-directive: "npm:^3.0.0"
     mdast-util-to-markdown: "npm:^2.1.0"
     mdast-util-to-string: "npm:^4.0.0"
@@ -241,7 +242,7 @@ __metadata:
     vfile: "npm:^6.0.2"
   peerDependencies:
     astro: ^5.1.5
-  checksum: 10/bd2531a02525b24d32d8fea7cfd7f12ff892db46629e2961872b457211c73c2a0f5a4dc14f9ab080a87ff2d023408ffe9c1d417df130a700e9bb9198c8f2fe72
+  checksum: 10/63faccc778138fa9358c481710f4208b2c6ddd97cf2b1235f7e2aba675e739ebdf3788903b072d5b5c8877ed18a8af9c9587f5153c725f4746aebaeb0be54253
   languageName: node
   linkType: hard
 
@@ -1693,12 +1694,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^19.6.1":
-  version: 19.6.1
-  resolution: "@commitlint/cli@npm:19.6.1"
+"@commitlint/cli@npm:^19.7.1":
+  version: 19.7.1
+  resolution: "@commitlint/cli@npm:19.7.1"
   dependencies:
     "@commitlint/format": "npm:^19.5.0"
-    "@commitlint/lint": "npm:^19.6.0"
+    "@commitlint/lint": "npm:^19.7.1"
     "@commitlint/load": "npm:^19.6.1"
     "@commitlint/read": "npm:^19.5.0"
     "@commitlint/types": "npm:^19.5.0"
@@ -1706,17 +1707,17 @@ __metadata:
     yargs: "npm:^17.0.0"
   bin:
     commitlint: cli.js
-  checksum: 10/b63b8a716d943419a0bb0542e752d380d62f2715266ae0bb53911f3fe749ae9c3bf0fd591abd87be6b863e522ca183c7bac6a82ef73255a5c5bbeceb620ecbb1
+  checksum: 10/d6bc2c2d036bb3e83cc24aeba17f8bff1dd8a16474f8857775ba8a483aa7a3bf41a9dfd6dadd5ee12b08f7d4d47746ab53cccd3ecfb20d0ebf2826c2f31a2e98
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^19.6.0":
-  version: 19.6.0
-  resolution: "@commitlint/config-conventional@npm:19.6.0"
+"@commitlint/config-conventional@npm:^19.7.1":
+  version: 19.7.1
+  resolution: "@commitlint/config-conventional@npm:19.7.1"
   dependencies:
     "@commitlint/types": "npm:^19.5.0"
     conventional-changelog-conventionalcommits: "npm:^7.0.2"
-  checksum: 10/f96f6706502edad60d275f62a4aac06993a5fd47c343ad6286d48f173941e4e0848dab6642559099cc6714b513197338ac24da4b07debead5371326eef87bcb8
+  checksum: 10/fce984d36e1a721bbbb466f67b5ec6634fbbf7626fbb9c53bdf3cca8810c4350c7cbce8c93627d1107398b61b14373dea34cd344fc9244c2834133b93569081a
   languageName: node
   linkType: hard
 
@@ -1761,25 +1762,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/is-ignored@npm:^19.6.0":
-  version: 19.6.0
-  resolution: "@commitlint/is-ignored@npm:19.6.0"
+"@commitlint/is-ignored@npm:^19.7.1":
+  version: 19.7.1
+  resolution: "@commitlint/is-ignored@npm:19.7.1"
   dependencies:
     "@commitlint/types": "npm:^19.5.0"
     semver: "npm:^7.6.0"
-  checksum: 10/07b41573c9247522eb96af118be97ae015f5d0a141ecf5e3c0f67372b0fb7ba57c98adc462c722b7a7f0dd18ddcbacd92b42228e0e62370d3db110b0a35f6120
+  checksum: 10/489624ca405b4dc7c210db92a85d1860793fa534bb1460b913e4610eab1953fafc0d77f8a84dcdc7abcb79e8db7486799c4092063acbccafdc2772f6647215e5
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^19.6.0":
-  version: 19.6.0
-  resolution: "@commitlint/lint@npm:19.6.0"
+"@commitlint/lint@npm:^19.7.1":
+  version: 19.7.1
+  resolution: "@commitlint/lint@npm:19.7.1"
   dependencies:
-    "@commitlint/is-ignored": "npm:^19.6.0"
+    "@commitlint/is-ignored": "npm:^19.7.1"
     "@commitlint/parse": "npm:^19.5.0"
     "@commitlint/rules": "npm:^19.6.0"
     "@commitlint/types": "npm:^19.5.0"
-  checksum: 10/f50721d8b02cea8cda9e67a57fb2c03377ae94ab708d47395a4e86f6f327d11db9dc84a1ecbcc3fae086f1e100400356826497a69a9d0caee6859238b32260dc
+  checksum: 10/1feac1d2aa1ad3c7864af2563622c21bbedac342b02030c877f87f9d5eb8acc0e0d10b67105aece64f6b94dfe906ec6c7d1e72a27cdde197606b88c8a8c66a9a
   languageName: node
   linkType: hard
 
@@ -2249,6 +2250,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/core@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@eslint/core@npm:0.11.0"
+  dependencies:
+    "@types/json-schema": "npm:^7.0.15"
+  checksum: 10/0a055edf516529d19eea2196e3149eefb4c6f0bb30145b08cdb92ec114735630bd27585f76466c7cb6fa1073617d1f5e49b36ad63d4d45e55defd94a3268256d
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^3.2.0":
   version: 3.2.0
   resolution: "@eslint/eslintrc@npm:3.2.0"
@@ -2266,10 +2276,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.19.0":
-  version: 9.19.0
-  resolution: "@eslint/js@npm:9.19.0"
-  checksum: 10/d8133a83330676d5f0827713af2e9bbf35530631a93520fb59ead6b827a325c54fdd7ad99f2158f895fb393c47bbc55dfdaa945998a647f3b9230f1d5324a626
+"@eslint/js@npm:9.20.0":
+  version: 9.20.0
+  resolution: "@eslint/js@npm:9.20.0"
+  checksum: 10/2304cd725700046ba611f06bf9cd0941db7e02e0d602d8fd9e4734c13067699954597b9a3a2b048ce02eb0550373669d2ab7be6edaf6abf7b67eb19d1276b57b
   languageName: node
   linkType: hard
 
@@ -2977,12 +2987,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/context@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@lit/context@npm:1.1.3"
+"@lit/context@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@lit/context@npm:1.1.4"
   dependencies:
     "@lit/reactive-element": "npm:^1.6.2 || ^2.0.0"
-  checksum: 10/d2ceb8a74e36c8ceef642b6c3f1c8f77a75d08d26a1a204da9e202b586ad9bf2f981d84594666ec34e0a80960e483816e9ff63530f33ac342146fea62ca30a90
+  checksum: 10/9c8dea816c423fab05bf2f7fa644468d7c9842af44ebc5aa61edc78b926f63832413d33d6b913c3b8420edddc6e37d1188efadd7f7328e90c7fc2d727ce98a8c
   languageName: node
   linkType: hard
 
@@ -3900,7 +3910,7 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": "npm:^0.10.4"
     "@favware/cliff-jumper": "npm:^6.0.0"
-    "@lit/context": "npm:^1.1.3"
+    "@lit/context": "npm:^1.1.4"
     "@web/dev-server": "npm:^0.4.6"
     "@web/dev-server-esbuild": "npm:^1.0.3"
     concurrently: "npm:^9.1.2"
@@ -4278,12 +4288,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.13.0":
-  version: 22.13.0
-  resolution: "@types/node@npm:22.13.0"
+"@types/node@npm:*, @types/node@npm:^22.13.4":
+  version: 22.13.4
+  resolution: "@types/node@npm:22.13.4"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/a7563e57df48cb7e28f936dbabe228316dcdb4c7c3a88a6c1659fae898ffde2647a7193a9e29e0cbcb7dacc05a91fb3bc30c1a1d6fc9294694a734ff71a5f12e
+  checksum: 10/716e05b1b84d9da3b2cbba9f642d7294549a89c85d27148b48815f321e0081d0546366e97d11c7710a3280160828512eb945f4e9361dda980f708473758ac0a7
   languageName: node
   linkType: hard
 
@@ -5404,12 +5414,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.2.3":
-  version: 5.2.3
-  resolution: "astro@npm:5.2.3"
+"astro@npm:5.3.0":
+  version: 5.3.0
+  resolution: "astro@npm:5.3.0"
   dependencies:
     "@astrojs/compiler": "npm:^2.10.3"
-    "@astrojs/internal-helpers": "npm:0.5.0"
+    "@astrojs/internal-helpers": "npm:0.5.1"
     "@astrojs/markdown-remark": "npm:6.1.0"
     "@astrojs/telemetry": "npm:3.2.0"
     "@oslojs/encoding": "npm:^1.1.0"
@@ -5447,10 +5457,10 @@ __metadata:
     neotraverse: "npm:^0.6.18"
     p-limit: "npm:^6.2.0"
     p-queue: "npm:^8.1.0"
-    preferred-pm: "npm:^4.1.0"
+    preferred-pm: "npm:^4.1.1"
     prompts: "npm:^2.4.2"
     rehype: "npm:^13.0.2"
-    semver: "npm:^7.7.0"
+    semver: "npm:^7.7.1"
     sharp: "npm:^0.33.3"
     shiki: "npm:^1.29.2"
     tinyexec: "npm:^0.3.2"
@@ -5461,7 +5471,7 @@ __metadata:
     vfile: "npm:^6.0.3"
     vite: "npm:^6.0.11"
     vitefu: "npm:^1.0.5"
-    which-pm: "npm:^3.0.0"
+    which-pm: "npm:^3.0.1"
     xxhash-wasm: "npm:^1.1.0"
     yargs-parser: "npm:^21.1.1"
     yocto-spinner: "npm:^0.2.0"
@@ -5473,7 +5483,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/67d78dcb2d5dec17d29fe3948563427782e81c0204d9a242b1cec888eb30cdba791bb96be98390ece96dbe4cc7b1320f65ff76d959919dc7f5dae67b261de6aa
+  checksum: 10/284a87714a8f22a1da0f04d38ea653f58cff4645ce67051fb9bea65c2f216fe661319ff03957b407fa82622e453abeef4d2229ed82553c9c31fc33ed8dbc9dfd
   languageName: node
   linkType: hard
 
@@ -7013,14 +7023,14 @@ __metadata:
   dependencies:
     "@astrojs/check": "npm:0.9.4"
     "@astrojs/lit": "npm:^4.3.0"
-    "@astrojs/starlight": "npm:0.31.1"
+    "@astrojs/starlight": "npm:0.32.0"
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:2.0.2"
     "@skyra/discord-components-core": "workspace:^"
     "@skyra/discord-components-react": "workspace:^"
     "@types/react": "npm:19.0.8"
     "@types/react-dom": "npm:^19.0.3"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:5.2.3"
+    astro: "npm:5.3.0"
     lit: "npm:^3.2.1"
     react-dom: "npm:^19.0.0"
     starlight-typedoc: "npm:0.17.0"
@@ -8175,16 +8185,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.19.0":
-  version: 9.19.0
-  resolution: "eslint@npm:9.19.0"
+"eslint@npm:^9.20.1":
+  version: 9.20.1
+  resolution: "eslint@npm:9.20.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.12.1"
     "@eslint/config-array": "npm:^0.19.0"
-    "@eslint/core": "npm:^0.10.0"
+    "@eslint/core": "npm:^0.11.0"
     "@eslint/eslintrc": "npm:^3.2.0"
-    "@eslint/js": "npm:9.19.0"
+    "@eslint/js": "npm:9.20.0"
     "@eslint/plugin-kit": "npm:^0.2.5"
     "@humanfs/node": "npm:^0.16.6"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
@@ -8220,7 +8230,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10/850d19fd6a34702d1e3d9bdad6aef84a20a5c2de006a8fa6380843384b13944b180232ddd74b8725ffcdf8f296399037f0e8eb4783d5f7393f13c059112b843d
+  checksum: 10/b1d870135c8ff628685e72c0e9cd161476835e8e69e803d89d87fc4aebe85fc6b51ca422c3c4bc62f0ef7bbd9b10feda76e37e4801706e75931c1791d0e051a8
   languageName: node
   linkType: hard
 
@@ -10822,6 +10832,13 @@ __metadata:
   version: 4.1.5
   resolution: "kleur@npm:4.1.5"
   checksum: 10/44d84cc4eedd4311099402ef6d4acd9b2d16e08e499d6ef3bb92389bd4692d7ef09e35248c26e27f98acac532122acb12a1bfee645994ae3af4f0a37996da7df
+  languageName: node
+  linkType: hard
+
+"klona@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "klona@npm:2.0.6"
+  checksum: 10/ed7e2c9af58cb646e758e60b75dec24bf72466066290f78c515a2bae23a06fa280f11ff3210c43b94a18744954aa5358f9d46583d5e4c36da073ecc3606355c4
   languageName: node
   linkType: hard
 
@@ -13658,14 +13675,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preferred-pm@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "preferred-pm@npm:4.1.0"
+"preferred-pm@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "preferred-pm@npm:4.1.1"
   dependencies:
     find-up-simple: "npm:^1.0.0"
     find-yarn-workspace-root2: "npm:1.2.16"
-    which-pm: "npm:^3.0.0"
-  checksum: 10/3f2ddd62bb6d89b2cd17ea42cf7b24d42a8ccd024958fb7340a9e9f1cbf358b1535b50924ef125ef1a295f6f653708fe66ff718aaef9656ebb16c6d06270df4f
+    which-pm: "npm:^3.0.1"
+  checksum: 10/f187b3c76721d251de8a75bd0a33c9ab6ceb19d4defbb0f6eb509d47950edeb9b0748930cab8641df55e3ad9492794bee100de0fd9309da73168971efc328a97
   languageName: node
   linkType: hard
 
@@ -13705,12 +13722,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.4.2":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
+"prettier@npm:^3.0.0, prettier@npm:^3.5.1":
+  version: 3.5.1
+  resolution: "prettier@npm:3.5.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/a3e806fb0b635818964d472d35d27e21a4e17150c679047f5501e1f23bd4aa806adf660f0c0d35214a210d5d440da6896c2e86156da55f221a57938278dc326e
+  checksum: 10/09ab168e651e50c2c79804d65f17a68129ce1c573830b2fb08c988b585add8076b8d995789034d66a14338d6b8835e8c591e0fc1bc90f4344af9645738636d01
   languageName: node
   linkType: hard
 
@@ -14762,17 +14779,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root@workspace:."
   dependencies:
-    "@commitlint/cli": "npm:^19.6.1"
-    "@commitlint/config-conventional": "npm:^19.6.0"
+    "@commitlint/cli": "npm:^19.7.1"
+    "@commitlint/config-conventional": "npm:^19.7.1"
     "@eslint/compat": "npm:^1.2.6"
     "@lerna-lite/cli": "npm:^3.12.0"
     "@lerna-lite/publish": "npm:^3.12.0"
     "@lerna-lite/run": "npm:^3.12.0"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^22.13.0"
+    "@types/node": "npm:^22.13.4"
     chalk-cli: "npm:^5.0.1"
-    eslint: "npm:^9.19.0"
+    eslint: "npm:^9.20.1"
     eslint-config-neon: "npm:^0.2.4"
     eslint-config-prettier: "npm:^10.0.1"
     eslint-plugin-html: "npm:^8.1.2"
@@ -14783,7 +14800,7 @@ __metadata:
     lint-staged: "npm:^15.4.3"
     markdown-toc: "npm:^1.2.0"
     npm-run-all2: "npm:^7.0.2"
-    prettier: "npm:^3.4.2"
+    prettier: "npm:^3.5.1"
     prettier-plugin-astro: "npm:^0.14.1"
     react: "npm:^19.0.0"
     rimraf: "npm:^6.0.1"
@@ -14931,12 +14948,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.6, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0, semver@npm:^7.6.2, semver@npm:^7.6.3, semver@npm:^7.7.0":
-  version: 7.7.0
-  resolution: "semver@npm:7.7.0"
+"semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.6, semver@npm:^7.3.7, semver@npm:^7.3.8, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0, semver@npm:^7.6.2, semver@npm:^7.6.3, semver@npm:^7.7.0, semver@npm:^7.7.1":
+  version: 7.7.1
+  resolution: "semver@npm:7.7.1"
   bin:
     semver: bin/semver.js
-  checksum: 10/5d615860a54ff563955c451e467bff3aaf74c8d060489f936f25551d5ca05f5ac683eb46c9ed7ade082e1e53b313f205ed9c5df0b25ebb3517ec25c79e1f0d9c
+  checksum: 10/4cfa1eb91ef3751e20fc52e47a935a0118d56d6f15a837ab814da0c150778ba2ca4f1a4d9068b33070ea4273629e615066664c2cfcd7c272caf7a8a0f6518b2c
   languageName: node
   linkType: hard
 
@@ -17441,12 +17458,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"which-pm@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "which-pm@npm:3.0.0"
+"which-pm@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "which-pm@npm:3.0.1"
   dependencies:
     load-yaml-file: "npm:^0.2.0"
-  checksum: 10/239d1d2b82080c396a7e856399f919ff0dd03a095b5ae35d5922bda96a7de5dd3453d2a14d354ecbbecbbd9d93c0caf131eaf9ecf7247c5d3ff9fe6b5a215383
+  checksum: 10/abb8e11cfe4011e6c57b7cb2dafa78c592dec8a112d2a248699b5935ca22e8de138d04ed22c9e2708f36c909ddff29ab5789fa4a0a88589687beb3de35eb0207
   languageName: node
   linkType: hard
 

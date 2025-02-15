@@ -56,8 +56,9 @@ export const DiscordMediaAttachmentStyles = css`
 	.discord-media-attachment-duration-time-display {
 		font-weight: 500;
 		display: inline-block;
-		font-family: 'gg mono', 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter',
-			'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+		font-family:
+			'gg mono', 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
+			'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 		font-size: 12px;
 		line-height: 12px;
 		vertical-align: text-top;
