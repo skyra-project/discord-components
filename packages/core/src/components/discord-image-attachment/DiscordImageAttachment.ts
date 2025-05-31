@@ -74,6 +74,19 @@ export class DiscordImageAttachment extends LitElement {
 	@property({ type: Boolean, attribute: 'custom-image-element' })
 	public accessor customImageElement = false;
 
+	/**
+	 * Triggered when the image attachment fails to load.
+	 * If not provided, nothing will happen on error.
+	 */
+	@property({ attribute: false })
+	public onImageError?: (imgEl: HTMLImageElement) => void;
+
+	private handleImageError(event: Event): void {
+		if (!this.onImageError) return;
+		const img = event.currentTarget as HTMLImageElement;
+		this.onImageError(img);
+	}
+
 	public componentWillRender() {
 		if (!this.customImageElement) {
 			validateImageExtension(this.url);
@@ -93,6 +106,7 @@ export class DiscordImageAttachment extends LitElement {
 								src=${ifDefined(this.url)}
 								height=${ifDefined(this.height)}
 								width=${ifDefined(this.width)}
+								@error=${this.handleImageError}
 							/>`
 					)}
 				</div>
