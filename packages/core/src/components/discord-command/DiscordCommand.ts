@@ -114,6 +114,19 @@ export class DiscordCommand extends LitElement implements LightTheme {
 	public accessor avatar: string;
 
 	/**
+	 * Triggered when the message author's avatar fails to load.
+	 * If not provided, nothing will happen on error.
+	 */
+	@property({ attribute: false })
+	public onAvatarError?: (imgEl: HTMLImageElement) => void;
+
+	private handleAvatarError(event: Event): void {
+		if (!this.onAvatarError) return;
+		const img = event.currentTarget as HTMLImageElement;
+		this.onAvatarError(img);
+	}
+
+	/**
 	 * The message author's primary role color.
 	 * Can be any [CSS color value](https://www.w3schools.com/cssref/css_colors_legal.asp).
 	 */
@@ -259,7 +272,7 @@ export class DiscordCommand extends LitElement implements LightTheme {
 			${when(
 				this.compactMode,
 				() => html`<div class="discord-reply-badge">${CommandIcon()}</div>`,
-				() => html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" />`
+				() => html`<img class="discord-replied-message-avatar" src="${ifDefined(profile.avatar)}" alt="${ifDefined(profile.author)}" @error=${this.handleAvatarError} />`
 			)}
 			<span class="discord-replied-message-username" style=${styleMap({ color: profile.roleColor ?? '' })}>${profile.author}</span>
 			<span> used </span>
