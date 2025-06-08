@@ -32,7 +32,7 @@
 		"@lerna-lite/run": "^4.3.0",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^22.15.29",
+		"@types/node": "^22.15.30",
 		"chalk-cli": "^6.0.0",
 		"eslint": "^9.28.0",
 		"eslint-config-neon": "^0.2.7",
@@ -76,5 +76,5 @@
 		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix"
 	},
-	"packageManager": "yarn@4.9.1"
+	"packageManager": "yarn@4.9.2"
 }

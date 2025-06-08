@@ -38,10 +38,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler@npm:^2.10.3, @astrojs/compiler@npm:^2.11.0, @astrojs/compiler@npm:^2.9.1":
-  version: 2.11.0
-  resolution: "@astrojs/compiler@npm:2.11.0"
-  checksum: 10/41e6727d35d7002d1a59a20faf046def0a17bdeff911c211414338fb84081410d8aa5aec230dbd989d1851d15c0e2771e735480a002363a0d6c982d59ed965f7
+"@astrojs/compiler@npm:^2.10.3, @astrojs/compiler@npm:^2.12.1, @astrojs/compiler@npm:^2.9.1":
+  version: 2.12.1
+  resolution: "@astrojs/compiler@npm:2.12.1"
+  checksum: 10/6a4ad8a252a02bff7f78b359025f722244a9b3f21ac5f01a87c59ecb8f570b2d6fb960be9e94c899f274946a02f038c2aabb4725f95e6cd5ee003740046853c7
   languageName: node
   linkType: hard
 
@@ -3129,12 +3129,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.15.29":
-  version: 22.15.29
-  resolution: "@types/node@npm:22.15.29"
+"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.15.30":
+  version: 22.15.30
+  resolution: "@types/node@npm:22.15.30"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/3426790c5aa22df445213d7f37e57ea261cf3013030fe9b3025d87c302097799a9db3b848e2a9bdb07cab8ec6c7e9947ac770cf11e12e420148296b63d63e7db
+  checksum: 10/16d03f30df7851eea4f31d9a2470a53b24dc7d3909ed1782e2538e3aafe398451da17b83d6f730dfdcd0a843ccdbe841176ecfbde6bdb51963e8d11f58a10ade
   languageName: node
   linkType: hard
 
@@ -3196,12 +3196,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19.1.5":
-  version: 19.1.5
-  resolution: "@types/react-dom@npm:19.1.5"
+"@types/react-dom@npm:^19.1.6":
+  version: 19.1.6
+  resolution: "@types/react-dom@npm:19.1.6"
   peerDependencies:
     "@types/react": ^19.0.0
-  checksum: 10/1bbfb77aa8b40ae1b3e2d90a3cd29987aa244a34a0e398828266276eb3f83810d10ed6cb1fddaf1469653bbe7243d9b75f6e245c21c8bb6224169c48bedfa536
+  checksum: 10/b5b20b7f0797f34c5a11915b74dcf8b3b7a9da9fea90279975ce6f150ca5d31bb069dbb0838638a5e9e168098aa4bb4a6f61d078efa1bbb55d7f0bdfe47bb142
   languageName: node
   linkType: hard
 
@@ -4194,11 +4194,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.8.1":
-  version: 5.8.1
-  resolution: "astro@npm:5.8.1"
+"astro@npm:5.9.1":
+  version: 5.9.1
+  resolution: "astro@npm:5.9.1"
   dependencies:
-    "@astrojs/compiler": "npm:^2.11.0"
+    "@astrojs/compiler": "npm:^2.12.1"
     "@astrojs/internal-helpers": "npm:0.6.1"
     "@astrojs/markdown-remark": "npm:6.3.2"
     "@astrojs/telemetry": "npm:3.3.0"
@@ -4265,7 +4265,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/4cd55ff2071eed4257a32c6e7891926bf5dbb29e693102935571fd2da68f86aa9bf28f80f636748f0339d52d05c2a4a60c375231bd1aa33f9c1ec8eeb0b7f8b7
+  checksum: 10/ba6f7c4261e1b62ceb3effc3983c08d5ae7504140cbfd67f1458325adfe1c0bc70423e96e67c14521510d9438816c03fa38aef8e7e510dda2f432b67d07cd5b5
   languageName: node
   linkType: hard
 
@@ -5823,9 +5823,9 @@ __metadata:
     "@skyra/discord-components-core": "workspace:^"
     "@skyra/discord-components-react": "workspace:^"
     "@types/react": "npm:19.1.6"
-    "@types/react-dom": "npm:^19.1.5"
+    "@types/react-dom": "npm:^19.1.6"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:5.8.1"
+    astro: "npm:5.9.1"
     lit: "npm:^3.3.0"
     react-dom: "npm:^19.1.0"
     starlight-typedoc: "npm:0.17.0"
@@ -13345,7 +13345,7 @@ __metadata:
     "@lerna-lite/run": "npm:^4.3.0"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^22.15.29"
+    "@types/node": "npm:^22.15.30"
     chalk-cli: "npm:^6.0.0"
     eslint: "npm:^9.28.0"
     eslint-config-neon: "npm:^0.2.7"
