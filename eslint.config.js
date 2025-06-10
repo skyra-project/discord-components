@@ -10,8 +10,7 @@ import prettier from 'eslint-config-neon/prettier';
 import typescript from 'eslint-config-neon/typescript';
 import merge from 'lodash.merge';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import { fixupPluginRules } from '@eslint/compat';
-import { rules as litA11yRules, configs as litA11yConfigs } from 'eslint-plugin-lit-a11y';
+import { configs as litA11yConfigs } from 'eslint-plugin-lit-a11y';
 
 /**
  * @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray}
@@ -119,12 +118,7 @@ const config = [
 	// Add Lit a11y rules
 	{
 		files: ['packages/core/src/**/*.ts'],
-		plugins: {
-			'lit-a11y': {
-				rules: fixupPluginRules(litA11yRules)
-			}
-		},
-		rules: litA11yConfigs.recommended.rules
+		...litA11yConfigs.recommended
 	},
 	// Change some of the rules of the plugins
 	{
