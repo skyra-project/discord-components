@@ -893,7 +893,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/compat@npm:^1.2.7, @eslint/compat@npm:^1.2.9":
+"@eslint/compat@npm:^1.2.7":
   version: 1.2.9
   resolution: "@eslint/compat@npm:1.2.9"
   peerDependencies:
@@ -13318,7 +13318,6 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:^19.8.1"
     "@commitlint/config-conventional": "npm:^19.8.1"
-    "@eslint/compat": "npm:^1.2.9"
     "@lerna-lite/cli": "npm:^4.3.0"
     "@lerna-lite/publish": "npm:^4.3.0"
     "@lerna-lite/run": "npm:^4.3.0"
