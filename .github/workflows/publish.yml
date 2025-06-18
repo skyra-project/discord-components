@@ -59,14 +59,14 @@ jobs:
       - name: Set version of react package
         working-directory: packages/react
         run: yarn version ${{ steps.store-new-version.outputs.new_version }} --immediate
-      - name: Push changed package.json to github
-        run: |
-          git add packages/react/package.json
-          git commit -m "chore(react): update package version to ${{ steps.store-new-version.outputs.new_version }}"
-          git push origin main
       - name: Copy changelog over
         working-directory: packages/react
         run: cp ../core/CHANGELOG.md CHANGELOG.md
+      - name: Push changed package.json to github
+        run: |
+          git add packages/react/package.json packages/react/CHANGELOG.md
+          git commit -m "chore(react): update package version to ${{ steps.store-new-version.outputs.new_version }}"
+          git push origin main
       - name: Configure yarn
         working-directory: packages/core
         run: |
