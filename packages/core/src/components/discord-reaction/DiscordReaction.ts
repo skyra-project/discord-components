@@ -133,7 +133,7 @@ export class DiscordReaction extends LitElement implements LightTheme {
 	protected override render() {
 		return html`<div class="discord-reaction-inner" @click=${this.handleReactionClick} @keydown=${this.handleReactionClick}>
 			${when(
-				this.emoji?.includes('http') || this.emoji.startsWith('/') || this.emoji.startsWith('./'),
+				this.emoji?.includes('http') || this.emoji?.startsWith('/') || this.emoji?.startsWith('./'),
 				() => html`<img src=${ifDefined(this.emoji)} alt=${ifDefined(this.name)} draggable="false" />`,
 				() => html`<span>${this.emoji}</span>`
 			)}
