@@ -5,9 +5,9 @@ packagePath: packages/core
 identifierBase: false
 tagTemplate: 'v{{new-version}}'
 monoRepo: false
-# pushTag: true
-# gitRepo: skyra-project/discord-components
-# gitHostVariant: github
-# githubRelease: true
-# githubReleaseLatest: true
-# githubReleaseNameTemplate: "v{{new-version}}"
+pushTag: true
+gitRepo: skyra-project/discord-components
+gitHostVariant: github
+githubRelease: true
+githubReleaseLatest: true
+githubReleaseNameTemplate: 'v{{new-version}}'

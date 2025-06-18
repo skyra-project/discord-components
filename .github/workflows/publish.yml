@@ -46,9 +46,9 @@ jobs:
         working-directory: packages/core
         run: |
           if [ "${{ github.event.inputs.is-alpha }}" == "true" ]; then
-            yarn bump --preid alpha --github-release-pre-release --dry-run
+            yarn bump --preid alpha --github-release-pre-release
           else
-            yarn bump --dry-run
+            yarn bump
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -71,9 +71,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
       - name: Publish @skyra/discord-components-core
         working-directory: packages/core
-        if: false
         run: yarn npm publish
       - name: Publish @skyra/discord-components-react
         working-directory: packages/react
-        if: false
         run: yarn npm publish
