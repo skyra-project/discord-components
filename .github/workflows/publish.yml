@@ -6,7 +6,7 @@ on:
       is-alpha:
         type: boolean
         required: false
-        default: true
+        default: false
         description: Whether to publish an alpha version or not
 
 concurrency:
