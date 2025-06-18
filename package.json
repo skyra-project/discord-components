@@ -26,9 +26,6 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.8.1",
 		"@commitlint/config-conventional": "^19.8.1",
-		"@lerna-lite/cli": "^4.4.1",
-		"@lerna-lite/publish": "^4.4.1",
-		"@lerna-lite/run": "^4.4.1",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
 		"@types/node": "^24.0.3",
