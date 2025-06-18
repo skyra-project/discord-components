@@ -4,6 +4,7 @@ install: true
 packagePath: packages/core
 identifierBase: false
 tagTemplate: 'v{{new-version}}'
+monoRepo: false
 # pushTag: true
 # gitRepo: skyra-project/discord-components
 # gitHostVariant: github
