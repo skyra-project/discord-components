@@ -68,7 +68,6 @@ jobs:
           git commit -m "chore(react): update package version to ${{ steps.store-new-version.outputs.new_version }}"
           git push origin main
       - name: Configure yarn
-        working-directory: packages/core
         run: |
           yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
           yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
