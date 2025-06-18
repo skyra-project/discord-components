@@ -56,6 +56,6 @@ export { DiscordComponentsError } from './util.js';
 export type * from './types.js';
 
 declare global {
-	// eslint-disable-next-line no-var, vars-on-top
+	// eslint-disable-next-line vars-on-top
 	var $discordMessage: DiscordMessageOptions | undefined;
 }

@@ -38,7 +38,7 @@
 		"colorette": "^2.0.20",
 		"rimraf": "^6.0.1",
 		"tsup": "^8.5.0",
-		"typescript": "^5.7.2"
+		"typescript": "^5.8.3"
 	},
 	"peerDependencies": {
 		"react": "16.8.x || 17.x || 18.x || 19.x",

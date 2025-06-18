@@ -133,7 +133,7 @@
 		"@web/dev-server-esbuild": "^1.0.4",
 		"concurrently": "^9.1.2",
 		"ts-lit-plugin": "^2.0.2",
-		"typescript": "^5.7.2"
+		"typescript": "^5.8.3"
 	},
 	"files": [
 		"dist/",

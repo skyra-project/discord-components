@@ -57,6 +57,6 @@ export type { Avatars, DiscordMessageOptions, DiscordTimestamp, Emoji, LightThem
 export { getConfig, setConfig } from '@skyra/discord-components-core';
 
 declare global {
-	// eslint-disable-next-line no-var, vars-on-top
+	// eslint-disable-next-line vars-on-top
 	var $discordMessage: ReactComponents.DiscordMessageOptions | undefined;
 }

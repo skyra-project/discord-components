@@ -510,10 +510,13 @@ export default defineConfig({
 				alt: 'logo'
 			},
 			title: 'Discord Components',
-			social: {
-				github: 'https://github.com/skyra-project/discord-components',
-				twitter: 'https://twitter.com/favna_'
-			},
+			social: [
+				{
+					icon: 'github',
+					href: 'https://github.com/skyra-project/discord-components',
+					label: 'GitHub'
+				}
+			],
 			sidebar: [
 				{ slug: 'api/readme', label: 'README', items: [] },
 				{ slug: 'samples', items: [] }, //
