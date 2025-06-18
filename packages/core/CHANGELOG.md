@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+# [4.0.1](https://github.com/skyra-project/discord-components/compare/v4.0.0...v4.0.1) - (2025-06-18)
+
+## 🐛 Bug Fixes
+
+- Explicitly specify that the core package is itself not a monorepo ([6d02b7d](https://github.com/skyra-project/discord-components/commit/6d02b7df8d43b992aa2c795c8448f4cd5206675b))
+- Add optional chaining for emoji property checks ([d0bfc5d](https://github.com/skyra-project/discord-components/commit/d0bfc5ddedfde7607554b2fb26ffddf941494d87))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
