@@ -100,7 +100,7 @@ export class DiscordStringSelectMenuOption extends LitElement implements LightTh
 			<label>
 				${when(this.emoji, () =>
 					when(
-						this.emoji.includes('http') || this.emoji.startsWith('/') || this.emoji.startsWith('./'),
+						this.emoji?.includes('http') || this.emoji.startsWith('/') || this.emoji.startsWith('./'),
 						() =>
 							html`<img
 								src=${this.emoji}
