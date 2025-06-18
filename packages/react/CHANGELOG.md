@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0-alpha.39](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.38...v4.0.0-alpha.39) (2025-06-18)
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#523](https://github.com/skyra-project/discord-components/issues/523)) ([ca24021](https://github.com/skyra-project/discord-components/commit/ca2402102d5d3380d8d9f7ab30cf6f154b614c18)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#526](https://github.com/skyra-project/discord-components/issues/526)) ([dfdabd0](https://github.com/skyra-project/discord-components/commit/dfdabd08ed12f112ce57d54cf46ae4c9e6e127eb)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#529](https://github.com/skyra-project/discord-components/issues/529)) ([ec14138](https://github.com/skyra-project/discord-components/commit/ec14138f744c7324f486d2670233c49342101c8b)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#540](https://github.com/skyra-project/discord-components/issues/540)) ([79a6880](https://github.com/skyra-project/discord-components/commit/79a6880d914f8438cc9b8c763191d33005bbdf94)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#541](https://github.com/skyra-project/discord-components/issues/541)) ([f174753](https://github.com/skyra-project/discord-components/commit/f174753784cbc33b9d6c3542d9a4501ef6c8eb36)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#545](https://github.com/skyra-project/discord-components/issues/545)) ([8c5af18](https://github.com/skyra-project/discord-components/commit/8c5af184868a3ea6aaae2ae838e34fde22b74b91)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#550](https://github.com/skyra-project/discord-components/issues/550)) ([54d4614](https://github.com/skyra-project/discord-components/commit/54d46145c442e1d00f2ec4b1bfbb2eff8a502394)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#555](https://github.com/skyra-project/discord-components/issues/555)) ([7e355eb](https://github.com/skyra-project/discord-components/commit/7e355ebef31bb7fb937c90f8fe101495b2903ff5)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#558](https://github.com/skyra-project/discord-components/issues/558)) ([6189fcd](https://github.com/skyra-project/discord-components/commit/6189fcdc9f5be7a4922b9f9f630f884051c2f737)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#561](https://github.com/skyra-project/discord-components/issues/561)) ([90a6628](https://github.com/skyra-project/discord-components/commit/90a6628d8ba611fe2ca4525d822acd1ba731cd77)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#565](https://github.com/skyra-project/discord-components/issues/565)) ([4d3f1ae](https://github.com/skyra-project/discord-components/commit/4d3f1ae053c579a29bb5369f403274052176b60d)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#566](https://github.com/skyra-project/discord-components/issues/566)) ([5b5d2e6](https://github.com/skyra-project/discord-components/commit/5b5d2e68e7cbbd3e600e05490a462c95580688bf)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#568](https://github.com/skyra-project/discord-components/issues/568)) ([458c64a](https://github.com/skyra-project/discord-components/commit/458c64a4ff6ed5329ad91f98b1a4b7202ea0bf75)) (@renovate[bot])
+* **deps:** update all non-major dependencies ([#571](https://github.com/skyra-project/discord-components/issues/571)) ([671ce0b](https://github.com/skyra-project/discord-components/commit/671ce0b8f4ea7d518892fd29a3a344d7e9b2a983)) (@renovate[bot])
+
 # [4.0.0-alpha.38](https://github.com/skyra-project/discord-components/compare/v4.0.0-alpha.37...v4.0.0-alpha.38) (2025-01-04)
 
 ### Bug Fixes
