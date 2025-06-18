@@ -10,4 +10,4 @@ gitRepo: skyra-project/discord-components
 gitHostVariant: github
 githubRelease: true
 githubReleaseLatest: true
-githubReleaseNameTemplate: 'v{{new-version}}'
+githubReleaseNameTemplate: '{{new-version}}'
