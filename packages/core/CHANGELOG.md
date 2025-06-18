@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [4.0.2](https://github.com/skyra-project/discord-components/compare/v4.0.1...v4.0.2) - (2025-06-18)
+
+## 🐛 Bug Fixes
+
+- Add optional chaining for emoji checks in DiscordStringSelectMenuOption ([aadbe75](https://github.com/skyra-project/discord-components/commit/aadbe75cd8bd1b35424872911f756ba8d5d0d319))
+- Add optional chaining for emoji checks in DiscordReaction ([e0519d7](https://github.com/skyra-project/discord-components/commit/e0519d7b9f342c5846d227453af85febad2cc75a))
+
 # [4.0.1](https://github.com/skyra-project/discord-components/compare/v4.0.0...v4.0.1) - (2025-06-18)
 
 ## 🐛 Bug Fixes
