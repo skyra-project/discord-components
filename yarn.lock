@@ -4883,6 +4883,7 @@ __metadata:
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
     astro: "npm:5.9.4"
     lit: "npm:^3.3.0"
+    react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     starlight-typedoc: "npm:0.21.3"
     typedoc: "npm:0.28.5"
