@@ -932,10 +932,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.30.0":
-  version: 9.30.0
-  resolution: "@eslint/js@npm:9.30.0"
-  checksum: 10/42e3d5a9cdd5a0842f3ed078e28f81ae1cf04bd2edfd09f43e6dc148bb2e99904f09090007eb6485afd82d837771890c5a8b9ceb1e8c4e256953df4b4aa97308
+"@eslint/js@npm:9.30.1":
+  version: 9.30.1
+  resolution: "@eslint/js@npm:9.30.1"
+  checksum: 10/f32c8a42b1343b03613b92a4a7c4745d19a93e66ffb8fac18ccd066deaa200b2fc55f476bf0407d7748f663bc947ca78c0518f13f60cd9ed08d0ba8b7bb74370
   languageName: node
   linkType: hard
 
@@ -2449,12 +2449,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^24.0.7":
-  version: 24.0.7
-  resolution: "@types/node@npm:24.0.7"
+"@types/node@npm:*, @types/node@npm:^24.0.10":
+  version: 24.0.10
+  resolution: "@types/node@npm:24.0.10"
   dependencies:
     undici-types: "npm:~7.8.0"
-  checksum: 10/1df93467fcd5cf178cc381babe58f8f8a504a097fd64297241bd63fd9dbe2b750b1b4ab2bd8b8f6a2dd431d0703da7a74dee8cca5113ae2421f9a4a1ec43d9c0
+  checksum: 10/ff8921c515d72fbc0a11ff282096e2d2e11ac04a2e9c7f765bcec5cb69cd367a88ab5dd556dc162ac98b9212957939b7ae80f12f3fc90db10c82135affd6d120
   languageName: node
   linkType: hard
 
@@ -3479,9 +3479,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.10.1":
-  version: 5.10.1
-  resolution: "astro@npm:5.10.1"
+"astro@npm:5.11.0":
+  version: 5.11.0
+  resolution: "astro@npm:5.11.0"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
     "@astrojs/internal-helpers": "npm:0.6.1"
@@ -3550,7 +3550,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/5c3926f427c97aa21e259a897587efbf742864bb9edea4efce5f4d8fc7cd2db8bfc25831e3cecb3f7a62b7754447142e5e086f107ae1053f8fad88acb891fa60
+  checksum: 10/2596275b30e4da73b5a155d52ed0cf51329e52a5700789e374e20b0af30a4bf5bb8be2507c9a95a95839904af5abe331d56ae8d0d33baeb250df4f0b6e41fb38
   languageName: node
   linkType: hard
 
@@ -4881,7 +4881,7 @@ __metadata:
     "@types/react": "npm:19.1.8"
     "@types/react-dom": "npm:^19.1.6"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:5.10.1"
+    astro: "npm:5.11.0"
     lit: "npm:^3.3.0"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
@@ -5865,9 +5865,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.30.0":
-  version: 9.30.0
-  resolution: "eslint@npm:9.30.0"
+"eslint@npm:^9.30.1":
+  version: 9.30.1
+  resolution: "eslint@npm:9.30.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.12.1"
@@ -5875,7 +5875,7 @@ __metadata:
     "@eslint/config-helpers": "npm:^0.3.0"
     "@eslint/core": "npm:^0.14.0"
     "@eslint/eslintrc": "npm:^3.3.1"
-    "@eslint/js": "npm:9.30.0"
+    "@eslint/js": "npm:9.30.1"
     "@eslint/plugin-kit": "npm:^0.3.1"
     "@humanfs/node": "npm:^0.16.6"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
@@ -5911,7 +5911,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10/74c11e6be5997f0de6542932795e997c1586f8f21cdeeda09c89c6c36879a9a593af84f1fd594bd8e22814c54ca0ad65513a0c91b0e8944efb51faed34b7d3b0
+  checksum: 10/bd3024f730c88a2d099455f5ec5be2d6293eaf1412eb5111427282e1060b7f87891168ccbded10b71fc7182e05151e42511ec29d4e0d4ece5e3151eaf8d54763
   languageName: node
   linkType: hard
 
@@ -11753,9 +11753,9 @@ __metadata:
     "@commitlint/config-conventional": "npm:^19.8.1"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^24.0.7"
+    "@types/node": "npm:^24.0.10"
     chalk-cli: "npm:^6.0.0"
-    eslint: "npm:^9.30.0"
+    eslint: "npm:^9.30.1"
     eslint-config-neon: "npm:^0.2.7"
     eslint-config-prettier: "npm:^10.1.5"
     eslint-plugin-html: "npm:^8.1.3"
