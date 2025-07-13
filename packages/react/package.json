@@ -29,7 +29,7 @@
 		"prepack": "yarn build"
 	},
 	"dependencies": {
-		"@lit/react": "^1.0.7",
+		"@lit/react": "^1.0.8",
 		"@skyra/discord-components-core": "workspace:^",
 		"react": "^19.1.0"
 	},
