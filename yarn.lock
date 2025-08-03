@@ -52,6 +52,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/internal-helpers@npm:0.7.1":
+  version: 0.7.1
+  resolution: "@astrojs/internal-helpers@npm:0.7.1"
+  checksum: 10/6e1e442d2e3f6139ddf7efc027053d872cb5ba2945271cfff07af859d6f3660f9922582dab95b6eebeea589fade019a9899c94775643bcbe72ddb8b0757c0fb5
+  languageName: node
+  linkType: hard
+
 "@astrojs/language-server@npm:^2.15.0":
   version: 2.15.0
   resolution: "@astrojs/language-server@npm:2.15.0"
@@ -132,11 +139,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-remark@npm:6.3.3, @astrojs/markdown-remark@npm:^6.3.1":
-  version: 6.3.3
-  resolution: "@astrojs/markdown-remark@npm:6.3.3"
+"@astrojs/markdown-remark@npm:6.3.5, @astrojs/markdown-remark@npm:^6.3.1":
+  version: 6.3.5
+  resolution: "@astrojs/markdown-remark@npm:6.3.5"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.6.1"
+    "@astrojs/internal-helpers": "npm:0.7.1"
     "@astrojs/prism": "npm:3.3.0"
     github-slugger: "npm:^2.0.0"
     hast-util-from-html: "npm:^2.0.3"
@@ -157,7 +164,7 @@ __metadata:
     unist-util-visit: "npm:^5.0.0"
     unist-util-visit-parents: "npm:^6.0.1"
     vfile: "npm:^6.0.3"
-  checksum: 10/510ccab98f07f72d608f21cfcc083a01a135bd8da510281466df32dd8d1e2afbe1fd5cfd43fc206751e40f1453e2030ce4fb5bf4e120a3178d11f10b625ff355
+  checksum: 10/c9bd4c7ad70761d59b452f7115a7939f186a3110f59213fd3de275ee4d64b00ac4846bdc441b86974fbcc8f0f196218a78f778a1940d11b10a67071dc7add732
   languageName: node
   linkType: hard
 
@@ -213,9 +220,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/starlight@npm:0.35.1":
-  version: 0.35.1
-  resolution: "@astrojs/starlight@npm:0.35.1"
+"@astrojs/starlight@npm:0.35.2":
+  version: 0.35.2
+  resolution: "@astrojs/starlight@npm:0.35.2"
   dependencies:
     "@astrojs/markdown-remark": "npm:^6.3.1"
     "@astrojs/mdx": "npm:^4.2.3"
@@ -246,7 +253,7 @@ __metadata:
     vfile: "npm:^6.0.2"
   peerDependencies:
     astro: ^5.5.0
-  checksum: 10/1e4705abc7576df0df41254886a7663314bb17103b1a674e1acee2cdb6522c468b9dcb048f1fdd9a9b1be592dbaf3dc3cb05c4eef182cfdc97f954eba40a1ba1
+  checksum: 10/8580b535d852d4284cc6914cccb8eb7ef8c49e50e3efcd43f4ebae2da9fd491f06d198bc0903d717154370b6f83e34d0546b90ce4d187368f3d9e35f42bca083
   languageName: node
   linkType: hard
 
@@ -2098,9 +2105,9 @@ __metadata:
   dependencies:
     "@lit/react": "npm:^1.0.8"
     "@skyra/discord-components-core": "workspace:^"
-    "@types/react": "npm:^19.1.8"
+    "@types/react": "npm:^19.1.9"
     colorette: "npm:^2.0.20"
-    react: "npm:^19.1.0"
+    react: "npm:^19.1.1"
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.5.0"
     typescript: "npm:^5.8.3"
@@ -2525,21 +2532,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19.1.6":
-  version: 19.1.6
-  resolution: "@types/react-dom@npm:19.1.6"
+"@types/react-dom@npm:^19.1.7":
+  version: 19.1.7
+  resolution: "@types/react-dom@npm:19.1.7"
   peerDependencies:
     "@types/react": ^19.0.0
-  checksum: 10/b5b20b7f0797f34c5a11915b74dcf8b3b7a9da9fea90279975ce6f150ca5d31bb069dbb0838638a5e9e168098aa4bb4a6f61d078efa1bbb55d7f0bdfe47bb142
+  checksum: 10/a99465e5a17d40725dedb3708357f8998c57caab768cee0992b4bb7822ce7ed2ec697a5f426cb98d3397b020756a6e4b0986dc5f6f4254e13b3536afb38538e6
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.1.8, @types/react@npm:^19.1.8":
-  version: 19.1.8
-  resolution: "@types/react@npm:19.1.8"
+"@types/react@npm:19.1.9, @types/react@npm:^19.1.9":
+  version: 19.1.9
+  resolution: "@types/react@npm:19.1.9"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10/a3e6fe0f60f22828ef887f30993aa147b71532d7b1219dd00d246277eb7a9ca01ec533096237fa21ca1bccb3653373b4e8e59e5ae59f9c793058384bbc1f4d5c
+  checksum: 10/b1032eae52e3b4f2a8b9ea6aac936385a78b7eff55cad4ff4f0d7e726c6ea87c1f287a1ba0e57a76a8e4456d3fb918b4f97a01e71686fdc11a65b26b8d296be4
   languageName: node
   linkType: hard
 
@@ -3486,13 +3493,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.12.3":
-  version: 5.12.3
-  resolution: "astro@npm:5.12.3"
+"astro@npm:5.12.8":
+  version: 5.12.8
+  resolution: "astro@npm:5.12.8"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
-    "@astrojs/internal-helpers": "npm:0.6.1"
-    "@astrojs/markdown-remark": "npm:6.3.3"
+    "@astrojs/internal-helpers": "npm:0.7.1"
+    "@astrojs/markdown-remark": "npm:6.3.5"
     "@astrojs/telemetry": "npm:3.3.0"
     "@capsizecss/unpack": "npm:^2.4.0"
     "@oslojs/encoding": "npm:^1.1.0"
@@ -3550,7 +3557,7 @@ __metadata:
     xxhash-wasm: "npm:^1.1.0"
     yargs-parser: "npm:^21.1.1"
     yocto-spinner: "npm:^0.2.1"
-    zod: "npm:^3.24.2"
+    zod: "npm:^3.24.4"
     zod-to-json-schema: "npm:^3.24.5"
     zod-to-ts: "npm:^1.2.0"
   dependenciesMeta:
@@ -3558,7 +3565,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/8c6f2fd651b0b829ae6e1f086239b4df8397366382f72efdc256414414007ba2ab83e1e60fa2b49e8308fb1c1b071c2902b6c21aa1681a42f62074325b51bb2b
+  checksum: 10/1474d42aae118d05d9bdb75703771ac7dca1c472a3472a2d0ddf4fbd368fd9603d26e8dd4893480a7324b7bbc8978809c9a3a97a5112cfe1f9b2b48ee2eb122c
   languageName: node
   linkType: hard
 
@@ -4882,17 +4889,17 @@ __metadata:
   dependencies:
     "@astrojs/check": "npm:0.9.4"
     "@astrojs/lit": "npm:^4.3.0"
-    "@astrojs/starlight": "npm:0.35.1"
+    "@astrojs/starlight": "npm:0.35.2"
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:2.0.2"
     "@skyra/discord-components-core": "workspace:^"
     "@skyra/discord-components-react": "workspace:^"
-    "@types/react": "npm:19.1.8"
-    "@types/react-dom": "npm:^19.1.6"
+    "@types/react": "npm:19.1.9"
+    "@types/react-dom": "npm:^19.1.7"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:5.12.3"
+    astro: "npm:5.12.8"
     lit: "npm:^3.3.1"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
+    react: "npm:^19.1.1"
+    react-dom: "npm:^19.1.1"
     starlight-typedoc: "npm:0.21.3"
     typedoc: "npm:0.28.5"
     typedoc-plugin-frontmatter: "npm:^1.3.0"
@@ -11013,14 +11020,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.1.0":
-  version: 19.1.0
-  resolution: "react-dom@npm:19.1.0"
+"react-dom@npm:^19.1.1":
+  version: 19.1.1
+  resolution: "react-dom@npm:19.1.1"
   dependencies:
     scheduler: "npm:^0.26.0"
   peerDependencies:
-    react: ^19.1.0
-  checksum: 10/c5b58605862c7b0bb044416b01c73647bb8e89717fb5d7a2c279b11815fb7b49b619fe685c404e59f55eb52c66831236cc565c25ee1c2d042739f4a2cc538aa2
+    react: ^19.1.1
+  checksum: 10/9005415d2175b1f1eb4a544ad04afb29691bb7b6dd43bbdaa09932146b310b73bd4552bc772ad78fa481f409eada1560cf887606c83c1a53a922c1e30f1b3a34
   languageName: node
   linkType: hard
 
@@ -11031,10 +11038,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.1.0":
-  version: 19.1.0
-  resolution: "react@npm:19.1.0"
-  checksum: 10/d0180689826fd9de87e839c365f6f361c561daea397d61d724687cae88f432a307d1c0f53a0ee95ddbe3352c10dac41d7ff1ad85530fb24951b27a39e5398db4
+"react@npm:^19.1.1":
+  version: 19.1.1
+  resolution: "react@npm:19.1.1"
+  checksum: 10/9801530fdc939e1a7a499422e930515b2400809cb39c2872984e99f832d233f61659a693871183dac3155c2f9b2c9dcf4440a56bd18983277ae92860e38c3a61
   languageName: node
   linkType: hard
 
@@ -11779,7 +11786,7 @@ __metadata:
     npm-run-all2: "npm:^8.0.4"
     prettier: "npm:^3.6.2"
     prettier-plugin-astro: "npm:^0.14.1"
-    react: "npm:^19.1.0"
+    react: "npm:^19.1.1"
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.5.0"
     typescript: "npm:^5.8.3"
@@ -14586,10 +14593,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.24.2":
-  version: 3.24.2
-  resolution: "zod@npm:3.24.2"
-  checksum: 10/604c62a8cf8e330d78b106a557f4b44f5d14845d20b1360a423ccc09b58cb8525ccf7e4b40cf1bd4852d22393d2c67774b5817ec5a2fedab25f543b36ed15943
+"zod@npm:^3.24.2, zod@npm:^3.24.4":
+  version: 3.25.76
+  resolution: "zod@npm:3.25.76"
+  checksum: 10/f0c963ec40cd96858451d1690404d603d36507c1fc9682f2dae59ab38b578687d542708a7fdbf645f77926f78c9ed558f57c3d3aa226c285f798df0c4da16995
   languageName: node
   linkType: hard
 
