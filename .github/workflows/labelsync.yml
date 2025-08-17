@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Core Labels
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: core-labels
           sparse-checkout: .github/labels.yml
           sparse-checkout-cone-mode: false
           repository: 'sapphiredev/.github'
       - name: Checkout Overwrite Labels
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: overwrite-labels
           sparse-checkout: .github/labels.yml
