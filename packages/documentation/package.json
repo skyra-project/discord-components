@@ -15,7 +15,7 @@
 		"@astrojs/starlight": "0.35.2",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "5.12.9",
+		"astro": "5.13.2",
 		"lit": "^3.3.1",
 		"react": "^19.1.1",
 		"starlight-typedoc": "0.21.3",
@@ -26,7 +26,7 @@
 	"devDependencies": {
 		"@skyra/discord-components-core": "workspace:^",
 		"@skyra/discord-components-react": "workspace:^",
-		"@types/react": "19.1.9",
+		"@types/react": "19.1.10",
 		"@types/react-dom": "^19.1.7",
 		"react-dom": "^19.1.1",
 		"typescript": "^5.8.3"
