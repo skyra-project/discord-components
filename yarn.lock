@@ -946,10 +946,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.33.0":
-  version: 9.33.0
-  resolution: "@eslint/js@npm:9.33.0"
-  checksum: 10/415031162eeee4ed67457585f3a3f3442521e75dd352932582683452c393d837da81cf9726a2cf097b444119ae2e405951e6b5d84546f67b6370fc36f27d8321
+"@eslint/js@npm:9.34.0":
+  version: 9.34.0
+  resolution: "@eslint/js@npm:9.34.0"
+  checksum: 10/3bbe8423e2d11e0eeb70a79f5cd25b89a8920cade36e479e4288d1e01043b48a0d737f46d8e5dc91c53afad5bc0edc882cc5a5a024ac1ac31b0b7b4d4a9f16c0
   languageName: node
   linkType: hard
 
@@ -2105,7 +2105,7 @@ __metadata:
   dependencies:
     "@lit/react": "npm:^1.0.8"
     "@skyra/discord-components-core": "workspace:^"
-    "@types/react": "npm:^19.1.10"
+    "@types/react": "npm:^19.1.11"
     colorette: "npm:^2.0.20"
     react: "npm:^19.1.1"
     rimraf: "npm:^6.0.1"
@@ -2541,12 +2541,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.1.10, @types/react@npm:^19.1.10":
-  version: 19.1.10
-  resolution: "@types/react@npm:19.1.10"
+"@types/react@npm:19.1.11, @types/react@npm:^19.1.11":
+  version: 19.1.11
+  resolution: "@types/react@npm:19.1.11"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10/2c2f98e4a36144cddc9300483d0b14a0721dbb3b2fc2242e3841391589570dd344cde0c901eb291dba597a8efdb70543b0dbbae6cc2bef2061eb185c4ca55522
+  checksum: 10/a9b8356783a5dd7f37803b9e4021610fe479186d1b8ee9c0c67a0f2f91b853e142349c913d39fd05af77065eb67f098b9b216214d82cdacf99c1589e04ed0d64
   languageName: node
   linkType: hard
 
@@ -3493,9 +3493,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.13.2":
-  version: 5.13.2
-  resolution: "astro@npm:5.13.2"
+"astro@npm:5.13.3":
+  version: 5.13.3
+  resolution: "astro@npm:5.13.3"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
     "@astrojs/internal-helpers": "npm:0.7.2"
@@ -3565,7 +3565,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/78a60821f5ff4069d9d65d22183c5999f7e7265071170a33a2d8667bbd814af128d7b33e977c253901999cb293fd574b4a5cbe52593aad2347086194c41b82a8
+  checksum: 10/336c3e6f67bb5f30f9575c8e3b3ad3c88f360cb6d04c421c1122db5ac959078fdf1681b3313598938efcca37f584650564f48837cdf8bcac2808a05c04a14c43
   languageName: node
   linkType: hard
 
@@ -4893,10 +4893,10 @@ __metadata:
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:2.0.2"
     "@skyra/discord-components-core": "workspace:^"
     "@skyra/discord-components-react": "workspace:^"
-    "@types/react": "npm:19.1.10"
+    "@types/react": "npm:19.1.11"
     "@types/react-dom": "npm:^19.1.7"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:5.13.2"
+    astro: "npm:5.13.3"
     lit: "npm:^3.3.1"
     react: "npm:^19.1.1"
     react-dom: "npm:^19.1.1"
@@ -5883,9 +5883,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.33.0":
-  version: 9.33.0
-  resolution: "eslint@npm:9.33.0"
+"eslint@npm:^9.34.0":
+  version: 9.34.0
+  resolution: "eslint@npm:9.34.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.12.1"
@@ -5893,7 +5893,7 @@ __metadata:
     "@eslint/config-helpers": "npm:^0.3.1"
     "@eslint/core": "npm:^0.15.2"
     "@eslint/eslintrc": "npm:^3.3.1"
-    "@eslint/js": "npm:9.33.0"
+    "@eslint/js": "npm:9.34.0"
     "@eslint/plugin-kit": "npm:^0.3.5"
     "@humanfs/node": "npm:^0.16.6"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
@@ -5929,7 +5929,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10/3857f17460c8a245e3dd2d23b892ce844dc7d337db3fbdeb39f488d6405ae6e71f2142cc4514316d0042c85a77d9503e7dfd4637665eb389473145ad31bd8306
+  checksum: 10/edcd2e055521784cc941d26ea326fe488f749f6d9c18b5c10ea7ed779a502d3d6906b0cc49f68d208416f7b2cb82a21cb96d3031c2e02457f03dbf0c5be0992c
   languageName: node
   linkType: hard
 
@@ -11773,7 +11773,7 @@ __metadata:
     "@sapphire/ts-config": "npm:^5.0.1"
     "@types/node": "npm:^24.3.0"
     chalk-cli: "npm:^6.0.0"
-    eslint: "npm:^9.33.0"
+    eslint: "npm:^9.34.0"
     eslint-config-neon: "npm:^0.2.7"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-html: "npm:^8.1.3"
