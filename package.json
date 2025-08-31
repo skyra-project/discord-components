@@ -72,5 +72,5 @@
 		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix"
 	},
-	"packageManager": "yarn@4.9.3"
+	"packageManager": "yarn@4.9.4"
 }
