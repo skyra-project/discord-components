@@ -18,7 +18,7 @@ jobs:
           echo "::add-matcher::.github/problemMatchers/eslint.json"
           echo "::add-matcher::.github/problemMatchers/tsc.json"
       - name: Use Node.js v20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: yarn
