@@ -28,9 +28,9 @@
 		"@commitlint/config-conventional": "^19.8.1",
 		"@sapphire/prettier-config": "^2.0.0",
 		"@sapphire/ts-config": "^5.0.1",
-		"@types/node": "^24.3.3",
+		"@types/node": "^24.5.2",
 		"chalk-cli": "^6.0.0",
-		"eslint": "^9.35.0",
+		"eslint": "^9.36.0",
 		"eslint-config-neon": "^0.2.7",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-html": "^8.1.3",
@@ -49,7 +49,7 @@
 		"typescript": "^5.8.3"
 	},
 	"resolutions": {
-		"esbuild": "~0.25.9",
+		"esbuild": "~0.25.10",
 		"@next/eslint-plugin-next": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-mdx": "npm:@favware/skip-dependency@latest",
 		"eslint-plugin-cypress": "npm:@favware/skip-dependency@latest",
@@ -72,5 +72,5 @@
 		"*": "prettier --ignore-unknown --write",
 		"*.{mjs,js,ts,tsx}": "eslint --fix"
 	},
-	"packageManager": "yarn@4.9.4"
+	"packageManager": "yarn@4.10.0"
 }
