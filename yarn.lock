@@ -8539,9 +8539,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^16.2.1":
-  version: 16.2.1
-  resolution: "lint-staged@npm:16.2.1"
+"lint-staged@npm:^16.2.2":
+  version: 16.2.2
+  resolution: "lint-staged@npm:16.2.2"
   dependencies:
     commander: "npm:^14.0.1"
     listr2: "npm:^9.0.4"
@@ -8552,7 +8552,7 @@ __metadata:
     yaml: "npm:^2.8.1"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/b604de3ca27a067e45c5f0e0780ca46f5617e9f6ac3895297dee087d62742bbcd9f9e910300c15c599e1f06900666469b73e036e3fe3153ccedef314ce791dd5
+  checksum: 10/8a6dc0a54fabd095c99ce5962b50df6cee3c8b1191b5e4ff345037a721284cc77532c359e125a0877cf83314a7847b361879da6608e142b22aad2fb32ff66e3a
   languageName: node
   linkType: hard
 
@@ -11814,7 +11814,7 @@ __metadata:
     eslint-plugin-lit-a11y: "npm:^5.1.1"
     eslint-plugin-prettier: "npm:^5.5.4"
     eslint-plugin-wc: "npm:^3.0.1"
-    lint-staged: "npm:^16.2.1"
+    lint-staged: "npm:^16.2.2"
     markdown-toc: "npm:^1.2.0"
     npm-run-all2: "npm:^8.0.4"
     prettier: "npm:^3.6.2"
