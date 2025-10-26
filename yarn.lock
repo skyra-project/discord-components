@@ -22,9 +22,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/check@npm:0.9.4":
-  version: 0.9.4
-  resolution: "@astrojs/check@npm:0.9.4"
+"@astrojs/check@npm:0.9.5":
+  version: 0.9.5
+  resolution: "@astrojs/check@npm:0.9.5"
   dependencies:
     "@astrojs/language-server": "npm:^2.15.0"
     chokidar: "npm:^4.0.1"
@@ -34,7 +34,7 @@ __metadata:
     typescript: ^5.0.0
   bin:
     astro-check: dist/bin.js
-  checksum: 10/ec82f50fc6c9f80c846e428c33e76b461c978329f362daed784e3ace766ed533e9d2f9cbdadc263bb512b45fa4a709e972067a9d298ca28888206d4913f43d12
+  checksum: 10/15aae67179963f634c27db11dd3e78fb0e8513f98c59cd3d4193293c0704e26b194880fe30ccee798c1879438f441ff453ce98e6fb41f361ff2f9219389ec6a2
   languageName: node
   linkType: hard
 
@@ -2606,12 +2606,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^24.8.1":
-  version: 24.8.1
-  resolution: "@types/node@npm:24.8.1"
+"@types/node@npm:*, @types/node@npm:^24.9.1":
+  version: 24.9.1
+  resolution: "@types/node@npm:24.9.1"
   dependencies:
-    undici-types: "npm:~7.14.0"
-  checksum: 10/4f944466766ca8cc0d635386e2b9b42b1948723ca0ec7d24624e80513e5816d6e96197db7c05f8f67b544a228a06a1c0598d66a5526aa4c1f5919db0d3c5bf8c
+    undici-types: "npm:~7.16.0"
+  checksum: 10/eacbd06621616825042428dd6105d0c2f86d67b5f05f99db9fa89fe1cc173d5e65e604a9a61f1ce52ad915d09f2119e7468816ca1a22bb7a3cf5f3c131413c86
   languageName: node
   linkType: hard
 
@@ -3773,9 +3773,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:5.14.6":
-  version: 5.14.6
-  resolution: "astro@npm:5.14.6"
+"astro@npm:5.15.1":
+  version: 5.15.1
+  resolution: "astro@npm:5.15.1"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
     "@astrojs/internal-helpers": "npm:0.7.4"
@@ -3809,7 +3809,6 @@ __metadata:
     http-cache-semantics: "npm:^4.2.0"
     import-meta-resolve: "npm:^4.2.0"
     js-yaml: "npm:^4.1.0"
-    kleur: "npm:^4.1.5"
     magic-string: "npm:^0.30.18"
     magicast: "npm:^0.3.5"
     mrmime: "npm:^2.0.1"
@@ -3817,6 +3816,7 @@ __metadata:
     p-limit: "npm:^6.2.0"
     p-queue: "npm:^8.1.0"
     package-manager-detector: "npm:^1.3.0"
+    picocolors: "npm:^1.1.1"
     picomatch: "npm:^4.0.3"
     prompts: "npm:^2.4.2"
     rehype: "npm:^13.0.2"
@@ -3845,7 +3845,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10/f28947ee34a8bdb379d10d4fac2fcde7165b0738d0d1ad91e2aea07a75c5b877d13cf3754613f9c4ecb9ca5ced3d4783440b88b7ac9968db4699b59ce6ae5a31
+  checksum: 10/cec6faef1618f1974830855438099fdbc094d6c7dfcf1005cac465b0f502747972ad731a0ec15c03aca62760046ec9de74ef611af6b01601685881f557695858
   languageName: node
   linkType: hard
 
@@ -5165,7 +5165,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "documentation@workspace:packages/documentation"
   dependencies:
-    "@astrojs/check": "npm:0.9.4"
+    "@astrojs/check": "npm:0.9.5"
     "@astrojs/lit": "npm:^4.3.0"
     "@astrojs/starlight": "npm:0.36.1"
     "@sapphire/docusaurus-plugin-npm2yarn2pnpm": "npm:2.0.2"
@@ -5174,7 +5174,7 @@ __metadata:
     "@types/react": "npm:19.2.2"
     "@types/react-dom": "npm:^19.2.2"
     "@webcomponents/template-shadowroot": "npm:^0.2.1"
-    astro: "npm:5.14.6"
+    astro: "npm:5.15.1"
     lit: "npm:^3.3.1"
     react: "npm:^19.2.0"
     react-dom: "npm:^19.2.0"
@@ -8830,12 +8830,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^16.2.4":
-  version: 16.2.4
-  resolution: "lint-staged@npm:16.2.4"
+"lint-staged@npm:^16.2.6":
+  version: 16.2.6
+  resolution: "lint-staged@npm:16.2.6"
   dependencies:
     commander: "npm:^14.0.1"
-    listr2: "npm:^9.0.4"
+    listr2: "npm:^9.0.5"
     micromatch: "npm:^4.0.8"
     nano-spawn: "npm:^2.0.0"
     pidtree: "npm:^0.6.0"
@@ -8843,7 +8843,7 @@ __metadata:
     yaml: "npm:^2.8.1"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/e4ce8e6b07fc2c1d96962dafaab483271b2359b6f22f74324ba0f827ad6383caa2800651379f36b2570cfa74b27354e0db9316be69795636a0c53fa3fd599b79
+  checksum: 10/c419f1347166ddd06746d4a3e4ce6441f3d0e82dcdcbc3d3615ddf7b82b36c603df2e43dbb1edad5ed00ae29857479e1f880bcca271f8bf4b0db7d0f77861d21
   languageName: node
   linkType: hard
 
@@ -8859,9 +8859,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"listr2@npm:^9.0.4":
-  version: 9.0.4
-  resolution: "listr2@npm:9.0.4"
+"listr2@npm:^9.0.5":
+  version: 9.0.5
+  resolution: "listr2@npm:9.0.5"
   dependencies:
     cli-truncate: "npm:^5.0.0"
     colorette: "npm:^2.0.20"
@@ -8869,7 +8869,7 @@ __metadata:
     log-update: "npm:^6.1.0"
     rfdc: "npm:^1.4.1"
     wrap-ansi: "npm:^9.0.0"
-  checksum: 10/8d8665d2efec9a26eb1359c2e86c80d189067e1bd7a7d7ed28a6a9264ec6127caa2a9c4a5b424918e50725600e0e2be058d15c2ad9492df71e3a55a53a82c643
+  checksum: 10/b78ffd60443aed9a8e0fc9162eb941ea4d63210700d61a895eb29348f23fc668327e26bbca87a9e6a6208e7fa96c475fe1f1c6c19b46f376f547e0cba3b935ae
   languageName: node
   linkType: hard
 
@@ -12076,7 +12076,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:^20.0.0"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@types/node": "npm:^24.8.1"
+    "@types/node": "npm:^24.9.1"
     chalk-cli: "npm:^6.0.0"
     eslint: "npm:^9.38.0"
     eslint-config-neon: "npm:^0.2.9"
@@ -12086,7 +12086,7 @@ __metadata:
     eslint-plugin-lit-a11y: "npm:^5.1.1"
     eslint-plugin-prettier: "npm:^5.5.4"
     eslint-plugin-wc: "npm:^3.0.2"
-    lint-staged: "npm:^16.2.4"
+    lint-staged: "npm:^16.2.6"
     markdown-toc: "npm:^1.2.0"
     npm-run-all2: "npm:^8.0.4"
     prettier: "npm:^3.6.2"
@@ -13685,10 +13685,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~7.14.0":
-  version: 7.14.0
-  resolution: "undici-types@npm:7.14.0"
-  checksum: 10/0f8709b21437697af35801e33bddbe9992e0cf1771959c41850b1946f63822b825e03ce99f44bf19e4f5c3ccc5166e0be59f541565c36ce86163dc2c5870bc62
+"undici-types@npm:~7.16.0":
+  version: 7.16.0
+  resolution: "undici-types@npm:7.16.0"
+  checksum: 10/db43439f69c2d94cc29f75cbfe9de86df87061d6b0c577ebe9bb3255f49b22c50162a7d7eb413b0458b6510b8ca299ac7cff38c3a29fbd31af9f504bcf7fbc0d
   languageName: node
   linkType: hard
 

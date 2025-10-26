@@ -10,12 +10,12 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.9.4",
+		"@astrojs/check": "0.9.5",
 		"@astrojs/lit": "^4.3.0",
 		"@astrojs/starlight": "0.36.1",
 		"@sapphire/docusaurus-plugin-npm2yarn2pnpm": "2.0.2",
 		"@webcomponents/template-shadowroot": "^0.2.1",
-		"astro": "5.14.6",
+		"astro": "5.15.1",
 		"lit": "^3.3.1",
 		"react": "^19.2.0",
 		"starlight-typedoc": "0.21.3",
