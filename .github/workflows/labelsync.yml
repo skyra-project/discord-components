@@ -27,7 +27,7 @@ jobs:
         run: |
           yq '. *+ load("core-labels/.github/labels.yml")' overwrite-labels/.github/labels.yml > labels.yml
       - name: Run Label Sync
-        uses: crazy-max/ghaction-github-labeler@v5
+        uses: crazy-max/ghaction-github-labeler@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           yaml-file: labels.yml
