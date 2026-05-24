@@ -31,7 +31,7 @@ export function handleTimestamp(value: DiscordTimestamp, useTime = false, hour24
 	return useTime ? formatTime(value, hour24) : formatDate(value);
 }
 
-export const IMAGE_EXTENSION = /\.(?<ext>bmp|jpe?g|png|gif|webp|tiff)$/i;
+export const IMAGE_EXTENSION = /\.(?<ext>bmp|jpe?g|png|gif|webp|tiff)(\?.*)?$/i;
 
 export function validateImageExtension(url: string) {
 	if (!IMAGE_EXTENSION.test(url))
